@@ -1,0 +1,42 @@
+{
+  "name": "bagh",
+  "version": "1.0.0",
+  "description": "Bagh",
+  "main": "dist/index.html",
+  "scripts": {
+    "build": "cd tools && python build.py",
+    "dev": "cd tools && python build.py && start dist/index.html",
+    "clean": "rm -rf dist/ temp/"
+  },
+  "keywords": [
+    "georgian",
+    "language-learning",
+    "verb-conjugation",
+    "linguistics",
+    "education",
+    "interactive",
+    "web-app"
+  ],
+  "license": "AGPL-3.0-only",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/c-host/bagh.git"
+  },
+  "fonts": {
+    "description": "This project uses custom fonts for Georgian text display. See FONTS.md for licensing information.",
+    "files": [
+      "src/assets/fonts/SonataNo5.otf",
+      "src/assets/fonts/NeueImpakt.otf",
+      "src/assets/fonts/k_gorga.ttf",
+      "src/assets/fonts/k_grigol.ttf",
+      "src/assets/fonts/k_kalig.ttf",
+      "src/assets/fonts/k_lortki.ttf"
+    ]
+  },
+  "homepage": "https://github.com/c-host/bagh",
+  "engines": {
+    "node": ">=14.0.0"
+  },
+  "devDependencies": {},
+  "dependencies": {}
+}

@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en-ka">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Page Not Found - Bagh</title>
+    <link rel="stylesheet" href="styles/main.css">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Noto+Sans+Georgian:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet">
+    <style>
+        .error-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+            text-align: center;
+            padding: 2rem;
+        }
+
+        .error-code {
+            font-size: 6rem;
+            font-weight: bold;
+            color: var(--primary-color);
+            margin-bottom: 1rem;
+        }
+
+        .error-message {
+            font-size: 1.5rem;
+            margin-bottom: 2rem;
+            color: var(--text-color);
+        }
+
+        .error-description {
+            font-size: 1.1rem;
+            margin-bottom: 2rem;
+            color: var(--text-secondary);
+            max-width: 600px;
+        }
+
+        .back-link {
+            display: inline-block;
+            padding: 1rem 2rem;
+            background-color: var(--primary-color);
+            color: white;
+            text-decoration: none;
+            border-radius: 8px;
+            font-weight: 500;
+            transition: background-color 0.3s ease;
+        }
+
+        .back-link:hover {
+            background-color: var(--primary-hover);
+        }
+
+        .georgian-text {
+            font-family: 'Noto Sans Georgian', sans-serif;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="error-container">
+        <div class="error-code">404</div>
+        <div class="error-message">
+            <span class="georgian-text">გვერდი ვერ მოიძებნა</span><br>
+            Page Not Found
+        </div>
+        <div class="error-description">
+            The page you're looking for doesn't exist. It might have been moved, deleted, or you entered the wrong URL.
+        </div>
+        <a href="/" class="back-link">
+            <span class="georgian-text">მთავარ გვერდზე დაბრუნება</span><br>
+            Back to Home
+        </a>
+    </div>
+</body>
+
+</html>
