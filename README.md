@@ -7,7 +7,7 @@ Georgian verb conjugations with tables, examples, and case glosses.
 ## 🌐 View the Website
 
 The website is automatically deployed to GitHub Pages and available at:
-`https://github.io/c-host/bagh`
+https://c-host.github.io/bagh/dist/index.html
 
 ## 📝 Editing Verb Data
 
