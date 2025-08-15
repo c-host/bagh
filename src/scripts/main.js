@@ -1139,6 +1139,8 @@ class PreverbManager {
         const selectedPreverb = selector.value;
         const verbSection = document.querySelector(`#verb-${verbId}`);
 
+        // Preverb change handled silently
+
         if (verbSection) {
             this.updateVerbDisplay(verbSection, selectedPreverb);
         }
@@ -1150,6 +1152,9 @@ class PreverbManager {
 
         // Update examples
         this.updateExamples(verbSection, preverb);
+
+        // Update gloss analyses
+        this.updateGlossAnalyses(verbSection, preverb);
 
         // Update semantic indicators
         this.updateSemanticIndicators(verbSection, preverb);
@@ -1176,14 +1181,83 @@ class PreverbManager {
     }
 
     updateExamples(verbSection, preverb) {
-        const verbId = verbSection.id.replace('verb-', '');
-        const examples = this.getExamplesForPreverb(verbId, preverb);
+        const normalizedPreverb = preverb.replace('-', '');
 
-        // Update example sections
-        const exampleSections = verbSection.querySelectorAll('.examples');
-        exampleSections.forEach(section => {
-            this.updateExampleContent(section, examples);
-        });
+        // Access the data attribute directly using getAttribute since dataset doesn't handle Georgian characters well
+        const examplesData = verbSection.getAttribute(`data-examples-${normalizedPreverb}`);
+
+        if (!examplesData) {
+            console.warn(`No examples found for preverb: ${preverb}`);
+            return;
+        }
+
+        try {
+            const examples = JSON.parse(examplesData);
+            const exampleSections = verbSection.querySelectorAll('.examples');
+
+            exampleSections.forEach(section => {
+                const tense = this.getTenseFromExampleSection(section);
+                if (!tense) return;
+
+                // Get the HTML content for this tense
+                const tenseHtml = examples[tense];
+                if (tenseHtml) {
+                    // Replace the entire examples section with the new HTML
+                    section.outerHTML = tenseHtml;
+                }
+            });
+        } catch (error) {
+            console.error(`Error parsing examples data for preverb ${preverb}:`, error);
+        }
+    }
+
+    updateGlossAnalyses(verbSection, preverb) {
+        const normalizedPreverb = preverb.replace('-', '');
+
+        // Access the data attribute directly using getAttribute since dataset doesn't handle Georgian characters well
+        const glossAnalysesData = verbSection.getAttribute(`data-gloss-analyses-${normalizedPreverb}`);
+
+        if (!glossAnalysesData) {
+            console.warn(`No gloss analyses found for preverb: ${preverb}`);
+            return;
+        }
+
+        try {
+            const glossAnalyses = JSON.parse(glossAnalysesData);
+            const glossSections = verbSection.querySelectorAll('.case-gloss');
+
+            glossSections.forEach(section => {
+                const tense = this.getTenseFromGlossSection(section);
+                if (!tense) return;
+
+                // Get the HTML content for this tense
+                const tenseGlossHtml = glossAnalyses[tense];
+                if (tenseGlossHtml) {
+                    // Replace the entire gloss section with the new HTML
+                    section.outerHTML = tenseGlossHtml;
+                }
+            });
+        } catch (error) {
+            console.error(`Error parsing gloss analyses data for preverb ${preverb}:`, error);
+        }
+    }
+
+    getTenseFromGlossSection(glossSection) {
+        // Try to find the tense from the section context
+        const section = glossSection.closest('.tense-column');
+        if (section) {
+            const heading = section.querySelector('h3');
+            if (heading) {
+                const headingText = heading.textContent.toLowerCase();
+                if (headingText.includes('present')) return 'present';
+                if (headingText.includes('imperfect')) return 'imperfect';
+                if (headingText.includes('future')) return 'future';
+                if (headingText.includes('aorist')) return 'aorist';
+                if (headingText.includes('optative')) return 'optative';
+                if (headingText.includes('imperative')) return 'imperative';
+            }
+        }
+        return null;
     }
 
     getConjugationsForPreverb(verbId, preverb) {
@@ -1193,8 +1267,32 @@ class PreverbManager {
 
         const preverbConfig = JSON.parse(verbSection.dataset.preverbConfig || '{}');
         const conjugations = JSON.parse(verbSection.dataset.conjugations || '{}');
+        const preverbRules = JSON.parse(verbSection.dataset.preverbRules || '{}');
 
-        // Extract conjugations for the selected preverb with fallback logic
+        // Handle new preverb rules structure
+        if (preverbRules && Object.keys(preverbRules).length > 0) {
+            return this.calculatePreverbForms(conjugations, preverbRules, preverb);
+        }
+
+        // Handle stem-based verbs (fallback)
+        if (preverbConfig.stem_based) {
+            const preverbConjugations = {};
+            for (const [tense, tenseData] of Object.entries(conjugations)) {
+                if (tenseData && typeof tenseData === 'object' && tenseData.forms) {
+                    // For stem-based verbs, combine preverb with stems
+                    const forms = {};
+                    // Remove hyphen from preverb before combining
+                    const clean_preverb = preverb.replace('-', '');
+                    for (const [person, stem] of Object.entries(tenseData.forms)) {
+                        forms[person] = stem === '-' ? '-' : clean_preverb + stem;
+                    }
+                    preverbConjugations[tense] = { forms: forms };
+                }
+            }
+            return preverbConjugations;
+        }
+
+        // Handle old multi-preverb structure (fallback)
         const preverbConjugations = {};
         for (const [tense, tenseData] of Object.entries(conjugations)) {
             if (tenseData && typeof tenseData === 'object') {
@@ -1221,14 +1319,82 @@ class PreverbManager {
         return preverbConjugations;
     }
 
+    calculatePreverbForms(conjugations, preverbRules, targetPreverb) {
+        if (!preverbRules) {
+            return conjugations;
+        }
+
+        const defaultPreverb = preverbRules.default || "";
+        const replacements = preverbRules.replacements || {};
+        const tenseSpecificFallbacks = preverbRules.tense_specific_fallbacks || {};
+
+        // Normalize preverb values by removing hyphens for comparison
+        const normalizedTarget = targetPreverb.replace("-", "");
+        const normalizedDefault = defaultPreverb.replace("-", "");
+
+        // If target preverb is the same as default, return original forms
+        if (normalizedTarget === normalizedDefault) {
+            return conjugations;
+        }
+
+        // Get the actual replacement for this preverb (normalized)
+        let replacement = replacements[normalizedTarget] || targetPreverb;
+
+        // Check for tense-specific fallbacks
+        if (tenseSpecificFallbacks[normalizedTarget]) {
+            // We'll handle tense-specific fallbacks in the form calculation loop
+        }
+
+        const result = {};
+        for (const [tense, tenseData] of Object.entries(conjugations)) {
+            if (tenseData && typeof tenseData === 'object' && tenseData.forms) {
+                const forms = tenseData.forms;
+                const calculatedForms = {};
+
+                // Check for tense-specific fallback
+                let effectiveReplacement = replacement;
+                if (tenseSpecificFallbacks[normalizedTarget] && tenseSpecificFallbacks[normalizedTarget][tense]) {
+                    effectiveReplacement = tenseSpecificFallbacks[normalizedTarget][tense];
+                }
+
+                for (const [person, form] of Object.entries(forms)) {
+                    if (form === "-" || form === "") {
+                        calculatedForms[person] = form;
+                    } else if (form.startsWith(defaultPreverb)) {
+                        // Extract stem and apply new preverb
+                        const stem = form.substring(defaultPreverb.length);
+                        calculatedForms[person] = effectiveReplacement + stem;
+                    } else {
+                        // Handle irregular forms that don't follow prefix pattern
+                        calculatedForms[person] = form;
+                    }
+                }
+
+                result[tense] = {
+                    ...tenseData,
+                    forms: calculatedForms
+                };
+            }
+        }
+
+        return result;
+    }
+
     getExamplesForPreverb(verbId, preverb) {
         // Get data from the verb section's data attributes
         const verbSection = document.querySelector(`#verb-${verbId}`);
         if (!verbSection) return {};
 
         const examples = JSON.parse(verbSection.dataset.examples || '{}');
+        const preverbRules = JSON.parse(verbSection.dataset.preverbRules || '{}');
 
-        // Extract examples for the selected preverb with fallback logic
+        // For new preverb rules structure, examples are already generated at build time
+        // and stored in the examples data attribute. We just need to return them.
+        if (preverbRules && Object.keys(preverbRules).length > 0) {
+            return examples;
+        }
+
+        // Extract examples for the selected preverb with fallback logic (old structure)
         const preverbExamples = {};
         for (const [tense, tenseData] of Object.entries(examples)) {
             if (tenseData && typeof tenseData === 'object') {
@@ -1265,12 +1431,23 @@ class PreverbManager {
                 const tense = this.getTenseFromRow(row);
                 if (tense && conjugations[tense]) {
                     const tenseConjugations = conjugations[tense];
-                    cells[1].textContent = tenseConjugations['1sg'] || '-';
-                    cells[2].textContent = tenseConjugations['2sg'] || '-';
-                    cells[3].textContent = tenseConjugations['3sg'] || '-';
-                    cells[4].textContent = tenseConjugations['1pl'] || '-';
-                    cells[5].textContent = tenseConjugations['2pl'] || '-';
-                    cells[6].textContent = tenseConjugations['3pl'] || '-';
+
+                    // Handle stem-based verb structure (forms object) vs old structure (direct person keys)
+                    let forms;
+                    if (tenseConjugations.forms) {
+                        // Stem-based structure: { forms: { "1sg": "...", ... } }
+                        forms = tenseConjugations.forms;
+                    } else {
+                        // Old structure: { "1sg": "...", ... }
+                        forms = tenseConjugations;
+                    }
+
+                    cells[1].textContent = forms['1sg'] || '-';
+                    cells[2].textContent = forms['2sg'] || '-';
+                    cells[3].textContent = forms['3sg'] || '-';
+                    cells[4].textContent = forms['1pl'] || '-';
+                    cells[5].textContent = forms['2pl'] || '-';
+                    cells[6].textContent = forms['3pl'] || '-';
                 }
             }
         });
@@ -1304,18 +1481,29 @@ class PreverbManager {
                 const tense = this.getTenseFromRegularTable(table);
                 if (tense && conjugations[tense]) {
                     const tenseConjugations = conjugations[tense];
+
+                    // Handle stem-based verb structure (forms object) vs old structure (direct person keys)
+                    let forms;
+                    if (tenseConjugations.forms) {
+                        // Stem-based structure: { forms: { "1sg": "...", ... } }
+                        forms = tenseConjugations.forms;
+                    } else {
+                        // Old structure: { "1sg": "...", ... }
+                        forms = tenseConjugations;
+                    }
+
                     const person = cells[0].textContent.trim();
 
                     // Update singular and plural cells based on person
                     if (person.includes('1st')) {
-                        cells[1].textContent = tenseConjugations['1sg'] || '-';
-                        cells[2].textContent = tenseConjugations['1pl'] || '-';
+                        cells[1].textContent = forms['1sg'] || '-';
+                        cells[2].textContent = forms['1pl'] || '-';
                     } else if (person.includes('2nd')) {
-                        cells[1].textContent = tenseConjugations['2sg'] || '-';
-                        cells[2].textContent = tenseConjugations['2pl'] || '-';
+                        cells[1].textContent = forms['2sg'] || '-';
+                        cells[2].textContent = forms['2pl'] || '-';
                     } else if (person.includes('3rd')) {
-                        cells[1].textContent = tenseConjugations['3sg'] || '-';
-                        cells[2].textContent = tenseConjugations['3pl'] || '-';
+                        cells[1].textContent = forms['3sg'] || '-';
+                        cells[2].textContent = forms['3pl'] || '-';
                     }
                 }
             }
@@ -1340,50 +1528,10 @@ class PreverbManager {
         return null;
     }
 
-    updateExampleContent(exampleSection, examples) {
-        // Update example content based on selected preverb
-        const exampleItems = exampleSection.querySelectorAll('.example-item');
-
-        // Get the tense from the example section context
-        const tense = this.getTenseFromExampleSection(exampleSection);
-        if (!tense || !examples[tense]) return;
-
-        const tenseExamples = examples[tense].examples || [];
-
-        exampleItems.forEach((item, index) => {
-            if (tenseExamples[index]) {
-                const georgianElement = item.querySelector('.georgian');
-                const translationElement = item.querySelector('.translation');
-                const example = tenseExamples[index];
-
-                if (georgianElement && example.georgian_template) {
-                    // Get the verb form from the conjugations
-                    const verbForm = this.getVerbFormForExample(example.verb_reference, examples);
-                    if (verbForm) {
-                        georgianElement.innerHTML = example.georgian_template.replace('{verb}', '<strong>' + verbForm + '</strong>');
-                    }
-                }
-
-                if (translationElement && example.english) {
-                    // Preserve bold styling for the English verb part
-                    let englishText = example.english;
-                    if (example.english_verb) {
-                        // Replace the verb part with bold styling
-                        englishText = englishText.replace(example.english_verb, `<strong>${example.english_verb}</strong>`);
-                    }
-                    translationElement.innerHTML = englishText;
-                    translationElement.setAttribute('data-copy-text', example.english);
-
-                    // Ensure the element has the correct classes for styling
-                    if (!translationElement.classList.contains('translation')) {
-                        translationElement.classList.add('translation');
-                    }
-                    if (!translationElement.classList.contains('english-text')) {
-                        translationElement.classList.add('english-text');
-                    }
-                }
-            }
-        });
+    updateExampleContent(exampleSection, conjugations, preverb, preverbTranslations) {
+        // This method is no longer needed as examples are now pre-generated
+        // and handled by the updateExamples method
+        console.warn('updateExampleContent is deprecated - use updateExamples instead');
     }
 
     getTenseFromExampleSection(exampleSection) {
@@ -1416,9 +1564,33 @@ class PreverbManager {
         if (!verbSection) return null;
 
         const conjugations = JSON.parse(verbSection.dataset.conjugations || '{}');
+        const preverbConfig = JSON.parse(verbSection.dataset.preverbConfig || '{}');
+        const preverbRules = JSON.parse(verbSection.dataset.preverbRules || '{}');
         const currentPreverb = verbSection.querySelector('.preverb-toggle').value;
 
-        // Use the same fallback logic as getConjugationsForPreverb
+        // Handle new preverb rules structure
+        if (preverbRules && Object.keys(preverbRules).length > 0) {
+            const calculatedConjugations = this.calculatePreverbForms(conjugations, preverbRules, currentPreverb);
+            if (calculatedConjugations[tense] && calculatedConjugations[tense].forms) {
+                return calculatedConjugations[tense].forms[person] || null;
+            }
+            return null;
+        }
+
+        // Handle stem-based verbs (fallback)
+        if (preverbConfig.stem_based) {
+            if (conjugations[tense] && conjugations[tense].forms) {
+                const stem = conjugations[tense].forms[person];
+                if (stem && stem !== '-') {
+                    // Remove hyphen from preverb before combining
+                    const clean_preverb = currentPreverb.replace('-', '');
+                    return clean_preverb + stem;
+                }
+            }
+            return null;
+        }
+
+        // Handle old multi-preverb structure (fallback)
         if (conjugations[tense] && typeof conjugations[tense] === 'object') {
             // Check if the current preverb has conjugations for this tense
             if (conjugations[tense][currentPreverb]) {
@@ -1450,6 +1622,48 @@ class PreverbManager {
             const semanticCategory = this.getSemanticCategory(preverb);
             indicator.className = `preverb-semantic ${semanticCategory}`;
         });
+
+        // Add visual indicators for preverb fallbacks
+        this.updatePreverbFallbackIndicators(verbSection, preverb);
+    }
+
+    updatePreverbFallbackIndicators(verbSection, preverb) {
+        const preverbRules = JSON.parse(verbSection.dataset.preverbRules || '{}');
+
+        // Remove existing indicators
+        const existingIndicators = verbSection.querySelectorAll('.preverb-fallback-indicator');
+        existingIndicators.forEach(indicator => indicator.remove());
+
+        const normalizedPreverb = preverb.replace('-', '');
+
+        // Check for form fallbacks
+        const formFallbacks = preverbRules.tense_specific_fallbacks?.[normalizedPreverb];
+        // Check for translation fallbacks
+        const translationFallbacks = preverbRules.english_fallbacks?.[normalizedPreverb];
+
+        if (formFallbacks || translationFallbacks) {
+            const indicator = document.createElement('div');
+            indicator.className = 'preverb-fallback-indicator';
+
+            let fallbackText = '';
+            if (formFallbacks && translationFallbacks) {
+                fallbackText = `${preverb} uses ${formFallbacks.present || formFallbacks.imperfect} forms and translations for present/imperfect`;
+            } else if (formFallbacks) {
+                fallbackText = `${preverb} uses ${formFallbacks.present || formFallbacks.imperfect} forms for present/imperfect`;
+            } else if (translationFallbacks) {
+                fallbackText = `${preverb} uses ${translationFallbacks.present || translationFallbacks.imperfect} translations for present/imperfect`;
+            }
+
+            indicator.innerHTML = `
+                <span class="fallback-icon">⚠️</span>
+                <span class="fallback-text">${fallbackText}</span>
+            `;
+
+            const preverbSelector = verbSection.querySelector('.preverb-selector');
+            if (preverbSelector) {
+                preverbSelector.parentNode.insertBefore(indicator, preverbSelector.nextSibling);
+            }
+        }
     }
 
     getSemanticCategory(preverb) {
@@ -1462,6 +1676,8 @@ class PreverbManager {
         };
         return semanticMap[preverb] || 'directional';
     }
+
+
 }
 
 // Initialize preverb functionality

@@ -55,10 +55,14 @@
     --bg-secondary: #fafafa;
     --text-primary: #1a1a1a;
     --text-secondary: #2c2c2c;
+    --gloss-text-neutral: #796c6c;
     --accent-primary: #2563eb;
     --accent-secondary: #1d4ed8;
     --success-color: #059669;
     --warning-color: #d97706;
+    --warning-bg: #fef3c7;
+    --warning-border: #f59e0b;
+    --warning-text: #92400e;
     --error-color: #dc2626;
     --border-color: #e5e7eb;
     --shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
@@ -95,6 +99,16 @@
     --filter-active-bg: #059669;
     --filter-active-text: #ffffff;
     --filter-active-border: #047857;
+
+    /* Role-based color coding for examples */
+    --role-subject-color: #059669;
+    /* Green for subjects */
+    --role-direct-object-color: #d97706;
+    /* Orange for direct objects */
+    --role-indirect-object-color: #0891b2;
+    /* Teal for indirect objects */
+    --role-verb-color: #2563eb;
+    /* Blue for verbs (existing) */
 }
 
 [data-theme="dark"] {
@@ -103,10 +117,14 @@
     --bg-secondary: #1e293b;
     --text-primary: #f8fafc;
     --text-secondary: #e2e8f0;
+    --gloss-text-neutral: #796c6c;
     --accent-primary: #3b82f6;
     --accent-secondary: #60a5fa;
     --success-color: #10b981;
     --warning-color: #f59e0b;
+    --warning-bg: #451a03;
+    --warning-border: #f59e0b;
+    --warning-text: #fbbf24;
     --error-color: #ef4444;
     --border-color: #334155;
     --shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
@@ -141,6 +159,16 @@
     --filter-active-bg: #10b981;
     --filter-active-text: #ffffff;
     --filter-active-border: #059669;
+
+    /* Dark mode role-based color coding for examples */
+    --role-subject-color: #10b981;
+    /* Green for subjects */
+    --role-direct-object-color: #f50b0b;
+    /* Orange for direct objects */
+    --role-indirect-object-color: #06b6d4;
+    /* Cyan for indirect objects */
+    --role-verb-color: #3b82f6;
+    /* Blue for verbs */
 }
 
 * {
@@ -279,12 +307,108 @@ tr:nth-child(even) {
 
 .case-gloss {
     border: 1px solid var(--case-gloss-border);
-    border-radius: 5px;
-    padding: 15px;
+    border-radius: 8px;
+    padding: 20px;
     margin: 15px 0;
-    font-style: italic;
-    color: var(--case-gloss-text);
+    background-color: var(--case-gloss-bg);
     font-family: 'Noto Sans Georgian', 'Inter', 'Segoe UI', sans-serif;
+}
+
+.gloss-header {
+    margin-bottom: 15px;
+    padding-bottom: 8px;
+    border-bottom: 2px solid var(--case-gloss-border);
+}
+
+.gloss-header strong {
+    color: var(--case-gloss-text);
+    font-size: 16px;
+    font-weight: 600;
+}
+
+.gloss-content {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.raw-gloss {
+    padding: 12px;
+    background-color: var(--bg-primary);
+    border: 1px solid var(--border-color);
+    border-radius: 6px;
+    border-left: 4px solid var(--accent-primary);
+}
+
+.raw-gloss strong {
+    color: var(--text-primary);
+    font-weight: 600;
+    margin-right: 8px;
+}
+
+.raw-gloss code {
+    background-color: var(--bg-secondary);
+    padding: 4px 8px;
+    border-radius: 4px;
+    font-family: 'Courier New', monospace;
+    font-size: 14px;
+    color: var(--case-gloss-text);
+    border: 1px solid var(--border-color);
+}
+
+.expanded-gloss {
+    padding: 12px;
+    background-color: var(--bg-primary);
+    border: 1px solid var(--border-color);
+    border-radius: 6px;
+    border-left: 4px solid var(--success-color);
+}
+
+.expanded-gloss strong {
+    color: var(--text-primary);
+    font-weight: 600;
+    margin-bottom: 8px;
+    display: block;
+}
+
+.gloss-definitions {
+    color: var(--text-secondary);
+    line-height: 1.6;
+    font-size: 14px;
+}
+
+.gloss-definitions br {
+    margin-bottom: 4px;
+}
+
+.gloss-component {
+    font-weight: bold;
+    color: var(--case-gloss-text);
+}
+
+.gloss-definition {
+    color: var(--text-secondary);
+}
+
+/* Color coding for gloss elements to match example sentences */
+.gloss-verb {
+    color: var(--role-verb-color);
+    font-weight: bold;
+}
+
+.gloss-subject {
+    color: var(--role-subject-color);
+    font-weight: bold;
+}
+
+.gloss-direct-object {
+    color: var(--role-direct-object-color);
+    font-weight: bold;
+}
+
+.gloss-indirect-object {
+    color: var(--role-indirect-object-color);
+    font-weight: bold;
 }
 
 ul {
@@ -311,6 +435,49 @@ li:last-child {
 
 .examples strong {
     color: var(--accent-primary);
+    font-weight: bold;
+}
+
+/* Role-based color coding for examples */
+.examples strong[data-role="subject"] {
+    color: var(--role-subject-color);
+}
+
+/* Ensure 1sg subjects (like "I") get the correct subject color */
+.examples strong[data-role="subject"][data-person="1sg"] {
+    color: var(--role-subject-color);
+}
+
+.examples strong[data-role="direct-object"] {
+    color: var(--role-direct-object-color);
+}
+
+.examples strong[data-role="indirect-object"] {
+    color: var(--role-indirect-object-color);
+}
+
+.examples strong[data-role="verb"] {
+    color: var(--role-verb-color);
+}
+
+/* Georgian text role-based color coding */
+.examples span[data-role="subject"] {
+    color: var(--role-subject-color);
+    font-weight: bold;
+}
+
+.examples span[data-role="direct-object"] {
+    color: var(--role-direct-object-color);
+    font-weight: bold;
+}
+
+.examples span[data-role="indirect-object"] {
+    color: var(--role-indirect-object-color);
+    font-weight: bold;
+}
+
+.examples span[data-role="verb"] {
+    color: var(--role-verb-color);
     font-weight: bold;
 }
 
@@ -2803,4 +2970,27 @@ li:last-child {
 .preverb-semantic.intensive {
     background-color: var(--preverb-semantic-intensive);
     color: white;
+}
+
+/* Preverb fallback indicator */
+.preverb-fallback-indicator {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin: 8px 0;
+    padding: 8px 12px;
+    background-color: var(--warning-bg);
+    border: 1px solid var(--warning-border);
+    border-radius: 4px;
+    font-size: 13px;
+    color: var(--warning-text);
+}
+
+.fallback-icon {
+    font-size: 14px;
+    opacity: 0.8;
+}
+
+.fallback-text {
+    font-weight: 500;
 }
