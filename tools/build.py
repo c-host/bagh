@@ -1659,11 +1659,18 @@ def create_verb_section(verb, index=None, duplicate_primary_verbs=None):
     gloss_analyses_by_preverb = {}
     gloss_analyses_json_by_preverb = {}
 
-    if has_multiple_preverbs and verb.get("preverb_rules"):
+    if has_multiple_preverbs:
         # Multi-preverb verbs: generate examples and gloss analyses for all preverbs
-        examples_by_preverb, gloss_analyses_by_preverb = create_preverb_aware_examples(
-            verb, verb.get("preverb_rules", {})
-        )
+        # All multi-preverb verbs should have preverb_rules
+        if verb.get("preverb_rules"):
+            examples_by_preverb, gloss_analyses_by_preverb = create_preverb_aware_examples(
+                verb, verb.get("preverb_rules", {})
+            )
+        else:
+            # Fallback for verbs without preverb_rules (shouldn't happen)
+            print(f"Warning: Verb {verb.get('id', 'unknown')} has multiple preverbs but no preverb_rules")
+            examples_by_preverb = {}
+            gloss_analyses_by_preverb = {}
 
         # Create JSON for each preverb's examples
         for preverb, examples_by_tense in examples_by_preverb.items():
@@ -1713,6 +1720,7 @@ def create_verb_section(verb, index=None, duplicate_primary_verbs=None):
 
     section_html = f"""
         <div class="verb-section" id="{anchor_id}" 
+             data-verb-id="{verb_id}"
              data-georgian="{primary_verb}"
              data-full-georgian="{georgian}"
              data-semantic-key="{semantic_key}"

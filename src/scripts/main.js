@@ -1683,22 +1683,12 @@ class PreverbManager {
             return this.calculatePreverbForms(conjugations, preverbRules, preverb);
         }
 
-        // Handle stem-based approach (available_preverbs array)
+        // Handle available_preverbs approach - should always have preverb_rules
         if (preverbConfig.available_preverbs && preverbConfig.available_preverbs.length > 0) {
-            const preverbConjugations = {};
-            for (const [tense, tenseData] of Object.entries(conjugations)) {
-                if (tenseData && typeof tenseData === 'object' && tenseData.forms) {
-                    // For stem-based approach, combine preverb with stems
-                    const forms = {};
-                    // Remove hyphen from preverb before combining
-                    const clean_preverb = preverb.replace('-', '');
-                    for (const [person, stem] of Object.entries(tenseData.forms)) {
-                        forms[person] = stem === '-' ? '-' : clean_preverb + stem;
-                    }
-                    preverbConjugations[tense] = { forms: forms };
-                }
-            }
-            return preverbConjugations;
+            // If we have available_preverbs but no preverb_rules, this is an error
+            // All verbs with available_preverbs should have preverb_rules
+            console.warn(`Verb ${verbId} has available_preverbs but no preverb_rules`);
+            return conjugations;
         }
 
         // Handle old multi-preverb structure (fallback)
