@@ -1,16 +1,8 @@
 #!/usr/bin/env python3
 """
-Consolidated Example Generator for Georgian Verb Example System
+Pedagogical Example Generator for Georgian Verb Example System
 
-This module combines the functionality of both enhanced and pedagogical example generators:
-- EnhancedExampleGenerator: Handles new gnc.ge format verbs and fallback logic
-- PedagogicalExampleGenerator: Creates complete pedagogical examples with case marking
-
-Features:
-- Integrates with existing build.py example generation
-- Generates pedagogical examples for new gnc.ge format verbs
-- Falls back to existing examples for old format verbs
-- Maintains compatibility with existing HTML structure
+This module provides pedagogical example generation for Georgian verbs with:
 - Complete example generation for all argument patterns
 - Case marking in HTML with data attributes
 - English translations with case highlighting
@@ -28,9 +20,9 @@ from noun_adjective_selection_engine import (
     NounSelectionError,
     CaseFormMissingError,
 )
-from gloss_parser import StandardizedRawGlossParser, RawGlossParseError, GlossParser
-from verb_form_generator import (
-    get_verb_form,
+from gloss_parser import StandardizedRawGlossParser, RawGlossParseError
+from verb_conjugation import (
+    get_conjugation_form,
     get_verb_gloss,
     get_english_translation,
     get_indirect_object_preposition,
@@ -509,13 +501,15 @@ class PedagogicalExampleGenerator:
         if verb_data:
             # Convert mapped tense back to original tense name for English translation
             original_tense = self.reverse_tense_mapping.get(tense, tense)
-            
+
             # Use the new preverb translation system if available
-            if "effective_preverb" in verb_data and verb_data.get("preverb_translations"):
+            if "effective_preverb" in verb_data and verb_data.get(
+                "preverb_translations"
+            ):
                 # Use the effective preverb for translations (handles fallbacks)
                 effective_preverb = verb_data["effective_preverb"]
                 preverb_translations = verb_data.get("preverb_translations", {})
-                
+
                 # Get the person for this example
                 person_for_translation = person
                 if person == "1st":
@@ -524,22 +518,29 @@ class PedagogicalExampleGenerator:
                     person_for_translation = "2sg"
                 elif person == "3rd":
                     person_for_translation = "3sg"
-                
+
                 # Use the new preverb translation system directly
                 normalized_preverb = effective_preverb.replace("-", "")
-                
+
                 # Navigate the translation structure
-                if (normalized_preverb in preverb_translations and 
-                    original_tense in preverb_translations[normalized_preverb] and
-                    person_for_translation in preverb_translations[normalized_preverb][original_tense]):
-                    verb_translation = preverb_translations[normalized_preverb][original_tense][person_for_translation]
+                if (
+                    normalized_preverb in preverb_translations
+                    and original_tense in preverb_translations[normalized_preverb]
+                    and person_for_translation
+                    in preverb_translations[normalized_preverb][original_tense]
+                ):
+                    verb_translation = preverb_translations[normalized_preverb][
+                        original_tense
+                    ][person_for_translation]
                 else:
                     # Fallback to default
                     verb_translation = "go"
             else:
                 # Fallback to old system
                 preverb = None
-                if tense_data := verb_data.get("conjugations", {}).get(original_tense, {}):
+                if tense_data := verb_data.get("conjugations", {}).get(
+                    original_tense, {}
+                ):
                     if gloss := tense_data.get("gloss", {}):
                         preverb = gloss.get("preverb", "")
 
@@ -725,12 +726,12 @@ class PedagogicalExampleGenerator:
             Verb translation with proper subject-verb agreement
         """
         import re
-        
+
         # Present tense 3rd person singular: handle "am" specially
         if tense == "Pres" and person == "3sg":
             if "am" in verb_translation:
                 # Use word boundary replacement to avoid affecting words like "familiar"
-                return re.sub(r'\bam\b', 'is', verb_translation)
+                return re.sub(r"\bam\b", "is", verb_translation)
             # Check if the verb already ends with "s" (like "was", "is", etc.)
             if not verb_translation.endswith("s"):
                 return verb_translation + "s"
@@ -739,19 +740,19 @@ class PedagogicalExampleGenerator:
         if tense == "Pres" and person == "3pl":
             if "am" in verb_translation:
                 # Use word boundary replacement to avoid affecting words like "familiar"
-                return re.sub(r'\bam\b', 'are', verb_translation)
+                return re.sub(r"\bam\b", "are", verb_translation)
 
         # Imperfect tense 3rd person plural: change "was" to "were"
         if tense == "Impf" and person == "3pl":
             if "was" in verb_translation:
                 # Use word boundary replacement to avoid affecting other words
-                return re.sub(r'\bwas\b', 'were', verb_translation)
+                return re.sub(r"\bwas\b", "were", verb_translation)
 
         # Aorist tense 3rd person plural: change "was" to "were"
         if tense == "Aor" and person == "3pl":
             if "was" in verb_translation:
                 # Use word boundary replacement to avoid affecting other words
-                return re.sub(r'\bwas\b', 'were', verb_translation)
+                return re.sub(r"\bwas\b", "were", verb_translation)
 
         return verb_translation
 
@@ -762,294 +763,92 @@ class PedagogicalExampleGenerator:
         return parts
 
 
-class EnhancedExampleGenerator:
-    def __init__(self):
-        """Initialize the enhanced example generator"""
-        self.pedagogical_generator = PedagogicalExampleGenerator()
-        self.gloss_parser = GlossParser()
+def generate_pedagogical_examples(verb_data: Dict, tense: str) -> Dict[str, Any]:
+    """
+    Generate pedagogical examples for a verb and tense using the standardized format
 
-        # Case name mappings for English translations
-        self.case_names = {
-            "nom": "Nominative",
-            "erg": "Ergative",
-            "dat": "Dative",
-            "gen": "Genitive",
-            "inst": "Instrumental",
-            "adv": "Adverbial",
-        }
+    Args:
+        verb_data: Verb data from verbs.json (standardized format)
+        tense: Tense name (present, imperfect, etc.)
 
-        # Map tense names from verbs.json to our system
-        self.tense_mapping = {
-            "present": "Pres",
-            "imperfect": "Impf",
-            "future": "Fut",
-            "aorist": "Aor",
-            "optative": "Opt",
-            "imperative": "Impv",
-        }
-
-        # Reverse mapping for English translations
-        self.reverse_tense_mapping = {v: k for k, v in self.tense_mapping.items()}
-
-        # Map person names from verbs.json to our system
-        self.person_mapping = {
-            "1sg": "1st",
-            "2sg": "2nd",
-            "3sg": "3rd",
-            "1pl": "1st",
-            "2pl": "2nd",
-            "3pl": "3rd",
-        }
-
-    def generate_enhanced_examples(self, verb_data: Dict, tense: str) -> Dict[str, Any]:
-        """
-        Generate enhanced examples for a verb and tense
-
-        Args:
-            verb_data: Verb data from verbs.json
-            tense: Tense name (present, imperfect, etc.)
-
-        Returns:
-            Dictionary with examples data compatible with existing build.py
-        """
-        # Check new structure first (examples in conjugations)
+    Returns:
+        Dictionary with examples data compatible with existing build.py
+    """
+    try:
+        # Get tense data from the standardized conjugations structure
         conjugations = verb_data.get("conjugations", {})
         tense_conjugation = conjugations.get(tense, {})
 
-        if isinstance(tense_conjugation, dict) and "gloss" in tense_conjugation:
-            # New structure - use gloss from conjugations
-            tense_data = {
-                "raw_gloss": tense_conjugation["gloss"].get("raw_gloss", ""),
-                "preverb": tense_conjugation["gloss"].get("preverb", ""),
-                "examples": tense_conjugation.get("examples", []),
-            }
+        if not isinstance(tense_conjugation, dict):
+            return {"examples": [], "raw_gloss": "", "preverb": "", "enhanced": False}
+
+        # Extract data from standardized structure
+        raw_gloss = tense_conjugation.get("gloss", {}).get("raw_gloss", "")
+        preverb = tense_conjugation.get("gloss", {}).get("preverb", "")
+        verb_semantics = verb_data.get("semantic_key", "to do")
+        verb_id = verb_data.get("id", 0)
+
+        # Generate examples for different persons
+        examples = []
+        # For imperative tense, use 2sg and 2pl instead of 1sg, 3sg, 3pl
+        if tense == "imperative":
+            persons = ["2sg", "2pl"]  # Order: 2sg, 2pl
         else:
-            # Fallback to old structure
-            tense_data = verb_data.get("examples", {}).get(tense, {})
+            persons = ["1sg", "3sg", "3pl"]  # Order: 1sg, 3sg, 3pl
 
-        # Check if this verb has the new gnc.ge format
-        if self._has_gnc_ge_format(tense_data):
-            return self._generate_pedagogical_examples(verb_data, tense, tense_data)
-        else:
-            # Fall back to existing examples
-            return self._preserve_existing_examples(tense_data)
+        generator = PedagogicalExampleGenerator()
 
-    def _has_gnc_ge_format(self, tense_data: Dict) -> bool:
-        """Check if tense_data has the new gnc.ge format"""
-        if not isinstance(tense_data, dict):
-            return False
+        for person in persons:
+            # Get the Georgian verb form from the standardized forms structure
+            georgian_form = tense_conjugation.get("forms", {}).get(person, "")
 
-        raw_gloss = tense_data.get("raw_gloss", "")
-        if not raw_gloss:
-            return False
+            if not georgian_form or georgian_form == "-":
+                continue
 
-        # Check if it follows gnc.ge format: V [Voice] [Tense] [Argument_Pattern] [Case_Specifications]
-        parts = raw_gloss.split()
-        if len(parts) < 1:
-            return False
+            # Check if this verb has preverbs in this tense
+            has_preverb = has_preverb_in_tense(verb_data, tense)
 
-        # Should start with "V"
-        if parts[0] != "V":
-            return False
-
-        # Should contain argument patterns like <S>, <S-DO>, etc.
-        has_argument_pattern = any(
-            part.startswith("<") and part.endswith(">") for part in parts
-        )
-
-        return has_argument_pattern
-
-    def _generate_pedagogical_examples(
-        self, verb_data: Dict, tense: str, tense_data: Dict
-    ) -> Dict[str, Any]:
-        """Generate pedagogical examples for new gnc.ge format"""
-        try:
-            raw_gloss = tense_data.get("raw_gloss", "")
-            verb_semantics = verb_data.get("semantic_key", "to do")
-            verb_id = verb_data.get("id", 0)
-
-            # Generate examples for different persons
-            examples = []
-            # For imperative tense, use 2sg and 2pl instead of 1sg, 3sg, 3pl
-            if tense == "imperative":
-                persons = ["2sg", "2pl"]  # Order: 2sg, 2pl
-            else:
-                persons = ["1sg", "3sg", "3pl"]  # Order: 1sg, 3sg, 3pl
-
-            for person in persons:
-                # Get the Georgian verb form
-                # Check if we have pre-calculated forms (new structure) or need to use get_verb_form (old structure)
-                georgian_form = None
-                conjugations = verb_data.get("conjugations", {})
-                tense_conjugation = conjugations.get(tense, {})
-                
-                if "forms" in tense_conjugation and person in tense_conjugation["forms"]:
-                    # Use pre-calculated forms (new structure)
-                    georgian_form = tense_conjugation["forms"][person]
-                else:
-                    # Fallback to get_verb_form (old structure)
-                    georgian_form = get_verb_form(verb_data, tense, person)
-                
-                if not georgian_form or georgian_form == "-":
-                    continue
-
-                # Check if this verb has preverbs in this tense
-                has_preverb = has_preverb_in_tense(verb_data, tense)
-
-                # Only skip generation if verb explicitly requires multiple preverbs but doesn't have them
-                # This allows verbs without preverbs to still generate examples
-                preverb_config = verb_data.get("preverb_config", {})
-                if (
-                    not has_preverb
-                    and preverb_config.get("has_multiple_preverbs", False)
-                    and preverb_config.get("stem_based", False)
-                ):
-                    logger.warning(
-                        f"Verb {verb_id} missing preverbs in {tense} tense, skipping example generation"
-                    )
-                    continue
-
-                # Generate the example
-                # Use original tense name for accessing forms, but mapped tense for English translations
-                example = self.pedagogical_generator.generate_example(
-                    verb_id=verb_id,
-                    tense=self.tense_mapping.get(tense, tense),  # Use mapped tense for English translations
-                    person=person,  # Pass original person value for subject-verb agreement
-                    raw_gloss=raw_gloss,
-                    verb_semantics=verb_semantics,
-                    georgian_verb_form=georgian_form,  # This should now be the correct form from calculated_forms
-                    verb_data=verb_data,
+            # Only skip generation if verb explicitly requires multiple preverbs but doesn't have them
+            # This allows verbs without preverbs to still generate examples
+            preverb_config = verb_data.get("preverb_config", {})
+            if (
+                not has_preverb
+                and preverb_config.get("has_multiple_preverbs", False)
+                and preverb_config.get("available_preverbs", [])
+            ):
+                logger.warning(
+                    f"Verb {verb_id} missing preverbs in {tense} tense, skipping example generation"
                 )
+                continue
 
-                examples.append(example)
+            # Generate the example using the mapped tense for English translations
+            example = generator.generate_example(
+                verb_id=verb_id,
+                tense=generator.tense_mapping.get(
+                    tense, tense
+                ),  # Use mapped tense for English translations
+                person=person,  # Pass original person value for subject-verb agreement
+                raw_gloss=raw_gloss,
+                verb_semantics=verb_semantics,
+                georgian_verb_form=georgian_form,
+                verb_data=verb_data,
+            )
 
-            return {
-                "examples": examples,
-                "raw_gloss": raw_gloss,
-                "preverb": tense_data.get("preverb", ""),
-                "enhanced": True,  # Flag to indicate this uses the new system
-            }
+            examples.append(example)
 
-        except Exception as e:
-            logger.error(f"Failed to generate pedagogical examples: {e}")
-            # Fall back to existing examples
-            return self._preserve_existing_examples(tense_data)
-
-    def _preserve_existing_examples(self, tense_data: Dict) -> Dict[str, Any]:
-        """Preserve existing examples for old format verbs"""
         return {
-            "examples": tense_data.get("examples", []),
-            "raw_gloss": tense_data.get("raw_gloss", ""),
-            "preverb": tense_data.get("preverb", ""),
-            "enhanced": False,  # Flag to indicate this uses the old system
+            "examples": examples,
+            "raw_gloss": raw_gloss,
+            "preverb": preverb,
+            "enhanced": True,  # Flag to indicate this uses the new system
         }
 
-    def create_enhanced_examples_html(self, verb_data: Dict, tense: str) -> str:
-        """
-        Create enhanced examples HTML that integrates with existing build.py
-
-        Args:
-            verb_data: Verb data from verbs.json
-            tense: Tense name
-
-        Returns:
-            HTML string for examples
-        """
-        enhanced_data = self.generate_enhanced_examples(verb_data, tense)
-        examples = enhanced_data.get("examples", [])
-
-        if not examples:
-            return ""
-
-        examples_html = """
-        <div class="examples">
-            <h4>Examples:</h4>
-            <ul>
-        """
-
-        for example in examples:
-            # Handle both old and new formats
-            if "georgian_template" in example and "verb_reference" in example:
-                # New format: use template and verb reference
-                template = example["georgian_template"]
-                verb_ref = example["verb_reference"]
-
-                # Parse the verb reference (e.g., "present.1sg")
-                tense_name, person = verb_ref.split(".")
-                verb_form = get_verb_form(verb_data, tense_name, person)
-
-                # Replace the placeholder with the actual verb form (bolded)
-                georgian_text = template.replace(
-                    "{verb}", f"<strong>{verb_form}</strong>"
-                )
-
-                # Use enhanced HTML if available
-                if "pedagogical_data" in example:
-                    georgian_text = example["pedagogical_data"]["html_with_attributes"]
-            else:
-                # New format: use georgian and english fields directly
-                georgian_text = example.get("georgian", "")
-                english_text = example.get("english", "")
-
-                # Use enhanced HTML if available
-                if "html" in example:
-                    georgian_text = example["html"]
-
-            # Handle English verb highlighting
-            english_text = example.get("english", "")
-            if "english_verb" in example:
-                english_text = english_text.replace(
-                    example["english_verb"],
-                    f"<strong>{example['english_verb']}</strong>",
-                )
-
-            examples_html += f"""
-            <li class="example-item">
-                <div class="georgian georgian-text">
-                    {georgian_text}
-                </div>
-                <div class="translation english-text" data-copy-text="{example.get('english_plain', english_text)}">
-                    {english_text}
-                </div>
-            </li>
-        """
-
-            # Add case analysis for enhanced examples
-            if "case_marking" in example:
-                case_marking = example["case_marking"]
-                case_analysis_parts = []
-
-                for role, marking in case_marking.items():
-                    case_name = self.case_names.get(
-                        marking["case"], marking["case"].title()
-                    )
-                    case_analysis_parts.append(
-                        f"<strong>{role.title()}:</strong> {case_name} case"
-                    )
-
-                if case_analysis_parts:
-                    examples_html += f"""
-            <li class="case-analysis">
-                <div class="case-analysis-content">
-                    {" | ".join(case_analysis_parts)}
-                </div>
-            </li>
-        """
-
-        examples_html += """
-            </ul>
-        </div>
-        """
-
-        return examples_html
+    except Exception as e:
+        logger.error(f"Failed to generate pedagogical examples: {e}")
+        return {"examples": [], "raw_gloss": "", "preverb": "", "enhanced": False}
 
 
 # Convenience function for backward compatibility
-def create_enhanced_example_generator() -> EnhancedExampleGenerator:
-    """Create an enhanced example generator instance"""
-    return EnhancedExampleGenerator()
-
-
 def create_pedagogical_example_generator() -> PedagogicalExampleGenerator:
     """Create a pedagogical example generator instance"""
     return PedagogicalExampleGenerator()

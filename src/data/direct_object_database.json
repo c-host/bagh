@@ -50,9 +50,10 @@
                 "sit",
                 "rest",
                 "exist",
-                "be",
+                "be_familiar",
                 "meet",
-                "help"
+                "help",
+                "find"
             ],
             "cases": {
                 "nom": "წიგნი",
@@ -211,7 +212,8 @@
                 "speak",
                 "say",
                 "pay",
-                "sell"
+                "sell",
+                "find"
             ],
             "cases": {
                 "nom": "პური",
@@ -270,7 +272,8 @@
                 "walk",
                 "travel",
                 "stand",
-                "sit"
+                "sit",
+                "find"
             ],
             "cases": {
                 "nom": "მანქანა",
@@ -302,7 +305,6 @@
                 "enter",
                 "put",
                 "take",
-                "bring",
                 "show",
                 "use",
                 "prepare",
@@ -317,7 +319,8 @@
                 "think",
                 "feel",
                 "know",
-                "meet"
+                "meet",
+                "find"
             ],
             "cases": {
                 "nom": "სახლი",
@@ -355,7 +358,8 @@
                 "want",
                 "need",
                 "speak",
-                "sell"
+                "sell",
+                "find"
             ],
             "cases": {
                 "nom": "ტელეფონი",
@@ -455,9 +459,10 @@
                 "sit",
                 "rest",
                 "exist",
-                "be",
+                "be_familiar",
                 "meet",
-                "help"
+                "help",
+                "find"
             ],
             "cases": {
                 "nom": "წერილი",
@@ -522,9 +527,10 @@
                 "sit",
                 "rest",
                 "exist",
-                "be",
+                "be_familiar",
                 "meet",
-                "help"
+                "help",
+                "find"
             ],
             "cases": {
                 "nom": "სურათი",
@@ -580,7 +586,8 @@
                 "pay",
                 "sell",
                 "spend",
-                "go"
+                "go",
+                "find"
             ],
             "cases": {
                 "nom": "საჭმელი",
@@ -621,7 +628,8 @@
                 "imagine",
                 "pay",
                 "buy",
-                "sell"
+                "sell",
+                "bath"
             ],
             "cases": {
                 "nom": "ტანსაცმელი",
@@ -791,7 +799,8 @@
                 "like",
                 "love",
                 "think",
-                "feel"
+                "feel",
+                "ask"
             ],
             "cases": {
                 "nom": "სიტყვა",
@@ -815,7 +824,8 @@
             "category": "object",
             "semantic_domain": "language",
             "verb_compatibility": [
-                "forget"
+                "forget",
+                "ask"
             ],
             "cases": {
                 "nom": "ტექსტი",
@@ -839,7 +849,8 @@
             "category": "object",
             "semantic_domain": "mathematics",
             "verb_compatibility": [
-                "forget"
+                "forget",
+                "ask"
             ],
             "cases": {
                 "nom": "ნომერი",
@@ -1096,6 +1107,511 @@
                 "gen": "მამების",
                 "inst": "მამებით",
                 "adv": "მამებად"
+            }
+        },
+        "question": {
+            "base": "კითხვა",
+            "category": "object",
+            "semantic_domain": "communication",
+            "verb_compatibility": [
+                "ask",
+                "answer",
+                "understand",
+                "remember",
+                "forget",
+                "know",
+                "hear",
+                "listen",
+                "speak",
+                "say",
+                "tell",
+                "write",
+                "read",
+                "think",
+                "feel",
+                "want",
+                "need",
+                "like",
+                "love"
+            ],
+            "cases": {
+                "nom": "კითხვა",
+                "erg": "კითხვამ",
+                "dat": "კითხვას",
+                "gen": "კითხვის",
+                "inst": "კითხვით",
+                "adv": "კითხვად"
+            },
+            "plural": {
+                "nom": "კითხვები",
+                "erg": "კითხვებმა",
+                "dat": "კითხვებს",
+                "gen": "კითხვების",
+                "inst": "კითხვებით",
+                "adv": "კითხვებად"
+            }
+        },
+        "name": {
+            "base": "სახელი",
+            "category": "object",
+            "semantic_domain": "language",
+            "verb_compatibility": [
+                "ask",
+                "tell",
+                "say",
+                "speak",
+                "hear",
+                "listen",
+                "know",
+                "remember",
+                "forget",
+                "write",
+                "read",
+                "understand",
+                "think",
+                "feel",
+                "want",
+                "need",
+                "like",
+                "love"
+            ],
+            "cases": {
+                "nom": "სახელი",
+                "erg": "სახელმა",
+                "dat": "სახელს",
+                "gen": "სახელის",
+                "inst": "სახელით",
+                "adv": "სახელად"
+            },
+            "plural": {
+                "nom": "სახელები",
+                "erg": "სახელებმა",
+                "dat": "სახელებს",
+                "gen": "სახელების",
+                "inst": "სახელებით",
+                "adv": "სახელებად"
+            }
+        },
+        "price": {
+            "base": "ფასი",
+            "category": "object",
+            "semantic_domain": "finance",
+            "verb_compatibility": [
+                "ask",
+                "tell",
+                "say",
+                "speak",
+                "know",
+                "remember",
+                "forget",
+                "understand",
+                "think",
+                "feel",
+                "want",
+                "need",
+                "like",
+                "love",
+                "pay",
+                "buy",
+                "sell",
+                "check"
+            ],
+            "cases": {
+                "nom": "ფასი",
+                "erg": "ფასმა",
+                "dat": "ფასს",
+                "gen": "ფასის",
+                "inst": "ფასით",
+                "adv": "ფასად"
+            },
+            "plural": {
+                "nom": "ფასები",
+                "erg": "ფასებმა",
+                "dat": "ფასებს",
+                "gen": "ფასების",
+                "inst": "ფასებით",
+                "adv": "ფასებად"
+            }
+        },
+        "direction": {
+            "base": "მიმართულება",
+            "category": "object",
+            "semantic_domain": "movement",
+            "verb_compatibility": [
+                "ask",
+                "tell",
+                "say",
+                "speak",
+                "know",
+                "remember",
+                "forget",
+                "understand",
+                "think",
+                "feel",
+                "want",
+                "need",
+                "like",
+                "love",
+                "show",
+                "give",
+                "follow",
+                "go",
+                "walk"
+            ],
+            "cases": {
+                "nom": "მიმართულება",
+                "erg": "მიმართულებამ",
+                "dat": "მიმართულებას",
+                "gen": "მიმართულების",
+                "inst": "მიმართულებით",
+                "adv": "მიმართულებად"
+            },
+            "plural": {
+                "nom": "მიმართულებები",
+                "erg": "მიმართულებებმა",
+                "dat": "მიმართულებებს",
+                "gen": "მიმართულებების",
+                "inst": "მიმართულებებით",
+                "adv": "მიმართულებებად"
+            }
+        },
+        "baby": {
+            "base": "ბავშვი",
+            "category": "person",
+            "semantic_domain": "family",
+            "verb_compatibility": [
+                "bath",
+                "feed",
+                "hold",
+                "carry",
+                "put",
+                "take",
+                "bring_animate",
+                "show",
+                "love",
+                "like",
+                "want",
+                "need",
+                "have_animate",
+                "watch",
+                "play",
+                "sleep",
+                "wake",
+                "cry",
+                "laugh",
+                "smile"
+            ],
+            "cases": {
+                "nom": "ბავშვი",
+                "erg": "ბავშვმა",
+                "dat": "ბავშვს",
+                "gen": "ბავშვის",
+                "inst": "ბავშვით",
+                "adv": "ბავშვად"
+            },
+            "plural": {
+                "nom": "ბავშვები",
+                "erg": "ბავშვებმა",
+                "dat": "ბავშვებს",
+                "gen": "ბავშვების",
+                "inst": "ბავშვებით",
+                "adv": "ბავშვებად"
+            }
+        },
+        "child": {
+            "base": "შვილი",
+            "category": "person",
+            "semantic_domain": "family",
+            "verb_compatibility": [
+                "bath",
+                "feed",
+                "teach",
+                "help",
+                "love",
+                "like",
+                "want",
+                "need",
+                "have_animate",
+                "watch",
+                "play",
+                "sleep",
+                "wake",
+                "speak",
+                "listen",
+                "read",
+                "write",
+                "study",
+                "work",
+                "go",
+                "walk",
+                "run"
+            ],
+            "cases": {
+                "nom": "შვილი",
+                "erg": "შვილმა",
+                "dat": "შვილს",
+                "gen": "შვილის",
+                "inst": "შვილით",
+                "adv": "შვილად"
+            },
+            "plural": {
+                "nom": "შვილები",
+                "erg": "შვილებმა",
+                "dat": "შვილებს",
+                "gen": "შვილების",
+                "inst": "შვილებით",
+                "adv": "შვილებად"
+            }
+        },
+        "dog": {
+            "base": "ძაღლი",
+            "category": "animal",
+            "semantic_domain": "pets",
+            "verb_compatibility": [
+                "bath",
+                "feed",
+                "walk",
+                "play",
+                "love",
+                "like",
+                "want",
+                "need",
+                "have_animate",
+                "watch",
+                "train",
+                "call",
+                "bring_animate",
+                "take",
+                "put",
+                "sleep",
+                "wake",
+                "run",
+                "bark",
+                "bite"
+            ],
+            "cases": {
+                "nom": "ძაღლი",
+                "erg": "ძაღლმა",
+                "dat": "ძაღლს",
+                "gen": "ძაღლის",
+                "inst": "ძაღლით",
+                "adv": "ძაღლად"
+            },
+            "plural": {
+                "nom": "ძაღლები",
+                "erg": "ძაღლებმა",
+                "dat": "ძაღლებს",
+                "gen": "ძაღლების",
+                "inst": "ძაღლებით",
+                "adv": "ძაღლებად"
+            }
+        },
+        "cat": {
+            "base": "კატა",
+            "category": "animal",
+            "semantic_domain": "pets",
+            "verb_compatibility": [
+                "bath",
+                "feed",
+                "play",
+                "love",
+                "like",
+                "want",
+                "need",
+                "have_animate",
+                "watch",
+                "call",
+                "bring_animate",
+                "take",
+                "put",
+                "sleep",
+                "wake",
+                "run",
+                "jump",
+                "climb",
+                "purr",
+                "meow"
+            ],
+            "cases": {
+                "nom": "კატა",
+                "erg": "კატამ",
+                "dat": "კატას",
+                "gen": "კატის",
+                "inst": "კატით",
+                "adv": "კატად"
+            },
+            "plural": {
+                "nom": "კატები",
+                "erg": "კატებმა",
+                "dat": "კატებს",
+                "gen": "კატების",
+                "inst": "კატებით",
+                "adv": "კატებად"
+            }
+        },
+        "hair": {
+            "base": "თმა",
+            "category": "object",
+            "semantic_domain": "body",
+            "verb_compatibility": [
+                "bath",
+                "wash",
+                "cut",
+                "brush",
+                "comb",
+                "dry",
+                "style",
+                "color",
+                "love",
+                "like",
+                "want",
+                "need",
+                "have",
+                "show",
+                "touch",
+                "feel"
+            ],
+            "cases": {
+                "nom": "თმა",
+                "erg": "თმამ",
+                "dat": "თმას",
+                "gen": "თმის",
+                "inst": "თმით",
+                "adv": "თმად"
+            },
+            "plural": {
+                "nom": "თმები",
+                "erg": "თმებმა",
+                "dat": "თმებს",
+                "gen": "თმების",
+                "inst": "თმებით",
+                "adv": "თმებად"
+            }
+        },
+        "face": {
+            "base": "სახე",
+            "category": "object",
+            "semantic_domain": "body",
+            "verb_compatibility": [
+                "bath",
+                "wash",
+                "clean",
+                "dry",
+                "touch",
+                "kiss",
+                "love",
+                "like",
+                "want",
+                "need",
+                "have",
+                "show",
+                "see",
+                "look",
+                "watch",
+                "feel",
+                "smile",
+                "laugh",
+                "cry"
+            ],
+            "cases": {
+                "nom": "სახე",
+                "erg": "სახემ",
+                "dat": "სახეს",
+                "gen": "სახის",
+                "inst": "სახით",
+                "adv": "სახედ"
+            },
+            "plural": {
+                "nom": "სახეები",
+                "erg": "სახეებმა",
+                "dat": "სახეებს",
+                "gen": "სახეების",
+                "inst": "სახეებით",
+                "adv": "სახეებად"
+            }
+        },
+        "hands": {
+            "base": "ხელები",
+            "category": "object",
+            "semantic_domain": "body",
+            "verb_compatibility": [
+                "bath",
+                "wash",
+                "clean",
+                "dry",
+                "touch",
+                "hold",
+                "use",
+                "work",
+                "write",
+                "draw",
+                "paint",
+                "cook",
+                "love",
+                "like",
+                "want",
+                "need",
+                "have",
+                "show",
+                "feel"
+            ],
+            "cases": {
+                "nom": "ხელები",
+                "erg": "ხელებმა",
+                "dat": "ხელებს",
+                "gen": "ხელების",
+                "inst": "ხელებით",
+                "adv": "ხელებად"
+            },
+            "plural": {
+                "nom": "ხელები",
+                "erg": "ხელებმა",
+                "dat": "ხელებს",
+                "gen": "ხელების",
+                "inst": "ხელებით",
+                "adv": "ხელებად"
+            }
+        },
+        "feet": {
+            "base": "ფეხები",
+            "category": "object",
+            "semantic_domain": "body",
+            "verb_compatibility": [
+                "bath",
+                "wash",
+                "clean",
+                "dry",
+                "walk",
+                "run",
+                "stand",
+                "sit",
+                "dance",
+                "jump",
+                "kick",
+                "touch",
+                "love",
+                "like",
+                "want",
+                "need",
+                "have",
+                "show",
+                "feel"
+            ],
+            "cases": {
+                "nom": "ფეხები",
+                "erg": "ფეხებმა",
+                "dat": "ფეხებს",
+                "gen": "ფეხების",
+                "inst": "ფეხებით",
+                "adv": "ფეხებად"
+            },
+            "plural": {
+                "nom": "ფეხები",
+                "erg": "ფეხებმა",
+                "dat": "ფეხებს",
+                "gen": "ფეხების",
+                "inst": "ფეხებით",
+                "adv": "ფეხებად"
             }
         }
     }

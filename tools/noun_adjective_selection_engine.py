@@ -23,7 +23,10 @@ from typing import Dict, List, Optional, Tuple, Any
 from pathlib import Path
 import json
 
-from gloss_parser import StandardizedRawGlossParser, RawGlossParseError
+from gloss_parser import (
+    StandardizedRawGlossParser,
+    RawGlossParseError,
+)
 
 # Configure logging
 logging.basicConfig(level=logging.WARNING)
@@ -60,7 +63,7 @@ class NounAdjectiveSelectionEngine:
 
     def _load_databases(self) -> Dict:
         """Load the four databases"""
-        data_dir = Path("src/data")
+        data_dir = Path(__file__).parent.parent / "src" / "data"
         databases = {}
 
         db_files = [
@@ -118,26 +121,16 @@ class NounAdjectiveSelectionEngine:
 
             # Check if noun is blank - if so, skip override (regardless of adjective)
             if not noun.strip():
-                logger.info(
-                    f"Skipping override with empty noun for {component_type}: noun='{noun}', adjective='{adjective}'"
-                )
                 return None
 
             # If adjective is explicitly "none", mark it as excluded
             if adjective.strip().lower() == "none":
-                logger.info(
-                    f"Using override with explicit adjective exclusion for {component_type}: noun='{noun}', adjective='none'"
-                )
                 return component_override
 
             # If adjective is blank, allow default adjective selection
             if not adjective.strip():
-                logger.info(
-                    f"Using override with default adjective selection for {component_type}: noun='{noun}', adjective=''"
-                )
                 return component_override
 
-            logger.info(f"Using override for {component_type}: {component_override}")
             return component_override
 
         # Handle legacy case-specific structure (for backward compatibility)
@@ -148,28 +141,16 @@ class NounAdjectiveSelectionEngine:
 
             # Check if noun is blank - if so, skip override (regardless of adjective)
             if not noun.strip():
-                logger.info(
-                    f"Skipping override with empty noun for {component_type} ({case}): noun='{noun}', adjective='{adjective}'"
-                )
                 return None
 
             # If adjective is explicitly "none", mark it as excluded
             if adjective.strip().lower() == "none":
-                logger.info(
-                    f"Using override with explicit adjective exclusion for {component_type} ({case}): noun='{noun}', adjective='none'"
-                )
                 return override_value
 
             # If adjective is blank, allow default adjective selection
             if not adjective.strip():
-                logger.info(
-                    f"Using override with default adjective selection for {component_type} ({case}): noun='{noun}', adjective=''"
-                )
                 return override_value
 
-            logger.info(
-                f"Using override for {component_type} ({case}): {override_value}"
-            )
             return override_value
 
         # Check for general override (no case specified) - legacy structure
@@ -180,28 +161,16 @@ class NounAdjectiveSelectionEngine:
 
             # Check if noun is blank - if so, skip override (regardless of adjective)
             if not noun.strip():
-                logger.info(
-                    f"Skipping default override with empty noun for {component_type}: noun='{noun}', adjective='{adjective}'"
-                )
                 return None
 
             # If adjective is explicitly "none", mark it as excluded
             if adjective.strip().lower() == "none":
-                logger.info(
-                    f"Using default override with explicit adjective exclusion for {component_type}: noun='{noun}', adjective='none'"
-                )
                 return override_value
 
             # If adjective is blank, allow default adjective selection
             if not adjective.strip():
-                logger.info(
-                    f"Using default override with default adjective selection for {component_type}: noun='{noun}', adjective=''"
-                )
                 return override_value
 
-            logger.info(
-                f"Using default override for {component_type}: {override_value}"
-            )
             return override_value
 
         return None
@@ -786,70 +755,8 @@ class NounAdjectiveSelectionEngine:
 
 
 def main():
-    """Test the noun-adjective selection engine"""
-    engine = NounAdjectiveSelectionEngine()
-
-    # Test cases
-    test_cases = [
-        {
-            "verb_id": 123,
-            "tense": "Pres",
-            "person": "3rd",
-            "raw_gloss": "V Act Pres <S-DO> <S:Nom> <DO:Dat>",
-            "verb_semantics": "read",
-        },
-        {
-            "verb_id": 456,
-            "tense": "Fut",
-            "person": "3rd",
-            "raw_gloss": "V Act Fut <S-DO-IO> <S:Nom> <DO:Dat> <IO:Dat>",
-            "verb_semantics": "give",
-        },
-    ]
-
-    print("🧪 Testing Noun-Adjective Selection Engine")
-    print("=" * 60)
-
-    for i, test_case in enumerate(test_cases, 1):
-        print(f"\n📝 Test {i}: {test_case['raw_gloss']}")
-        try:
-            # Test subject selection
-            subject, subject_adj = engine.select_subject_with_adjective(
-                test_case["verb_id"],
-                test_case["tense"],
-                test_case["person"],
-                test_case["raw_gloss"],
-                test_case["verb_semantics"],
-            )
-            print(f"✅ Subject: {subject} (adj: {subject_adj})")
-
-            # Test direct object selection
-            do, do_adj = engine.select_direct_object_with_adjective(
-                test_case["verb_id"],
-                test_case["tense"],
-                test_case["person"],
-                test_case["raw_gloss"],
-                test_case["verb_semantics"],
-            )
-            print(f"✅ Direct Object: {do} (adj: {do_adj})")
-
-            # Test indirect object selection if needed
-            if "<S-DO-IO>" in test_case["raw_gloss"]:
-                io, io_adj = engine.select_indirect_object_with_adjective(
-                    test_case["verb_id"],
-                    test_case["tense"],
-                    test_case["person"],
-                    test_case["raw_gloss"],
-                    test_case["verb_semantics"],
-                )
-                print(f"✅ Indirect Object: {io} (adj: {io_adj})")
-
-            # Test case form retrieval
-            subject_form = engine.get_noun_form(subject, "subjects", "nom", "singular")
-            print(f"✅ Subject form: {subject_form}")
-
-        except Exception as e:
-            print(f"❌ Error: {e}")
+    """Main function for the noun-adjective selection engine"""
+    pass
 
 
 if __name__ == "__main__":

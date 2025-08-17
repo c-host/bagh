@@ -1,13 +1,28 @@
 #!/usr/bin/env python3
 """
-Utility module for generating verb forms from different data structures.
-Handles both old format and new stem-based format.
+Verb Conjugation Management Module
+
+This module handles all verb conjugation logic, preverb management, and form generation.
+It replaces the confusing verb_form_generator.py with a clean, focused implementation.
+
+Features:
+- Get verb forms with preverb handling
+- Calculate preverb variations
+- Generate preverb mappings
+- Check for multiple preverbs
+- Get English translations
+- Get appropriate prepositions
+- Data structure detection for preverb handling approach
 """
 
+from typing import Dict, List, Optional, Any
 
-def get_verb_form(verb, tense, person, preverb=None):
+
+def get_conjugation_form(
+    verb: Dict, tense: str, person: str, preverb: Optional[str] = None
+) -> str:
     """
-    Get verb form with preverb handling for both old and new structures.
+    Get verb form with preverb handling using data structure detection.
 
     Args:
         verb: Verb dictionary
@@ -44,8 +59,9 @@ def get_verb_form(verb, tense, person, preverb=None):
         conjugations = verb.get("conjugations", {})
         tense_data = conjugations.get(tense, {})
 
-        # New stem-based structure
-        if preverb_config.get("stem_based", False) and "forms" in tense_data:
+        # Use data structure detection for preverb handling approach
+        if _is_stem_based_approach(preverb_config) and "forms" in tense_data:
+            # Stem-based approach: append preverbs to stems
             stem = tense_data["forms"].get(person, "-")
             if stem == "-":
                 base_form = "-"
@@ -54,7 +70,7 @@ def get_verb_form(verb, tense, person, preverb=None):
                 clean_preverb = preverb.replace("-", "")
                 base_form = clean_preverb + stem
         else:
-            # Old multi-preverb structure
+            # Pre-defined forms approach: use forms per preverb
             if isinstance(tense_data, dict) and preverb in tense_data:
                 base_form = tense_data[preverb].get(person, "-")
             else:
@@ -63,7 +79,129 @@ def get_verb_form(verb, tense, person, preverb=None):
     return base_form
 
 
-def get_english_translation(verb, tense, preverb=None):
+def _is_stem_based_approach(preverb_config: Dict) -> bool:
+    """
+    Detect if verb uses stem-based approach by checking for available_preverbs array.
+
+    Args:
+        preverb_config: Preverb configuration dictionary
+
+    Returns:
+        True if stem-based approach, False if pre-defined forms approach
+    """
+    return "available_preverbs" in preverb_config and isinstance(
+        preverb_config["available_preverbs"], list
+    )
+
+
+def calculate_preverb_forms(
+    forms: Dict[str, str], preverb_rules: Dict, target_preverb: str
+) -> Dict[str, str]:
+    """
+    Calculate preverb forms based on preverb rules.
+
+    Args:
+        forms: Dictionary of conjugation forms with default preverb
+        preverb_rules: Dictionary containing preverb replacement rules
+        target_preverb: The target preverb to apply
+
+    Returns:
+        Dictionary of forms with the target preverb applied
+    """
+    if not preverb_rules:
+        return forms
+
+    default_preverb = preverb_rules.get("default", "")
+    replacements = preverb_rules.get("replacements", {})
+    tense_specific_fallbacks = preverb_rules.get("tense_specific_fallbacks", {})
+
+    # Get the actual replacement for this preverb
+    replacement = replacements.get(target_preverb, target_preverb)
+
+    # Check for tense-specific fallbacks
+    if target_preverb in tense_specific_fallbacks:
+        # For now, we'll handle this in the calling function
+        # This is a placeholder for future tense-specific logic
+        pass
+
+    # Normalize preverb values by removing hyphens for comparison
+    normalized_target = target_preverb.replace("-", "")
+    normalized_default = default_preverb.replace("-", "")
+
+    # If the target preverb is the same as the default preverb, return the original forms
+    if normalized_target == normalized_default:
+        return forms
+
+    result = {}
+    for person, form in forms.items():
+        if form == "-" or form == "":
+            result[person] = form
+        elif form.startswith(default_preverb):
+            # Extract the stem (remove the default preverb) and apply the new preverb
+            stem = form[len(default_preverb) :]
+            result[person] = replacement + stem
+        else:
+            # Handle irregular forms that don't follow prefix pattern
+            result[person] = form
+
+    return result
+
+
+def get_preverb_mappings(
+    verb_data: Dict, preverb_rules: Dict
+) -> Dict[str, Dict[str, Dict[str, str]]]:
+    """
+    Generate all preverb mappings for a verb.
+
+    Args:
+        verb_data: Verb data dictionary
+        preverb_rules: Preverb rules dictionary
+
+    Returns:
+        Dictionary of all preverb mappings for all tenses
+    """
+    if not preverb_rules:
+        return {}
+
+    available_preverbs = preverb_rules.get("replacements", {}).keys()
+    conjugations = verb_data.get("conjugations", {})
+
+    all_mappings = {}
+
+    for tense, tense_data in conjugations.items():
+        if "forms" not in tense_data:
+            continue
+
+        forms = tense_data["forms"]
+        tense_mappings = {}
+
+        for preverb in available_preverbs:
+            tense_mappings[preverb] = calculate_preverb_forms(
+                forms, preverb_rules, preverb
+            )
+
+        all_mappings[tense] = tense_mappings
+
+    return all_mappings
+
+
+def has_multiple_preverbs(verb: Dict) -> bool:
+    """
+    Check if a verb supports multiple preverbs.
+
+    Args:
+        verb: Verb dictionary
+
+    Returns:
+        True if verb supports multiple preverbs, False otherwise
+    """
+    preverb_config = verb.get("preverb_config", {})
+    return preverb_config.get("has_multiple_preverbs", False)
+
+
+def get_english_translation(
+    verb: Dict, tense: str, preverb: Optional[str] = None
+) -> str:
     """
     Get the correct English translation for a verb form based on tense and preverb.
 
@@ -95,7 +233,7 @@ def get_english_translation(verb, tense, preverb=None):
     return tense_translation
 
 
-def get_indirect_object_preposition(verb):
+def get_indirect_object_preposition(verb: Dict) -> str:
     """
     Get the appropriate preposition for indirect objects with this verb.
 
@@ -114,7 +252,7 @@ def get_indirect_object_preposition(verb):
     return verb.get("indirect_object_preposition", "")
 
 
-def get_direct_object_preposition(verb):
+def get_direct_object_preposition(verb: Dict) -> str:
     """
     Get the appropriate preposition for direct objects with this verb.
 
@@ -129,7 +267,7 @@ def get_direct_object_preposition(verb):
     return prepositions.get("direct_object", "")
 
 
-def has_preverb_in_tense(verb, tense):
+def has_preverb_in_tense(verb: Dict, tense: str) -> bool:
     """
     Check if a verb has preverbs in a specific tense.
 
@@ -177,7 +315,7 @@ def has_preverb_in_tense(verb, tense):
     return False
 
 
-def get_verb_gloss(verb, tense):
+def get_verb_gloss(verb: Dict, tense: str) -> Optional[Dict[str, str]]:
     """
     Get gloss information for a verb and tense.
 
@@ -208,7 +346,7 @@ def get_verb_gloss(verb, tense):
     return None
 
 
-def get_verb_examples(verb, tense):
+def get_verb_examples(verb: Dict, tense: str) -> List[Dict[str, Any]]:
     """
     Get examples for a verb and tense.
 
@@ -234,51 +372,3 @@ def get_verb_examples(verb, tense):
         return tense_examples["examples"]
 
     return []
-
-
-def is_new_structure(verb):
-    """
-    Check if a verb uses the new structure.
-
-    Args:
-        verb: Verb dictionary
-
-    Returns:
-        True if verb uses new structure, False otherwise
-    """
-    conjugations = verb.get("conjugations", {})
-
-    # Check if any tense has the new structure
-    for tense_data in conjugations.values():
-        if isinstance(tense_data, dict) and "forms" in tense_data:
-            return True
-
-    return False
-
-
-def get_available_preverbs(verb):
-    """
-    Get available preverbs for a verb.
-
-    Args:
-        verb: Verb dictionary
-
-    Returns:
-        List of available preverbs or empty list
-    """
-    preverb_config = verb.get("preverb_config", {})
-    return preverb_config.get("available_preverbs", [])
-
-
-def get_default_preverb(verb):
-    """
-    Get default preverb for a verb.
-
-    Args:
-        verb: Verb dictionary
-
-    Returns:
-        Default preverb string or empty string
-    """
-    preverb_config = verb.get("preverb_config", {})
-    return preverb_config.get("default_preverb", "")

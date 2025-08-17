@@ -17,6 +17,7 @@ Features:
 import json
 import re
 import logging
+import html
 from pathlib import Path
 from typing import Dict, List, Optional, Tuple
 
@@ -98,6 +99,29 @@ class GlossParser:
 
         return result
 
+    def validate_preverb_requirement(
+        self, raw_gloss: str, preverb: Optional[str] = None
+    ) -> bool:
+        """
+        Validate if a preverb is required for this verb and gloss.
+
+        Args:
+            raw_gloss: Raw gloss string
+            preverb: Preverb value (optional)
+
+        Returns:
+            True if preverb is required, False otherwise
+        """
+        # Check if the raw gloss contains "Pv" (preverb marker)
+        if "Pv" in raw_gloss:
+            return True
+
+        # If a preverb is provided and not empty, it's required
+        if preverb and preverb.strip():
+            return True
+
+        return False
+
     def _parse_case_frame(self, case_component: str) -> str:
         """
         Parse case frame components like <S-DO-IO>, <S:Erg>, etc.
@@ -111,7 +135,7 @@ class GlossParser:
         # Preserve auxiliary markers in their original form
         if case_component in ["<AuxIntr>", "<AuxTrans>", "<AuxTransHum>"]:
             return case_component
-        
+
         # First, check if this is an auxiliary marker or modifier that should be looked up in gloss reference
         if case_component in self.gloss_reference:
             return self.gloss_reference[case_component]
@@ -145,28 +169,309 @@ class GlossParser:
         }
         return role_mapping.get(role, role)
 
-    def validate_preverb_requirement(
-        self, raw_gloss: str, preverb: Optional[str] = None
-    ) -> bool:
-        """
-        Validate if a preverb is required for this verb and gloss.
 
-        Args:
-            raw_gloss: Raw gloss string
-            preverb: Preverb value (optional)
+def process_raw_gloss(raw_gloss: str, preverb: str = None) -> str:
+    """
+    Process raw gloss and convert to verbose format.
 
-        Returns:
-            True if preverb is required, False otherwise
-        """
-        # Check if the raw gloss contains "Pv" (preverb marker)
-        if "Pv" in raw_gloss:
-            return True
+    Args:
+        raw_gloss: Raw gloss in GNC format
+        preverb: Preverb value when Pv appears in gloss
 
-        # If a preverb is provided and not empty, it's required
-        if preverb and preverb.strip():
-            return True
+    Returns:
+        Formatted verbose gloss
+    """
+    if not raw_gloss:
+        return ""
 
-        return False
+    parser = StandardizedRawGlossParser()
+
+    # Validate preverb requirement
+    if parser.validate_preverb_requirement(raw_gloss, preverb):
+        # Preverb is required but not provided or empty
+        if not preverb or not preverb.strip():
+            print(f"Warning: Preverb required for gloss containing 'Pv': {raw_gloss}")
+            return raw_gloss
+
+    # Parse the raw gloss to get the structure
+    parsed_gloss = parser.parse_raw_gloss(raw_gloss)
+    
+    # Convert the parsed gloss to a formatted string
+    formatted_parts = []
+    
+    # Add voice and tense
+    voice = parsed_gloss.get("voice", "")
+    tense = parsed_gloss.get("tense", "")
+    if voice and tense:
+        formatted_parts.append(f"<V {voice} {tense}>: Verb, {voice}ive Voice, {tense} Tense")
+    
+    # Add preverb if present
+    preverb = parsed_gloss.get("preverb")
+    if preverb:
+        formatted_parts.append(f"<Pv ({preverb})>: Preverb, {preverb}")
+    
+    # Add argument pattern
+    argument_pattern = parsed_gloss.get("argument_pattern", "")
+    if argument_pattern:
+        # Map argument patterns to descriptions
+        pattern_descriptions = {
+            "<S>": "Intransitive",
+            "<S-DO>": "Transitive",
+            "<S-IO>": "Ditransitive (Subject-Indirect Object)",
+            "<S-DO-IO>": "Ditransitive (Subject-Direct Object-Indirect Object)"
+        }
+        description = pattern_descriptions.get(argument_pattern, argument_pattern)
+        formatted_parts.append(f"{argument_pattern}: {description}")
+    
+    # Add individual arguments
+    arguments = parsed_gloss.get("arguments", {})
+    for arg_type, arg_data in arguments.items():
+        case = arg_data.get("case", "")
+        if case:
+            case_desc = f"{case}inative" if case == "Nom" else f"{case}ative"
+            formatted_parts.append(f"<{arg_type}:{case}>: {arg_type}, {case_desc} Case")
+    
+    return "\n".join(formatted_parts)
+
+
+def format_raw_gloss_with_colors(raw_gloss: str) -> str:
+    """
+    Format raw gloss with color coding for V, S, DO, IO elements and case-marked patterns.
+
+    Args:
+        raw_gloss: Raw gloss string (e.g., "V Act Pres <S-DO> <S:Nom> <DO:Dat>")
+
+    Returns:
+        HTML-formatted raw gloss with color-coded elements
+    """
+    # Define color classes for different elements (order matters - longer patterns first)
+    color_mapping = {
+        "S:Nom": "gloss-subject",
+        "S:Erg": "gloss-subject",
+        "S:Dat": "gloss-subject",
+        "DO:Nom": "gloss-direct-object",
+        "DO:Dat": "gloss-direct-object",
+        "IO:Nom": "gloss-indirect-object",
+        "IO:Dat": "gloss-indirect-object",
+        "V": "gloss-verb",
+        "S": "gloss-subject",
+        "DO": "gloss-direct-object",
+        "IO": "gloss-indirect-object",
+    }
+
+    # Split the raw gloss into components
+    components = raw_gloss.split()
+    formatted_components = []
+
+    for component in components:
+        # Check if component contains case frame elements
+        if "<" in component and ">" in component:
+            # Handle case frame components like <S-DO>, <S:Nom>, etc.
+            formatted_component = component
+            for element, color_class in color_mapping.items():
+                if element in component:
+                    # Replace the element with color-coded version
+                    formatted_component = formatted_component.replace(
+                        element, f'<span class="{color_class}">{element}</span>'
+                    )
+            formatted_components.append(formatted_component)
+        elif component in color_mapping:
+            # Handle standalone elements like V
+            formatted_components.append(
+                f'<span class="{color_mapping[component]}">{component}</span>'
+            )
+        else:
+            # Keep other components as-is
+            formatted_components.append(component)
+
+    return " ".join(formatted_components)
+
+
+def format_gloss_for_html(case_gloss: str) -> str:
+    """
+    Format case gloss for HTML display with CSS classes and color coding.
+
+    Args:
+        case_gloss: Raw case gloss string
+
+    Returns:
+        HTML-formatted gloss with CSS classes and color coding
+    """
+    # Split into lines
+    lines = case_gloss.split("\n")
+
+    # Process each line
+    formatted_lines = []
+    for line in lines:
+        if ":" in line:
+            # Handle case frame components specially
+            if line.startswith("<") and ">" in line:
+                # Case frame component like "<S-DO>: Subject, Direct Object"
+                # Find the closing > and the colon after it
+                gt_pos = line.find(">")
+                if gt_pos != -1:
+                    colon_pos = line.find(":", gt_pos)
+                    if colon_pos != -1:
+                        # Extract the full component including angle brackets, but not the colon
+                        component = line[:colon_pos]  # Don't include the colon
+                        definition = line[colon_pos + 1 :].strip()
+
+                        # Special handling for auxiliary markers
+                        if component in ["<AuxIntr>", "<AuxTrans>", "<AuxTransHum>"]:
+                            # For auxiliary markers, preserve them as-is without color coding
+                            color_coded_component = component
+                        else:
+                            # Color code the component elements (order matters - longer patterns first)
+                            color_coded_component = component
+
+                            # Handle compound patterns like S-IO, S-DO, S-DO-IO by processing individual elements
+                            if "-" in component and (
+                                "S" in component
+                                or "DO" in component
+                                or "IO" in component
+                            ):
+                                # Handle compound patterns with angle brackets like <S-DO-IO>
+                                if component.startswith("<") and component.endswith(
+                                    ">"
+                                ):
+                                    # Extract content between angle brackets
+                                    inner_content = component[1:-1]  # Remove < and >
+                                    parts = inner_content.split("-")
+                                    color_coded_parts = []
+                                    for part in parts:
+                                        if part == "S":
+                                            color_coded_parts.append(
+                                                '<span class="gloss-subject">S</span>'
+                                            )
+                                        elif part == "DO":
+                                            color_coded_parts.append(
+                                                '<span class="gloss-direct-object">DO</span>'
+                                            )
+                                        elif part == "IO":
+                                            color_coded_parts.append(
+                                                '<span class="gloss-indirect-object">IO</span>'
+                                            )
+                                        else:
+                                            color_coded_parts.append(part)
+                                    # Reconstruct with angle brackets
+                                    color_coded_component = (
+                                        "<" + "-".join(color_coded_parts) + ">"
+                                    )
+                                else:
+                                    # Handle patterns without angle brackets
+                                    parts = component.split("-")
+                                    color_coded_parts = []
+                                    for part in parts:
+                                        if part == "S":
+                                            color_coded_parts.append(
+                                                '<span class="gloss-subject">S</span>'
+                                            )
+                                        elif part == "DO":
+                                            color_coded_parts.append(
+                                                '<span class="gloss-direct-object">DO</span>'
+                                            )
+                                        elif part == "IO":
+                                            color_coded_parts.append(
+                                                '<span class="gloss-indirect-object">IO</span>'
+                                            )
+                                        else:
+                                            color_coded_parts.append(part)
+                                    color_coded_component = "-".join(color_coded_parts)
+                            # Case-marked patterns first (longer patterns)
+                            elif "S:Nom" in component:
+                                color_coded_component = color_coded_component.replace(
+                                    "S:Nom", '<span class="gloss-subject">S:Nom</span>'
+                                )
+                            elif "S:Erg" in component:
+                                color_coded_component = color_coded_component.replace(
+                                    "S:Erg", '<span class="gloss-subject">S:Erg</span>'
+                                )
+                            elif "S:Dat" in component:
+                                color_coded_component = color_coded_component.replace(
+                                    "S:Dat", '<span class="gloss-subject">S:Dat</span>'
+                                )
+                            elif "DO:Nom" in component:
+                                color_coded_component = color_coded_component.replace(
+                                    "DO:Nom",
+                                    '<span class="gloss-direct-object">DO:Nom</span>',
+                                )
+                            elif "DO:Dat" in component:
+                                color_coded_component = color_coded_component.replace(
+                                    "DO:Dat",
+                                    '<span class="gloss-direct-object">DO:Dat</span>',
+                                )
+                            elif "IO:Nom" in component:
+                                color_coded_component = color_coded_component.replace(
+                                    "IO:Nom",
+                                    '<span class="gloss-indirect-object">IO:Nom</span>',
+                                )
+                            elif "IO:Dat" in component:
+                                color_coded_component = color_coded_component.replace(
+                                    "IO:Dat",
+                                    '<span class="gloss-indirect-object">IO:Dat</span>',
+                                )
+                            # Basic patterns after case-marked patterns
+                            elif "S" in component:
+                                color_coded_component = color_coded_component.replace(
+                                    "S", '<span class="gloss-subject">S</span>'
+                                )
+                            elif "DO" in component:
+                                color_coded_component = color_coded_component.replace(
+                                    "DO", '<span class="gloss-direct-object">DO</span>'
+                                )
+                            elif "IO" in component:
+                                color_coded_component = color_coded_component.replace(
+                                    "IO",
+                                    '<span class="gloss-indirect-object">IO</span>',
+                                )
+
+                        # Don't escape the color-coded component since it contains HTML
+                        formatted_line = f'<span class="gloss-component">{color_coded_component}</span><span class="gloss-definition">{definition}</span>'
+                        formatted_lines.append(formatted_line)
+                    else:
+                        formatted_lines.append(line)
+                else:
+                    formatted_lines.append(line)
+            else:
+                # Regular component like "V: Verb"
+                parts = line.split(":", 1)
+                if len(parts) == 2:
+                    component, definition = parts
+
+                    # Color code the component if it's V
+                    color_coded_component = component
+                    if component == "V":
+                        color_coded_component = '<span class="gloss-verb">V</span>'
+                    else:
+                        # For non-V components, escape normally
+                        color_coded_component = html.escape(component)
+
+                    # Use appropriate escaping based on whether it contains HTML
+                    if component == "V":
+                        formatted_line = f'<span class="gloss-component">{color_coded_component}:</span><span class="gloss-definition">{definition}</span>'
+                    else:
+                        formatted_line = f'<span class="gloss-component">{color_coded_component}:</span><span class="gloss-definition">{definition}</span>'
+                    formatted_lines.append(formatted_line)
+                else:
+                    formatted_lines.append(line)
+        else:
+            formatted_lines.append(line)
+
+    # Join with single line breaks
+    result = "<br>".join(formatted_lines)
+
+    # Add visual separator before case frame components (double line break)
+    # Look for the first case frame component (which will be HTML-escaped as &lt;)
+    if "&lt;" in result:
+        # Find the first occurrence of &lt; and add a line break before it
+        # The pattern will be <br><span class="gloss-component">&lt;
+        result = result.replace(
+            '<br><span class="gloss-component">&lt;',
+            '<br><br><span class="gloss-component">&lt;',
+            1,
+        )
+
+        return result
 
 
 class StandardizedRawGlossParser:
@@ -460,30 +765,6 @@ class StandardizedRawGlossParser:
         for arg_type in arguments:
             if arg_type not in ["subject", "direct_object", "indirect_object"]:
                 raise RawGlossParseError(f"Unknown argument type: {arg_type}")
-
-    def validate_preverb_requirement(
-        self, raw_gloss: str, preverb: Optional[str] = None
-    ) -> bool:
-        """
-        Validate if a preverb is required for this verb and gloss.
-
-        Args:
-            raw_gloss: Raw gloss string
-            preverb: Preverb value (optional)
-
-        Returns:
-            True if preverb is required, False otherwise
-        """
-        # Check if the raw gloss contains "Pv" (preverb marker)
-        if "Pv" in raw_gloss:
-            return True
-
-        # If a preverb is provided and not empty, it's required
-        if preverb and preverb.strip():
-            return True
-
-        return False
-
 
 # Convenience functions for backward compatibility
 def create_gloss_parser() -> GlossParser:

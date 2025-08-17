@@ -46,6 +46,59 @@ document.addEventListener('DOMContentLoaded', function () {
         // Font preloading failed, continue without it
     });
 
+    // Helper functions for dual ID system
+    function safeGetElementById(id) {
+        try {
+            return document.getElementById(id);
+        } catch (error) {
+            console.error(`Error getting element by ID: ${id}`, error);
+            return null;
+        }
+    }
+
+    function getPrimaryVerb(georgianText) {
+        if (!georgianText || georgianText === "N/A") {
+            return "unknown";
+        }
+        return georgianText.split(" / ")[0].trim();
+    }
+
+    function showNotification(message, type = 'info') {
+        // Create notification element
+        const notification = document.createElement('div');
+        notification.className = `notification notification-${type}`;
+        notification.textContent = message;
+        notification.style.cssText = `
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            padding: 12px 20px;
+            border-radius: 8px;
+            color: white;
+            font-weight: 500;
+            z-index: 10000;
+            animation: slideIn 0.3s ease-out;
+        `;
+
+        // Set background color based on type
+        if (type === 'error') {
+            notification.style.backgroundColor = '#dc3545';
+        } else if (type === 'success') {
+            notification.style.backgroundColor = '#28a745';
+        } else {
+            notification.style.backgroundColor = '#17a2b8';
+        }
+
+        document.body.appendChild(notification);
+
+        // Remove after 3 seconds
+        setTimeout(() => {
+            if (notification.parentNode) {
+                notification.parentNode.removeChild(notification);
+            }
+        }, 3000);
+    }
+
     // Theme toggle event
     themeToggle.addEventListener('click', function () {
         const currentTheme = document.documentElement.getAttribute('data-theme');
@@ -359,78 +412,89 @@ document.addEventListener('DOMContentLoaded', function () {
     sidebarClose.addEventListener('click', closeSidebar);
     sidebarOverlay.addEventListener('click', closeSidebar);
 
-    // Populate table of contents
+    // Sticky positioning is now handled purely by CSS due to restructured HTML
+    // No JavaScript calculations needed for sidebar-sticky-header positioning
+
+
+
+    // Populate table of contents - SIMPLIFIED VERSION
     function populateTableOfContents() {
+        const tocContainer = document.querySelector('.toc-content-container');
+        if (!tocContainer) return;
+
         const verbSections = document.querySelectorAll('.verb-section');
-        tocList.innerHTML = '';
+        tocContainer.innerHTML = '';
         allTocItems = []; // Reset the array
 
         // Group verbs by category
         const verbsByCategory = {};
-        const verbData = [];
 
         verbSections.forEach((section, index) => {
-            const h2 = section.querySelector('h2');
-            if (h2) {
-                // Extract verb information from the section
-                const verbText = h2.textContent;
-                // Remove page number and ToC backlink from the text
-                const cleanText = verbText.replace(/^\d+\s*/, '').replace(/\s*↑\s*ToC\s*$/, '');
-                const parts = cleanText.split(' - ');
-                const georgian = parts[0] || '';
-                const english = parts[1] || '';
-                const description = parts[2] || '';
+            // Extract basic data from the section
+            const semanticKey = section.getAttribute('data-semantic-key') || '';
+            const georgian = section.getAttribute('data-full-georgian') || '';
+            const category = section.getAttribute('data-category') || 'Unknown';
+            const sectionId = section.id;
 
-                // Get category and class from data attributes
-                const category = section.getAttribute('data-category') || '';
-                const verbClass = section.getAttribute('data-class') || '';
-
-                // Store verb data
-                verbData.push({
-                    section,
-                    georgian,
-                    english,
-                    description,
-                    category,
-                    verbClass
-                });
-
-                // Group by category
-                if (!verbsByCategory[category]) {
-                    verbsByCategory[category] = [];
-                }
-                verbsByCategory[category].push({
-                    section,
-                    georgian,
-                    english,
-                    description,
-                    category,
-                    verbClass
-                });
+            // Extract description from the h2 element - clean up the text properly
+            const h2Element = section.querySelector('h2');
+            let description = '';
+            if (h2Element) {
+                // Get the text content and clean it up
+                let fullText = h2Element.textContent;
+                // Remove page number at the start
+                fullText = fullText.replace(/^\d+\s*/, '');
+                // Remove Georgian text and the dash
+                fullText = fullText.replace(/^[^\s-]*\s*-\s*/, '');
+                // Remove "↑ ToC" and "🔗" at the end
+                fullText = fullText.replace(/\s*↑\s*ToC\s*🔗\s*$/, '');
+                fullText = fullText.replace(/\s*🔗\s*$/, '');
+                description = fullText.trim();
             }
+
+
+
+            // Group by category
+            if (!verbsByCategory[category]) {
+                verbsByCategory[category] = [];
+            }
+
+            verbsByCategory[category].push({
+                section,
+                semanticKey,
+                georgian,
+                category,
+                description,
+                sectionId
+            });
         });
 
         // Create organized TOC with category headers
         Object.keys(verbsByCategory).sort().forEach(category => {
+            const categoryVerbs = verbsByCategory[category];
+
             // Add category header
             const categoryHeader = document.createElement('div');
-            categoryHeader.className = 'category-header';
-            categoryHeader.textContent = category;
-            tocList.appendChild(categoryHeader);
+            categoryHeader.className = 'toc-category-header';
+            categoryHeader.innerHTML = `<h3>${category}</h3>`;
+            tocContainer.appendChild(categoryHeader);
+
+            // Create toc-list for this category's items
+            const tocList = document.createElement('div');
+            tocList.className = 'toc-list';
 
             // Add verbs in this category
-            verbsByCategory[category].forEach(verb => {
+            categoryVerbs.forEach((verb, verbIndex) => {
                 const tocItem = document.createElement('div');
                 tocItem.className = 'toc-item';
+                tocItem.setAttribute('data-semantic-key', verb.semanticKey);
+                tocItem.setAttribute('data-category', verb.category);
                 tocItem.innerHTML = `
-                <div class="verb-georgian">${verb.georgian}</div>
-                <div class="verb-english">${verb.english}</div>
-                <div class="verb-description">${verb.description}</div>
-                <div class="verb-meta">
-                    <span class="verb-category">${verb.category}</span>
-                    <span class="verb-class">${verb.verbClass}</span>
-                </div>
-            `;
+                    <div class="verb-georgian">${verb.georgian}</div>
+                    <div class="verb-description">${verb.description}</div>
+                `;
+
+
 
                 tocItem.addEventListener('click', function () {
                     // Remove active class from all items
@@ -441,31 +505,46 @@ document.addEventListener('DOMContentLoaded', function () {
                     // Add active class to clicked item
                     tocItem.classList.add('active');
 
-                    // Scroll to section
-                    verb.section.scrollIntoView({
-                        behavior: 'smooth',
-                        block: 'start'
-                    });
+                    // Navigate directly to the section
+                    if (verb.section) {
+                        // Ensure category is expanded
+                        const categoryContainer = findCategoryContainer(verb.category);
+                        if (categoryContainer) {
+                            expandCategoryIfCollapsed(categoryContainer);
+                        }
 
-                    // Close sidebar after a short delay
-                    setTimeout(closeSidebar, 300);
+                        // Close sidebar first
+                        closeSidebar();
+
+                        // Navigate to verb after a brief delay
+                        setTimeout(() => {
+                            navigateToVerbSection(verb.section, verb.section.id, verb.georgian);
+                        }, 100);
+                    } else {
+                        showNotification(`Verb "${verb.georgian}" not found`, 'error');
+                    }
                 });
 
                 tocList.appendChild(tocItem);
-                allTocItems.push(tocItem); // Add to searchable array
+                allTocItems.push(tocItem);
             });
+
+            // Append the toc-list to the container
+            tocContainer.appendChild(tocList);
         });
 
-        // Initialize filtered items with all visible items
+        // Initialize filtered items
         filteredItems = [...allTocItems];
-        currentSearchIndex = 0; // Start with first item selected
+        currentSearchIndex = 0;
         updateSearchSelection();
 
         // Set the first item as active by default
-        const firstItem = tocList.querySelector('.toc-item');
+        const firstItem = tocContainer.querySelector('.toc-item');
         if (firstItem) {
             firstItem.classList.add('active');
         }
+
+
     }
 
     // Highlight current section in TOC
@@ -574,6 +653,211 @@ document.addEventListener('DOMContentLoaded', function () {
     let filteredItems = [];
     let sidebarCategoryFilter = null;
 
+    // Enhanced URL management and navigation functions
+    function updateURLWithAnchor(anchor) {
+        try {
+            const newUrl = `${window.location.pathname}#${encodeURIComponent(anchor)}`;
+            window.history.pushState({}, '', newUrl);
+        } catch (error) {
+            console.error('Error updating URL:', error);
+        }
+    }
+
+    // Find category container by category name
+    function findCategoryContainer(category) {
+        return document.querySelector(`.category-container[data-category="${category}"]`);
+    }
+
+    // Expand category if it's collapsed
+    function expandCategoryIfCollapsed(categoryContainer) {
+        const content = categoryContainer.querySelector('.category-content');
+        const header = categoryContainer.querySelector('.collapsible-header');
+
+        if (content && content.classList.contains('collapsed')) {
+            // Expand the category
+            content.classList.remove('collapsed');
+            header.classList.remove('collapsed');
+
+            // Update session storage
+            const category = categoryContainer.getAttribute('data-category');
+            saveCategoryState(category, 'expanded');
+        }
+    }
+
+    // Navigate to verb section with proper positioning
+    function navigateToVerbSection(verbSection, primaryVerb, fullGeorgian) {
+        if (!verbSection) {
+            showNotification(`Verb "${fullGeorgian}" not found`, 'error');
+            return false;
+        }
+
+        // Calculate proper offset accounting for sticky header
+        const stickyHeaderHeight = 80; // Adjust based on actual header height
+        const rect = verbSection.getBoundingClientRect();
+        const targetPosition = window.scrollY + rect.top - stickyHeaderHeight;
+
+        // Update URL with primary verb
+        updateURLWithAnchor(primaryVerb);
+
+        // Navigate instantly (no animation as per user preference)
+        window.scrollTo({
+            top: targetPosition,
+            behavior: 'auto'
+        });
+
+        return true;
+    }
+
+    // Category state management functions (removed session storage for instant behavior)
+    function saveCategoryState(category, state) {
+        // No longer saving to session storage - removed for instant behavior
+    }
+
+    function loadCategoryState(category) {
+        // Always return expanded - no persistence
+        return 'expanded';
+    }
+
+    function restoreCategoryStates() {
+        // No longer restoring states - all categories start expanded
+    }
+
+    function handleURLAnchor() {
+        const hash = window.location.hash;
+
+        // Try multiple methods to extract the hash
+        let primaryVerb = null;
+
+        // Method 1: Direct hash access
+        if (hash && hash.startsWith('#')) {
+            primaryVerb = decodeURIComponent(hash.substring(1)); // Remove the # symbol
+        }
+
+        // Method 2: Extract from full URL
+        if (!primaryVerb) {
+            const urlParts = window.location.href.split('#');
+            if (urlParts.length > 1) {
+                primaryVerb = decodeURIComponent(urlParts[1]);
+            }
+        }
+
+        // Method 3: Try to get hash after a delay (for file:// URLs)
+        if (!primaryVerb) {
+            setTimeout(() => {
+                const delayedHash = window.location.hash;
+                if (delayedHash && delayedHash.startsWith('#')) {
+                    const delayedPrimaryVerb = decodeURIComponent(delayedHash.substring(1));
+                    scrollToVerb(delayedPrimaryVerb);
+                }
+            }, 500);
+            return; // Exit early, let the delayed check handle it
+        }
+
+        if (primaryVerb) {
+            scrollToVerb(primaryVerb);
+        }
+    }
+
+    function scrollToVerb(primaryVerb) {
+        const verbSection = safeGetElementById(primaryVerb);
+        if (verbSection) {
+            // Use the same working scroll calculation as the search sidebar navigation
+            const stickyHeaderHeight = 80; // Adjust based on actual header height
+            const rect = verbSection.getBoundingClientRect();
+            const targetPosition = window.scrollY + rect.top - stickyHeaderHeight;
+
+            window.scrollTo({
+                top: targetPosition,
+                behavior: 'auto' // No animation, instant jump
+            });
+        }
+    }
+
+    // Clipboard functions with fallback support
+    function fallbackCopyToClipboard(text) {
+        const textArea = document.createElement('textarea');
+        textArea.value = text;
+        textArea.style.position = 'fixed';
+        textArea.style.left = '-999999px';
+        textArea.style.top = '-999999px';
+        document.body.appendChild(textArea);
+        textArea.focus();
+        textArea.select();
+
+        try {
+            const successful = document.execCommand('copy');
+            if (successful) {
+                showNotification('Link copied to clipboard!', 'success');
+            } else {
+                showNotification('Failed to copy link', 'error');
+            }
+        } catch (err) {
+            showNotification('Failed to copy link', 'error');
+        }
+
+        document.body.removeChild(textArea);
+    }
+
+    function copyToClipboard(text) {
+        if (navigator.clipboard && window.isSecureContext) {
+            navigator.clipboard.writeText(text).then(() => {
+                showNotification('Link copied to clipboard!', 'success');
+            }).catch(() => {
+                fallbackCopyToClipboard(text);
+            });
+        } else {
+            fallbackCopyToClipboard(text);
+        }
+    }
+
+    function showNotification(message, type = 'success') {
+        // Remove existing notifications
+        const existingNotifications = document.querySelectorAll('.notification');
+        existingNotifications.forEach(notification => notification.remove());
+
+        // Create new notification
+        const notification = document.createElement('div');
+        notification.className = `notification ${type}`;
+        notification.textContent = message;
+        document.body.appendChild(notification);
+
+        // Remove notification after 3 seconds
+        setTimeout(() => {
+            if (notification.parentNode) {
+                notification.remove();
+            }
+        }, 3000);
+    }
+
+    // Make handleLinkIconClick globally accessible
+    window.handleLinkIconClick = function (anchorId) {
+        const url = `${window.location.origin}${window.location.pathname}#${anchorId}`;
+
+        // Find the clicked link icon element
+        const clickedElement = event.target;
+
+        // Store original styles
+        const originalBackground = clickedElement.style.backgroundColor;
+        const originalColor = clickedElement.style.color;
+        const originalOpacity = clickedElement.style.opacity;
+
+        // Apply copied state styles
+        clickedElement.style.backgroundColor = 'var(--success-color)';
+        clickedElement.style.color = 'white';
+        clickedElement.style.opacity = '1';
+
+        // Copy to clipboard
+        copyToClipboard(url);
+        updateURLWithAnchor(anchorId);
+
+        // Restore original styles after a short delay
+        setTimeout(() => {
+            clickedElement.style.backgroundColor = 'transparent';
+            clickedElement.style.color = originalColor;
+            clickedElement.style.opacity = originalOpacity;
+        }, 500);
+    }
+
     // Search and filter function
     function filterTableOfContents(searchTerm) {
         const searchLower = searchTerm.toLowerCase();
@@ -582,34 +866,36 @@ document.addEventListener('DOMContentLoaded', function () {
         filteredItems = [];
 
         // Get all items including category headers
-        const allItems = tocList.querySelectorAll('.toc-item, .category-header');
+        const tocContainer = document.querySelector('.toc-content-container');
+        if (!tocContainer) return;
+
+        const allItems = tocContainer.querySelectorAll('.toc-item, .category-header, .toc-category-header');
 
         // Track which categories have visible verbs
         const categoriesWithVisibleVerbs = new Set();
 
         // First pass: process verb items and track visible categories
         allItems.forEach(item => {
-            if (!item.classList.contains('category-header')) {
+            if (!item.classList.contains('category-header') && !item.classList.contains('toc-category-header')) {
                 // Handle verb items
                 const georgianText = item.querySelector('.verb-georgian')?.textContent || '';
-                const englishText = item.querySelector('.verb-english')?.textContent || '';
                 const descriptionText = item.querySelector('.verb-description')?.textContent || '';
-                const categoryText = item.querySelector('.verb-category')?.textContent || '';
                 const classText = item.querySelector('.verb-class')?.textContent || '';
 
-                const searchableText = `${georgianText} ${englishText} ${descriptionText} ${categoryText} ${classText}`.toLowerCase();
+                const searchableText = `${georgianText} ${descriptionText} ${classText}`.toLowerCase();
 
                 // Check if item matches search term
                 const matchesSearch = searchTerm === '' || searchableText.includes(searchLower);
 
-                // Check if item matches category filter
-                const matchesCategory = selectedCategory === 'all' || categoryText === selectedCategory;
+                // Check if item matches category filter - get category from data attribute
+                const itemCategory = item.getAttribute('data-category') || '';
+                const matchesCategory = selectedCategory === 'all' || itemCategory === selectedCategory;
 
                 if (matchesSearch && matchesCategory) {
                     item.classList.remove('hidden');
                     visibleCount++;
                     filteredItems.push(item);
-                    categoriesWithVisibleVerbs.add(categoryText); // Track this category as having visible verbs
+                    categoriesWithVisibleVerbs.add(itemCategory); // Track this category as having visible verbs
 
                     // Highlight matching text if search term is not empty
                     if (searchTerm !== '') {
@@ -626,7 +912,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
         // Second pass: process category headers
         allItems.forEach(item => {
-            if (item.classList.contains('category-header')) {
+            if (item.classList.contains('category-header') || item.classList.contains('toc-category-header')) {
                 const categoryName = item.textContent;
                 const shouldShowCategory = selectedCategory === 'all' || categoryName === selectedCategory;
 
@@ -662,7 +948,7 @@ document.addEventListener('DOMContentLoaded', function () {
                 msg.id = 'no-results-message';
                 msg.className = 'no-results';
                 msg.textContent = 'No verbs found matching your criteria.';
-                tocList.appendChild(msg);
+                tocContainer.appendChild(msg);
             }
         } else {
             if (noResultsMsg) {
@@ -1007,6 +1293,137 @@ document.addEventListener('DOMContentLoaded', function () {
 
     // Initialize sticky header functionality
     initializeStickyHeaders();
+
+    // Restore category states from session storage
+    restoreCategoryStates();
+
+    // Reset functionality
+    const resetToggle = document.getElementById('reset-toggle');
+
+    resetToggle.addEventListener('click', function () {
+        // Show confirmation dialog
+        if (confirm('Reset to default state? This will clear all filters and remove any anchor links from the URL.')) {
+            resetToDefaultState();
+        }
+    });
+
+    // Function to reset to default state
+    function resetToDefaultState() {
+        // Clear all filters
+        if (groupBySelect) {
+            groupBySelect.value = 'category';
+        }
+        if (categorySelect) {
+            categorySelect.value = 'all';
+        }
+        if (classSelect) {
+            classSelect.value = 'all';
+        }
+
+        // Reset sidebar filters
+        if (sidebarCategoryFilter) {
+            sidebarCategoryFilter.value = 'all';
+        }
+
+        // Clear search input
+        const searchInput = document.getElementById('search-input');
+        if (searchInput) {
+            searchInput.value = '';
+        }
+
+        // Apply filters to reset everything
+        applyFilters();
+
+        // Clear table of contents filter
+        filterTableOfContents('');
+
+        // Remove anchor from URL without triggering page reload
+        if (window.history && window.history.replaceState) {
+            window.history.replaceState(null, null, window.location.pathname);
+        }
+
+        // Scroll to top smoothly
+        window.scrollTo({
+            top: 0,
+            behavior: 'smooth'
+        });
+
+        // Show success notification
+        showNotification('Page reset to default state', 'success');
+    }
+
+    // Handle direct URL access with anchor tags
+    // Add a small delay to ensure hash is available
+    setTimeout(() => {
+        handleURLAnchor();
+    }, 100);
+
+    // Listen for browser back/forward navigation
+    window.addEventListener('popstate', handleURLAnchor);
+
+    // Add link icon event listeners
+    document.querySelectorAll('.verb-link-icon').forEach(icon => {
+        icon.addEventListener('click', function (e) {
+            e.preventDefault();
+            const georgianVerb = this.getAttribute('data-verb-georgian');
+            handleLinkIconClick(georgianVerb);
+        });
+    });
+
+    // Enhanced category management functions
+    function expandCategory(header, content, category) {
+        content.classList.remove('collapsed');
+        header.classList.remove('collapsed');
+        saveCategoryState(category, 'expanded');
+    }
+
+    function collapseCategoryWithSmartScroll(header, content, category) {
+        // 1. Collapse the category
+        content.classList.add('collapsed');
+        header.classList.add('collapsed');
+
+        // 2. Save state to session storage
+        saveCategoryState(category, 'collapsed');
+
+        // 3. Scroll to the top of the collapsed header
+        const headerTop = header.offsetTop;
+        const stickyHeaderHeight = 80; // Adjust based on actual header height
+        const targetPosition = headerTop - stickyHeaderHeight;
+
+        // 4. Scroll instantly to show the collapsed header at the top
+        window.scrollTo({
+            top: targetPosition,
+            behavior: 'auto'
+        });
+    }
+
+    // Initialize expand/collapse all buttons
+    const expandAllBtn = document.getElementById('expand-all-categories');
+    const collapseAllBtn = document.getElementById('collapse-all-categories');
+
+    if (expandAllBtn) {
+        expandAllBtn.addEventListener('click', function () {
+            const contents = document.querySelectorAll('.category-content');
+            const headers = document.querySelectorAll('.collapsible-header');
+
+            contents.forEach(content => content.classList.remove('collapsed'));
+            headers.forEach(header => header.classList.remove('collapsed'));
+
+            // No longer saving to session storage
+        });
+    }
+
+    if (collapseAllBtn) {
+        collapseAllBtn.addEventListener('click', function () {
+            const contents = document.querySelectorAll('.category-content');
+            const headers = document.querySelectorAll('.collapsible-header');
+
+            contents.forEach(content => content.classList.add('collapsed'));
+            headers.forEach(header => header.classList.add('collapsed'));
+
+            // No longer saving to session storage
+        });
+    }
 }); // Close DOMContentLoaded function
 
 /**
@@ -1065,6 +1482,8 @@ function initializeStickyHeaders() {
 function initializeCollapsibleHeaders() {
     const collapsibleHeaders = document.querySelectorAll('.collapsible-header');
 
+
+
     collapsibleHeaders.forEach(header => {
         header.addEventListener('click', function () {
             const category = this.getAttribute('data-category');
@@ -1075,40 +1494,37 @@ function initializeCollapsibleHeaders() {
 
                 if (isCollapsed) {
                     // Expand
+                    // Simple expand without smart scroll
                     content.classList.remove('collapsed');
                     this.classList.remove('collapsed');
+
+                    // No longer saving to session storage
                 } else {
-                    // Collapse
+                    // Collapse with smart scroll
+
+                    // 1. Collapse the category
                     content.classList.add('collapsed');
                     this.classList.add('collapsed');
+
+                    // 2. No longer saving to session storage
+
+                    // 3. Scroll to show collapsed header positioned higher in viewport
+                    const categoryContainer = this.closest('.category-container');
+                    const containerTop = categoryContainer ? categoryContainer.offsetTop : this.offsetTop;
+                    const stickyHeaderHeight = 0; // Reduced offset to position header higher
+                    const targetPosition = containerTop - stickyHeaderHeight;
+
+                    // 4. Scroll instantly to show the category container at the top
+                    window.scrollTo({
+                        top: targetPosition,
+                        behavior: 'auto'
+                    });
                 }
+            } else {
+                console.error('Content not found for category:', category);
             }
         });
     });
-
-    // Initialize expand/collapse all buttons
-    const expandAllBtn = document.getElementById('expand-all-categories');
-    const collapseAllBtn = document.getElementById('collapse-all-categories');
-
-    if (expandAllBtn) {
-        expandAllBtn.addEventListener('click', function () {
-            const contents = document.querySelectorAll('.category-content');
-            const headers = document.querySelectorAll('.collapsible-header');
-
-            contents.forEach(content => content.classList.remove('collapsed'));
-            headers.forEach(header => header.classList.remove('collapsed'));
-        });
-    }
-
-    if (collapseAllBtn) {
-        collapseAllBtn.addEventListener('click', function () {
-            const contents = document.querySelectorAll('.category-content');
-            const headers = document.querySelectorAll('.collapsible-header');
-
-            contents.forEach(content => content.classList.add('collapsed'));
-            headers.forEach(header => header.classList.add('collapsed'));
-        });
-    }
 }
 
 /**
@@ -1117,9 +1533,6 @@ function initializeCollapsibleHeaders() {
  * This class manages the interactive preverb selection system that allows users
  * to switch between different preverb forms of Georgian verbs (e.g., მი-, წა-, etc.)
  * and updates all related content (tables, examples) accordingly.
- * 
- * This is currently only tested with the verb "to go".
- * It will need to be updated for future verbs with different preverb rules.
  */
 class PreverbManager {
     constructor() {
@@ -1137,9 +1550,7 @@ class PreverbManager {
     handlePreverbChange(selector) {
         const verbId = selector.dataset.verbId;
         const selectedPreverb = selector.value;
-        const verbSection = document.querySelector(`#verb-${verbId}`);
-
-        // Preverb change handled silently
+        const verbSection = document.querySelector(`[data-verb-id="${verbId}"]`);
 
         if (verbSection) {
             this.updateVerbDisplay(verbSection, selectedPreverb);
@@ -1161,7 +1572,7 @@ class PreverbManager {
     }
 
     updateConjugationTables(verbSection, preverb) {
-        const verbId = verbSection.id.replace('verb-', '');
+        const verbId = verbSection.dataset.verbId;
         const preverbConfig = JSON.parse(verbSection.dataset.preverbConfig);
 
         // Get conjugations for selected preverb
@@ -1187,7 +1598,6 @@ class PreverbManager {
         const examplesData = verbSection.getAttribute(`data-examples-${normalizedPreverb}`);
 
         if (!examplesData) {
-            console.warn(`No examples found for preverb: ${preverb}`);
             return;
         }
 
@@ -1218,7 +1628,6 @@ class PreverbManager {
         const glossAnalysesData = verbSection.getAttribute(`data-gloss-analyses-${normalizedPreverb}`);
 
         if (!glossAnalysesData) {
-            console.warn(`No gloss analyses found for preverb: ${preverb}`);
             return;
         }
 
@@ -1262,7 +1671,7 @@ class PreverbManager {
 
     getConjugationsForPreverb(verbId, preverb) {
         // Get data from the verb section's data attributes
-        const verbSection = document.querySelector(`#verb-${verbId}`);
+        const verbSection = document.querySelector(`[data-verb-id="${verbId}"]`);
         if (!verbSection) return {};
 
         const preverbConfig = JSON.parse(verbSection.dataset.preverbConfig || '{}');
@@ -1274,12 +1683,12 @@ class PreverbManager {
             return this.calculatePreverbForms(conjugations, preverbRules, preverb);
         }
 
-        // Handle stem-based verbs (fallback)
-        if (preverbConfig.stem_based) {
+        // Handle stem-based approach (available_preverbs array)
+        if (preverbConfig.available_preverbs && preverbConfig.available_preverbs.length > 0) {
             const preverbConjugations = {};
             for (const [tense, tenseData] of Object.entries(conjugations)) {
                 if (tenseData && typeof tenseData === 'object' && tenseData.forms) {
-                    // For stem-based verbs, combine preverb with stems
+                    // For stem-based approach, combine preverb with stems
                     const forms = {};
                     // Remove hyphen from preverb before combining
                     const clean_preverb = preverb.replace('-', '');
@@ -1382,7 +1791,7 @@ class PreverbManager {
 
     getExamplesForPreverb(verbId, preverb) {
         // Get data from the verb section's data attributes
-        const verbSection = document.querySelector(`#verb-${verbId}`);
+        const verbSection = document.querySelector(`[data-verb-id="${verbId}"]`);
         if (!verbSection) return {};
 
         const examples = JSON.parse(verbSection.dataset.examples || '{}');
@@ -1531,7 +1940,6 @@ class PreverbManager {
     updateExampleContent(exampleSection, conjugations, preverb, preverbTranslations) {
         // This method is no longer needed as examples are now pre-generated
         // and handled by the updateExamples method
-        console.warn('updateExampleContent is deprecated - use updateExamples instead');
     }
 
     getTenseFromExampleSection(exampleSection) {
@@ -1577,8 +1985,8 @@ class PreverbManager {
             return null;
         }
 
-        // Handle stem-based verbs (fallback)
-        if (preverbConfig.stem_based) {
+        // Handle stem-based approach (available_preverbs array)
+        if (preverbConfig.available_preverbs && preverbConfig.available_preverbs.length > 0) {
             if (conjugations[tense] && conjugations[tense].forms) {
                 const stem = conjugations[tense].forms[person];
                 if (stem && stem !== '-') {

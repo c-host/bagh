@@ -18,96 +18,94 @@ import shutil
 import html
 import re
 from pathlib import Path
+import sys
+from pathlib import Path
+
+# Add the project root to the Python path
+project_root = Path(__file__).parent.parent
+sys.path.insert(0, str(project_root))
+
 from gloss_parser import GlossParser
-from example_generator import EnhancedExampleGenerator
-from verb_form_generator import get_verb_form, get_verb_gloss, get_verb_examples
+from example_generator import generate_pedagogical_examples
+from verb_conjugation import (
+    get_conjugation_form,
+    get_verb_gloss,
+    get_verb_examples,
+    calculate_preverb_forms,
+    get_preverb_mappings,
+    get_english_translation,
+    get_indirect_object_preposition,
+    get_direct_object_preposition,
+    has_preverb_in_tense,
+)
 
 
-def calculate_preverb_forms(forms, preverb_rules, target_preverb):
-    """
-    Calculate preverb forms based on preverb rules.
+def get_primary_verb(georgian_text):
+    """Extract the first verb form from Georgian text."""
+    if not georgian_text or georgian_text == "N/A":
+        return "unknown"
+    return georgian_text.split(" / ")[0].strip()
 
-    Args:
-        forms: Dictionary of conjugation forms with default preverb
-        preverb_rules: Dictionary containing preverb replacement rules
-        target_preverb: The target preverb to apply
 
-    Returns:
-        Dictionary of forms with the target preverb applied
-    """
-    if not preverb_rules:
-        return forms
+def validate_verb_data(verbs):
+    """Validate verb data for uniqueness and consistency."""
+    semantic_keys = set()
+    primary_verbs = set()
+    warnings = []
 
-    default_preverb = preverb_rules.get("default", "")
-    replacements = preverb_rules.get("replacements", {})
-    tense_specific_fallbacks = preverb_rules.get("tense_specific_fallbacks", {})
+    for verb in verbs:
+        semantic_key = verb.get("semantic_key", "")
+        primary_verb = get_primary_verb(verb.get("georgian", ""))
 
-    # Get the actual replacement for this preverb
-    replacement = replacements.get(target_preverb, target_preverb)
+        if semantic_key in semantic_keys:
+            warnings.append(f"Warning: Duplicate semantic key: {semantic_key}")
+        if primary_verb in primary_verbs:
+            warnings.append(f"Warning: Duplicate primary verb: {primary_verb}")
 
-    # Check for tense-specific fallbacks
-    if target_preverb in tense_specific_fallbacks:
-        # For now, we'll handle this in the calling function
-        # This is a placeholder for future tense-specific logic
-        pass
+        semantic_keys.add(semantic_key)
+        primary_verbs.add(primary_verb)
 
-    # Normalize preverb values by removing hyphens for comparison
-    normalized_target = target_preverb.replace("-", "")
-    normalized_default = default_preverb.replace("-", "")
+    for warning in warnings:
+        print(warning)
 
-    # If the target preverb is the same as the default preverb, return the original forms
-    if normalized_target == normalized_default:
-        return forms
+    return len(warnings) == 0
 
-    result = {}
-    for person, form in forms.items():
-        if form == "-" or form == "":
-            result[person] = form
-        elif form.startswith(default_preverb):
-            # Extract the stem (remove the default preverb) and apply the new preverb
-            stem = form[len(default_preverb) :]
-            result[person] = replacement + stem
+
+def create_safe_anchor_id(
+    georgian_text, semantic_key="", verb_id="", duplicate_primary_verbs=None
+):
+    """Create a safe anchor ID with smart disambiguation."""
+    primary_verb = get_primary_verb(georgian_text)
+
+    # Basic validation - ensure it's not empty
+    if not primary_verb or primary_verb == "unknown":
+        return f"verb-{hash(georgian_text) % 10000}"
+
+    # Check if this primary verb has duplicates
+    if duplicate_primary_verbs and primary_verb in duplicate_primary_verbs:
+        # This is a duplicate, so we need disambiguation
+        if semantic_key:
+            return f"{primary_verb}-{semantic_key}"
+        elif verb_id:
+            return f"{primary_verb}-{verb_id}"
         else:
-            # Handle irregular forms that don't follow prefix pattern
-            result[person] = form
+            return f"{primary_verb}-{hash(georgian_text) % 1000}"
+    else:
+        # This is unique, use clean URL
+        return primary_verb
 
-    return result
 
+def get_duplicate_primary_verbs(verbs):
+    """Identify primary verbs that appear multiple times (need disambiguation)."""
+    primary_verb_counts = {}
 
-def get_preverb_mappings(verb_data, preverb_rules):
-    """
-    Generate all preverb mappings for a verb.
+    for verb in verbs:
+        georgian = verb.get("georgian", "")
+        primary_verb = get_primary_verb(georgian)
+        primary_verb_counts[primary_verb] = primary_verb_counts.get(primary_verb, 0) + 1
 
-    Args:
-        verb_data: Verb data dictionary
-        preverb_rules: Preverb rules dictionary
-
-    Returns:
-        Dictionary of all preverb mappings for all tenses
-    """
-    if not preverb_rules:
-        return {}
-
-    available_preverbs = preverb_rules.get("replacements", {}).keys()
-    conjugations = verb_data.get("conjugations", {})
-
-    all_mappings = {}
-
-    for tense, tense_data in conjugations.items():
-        if "forms" not in tense_data:
-            continue
-
-        forms = tense_data["forms"]
-        tense_mappings = {}
-
-        for preverb in available_preverbs:
-            tense_mappings[preverb] = calculate_preverb_forms(
-                forms, preverb_rules, preverb
-            )
-
-        all_mappings[tense] = tense_mappings
-
-    return all_mappings
+    # Return only the verbs that appear more than once
+    return {verb: count for verb, count in primary_verb_counts.items() if count > 1}
 
 
 def load_json_data():
@@ -116,25 +114,35 @@ def load_json_data():
         json_path = Path(__file__).parent.parent / "src" / "data" / "verbs.json"
 
         if not json_path.exists():
-            print(f"Error: verbs.json not found at {json_path}")
-            return []
+            return [], {}
 
         with open(json_path, "r", encoding="utf-8") as f:
             data = json.load(f)
 
-        verbs = data.get("verbs", [])
-        print(f"Loaded {len(verbs)} verbs from JSON")
-        return verbs
+        verbs_data = data.get("verbs", {})
+
+        # Handle both array and object structures for backward compatibility
+        if isinstance(verbs_data, list):
+            # Old array format
+            verbs = verbs_data
+        else:
+            # New object format - convert to list for compatibility
+            verbs = list(verbs_data.values())
+
+        # Validate verb data
+        validate_verb_data(verbs)
+
+        # Identify duplicate primary verbs for smart disambiguation
+        duplicate_primary_verbs = get_duplicate_primary_verbs(verbs)
+
+        return verbs, duplicate_primary_verbs
 
     except FileNotFoundError:
-        print(f"Error: verbs.json not found at {json_path}")
-        return []
-    except json.JSONDecodeError as e:
-        print(f"Error parsing JSON: {e}")
-        return []
-    except Exception as e:
-        print(f"Unexpected error loading JSON: {e}")
-        return []
+        return [], {}
+    except json.JSONDecodeError:
+        return [], {}
+    except Exception:
+        return [], {}
 
 
 def load_semantic_mapping():
@@ -145,117 +153,63 @@ def load_semantic_mapping():
         )
 
         if not mapping_path.exists():
-            print(f"Info: verb_semantic_mapping.json not found at {mapping_path}")
-            print(
-                "Semantic mapping file has been removed as it's not used by the current system."
-            )
             return {}
 
         with open(mapping_path, "r", encoding="utf-8") as f:
             mapping = json.load(f)
 
-        print(f"Loaded semantic mapping for {len(mapping)} verbs")
         return mapping
 
     except FileNotFoundError:
-        print(f"Info: verb_semantic_mapping.json not found at {mapping_path}")
-        print(
-            "Semantic mapping file has been removed as it's not used by the current system."
-        )
         return {}
-    except json.JSONDecodeError as e:
-        print(f"Error parsing semantic mapping JSON: {e}")
+    except json.JSONDecodeError:
         return {}
-    except Exception as e:
-        print(f"Unexpected error loading semantic mapping: {e}")
+    except Exception:
         return {}
 
 
 def validate_semantic_mappings(verbs, semantic_mapping):
     """Validate that all verbs have semantic mappings."""
-    print("\n=== Semantic Mapping Validation ===")
-
     # Check if semantic mapping is being used
     if not semantic_mapping:
-        print("Semantic mapping file is empty or not being used by current system.")
-        print(
-            "The current example generation system doesn't rely on semantic mappings."
-        )
-        print("✓ Semantic mapping validation passed (not required)")
-        print("=== End Validation ===\n")
         return True
 
     missing_mappings = []
-    total_verbs = len(verbs)
-    mapped_verbs = 0
 
     for verb in verbs:
-        english_key = verb.get("english", "")
-        if not english_key:
-            print(f"Warning: Verb ID {verb.get('id', 'unknown')} has no English key")
+        semantic_key = verb.get("semantic_key", "")
+        if not semantic_key:
             continue
 
-        if english_key in semantic_mapping:
-            mapped_verbs += 1
-        else:
+        if semantic_key not in semantic_mapping:
             missing_mappings.append(
                 {
                     "id": verb.get("id", "unknown"),
                     "georgian": verb.get("georgian", "unknown"),
-                    "english": english_key,
+                    "semantic_key": semantic_key,
                     "description": verb.get("description", "unknown"),
                 }
             )
-
-    # Report results
-    print(f"Total verbs: {total_verbs}")
-    print(f"Verbs with semantic mappings: {mapped_verbs}")
-    print(f"Verbs missing semantic mappings: {len(missing_mappings)}")
-
-    if missing_mappings:
-        print("\nVerbs missing semantic mappings:")
-        for verb in missing_mappings:
-            print(
-                f"  - ID {verb['id']}: {verb['georgian']} ({verb['english']}) - {verb['description']}"
-            )
-
-        print(
-            f"\nValidation Summary: {len(missing_mappings)} verbs are missing semantic mappings."
-        )
-        print(
-            "Note: The current example generation system doesn't rely on semantic mappings."
-        )
-        print("These missing mappings won't affect functionality.")
-    else:
-        print("\n✓ All verbs have semantic mappings!")
-
-    print("=== End Validation ===\n")
 
     return len(missing_mappings) == 0
 
 
 def validate_verb_data_structure(verbs):
     """Validate verb data structure and required fields."""
-    print("\n=== Verb Data Structure Validation ===")
-
     validation_errors = []
-    total_verbs = len(verbs)
 
     for verb in verbs:
         verb_id = verb.get("id")
         georgian = verb.get("georgian", "")
-        english = verb.get("english", "")
+        description = verb.get("description", "")
 
         # Check required fields
         if not verb_id:
-            validation_errors.append(f"Verb missing ID: {georgian} ({english})")
+            validation_errors.append(f"Verb missing ID: {georgian} ({description})")
             continue
 
         if not georgian:
             validation_errors.append(f"Verb ID {verb_id} missing Georgian form")
-
-        if not english:
-            validation_errors.append(f"Verb ID {verb_id} missing English translation")
 
         # Check conjugation data
         conjugations = verb.get("conjugations", {})
@@ -285,63 +239,35 @@ def validate_verb_data_structure(verbs):
         if preverb_config:
             # Validate preverb config structure
             if preverb_config.get("has_multiple_preverbs", False):
-                if preverb_config.get("stem_based", False):
-                    available_preverbs = preverb_config.get("available_preverbs", [])
-                    if not available_preverbs:
-                        validation_errors.append(
-                            f"Verb ID {verb_id} has stem_based=True but no available_preverbs"
-                        )
-                else:
-                    preverbs = preverb_config.get("preverbs", {})
-                    if not preverbs:
-                        validation_errors.append(
-                            f"Verb ID {verb_id} has has_multiple_preverbs=True but no preverbs"
-                        )
+                # Check for stem-based approach (available_preverbs array)
+                available_preverbs = preverb_config.get("available_preverbs", [])
+                # Check for pre-defined forms approach (preverbs object)
+                preverbs = preverb_config.get("preverbs", {})
 
-    # Report results
-    print(f"Total verbs checked: {total_verbs}")
-    print(f"Validation errors found: {len(validation_errors)}")
-
-    if validation_errors:
-        print("\nValidation errors:")
-        for error in validation_errors:
-            print(f"  - {error}")
-        print(
-            f"\nValidation Summary: {len(validation_errors)} data structure issues found."
-        )
-    else:
-        print("\n✓ All verbs have valid data structure!")
-
-    print("=== End Validation ===\n")
+            if not available_preverbs and not preverbs:
+                validation_errors.append(
+                    f"Verb ID {verb_id} has has_multiple_preverbs=True but no available_preverbs or preverbs"
+                )
 
     return len(validation_errors) == 0
 
 
 def validate_semantic_mapping_structure(semantic_mapping):
     """Validate semantic mapping data structure."""
-    print("\n=== Semantic Mapping Structure Validation ===")
-
     validation_errors = []
-    total_mappings = len(semantic_mapping)
 
     # Check if semantic mapping is empty (which is acceptable if not being used)
-    if total_mappings == 0:
-        print("Semantic mapping file is empty or not being used by current system.")
-        print(
-            "This is acceptable as the current example generation system doesn't rely on semantic mappings."
-        )
-        print("✓ Semantic mapping validation passed (not required)")
-        print("=== End Validation ===\n")
+    if len(semantic_mapping) == 0:
         return True
 
     # Check for old vs new structure
     has_old_structure = False
     has_new_structure = False
 
-    for english_key, mapping_data in semantic_mapping.items():
+    for semantic_key, mapping_data in semantic_mapping.items():
         if not isinstance(mapping_data, dict):
             validation_errors.append(
-                f"Invalid mapping structure for '{english_key}': not a dictionary"
+                f"Invalid mapping structure for '{semantic_key}': not a dictionary"
             )
             continue
 
@@ -356,76 +282,47 @@ def validate_semantic_mapping_structure(semantic_mapping):
         # If neither structure is found, mark as problematic
         if not has_old_structure and not has_new_structure:
             validation_errors.append(
-                f"Mapping for '{english_key}' has unknown structure"
+                f"Mapping for '{semantic_key}' has unknown structure"
             )
 
-    # Report structure type
-    if has_old_structure and not has_new_structure:
-        print("Detected old semantic mapping structure (compatible_subjects, etc.)")
-        print("This structure is not currently used by the example generation system.")
-        print("Consider updating to new structure or removing if not needed.")
-    elif has_new_structure and not has_old_structure:
-        print(
-            "Detected new semantic mapping structure (semantic_domain, argument_patterns)"
-        )
-        print("Validating new structure...")
-
-        # Validate new structure
-        for english_key, mapping_data in semantic_mapping.items():
+    # Validate new structure if present
+    if has_new_structure and not has_old_structure:
+        for semantic_key, mapping_data in semantic_mapping.items():
             if "semantic_domain" not in mapping_data:
                 validation_errors.append(
-                    f"Mapping for '{english_key}' missing semantic_domain"
+                    f"Mapping for '{semantic_key}' missing semantic_domain"
                 )
 
             if "argument_patterns" not in mapping_data:
                 validation_errors.append(
-                    f"Mapping for '{english_key}' missing argument_patterns"
+                    f"Mapping for '{semantic_key}' missing argument_patterns"
                 )
             else:
                 # Validate argument patterns
                 patterns = mapping_data["argument_patterns"]
                 if not isinstance(patterns, list):
                     validation_errors.append(
-                        f"Mapping for '{english_key}' has invalid argument_patterns (not a list)"
+                        f"Mapping for '{semantic_key}' has invalid argument_patterns (not a list)"
                     )
                 else:
                     for pattern in patterns:
                         if not isinstance(pattern, str):
                             validation_errors.append(
-                                f"Mapping for '{english_key}' has invalid argument pattern: {pattern}"
+                                f"Mapping for '{semantic_key}' has invalid argument pattern: {pattern}"
                             )
                         elif pattern not in ["<S>", "<S-DO>", "<S-IO>", "<S-DO-IO>"]:
                             validation_errors.append(
-                                f"Mapping for '{english_key}' has unknown argument pattern: {pattern}"
+                                f"Mapping for '{semantic_key}' has unknown argument pattern: {pattern}"
                             )
+
     elif has_old_structure and has_new_structure:
-        print("Mixed semantic mapping structure detected (both old and new)")
-        print("This may cause issues. Consider standardizing to one structure.")
         validation_errors.append("Mixed semantic mapping structure detected")
-
-    # Report results
-    print(f"Total semantic mappings checked: {total_mappings}")
-    print(f"Validation errors found: {len(validation_errors)}")
-
-    if validation_errors:
-        print("\nValidation errors:")
-        for error in validation_errors:
-            print(f"  - {error}")
-        print(
-            f"\nValidation Summary: {len(validation_errors)} semantic mapping structure issues found."
-        )
-    else:
-        print("\n✓ Semantic mapping structure is valid!")
-
-    print("=== End Validation ===\n")
 
     return len(validation_errors) == 0
 
 
 def validate_database_files():
     """Validate that all required database files exist and are valid JSON."""
-    print("\n=== Database Files Validation ===")
-
     validation_errors = []
     required_databases = [
         "subject_database.json",
@@ -444,7 +341,6 @@ def validate_database_files():
             try:
                 with open(db_path, "r", encoding="utf-8") as f:
                     data = json.load(f)
-                print(f"✓ {db_file} - Valid JSON")
             except json.JSONDecodeError as e:
                 validation_errors.append(
                     f"Database file {db_file} has invalid JSON: {e}"
@@ -452,31 +348,11 @@ def validate_database_files():
             except Exception as e:
                 validation_errors.append(f"Error reading database file {db_file}: {e}")
 
-    # Report results
-    print(f"Total database files checked: {len(required_databases)}")
-    print(f"Validation errors found: {len(validation_errors)}")
-
-    if validation_errors:
-        print("\nValidation errors:")
-        for error in validation_errors:
-            print(f"  - {error}")
-        print(
-            f"\nValidation Summary: {len(validation_errors)} database file issues found."
-        )
-    else:
-        print("\n✓ All database files are valid!")
-
-    print("=== End Validation ===\n")
-
     return len(validation_errors) == 0
 
 
 def run_comprehensive_validation(verbs, semantic_mapping):
     """Run all validation checks and return overall status."""
-    print("\n" + "=" * 60)
-    print("COMPREHENSIVE VALIDATION REPORT")
-    print("=" * 60)
-
     validation_results = []
 
     # Run all validation checks
@@ -498,24 +374,6 @@ def run_comprehensive_validation(verbs, semantic_mapping):
     passed_checks = sum(1 for _, passed in validation_results if passed)
     total_checks = len(validation_results)
 
-    print("\n" + "=" * 60)
-    print("VALIDATION SUMMARY")
-    print("=" * 60)
-    print(f"Passed: {passed_checks}/{total_checks} validation checks")
-
-    for check_name, passed in validation_results:
-        status = "✓ PASS" if passed else "✗ FAIL"
-        print(f"  {check_name}: {status}")
-
-    if passed_checks == total_checks:
-        print("\n🎉 All validation checks passed! Data is ready for build.")
-    else:
-        print(
-            f"\n⚠️  {total_checks - passed_checks} validation check(s) failed. Please review the issues above."
-        )
-
-    print("=" * 60 + "\n")
-
     return passed_checks == total_checks
 
 
@@ -529,10 +387,9 @@ def create_preverb_selector(verb_data):
 
     default_preverb = preverb_config.get("default_preverb", "")
 
-    # Handle stem-based verbs with available_preverbs array
-    if preverb_config.get("stem_based", False):
-        available_preverbs = preverb_config.get("available_preverbs", [])
-
+    # Handle stem-based approach (available_preverbs array)
+    available_preverbs = preverb_config.get("available_preverbs", [])
+    if available_preverbs:
         selector_html = f"""
             <div class="preverb-selector">
                 <label for="preverb-toggle-{verb_data['id']}">Preverb:</label>
@@ -609,8 +466,9 @@ def create_preverb_aware_table(verb_data, selected_preverb=None):
             {"conjugations": preverb_conjugations}, selected_preverb
         )
 
-    # For stem-based verbs, pass the full verb data to let get_verb_form handle preverb combination
-    if preverb_config.get("stem_based", False):
+    # For stem-based approach, pass the full verb data to let get_conjugation_form handle preverb combination
+    available_preverbs = preverb_config.get("available_preverbs", [])
+    if available_preverbs:
         return create_overview_table(verb_data, selected_preverb)
 
     # Handle old multi-preverb structure (fallback)
@@ -646,7 +504,7 @@ def has_tense_forms(verb, tense, preverb=None):
             )
 
     # Fallback to original logic
-    return any(get_verb_form(verb, tense, person, preverb) for person in persons)
+    return any(get_conjugation_form(verb, tense, person, preverb) for person in persons)
 
 
 def create_preverb_aware_examples(verb_data, preverb_rules):
@@ -863,10 +721,14 @@ def format_gloss_for_html(case_gloss: str) -> str:
 
                             # Handle compound patterns like S-IO, S-DO, S-DO-IO by processing individual elements
                             if "-" in component and (
-                                "S" in component or "DO" in component or "IO" in component
+                                "S" in component
+                                or "DO" in component
+                                or "IO" in component
                             ):
                                 # Handle compound patterns with angle brackets like <S-DO-IO>
-                                if component.startswith("<") and component.endswith(">"):
+                                if component.startswith("<") and component.endswith(
+                                    ">"
+                                ):
                                     # Extract content between angle brackets
                                     inner_content = component[1:-1]  # Remove < and >
                                     parts = inner_content.split("-")
@@ -954,7 +816,8 @@ def format_gloss_for_html(case_gloss: str) -> str:
                                 )
                             elif "IO" in component:
                                 color_coded_component = color_coded_component.replace(
-                                    "IO", '<span class="gloss-indirect-object">IO</span>'
+                                    "IO",
+                                    '<span class="gloss-indirect-object">IO</span>',
                                 )
 
                         # Don't escape the color-coded component since it contains HTML
@@ -1062,12 +925,12 @@ def create_overview_table(verb, default_preverb=None):
             table_html += f"""
                 <tr class="{tense_class}">
                     <td>{tense_names[tense]}</td>
-                    <td class="georgian-text">{get_verb_form(verb, tense, '1sg', default_preverb) or '-'}</td>
-                    <td class="georgian-text">{get_verb_form(verb, tense, '2sg', default_preverb) or '-'}</td>
-                    <td class="georgian-text">{get_verb_form(verb, tense, '3sg', default_preverb) or '-'}</td>
-                    <td class="georgian-text">{get_verb_form(verb, tense, '1pl', default_preverb) or '-'}</td>
-                    <td class="georgian-text">{get_verb_form(verb, tense, '2pl', default_preverb) or '-'}</td>
-                    <td class="georgian-text">{get_verb_form(verb, tense, '3pl', default_preverb) or '-'}</td>
+                    <td class="georgian-text">{get_conjugation_form(verb, tense, '1sg', default_preverb) or '-'}</td>
+                    <td class="georgian-text">{get_conjugation_form(verb, tense, '2sg', default_preverb) or '-'}</td>
+                    <td class="georgian-text">{get_conjugation_form(verb, tense, '3sg', default_preverb) or '-'}</td>
+                    <td class="georgian-text">{get_conjugation_form(verb, tense, '1pl', default_preverb) or '-'}</td>
+                    <td class="georgian-text">{get_conjugation_form(verb, tense, '2pl', default_preverb) or '-'}</td>
+                    <td class="georgian-text">{get_conjugation_form(verb, tense, '3pl', default_preverb) or '-'}</td>
                 </tr>
             """
 
@@ -1093,7 +956,7 @@ def create_preverb_aware_regular_table(verb_data, tense, selected_preverb=None):
 
     # Check if we have any verb forms for this tense with the selected preverb
     has_forms = any(
-        get_verb_form(verb_data, tense, person, selected_preverb)
+        get_conjugation_form(verb_data, tense, person, selected_preverb)
         for person in ["1sg", "2sg", "3sg", "1pl", "2pl", "3pl"]
     )
     if not has_forms:
@@ -1149,8 +1012,8 @@ def create_preverb_aware_regular_table(verb_data, tense, selected_preverb=None):
             table_html += f"""
                 <tr>
                     <td>{person['name']}</td>
-                    <td class="georgian-text">{get_verb_form(verb_data, tense, person['sg'], selected_preverb) or '-'}</td>
-                    <td class="georgian-text">{get_verb_form(verb_data, tense, person['pl'], selected_preverb) or '-'}</td>
+                                    <td class="georgian-text">{get_conjugation_form(verb_data, tense, person['sg'], selected_preverb) or '-'}</td>
+                <td class="georgian-text">{get_conjugation_form(verb_data, tense, person['pl'], selected_preverb) or '-'}</td>
                 </tr>
             """
 
@@ -1166,7 +1029,7 @@ def create_regular_table(verb, tense):
     """Create a regular table for a specific tense."""
     # Check if we have any verb forms for this tense
     has_forms = any(
-        get_verb_form(verb, tense, person)
+        get_conjugation_form(verb, tense, person)
         for person in ["1sg", "2sg", "3sg", "1pl", "2pl", "3pl"]
     )
     if not has_forms:
@@ -1205,8 +1068,8 @@ def create_regular_table(verb, tense):
         table_html += f"""
             <tr>
                 <td>{person['name']}</td>
-                <td class="georgian-text">{get_verb_form(verb, tense, person['sg']) or '-'}</td>
-                <td class="georgian-text">{get_verb_form(verb, tense, person['pl']) or '-'}</td>
+                <td class="georgian-text">{get_conjugation_form(verb, tense, person['sg']) or '-'}</td>
+                <td class="georgian-text">{get_conjugation_form(verb, tense, person['pl']) or '-'}</td>
             </tr>
         """
 
@@ -1228,14 +1091,11 @@ def create_examples(verb, tense):
         # Fallback to old structure
         examples_data = verb.get("examples", {}).get(tense, {})
 
-    # Initialize enhanced example generator
-    enhanced_generator = EnhancedExampleGenerator()
-
-    # Try to generate enhanced examples first
+    # Try to generate pedagogical examples
     try:
-        enhanced_examples = enhanced_generator.generate_enhanced_examples(verb, tense)
+        enhanced_examples = generate_pedagogical_examples(verb, tense)
 
-        # If enhanced examples were generated successfully
+        # If pedagogical examples were generated successfully
         if enhanced_examples.get("enhanced", False) and enhanced_examples.get(
             "examples"
         ):
@@ -1243,7 +1103,7 @@ def create_examples(verb, tense):
             raw_gloss = enhanced_examples.get("raw_gloss", "")
             case_gloss = enhanced_examples.get("case_gloss", "")
 
-            # If case_gloss is not provided by enhanced examples, generate it using gloss_parser
+            # If case_gloss is not provided by pedagogical examples, generate it using gloss_parser
             if not case_gloss:
                 case_gloss = process_raw_gloss(
                     raw_gloss, enhanced_examples.get("preverb", "")
@@ -1374,14 +1234,14 @@ def create_examples(verb, tense):
             # Parse the verb reference (e.g., "present.1sg")
             tense_name, person = verb_ref.split(".")
 
-            # Check if we have pre-calculated forms (new structure) or need to use get_verb_form (old structure)
+            # Check if we have pre-calculated forms (new structure) or need to use get_conjugation_form (old structure)
             verb_form = None
             if "forms" in tense_data and person in tense_data["forms"]:
                 # Use pre-calculated forms (new structure)
                 verb_form = tense_data["forms"][person]
             else:
-                # Fallback to get_verb_form (old structure)
-                verb_form = get_verb_form(verb, tense_name, person)
+                # Fallback to get_conjugation_form (old structure)
+                verb_form = get_conjugation_form(verb, tense_name, person)
 
             # Replace the placeholder with the actual verb form (bolded)
             georgian_text = template.replace("{verb}", f"<strong>{verb_form}</strong>")
@@ -1510,14 +1370,11 @@ def create_examples_without_gloss(verb, tense):
         # Fallback to old structure
         examples_data = verb.get("examples", {}).get(tense, {})
 
-    # Initialize enhanced example generator
-    enhanced_generator = EnhancedExampleGenerator()
-
-    # Try to generate enhanced examples first
+    # Try to generate pedagogical examples
     try:
-        enhanced_examples = enhanced_generator.generate_enhanced_examples(verb, tense)
+        enhanced_examples = generate_pedagogical_examples(verb, tense)
 
-        # If enhanced examples were generated successfully
+        # If pedagogical examples were generated successfully
         if enhanced_examples.get("enhanced", False) and enhanced_examples.get(
             "examples"
         ):
@@ -1530,7 +1387,7 @@ def create_examples_without_gloss(verb, tense):
     """
 
             for example in examples:
-                # Enhanced examples have georgian, english, and html fields
+                # Pedagogical examples have georgian, english, and html fields
                 georgian_html = example.get("html", example.get("georgian", ""))
                 english_text = example.get("english", "")
                 # Get plain text version for copy functionality (without HTML tags)
@@ -1560,13 +1417,13 @@ def create_examples_without_gloss(verb, tense):
             return examples_html
 
         else:
-            # Enhanced examples not available, fall back to original logic
+            # Pedagogical examples not available, fall back to original logic
             pass
 
     except Exception as e:
-        # Enhanced example generation failed, fall back to original logic
+        # Pedagogical example generation failed, fall back to original logic
         print(
-            f"Warning: Enhanced example generation failed for verb {verb.get('id', 'unknown')}, tense {tense}: {e}"
+            f"Warning: Pedagogical example generation failed for verb {verb.get('id', 'unknown')}, tense {tense}: {e}"
         )
         pass
 
@@ -1597,14 +1454,14 @@ def create_examples_without_gloss(verb, tense):
             # Parse the verb reference (e.g., "present.1sg")
             tense_name, person = verb_ref.split(".")
 
-            # Check if we have pre-calculated forms (new structure) or need to use get_verb_form (old structure)
+            # Check if we have pre-calculated forms (new structure) or need to use get_conjugation_form (old structure)
             verb_form = None
             if "forms" in tense_data and person in tense_data["forms"]:
                 # Use pre-calculated forms (new structure)
                 verb_form = tense_data["forms"][person]
             else:
-                # Fallback to get_verb_form (old structure)
-                verb_form = get_verb_form(verb, tense_name, person)
+                # Fallback to get_conjugation_form (old structure)
+                verb_form = get_conjugation_form(verb, tense_name, person)
 
             # Replace the placeholder with the actual verb form (bolded)
             georgian_text = template.replace("{verb}", f"<strong>{verb_form}</strong>")
@@ -1761,14 +1618,19 @@ def create_fallback_gloss_analysis(tense: str, preverb: str) -> str:
     """
 
 
-def create_verb_section(verb, index=None):
+def create_verb_section(verb, index=None, duplicate_primary_verbs=None):
     """Create a complete verb section with side-by-side layouts."""
     verb_id = verb.get("id", "N/A")
     georgian = verb.get("georgian", "N/A")
-    english = verb.get("english", "N/A")
+    description = verb.get("description", "N/A")
+    semantic_key = verb.get("semantic_key", "")
 
-    # Create anchor ID for this section
-    anchor_id = f"verb-{verb_id}"
+    # Create anchor ID for this section using primary verb with smart disambiguation
+    primary_verb = get_primary_verb(georgian)
+    verb_id = verb.get("id", "")
+    anchor_id = create_safe_anchor_id(
+        georgian, semantic_key, verb_id, duplicate_primary_verbs
+    )
 
     # Add page number and backlink if index is provided
     page_number = f"<span class='page-number'>{index}</span>" if index else ""
@@ -1851,6 +1713,9 @@ def create_verb_section(verb, index=None):
 
     section_html = f"""
         <div class="verb-section" id="{anchor_id}" 
+             data-georgian="{primary_verb}"
+             data-full-georgian="{georgian}"
+             data-semantic-key="{semantic_key}"
              data-category="{category}" 
              data-class="{verb_class}"
              data-has-multiple-preverbs="{has_multiple_preverbs}"
@@ -1861,7 +1726,7 @@ def create_verb_section(verb, index=None):
              data-examples='{examples_json}'
              data-preverb-translations='{preverb_translations_json}'{preverb_data_attributes}>
             {preverb_selector}
-            <h2>{page_number}<span class="georgian-text">{georgian}</span> (<span class="english-text">{english}</span>) - {verb.get('description', '')} {backlink}</h2>
+            <h2>{page_number}<span class="georgian-text">{georgian}</span> - {description} {backlink} <button class="link-icon" onclick="handleLinkIconClick('{anchor_id}')" title="Copy link to clipboard">🔗</button></h2>
             {overview_table}
     """
     # Add notes section if notes is non-empty
@@ -1885,7 +1750,9 @@ def create_verb_section(verb, index=None):
         )
         # Use examples if available for multi-preverb verbs, otherwise generate inline
         if has_multiple_preverbs:
-            preverb_key = default_preverb.replace("-", "") if default_preverb else "default"
+            preverb_key = (
+                default_preverb.replace("-", "") if default_preverb else "default"
+            )
             if (
                 preverb_key in examples_by_preverb
                 and "present" in examples_by_preverb[preverb_key]
@@ -1914,7 +1781,9 @@ def create_verb_section(verb, index=None):
         )
         # Use examples if available for multi-preverb verbs, otherwise generate inline
         if has_multiple_preverbs:
-            preverb_key = default_preverb.replace("-", "") if default_preverb else "default"
+            preverb_key = (
+                default_preverb.replace("-", "") if default_preverb else "default"
+            )
             if (
                 preverb_key in examples_by_preverb
                 and "imperfect" in examples_by_preverb[preverb_key]
@@ -1963,7 +1832,9 @@ def create_verb_section(verb, index=None):
         )
         # Use examples if available for multi-preverb verbs, otherwise generate inline
         if has_multiple_preverbs:
-            preverb_key = default_preverb.replace("-", "") if default_preverb else "default"
+            preverb_key = (
+                default_preverb.replace("-", "") if default_preverb else "default"
+            )
             if (
                 preverb_key in examples_by_preverb
                 and "aorist" in examples_by_preverb[preverb_key]
@@ -1992,7 +1863,9 @@ def create_verb_section(verb, index=None):
         )
         # Use examples if available for multi-preverb verbs, otherwise generate inline
         if has_multiple_preverbs:
-            preverb_key = default_preverb.replace("-", "") if default_preverb else "default"
+            preverb_key = (
+                default_preverb.replace("-", "") if default_preverb else "default"
+            )
             if (
                 preverb_key in examples_by_preverb
                 and "optative" in examples_by_preverb[preverb_key]
@@ -2041,7 +1914,9 @@ def create_verb_section(verb, index=None):
         )
         # Use examples if available for multi-preverb verbs, otherwise generate inline
         if has_multiple_preverbs:
-            preverb_key = default_preverb.replace("-", "") if default_preverb else "default"
+            preverb_key = (
+                default_preverb.replace("-", "") if default_preverb else "default"
+            )
             if (
                 preverb_key in examples_by_preverb
                 and "future" in examples_by_preverb[preverb_key]
@@ -2070,7 +1945,9 @@ def create_verb_section(verb, index=None):
         )
         # Use examples if available for multi-preverb verbs, otherwise generate inline
         if has_multiple_preverbs:
-            preverb_key = default_preverb.replace("-", "") if default_preverb else "default"
+            preverb_key = (
+                default_preverb.replace("-", "") if default_preverb else "default"
+            )
             if (
                 preverb_key in examples_by_preverb
                 and "imperative" in examples_by_preverb[preverb_key]
@@ -2115,7 +1992,7 @@ def create_verb_section(verb, index=None):
     return section_html
 
 
-def create_toc(verbs):
+def create_toc(verbs, duplicate_primary_verbs=None):
     """Create a table of contents with clickable links."""
     toc_html = """
         <div class="toc-container" id="toc">
@@ -2125,18 +2002,21 @@ def create_toc(verbs):
 
     for i, verb in enumerate(verbs, 1):
         georgian = verb.get("georgian", "N/A")
-        english = verb.get("english", "N/A")
         description = verb.get("description", "")
+        semantic_key = verb.get("semantic_key", "")
 
-        # Create anchor ID for the verb section
-        anchor_id = f"verb-{verb.get('id', i)}"
+        # Use primary verb for anchor ID with smart disambiguation
+        primary_verb = get_primary_verb(georgian)
+        verb_id = verb.get("id", "")
+        anchor_id = create_safe_anchor_id(
+            georgian, semantic_key, verb_id, duplicate_primary_verbs
+        )
 
         toc_html += f"""
-                <div class="toc-item">
+                <div class="toc-item" data-semantic-key="{semantic_key}">
                     <a href="#{anchor_id}" class="toc-link">
                         <span class="toc-number">{i}</span>
                         <span class="toc-georgian">{georgian}</span>
-                        <span class="toc-english">({english})</span>
                         <span class="toc-description">{description}</span>
                     </a>
                 </div>
@@ -2149,10 +2029,10 @@ def create_toc(verbs):
     return toc_html
 
 
-def generate_html(verbs):
+def generate_html(verbs, duplicate_primary_verbs=None):
     """Generate the complete HTML file."""
     # Generate table of contents first
-    toc_section = create_toc(verbs)
+    toc_section = create_toc(verbs, duplicate_primary_verbs)
 
     # Group verbs by category and generate verb sections with category headers
     verbs_by_category = {}
@@ -2200,7 +2080,7 @@ def generate_html(verbs):
                 + 1
             )
 
-            verb_html = create_verb_section(verb, global_index)
+            verb_html = create_verb_section(verb, global_index, duplicate_primary_verbs)
             verb_sections += verb_html
 
         # Close category content div
@@ -2270,6 +2150,9 @@ def generate_html(verbs):
         <button id="filter-toggle" class="filter-toggle" title="Toggle Filter Controls">
             <i class="fas fa-filter"></i>
         </button>
+        <button id="reset-toggle" class="reset-toggle" title="Reset to Default State">
+            <i class="fas fa-undo"></i>
+        </button>
     </div>
 
     <!-- Font Selector - Bottom Right -->
@@ -2329,7 +2212,7 @@ def generate_html(verbs):
                     <i class="fas fa-times"></i>
                 </button>
             </div>
-            <div class="sidebar-body">
+            <div class="sidebar-sticky-header">
                 <div class="sidebar-filter-controls">
                     <div class="sidebar-filter-group">
                         <label for="sidebar-category-filter">Filter by Category:</label>
@@ -2345,8 +2228,10 @@ def generate_html(verbs):
                         <i class="fas fa-search"></i>
                     </div>
                 </div>
-                <div class="toc-list" id="toc-list">
-                    <!-- Table of contents will be populated by JavaScript -->
+            </div>
+            <div class="sidebar-body">
+                <div class="toc-content-container">
+                    <!-- Category headers and TOC items will be populated by JavaScript -->
                 </div>
             </div>
         </div>
@@ -2498,16 +2383,6 @@ def generate_html(verbs):
     <div class="main-content">
         {toc_section}
         
-        <!-- Category Controls -->
-        <div class="category-controls">
-            <button id="expand-all-categories" class="category-control-btn">
-                <i class="fas fa-expand-arrows-alt"></i> Expand All
-            </button>
-            <button id="collapse-all-categories" class="category-control-btn">
-                <i class="fas fa-compress-arrows-alt"></i> Collapse All
-            </button>
-        </div>
-        
         {verb_sections}
     </div>
 </body>
@@ -2519,47 +2394,29 @@ def generate_html(verbs):
 
 def main():
     """Main function to build the HTML file."""
-    print("Starting build process...")
-    print("Using local gloss reference from gloss_reference.json")
-
     # Check if we're in the right directory
     current_dir = Path(__file__).parent
-    print(f"Working directory: {current_dir}")
 
     # Check for required files
     json_file = current_dir.parent / "src" / "data" / "verbs.json"
     css_file = current_dir.parent / "src" / "styles" / "main.css"
     js_file = current_dir.parent / "src" / "scripts" / "main.js"
 
-    print("Checking required files:")
-    print(f"  JSON data: {'✓' if json_file.exists() else '✗'} {json_file}")
-    print(f"  Styles CSS: {'✓' if css_file.exists() else '✗'} {css_file}")
-    print(f"  Script JS: {'✓' if js_file.exists() else '✗'} {js_file}")
-
-    print("\nLoading verb data from JSON...")
-    verbs = load_json_data()
+    # Load verb data
+    verbs, duplicate_primary_verbs = load_json_data()
 
     if not verbs:
-        print("No verbs found. Please check your verbs.json file.")
         return
-
-    print(f"\nFound {len(verbs)} verbs. Generating HTML...")
 
     # Load and validate data
     semantic_mapping = load_semantic_mapping()
     run_comprehensive_validation(verbs, semantic_mapping)
 
     # Generate HTML
-    print("Generating HTML content...")
-    html_content = generate_html(verbs)
-
-    # Check HTML content size
-    content_size = len(html_content)
-    print(f"Generated HTML content: {content_size:,} characters")
+    html_content = generate_html(verbs, duplicate_primary_verbs)
 
     # Write to file in the dist directory
     output_file = Path(__file__).parent.parent / "dist" / "index.html"
-    print(f"\nWriting to file: {output_file}")
 
     # Ensure dist directory exists
     output_file.parent.mkdir(exist_ok=True)
@@ -2577,13 +2434,11 @@ def main():
     css_source = Path(__file__).parent.parent / "src" / "styles" / "main.css"
     css_dest = styles_dir / "main.css"
     shutil.copy2(css_source, css_dest)
-    print(f"Copied CSS to: {css_dest}")
 
     # Copy JS file
     js_source = Path(__file__).parent.parent / "src" / "scripts" / "main.js"
     js_dest = scripts_dir / "main.js"
     shutil.copy2(js_source, js_dest)
-    print(f"Copied JS to: {js_dest}")
 
     # Copy assets folder (fonts, etc.)
     assets_source = Path(__file__).parent.parent / "src" / "assets"
@@ -2592,32 +2447,19 @@ def main():
         if assets_dest.exists():
             shutil.rmtree(assets_dest)
         shutil.copytree(assets_source, assets_dest)
-        print(f"Copied assets to: {assets_dest}")
 
     # Copy 404 page
     error_page_source = Path(__file__).parent.parent / "src" / "404.html"
     error_page_dest = dist_dir / "404.html"
     if error_page_source.exists():
         shutil.copy2(error_page_source, error_page_dest)
-        print(f"Copied 404 page to: {error_page_dest}")
 
     try:
         with open(output_file, "w", encoding="utf-8") as f:
             f.write(html_content)
-
-        # Verify file was written
-        if output_file.exists():
-            file_size = output_file.stat().st_size
-            print(f"Successfully generated {output_file}")
-            print(f"File size: {file_size:,} bytes")
-        else:
-            print(f"Error: File was not created at {output_file}")
-
     except Exception as e:
         print(f"Error writing file: {e}")
         return
-
-    print("\nBuild completed successfully!")
 
 
 if __name__ == "__main__":
