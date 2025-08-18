@@ -23,7 +23,7 @@ from typing import Dict, List, Optional, Tuple, Any
 from pathlib import Path
 import json
 
-from gloss_parser import (
+from tools.gloss_parser import (
     StandardizedRawGlossParser,
     RawGlossParseError,
 )

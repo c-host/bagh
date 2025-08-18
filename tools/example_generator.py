@@ -15,13 +15,13 @@ from typing import Dict, List, Optional, Tuple, Any
 from pathlib import Path
 import json
 
-from noun_adjective_selection_engine import (
+from tools.noun_adjective_selection_engine import (
     NounAdjectiveSelectionEngine,
     NounSelectionError,
     CaseFormMissingError,
 )
-from gloss_parser import StandardizedRawGlossParser, RawGlossParseError
-from verb_conjugation import (
+from tools.gloss_parser import StandardizedRawGlossParser, RawGlossParseError
+from tools.verb_conjugation import (
     get_conjugation_form,
     get_verb_gloss,
     get_english_translation,

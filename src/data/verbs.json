@@ -9,6 +9,45 @@
             "semantic_key": "bring",
             "notes": "",
             "url": "https://lingua.ge/verbs/%e1%83%9b%e1%83%9d%e1%83%a2%e1%83%90%e1%83%9c%e1%83%90/",
+            "prepositions": {
+                "indirect_object": "to",
+                "direct_object": "the"
+            },
+            "overrides": {
+                "subject": {
+                    "noun": "",
+                    "adjective": ""
+                },
+                "direct_object": {
+                    "noun": "",
+                    "adjective": ""
+                },
+                "indirect_object": {
+                    "noun": "",
+                    "adjective": ""
+                }
+            },
+            "preverb_config": {
+                "has_multiple_preverbs": true,
+                "default_preverb": "მი-",
+                "available_preverbs": [
+                    "მი-",
+                    "მო-",
+                    "გა-",
+                    "წა-"
+                ]
+            },
+            "preverb_rules": {
+                "default": "მი",
+                "replacements": {
+                    "მი": "მი",
+                    "მო": "მო",
+                    "გა": "გა",
+                    "წა": "წა"
+                },
+                "tense_specific_fallbacks": {},
+                "english_fallbacks": {}
+            },
             "english_translations": {
                 "present": "deliver",
                 "imperfect": "was delivering",
@@ -203,34 +242,6 @@
                     }
                 }
             },
-            "prepositions": {
-                "indirect_object": "to",
-                "direct_object": "the"
-            },
-            "overrides": {
-                "subject": {
-                    "noun": "",
-                    "adjective": ""
-                },
-                "direct_object": {
-                    "noun": "",
-                    "adjective": ""
-                },
-                "indirect_object": {
-                    "noun": "",
-                    "adjective": ""
-                }
-            },
-            "preverb_config": {
-                "has_multiple_preverbs": true,
-                "default_preverb": "მი-",
-                "available_preverbs": [
-                    "მი-",
-                    "მო-",
-                    "გა-",
-                    "წა-"
-                ]
-            },
             "conjugations": {
                 "present": {
                     "forms": {
@@ -322,17 +333,6 @@
                     },
                     "examples": []
                 }
-            },
-            "preverb_rules": {
-                "default": "მი",
-                "replacements": {
-                    "მი": "მი",
-                    "მო": "მო",
-                    "გა": "გა",
-                    "წა": "წა"
-                },
-                "tense_specific_fallbacks": {},
-                "english_fallbacks": {}
             }
         },
         "ჩვენება": {
@@ -352,9 +352,7 @@
                 "optative": "should show",
                 "imperative": "show"
             },
-            "preverb_translations": {
-                "": "show"
-            },
+            "preverb_translations": {},
             "prepositions": {
                 "indirect_object": "to the",
                 "direct_object": "the"
@@ -376,9 +374,7 @@
             "preverb_config": {
                 "has_multiple_preverbs": false,
                 "default_preverb": "",
-                "available_preverbs": [
-                    ""
-                ]
+                "available_preverbs": []
             },
             "conjugations": {
                 "present": {
@@ -490,10 +486,7 @@
                 "optative": "should send",
                 "imperative": "send"
             },
-            "preverb_translations": {
-                "": "send",
-                "გა-": "send"
-            },
+            "preverb_translations": {},
             "prepositions": {
                 "indirect_object": "to",
                 "direct_object": "the"
@@ -514,10 +507,8 @@
             },
             "preverb_config": {
                 "has_multiple_preverbs": false,
-                "default_preverb": "გა-",
-                "available_preverbs": [
-                    "გა-"
-                ]
+                "default_preverb": "",
+                "available_preverbs": []
             },
             "conjugations": {
                 "present": {
@@ -1031,9 +1022,7 @@
                 "optative": "finish",
                 "imperative": "finish"
             },
-            "preverb_translations": {
-                "": "show"
-            },
+            "preverb_translations": {},
             "prepositions": {
                 "indirect_object": "",
                 "direct_object": "the"
@@ -3169,6 +3158,55 @@
             "semantic_key": "go",
             "notes": "",
             "url": "https://lingua.ge/verbs/%e1%83%93%e1%83%98-%e1%83%95%e1%83%90%e1%83%9a-%e1%83%95%e1%83%94%e1%83%93-%e1%83%a1%e1%83%a3%e1%83%9a/",
+            "prepositions": {
+                "indirect_object": "to",
+                "direct_object": "the"
+            },
+            "overrides": {
+                "subject": {
+                    "noun": "",
+                    "adjective": ""
+                },
+                "direct_object": {
+                    "noun": "",
+                    "adjective": ""
+                },
+                "indirect_object": {
+                    "noun": "",
+                    "adjective": ""
+                }
+            },
+            "preverb_config": {
+                "has_multiple_preverbs": true,
+                "default_preverb": "მი-",
+                "available_preverbs": [
+                    "მი-",
+                    "მო-",
+                    "გა-",
+                    "წა-"
+                ]
+            },
+            "preverb_rules": {
+                "default": "მი",
+                "replacements": {
+                    "მი": "მი",
+                    "მო": "მო",
+                    "გა": "გა",
+                    "წა": "წა"
+                },
+                "tense_specific_fallbacks": {
+                    "წა": {
+                        "present": "მი",
+                        "imperfect": "მი"
+                    }
+                },
+                "english_fallbacks": {
+                    "წა": {
+                        "present": "მი",
+                        "imperfect": "მი"
+                    }
+                }
+            },
             "english_translations": {
                 "present": "go",
                 "imperfect": "was going",
@@ -3363,34 +3401,6 @@
                     }
                 }
             },
-            "prepositions": {
-                "indirect_object": "to",
-                "direct_object": "the"
-            },
-            "overrides": {
-                "subject": {
-                    "noun": "",
-                    "adjective": ""
-                },
-                "direct_object": {
-                    "noun": "",
-                    "adjective": ""
-                },
-                "indirect_object": {
-                    "noun": "",
-                    "adjective": ""
-                }
-            },
-            "preverb_config": {
-                "has_multiple_preverbs": true,
-                "default_preverb": "მი-",
-                "available_preverbs": [
-                    "მი-",
-                    "მო-",
-                    "გა-",
-                    "წა-"
-                ]
-            },
             "conjugations": {
                 "present": {
                     "forms": {
@@ -3481,27 +3491,6 @@
                         "preverb": "მი-"
                     },
                     "examples": []
-                }
-            },
-            "preverb_rules": {
-                "default": "მი",
-                "replacements": {
-                    "მი": "მი",
-                    "მო": "მო",
-                    "გა": "გა",
-                    "წა": "წა"
-                },
-                "tense_specific_fallbacks": {
-                    "წა": {
-                        "present": "მი",
-                        "imperfect": "მი"
-                    }
-                },
-                "english_fallbacks": {
-                    "წა": {
-                        "present": "მი",
-                        "imperfect": "მი"
-                    }
                 }
             }
         },
@@ -7831,10 +7820,8 @@
             },
             "preverb_config": {
                 "has_multiple_preverbs": false,
-                "default_preverb": "და",
-                "available_preverbs": [
-                    "და"
-                ]
+                "default_preverb": "",
+                "available_preverbs": []
             },
             "conjugations": {
                 "present": {
@@ -7968,9 +7955,7 @@
             "preverb_config": {
                 "has_multiple_preverbs": false,
                 "default_preverb": "",
-                "available_preverbs": [
-                    ""
-                ]
+                "available_preverbs": []
             },
             "conjugations": {
                 "present": {
@@ -8104,9 +8089,7 @@
             "preverb_config": {
                 "has_multiple_preverbs": false,
                 "default_preverb": "",
-                "available_preverbs": [
-                    ""
-                ]
+                "available_preverbs": []
             },
             "conjugations": {
                 "present": {
@@ -8240,9 +8223,7 @@
             "preverb_config": {
                 "has_multiple_preverbs": false,
                 "default_preverb": "და",
-                "available_preverbs": [
-                    "და"
-                ]
+                "available_preverbs": []
             },
             "conjugations": {
                 "present": {
@@ -8509,10 +8490,8 @@
             },
             "preverb_config": {
                 "has_multiple_preverbs": false,
-                "default_preverb": "შე",
-                "available_preverbs": [
-                    "შე"
-                ]
+                "default_preverb": "",
+                "available_preverbs": []
             },
             "conjugations": {
                 "present": {
@@ -8645,10 +8624,8 @@
             },
             "preverb_config": {
                 "has_multiple_preverbs": false,
-                "default_preverb": "მო",
-                "available_preverbs": [
-                    "მო"
-                ]
+                "default_preverb": "",
+                "available_preverbs": []
             },
             "conjugations": {
                 "present": {
@@ -9183,10 +9160,8 @@
             },
             "preverb_config": {
                 "has_multiple_preverbs": false,
-                "default_preverb": "მო",
-                "available_preverbs": [
-                    "მო"
-                ]
+                "default_preverb": "",
+                "available_preverbs": []
             },
             "conjugations": {
                 "present": {

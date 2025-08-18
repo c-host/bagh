@@ -25,9 +25,9 @@ from pathlib import Path
 project_root = Path(__file__).parent.parent
 sys.path.insert(0, str(project_root))
 
-from gloss_parser import GlossParser
-from example_generator import generate_pedagogical_examples
-from verb_conjugation import (
+from tools.gloss_parser import GlossParser
+from tools.example_generator import generate_pedagogical_examples
+from tools.verb_conjugation import (
     get_conjugation_form,
     get_verb_gloss,
     get_verb_examples,
@@ -869,495 +869,11 @@ def format_gloss_for_html(case_gloss: str) -> str:
     return result
 
 
-def create_overview_table(verb, default_preverb=None):
-    """Create the overview table HTML for a verb."""
-    tenses = ["present", "imperfect", "future", "aorist", "optative", "imperative"]
-    tense_names = {
-        "present": "PRES",
-        "imperfect": "IMPF",
-        "future": "FUT",
-        "aorist": "AOR",
-        "optative": "OPT",
-        "imperative": "IMPR",
-    }
-
-    table_html = f"""
-        <h3>Overview Table (Main Screves)</h3>
-        <div class="table-container">
-            <table class="meta-table">
-                <thead>
-                    <tr>
-                        <th>Screve</th>
-                        <th>1sg</th>
-                        <th>2sg</th>
-                        <th>3sg</th>
-                        <th>1pl</th>
-                        <th>2pl</th>
-                        <th>3pl</th>
-                    </tr>
-                </thead>
-                <tbody>
-    """
-
-    for tense in tenses:
-        # Check if we have pre-calculated forms (new structure) or need to use get_verb_form (old structure)
-        conjugations = verb.get("conjugations", {})
-        tense_data = conjugations.get(tense, {})
-
-        if "forms" in tense_data:
-            # New structure: use pre-calculated forms directly
-            forms = tense_data["forms"]
-            tense_class = f"tense-{tense}"
-            table_html += f"""
-                <tr class="{tense_class}">
-                    <td>{tense_names[tense]}</td>
-                    <td class="georgian-text">{forms.get('1sg', '-')}</td>
-                    <td class="georgian-text">{forms.get('2sg', '-')}</td>
-                    <td class="georgian-text">{forms.get('3sg', '-')}</td>
-                    <td class="georgian-text">{forms.get('1pl', '-')}</td>
-                    <td class="georgian-text">{forms.get('2pl', '-')}</td>
-                    <td class="georgian-text">{forms.get('3pl', '-')}</td>
-                </tr>
-            """
-        else:
-            # Old structure: use get_verb_form
-            tense_class = f"tense-{tense}"
-            table_html += f"""
-                <tr class="{tense_class}">
-                    <td>{tense_names[tense]}</td>
-                    <td class="georgian-text">{get_conjugation_form(verb, tense, '1sg', default_preverb) or '-'}</td>
-                    <td class="georgian-text">{get_conjugation_form(verb, tense, '2sg', default_preverb) or '-'}</td>
-                    <td class="georgian-text">{get_conjugation_form(verb, tense, '3sg', default_preverb) or '-'}</td>
-                    <td class="georgian-text">{get_conjugation_form(verb, tense, '1pl', default_preverb) or '-'}</td>
-                    <td class="georgian-text">{get_conjugation_form(verb, tense, '2pl', default_preverb) or '-'}</td>
-                    <td class="georgian-text">{get_conjugation_form(verb, tense, '3pl', default_preverb) or '-'}</td>
-                </tr>
-            """
-
-    table_html += """
-                </tbody>
-            </table>
-        </div>
-    """
-    return table_html
-
-
-def create_preverb_aware_regular_table(verb_data, tense, selected_preverb=None):
-    """Create a regular table for a specific tense with preverb awareness."""
-    preverb_config = verb_data.get("preverb_config", {})
-
-    # Handle single-preverb verbs
-    if not preverb_config.get("has_multiple_preverbs", False):
-        return create_regular_table(verb_data, tense)
-
-    # Handle multi-preverb verbs
-    if selected_preverb is None:
-        selected_preverb = preverb_config.get("default_preverb", "")
-
-    # Check if we have any verb forms for this tense with the selected preverb
-    has_forms = any(
-        get_conjugation_form(verb_data, tense, person, selected_preverb)
-        for person in ["1sg", "2sg", "3sg", "1pl", "2pl", "3pl"]
-    )
-    if not has_forms:
-        return ""
-
-    tense_names = {
-        "present": "Present Indicative",
-        "imperfect": "Imperfect",
-        "future": "Future",
-        "aorist": "Aorist",
-        "optative": "Optative",
-        "imperative": "Affirmative Imperative",
-    }
-
-    table_html = f"""
-        <h3>{tense_names[tense]}</h3>
-        <div class="table-container regular-table-container">
-            <table class="regular-table">
-                <thead>
-                    <tr>
-                        <th>Person</th>
-                        <th>Singular</th>
-                        <th>Plural</th>
-                    </tr>
-                </thead>
-                <tbody>
-    """
-
-    persons = [
-        {"name": "1st", "sg": "1sg", "pl": "1pl"},
-        {"name": "2nd", "sg": "2sg", "pl": "2pl"},
-        {"name": "3rd", "sg": "3sg", "pl": "3pl"},
-    ]
-
-    # Check if we have pre-calculated forms (new structure) or need to use get_verb_form (old structure)
-    conjugations = verb_data.get("conjugations", {})
-    tense_data = conjugations.get(tense, {})
-
-    if "forms" in tense_data:
-        # New structure: use pre-calculated forms directly
-        forms = tense_data["forms"]
-        for person in persons:
-            table_html += f"""
-                <tr>
-                    <td>{person['name']}</td>
-                    <td class="georgian-text">{forms.get(person['sg'], '-')}</td>
-                    <td class="georgian-text">{forms.get(person['pl'], '-')}</td>
-                </tr>
-            """
-    else:
-        # Old structure: use get_verb_form
-        for person in persons:
-            table_html += f"""
-                <tr>
-                    <td>{person['name']}</td>
-                                    <td class="georgian-text">{get_conjugation_form(verb_data, tense, person['sg'], selected_preverb) or '-'}</td>
-                <td class="georgian-text">{get_conjugation_form(verb_data, tense, person['pl'], selected_preverb) or '-'}</td>
-                </tr>
-            """
-
-    table_html += """
-                </tbody>
-            </table>
-        </div>
-    """
-    return table_html
-
-
-def create_regular_table(verb, tense):
-    """Create a regular table for a specific tense."""
-    # Check if we have any verb forms for this tense
-    has_forms = any(
-        get_conjugation_form(verb, tense, person)
-        for person in ["1sg", "2sg", "3sg", "1pl", "2pl", "3pl"]
-    )
-    if not has_forms:
-        return ""
-
-    tense_names = {
-        "present": "Present Indicative",
-        "imperfect": "Imperfect",
-        "future": "Future",
-        "aorist": "Aorist",
-        "optative": "Optative",
-        "imperative": "Affirmative Imperative",
-    }
-
-    table_html = f"""
-        <h3>{tense_names[tense]}</h3>
-        <div class="table-container regular-table-container">
-            <table class="regular-table">
-                <thead>
-                    <tr>
-                        <th>Person</th>
-                        <th>Singular</th>
-                        <th>Plural</th>
-                    </tr>
-                </thead>
-                <tbody>
-    """
-
-    persons = [
-        {"name": "1st", "sg": "1sg", "pl": "1pl"},
-        {"name": "2nd", "sg": "2sg", "pl": "2pl"},
-        {"name": "3rd", "sg": "3sg", "pl": "3pl"},
-    ]
-
-    for person in persons:
-        table_html += f"""
-            <tr>
-                <td>{person['name']}</td>
-                <td class="georgian-text">{get_conjugation_form(verb, tense, person['sg']) or '-'}</td>
-                <td class="georgian-text">{get_conjugation_form(verb, tense, person['pl']) or '-'}</td>
-            </tr>
-        """
-
-    table_html += """
-                </tbody>
-            </table>
-        </div>
-    """
-    return table_html
-
-
-def create_examples(verb, tense):
-    """Create examples HTML for a verb and tense."""
-    # Use the new structure - examples are now in conjugations
-    tense_data = verb.get("conjugations", {}).get(tense, {})
-    if isinstance(tense_data, dict) and "examples" in tense_data:
-        examples_data = tense_data["examples"]
-    else:
-        # Fallback to old structure
-        examples_data = verb.get("examples", {}).get(tense, {})
-
-    # Try to generate pedagogical examples
-    try:
-        enhanced_examples = generate_pedagogical_examples(verb, tense)
-
-        # If pedagogical examples were generated successfully
-        if enhanced_examples.get("enhanced", False) and enhanced_examples.get(
-            "examples"
-        ):
-            examples = enhanced_examples["examples"]
-            raw_gloss = enhanced_examples.get("raw_gloss", "")
-            case_gloss = enhanced_examples.get("case_gloss", "")
-
-            # If case_gloss is not provided by pedagogical examples, generate it using gloss_parser
-            if not case_gloss:
-                case_gloss = process_raw_gloss(
-                    raw_gloss, enhanced_examples.get("preverb", "")
-                )
-
-            examples_html = """
-        <div class="examples">
-            <h4>Examples:</h4>
-            <ul>
-    """
-
-            for example in examples:
-                # Enhanced examples have georgian, english, and html fields
-                georgian_html = example.get("html", example.get("georgian", ""))
-                english_text = example.get("english", "")
-                # Get plain text version for copy functionality (without HTML tags)
-                english_plain = example.get("english_plain", "")
-                if not english_plain:
-                    # Strip HTML tags for plain text version
-                    import re
-
-                    english_plain = re.sub(r"<[^>]+>", "", english_text)
-
-                examples_html += f"""
-            <li class="example-item">
-                <div class="georgian georgian-text">
-                    {georgian_html}
-                </div>
-                <div class="translation english-text" data-copy-text="{english_plain}">
-                    {english_text}
-                </div>
-            </li>
-        """
-
-            examples_html += """
-            </ul>
-        </div>
-    """
-
-            # Add case gloss if available
-            if case_gloss:
-                # Get the raw gloss for display
-                raw_gloss = enhanced_examples.get("raw_gloss", "")
-
-                # Format the gloss display
-                if raw_gloss:
-                    # Show both raw and expanded gloss
-                    examples_html += f"""
-        <div class="case-gloss">
-            <div class="gloss-header">
-                <strong>Verb Gloss Analysis</strong>
-            </div>
-            <div class="gloss-content">
-                <div class="raw-gloss">
-                    <strong>Raw:</strong> <code>{format_raw_gloss_with_colors(raw_gloss)}</code>
-                </div>
-                <div class="expanded-gloss">
-                    <strong>Expanded:</strong>
-                    <div class="gloss-definitions">
-                        {format_gloss_for_html(case_gloss)}
-                    </div>
-                </div>
-            </div>
-        </div>
-    """
-                else:
-                    # Fallback for cases where raw_gloss is not available
-                    case_gloss_html = format_gloss_for_html(case_gloss)
-                    examples_html += f"""
-        <div class="case-gloss">
-            <div class="gloss-header">
-                <strong>Gloss Analysis</strong>
-            </div>
-            <div class="gloss-content">
-                <div class="expanded-gloss">
-                    <strong>Definitions:</strong>
-                    <div class="gloss-definitions">
-                        {case_gloss_html}
-                    </div>
-                </div>
-            </div>
-        </div>
-    """
-
-            return examples_html
-
-        else:
-            # Enhanced examples not available, fall back to original logic
-            pass
-
-    except Exception as e:
-        # Enhanced example generation failed, fall back to original logic
-        print(
-            f"Warning: Enhanced example generation failed for verb {verb.get('id', 'unknown')}, tense {tense}: {e}"
-        )
-        pass
-
-    # Fallback to original example generation logic
-    # Handle format where tense_data is a dict with raw_gloss, preverb, and examples
-    if isinstance(tense_data, dict) and "examples" in tense_data:
-        examples = tense_data["examples"]
-        raw_gloss = tense_data.get("raw_gloss", "")
-        preverb = tense_data.get("preverb", "")
-
-        # Process raw gloss to verbose format
-        case_gloss = process_raw_gloss(raw_gloss, preverb)
-    else:
-        # Fallback for malformed data
-        examples = []
-        case_gloss = ""
-
-    if not examples:
-        return ""
-
-    examples_html = """
-        <div class="examples">
-            <h4>Examples:</h4>
-            <ul>
-    """
-
-    for example in examples:
-        # Handle both old format (georgian) and new format (georgian_template + verb_reference)
-        if "georgian_template" in example and "verb_reference" in example:
-            # New format: use template and verb reference
-            template = example["georgian_template"]
-            verb_ref = example["verb_reference"]
-
-            # Parse the verb reference (e.g., "present.1sg")
-            tense_name, person = verb_ref.split(".")
-
-            # Check if we have pre-calculated forms (new structure) or need to use get_conjugation_form (old structure)
-            verb_form = None
-            if "forms" in tense_data and person in tense_data["forms"]:
-                # Use pre-calculated forms (new structure)
-                verb_form = tense_data["forms"][person]
-            else:
-                # Fallback to get_conjugation_form (old structure)
-                verb_form = get_conjugation_form(verb, tense_name, person)
-
-            # Replace the placeholder with the actual verb form (bolded)
-            georgian_text = template.replace("{verb}", f"<strong>{verb_form}</strong>")
-        else:
-            # Old format: use hardcoded georgian text
-            georgian_text = example.get("georgian", "")
-
-        # Handle English translation using new preverb translation structure
-        english_text = example.get("english", "")
-
-        # Check if we have new translation structure and effective preverb
-        if "effective_preverb" in verb and verb.get("preverb_translations"):
-            # Use new translation structure
-            preverb_translations = verb.get("preverb_translations", {})
-            effective_preverb = verb["effective_preverb"]
-
-            # Get English translation for this specific preverb, tense, and person
-            if "verb_reference" in example:
-                tense_name, person = example["verb_reference"].split(".")
-
-                english_translation = get_english_translation(
-                    preverb_translations, effective_preverb, tense_name, person
-                )
-
-                # Replace the English text with the new translation
-                english_text = english_translation
-
-                # Handle English verb highlighting if specified
-                if "english_verb" in example:
-                    english_text = english_text.replace(
-                        example["english_verb"],
-                        f"<strong>{example['english_verb']}</strong>",
-                    )
-            else:
-                # For examples without verb_reference, try to use the effective preverb
-                # This handles cases where examples are generated by the enhanced generator
-                if "english" in example:
-                    # Use the example's English text but ensure it's properly formatted
-                    english_text = example["english"]
-
-                    # Handle English verb highlighting if specified
-                    if "english_verb" in example:
-                        english_text = english_text.replace(
-                            example["english_verb"],
-                            f"<strong>{example['english_verb']}</strong>",
-                        )
-        else:
-            # Fallback to old approach
-            if "english_verb" in example:
-                english_text = english_text.replace(
-                    example["english_verb"],
-                    f"<strong>{example['english_verb']}</strong>",
-                )
-
-        examples_html += f"""
-            <li class="example-item">
-                <div class="georgian georgian-text">
-                    {georgian_text}
-                </div>
-                <div class="translation english-text" data-copy-text="{example['english']}">
-                    {english_text}
-                </div>
-            </li>
-        """
-
-    examples_html += """
-            </ul>
-        </div>
-    """
-
-    # Add case gloss if available
-    if case_gloss:
-        # Get the raw gloss for display
-        raw_gloss = tense_data.get("raw_gloss", "")
-
-        # Format the gloss display
-        if raw_gloss:
-            # Show both raw and expanded gloss
-            examples_html += f"""
-        <div class="case-gloss">
-            <div class="gloss-header">
-                <strong>Gloss Analysis</strong>
-            </div>
-            <div class="gloss-content">
-                <div class="raw-gloss">
-                    <strong>Raw:</strong> <code>{format_raw_gloss_with_colors(raw_gloss)}</code>
-                </div>
-                <div class="expanded-gloss">
-                    <strong>Expanded:</strong>
-                    <div class="gloss-definitions">
-                        {format_gloss_for_html(case_gloss)}
-                    </div>
-                </div>
-            </div>
-        </div>
-    """
-        else:
-            # Fallback for cases where raw_gloss is not available
-            case_gloss_html = format_gloss_for_html(case_gloss)
-            examples_html += f"""
-        <div class="case-gloss">
-            <div class="gloss-header">
-                <strong>Gloss Analysis</strong>
-            </div>
-            <div class="gloss-content">
-                <div class="expanded-gloss">
-                    <strong>Definitions:</strong>
-                    <div class="gloss-definitions">
-                        {case_gloss_html}
-                    </div>
-                </div>
-            </div>
-        </div>
-    """
-
-    return examples_html
+# REMOVED: create_overview_table function - replaced by JavaScript generateOverviewTable()
+# REMOVED: create_preverb_aware_regular_table function - replaced by JavaScript generateConjugationTablesHtml()
+# REMOVED: create_regular_table function - replaced by JavaScript generateConjugationTablesHtml()
+# REMOVED: create_examples function - replaced by JavaScript generateExamplesHtml()
+# These functions are no longer used since we moved to external data approach
 
 
 def create_examples_without_gloss(verb, tense):
@@ -1580,46 +1096,9 @@ def create_gloss_analysis_for_preverb(tense_data, preverb, tense):
     return gloss_html
 
 
-def create_fallback_gloss_analysis(tense: str, preverb: str) -> str:
-    """Create fallback gloss analysis HTML using gloss reference."""
-    # Create a standard raw gloss for the given tense
-    tense_mapping = {
-        "present": "Pres",
-        "imperfect": "Impf",
-        "aorist": "Aor",
-        "optative": "Opt",
-        "future": "Fut",
-        "imperative": "Impv",
-    }
-
-    tense_code = tense_mapping.get(tense, "Pres")
-    raw_gloss = f"V MedPass {tense_code} Pv <S> <S:Nom>"
-
-    # Process the raw gloss using the gloss reference
-    case_gloss = process_raw_gloss(raw_gloss, preverb)
-
-    return f"""
-        <div class="case-gloss" data-tense="{tense}">
-            <div class="gloss-header">
-                <strong>Verb Gloss Analysis</strong>
-            </div>
-            <div class="gloss-content">
-                <div class="raw-gloss">
-                    <strong>Raw:</strong> <code>{format_raw_gloss_with_colors(raw_gloss)}</code>
-                </div>
-                <div class="expanded-gloss">
-                    <strong>Expanded:</strong>
-                    <div class="gloss-definitions">
-                        {format_gloss_for_html(case_gloss)}
-                    </div>
-                </div>
-            </div>
-        </div>
-    """
-
-
+# REMOVED: create_fallback_gloss_analysis function - no longer used
 def create_verb_section(verb, index=None, duplicate_primary_verbs=None):
-    """Create a complete verb section with side-by-side layouts."""
+    """Create a minimal verb section with data references for external loading."""
     verb_id = verb.get("id", "N/A")
     georgian = verb.get("georgian", "N/A")
     description = verb.get("description", "N/A")
@@ -1650,74 +1129,11 @@ def create_verb_section(verb, index=None, duplicate_primary_verbs=None):
     if has_multiple_preverbs:
         preverb_selector = create_preverb_selector(verb)
 
-    # Create default view with preverb data
-    overview_table = create_preverb_aware_table(verb, default_preverb)
+    # Get notes and URL for conditional inclusion
+    notes = verb.get("notes", "")
+    url = verb.get("url", "")
 
-    # Generate examples for all verbs
-    examples_by_preverb = {}
-    examples_json_by_preverb = {}
-    gloss_analyses_by_preverb = {}
-    gloss_analyses_json_by_preverb = {}
-
-    if has_multiple_preverbs:
-        # Multi-preverb verbs: generate examples and gloss analyses for all preverbs
-        # All multi-preverb verbs should have preverb_rules
-        if verb.get("preverb_rules"):
-            examples_by_preverb, gloss_analyses_by_preverb = create_preverb_aware_examples(
-                verb, verb.get("preverb_rules", {})
-            )
-        else:
-            # Fallback for verbs without preverb_rules (shouldn't happen)
-            print(f"Warning: Verb {verb.get('id', 'unknown')} has multiple preverbs but no preverb_rules")
-            examples_by_preverb = {}
-            gloss_analyses_by_preverb = {}
-
-        # Create JSON for each preverb's examples
-        for preverb, examples_by_tense in examples_by_preverb.items():
-            examples_json_by_preverb[preverb] = html.escape(
-                json.dumps(examples_by_tense, ensure_ascii=False)
-            )
-
-        # Create JSON for each preverb's gloss analyses
-        gloss_analyses_json_by_preverb = {}
-        for preverb, gloss_analyses_by_tense in gloss_analyses_by_preverb.items():
-            gloss_analyses_json_by_preverb[preverb] = html.escape(
-                json.dumps(gloss_analyses_by_tense, ensure_ascii=False)
-            )
-    else:
-        # Single-preverb verbs: don't generate preverb-specific data at all
-        # The examples will be generated inline in the HTML sections
-        pass
-
-    # Add data attributes for JavaScript
-    # Properly escape JSON data for HTML attributes
-    preverb_config_json = html.escape(json.dumps(preverb_config, ensure_ascii=False))
-    preverb_rules_json = html.escape(
-        json.dumps(verb.get("preverb_rules", {}), ensure_ascii=False)
-    )
-    conjugations_json = html.escape(
-        json.dumps(verb.get("conjugations", {}), ensure_ascii=False)
-    )
-    examples_json = html.escape(
-        json.dumps(verb.get("examples", {}), ensure_ascii=False)
-    )
-    preverb_translations_json = html.escape(
-        json.dumps(verb.get("preverb_translations", {}), ensure_ascii=False)
-    )
-
-    # Only include preverb-specific data attributes for multi-preverb verbs
-    preverb_data_attributes = ""
-    if has_multiple_preverbs:
-        preverb_data_attributes = f"""
-             data-examples-მი='{examples_json_by_preverb.get("მი", "[]")}'
-             data-examples-მო='{examples_json_by_preverb.get("მო", "[]")}'
-             data-examples-გა='{examples_json_by_preverb.get("გა", "[]")}'
-             data-examples-წა='{examples_json_by_preverb.get("წა", "[]")}'
-             data-gloss-analyses-მი='{gloss_analyses_json_by_preverb.get("მი", "{}")}'
-             data-gloss-analyses-მო='{gloss_analyses_json_by_preverb.get("მო", "{}")}'
-             data-gloss-analyses-გა='{gloss_analyses_json_by_preverb.get("გა", "{}")}'
-             data-gloss-analyses-წა='{gloss_analyses_json_by_preverb.get("წა", "{}")}'"""
-
+    # Create minimal verb section with only essential data attributes
     section_html = f"""
         <div class="verb-section" id="{anchor_id}" 
              data-verb-id="{verb_id}"
@@ -1727,276 +1143,48 @@ def create_verb_section(verb, index=None, duplicate_primary_verbs=None):
              data-category="{category}" 
              data-class="{verb_class}"
              data-has-multiple-preverbs="{has_multiple_preverbs}"
-             data-default-preverb="{default_preverb}"
-             data-preverb-config='{preverb_config_json}'
-             data-preverb-rules='{preverb_rules_json}'
-             data-conjugations='{conjugations_json}'
-             data-examples='{examples_json}'
-             data-preverb-translations='{preverb_translations_json}'{preverb_data_attributes}>
+             data-default-preverb="{default_preverb}">
             {preverb_selector}
             <h2>{page_number}<span class="georgian-text">{georgian}</span> - {description} {backlink} <button class="link-icon" onclick="handleLinkIconClick('{anchor_id}')" title="Copy link to clipboard">🔗</button></h2>
-            {overview_table}
-    """
-    # Add notes section if notes is non-empty
-    notes = verb.get("notes", "")
-    if notes.strip():
-        section_html += f'<div class="verb-notes"><strong>Note:</strong> {notes}</div>'
-
-    # Add external link if URL is available
-    url = verb.get("url", "")
-    if url.strip():
-        section_html += f'<div class="verb-external-link"><a href="{url}" target="_blank" rel="noopener noreferrer"><i class="fas fa-external-link-alt"></i> View on Lingua.ge</a></div>'
-
-    # Create side-by-side sections
-    # First pair: Present Indicative and Imperfect
-    present_content = ""
-    imperfect_content = ""
-
-    if has_tense_forms(verb, "present", default_preverb):
-        present_content += create_preverb_aware_regular_table(
-            verb, "present", default_preverb
-        )
-        # Use examples if available for multi-preverb verbs, otherwise generate inline
-        if has_multiple_preverbs:
-            preverb_key = (
-                default_preverb.replace("-", "") if default_preverb else "default"
-            )
-            if (
-                preverb_key in examples_by_preverb
-                and "present" in examples_by_preverb[preverb_key]
-            ):
-                present_content += examples_by_preverb[preverb_key]["present"]
-        else:
-            # For single-preverb verbs, generate examples inline
-            examples_html = create_examples(verb, "present")
-            if examples_html:
-                present_content += examples_html
-
-        # Add default gloss analysis section (for მი- preverb) - only for multi-preverb verbs
-        if has_multiple_preverbs:
-            if (
-                "მი" in gloss_analyses_by_preverb
-                and "present" in gloss_analyses_by_preverb["მი"]
-            ):
-                present_content += gloss_analyses_by_preverb["მი"]["present"]
-            else:
-                # Fallback for multi-preverb verbs if no gloss analysis available
-                present_content += create_fallback_gloss_analysis("present", "მი")
-
-    if has_tense_forms(verb, "imperfect", default_preverb):
-        imperfect_content += create_preverb_aware_regular_table(
-            verb, "imperfect", default_preverb
-        )
-        # Use examples if available for multi-preverb verbs, otherwise generate inline
-        if has_multiple_preverbs:
-            preverb_key = (
-                default_preverb.replace("-", "") if default_preverb else "default"
-            )
-            if (
-                preverb_key in examples_by_preverb
-                and "imperfect" in examples_by_preverb[preverb_key]
-            ):
-                imperfect_content += examples_by_preverb[preverb_key]["imperfect"]
-        else:
-            # For single-preverb verbs, generate examples inline
-            examples_html = create_examples(verb, "imperfect")
-            if examples_html:
-                imperfect_content += examples_html
-
-        # Add default gloss analysis section (for მი- preverb) - only for multi-preverb verbs
-        if has_multiple_preverbs:
-            if (
-                "მი" in gloss_analyses_by_preverb
-                and "imperfect" in gloss_analyses_by_preverb["მი"]
-            ):
-                imperfect_content += gloss_analyses_by_preverb["მი"]["imperfect"]
-            else:
-                # Fallback for multi-preverb verbs if no gloss analysis available
-                imperfect_content += create_fallback_gloss_analysis("imperfect", "მი")
-
-    if present_content or imperfect_content:
-        section_html += """
-            <div class="tense-pair">
-                <div class="tense-column">
-        """
-        section_html += present_content
-        section_html += """
+            
+            <!-- Overview table container -->
+            <div class="overview-container">
+                <div class="loading-indicator">Loading overview table...</div>
+            </div>
+            
+            {f'<div class="verb-notes"><strong>Note:</strong> {notes}</div>' if notes.strip() else ''}
+            {f'<div class="verb-external-link"><a href="{url}" target="_blank" rel="noopener noreferrer"><i class="fas fa-external-link-alt"></i> View on Lingua.ge</a></div>' if url.strip() else ''}
+            
+            <!-- TENSE PAIRS - Empty containers for dynamic content -->
+            <div class="tense-pair" data-pair="1">
+                <div class="tense-column" data-tense="present">
+                    <div class="loading-indicator">Loading present tense...</div>
                 </div>
-                <div class="tense-column">
-        """
-        section_html += imperfect_content
-        section_html += """
+                <div class="tense-column" data-tense="imperfect">
+                    <div class="loading-indicator">Loading imperfect tense...</div>
                 </div>
             </div>
-        """
-
-    # Second pair: Aorist and Optative
-    aorist_content = ""
-    optative_content = ""
-
-    if has_tense_forms(verb, "aorist", default_preverb):
-        aorist_content += create_preverb_aware_regular_table(
-            verb, "aorist", default_preverb
-        )
-        # Use examples if available for multi-preverb verbs, otherwise generate inline
-        if has_multiple_preverbs:
-            preverb_key = (
-                default_preverb.replace("-", "") if default_preverb else "default"
-            )
-            if (
-                preverb_key in examples_by_preverb
-                and "aorist" in examples_by_preverb[preverb_key]
-            ):
-                aorist_content += examples_by_preverb[preverb_key]["aorist"]
-        else:
-            # For single-preverb verbs, generate examples inline
-            examples_html = create_examples(verb, "aorist")
-            if examples_html:
-                aorist_content += examples_html
-
-        # Add default gloss analysis section (for მი- preverb) - only for multi-preverb verbs
-        if has_multiple_preverbs:
-            if (
-                "მი" in gloss_analyses_by_preverb
-                and "aorist" in gloss_analyses_by_preverb["მი"]
-            ):
-                aorist_content += gloss_analyses_by_preverb["მი"]["aorist"]
-            else:
-                # Fallback for multi-preverb verbs if no gloss analysis available
-                aorist_content += create_fallback_gloss_analysis("aorist", "მი")
-
-    if has_tense_forms(verb, "optative", default_preverb):
-        optative_content += create_preverb_aware_regular_table(
-            verb, "optative", default_preverb
-        )
-        # Use examples if available for multi-preverb verbs, otherwise generate inline
-        if has_multiple_preverbs:
-            preverb_key = (
-                default_preverb.replace("-", "") if default_preverb else "default"
-            )
-            if (
-                preverb_key in examples_by_preverb
-                and "optative" in examples_by_preverb[preverb_key]
-            ):
-                optative_content += examples_by_preverb[preverb_key]["optative"]
-        else:
-            # For single-preverb verbs, generate examples inline
-            examples_html = create_examples(verb, "optative")
-            if examples_html:
-                optative_content += examples_html
-
-        # Add default gloss analysis section (for მი- preverb) - only for multi-preverb verbs
-        if has_multiple_preverbs:
-            if (
-                "მი" in gloss_analyses_by_preverb
-                and "optative" in gloss_analyses_by_preverb["მი"]
-            ):
-                optative_content += gloss_analyses_by_preverb["მი"]["optative"]
-            else:
-                # Fallback for multi-preverb verbs if no gloss analysis available
-                optative_content += create_fallback_gloss_analysis("optative", "მი")
-
-    if aorist_content or optative_content:
-        section_html += """
-            <div class="tense-pair">
-                <div class="tense-column">
-        """
-        section_html += aorist_content
-        section_html += """
+            
+            <div class="tense-pair" data-pair="2">
+                <div class="tense-column" data-tense="aorist">
+                    <div class="loading-indicator">Loading aorist tense...</div>
                 </div>
-                <div class="tense-column">
-        """
-        section_html += optative_content
-        section_html += """
+                <div class="tense-column" data-tense="optative">
+                    <div class="loading-indicator">Loading optative tense...</div>
                 </div>
             </div>
-        """
-
-    # Third pair: Future and Imperative
-    future_content = ""
-    imperative_content = ""
-
-    if has_tense_forms(verb, "future", default_preverb):
-        future_content += create_preverb_aware_regular_table(
-            verb, "future", default_preverb
-        )
-        # Use examples if available for multi-preverb verbs, otherwise generate inline
-        if has_multiple_preverbs:
-            preverb_key = (
-                default_preverb.replace("-", "") if default_preverb else "default"
-            )
-            if (
-                preverb_key in examples_by_preverb
-                and "future" in examples_by_preverb[preverb_key]
-            ):
-                future_content += examples_by_preverb[preverb_key]["future"]
-        else:
-            # For single-preverb verbs, generate examples inline
-            examples_html = create_examples(verb, "future")
-            if examples_html:
-                future_content += examples_html
-
-        # Add default gloss analysis section (for მი- preverb) - only for multi-preverb verbs
-        if has_multiple_preverbs:
-            if (
-                "მი" in gloss_analyses_by_preverb
-                and "future" in gloss_analyses_by_preverb["მი"]
-            ):
-                future_content += gloss_analyses_by_preverb["მი"]["future"]
-            else:
-                # Fallback for multi-preverb verbs if no gloss analysis available
-                future_content += create_fallback_gloss_analysis("future", "მი")
-
-    if has_tense_forms(verb, "imperative", default_preverb):
-        imperative_content += create_preverb_aware_regular_table(
-            verb, "imperative", default_preverb
-        )
-        # Use examples if available for multi-preverb verbs, otherwise generate inline
-        if has_multiple_preverbs:
-            preverb_key = (
-                default_preverb.replace("-", "") if default_preverb else "default"
-            )
-            if (
-                preverb_key in examples_by_preverb
-                and "imperative" in examples_by_preverb[preverb_key]
-            ):
-                imperative_content += examples_by_preverb[preverb_key]["imperative"]
-        else:
-            # For single-preverb verbs, generate examples inline
-            examples_html = create_examples(verb, "imperative")
-            if examples_html:
-                imperative_content += examples_html
-
-        # Add default gloss analysis section (for მი- preverb) - only for multi-preverb verbs
-        if has_multiple_preverbs:
-            if (
-                "მი" in gloss_analyses_by_preverb
-                and "imperative" in gloss_analyses_by_preverb["მი"]
-            ):
-                imperative_content += gloss_analyses_by_preverb["მი"]["imperative"]
-            else:
-                # Fallback for multi-preverb verbs if no gloss analysis available
-                imperative_content += create_fallback_gloss_analysis("imperative", "მი")
-
-    if future_content or imperative_content:
-        section_html += """
-            <div class="tense-pair">
-                <div class="tense-column">
-        """
-        section_html += future_content
-        section_html += """
+            
+            <div class="tense-pair" data-pair="3">
+                <div class="tense-column" data-tense="future">
+                    <div class="loading-indicator">Loading future tense...</div>
                 </div>
-                <div class="tense-column">
-        """
-        section_html += imperative_content
-        section_html += """
+                <div class="tense-column" data-tense="imperative">
+                    <div class="loading-indicator">Loading imperative tense...</div>
                 </div>
             </div>
-        """
-
-    section_html += """
         </div>
     """
+
     return section_html
 
 
@@ -2400,6 +1588,279 @@ def generate_html(verbs, duplicate_primary_verbs=None):
     return html_content
 
 
+# ============================================================================
+# DATA EXTERNALIZATION FUNCTIONS
+# ============================================================================
+# These functions support the externalization of verb data from HTML to
+# separate JSON files. They are designed to work alongside the existing
+# build process without affecting current functionality.
+
+
+def create_core_verb_data(verbs):
+    """
+    Extract core verb information for external JSON file.
+
+    Args:
+        verbs: List of verb dictionaries from load_json_data()
+
+    Returns:
+        dict: Core verb data organized by verb ID
+    """
+    core_data = {}
+
+    for verb in verbs:
+        verb_id = verb.get("id", "")
+        if not verb_id:
+            continue
+
+        core_data[verb_id] = {
+            "id": verb.get("id"),
+            "georgian": verb.get("georgian", ""),
+            "description": verb.get("description", ""),
+            "category": verb.get("category", ""),
+            "class": verb.get("class", ""),
+            "semantic_key": verb.get("semantic_key", ""),
+            "notes": verb.get("notes", ""),
+            "url": verb.get("url", ""),
+            "has_multiple_preverbs": verb.get("preverb_config", {}).get(
+                "has_multiple_preverbs", False
+            ),
+            "default_preverb": verb.get("preverb_config", {}).get(
+                "default_preverb", ""
+            ),
+            "english_translations": verb.get("english_translations", {}),
+        }
+
+    return {"verbs": core_data}
+
+
+def create_conjugations_data(verbs):
+    """
+    Extract conjugation data for external JSON file.
+
+    Args:
+        verbs: List of verb dictionaries from load_json_data()
+
+    Returns:
+        dict: Conjugation data organized by verb ID
+    """
+    conjugations_data = {}
+
+    for verb in verbs:
+        verb_id = verb.get("id", "")
+        if not verb_id:
+            continue
+
+        conjugations_data[verb_id] = verb.get("conjugations", {})
+
+    return {"conjugations": conjugations_data}
+
+
+def create_examples_data(verbs):
+    """
+    Extract examples data for external JSON file.
+    For multi-preverb verbs, generates examples for each preverb.
+    For single-preverb verbs, uses existing examples data.
+
+    Args:
+        verbs: List of verb dictionaries from load_json_data()
+
+    Returns:
+        dict: Examples data organized by verb ID and preverb
+    """
+    examples_data = {}
+
+    for verb in verbs:
+        verb_id = verb.get("id", "")
+        if not verb_id:
+            continue
+
+        examples_data[verb_id] = {}
+
+        # Check if this is a multi-preverb verb
+        preverb_config = verb.get("preverb_config", {})
+        has_multiple_preverbs = preverb_config.get("has_multiple_preverbs", False)
+
+        if has_multiple_preverbs:
+            # Generate examples for each preverb using existing logic
+            preverb_rules = verb.get("preverb_rules", {})
+            if preverb_rules:
+                examples_by_preverb, _ = create_preverb_aware_examples(
+                    verb, preverb_rules
+                )
+                examples_data[verb_id] = examples_by_preverb
+            else:
+                # Fallback for verbs without preverb_rules
+                print(
+                    f"Warning: Verb {verb_id} has multiple preverbs but no preverb_rules"
+                )
+                examples_data[verb_id] = {}
+        else:
+            # Single-preverb verbs: generate examples for each tense
+            examples_by_tense = {}
+            conjugations = verb.get("conjugations", {})
+
+            for tense, tense_data in conjugations.items():
+                if "forms" in tense_data:
+                    # Create modified verb data for example generation
+                    modified_verb = {
+                        "id": verb.get("id", 0),
+                        "semantic_key": verb.get("semantic_key", "to do"),
+                        "conjugations": {
+                            tense: {
+                                "forms": tense_data["forms"],
+                                "examples": tense_data.get("examples", []),
+                                "gloss": tense_data.get("gloss", {}),
+                                "raw_gloss": tense_data.get("gloss", {}).get(
+                                    "raw_gloss", ""
+                                ),
+                                "preverb": tense_data.get("gloss", {}).get(
+                                    "preverb", ""
+                                ),
+                            }
+                        },
+                        "preverb_translations": verb.get("preverb_translations", {}),
+                        "preverb_config": verb.get("preverb_config", {}),
+                        "prepositions": verb.get("prepositions", {}),
+                        "overrides": verb.get("overrides", {}),
+                    }
+
+                    # Generate examples for this tense
+                    examples_html = create_examples_without_gloss(modified_verb, tense)
+                    if examples_html:
+                        examples_by_tense[tense] = examples_html
+
+            examples_data[verb_id] = examples_by_tense
+
+    return {"examples": examples_data}
+
+
+def create_gloss_data(verbs):
+    """
+    Extract gloss analysis data for external JSON file.
+    For multi-preverb verbs, generates gloss analyses for each preverb.
+
+    Args:
+        verbs: List of verb dictionaries from load_json_data()
+
+    Returns:
+        dict: Gloss analysis data organized by verb ID and preverb
+    """
+    gloss_data = {}
+
+    for verb in verbs:
+        verb_id = verb.get("id", "")
+        if not verb_id:
+            continue
+
+        gloss_data[verb_id] = {}
+
+        # Check if this is a multi-preverb verb
+        preverb_config = verb.get("preverb_config", {})
+        has_multiple_preverbs = preverb_config.get("has_multiple_preverbs", False)
+
+        if has_multiple_preverbs:
+            # Generate gloss analyses for each preverb using existing logic
+            preverb_rules = verb.get("preverb_rules", {})
+            if preverb_rules:
+                _, gloss_analyses_by_preverb = create_preverb_aware_examples(
+                    verb, preverb_rules
+                )
+                gloss_data[verb_id] = gloss_analyses_by_preverb
+            else:
+                # Fallback for verbs without preverb_rules
+                print(
+                    f"Warning: Verb {verb_id} has multiple preverbs but no preverb_rules"
+                )
+                gloss_data[verb_id] = {}
+        else:
+            # Single-preverb verbs: generate gloss analyses for each tense
+            gloss_analyses_by_tense = {}
+            conjugations = verb.get("conjugations", {})
+
+            for tense, tense_data in conjugations.items():
+                if "forms" in tense_data:
+                    # Get the preverb from the gloss data
+                    preverb = tense_data.get("gloss", {}).get("preverb", "")
+
+                    # Generate gloss analysis for this tense
+                    gloss_html = create_gloss_analysis_for_preverb(
+                        tense_data, preverb, tense
+                    )
+                    if gloss_html:
+                        gloss_analyses_by_tense[tense] = gloss_html
+
+            gloss_data[verb_id] = gloss_analyses_by_tense
+
+    return {"gloss_analyses": gloss_data}
+
+
+def create_preverb_config_data(verbs):
+    """
+    Extract preverb configuration data for external JSON file.
+
+    Args:
+        verbs: List of verb dictionaries from load_json_data()
+
+    Returns:
+        dict: Preverb configuration data organized by verb ID
+    """
+    preverb_config_data = {}
+
+    for verb in verbs:
+        verb_id = verb.get("id", "")
+        if not verb_id:
+            continue
+
+        preverb_config_data[verb_id] = {
+            "preverb_config": verb.get("preverb_config", {}),
+            "preverb_rules": verb.get("preverb_rules", {}),
+            "preverb_translations": verb.get("preverb_translations", {}),
+        }
+
+    return {"preverb_configs": preverb_config_data}
+
+
+def generate_external_data_files(verbs):
+    """
+    Generate all external data files for verb data externalization.
+
+    Args:
+        verbs: List of verb dictionaries from load_json_data()
+
+    Returns:
+        bool: True if successful, False otherwise
+    """
+    try:
+        # Create dist/data directory
+        dist_dir = Path(__file__).parent.parent / "dist"
+        data_dir = dist_dir / "data"
+        data_dir.mkdir(exist_ok=True)
+
+        print(f"Generating external data files in: {data_dir}")
+
+        # Generate each data file
+        data_files = [
+            ("verbs-data.json", create_core_verb_data(verbs)),
+            ("conjugations-data.json", create_conjugations_data(verbs)),
+            ("examples-data.json", create_examples_data(verbs)),
+            ("gloss-data.json", create_gloss_data(verbs)),
+            ("preverb-config.json", create_preverb_config_data(verbs)),
+        ]
+
+        for filename, data in data_files:
+            file_path = data_dir / filename
+            with open(file_path, "w", encoding="utf-8") as f:
+                json.dump(data, f, ensure_ascii=False, indent=2)
+            print(f"  Generated: {filename}")
+
+        return True
+
+    except Exception as e:
+        print(f"Error generating external data files: {e}")
+        return False
+
+
 def main():
     """Main function to build the HTML file."""
     # Check if we're in the right directory
@@ -2419,6 +1880,14 @@ def main():
     # Load and validate data
     semantic_mapping = load_semantic_mapping()
     run_comprehensive_validation(verbs, semantic_mapping)
+
+    # Generate external data files
+    print("Generating external data files...")
+    external_data_success = generate_external_data_files(verbs)
+    if external_data_success:
+        print("✅ External data files generated successfully")
+    else:
+        print("❌ Failed to generate external data files")
 
     # Generate HTML
     html_content = generate_html(verbs, duplicate_primary_verbs)
