@@ -1693,7 +1693,7 @@ class VerbDataManager {
 
         // Check for tense-specific fallbacks
         if (tenseSpecificFallbacks[normalizedTarget]) {
-            // We'll handle tense-specific fallbacks in the form calculation loop
+            // Handle tense-specific fallbacks in the form calculation loop
         }
 
         const result = {};
@@ -1999,7 +1999,7 @@ class VerbDataManager {
     generateTenseConjugationTable(tense, tenseData) {
         const forms = tenseData?.forms || {};
 
-        // Check if we have any forms
+        // Check if any forms are available
         if (!forms || Object.keys(forms).length === 0) {
             return '<div class="table-container regular-table-container"><p>No conjugation data available</p></div>';
         }
@@ -2388,7 +2388,7 @@ class PreverbManager {
 
         // Handle available_preverbs approach - should always have preverb_rules
         if (preverbConfig.available_preverbs && preverbConfig.available_preverbs.length > 0) {
-            // If we have available_preverbs but no preverb_rules, this is an error
+            // If available_preverbs exist but no preverb_rules, this is an error
             // All verbs with available_preverbs should have preverb_rules
             console.warn(`Verb ${verbId} has available_preverbs but no preverb_rules`);
             return conjugations;
@@ -2444,7 +2444,7 @@ class PreverbManager {
 
         // Check for tense-specific fallbacks
         if (tenseSpecificFallbacks[normalizedTarget]) {
-            // We'll handle tense-specific fallbacks in the form calculation loop
+            // Handle tense-specific fallbacks in the form calculation loop
         }
 
         const result = {};
@@ -2491,7 +2491,7 @@ class PreverbManager {
         const preverbRules = JSON.parse(verbSection.dataset.preverbRules || '{}');
 
         // For new preverb rules structure, examples are already generated at build time
-        // and stored in the examples data attribute. We just need to return them.
+        // and stored in the examples data attribute. Just return them.
         if (preverbRules && Object.keys(preverbRules).length > 0) {
             return examples;
         }

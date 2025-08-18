@@ -120,7 +120,7 @@ def calculate_preverb_forms(
 
     # Check for tense-specific fallbacks
     if target_preverb in tense_specific_fallbacks:
-        # For now, we'll handle this in the calling function
+        # Handle this in the calling function
         # This is a placeholder for future tense-specific logic
         pass
 
@@ -248,9 +248,6 @@ def get_indirect_object_preposition(verb: Dict) -> str:
     if "indirect_object" in prepositions:
         return prepositions["indirect_object"]
 
-    # Fall back to old structure
-    return verb.get("indirect_object_preposition", "")
-
 
 def get_direct_object_preposition(verb: Dict) -> str:
     """
@@ -333,18 +330,6 @@ def get_verb_gloss(verb: Dict, tense: str) -> Optional[Dict[str, str]]:
     if isinstance(tense_data, dict) and "gloss" in tense_data:
         return tense_data["gloss"]
 
-    # Old structure with examples
-    examples = verb.get("examples", {})
-    tense_examples = examples.get(tense, {})
-
-    if isinstance(tense_examples, dict):
-        return {
-            "raw_gloss": tense_examples.get("raw_gloss", ""),
-            "preverb": tense_examples.get("preverb", ""),
-        }
-
-    return None
-
 
 def get_verb_examples(verb: Dict, tense: str) -> List[Dict[str, Any]]:
     """
@@ -363,12 +348,3 @@ def get_verb_examples(verb: Dict, tense: str) -> List[Dict[str, Any]]:
     # New structure with examples in conjugations
     if isinstance(tense_data, dict) and "examples" in tense_data:
         return tense_data["examples"]
-
-    # Old structure with examples in separate examples section
-    examples = verb.get("examples", {})
-    tense_examples = examples.get(tense, {})
-
-    if isinstance(tense_examples, dict) and "examples" in tense_examples:
-        return tense_examples["examples"]
-
-    return []

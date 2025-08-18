@@ -1342,7 +1342,8 @@ li:last-child {
 .sidebar-header h3 {
     margin: 0;
     color: var(--text-primary);
-    font-size: 1.3em;
+    font-size: 1.3em !important;
+    font-family: 'Noto Sans Georgian', 'Inter', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif !important;
 }
 
 .sidebar-close {
@@ -1561,7 +1562,8 @@ li:last-child {
 
 .toc-category-header h3 {
     margin: 0;
-    font-size: 1em;
+    font-size: 1em !important;
+    font-family: 'Noto Sans Georgian', 'Inter', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif !important;
 }
 
 /* Main content category headers */
@@ -3343,6 +3345,8 @@ li:last-child {
     font-weight: 600;
     color: var(--text-primary);
     border-bottom: 1px solid var(--border-color, rgba(0, 0, 0, 0.1));
+    font-family: 'Noto Sans Georgian', 'Inter', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif !important;
+    font-size: 1em !important;
 }
 
 /* ============================================================================

@@ -21,6 +21,8 @@ import html
 from pathlib import Path
 from typing import Dict, List, Optional, Tuple
 
+from tools.utils import DatabaseLoader
+
 # Configure logging
 logging.basicConfig(level=logging.WARNING)
 logger = logging.getLogger(__name__)
@@ -42,16 +44,22 @@ class GlossParser:
     def _load_gloss_reference(self) -> Dict[str, str]:
         """Load the gloss reference data from JSON file."""
         try:
+            # Fix path to look in the correct location
             gloss_path = (
-                Path(__file__).parent.parent / "src" / "data" / "gloss_reference.json"
+                Path(__file__).parent.parent.parent
+                / "src"
+                / "data"
+                / "gloss_reference.json"
             )
             with open(gloss_path, "r", encoding="utf-8") as f:
                 return json.load(f)
         except FileNotFoundError:
-            print(f"Warning: gloss_reference.json not found at {gloss_path}")
+            logger.warning(
+                f"gloss_reference.json not found at {gloss_path} (this is optional)"
+            )
             return {}
         except json.JSONDecodeError as e:
-            print(f"Error parsing gloss reference: {e}")
+            logger.error(f"Error parsing gloss reference: {e}")
             return {}
 
     def parse_raw_gloss(self, raw_gloss: str, preverb: Optional[str] = None) -> str:
@@ -195,21 +203,23 @@ def process_raw_gloss(raw_gloss: str, preverb: str = None) -> str:
 
     # Parse the raw gloss to get the structure
     parsed_gloss = parser.parse_raw_gloss(raw_gloss)
-    
+
     # Convert the parsed gloss to a formatted string
     formatted_parts = []
-    
+
     # Add voice and tense
     voice = parsed_gloss.get("voice", "")
     tense = parsed_gloss.get("tense", "")
     if voice and tense:
-        formatted_parts.append(f"<V {voice} {tense}>: Verb, {voice}ive Voice, {tense} Tense")
-    
+        formatted_parts.append(
+            f"<V {voice} {tense}>: Verb, {voice}ive Voice, {tense} Tense"
+        )
+
     # Add preverb if present
     preverb = parsed_gloss.get("preverb")
     if preverb:
         formatted_parts.append(f"<Pv ({preverb})>: Preverb, {preverb}")
-    
+
     # Add argument pattern
     argument_pattern = parsed_gloss.get("argument_pattern", "")
     if argument_pattern:
@@ -218,11 +228,11 @@ def process_raw_gloss(raw_gloss: str, preverb: str = None) -> str:
             "<S>": "Intransitive",
             "<S-DO>": "Transitive",
             "<S-IO>": "Ditransitive (Subject-Indirect Object)",
-            "<S-DO-IO>": "Ditransitive (Subject-Direct Object-Indirect Object)"
+            "<S-DO-IO>": "Ditransitive (Subject-Direct Object-Indirect Object)",
         }
         description = pattern_descriptions.get(argument_pattern, argument_pattern)
         formatted_parts.append(f"{argument_pattern}: {description}")
-    
+
     # Add individual arguments
     arguments = parsed_gloss.get("arguments", {})
     for arg_type, arg_data in arguments.items():
@@ -230,7 +240,7 @@ def process_raw_gloss(raw_gloss: str, preverb: str = None) -> str:
         if case:
             case_desc = f"{case}inative" if case == "Nom" else f"{case}ative"
             formatted_parts.append(f"<{arg_type}:{case}>: {arg_type}, {case_desc} Case")
-    
+
     return "\n".join(formatted_parts)
 
 
@@ -500,31 +510,9 @@ class StandardizedRawGlossParser:
         self.databases = self._load_databases()
 
     def _load_databases(self) -> Dict:
-        """Load the four databases for validation"""
-        data_dir = Path("src/data")
-        databases = {}
-
-        db_files = [
-            ("subjects", "subject_database.json"),
-            ("direct_objects", "direct_object_database.json"),
-            ("indirect_objects", "indirect_object_database.json"),
-            ("adjectives", "adjective_database.json"),
-        ]
-
-        for db_type, filename in db_files:
-            filepath = data_dir / filename
-            if filepath.exists():
-                try:
-                    with open(filepath, "r", encoding="utf-8") as f:
-                        databases[db_type] = json.load(f)
-                except Exception as e:
-                    logger.warning(f"Could not load {filename}: {e}")
-                    databases[db_type] = {}
-            else:
-                logger.warning(f"Database file not found: {filepath}")
-                databases[db_type] = {}
-
-        return databases
+        """Load the four databases for validation using shared utility"""
+        loader = DatabaseLoader()
+        return loader.load_all_databases()
 
     def parse_raw_gloss(self, raw_gloss: str) -> Dict[str, Dict]:
         """
@@ -570,7 +558,7 @@ class StandardizedRawGlossParser:
                     f"Raw gloss must have at least 1 part, got {len(parts)}"
                 )
 
-            # If we only have "V", provide a default structure
+            # If only "V" is present, provide a default structure
             if len(parts) == 1 and parts[0] == "V":
                 return {
                     "voice": "Act",
@@ -618,14 +606,14 @@ class StandardizedRawGlossParser:
                     i += 1
                     continue
 
-                # If we haven't found voice or tense, this might be a preverb
+                # If voice or tense not found, this might be a preverb
                 if not voice_found and not tense_found:
                     # Assume it's a preverb (Georgian preverbs)
                     result["preverb"] = part
                     i += 1
                     continue
 
-                # If we've found both, break
+                # If both found, break
                 if voice_found and tense_found:
                     break
 
@@ -765,6 +753,7 @@ class StandardizedRawGlossParser:
         for arg_type in arguments:
             if arg_type not in ["subject", "direct_object", "indirect_object"]:
                 raise RawGlossParseError(f"Unknown argument type: {arg_type}")
+
 
 # Convenience functions for backward compatibility
 def create_gloss_parser() -> GlossParser:

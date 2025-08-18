@@ -15,16 +15,17 @@ It checks for:
 - Format consistency
 """
 
-import json
 import os
 import sys
 from typing import Dict, List, Set
 from pathlib import Path
 
+from tools.utils import DatabaseLoader, validate_file_path
+
 
 class DatabaseValidator:
     def __init__(self):
-        self.data_dir = Path("src/data")
+        self.db_loader = DatabaseLoader()
         self.required_cases = ["nom", "erg", "dat", "gen", "inst", "adv"]
         self.required_fields = {
             "subjects": [
@@ -83,18 +84,11 @@ class DatabaseValidator:
 
     def validate_database(self, db_type: str, filename: str) -> bool:
         """Validate a single database"""
-        filepath = self.data_dir / filename
-
-        if not filepath.exists():
-            self.errors.append(f"Database file not found: {filepath}")
-            return False
-
         try:
-            with open(filepath, "r", encoding="utf-8") as f:
-                data = json.load(f)
-        except json.JSONDecodeError as e:
-            self.errors.append(f"Invalid JSON in {filename}: {e}")
-            return False
+            data = self.db_loader.get_database(db_type)
+            if not data:
+                self.errors.append(f"Database {db_type} is empty or could not be loaded")
+                return False
         except Exception as e:
             self.errors.append(f"Error reading {filename}: {e}")
             return False

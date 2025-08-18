@@ -15,13 +15,13 @@ from typing import Dict, List, Optional, Tuple, Any
 from pathlib import Path
 import json
 
-from tools.noun_adjective_selection_engine import (
+from tools.core.noun_adjective_selection_engine import (
     NounAdjectiveSelectionEngine,
     NounSelectionError,
     CaseFormMissingError,
 )
-from tools.gloss_parser import StandardizedRawGlossParser, RawGlossParseError
-from tools.verb_conjugation import (
+from tools.core.gloss_parser import StandardizedRawGlossParser, RawGlossParseError
+from tools.core.verb_conjugation import (
     get_conjugation_form,
     get_verb_gloss,
     get_english_translation,
@@ -203,7 +203,7 @@ class PedagogicalExampleGenerator:
                 georgian_parts.append(georgian_verb_form)
 
             # Generate complete English translation using the new function
-            # We need to extract the keys from the selection engine data
+            # Extract the keys from the selection engine data
             subject_key = None
             subject_adj_key = None
             do_key = None
@@ -758,7 +758,7 @@ class PedagogicalExampleGenerator:
 
     def _sov_to_svo_mapping(self, parts: List[str]) -> List[str]:
         """Convert SOV order to SVO order (currently already in SVO order)"""
-        # For now, we'll keep the current SVO order since the English translation
+        # Keep the current SVO order since the English translation
         # is already built in SVO order (Subject → Verb → Object)
         return parts
 
@@ -846,9 +846,3 @@ def generate_pedagogical_examples(verb_data: Dict, tense: str) -> Dict[str, Any]
     except Exception as e:
         logger.error(f"Failed to generate pedagogical examples: {e}")
         return {"examples": [], "raw_gloss": "", "preverb": "", "enhanced": False}
-
-
-# Convenience function for backward compatibility
-def create_pedagogical_example_generator() -> PedagogicalExampleGenerator:
-    """Create a pedagogical example generator instance"""
-    return PedagogicalExampleGenerator()

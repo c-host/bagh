@@ -17,13 +17,12 @@ Features:
 - Comprehensive error handling with resolution instructions
 """
 
-import hashlib
 import logging
 from typing import Dict, List, Optional, Tuple, Any
 from pathlib import Path
-import json
 
-from tools.gloss_parser import (
+from tools.utils import DatabaseLoader, create_deterministic_hash
+from tools.core.gloss_parser import (
     StandardizedRawGlossParser,
     RawGlossParseError,
 )
@@ -62,36 +61,9 @@ class NounAdjectiveSelectionEngine:
         }
 
     def _load_databases(self) -> Dict:
-        """Load the four databases"""
-        data_dir = Path(__file__).parent.parent / "src" / "data"
-        databases = {}
-
-        db_files = [
-            ("subjects", "subject_database.json"),
-            ("direct_objects", "direct_object_database.json"),
-            ("indirect_objects", "indirect_object_database.json"),
-            ("adjectives", "adjective_database.json"),
-        ]
-
-        for db_type, filename in db_files:
-            filepath = data_dir / filename
-            if filepath.exists():
-                try:
-                    with open(filepath, "r", encoding="utf-8") as f:
-                        data = json.load(f)
-                        # Extract the actual database content
-                        if db_type in data:
-                            databases[db_type] = data[db_type]
-                        else:
-                            databases[db_type] = {}
-                except Exception as e:
-                    logger.error(f"Could not load {filename}: {e}")
-                    databases[db_type] = {}
-            else:
-                logger.error(f"Database file not found: {filepath}")
-                databases[db_type] = {}
-
-        return databases
+        """Load the four databases using shared utility"""
+        loader = DatabaseLoader()
+        return loader.load_all_databases()
 
     def _check_override(
         self, verb_data: Dict, component_type: str, case: str
@@ -410,7 +382,7 @@ class NounAdjectiveSelectionEngine:
             )
 
         # Select noun deterministically
-        noun_hash = int(hashlib.md5(selection_seed.encode()).hexdigest(), 16)
+        noun_hash = create_deterministic_hash(selection_seed)
         noun_index = noun_hash % len(compatible_nouns)
         selected_noun = compatible_nouns[noun_index]
 
@@ -425,7 +397,7 @@ class NounAdjectiveSelectionEngine:
 
         # Select adjective deterministically
         adj_seed = f"{selection_seed}_adj"
-        adj_hash = int(hashlib.md5(adj_seed.encode()).hexdigest(), 16)
+        adj_hash = create_deterministic_hash(adj_seed)
         adj_index = adj_hash % len(compatible_adjectives)
         selected_adjective = compatible_adjectives[adj_index]
 
