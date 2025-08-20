@@ -274,6 +274,7 @@ class PedagogicalExampleGenerator:
                 "english_plain": english_plain,
                 "html": html_sentence,
                 "case_marking": case_marking,
+                "georgian_verb_form": georgian_verb_form,
             }
 
         except Exception as e:
@@ -763,13 +764,14 @@ class PedagogicalExampleGenerator:
         return parts
 
 
-def generate_pedagogical_examples(verb_data: Dict, tense: str) -> Dict[str, Any]:
+def generate_pedagogical_examples(verb_data: Dict, tense: str, preverb: Optional[str] = None) -> Dict[str, Any]:
     """
     Generate pedagogical examples for a verb and tense using the standardized format
 
     Args:
         verb_data: Verb data from verbs.json (standardized format)
         tense: Tense name (present, imperfect, etc.)
+        preverb: Optional preverb to use (for multi-preverb verbs)
 
     Returns:
         Dictionary with examples data compatible with existing build.py
@@ -784,7 +786,8 @@ def generate_pedagogical_examples(verb_data: Dict, tense: str) -> Dict[str, Any]
 
         # Extract data from standardized structure
         raw_gloss = tense_conjugation.get("gloss", {}).get("raw_gloss", "")
-        preverb = tense_conjugation.get("gloss", {}).get("preverb", "")
+        # Use provided preverb if available, otherwise fall back to default
+        effective_preverb = preverb if preverb is not None else tense_conjugation.get("gloss", {}).get("preverb", "")
         verb_semantics = verb_data.get("semantic_key", "to do")
         verb_id = verb_data.get("id", 0)
 
@@ -799,8 +802,9 @@ def generate_pedagogical_examples(verb_data: Dict, tense: str) -> Dict[str, Any]
         generator = PedagogicalExampleGenerator()
 
         for person in persons:
-            # Get the Georgian verb form from the standardized forms structure
-            georgian_form = tense_conjugation.get("forms", {}).get(person, "")
+            # Use get_conjugation_form to get the correct verb form with preverb
+            from .verb_conjugation import get_conjugation_form
+            georgian_form = get_conjugation_form(verb_data, tense, person, effective_preverb)
 
             if not georgian_form or georgian_form == "-":
                 continue
@@ -839,7 +843,7 @@ def generate_pedagogical_examples(verb_data: Dict, tense: str) -> Dict[str, Any]
         return {
             "examples": examples,
             "raw_gloss": raw_gloss,
-            "preverb": preverb,
+            "preverb": effective_preverb,
             "enhanced": True,  # Flag to indicate this uses the new system
         }
 

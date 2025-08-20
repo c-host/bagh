@@ -59,22 +59,20 @@ def get_conjugation_form(
         conjugations = verb.get("conjugations", {})
         tense_data = conjugations.get(tense, {})
 
-        # Use data structure detection for preverb handling approach
-        if _is_stem_based_approach(preverb_config) and "forms" in tense_data:
-            # Stem-based approach: append preverbs to stems
-            stem = tense_data["forms"].get(person, "-")
-            if stem == "-":
-                base_form = "-"
-            else:
-                # Remove hyphen from preverb before combining with stem
-                clean_preverb = preverb.replace("-", "")
-                base_form = clean_preverb + stem
+        if "forms" in tense_data:
+            # Get the base forms (which already have the default preverb)
+            base_forms = tense_data["forms"]
+            
+            # Get preverb rules for replacement
+            preverb_rules = verb.get("preverb_rules", {})
+            
+            # Calculate the forms with the target preverb
+            preverb_forms = calculate_preverb_forms(base_forms, preverb_rules, preverb)
+            
+            # Get the specific person form
+            base_form = preverb_forms.get(person, "-")
         else:
-            # Pre-defined forms approach: use forms per preverb
-            if isinstance(tense_data, dict) and preverb in tense_data:
-                base_form = tense_data[preverb].get(person, "-")
-            else:
-                base_form = "-"
+            base_form = "-"
 
     return base_form
 
@@ -136,9 +134,9 @@ def calculate_preverb_forms(
     for person, form in forms.items():
         if form == "-" or form == "":
             result[person] = form
-        elif form.startswith(default_preverb):
+        elif form.startswith(normalized_default):
             # Extract the stem (remove the default preverb) and apply the new preverb
-            stem = form[len(default_preverb) :]
+            stem = form[len(normalized_default):]
             result[person] = replacement + stem
         else:
             # Handle irregular forms that don't follow prefix pattern

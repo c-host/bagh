@@ -20,14 +20,16 @@ logger = logging.getLogger(__name__)
 class ConfigManager:
     """Manages configuration for the build process."""
 
-    def __init__(self, project_root: Optional[Path] = None):
+    def __init__(self, project_root: Optional[Path] = None, build_mode: str = 'production'):
         """
         Initialize configuration manager.
 
         Args:
             project_root: Path to project root. If None, auto-detects from current directory.
+            build_mode: Build mode ('dev' or 'production')
         """
         self.project_root = project_root or self._detect_project_root()
+        self.build_mode = build_mode
         self._load_configuration()
 
     def _detect_project_root(self) -> Path:
@@ -55,7 +57,7 @@ class ConfigManager:
         self.paths = {
             "project_root": self.project_root,
             "src_dir": self.project_root / "src",
-            "dist_dir": self.project_root / "dist",
+            "dist_dir": self.project_root / ("dev" if self.build_mode == 'dev' else "dist"),
             "tools_dir": self.project_root / "tools",
             "modules_dir": self.project_root / "tools" / "modules",
         }
@@ -119,6 +121,24 @@ class ConfigManager:
             "copy_assets": True,
             "copy_error_page": True,
             "clean_existing_assets": True,
+        }
+
+        # Dev build configuration
+        self.dev_config = {
+            "dev_verbs": [
+                {
+                    "georgian": "ჩვენება",
+                    "semantic_key": "show",
+                    "reason": "stative_verb_no_preverbs"
+                },
+                {
+                    "georgian": "მიტანა", 
+                    "semantic_key": "bring",
+                    "reason": "multi_preverb_verb"
+                }
+            ],
+            "dev_output_dir": "dev",
+            "dev_verb_limit": 2
         }
 
     def get_path(self, path_key: str) -> Path:
@@ -254,6 +274,7 @@ class ConfigManager:
             "validation_config": self.validation_config,
             "external_data_config": self.external_data_config,
             "asset_config": self.asset_config,
+            "dev_config": self.dev_config,
         }
 
     def create_directories(self) -> bool:

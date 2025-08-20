@@ -244,6 +244,80 @@ def process_raw_gloss(raw_gloss: str, preverb: str = None) -> str:
     return "\n".join(formatted_parts)
 
 
+def process_raw_gloss_simple(raw_gloss: str, preverb: str = None) -> str:
+    """
+    Process raw gloss and convert to simple format for HTML display.
+
+    Args:
+        raw_gloss: Raw gloss in GNC format
+        preverb: Preverb value when Pv appears in gloss
+
+    Returns:
+        Formatted simple gloss for HTML display
+    """
+    if not raw_gloss:
+        return ""
+
+    parser = StandardizedRawGlossParser()
+
+    # Validate preverb requirement
+    if parser.validate_preverb_requirement(raw_gloss, preverb):
+        # Preverb is required but not provided or empty
+        if not preverb or not preverb.strip():
+            print(f"Warning: Preverb required for gloss containing 'Pv': {raw_gloss}")
+            return raw_gloss
+
+    # Parse the raw gloss to get the structure
+    parsed_gloss = parser.parse_raw_gloss(raw_gloss)
+
+    # Convert the parsed gloss to a simple formatted string
+    formatted_parts = []
+
+    # Add V
+    formatted_parts.append("V: Verb")
+
+    # Add voice
+    voice = parsed_gloss.get("voice", "")
+    if voice:
+        formatted_parts.append(f"{voice}: {voice}ive")
+
+    # Add tense
+    tense = parsed_gloss.get("tense", "")
+    if tense:
+        formatted_parts.append(f"{tense}: {tense}")
+
+    # Add preverb if present
+    preverb = parsed_gloss.get("preverb")
+    if preverb:
+        formatted_parts.append(f"Pv: Preverb ({preverb})")
+
+    # Add argument pattern
+    argument_pattern = parsed_gloss.get("argument_pattern", "")
+    if argument_pattern:
+        # Map argument patterns to descriptions
+        pattern_descriptions = {
+            "<S>": "Intransitive",
+            "<S-DO>": "Transitive absolute",
+            "<S-IO>": "Ditransitive (Subject-Indirect Object)",
+            "<S-DO-IO>": "Ditransitive (Subject-Direct Object-Indirect Object)",
+        }
+        description = pattern_descriptions.get(argument_pattern, "Transitive absolute")
+        formatted_parts.append(f"{argument_pattern}: {description}")
+
+    # Add individual arguments
+    arguments = parsed_gloss.get("arguments", {})
+    for arg_type, arg_data in arguments.items():
+        case = arg_data.get("case", "")
+        if case:
+            case_desc = f"{case}inative" if case == "Nom" else f"{case}ative"
+            arg_desc = f"{arg_type.title()} {case_desc.lower()}"
+            # Fix: Use the role abbreviation (S, DO, IO) instead of the argument type name
+            role = arg_data.get("type", arg_type)
+            formatted_parts.append(f"<{role}:{case}>: {arg_desc}")
+
+    return "\n".join(formatted_parts)
+
+
 def format_raw_gloss_with_colors(raw_gloss: str) -> str:
     """
     Format raw gloss with color coding for V, S, DO, IO elements and case-marked patterns.
@@ -481,7 +555,7 @@ def format_gloss_for_html(case_gloss: str) -> str:
             1,
         )
 
-        return result
+    return result
 
 
 class StandardizedRawGlossParser:
@@ -753,6 +827,27 @@ class StandardizedRawGlossParser:
         for arg_type in arguments:
             if arg_type not in ["subject", "direct_object", "indirect_object"]:
                 raise RawGlossParseError(f"Unknown argument type: {arg_type}")
+
+    def validate_preverb_requirement(self, raw_gloss: str, preverb: str = None) -> bool:
+        """
+        Validate if a preverb is required for the given raw gloss.
+
+        Args:
+            raw_gloss: Raw gloss string
+            preverb: Preverb value (can be None)
+
+        Returns:
+            True if preverb is required but not provided, False otherwise
+        """
+        if not raw_gloss:
+            return False
+
+        # Check if the raw gloss contains 'Pv' (preverb marker)
+        if "Pv" in raw_gloss:
+            # If Pv is present but no preverb is provided, it's required
+            return not preverb or not preverb.strip()
+
+        return False
 
 
 # Convenience functions for backward compatibility

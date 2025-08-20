@@ -20,10 +20,16 @@ logger = logging.getLogger(__name__)
 class AssetManager:
     """Handles copying and management of static assets for the website."""
 
-    def __init__(self, project_root: Path):
+    def __init__(self, project_root: Path, config_manager=None):
         self.project_root = project_root
-        self.dist_dir = project_root / "dist"
-        self.src_dir = project_root / "src"
+        if config_manager is None:
+            # Import here to avoid circular imports
+            from tools.modules.config_manager import ConfigManager
+            self.config_manager = ConfigManager(project_root)
+        else:
+            self.config_manager = config_manager
+        self.dist_dir = self.config_manager.get_path("dist_dir")
+        self.src_dir = self.config_manager.get_path("src_dir")
 
     def copy_assets(self) -> bool:
         """

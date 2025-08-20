@@ -10,9 +10,12 @@ This script:
 4. Copies CSS, JS, and font assets to dist/ folder
 5. Creates a production-ready static website
 
-Usage: python tools/build.py
+Usage: 
+    python tools/build.py --production  # Build production version (default)
+    python tools/build.py --dev         # Build development version with 2 verbs
 """
 
+import argparse
 import json
 import logging
 from pathlib import Path
@@ -29,21 +32,36 @@ from tools.modules.asset_manager import AssetManager
 from tools.modules.file_writer import FileWriter
 from tools.modules.config_manager import ConfigManager
 
-# Initialize configuration manager first
-config_manager = ConfigManager()
-
-# Set up logging using configuration
-logging.basicConfig(
-    level=getattr(logging, config_manager.get_setting("build_config", "log_level")),
-    format=config_manager.get_setting("build_config", "log_format"),
-    force=True,  # Force reconfiguration
-)
 logger = logging.getLogger(__name__)
+
+
+def parse_arguments():
+    """Parse command line arguments."""
+    parser = argparse.ArgumentParser(description='Build script for verb website')
+    parser.add_argument('--dev', action='store_true', help='Build development version with reduced verbs')
+    parser.add_argument('--production', action='store_true', help='Build production version with all verbs')
+    return parser.parse_args()
 
 
 def main():
     """Main function to build the HTML file."""
-    logger.info("🚀 Starting build process...")
+    # Parse command line arguments
+    args = parse_arguments()
+    
+    # Determine build mode
+    build_mode = 'dev' if args.dev else 'production'
+    
+    logger.info(f"🚀 Starting {build_mode} build process...")
+
+    # Initialize configuration manager with build mode
+    config_manager = ConfigManager(build_mode=build_mode)
+
+    # Set up logging using configuration
+    logging.basicConfig(
+        level=getattr(logging, config_manager.get_setting("build_config", "log_level")),
+        format=config_manager.get_setting("build_config", "log_format"),
+        force=True,  # Force reconfiguration
+    )
 
     # Get project root from configuration
     project_root = config_manager.get_path("project_root")
@@ -60,13 +78,19 @@ def main():
     # Initialize modules with configuration
     data_loader = VerbDataLoader(project_root)
     html_generator = HTMLGenerator(project_root, data_loader)
-    external_data_generator = ExternalDataGenerator(project_root)
-    asset_manager = AssetManager(project_root)
-    file_writer = FileWriter(project_root)
+    external_data_generator = ExternalDataGenerator(project_root, config_manager)
+    asset_manager = AssetManager(project_root, config_manager)
+    file_writer = FileWriter(project_root, config_manager)
 
-    # Load and validate verb data
+    # Load and validate verb data based on build mode
     logger.info("📖 Loading verb data...")
-    verbs, duplicate_primary_verbs = data_loader.load_json_data()
+    if build_mode == 'dev':
+        dev_config = config_manager.get_setting("dev_config", "dev_verbs")
+        verbs, duplicate_primary_verbs = data_loader.load_dev_verbs(dev_config)
+        logger.info(f"🔧 Dev mode: Loaded {len(verbs)} verbs for development build")
+    else:
+        verbs, duplicate_primary_verbs = data_loader.load_json_data()
+        logger.info(f"🏭 Production mode: Loaded {len(verbs)} verbs for production build")
 
     if not verbs:
         logger.error("❌ No verbs loaded. Exiting.")

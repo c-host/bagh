@@ -10,58 +10,145 @@
  * - Preverb toggle system
  */
 
+// Throttle function
+function throttle(func, limit) {
+    let inThrottle;
+    return function () {
+        const args = arguments;
+        const context = this;
+        if (!inThrottle) {
+            func.apply(context, args);
+            inThrottle = true;
+            setTimeout(() => inThrottle = false, limit);
+        }
+    }
+}
+
+
+
+
+
+// Global function for link icon clicks - must be defined before DOMContentLoaded
+window.handleLinkIconClick = function (anchorId) {
+    const url = `${window.location.origin}${window.location.pathname}#${anchorId}`;
+
+    // Find the clicked link icon element
+    const clickedElement = event.target;
+
+    // Store original styles
+    const originalBackground = clickedElement.style.backgroundColor;
+    const originalColor = clickedElement.style.color;
+    const originalOpacity = clickedElement.style.opacity;
+
+    // Apply copied state styles
+    clickedElement.style.backgroundColor = 'var(--success-color)';
+    clickedElement.style.color = 'white';
+    clickedElement.style.opacity = '1';
+
+    // Copy to clipboard
+    if (window.copyToClipboard) {
+        window.copyToClipboard(url);
+    } else {
+        // Fallback if copyToClipboard not available yet
+        navigator.clipboard.writeText(url).catch(err => {
+            // Silent fail for clipboard operations
+        });
+    }
+
+    // Update URL
+    if (window.updateURLWithAnchor) {
+        window.updateURLWithAnchor(anchorId);
+    } else {
+        // Fallback if updateURLWithAnchor not available yet
+        try {
+            const newUrl = `${window.location.pathname}#${encodeURIComponent(anchorId)}`;
+            window.history.pushState({}, '', newUrl);
+        } catch (error) {
+            // Silent fail for URL updates
+        }
+    }
+
+    // Restore original styles after a short delay
+    setTimeout(() => {
+        clickedElement.style.backgroundColor = 'transparent';
+        clickedElement.style.color = originalColor;
+        clickedElement.style.opacity = originalOpacity;
+    }, 500);
+};
+
 // Wait for DOM to be fully loaded
 document.addEventListener('DOMContentLoaded', function () {
-    // Theme toggle functionality
-    const themeToggle = document.getElementById('theme-toggle');
-    const fontSelectButton = document.getElementById('font-select');
-    const fontSelectDropdown = document.getElementById('font-select-dropdown');
-
     // Load saved preferences
     const savedTheme = localStorage.getItem('theme') || 'light';
     const savedFont = localStorage.getItem('font') || 'default';
 
-    // Apply saved preferences (font is already set in head)
+    // Apply saved preferences
     document.documentElement.setAttribute('data-theme', savedTheme);
+
+    // Initialize DOM elements
+    initializeDOMElements();
     updateThemeIcon(savedTheme);
 
+    // Move DOM element caching to a separate function
+    function initializeDOMElements() {
+        window.domElements = {
+            themeToggle: document.getElementById('theme-toggle'),
+            fontSelectButton: document.getElementById('font-select'),
+            fontSelectDropdown: document.getElementById('font-select-dropdown'),
+            sidebarToggle: document.getElementById('sidebar-toggle'),
+            sidebarModal: document.getElementById('sidebar-modal'),
+            sidebarOverlay: document.getElementById('sidebar-overlay'),
+            sidebarClose: document.getElementById('sidebar-close'),
+            searchInput: document.getElementById('search-input'),
+            filterToggle: document.getElementById('filter-toggle'),
+            filterModal: document.getElementById('filter-modal'),
+            filterOverlay: document.getElementById('filter-overlay'),
+            filterClose: document.getElementById('filter-close'),
+            notepadToggle: document.getElementById('notepad-toggle'),
+            notepadModal: document.getElementById('notepad-modal'),
+            notepadOverlay: document.getElementById('notepad-overlay'),
+            notepadClose: document.getElementById('notepad-close'),
+            notepadTextarea: document.getElementById('notepad-textarea'),
+            helpToggle: document.getElementById('help-toggle'),
+            helpModal: document.getElementById('help-modal'),
+            helpOverlay: document.getElementById('help-overlay'),
+            helpClose: document.getElementById('help-close'),
+            resetToggle: document.getElementById('reset-toggle')
+        };
+    }
+
     // Preload all fonts to prevent flicker
-    async function preloadFonts() {
+    function preloadFonts() {
         const fontsToPreload = ['SonataNo5', 'NeueImpakt', 'k_gorga', 'k_grigol', 'k_kalig', 'k_lortki'];
 
         // Check if Font Loading API is available
         if (document.fonts && document.fonts.load) {
-            for (const fontFamily of fontsToPreload) {
-                try {
-                    await document.fonts.load(`12px "${fontFamily}"`);
-                } catch (error) {
+            // Use Promise.all to load fonts in parallel
+            Promise.all(fontsToPreload.map(fontFamily =>
+                document.fonts.load(`12px "${fontFamily}"`).catch(() => {
                     // Font preloading failed, continue without it
-                }
-            }
+                })
+            )).catch(() => {
+                // Overall font preloading failed, continue without it
+            });
         }
     }
 
     // Start preloading fonts in background
-    preloadFonts().catch(() => {
-        // Font preloading failed, continue without it
-    });
+    setTimeout(() => {
+        preloadFonts();
+    }, 300);
 
     // Helper functions for dual ID system
     function safeGetElementById(id) {
         try {
             return document.getElementById(id);
         } catch (error) {
-            console.error(`Error getting element by ID: ${id}`, error);
             return null;
         }
     }
 
-    function getPrimaryVerb(georgianText) {
-        if (!georgianText || georgianText === "N/A") {
-            return "unknown";
-        }
-        return georgianText.split(" / ")[0].trim();
-    }
+
 
     function showNotification(message, type = 'info') {
         // Create notification element
@@ -100,33 +187,57 @@ document.addEventListener('DOMContentLoaded', function () {
     }
 
     // Theme toggle event
-    themeToggle.addEventListener('click', function () {
-        const currentTheme = document.documentElement.getAttribute('data-theme');
-        const newTheme = currentTheme === 'light' ? 'dark' : 'light';
-        document.documentElement.setAttribute('data-theme', newTheme);
-        localStorage.setItem('theme', newTheme);
-        updateThemeIcon(newTheme);
-    });
+    if (window.domElements && window.domElements.themeToggle) {
+        window.domElements.themeToggle.addEventListener('click', function () {
+            const currentTheme = document.documentElement.getAttribute('data-theme');
+            const newTheme = currentTheme === 'light' ? 'dark' : 'light';
+
+            // Temporarily disable transitions
+            const style = document.createElement('style');
+            style.id = 'instant-theme-switch';
+            style.textContent = '* { transition: none !important; }';
+            document.head.appendChild(style);
+
+            // Apply theme change immediately
+            document.documentElement.setAttribute('data-theme', newTheme);
+            updateThemeIcon(newTheme);
+
+            // Save to localStorage immediately
+            localStorage.setItem('theme', newTheme);
+
+            // Re-enable transitions after a brief moment
+            setTimeout(() => {
+                const instantStyle = document.getElementById('instant-theme-switch');
+                if (instantStyle) {
+                    instantStyle.remove();
+                }
+            }, 50);
+        });
+    }
 
     // Font selector variables
     let selectedFontIndex = -1;
     let fontOptions = [];
 
     // Font selector button click event
-    fontSelectButton.addEventListener('click', function () {
-        const isVisible = fontSelectDropdown.classList.contains('show');
+    if (window.domElements && window.domElements.fontSelectButton) {
+        window.domElements.fontSelectButton.addEventListener('click', function () {
+            const isVisible = window.domElements.fontSelectDropdown.classList.contains('show');
 
-        if (isVisible) {
-            closeFontDropdown();
-        } else {
-            openFontDropdown();
-        }
-    });
+            if (isVisible) {
+                closeFontDropdown();
+            } else {
+                openFontDropdown();
+            }
+        });
+    }
 
     // Open font dropdown
     function openFontDropdown() {
+        if (!window.domElements || !window.domElements.fontSelectDropdown) return;
+
         // Get all font options
-        fontOptions = fontSelectDropdown.querySelectorAll('.font-option');
+        fontOptions = window.domElements.fontSelectDropdown.querySelectorAll('.font-option');
 
         // Find current font index
         const currentFont = document.documentElement.getAttribute('data-font');
@@ -135,7 +246,7 @@ document.addEventListener('DOMContentLoaded', function () {
         );
 
         // Show dropdown
-        fontSelectDropdown.classList.add('show');
+        window.domElements.fontSelectDropdown.classList.add('show');
 
         // Update selection
         updateFontSelection();
@@ -143,7 +254,9 @@ document.addEventListener('DOMContentLoaded', function () {
 
     // Close font dropdown
     function closeFontDropdown() {
-        fontSelectDropdown.classList.remove('show');
+        if (!window.domElements || !window.domElements.fontSelectDropdown) return;
+
+        window.domElements.fontSelectDropdown.classList.remove('show');
         selectedFontIndex = -1;
 
         // Remove all selection classes
@@ -185,164 +298,129 @@ document.addEventListener('DOMContentLoaded', function () {
         return false;
     }
 
-    // Wait for font to load before applying
+    // Wait for font to load before applying - Optimized version
     async function waitForFont(fontFamily) {
         if (fontFamily === 'Noto Sans Georgian') {
             return Promise.resolve();
         }
 
-        return new Promise((resolve) => {
-            if (isFontLoaded(fontFamily)) {
-                resolve();
-            } else {
-                // Check if Font Loading API is available
-                if (document.fonts && document.fonts.load) {
-                    // Try to load the font using the Font Loading API
-                    document.fonts.load(`12px "${fontFamily}"`).then(() => {
-                        resolve();
-                    }).catch(() => {
-                        // Fallback: check periodically with timeout
-                        let attempts = 0;
-                        const maxAttempts = 40; // 2 seconds max
-                        const checkFont = () => {
-                            attempts++;
-                            if (isFontLoaded(fontFamily)) {
-                                resolve();
-                            } else if (attempts < maxAttempts) {
-                                setTimeout(checkFont, 50);
-                            } else {
-                                // Timeout - proceed anyway
-                                resolve();
-                            }
-                        };
-                        checkFont();
-                    });
-                } else {
-                    // No Font Loading API - proceed immediately
-                    resolve();
-                }
-            }
-        });
-    }
-
-    // Single font change function
-    async function changeFont(fontName, saveToStorage = true) {
-        const fontFamily = fontFamilies[fontName];
-
-        // For default font, apply immediately without waiting
-        if (fontName === 'default') {
-            document.documentElement.setAttribute('data-font', fontName);
-            if (saveToStorage) {
-                localStorage.setItem('font', fontName);
-            }
-            if (notepadModal && notepadModal.classList.contains('active')) {
-                updateNotepadFont();
-            }
-            return;
+        // If font is already loaded, resolve immediately
+        if (isFontLoaded(fontFamily)) {
+            return Promise.resolve();
         }
 
-        // Wait for font to load before applying
-        await waitForFont(fontFamily);
+        // Check if Font Loading API is available
+        if (document.fonts && document.fonts.load) {
+            try {
+                // Use Font Loading API with a short timeout
+                await Promise.race([
+                    document.fonts.load(`12px "${fontFamily}"`),
+                    new Promise(resolve => setTimeout(resolve, 100)) // 100ms timeout
+                ]);
+            } catch (error) {
+                // Font loading failed, but we'll proceed anyway
+            }
+        }
 
-        // Set font on document
+        // Always resolve - don't block the UI
+        return Promise.resolve();
+    }
+
+    // Single font change function - Optimized version
+    function changeFont(fontName, saveToStorage = true) {
+        const fontFamily = fontFamilies[fontName];
+
+        // Apply font immediately
         document.documentElement.setAttribute('data-font', fontName);
 
-        // Save to localStorage if permanent change
+        // Save to storage if needed
         if (saveToStorage) {
             localStorage.setItem('font', fontName);
         }
 
-        // Update notepad if open
+        // Update notepad font if needed
         if (notepadModal && notepadModal.classList.contains('active')) {
             updateNotepadFont();
         }
+
+        // Load font in background without blocking UI
+        if (!isFontLoaded(fontFamily)) {
+            // Use requestIdleCallback for non-critical font loading
+            if (window.requestIdleCallback) {
+                requestIdleCallback(() => {
+                    waitForFont(fontFamily).catch(() => {
+                        // Font loading failed, but we already applied the font
+                    });
+                });
+            } else {
+                // Fallback for browsers without requestIdleCallback
+                setTimeout(() => {
+                    waitForFont(fontFamily).catch(() => {
+                        // Font loading failed, but we already applied the font
+                    });
+                }, 0);
+            }
+        }
     }
 
-    // Font preview (for hover effects)
-    async function previewFont(fontName) {
-        await changeFont(fontName, false);
-    }
+
 
     // Font selection (permanent change)
-    async function selectFont(fontName) {
-        await changeFont(fontName, true);
+    function selectFont(fontName) {
+        changeFont(fontName, true);
     }
 
-    // Font dropdown event listeners
-    fontSelectDropdown.addEventListener('click', async function (e) {
+    // Font dropdown event listeners - Optimized version
+    domElements.fontSelectDropdown.addEventListener('click', function (e) {
         const fontOption = e.target.closest('.font-option');
         if (fontOption) {
             const fontName = fontOption.getAttribute('data-font');
-            selectedFontIndex = Array.from(fontOptions).findIndex(option =>
-                option.getAttribute('data-font') === fontName
-            );
-            updateFontSelection();
-            await selectFont(fontName);
-            closeFontDropdown();
-        }
-    });
 
-    // Font option hover events
-    fontSelectDropdown.addEventListener('mouseover', async function (e) {
-        const fontOption = e.target.closest('.font-option');
-        if (fontOption && fontSelectDropdown.classList.contains('show')) {
-            const fontName = fontOption.getAttribute('data-font');
-            await previewFont(fontName);
-        }
-    });
-
-    // Font dropdown mouse leave - revert to selected font
-    fontSelectDropdown.addEventListener('mouseleave', async function () {
-        if (fontSelectDropdown.classList.contains('show') && selectedFontIndex >= 0) {
-            const selectedOption = fontOptions[selectedFontIndex];
-            const selectedFont = selectedOption.getAttribute('data-font');
-            await previewFont(selectedFont);
+            // Use requestAnimationFrame to defer non-critical updates
+            requestAnimationFrame(() => {
+                selectedFontIndex = Array.from(fontOptions).findIndex(option =>
+                    option.getAttribute('data-font') === fontName
+                );
+                updateFontSelection();
+                selectFont(fontName);
+                closeFontDropdown();
+            });
         }
     });
 
     // Arrow key navigation for fonts
-    document.addEventListener('keydown', async function (e) {
-        if (fontSelectDropdown.classList.contains('show')) {
+    document.addEventListener('keydown', function (e) {
+        if (domElements.fontSelectDropdown.classList.contains('show')) {
             if (e.key === 'ArrowUp') {
                 e.preventDefault();
                 selectedFontIndex = Math.max(selectedFontIndex - 1, 0);
                 updateFontSelection();
-                if (selectedFontIndex >= 0) {
-                    const selectedOption = fontOptions[selectedFontIndex];
-                    const selectedFont = selectedOption.getAttribute('data-font');
-                    await previewFont(selectedFont);
-                }
             } else if (e.key === 'ArrowDown') {
                 e.preventDefault();
                 selectedFontIndex = Math.min(selectedFontIndex + 1, fontOptions.length - 1);
                 updateFontSelection();
-                if (selectedFontIndex >= 0) {
-                    const selectedOption = fontOptions[selectedFontIndex];
-                    const selectedFont = selectedOption.getAttribute('data-font');
-                    await previewFont(selectedFont);
-                }
             } else if (e.key === 'Enter') {
                 e.preventDefault();
                 if (selectedFontIndex >= 0) {
                     const selectedOption = fontOptions[selectedFontIndex];
                     const selectedFont = selectedOption.getAttribute('data-font');
-                    await selectFont(selectedFont);
+                    selectFont(selectedFont);
                     closeFontDropdown();
                 }
             } else if (e.key === 'Escape') {
                 e.preventDefault();
                 // Only close font dropdown if notepad is not open
                 // If notepad is open, let the global ESC handler deal with it
-                if (!notepadModal.classList.contains('active')) {
+                if (!domElements.notepadModal.classList.contains('active')) {
                     closeFontDropdown();
                 }
             }
-        } else if ((e.key === 'ArrowLeft' || e.key === 'ArrowRight') && !notepadModal.classList.contains('active')) {
+        } else if ((e.key === 'ArrowLeft' || e.key === 'ArrowRight') && !domElements.notepadModal.classList.contains('active')) {
             e.preventDefault();
 
             // Get current font and available fonts
             const currentFont = document.documentElement.getAttribute('data-font');
-            const fontOptions = fontSelectDropdown.querySelectorAll('.font-option');
+            const fontOptions = domElements.fontSelectDropdown.querySelectorAll('.font-option');
             const fontValues = Array.from(fontOptions).map(option => option.getAttribute('data-font'));
             const currentIndex = fontValues.indexOf(currentFont);
 
@@ -354,40 +432,21 @@ document.addEventListener('DOMContentLoaded', function () {
             }
 
             const newFont = fontValues[newIndex];
-            await selectFont(newFont);
+            selectFont(newFont);
         }
     });
 
     function updateThemeIcon(theme) {
-        const icon = themeToggle.querySelector('i');
+        if (!window.domElements || !window.domElements.themeToggle) return;
+
+        const icon = window.domElements.themeToggle.querySelector('i');
         if (theme === 'dark') {
             icon.className = 'fas fa-sun';
-            themeToggle.title = 'Switch to Light Mode';
+            window.domElements.themeToggle.title = 'Switch to Light Mode';
         } else {
             icon.className = 'fas fa-moon';
-            themeToggle.title = 'Switch to Dark Mode';
+            window.domElements.themeToggle.title = 'Switch to Dark Mode';
         }
-    }
-
-    // Copy functionality
-    function copyText(button) {
-        const translationDiv = button.previousElementSibling;
-        const copyText = translationDiv.getAttribute('data-copy-text');
-
-        navigator.clipboard.writeText(copyText).then(function () {
-            // Visual feedback
-            const originalText = button.textContent;
-            button.textContent = 'Copied!';
-            button.style.backgroundColor = '#4CAF50';
-
-            setTimeout(function () {
-                button.textContent = originalText;
-                button.style.backgroundColor = '';
-            }, 1000);
-        }).catch(function (err) {
-            console.error('Could not copy text: ', err);
-            alert('Failed to copy text. Please try again.');
-        });
     }
 
     // Sidebar Modal functionality
@@ -395,13 +454,13 @@ document.addEventListener('DOMContentLoaded', function () {
     const sidebarModal = document.getElementById('sidebar-modal');
     const sidebarOverlay = document.getElementById('sidebar-overlay');
     const sidebarClose = document.getElementById('sidebar-close');
-    const tocList = document.getElementById('toc-list');
     const searchInput = document.getElementById('search-input');
 
     // Toggle sidebar
     sidebarToggle.addEventListener('click', function () {
-        sidebarModal.classList.add('active');
+        // Populate TOC first, then show sidebar to prevent flicker
         populateTableOfContents();
+        sidebarModal.classList.add('active');
     });
 
     // Close sidebar
@@ -412,12 +471,8 @@ document.addEventListener('DOMContentLoaded', function () {
     sidebarClose.addEventListener('click', closeSidebar);
     sidebarOverlay.addEventListener('click', closeSidebar);
 
-    // Sticky positioning is now handled purely by CSS due to restructured HTML
-    // No JavaScript calculations needed for sidebar-sticky-header positioning
 
-
-
-    // Populate table of contents - SIMPLIFIED VERSION
+    // Populate table of contents
     function populateTableOfContents() {
         const tocContainer = document.querySelector('.toc-content-container');
         if (!tocContainer) return;
@@ -538,9 +593,10 @@ document.addEventListener('DOMContentLoaded', function () {
         currentSearchIndex = 0;
         updateSearchSelection();
 
-        // Set the first item as active by default
+        // Set the first item as active by default (only if no item is already active)
         const firstItem = tocContainer.querySelector('.toc-item');
-        if (firstItem) {
+        const hasActiveItem = tocContainer.querySelector('.toc-item.active');
+        if (firstItem && !hasActiveItem) {
             firstItem.classList.add('active');
         }
 
@@ -552,25 +608,44 @@ document.addEventListener('DOMContentLoaded', function () {
         const verbSections = document.querySelectorAll('.verb-section');
         const tocItems = document.querySelectorAll('.toc-item');
 
-        // Find which section is currently in view
-        const scrollPosition = window.scrollY + 100; // Offset for better detection
+        // Cache scroll position and viewport height
+        const scrollY = window.scrollY;
+        const viewportHeight = window.innerHeight;
+        const offset = 100;
 
         let activeIndex = -1;
-        verbSections.forEach((section, index) => {
-            const rect = section.getBoundingClientRect();
-            if (rect.top <= 100 && rect.bottom >= 100) {
-                activeIndex = index;
-            }
-        });
+        let minDistance = Infinity;
 
-        // Update active class
-        tocItems.forEach((item, index) => {
-            item.classList.toggle('active', index === activeIndex);
-        });
+        // Use intersection detection
+        for (let i = 0; i < verbSections.length; i++) {
+            const section = verbSections[i];
+            const rect = section.getBoundingClientRect();
+
+            // Check if section is in viewport with offset
+            if (rect.top <= offset && rect.bottom >= offset) {
+                // Find the section closest to the offset point
+                const distance = Math.abs(rect.top - offset);
+                if (distance < minDistance) {
+                    minDistance = distance;
+                    activeIndex = i;
+                }
+            }
+        }
+
+        // Batch DOM updates
+        if (activeIndex !== -1) {
+            tocItems.forEach((item, index) => {
+                const shouldBeActive = index === activeIndex;
+                if (item.classList.contains('active') !== shouldBeActive) {
+                    item.classList.toggle('active', shouldBeActive);
+                }
+            });
+        }
     }
 
-    // Update active TOC item on scroll
-    window.addEventListener('scroll', updateActiveTocItem);
+    // Throttled scroll handler
+    const throttledUpdateActiveTocItem = throttle(updateActiveTocItem, 16); // ~60fps
+    window.addEventListener('scroll', throttledUpdateActiveTocItem);
 
     // Global keyboard shortcuts
     document.addEventListener('keydown', function (e) {
@@ -622,10 +697,10 @@ document.addEventListener('DOMContentLoaded', function () {
 
         // ESC key to close sidebar, font dropdown, filter modal, or notepad (in priority order)
         if (e.key === 'Escape') {
-            const sidebarOpen = sidebarModal.classList.contains('active');
-            const fontDropdownOpen = fontSelectDropdown.classList.contains('show');
-            const filterOpen = filterModal.classList.contains('active');
-            const notepadOpen = notepadModal.classList.contains('active');
+            const sidebarOpen = domElements.sidebarModal.classList.contains('active');
+            const fontDropdownOpen = domElements.fontSelectDropdown.classList.contains('show');
+            const filterOpen = domElements.filterModal.classList.contains('active');
+            const notepadOpen = domElements.notepadModal.classList.contains('active');
 
             if (sidebarOpen) {
                 closeSidebar();
@@ -642,7 +717,7 @@ document.addEventListener('DOMContentLoaded', function () {
     // Close font dropdown when clicking outside
     document.addEventListener('click', function (e) {
         const notepadToggle = document.getElementById('notepad-toggle');
-        if (!fontSelectButton.contains(e.target) && !fontSelectDropdown.contains(e.target) && !notepadToggle.contains(e.target)) {
+        if (!domElements.fontSelectButton.contains(e.target) && !domElements.fontSelectDropdown.contains(e.target) && !notepadToggle.contains(e.target)) {
             closeFontDropdown();
         }
     });
@@ -659,9 +734,12 @@ document.addEventListener('DOMContentLoaded', function () {
             const newUrl = `${window.location.pathname}#${encodeURIComponent(anchor)}`;
             window.history.pushState({}, '', newUrl);
         } catch (error) {
-            console.error('Error updating URL:', error);
+            // Silent fail for URL updates
         }
     }
+
+    // Make updateURLWithAnchor globally available
+    window.updateURLWithAnchor = updateURLWithAnchor;
 
     // Find category container by category name
     function findCategoryContainer(category) {
@@ -680,7 +758,6 @@ document.addEventListener('DOMContentLoaded', function () {
 
             // Update session storage
             const category = categoryContainer.getAttribute('data-category');
-            saveCategoryState(category, 'expanded');
         }
     }
 
@@ -699,7 +776,7 @@ document.addEventListener('DOMContentLoaded', function () {
         // Update URL with primary verb
         updateURLWithAnchor(primaryVerb);
 
-        // Navigate instantly (no animation as per user preference)
+        // Navigate instantly
         window.scrollTo({
             top: targetPosition,
             behavior: 'auto'
@@ -708,52 +785,17 @@ document.addEventListener('DOMContentLoaded', function () {
         return true;
     }
 
-    // Category state management functions (removed session storage for instant behavior)
-    function saveCategoryState(category, state) {
-        // No longer saving to session storage - removed for instant behavior
-    }
+    // Category state management functions
 
     function loadCategoryState(category) {
-        // Always return expanded - no persistence
         return 'expanded';
-    }
-
-    function restoreCategoryStates() {
-        // No longer restoring states - all categories start expanded
     }
 
     function handleURLAnchor() {
         const hash = window.location.hash;
 
-        // Try multiple methods to extract the hash
-        let primaryVerb = null;
-
-        // Method 1: Direct hash access
         if (hash && hash.startsWith('#')) {
-            primaryVerb = decodeURIComponent(hash.substring(1)); // Remove the # symbol
-        }
-
-        // Method 2: Extract from full URL
-        if (!primaryVerb) {
-            const urlParts = window.location.href.split('#');
-            if (urlParts.length > 1) {
-                primaryVerb = decodeURIComponent(urlParts[1]);
-            }
-        }
-
-        // Method 3: Try to get hash after a delay (for file:// URLs)
-        if (!primaryVerb) {
-            setTimeout(() => {
-                const delayedHash = window.location.hash;
-                if (delayedHash && delayedHash.startsWith('#')) {
-                    const delayedPrimaryVerb = decodeURIComponent(delayedHash.substring(1));
-                    scrollToVerb(delayedPrimaryVerb);
-                }
-            }, 500);
-            return; // Exit early, let the delayed check handle it
-        }
-
-        if (primaryVerb) {
+            const primaryVerb = decodeURIComponent(hash.substring(1)); // Remove the # symbol
             scrollToVerb(primaryVerb);
         }
     }
@@ -768,7 +810,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
             window.scrollTo({
                 top: targetPosition,
-                behavior: 'auto' // No animation, instant jump
+                behavior: 'auto'
             });
         }
     }
@@ -810,6 +852,9 @@ document.addEventListener('DOMContentLoaded', function () {
         }
     }
 
+    // Make copyToClipboard globally available
+    window.copyToClipboard = copyToClipboard;
+
     function showNotification(message, type = 'success') {
         // Remove existing notifications
         const existingNotifications = document.querySelectorAll('.notification');
@@ -829,36 +874,7 @@ document.addEventListener('DOMContentLoaded', function () {
         }, 3000);
     }
 
-    // Make handleLinkIconClick globally accessible
-    window.handleLinkIconClick = function (anchorId) {
-        const url = `${window.location.origin}${window.location.pathname}#${anchorId}`;
-
-        // Find the clicked link icon element
-        const clickedElement = event.target;
-
-        // Store original styles
-        const originalBackground = clickedElement.style.backgroundColor;
-        const originalColor = clickedElement.style.color;
-        const originalOpacity = clickedElement.style.opacity;
-
-        // Apply copied state styles
-        clickedElement.style.backgroundColor = 'var(--success-color)';
-        clickedElement.style.color = 'white';
-        clickedElement.style.opacity = '1';
-
-        // Copy to clipboard
-        copyToClipboard(url);
-        updateURLWithAnchor(anchorId);
-
-        // Restore original styles after a short delay
-        setTimeout(() => {
-            clickedElement.style.backgroundColor = 'transparent';
-            clickedElement.style.color = originalColor;
-            clickedElement.style.opacity = originalOpacity;
-        }, 500);
-    }
-
-    // Search and filter function
+    // Search and filter function - Optimized version
     function filterTableOfContents(searchTerm) {
         const searchLower = searchTerm.toLowerCase();
         const selectedCategory = sidebarCategoryFilter ? sidebarCategoryFilter.value : 'all';
@@ -874,92 +890,97 @@ document.addEventListener('DOMContentLoaded', function () {
         // Track which categories have visible verbs
         const categoriesWithVisibleVerbs = new Set();
 
-        // First pass: process verb items and track visible categories
-        allItems.forEach(item => {
-            if (!item.classList.contains('category-header') && !item.classList.contains('toc-category-header')) {
-                // Handle verb items
-                const georgianText = item.querySelector('.verb-georgian')?.textContent || '';
-                const descriptionText = item.querySelector('.verb-description')?.textContent || '';
-                const classText = item.querySelector('.verb-class')?.textContent || '';
+        // Use requestAnimationFrame to batch DOM updates
+        requestAnimationFrame(() => {
+            // First pass: process verb items and track visible categories
+            allItems.forEach(item => {
+                if (!item.classList.contains('category-header') && !item.classList.contains('toc-category-header')) {
+                    // Handle verb items
+                    const georgianText = item.querySelector('.verb-georgian')?.textContent || '';
+                    const descriptionText = item.querySelector('.verb-description')?.textContent || '';
+                    const classText = item.querySelector('.verb-class')?.textContent || '';
 
-                const searchableText = `${georgianText} ${descriptionText} ${classText}`.toLowerCase();
+                    const searchableText = `${georgianText} ${descriptionText} ${classText}`.toLowerCase();
 
-                // Check if item matches search term
-                const matchesSearch = searchTerm === '' || searchableText.includes(searchLower);
+                    // Check if item matches search term
+                    const matchesSearch = searchTerm === '' || searchableText.includes(searchLower);
 
-                // Check if item matches category filter - get category from data attribute
-                const itemCategory = item.getAttribute('data-category') || '';
-                const matchesCategory = selectedCategory === 'all' || itemCategory === selectedCategory;
+                    // Check if item matches category filter - get category from data attribute
+                    const itemCategory = item.getAttribute('data-category') || '';
+                    const matchesCategory = selectedCategory === 'all' || itemCategory === selectedCategory;
 
-                if (matchesSearch && matchesCategory) {
-                    item.classList.remove('hidden');
-                    visibleCount++;
-                    filteredItems.push(item);
-                    categoriesWithVisibleVerbs.add(itemCategory); // Track this category as having visible verbs
+                    if (matchesSearch && matchesCategory) {
+                        item.classList.remove('hidden');
+                        visibleCount++;
+                        filteredItems.push(item);
+                        categoriesWithVisibleVerbs.add(itemCategory);
 
-                    // Highlight matching text if search term is not empty
-                    if (searchTerm !== '') {
-                        item.classList.add('highlighted');
+                        // Highlight matching text if search term is not empty
+                        if (searchTerm !== '') {
+                            item.classList.add('highlighted');
+                        } else {
+                            item.classList.remove('highlighted');
+                        }
                     } else {
+                        item.classList.add('hidden');
                         item.classList.remove('highlighted');
                     }
-                } else {
-                    item.classList.add('hidden');
-                    item.classList.remove('highlighted');
+                }
+            });
+
+            // Second pass: process category headers
+            allItems.forEach(item => {
+                if (item.classList.contains('category-header') || item.classList.contains('toc-category-header')) {
+                    const categoryName = item.textContent.trim();
+                    const shouldShowCategory = selectedCategory === 'all' || categoryName === selectedCategory;
+
+                    // Hide category header if no verbs are visible in this category
+                    const hasVisibleVerbs = categoriesWithVisibleVerbs.has(categoryName);
+
+                    // Hide all category headers if there are no visible verbs at all
+                    if (visibleCount === 0) {
+                        item.classList.add('hidden');
+                    } else if (shouldShowCategory && hasVisibleVerbs) {
+                        item.classList.remove('hidden');
+                    } else {
+                        item.classList.add('hidden');
+                    }
+                }
+            });
+
+            // If search is empty and no category filter, show all items for navigation
+            if (searchTerm === '' && selectedCategory === 'all') {
+                filteredItems = [...allTocItems];
+            }
+
+            // Set initial search index if there are results
+            if (visibleCount > 0) {
+                currentSearchIndex = 0;
+            } else {
+                currentSearchIndex = -1;
+            }
+            updateSearchSelection();
+
+            // Show/hide no results message
+            const noResultsMsg = document.getElementById('no-results-message');
+            if (visibleCount === 0 && (searchTerm !== '' || selectedCategory !== 'all')) {
+                if (!noResultsMsg) {
+                    const msg = document.createElement('div');
+                    msg.id = 'no-results-message';
+                    msg.className = 'no-results';
+                    msg.textContent = 'No verbs found matching your criteria.';
+                    tocContainer.appendChild(msg);
+                }
+            } else {
+                if (noResultsMsg) {
+                    noResultsMsg.remove();
                 }
             }
         });
-
-        // Second pass: process category headers
-        allItems.forEach(item => {
-            if (item.classList.contains('category-header') || item.classList.contains('toc-category-header')) {
-                const categoryName = item.textContent;
-                const shouldShowCategory = selectedCategory === 'all' || categoryName === selectedCategory;
-
-                // Hide category header if no verbs are visible in this category
-                const hasVisibleVerbs = categoriesWithVisibleVerbs.has(categoryName);
-
-                if (shouldShowCategory && hasVisibleVerbs) {
-                    item.classList.remove('hidden');
-                } else {
-                    item.classList.add('hidden');
-                }
-            }
-        });
-
-        // If search is empty and no category filter, show all items for navigation
-        if (searchTerm === '' && selectedCategory === 'all') {
-            filteredItems = [...allTocItems];
-        }
-
-        // Set initial search index if there are results
-        if (visibleCount > 0) {
-            currentSearchIndex = 0;
-        } else {
-            currentSearchIndex = -1;
-        }
-        updateSearchSelection();
-
-        // Show/hide no results message
-        const noResultsMsg = document.getElementById('no-results-message');
-        if (visibleCount === 0 && (searchTerm !== '' || selectedCategory !== 'all')) {
-            if (!noResultsMsg) {
-                const msg = document.createElement('div');
-                msg.id = 'no-results-message';
-                msg.className = 'no-results';
-                msg.textContent = 'No verbs found matching your criteria.';
-                tocContainer.appendChild(msg);
-            }
-        } else {
-            if (noResultsMsg) {
-                noResultsMsg.remove();
-            }
-        }
     }
 
     // Update search selection highlighting
     function updateSearchSelection() {
-        // Remove previous selection
         document.querySelectorAll('.toc-item').forEach(item => {
             item.classList.remove('search-selected');
         });
@@ -978,14 +999,23 @@ document.addEventListener('DOMContentLoaded', function () {
     // Sidebar category filter
     sidebarCategoryFilter = document.getElementById('sidebar-category-filter');
 
-    // Sidebar category filter event listener
+    // Sidebar category filter event listener - Optimized with debouncing
     sidebarCategoryFilter.addEventListener('change', function () {
-        filterTableOfContents(searchInput.value);
+        debouncedSearch(searchInput.value);
     });
 
-    // Search input event listener
+    // Debounced search function for better performance
+    let searchTimeout;
+    function debouncedSearch(value) {
+        clearTimeout(searchTimeout);
+        searchTimeout = setTimeout(() => {
+            filterTableOfContents(value);
+        }, 150); // 150ms delay
+    }
+
+    // Search input event listener - Optimized with debouncing
     searchInput.addEventListener('input', function () {
-        filterTableOfContents(this.value);
+        debouncedSearch(this.value);
     });
 
     // Clear search when sidebar is opened
@@ -1057,23 +1087,20 @@ document.addEventListener('DOMContentLoaded', function () {
     categorySelect.addEventListener('change', applyFilters);
     classSelect.addEventListener('change', applyFilters);
 
-    // Apply filters to content
+    // Apply filters to content - Optimized version
     function applyFilters() {
         const groupBy = groupBySelect.value;
         const categoryFilter = categorySelect.value;
         const classFilter = classSelect.value;
-
-        const verbSections = document.querySelectorAll('.verb-section');
-        const filterToggle = document.getElementById('filter-toggle');
 
         // Check if any filter is active
         const isFilterActive = (groupBy === 'category' && categoryFilter !== 'all') ||
             (groupBy === 'class' && classFilter !== 'all');
 
         // Update filter button appearance
+        const filterToggle = document.getElementById('filter-toggle');
         if (isFilterActive) {
             filterToggle.classList.add('filter-active');
-            // Add a visual indicator to the button
             const icon = filterToggle.querySelector('i');
             if (icon) {
                 icon.className = 'fas fa-filter';
@@ -1081,7 +1108,6 @@ document.addEventListener('DOMContentLoaded', function () {
             }
         } else {
             filterToggle.classList.remove('filter-active');
-            // Reset the button appearance
             const icon = filterToggle.querySelector('i');
             if (icon) {
                 icon.className = 'fas fa-filter';
@@ -1089,57 +1115,67 @@ document.addEventListener('DOMContentLoaded', function () {
             }
         }
 
-        verbSections.forEach(section => {
-            const category = section.getAttribute('data-category');
-            const verbClass = section.getAttribute('data-class');
+        // Use requestAnimationFrame to batch all DOM updates
+        requestAnimationFrame(() => {
+            // Cache DOM queries
+            const verbSections = document.querySelectorAll('.verb-section');
+            const categoryContainers = document.querySelectorAll('.category-container');
 
-            let shouldShow = true;
+            // Track visible categories for efficient container updates
+            const visibleCategories = new Set();
 
-            // Apply category filter
-            if (groupBy === 'category' && categoryFilter !== 'all') {
-                shouldShow = category === categoryFilter;
-            }
+            // First pass: filter verb sections
+            verbSections.forEach(section => {
+                const category = section.getAttribute('data-category');
+                const verbClass = section.getAttribute('data-class');
 
-            // Apply class filter
-            if (groupBy === 'class' && classFilter !== 'all') {
-                shouldShow = verbClass === classFilter;
-            }
+                let shouldShow = true;
 
-            // Show/hide section
-            section.style.display = shouldShow ? 'block' : 'none';
-        });
-
-        // Handle category containers for collapsible functionality
-        const categoryContainers = document.querySelectorAll('.category-container');
-        categoryContainers.forEach(container => {
-            const category = container.getAttribute('data-category');
-            const content = container.querySelector('.category-content');
-            const header = container.querySelector('.collapsible-header');
-
-            // Check if this category has any visible verbs
-            const visibleVerbs = container.querySelectorAll('.verb-section[style*="display: block"]');
-
-            if (visibleVerbs.length === 0) {
-                // Hide the entire category container if no verbs are visible
-                container.style.display = 'none';
-            } else {
-                // Show the category container and expand it if it was collapsed
-                container.style.display = 'block';
-                if (content && header) {
-                    content.classList.remove('collapsed');
-                    header.classList.remove('collapsed');
+                // Apply category filter
+                if (groupBy === 'category' && categoryFilter !== 'all') {
+                    shouldShow = category === categoryFilter;
                 }
+
+                // Apply class filter
+                if (groupBy === 'class' && classFilter !== 'all') {
+                    shouldShow = verbClass === classFilter;
+                }
+
+                // Update visibility
+                section.style.display = shouldShow ? 'block' : 'none';
+
+                if (shouldShow) {
+                    visibleCategories.add(category);
+                }
+            });
+
+            // Second pass: update category containers efficiently
+            categoryContainers.forEach(container => {
+                const category = container.getAttribute('data-category');
+                const hasVisibleVerbs = visibleCategories.has(category);
+
+                if (hasVisibleVerbs) {
+                    container.style.display = 'block';
+                    const content = container.querySelector('.category-content');
+                    const header = container.querySelector('.collapsible-header');
+                    if (content && header) {
+                        content.classList.remove('collapsed');
+                        header.classList.remove('collapsed');
+                    }
+                } else {
+                    container.style.display = 'none';
+                }
+            });
+
+            // Scroll to category header if filter is applied
+            if (isFilterActive) {
+                requestAnimationFrame(() => {
+                    scrollToCategoryHeader(groupBy, groupBy === 'category' ? categoryFilter : classFilter);
+                });
             }
         });
-
-        // Scroll to category header if filter is applied
-        if (isFilterActive) {
-            // Use setTimeout to ensure DOM updates are complete before scrolling
-            setTimeout(() => {
-                scrollToCategoryHeader(groupBy, groupBy === 'category' ? categoryFilter : classFilter);
-            }, 100);
-        }
     }
+
 
     // Scroll to category header when filter is applied
     function scrollToCategoryHeader(groupBy, filterValue) {
@@ -1181,10 +1217,10 @@ document.addEventListener('DOMContentLoaded', function () {
         // Scroll to the target header
         if (targetHeader) {
             // Add a small offset to account for fixed header elements
-            const offset = 80; // Adjust this value based on header height
+            const offset = 80;
             const targetPosition = targetHeader.offsetTop - offset;
 
-            // Use requestAnimationFrame for smoother scrolling
+            // Use requestAnimationFrame for smooth scrolling
             requestAnimationFrame(() => {
                 window.scrollTo({
                     top: targetPosition,
@@ -1290,19 +1326,17 @@ document.addEventListener('DOMContentLoaded', function () {
     const preverbManager = new PreverbManager(verbDataManager);
 
     // Initialize verb sections with external data
-    verbDataManager.initializeVerbSections().catch(error => {
-        console.error('Error initializing verb sections:', error);
-        showNotification('Error loading verb data. Please refresh the page.', 'error');
-    });
+    setTimeout(() => {
+        verbDataManager.initializeVerbSections().catch(error => {
+            // Silent fail for background loading
+        });
+    }, 500);
 
-    // Initialize collapsible category headers
-    initializeCollapsibleHeaders();
-
-    // Initialize sticky header functionality
-    initializeStickyHeaders();
-
-    // Restore category states from session storage
-    restoreCategoryStates();
+    // Defer heavy initialization functions
+    setTimeout(() => {
+        initializeCollapsibleHeaders();
+        initializeStickyHeaders();
+    }, 100);
 
     // Reset functionality
     const resetToggle = document.getElementById('reset-toggle');
@@ -1314,7 +1348,7 @@ document.addEventListener('DOMContentLoaded', function () {
         }
     });
 
-    // Function to reset to default state
+    // Function to reset to default state - Optimized version
     function resetToDefaultState() {
         // Clear all filters
         if (groupBySelect) {
@@ -1338,99 +1372,71 @@ document.addEventListener('DOMContentLoaded', function () {
             searchInput.value = '';
         }
 
-        // Apply filters to reset everything
-        applyFilters();
+        // Use requestAnimationFrame to batch all DOM updates
+        requestAnimationFrame(() => {
+            // Apply filters to reset everything
+            applyFilters();
 
-        // Clear table of contents filter
-        filterTableOfContents('');
+            // Clear table of contents filter
+            filterTableOfContents('');
 
-        // Remove anchor from URL without triggering page reload
-        if (window.history && window.history.replaceState) {
-            window.history.replaceState(null, null, window.location.pathname);
-        }
+            // Remove anchor from URL without triggering page reload
+            if (window.history && window.history.replaceState) {
+                window.history.replaceState(null, null, window.location.pathname);
+            }
 
-        // Scroll to top smoothly
-        window.scrollTo({
-            top: 0,
-            behavior: 'smooth'
+            // Scroll to top
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+
+            // Show success notification
+            showNotification('Page reset to default state', 'success');
         });
-
-        // Show success notification
-        showNotification('Page reset to default state', 'success');
     }
 
-    // Handle direct URL access with anchor tags
-    // Add a small delay to ensure hash is available
+    // Defer URL handling and event listeners
     setTimeout(() => {
         handleURLAnchor();
-    }, 100);
+
+        const linkIcons = document.querySelectorAll('.verb-link-icon');
+        linkIcons.forEach(icon => {
+            icon.addEventListener('click', function (e) {
+                e.preventDefault();
+                const georgianVerb = this.getAttribute('data-verb-georgian');
+                handleLinkIconClick(georgianVerb);
+            });
+        });
+    }, 200);
 
     // Listen for browser back/forward navigation
     window.addEventListener('popstate', handleURLAnchor);
-
-    // Add link icon event listeners
-    document.querySelectorAll('.verb-link-icon').forEach(icon => {
-        icon.addEventListener('click', function (e) {
-            e.preventDefault();
-            const georgianVerb = this.getAttribute('data-verb-georgian');
-            handleLinkIconClick(georgianVerb);
-        });
-    });
 
     // Enhanced category management functions
     function expandCategory(header, content, category) {
         content.classList.remove('collapsed');
         header.classList.remove('collapsed');
-        saveCategoryState(category, 'expanded');
     }
 
     function collapseCategoryWithSmartScroll(header, content, category) {
-        // 1. Collapse the category
+        // Collapse the category
         content.classList.add('collapsed');
         header.classList.add('collapsed');
 
-        // 2. Save state to session storage
-        saveCategoryState(category, 'collapsed');
-
-        // 3. Scroll to the top of the collapsed header
+        // Scroll to the top of the collapsed header
         const headerTop = header.offsetTop;
-        const stickyHeaderHeight = 80; // Adjust based on actual header height
+        const stickyHeaderHeight = 80;
         const targetPosition = headerTop - stickyHeaderHeight;
 
-        // 4. Scroll instantly to show the collapsed header at the top
+        // Scroll to show the collapsed header at the top
         window.scrollTo({
             top: targetPosition,
             behavior: 'auto'
         });
     }
 
-    // Initialize expand/collapse all buttons
-    const expandAllBtn = document.getElementById('expand-all-categories');
-    const collapseAllBtn = document.getElementById('collapse-all-categories');
 
-    if (expandAllBtn) {
-        expandAllBtn.addEventListener('click', function () {
-            const contents = document.querySelectorAll('.category-content');
-            const headers = document.querySelectorAll('.collapsible-header');
-
-            contents.forEach(content => content.classList.remove('collapsed'));
-            headers.forEach(header => header.classList.remove('collapsed'));
-
-            // No longer saving to session storage
-        });
-    }
-
-    if (collapseAllBtn) {
-        collapseAllBtn.addEventListener('click', function () {
-            const contents = document.querySelectorAll('.category-content');
-            const headers = document.querySelectorAll('.collapsible-header');
-
-            contents.forEach(content => content.classList.add('collapsed'));
-            headers.forEach(header => header.classList.add('collapsed'));
-
-            // No longer saving to session storage
-        });
-    }
 }); // Close DOMContentLoaded function
 
 /**
@@ -1472,12 +1478,17 @@ function initializeStickyHeaders() {
     let ticking = false;
     function requestTick() {
         if (!ticking) {
-            requestAnimationFrame(updateStickyHeader);
+            requestAnimationFrame(() => {
+                updateStickyHeader();
+                ticking = false;
+            });
             ticking = true;
         }
     }
 
-    window.addEventListener('scroll', requestTick);
+    // Use throttled scroll handler
+    const throttledRequestTick = throttle(requestTick, 16); // ~60fps
+    window.addEventListener('scroll', throttledRequestTick);
 
     // Initial update
     updateStickyHeader();
@@ -1489,8 +1500,6 @@ function initializeStickyHeaders() {
 function initializeCollapsibleHeaders() {
     const collapsibleHeaders = document.querySelectorAll('.collapsible-header');
 
-
-
     collapsibleHeaders.forEach(header => {
         header.addEventListener('click', function () {
             const category = this.getAttribute('data-category');
@@ -1501,34 +1510,26 @@ function initializeCollapsibleHeaders() {
 
                 if (isCollapsed) {
                     // Expand
-                    // Simple expand without smart scroll
                     content.classList.remove('collapsed');
                     this.classList.remove('collapsed');
-
-                    // No longer saving to session storage
                 } else {
-                    // Collapse with smart scroll
-
-                    // 1. Collapse the category
+                    // Collapse with scroll
                     content.classList.add('collapsed');
                     this.classList.add('collapsed');
 
-                    // 2. No longer saving to session storage
+                    // Use requestAnimationFrame for smooth scrolling
+                    requestAnimationFrame(() => {
+                        const categoryContainer = this.closest('.category-container');
+                        const containerTop = categoryContainer ? categoryContainer.offsetTop : this.offsetTop;
+                        const stickyHeaderHeight = 0;
+                        const targetPosition = containerTop - stickyHeaderHeight;
 
-                    // 3. Scroll to show collapsed header positioned higher in viewport
-                    const categoryContainer = this.closest('.category-container');
-                    const containerTop = categoryContainer ? categoryContainer.offsetTop : this.offsetTop;
-                    const stickyHeaderHeight = 0; // Reduced offset to position header higher
-                    const targetPosition = containerTop - stickyHeaderHeight;
-
-                    // 4. Scroll instantly to show the category container at the top
-                    window.scrollTo({
-                        top: targetPosition,
-                        behavior: 'auto'
+                        window.scrollTo({
+                            top: targetPosition,
+                            behavior: 'smooth'
+                        });
                     });
                 }
-            } else {
-                console.error('Content not found for category:', category);
             }
         });
     });
@@ -1632,6 +1633,12 @@ class VerbDataManager {
     }
 
     async getVerbData(verbId) {
+        // Check if this is a multi-preverb verb
+        const verbSection = document.querySelector(`[data-verb-id="${verbId}"]`);
+        if (!verbSection || verbSection.getAttribute('data-has-multiple-preverbs') !== 'true') {
+            return null;
+        }
+
         const [coreData, conjugations, examples, glossData, preverbConfigs] = await Promise.all([
             this.loadCoreData(),
             this.loadConjugations(),
@@ -1654,8 +1661,16 @@ class VerbDataManager {
             return;
         }
 
+        // Only preload data if there are multi-preverb verbs
+        const multiPreverbSections = document.querySelectorAll('.verb-section[data-has-multiple-preverbs="true"]');
+
+        if (multiPreverbSections.length === 0) {
+            this.isInitialized = true;
+            return;
+        }
+
         try {
-            // Preload all data files in parallel
+            // Preload data files for multi-preverb verbs only
             await Promise.all([
                 this.loadCoreData(),
                 this.loadConjugations(),
@@ -1665,7 +1680,6 @@ class VerbDataManager {
             ]);
             this.isInitialized = true;
         } catch (error) {
-            console.error('Error preloading verb data:', error);
             throw error;
         }
     }
@@ -1732,17 +1746,45 @@ class VerbDataManager {
     }
 
     async initializeVerbSections() {
-        // Use lazy loading for better performance
-        this.initializeLazyLoading();
+        // Only initialize multi-preverb verbs since all other content is now static
+        const multiPreverbSections = document.querySelectorAll('.verb-section[data-has-multiple-preverbs="true"]');
+
+        if (multiPreverbSections.length > 0) {
+            // Process sections one by one with yields to prevent blocking
+            await this.processVerbSectionsInChunks(multiPreverbSections);
+        }
+    }
+
+    async processVerbSectionsInChunks(sections) {
+        for (let i = 0; i < sections.length; i++) {
+            const section = sections[i];
+            const verbId = section.dataset.verbId;
+
+            if (verbId) {
+                try {
+                    // Yield control back to main thread every few sections
+                    if (i > 0 && i % 3 === 0) {
+                        await new Promise(resolve => setTimeout(resolve, 0));
+                    }
+
+                    const verbData = await this.getVerbData(verbId);
+                    if (verbData) {
+                        await this.populateVerbSection(section, verbData);
+                        section.dataset.dataLoaded = 'true';
+                    }
+                } catch (error) {
+                    this.showErrorState(section);
+                }
+            }
+        }
     }
 
     async populateVerbSection(section, verbData) {
-        // Show loading state
-        this.showLoadingState(section);
-
         try {
-            // Debug: Log the verb data structure
-            console.log('Verb data for section:', verbData);
+            // Check if verbData is null (non-multi-preverb verb)
+            if (!verbData) {
+                return;
+            }
 
             // Generate initial conjugation tables
             const defaultPreverb = verbData.core.default_preverb || 'მი';
@@ -1752,10 +1794,8 @@ class VerbDataManager {
                 defaultPreverb
             );
 
-            console.log('Conjugations for default preverb:', conjugations);
-
             // Populate overview table
-            const overviewContainer = section.querySelector('.overview-container');
+            const overviewContainer = section.querySelector('.table-container');
             if (overviewContainer) {
                 overviewContainer.innerHTML = this.generateOverviewTable(conjugations);
             }
@@ -1766,64 +1806,12 @@ class VerbDataManager {
                 const tense = column.dataset.tense;
                 this.populateTenseColumn(column, tense, conjugations[tense], verbData, defaultPreverb);
             });
-
-            this.hideLoadingState(section);
         } catch (error) {
-            console.error('Error populating verb section:', error);
             this.showErrorState(section);
         }
     }
 
-    // Add lazy loading functionality
-    initializeLazyLoading() {
-        if ('IntersectionObserver' in window) {
-            const observer = new IntersectionObserver((entries) => {
-                entries.forEach(entry => {
-                    if (entry.isIntersecting) {
-                        const section = entry.target;
-                        const verbId = section.dataset.verbId;
 
-                        // Check if data is already loaded
-                        if (!section.dataset.dataLoaded) {
-                            this.loadVerbDataLazy(section, verbId);
-                        }
-                    }
-                });
-            }, {
-                rootMargin: '50px' // Start loading 50px before the section comes into view
-            });
-
-            // Observe all verb sections
-            document.querySelectorAll('.verb-section').forEach(section => {
-                observer.observe(section);
-            });
-        } else {
-            // Fallback for browsers without IntersectionObserver
-            this.loadAllVerbData();
-        }
-    }
-
-    async loadVerbDataLazy(section, verbId) {
-        try {
-            const verbData = await this.getVerbData(verbId);
-            await this.populateVerbSection(section, verbData);
-            section.dataset.dataLoaded = 'true';
-        } catch (error) {
-            console.error('Error loading verb data lazily:', error);
-            this.showErrorState(section);
-        }
-    }
-
-    async loadAllVerbData() {
-        // Fallback: load all verb data at once
-        const sections = document.querySelectorAll('.verb-section');
-        const promises = sections.map(section => {
-            const verbId = section.dataset.verbId;
-            return this.loadVerbDataLazy(section, verbId);
-        });
-
-        await Promise.all(promises);
-    }
 
     getConjugationsForPreverb(conjugations, preverbConfig, targetPreverb) {
         if (!preverbConfig) {
@@ -1840,38 +1828,11 @@ class VerbDataManager {
         const normalizedTarget = targetPreverb.replace("-", "");
         const normalizedDefault = defaultPreverb.replace("-", "");
 
-        // Debug: log the input data
-        console.log('getConjugationsForPreverb input:', {
-            conjugations: conjugations,
-            preverbConfig: preverbConfig,
-            preverbRules: preverbRules,
-            targetPreverb: targetPreverb,
-            normalizedTarget: normalizedTarget,
-            normalizedDefault: normalizedDefault
-        });
-
-        // Debug: log the preverb config structure
-        console.log('Preverb config structure:', {
-            hasPreverbConfig: !!preverbConfig,
-            preverbConfigKeys: preverbConfig ? Object.keys(preverbConfig) : [],
-            preverbConfigValue: preverbConfig,
-            preverbConfigPreverbConfig: preverbConfig?.preverb_config,
-            hasMultiplePreverbs: preverbConfig?.preverb_config?.has_multiple_preverbs
-        });
-
         // Check if this is a multi-preverb verb using the has_multiple_preverbs flag
         const isMultiPreverb = preverbConfig.preverb_config && preverbConfig.preverb_config.has_multiple_preverbs === true;
 
-        console.log('Verb type detection:', {
-            isMultiPreverb: isMultiPreverb,
-            hasMultiplePreverbs: preverbConfig.preverb_config?.has_multiple_preverbs,
-            hasReplacements: !!preverbRules.replacements,
-            replacementKeys: preverbRules.replacements ? Object.keys(preverbRules.replacements) : []
-        });
-
         if (isMultiPreverb) {
             // This is a multi-preverb verb, calculate the target preverb forms
-            console.log('Processing multi-preverb verb for target preverb:', normalizedTarget);
 
             const preverbConjugations = {};
             for (const [tense, tenseData] of Object.entries(conjugations)) {
@@ -1893,11 +1854,9 @@ class VerbDataManager {
                 }
             }
 
-            console.log('Multi-preverb result:', preverbConjugations);
             return preverbConjugations;
         } else {
             // This is a single-preverb verb, return the original data as-is
-            console.log('Single-preverb verb - returning original data as-is');
             return conjugations;
         }
     }
@@ -1906,11 +1865,10 @@ class VerbDataManager {
         const tenses = ["present", "imperfect", "future", "aorist", "optative", "imperative"];
         const tenseNames = {
             "present": "PRES", "imperfect": "IMPF", "future": "FUT",
-            "aorist": "AOR", "optative": "OPT", "imperative": "IMPR"
+            "aorist": "AOR", "optative": "OPT", "imperative": "IMPV"
         };
 
         let tableHtml = `
-            <h3>Overview Table (Main Screves)</h3>
             <div class="table-container">
                 <table class="meta-table">
                     <thead>
@@ -2061,118 +2019,17 @@ class VerbDataManager {
         return tenseGloss;
     }
 
-    generateConjugationTablesHtml(conjugations) {
-        let html = '<div class="conjugation-tables">';
 
-        for (const [tense, tenseData] of Object.entries(conjugations)) {
-            html += `<div class="conjugation-table ${tense}-table">`;
-            html += `<h3>${tense.charAt(0).toUpperCase() + tense.slice(1)}</h3>`;
-            html += '<table class="regular-table">';
-            html += '<thead><tr><th>Form</th><th>Conjugation</th></tr></thead>';
-            html += '<tbody>';
 
-            // Extract the forms from the tense data structure
-            const forms = tenseData.forms || tenseData;
 
-            console.log(`Forms for ${tense}:`, forms);
 
-            // Check if forms is an object with actual conjugation data
-            if (forms && typeof forms === 'object' && Object.keys(forms).length > 0) {
-                for (const [form, value] of Object.entries(forms)) {
-                    if (value && typeof value === 'string' && value.trim() !== '') {
-                        html += `<tr><td>${form}</td><td>${value}</td></tr>`;
-                    }
-                }
-            } else {
-                // If no conjugation data, show a placeholder
-                html += '<tr><td colspan="2">No conjugation data available</td></tr>';
-            }
 
-            html += '</tbody></table></div>';
-        }
 
-        html += '</div>';
-        return html;
-    }
 
-    generateExamplesHtml(examples) {
-        if (!examples || typeof examples !== 'object') {
-            return '';
-        }
-
-        let html = '<div class="examples-section">';
-        for (const [tense, exampleHtml] of Object.entries(examples)) {
-            if (typeof exampleHtml === 'string') {
-                html += exampleHtml;
-            } else if (exampleHtml && typeof exampleHtml === 'object') {
-                // If it's an object, try to extract the HTML content
-                html += `<div class="examples ${tense}-examples">`;
-                html += `<h4>${tense.charAt(0).toUpperCase() + tense.slice(1)} Examples</h4>`;
-                html += '<div class="example-content">';
-                if (exampleHtml.content) {
-                    html += exampleHtml.content;
-                } else {
-                    html += JSON.stringify(exampleHtml);
-                }
-                html += '</div></div>';
-            }
-        }
-        html += '</div>';
-        return html;
-    }
-
-    generateGlossHtml(glossAnalyses) {
-        if (!glossAnalyses || typeof glossAnalyses !== 'object') {
-            return '';
-        }
-
-        let html = '<div class="gloss-section">';
-        for (const [tense, glossHtml] of Object.entries(glossAnalyses)) {
-            if (typeof glossHtml === 'string') {
-                html += glossHtml;
-            } else if (glossHtml && typeof glossHtml === 'object') {
-                // If it's an object, try to extract the HTML content
-                html += `<div class="case-gloss ${tense}-gloss">`;
-                html += `<h4>${tense.charAt(0).toUpperCase() + tense.slice(1)} Gloss Analysis</h4>`;
-                html += '<div class="gloss-content">';
-                if (glossHtml.content) {
-                    html += glossHtml.content;
-                } else {
-                    html += JSON.stringify(glossHtml);
-                }
-                html += '</div></div>';
-            }
-        }
-        html += '</div>';
-        return html;
-    }
-
-    showLoadingState(section) {
-        // Show loading state for overview container
-        const overviewContainer = section.querySelector('.overview-container');
-        if (overviewContainer) {
-            overviewContainer.innerHTML = '<div class="loading-indicator">Loading overview table...</div>';
-        }
-
-        // Show loading state for all tense columns
-        const tenseColumns = section.querySelectorAll('.tense-column');
-        tenseColumns.forEach(column => {
-            const tense = column.dataset.tense;
-            column.innerHTML = `<div class="loading-indicator">Loading ${tense} tense...</div>`;
-        });
-    }
-
-    hideLoadingState(section) {
-        // Remove all loading indicators
-        const loadingIndicators = section.querySelectorAll('.loading-indicator');
-        loadingIndicators.forEach(indicator => {
-            indicator.remove();
-        });
-    }
 
     showErrorState(section) {
         // Show error state for overview container
-        const overviewContainer = section.querySelector('.overview-container');
+        const overviewContainer = section.querySelector('.table-container');
         if (overviewContainer) {
             overviewContainer.innerHTML = '<div class="error-indicator">Error loading overview table. Please refresh the page.</div>';
         }
@@ -2200,7 +2057,8 @@ class PreverbManager {
     }
 
     initializePreverbToggles() {
-        document.querySelectorAll('.preverb-toggle').forEach(selector => {
+        // Only initialize preverb toggles for multi-preverb verbs
+        document.querySelectorAll('.verb-section[data-has-multiple-preverbs="true"] .preverb-toggle').forEach(selector => {
             selector.addEventListener('change', (e) => {
                 this.handlePreverbChange(e.target);
             });
@@ -2212,13 +2070,9 @@ class PreverbManager {
         const selectedPreverb = selector.value;
         const verbSection = document.querySelector(`[data-verb-id="${verbId}"]`);
 
-        if (verbSection) {
-            // Show loading state
-            this.verbDataManager.showLoadingState(verbSection);
-
+        if (verbSection && verbSection.getAttribute('data-has-multiple-preverbs') === 'true') {
             // Update verb display asynchronously
             this.updateVerbDisplay(verbSection, selectedPreverb).catch(error => {
-                console.error('Error handling preverb change:', error);
                 this.verbDataManager.showErrorState(verbSection);
             });
         }
@@ -2231,6 +2085,10 @@ class PreverbManager {
             // Get verb data from external files
             const verbData = await this.verbDataManager.getVerbData(verbId);
 
+            if (!verbData) {
+                return;
+            }
+
             // Get conjugations for selected preverb
             const conjugations = this.verbDataManager.getConjugationsForPreverb(
                 verbData.conjugations,
@@ -2239,7 +2097,7 @@ class PreverbManager {
             );
 
             // Update overview table
-            const overviewContainer = verbSection.querySelector('.overview-container');
+            const overviewContainer = verbSection.querySelector('.table-container');
             if (overviewContainer) {
                 overviewContainer.innerHTML = this.verbDataManager.generateOverviewTable(conjugations);
             }
@@ -2251,175 +2109,17 @@ class PreverbManager {
                 this.verbDataManager.populateTenseColumn(column, tense, conjugations[tense], verbData, preverb);
             });
 
-            // Update semantic indicators
-            this.updateSemanticIndicators(verbSection, preverb);
 
-            // Hide loading state after successful update
-            this.verbDataManager.hideLoadingState(verbSection);
         } catch (error) {
-            console.error('Error updating verb display:', error);
             this.verbDataManager.showErrorState(verbSection);
         }
     }
 
-    async updateConjugationTables(verbSection, preverb, verbData) {
-        // Get conjugations for selected preverb using VerbDataManager
-        const conjugations = this.verbDataManager.getConjugationsForPreverb(
-            verbData.conjugations,
-            verbData.preverbConfig,
-            preverb
-        );
 
-        // Generate new overview table HTML
-        const overviewHtml = this.verbDataManager.generateOverviewTable(conjugations);
 
-        // Generate new conjugation tables HTML
-        const tablesHtml = this.verbDataManager.generateConjugationTablesHtml(conjugations);
 
-        // Get the content container
-        const content = verbSection.querySelector('.verb-content');
-        if (!content) return;
 
-        // Replace the overview table section
-        const existingOverview = content.querySelector('.overview-section');
-        if (existingOverview) {
-            existingOverview.outerHTML = overviewHtml;
-        } else {
-            // If no existing overview, prepend the new overview
-            content.insertAdjacentHTML('afterbegin', overviewHtml);
-        }
 
-        // Replace the conjugation tables section
-        const existingTables = content.querySelector('.conjugation-tables');
-        if (existingTables) {
-            existingTables.outerHTML = tablesHtml;
-        } else {
-            // If no existing tables, insert after overview
-            const overviewSection = content.querySelector('.overview-section');
-            if (overviewSection) {
-                overviewSection.insertAdjacentHTML('afterend', tablesHtml);
-            } else {
-                content.insertAdjacentHTML('afterbegin', tablesHtml);
-            }
-        }
-    }
-
-    async updateExamples(verbSection, preverb, verbData) {
-        const normalizedPreverb = preverb.replace('-', '');
-        const examples = verbData.examples[normalizedPreverb];
-
-        if (!examples) {
-            return;
-        }
-
-        // Generate new examples HTML
-        const examplesHtml = this.verbDataManager.generateExamplesHtml(examples);
-
-        // Get the content container
-        const content = verbSection.querySelector('.verb-content');
-        if (!content) return;
-
-        // Replace the examples section
-        const existingExamples = content.querySelector('.examples-section');
-        if (existingExamples) {
-            existingExamples.outerHTML = examplesHtml;
-        } else {
-            // If no existing examples, append the new examples
-            content.insertAdjacentHTML('beforeend', examplesHtml);
-        }
-    }
-
-    async updateGlossAnalyses(verbSection, preverb, verbData) {
-        const normalizedPreverb = preverb.replace('-', '');
-        const glossAnalyses = verbData.glossAnalyses[normalizedPreverb];
-
-        if (!glossAnalyses) {
-            return;
-        }
-
-        // Generate new gloss analysis HTML
-        const glossHtml = this.verbDataManager.generateGlossHtml(glossAnalyses);
-
-        // Get the content container
-        const content = verbSection.querySelector('.verb-content');
-        if (!content) return;
-
-        // Replace the gloss analysis section
-        const existingGloss = content.querySelector('.gloss-section');
-        if (existingGloss) {
-            existingGloss.outerHTML = glossHtml;
-        } else {
-            // If no existing gloss, append the new gloss
-            content.insertAdjacentHTML('beforeend', glossHtml);
-        }
-    }
-
-    getTenseFromGlossSection(glossSection) {
-        // Try to find the tense from the section context
-        const section = glossSection.closest('.tense-column');
-        if (section) {
-            const heading = section.querySelector('h3');
-            if (heading) {
-                const headingText = heading.textContent.toLowerCase();
-                if (headingText.includes('present')) return 'present';
-                if (headingText.includes('imperfect')) return 'imperfect';
-                if (headingText.includes('future')) return 'future';
-                if (headingText.includes('aorist')) return 'aorist';
-                if (headingText.includes('optative')) return 'optative';
-                if (headingText.includes('imperative')) return 'imperative';
-            }
-        }
-        return null;
-    }
-
-    getConjugationsForPreverb(verbId, preverb) {
-        // Get data from the verb section's data attributes
-        const verbSection = document.querySelector(`[data-verb-id="${verbId}"]`);
-        if (!verbSection) return {};
-
-        const preverbConfig = JSON.parse(verbSection.dataset.preverbConfig || '{}');
-        const conjugations = JSON.parse(verbSection.dataset.conjugations || '{}');
-        const preverbRules = JSON.parse(verbSection.dataset.preverbRules || '{}');
-
-        // Handle new preverb rules structure
-        if (preverbRules && Object.keys(preverbRules).length > 0) {
-            return this.calculatePreverbForms(conjugations, preverbRules, preverb);
-        }
-
-        // Handle available_preverbs approach - should always have preverb_rules
-        if (preverbConfig.available_preverbs && preverbConfig.available_preverbs.length > 0) {
-            // If available_preverbs exist but no preverb_rules, this is an error
-            // All verbs with available_preverbs should have preverb_rules
-            console.warn(`Verb ${verbId} has available_preverbs but no preverb_rules`);
-            return conjugations;
-        }
-
-        // Handle old multi-preverb structure (fallback)
-        const preverbConjugations = {};
-        for (const [tense, tenseData] of Object.entries(conjugations)) {
-            if (tenseData && typeof tenseData === 'object') {
-                // Check if the selected preverb has conjugations for this tense
-                if (tenseData[preverb]) {
-                    preverbConjugations[tense] = tenseData[preverb];
-                } else {
-                    // Fallback logic: for წა- preverb, use მი- for present and imperfect
-                    if (preverb === 'წა-' && (tense === 'present' || tense === 'imperfect')) {
-                        if (tenseData['მი-']) {
-                            preverbConjugations[tense] = tenseData['მი-'];
-                        }
-                    } else {
-                        // For other cases, use the first available preverb as fallback
-                        const availablePreverbs = Object.keys(tenseData);
-                        if (availablePreverbs.length > 0) {
-                            preverbConjugations[tense] = tenseData[availablePreverbs[0]];
-                        }
-                    }
-                }
-            }
-        }
-
-        return preverbConjugations;
-    }
 
     calculatePreverbForms(conjugations, preverbRules, targetPreverb) {
         if (!preverbRules) {
@@ -2482,306 +2182,28 @@ class PreverbManager {
         return result;
     }
 
-    getExamplesForPreverb(verbId, preverb) {
-        // Get data from the verb section's data attributes
-        const verbSection = document.querySelector(`[data-verb-id="${verbId}"]`);
-        if (!verbSection) return {};
 
-        const examples = JSON.parse(verbSection.dataset.examples || '{}');
-        const preverbRules = JSON.parse(verbSection.dataset.preverbRules || '{}');
 
-        // For new preverb rules structure, examples are already generated at build time
-        // and stored in the examples data attribute. Just return them.
-        if (preverbRules && Object.keys(preverbRules).length > 0) {
-            return examples;
-        }
 
-        // Extract examples for the selected preverb with fallback logic (old structure)
-        const preverbExamples = {};
-        for (const [tense, tenseData] of Object.entries(examples)) {
-            if (tenseData && typeof tenseData === 'object') {
-                // Check if the selected preverb has examples for this tense
-                if (tenseData[preverb]) {
-                    preverbExamples[tense] = tenseData[preverb];
-                } else {
-                    // Fallback logic: for წა- preverb, use მი- for present and imperfect
-                    if (preverb === 'წა-' && (tense === 'present' || tense === 'imperfect')) {
-                        if (tenseData['მი-']) {
-                            preverbExamples[tense] = tenseData['მი-'];
-                        }
-                    } else {
-                        // For other cases, use the first available preverb as fallback
-                        const availablePreverbs = Object.keys(tenseData);
-                        if (availablePreverbs.length > 0) {
-                            preverbExamples[tense] = tenseData[availablePreverbs[0]];
-                        }
-                    }
-                }
-            }
-        }
 
-        return preverbExamples;
-    }
 
-    updateTableContent(table, conjugations) {
-        // Update table cells with new conjugation data
-        const rows = table.querySelectorAll('tbody tr');
-        rows.forEach(row => {
-            const cells = row.querySelectorAll('td');
-            if (cells.length >= 6) {
-                // Update conjugation cells (skip first cell which is tense name)
-                const tense = this.getTenseFromRow(row);
-                if (tense && conjugations[tense]) {
-                    const tenseConjugations = conjugations[tense];
 
-                    // Handle stem-based verb structure (forms object) vs old structure (direct person keys)
-                    let forms;
-                    if (tenseConjugations.forms) {
-                        // Stem-based structure: { forms: { "1sg": "...", ... } }
-                        forms = tenseConjugations.forms;
-                    } else {
-                        // Old structure: { "1sg": "...", ... }
-                        forms = tenseConjugations;
-                    }
 
-                    cells[1].textContent = forms['1sg'] || '-';
-                    cells[2].textContent = forms['2sg'] || '-';
-                    cells[3].textContent = forms['3sg'] || '-';
-                    cells[4].textContent = forms['1pl'] || '-';
-                    cells[5].textContent = forms['2pl'] || '-';
-                    cells[6].textContent = forms['3pl'] || '-';
-                }
-            }
-        });
-    }
 
-    getTenseFromRow(row) {
-        // Extract tense from the first cell or row class
-        const firstCell = row.querySelector('td');
-        if (firstCell) {
-            const tenseText = firstCell.textContent.trim();
-            const tenseMap = {
-                'PRES': 'present',
-                'IMPF': 'imperfect',
-                'FUT': 'future',
-                'AOR': 'aorist',
-                'OPT': 'optative',
-                'IMPR': 'imperative'
-            };
-            return tenseMap[tenseText] || null;
-        }
-        return null;
-    }
 
-    updateRegularTableContent(table, conjugations) {
-        // Update regular table content (3-column format: Person, Singular, Plural)
-        const rows = table.querySelectorAll('tbody tr');
-        rows.forEach(row => {
-            const cells = row.querySelectorAll('td');
-            if (cells.length >= 3) {
-                // Get tense from the table context
-                const tense = this.getTenseFromRegularTable(table);
-                if (tense && conjugations[tense]) {
-                    const tenseConjugations = conjugations[tense];
 
-                    // Handle stem-based verb structure (forms object) vs old structure (direct person keys)
-                    let forms;
-                    if (tenseConjugations.forms) {
-                        // Stem-based structure: { forms: { "1sg": "...", ... } }
-                        forms = tenseConjugations.forms;
-                    } else {
-                        // Old structure: { "1sg": "...", ... }
-                        forms = tenseConjugations;
-                    }
 
-                    const person = cells[0].textContent.trim();
 
-                    // Update singular and plural cells based on person
-                    if (person.includes('1st')) {
-                        cells[1].textContent = forms['1sg'] || '-';
-                        cells[2].textContent = forms['1pl'] || '-';
-                    } else if (person.includes('2nd')) {
-                        cells[1].textContent = forms['2sg'] || '-';
-                        cells[2].textContent = forms['2pl'] || '-';
-                    } else if (person.includes('3rd')) {
-                        cells[1].textContent = forms['3sg'] || '-';
-                        cells[2].textContent = forms['3pl'] || '-';
-                    }
-                }
-            }
-        });
-    }
 
-    getTenseFromRegularTable(table) {
-        // Get tense from the table's context (heading or parent section)
-        const tableContainer = table.closest('.regular-table-container');
-        if (tableContainer) {
-            const heading = tableContainer.previousElementSibling;
-            if (heading && heading.tagName === 'H3') {
-                const headingText = heading.textContent.toLowerCase();
-                if (headingText.includes('present')) return 'present';
-                if (headingText.includes('imperfect')) return 'imperfect';
-                if (headingText.includes('future')) return 'future';
-                if (headingText.includes('aorist')) return 'aorist';
-                if (headingText.includes('optative')) return 'optative';
-                if (headingText.includes('imperative')) return 'imperative';
-            }
-        }
-        return null;
-    }
 
-    updateExampleContent(exampleSection, conjugations, preverb, preverbTranslations) {
-        // This method is no longer needed as examples are now pre-generated
-        // and handled by the updateExamples method
-    }
 
-    getTenseFromExampleSection(exampleSection) {
-        // Try to find the tense from the section context
-        const section = exampleSection.closest('.tense-column');
-        if (section) {
-            const heading = section.querySelector('h3');
-            if (heading) {
-                const headingText = heading.textContent.toLowerCase();
-                if (headingText.includes('present')) return 'present';
-                if (headingText.includes('imperfect')) return 'imperfect';
-                if (headingText.includes('future')) return 'future';
-                if (headingText.includes('aorist')) return 'aorist';
-                if (headingText.includes('optative')) return 'optative';
-                if (headingText.includes('imperative')) return 'imperative';
-            }
-        }
-        return null;
-    }
 
-    getVerbFormForExample(verbReference, examples) {
-        // Parse verb reference like "present.1sg" to get the verb form
-        if (!verbReference) return null;
 
-        const [tense, person] = verbReference.split('.');
-        if (!tense || !person) return null;
 
-        // Get conjugations for the current preverb with fallback logic
-        const verbSection = document.querySelector('.verb-section[data-has-multiple-preverbs="True"]');
-        if (!verbSection) return null;
 
-        const conjugations = JSON.parse(verbSection.dataset.conjugations || '{}');
-        const preverbConfig = JSON.parse(verbSection.dataset.preverbConfig || '{}');
-        const preverbRules = JSON.parse(verbSection.dataset.preverbRules || '{}');
-        const currentPreverb = verbSection.querySelector('.preverb-toggle').value;
 
-        // Handle new preverb rules structure
-        if (preverbRules && Object.keys(preverbRules).length > 0) {
-            const calculatedConjugations = this.calculatePreverbForms(conjugations, preverbRules, currentPreverb);
-            if (calculatedConjugations[tense] && calculatedConjugations[tense].forms) {
-                return calculatedConjugations[tense].forms[person] || null;
-            }
-            return null;
-        }
 
-        // Handle stem-based approach (available_preverbs array)
-        if (preverbConfig.available_preverbs && preverbConfig.available_preverbs.length > 0) {
-            if (conjugations[tense] && conjugations[tense].forms) {
-                const stem = conjugations[tense].forms[person];
-                if (stem && stem !== '-') {
-                    // Remove hyphen from preverb before combining
-                    const clean_preverb = currentPreverb.replace('-', '');
-                    return clean_preverb + stem;
-                }
-            }
-            return null;
-        }
-
-        // Handle old multi-preverb structure (fallback)
-        if (conjugations[tense] && typeof conjugations[tense] === 'object') {
-            // Check if the current preverb has conjugations for this tense
-            if (conjugations[tense][currentPreverb]) {
-                return conjugations[tense][currentPreverb][person];
-            } else {
-                // Fallback logic: for წა- preverb, use მი- for present and imperfect
-                if (currentPreverb === 'წა-' && (tense === 'present' || tense === 'imperfect')) {
-                    if (conjugations[tense]['მი-']) {
-                        return conjugations[tense]['მი-'][person];
-                    }
-                } else {
-                    // For other cases, use the first available preverb as fallback
-                    const availablePreverbs = Object.keys(conjugations[tense]);
-                    if (availablePreverbs.length > 0) {
-                        return conjugations[tense][availablePreverbs[0]][person];
-                    }
-                }
-            }
-        }
-
-        return null;
-    }
-
-    updateSemanticIndicators(verbSection, preverb) {
-        // Update semantic indicators if present
-        const indicators = verbSection.querySelectorAll('.preverb-semantic');
-        indicators.forEach(indicator => {
-            // Update semantic category based on selected preverb
-            const semanticCategory = this.getSemanticCategory(preverb);
-            indicator.className = `preverb-semantic ${semanticCategory}`;
-        });
-
-        // Add visual indicators for preverb fallbacks
-        this.updatePreverbFallbackIndicators(verbSection, preverb);
-    }
-
-    updatePreverbFallbackIndicators(verbSection, preverb) {
-        const preverbRules = JSON.parse(verbSection.dataset.preverbRules || '{}');
-
-        // Remove existing indicators
-        const existingIndicators = verbSection.querySelectorAll('.preverb-fallback-indicator');
-        existingIndicators.forEach(indicator => indicator.remove());
-
-        const normalizedPreverb = preverb.replace('-', '');
-
-        // Check for form fallbacks
-        const formFallbacks = preverbRules.tense_specific_fallbacks?.[normalizedPreverb];
-        // Check for translation fallbacks
-        const translationFallbacks = preverbRules.english_fallbacks?.[normalizedPreverb];
-
-        if (formFallbacks || translationFallbacks) {
-            const indicator = document.createElement('div');
-            indicator.className = 'preverb-fallback-indicator';
-
-            let fallbackText = '';
-            if (formFallbacks && translationFallbacks) {
-                fallbackText = `${preverb} uses ${formFallbacks.present || formFallbacks.imperfect} forms and translations for present/imperfect`;
-            } else if (formFallbacks) {
-                fallbackText = `${preverb} uses ${formFallbacks.present || formFallbacks.imperfect} forms for present/imperfect`;
-            } else if (translationFallbacks) {
-                fallbackText = `${preverb} uses ${translationFallbacks.present || translationFallbacks.imperfect} translations for present/imperfect`;
-            }
-
-            indicator.innerHTML = `
-                <span class="fallback-icon">⚠️</span>
-                <span class="fallback-text">${fallbackText}</span>
-            `;
-
-            const preverbSelector = verbSection.querySelector('.preverb-selector');
-            if (preverbSelector) {
-                preverbSelector.parentNode.insertBefore(indicator, preverbSelector.nextSibling);
-            }
-        }
-    }
-
-    getSemanticCategory(preverb) {
-        // Map preverb to semantic category
-        const semanticMap = {
-            'მი-': 'directional',
-            'მო-': 'directional',
-            'გა-': 'directional',
-            'წა-': 'directional'
-        };
-        return semanticMap[preverb] || 'directional';
-    }
 
 
 }
 
-// Initialize preverb functionality
-function initializePreverbToggles() {
-    new PreverbManager();
-} 

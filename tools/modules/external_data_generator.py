@@ -22,10 +22,16 @@ logger = logging.getLogger(__name__)
 class ExternalDataGenerator:
     """Handles generation of external data files for frontend consumption."""
 
-    def __init__(self, project_root: Path):
+    def __init__(self, project_root: Path, config_manager=None):
         self.project_root = project_root
-        self.dist_dir = project_root / "dist"
-        self.data_dir = self.dist_dir / "data"
+        if config_manager is None:
+            # Import here to avoid circular imports
+            from tools.modules.config_manager import ConfigManager
+            self.config_manager = ConfigManager(project_root)
+        else:
+            self.config_manager = config_manager
+        self.dist_dir = self.config_manager.get_path("dist_dir")
+        self.data_dir = self.config_manager.get_path("dist_data_dir")
 
         # Cache for frequently accessed data
         self._verb_cache = {}
@@ -65,13 +71,25 @@ class ExternalDataGenerator:
         """Create modified verb data for example generation with consistent structure."""
         metadata = self._get_verb_metadata(verb)
 
+        # If we have an effective preverb and preverb rules, calculate the correct forms
+        forms = tense_data["forms"]
+        if effective_preverb and metadata.get("preverb_rules"):
+            from tools.core.verb_conjugation import calculate_preverb_forms
+            try:
+                calculated_forms = calculate_preverb_forms(
+                    tense_data["forms"], metadata["preverb_rules"], effective_preverb
+                )
+                forms = calculated_forms
+            except Exception as e:
+                logger.warning(f"Failed to calculate preverb forms for {effective_preverb}: {e}")
+
         return {
             "id": metadata["id"],
             "semantic_key": verb.get("semantic_key", "[]"),
             "english_translations": metadata["english_translations"],
             "conjugations": {
                 tense: {
-                    "forms": tense_data["forms"],
+                    "forms": forms,
                     "examples": tense_data.get("examples", []),
                     "gloss": tense_data.get("gloss", {}),
                     "raw_gloss": tense_data.get("gloss", {}).get("raw_gloss", ""),
@@ -180,7 +198,7 @@ class ExternalDataGenerator:
                             verb, tense, tense_data
                         )
                         examples_html = self._create_examples_without_gloss(
-                            modified_verb, tense
+                            modified_verb, tense, None
                         )
                         if examples_html:
                             examples_by_tense[tense] = examples_html
@@ -303,7 +321,7 @@ class ExternalDataGenerator:
 
                     # Generate examples for this tense (without gloss analysis)
                     examples_html = self._create_examples_without_gloss(
-                        modified_verb, tense
+                        modified_verb, tense, effective_preverb
                     )
                     if examples_html:
                         examples_by_tense[tense] = examples_html
@@ -320,13 +338,13 @@ class ExternalDataGenerator:
 
         return examples_by_preverb, gloss_analyses_by_preverb
 
-    def _create_examples_without_gloss(self, verb: Dict, tense: str) -> str:
+    def _create_examples_without_gloss(self, verb: Dict, tense: str, preverb: Optional[str] = None) -> str:
         """Create examples HTML for a verb and tense without the gloss analysis section."""
         # Generate pedagogical examples
         try:
             from tools.core.example_generator import generate_pedagogical_examples
 
-            enhanced_examples = generate_pedagogical_examples(verb, tense)
+            enhanced_examples = generate_pedagogical_examples(verb, tense, preverb)
 
             # If pedagogical examples were generated successfully
             if enhanced_examples.get("enhanced", False) and enhanced_examples.get(
@@ -700,7 +718,7 @@ class ExternalDataGenerator:
 
     def generate_external_data_files(self, verbs: List[Dict]) -> bool:
         """
-        Generate all external data files for verb data externalization.
+        Generate external data files only for multi-preverb verbs.
 
         Args:
             verbs: List of verb dictionaries from load_json_data()
@@ -714,13 +732,26 @@ class ExternalDataGenerator:
 
             logger.info(f"Generating external data files in: {self.data_dir}")
 
-            # Generate each data file
+            # Filter verbs to only include multi-preverb verbs
+            multi_preverb_verbs = [
+                verb for verb in verbs 
+                if verb.get("preverb_config", {}).get("has_multiple_preverbs", False)
+            ]
+            
+            # Only generate files for multi-preverb verbs
+            if not multi_preverb_verbs:
+                logger.info("No multi-preverb verbs found, skipping external data generation")
+                return True
+            
+            logger.info(f"Found {len(multi_preverb_verbs)} multi-preverb verbs for external data generation")
+
+            # Generate each data file only for multi-preverb verbs
             data_files = [
-                ("verbs-data.json", self.create_core_verb_data(verbs)),
-                ("conjugations-data.json", self.create_conjugations_data(verbs)),
-                ("examples-data.json", self.create_examples_data(verbs)),
-                ("gloss-data.json", self.create_gloss_data(verbs)),
-                ("preverb-config.json", self.create_preverb_config_data(verbs)),
+                ("verbs-data.json", self.create_core_verb_data(multi_preverb_verbs)),
+                ("conjugations-data.json", self.create_conjugations_data(multi_preverb_verbs)),
+                ("examples-data.json", self.create_examples_data(multi_preverb_verbs)),
+                ("gloss-data.json", self.create_gloss_data(multi_preverb_verbs)),
+                ("preverb-config.json", self.create_preverb_config_data(multi_preverb_verbs)),
             ]
 
             for filename, data in data_files:

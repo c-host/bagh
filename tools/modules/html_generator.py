@@ -11,6 +11,11 @@ import logging
 
 from .data_loader import VerbDataLoader
 
+# Import core modules for static content generation
+from tools.core.example_generator import generate_pedagogical_examples
+from tools.core.gloss_parser import GlossParser
+from tools.core.verb_conjugation import get_conjugation_form, has_preverb_in_tense
+
 logger = logging.getLogger(__name__)
 
 
@@ -110,7 +115,7 @@ class HTMLGenerator:
         duplicate_primary_verbs: Optional[Dict] = None,
     ) -> str:
         """
-        Create a minimal verb section with data references for external loading.
+        Create a verb section with static content generation.
 
         Args:
             verb: Verb data dictionary
@@ -120,93 +125,8 @@ class HTMLGenerator:
         Returns:
             HTML string for verb section
         """
-        verb_id = verb.get("id", "N/A")
-        georgian = verb.get("georgian", "N/A")
-        description = verb.get("description", "N/A")
-        semantic_key = verb.get("semantic_key", "")
-
-        # Create anchor ID for this section using primary verb with smart disambiguation
-        primary_verb = self.data_loader.get_primary_verb(georgian)
-        verb_id = verb.get("id", "")
-        anchor_id = self.create_safe_anchor_id(
-            georgian, semantic_key, verb_id, duplicate_primary_verbs
-        )
-
-        # Add page number and backlink if index is provided
-        page_number = f"<span class='page-number'>{index}</span>" if index else ""
-        backlink = f"<a href='#toc' class='toc-backlink'>↑ ToC</a>" if index else ""
-
-        # Get category and class from verb data
-        category = verb.get("category", "Unknown")
-        verb_class = verb.get("class", "Class-I")
-
-        # Get preverb configuration
-        preverb_config = verb.get("preverb_config", {})
-        has_multiple_preverbs = preverb_config.get("has_multiple_preverbs", False)
-        default_preverb = preverb_config.get("default_preverb", "")
-
-        # Add preverb selector only for multi-preverb verbs
-        preverb_selector = ""
-        if has_multiple_preverbs:
-            preverb_selector = self.create_preverb_selector(verb)
-
-        # Get notes and URL for conditional inclusion
-        notes = verb.get("notes", "")
-        url = verb.get("url", "")
-
-        # Create minimal verb section with only essential data attributes
-        section_html = f"""
-            <div class="verb-section" id="{anchor_id}" 
-                 data-verb-id="{verb_id}"
-                 data-georgian="{primary_verb}"
-                 data-full-georgian="{georgian}"
-                 data-semantic-key="{semantic_key}"
-                 data-category="{category}" 
-                 data-class="{verb_class}"
-                 data-has-multiple-preverbs="{has_multiple_preverbs}"
-                 data-default-preverb="{default_preverb}">
-                {preverb_selector}
-                <h2>{page_number}<span class="georgian-text">{georgian}</span> - {description} {backlink} <button class="link-icon" onclick="handleLinkIconClick('{anchor_id}')" title="Copy link to clipboard">🔗</button></h2>
-                
-                <!-- Overview table container -->
-                <div class="overview-container">
-                    <div class="loading-indicator">Loading overview table...</div>
-                </div>
-                
-                {f'<div class="verb-notes"><strong>Note:</strong> {notes}</div>' if notes.strip() else ''}
-                {f'<div class="verb-external-link"><a href="{url}" target="_blank" rel="noopener noreferrer"><i class="fas fa-external-link-alt"></i> View on Lingua.ge</a></div>' if url.strip() else ''}
-                
-                <!-- TENSE PAIRS - Empty containers for dynamic content -->
-                <div class="tense-pair" data-pair="1">
-                    <div class="tense-column" data-tense="present">
-                        <div class="loading-indicator">Loading present tense...</div>
-                    </div>
-                    <div class="tense-column" data-tense="imperfect">
-                        <div class="loading-indicator">Loading imperfect tense...</div>
-                    </div>
-                </div>
-                
-                <div class="tense-pair" data-pair="2">
-                    <div class="tense-column" data-tense="aorist">
-                        <div class="loading-indicator">Loading aorist tense...</div>
-                    </div>
-                    <div class="tense-column" data-tense="optative">
-                        <div class="loading-indicator">Loading optative tense...</div>
-                    </div>
-                </div>
-                
-                <div class="tense-pair" data-pair="3">
-                    <div class="tense-column" data-tense="future">
-                        <div class="loading-indicator">Loading future tense...</div>
-                    </div>
-                    <div class="tense-column" data-tense="imperative">
-                        <div class="loading-indicator">Loading imperative tense...</div>
-                    </div>
-                </div>
-            </div>
-        """
-
-        return section_html
+        # Use the new static content generation approach
+        return self.create_static_verb_section(verb, index, duplicate_primary_verbs)
 
     def create_toc(
         self, verbs: List[Dict], duplicate_primary_verbs: Optional[Dict] = None
@@ -465,7 +385,7 @@ class HTMLGenerator:
                     </div>
                 </div>
                 <div class="search-container">
-                    <input type="text" id="search-input" class="search-input" placeholder="Search verbs... (↑↓ to navigate, Enter to select)" title="Search by Georgian or English name. Use ↑↓ arrows to navigate, Enter to select">
+                    <input type="text" id="search-input" class="search-input" placeholder="Search verbs (↑↓ to navigate, Enter to select)" title="Search by Georgian or English name. Use ↑↓ arrows to navigate, Enter to select">
                     <div class="search-icon">
                         <i class="fas fa-search"></i>
                     </div>
@@ -622,9 +542,9 @@ class HTMLGenerator:
     </div>
 
     <!-- Main Content -->
-    <div class="main-content">
-        {toc_section}
-        
+    <div class="main-content">   
+        {toc_section}     
+
         {verb_sections}
     </div>
 </body>
@@ -632,3 +552,557 @@ class HTMLGenerator:
 </html>"""
 
         return html_content
+
+    # ============================================================================
+    # STATIC CONTENT GENERATION METHODS
+    # ============================================================================
+
+    def create_static_verb_section(
+        self,
+        verb: Dict,
+        index: Optional[int] = None,
+        duplicate_primary_verbs: Optional[Dict] = None,
+    ) -> str:
+        """
+        Create a complete static verb section with embedded content.
+
+        Args:
+            verb: Verb data dictionary
+            index: Page number index
+            duplicate_primary_verbs: Dictionary of duplicate primary verbs
+
+        Returns:
+            HTML string for complete static verb section
+        """
+        # Check if verb has multiple preverbs
+        has_multiple_preverbs = verb.get("preverb_config", {}).get(
+            "has_multiple_preverbs", False
+        )
+
+        if has_multiple_preverbs:
+            # Generate static content with default preverb
+            return self._create_multi_preverb_static_section(
+                verb, index, duplicate_primary_verbs
+            )
+        else:
+            # Generate complete static content
+            return self._create_single_preverb_static_section(
+                verb, index, duplicate_primary_verbs
+            )
+
+    def _create_single_preverb_static_section(
+        self,
+        verb: Dict,
+        index: Optional[int] = None,
+        duplicate_primary_verbs: Optional[Dict] = None,
+    ) -> str:
+        """
+        Create complete static content for single-preverb verbs.
+
+        Args:
+            verb: Verb data dictionary
+            index: Page number index
+            duplicate_primary_verbs: Dictionary of duplicate primary verbs
+
+        Returns:
+            HTML string for complete static verb section
+        """
+        verb_id = verb.get("id", "N/A")
+        georgian = verb.get("georgian", "N/A")
+        description = verb.get("description", "N/A")
+        semantic_key = verb.get("semantic_key", "")
+
+        # Create anchor ID for this section using primary verb with smart disambiguation
+        primary_verb = self.data_loader.get_primary_verb(georgian)
+        verb_id = verb.get("id", "")
+        anchor_id = self.create_safe_anchor_id(
+            georgian, semantic_key, verb_id, duplicate_primary_verbs
+        )
+
+        # Add page number and backlink if index is provided
+        page_number = f"<span class='page-number'>{index}</span>" if index else ""
+        backlink = f"<a href='#toc' class='toc-backlink'>↑ ToC</a>" if index else ""
+
+        # Get notes and URL for conditional inclusion
+        notes = verb.get("notes", "")
+        url = verb.get("url", "")
+
+        # Generate static content
+        overview_table = self._generate_overview_table(verb)
+        tense_tables = self._generate_tense_tables(verb)
+
+        # Get category for the verb
+        category = verb.get("category", "Unknown")
+        
+        # Create complete static verb section
+        section_html = f"""
+            <div class="verb-section" id="{anchor_id}" 
+                 data-verb-id="{verb_id}"
+                 data-georgian="{primary_verb}"
+                 data-full-georgian="{georgian}"
+                 data-semantic-key="{semantic_key}"
+                 data-category="{category}"
+                 data-has-multiple-preverbs="false">
+                
+                <h2>{page_number}<span class="georgian-text">{georgian}</span> - {description} {backlink} <button class="link-icon" onclick="handleLinkIconClick('{anchor_id}')" title="Copy link to clipboard">🔗</button></h2>
+                
+                {overview_table}
+                
+                {f'<div class="verb-notes"><strong>Note:</strong> {notes}</div>' if notes.strip() else ''}
+                {f'<div class="verb-external-link"><a href="{url}" target="_blank" rel="noopener noreferrer"><i class="fas fa-external-link-alt"></i> View on Lingua.ge</a></div>' if url.strip() else ''}
+                
+                {tense_tables}
+            </div>
+        """
+
+        return section_html
+
+    def _create_multi_preverb_static_section(
+        self,
+        verb: Dict,
+        index: Optional[int] = None,
+        duplicate_primary_verbs: Optional[Dict] = None,
+    ) -> str:
+        """
+        Create static content for multi-preverb verbs with default preverb.
+
+        Args:
+            verb: Verb data dictionary
+            index: Page number index
+            duplicate_primary_verbs: Dictionary of duplicate primary verbs
+
+        Returns:
+            HTML string for multi-preverb static verb section
+        """
+        verb_id = verb.get("id", "N/A")
+        georgian = verb.get("georgian", "N/A")
+        description = verb.get("description", "N/A")
+        semantic_key = verb.get("semantic_key", "")
+
+        # Create anchor ID for this section using primary verb with smart disambiguation
+        primary_verb = self.data_loader.get_primary_verb(georgian)
+        verb_id = verb.get("id", "")
+        anchor_id = self.create_safe_anchor_id(
+            georgian, semantic_key, verb_id, duplicate_primary_verbs
+        )
+
+        # Add page number and backlink if index is provided
+        page_number = f"<span class='page-number'>{index}</span>" if index else ""
+        backlink = f"<a href='#toc' class='toc-backlink'>↑ ToC</a>" if index else ""
+
+        # Get preverb configuration
+        preverb_config = verb.get("preverb_config", {})
+        default_preverb = preverb_config.get("default_preverb", "")
+
+        # Add preverb selector for multi-preverb verbs
+        preverb_selector = self.create_preverb_selector(verb)
+
+        # Get notes and URL for conditional inclusion
+        notes = verb.get("notes", "")
+        url = verb.get("url", "")
+
+        # Get category for the verb
+        category = verb.get("category", "Unknown")
+        
+        # Generate static content with default preverb
+        overview_table = self._generate_overview_table(verb, default_preverb)
+        tense_tables = self._generate_tense_tables(verb, default_preverb)
+
+        # Create multi-preverb static verb section
+        section_html = f"""
+            <div class="verb-section" id="{anchor_id}" 
+                 data-verb-id="{verb_id}"
+                 data-georgian="{primary_verb}"
+                 data-full-georgian="{georgian}"
+                 data-semantic-key="{semantic_key}"
+                 data-category="{category}"
+                 data-has-multiple-preverbs="true"
+                 data-default-preverb="{default_preverb}">
+                
+                {preverb_selector}
+                <h2>{page_number}<span class="georgian-text">{georgian}</span> - {description} {backlink} <button class="link-icon" onclick="handleLinkIconClick('{anchor_id}')" title="Copy link to clipboard">🔗</button></h2>
+                
+                {overview_table}
+                
+                {f'<div class="verb-notes"><strong>Note:</strong> {notes}</div>' if notes.strip() else ''}
+                {f'<div class="verb-external-link"><a href="{url}" target="_blank" rel="noopener noreferrer"><i class="fas fa-external-link-alt"></i> View on Lingua.ge</a></div>' if url.strip() else ''}
+                
+                {tense_tables}
+            </div>
+        """
+
+        return section_html
+
+    def _generate_overview_table(
+        self, verb: Dict, preverb: Optional[str] = None
+    ) -> str:
+        """
+        Generate overview table HTML with all tenses.
+
+        Args:
+            verb: Verb data dictionary
+            preverb: Optional preverb to use (for multi-preverb verbs)
+
+        Returns:
+            HTML string for overview table
+        """
+        try:
+            # Define tenses and their display names
+            tenses = [
+                ("present", "PRES"),
+                ("imperfect", "IMPF"),
+                ("future", "FUT"),
+                ("aorist", "AOR"),
+                ("optative", "OPT"),
+                ("imperative", "IMPR"),
+            ]
+
+            # Define persons
+            persons = ["1sg", "2sg", "3sg", "1pl", "2pl", "3pl"]
+
+            # Generate table rows
+            table_rows = ""
+            for tense_name, tense_display in tenses:
+                row_class = f"tense-{tense_name}"
+                cells = f"<td>{tense_display}</td>"
+
+                for person in persons:
+                    form = get_conjugation_form(verb, tense_name, person, preverb)
+                    cells += f'<td class="georgian-text">{form}</td>'
+
+                table_rows += f'<tr class="{row_class}">{cells}</tr>'
+
+            overview_table = f"""
+                <h3>Overview Table (Main Screves)</h3>
+                <div class="table-container">
+                    <table class="meta-table">
+                        <thead>
+                            <tr>
+                                <th>Screve</th>
+                                <th>1sg</th>
+                                <th>2sg</th>
+                                <th>3sg</th>
+                                <th>1pl</th>
+                                <th>2pl</th>
+                                <th>3pl</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {table_rows}
+                        </tbody>
+                    </table>
+                </div>
+            """
+
+            return overview_table
+
+        except Exception as e:
+            logger.warning(
+                f"Failed to generate overview table for verb {verb.get('id', 'unknown')}: {e}"
+            )
+            return ""
+
+    def _generate_tense_tables(self, verb: Dict, preverb: Optional[str] = None) -> str:
+        """
+        Generate individual tense tables HTML.
+
+        Args:
+            verb: Verb data dictionary
+            preverb: Optional preverb to use (for multi-preverb verbs)
+
+        Returns:
+            HTML string for all tense tables
+        """
+        try:
+            # Define tense pairs for layout
+            tense_pairs = [
+                [("present", "Present Indicative"), ("imperfect", "Imperfect")],
+                [("aorist", "Aorist"), ("optative", "Optative")],
+                [("future", "Future"), ("imperative", "Imperative")],
+            ]
+
+            tense_tables_html = ""
+            for pair_index, (tense1, tense2) in enumerate(tense_pairs, 1):
+                table1 = self._generate_single_tense_table(
+                    verb, tense1[0], tense1[1], preverb
+                )
+                table2 = self._generate_single_tense_table(
+                    verb, tense2[0], tense2[1], preverb
+                )
+
+                tense_tables_html += f"""
+                    <div class="tense-pair">
+                        <div class="tense-column" data-tense="{tense1[0]}">
+                            {table1}
+                        </div>
+                        <div class="tense-column" data-tense="{tense2[0]}">
+                            {table2}
+                        </div>
+                    </div>
+                """
+
+            return tense_tables_html
+
+        except Exception as e:
+            logger.warning(
+                f"Failed to generate tense tables for verb {verb.get('id', 'unknown')}: {e}"
+            )
+            return ""
+
+    def _generate_single_tense_table(
+        self, verb: Dict, tense: str, tense_display: str, preverb: Optional[str] = None
+    ) -> str:
+        """
+        Generate a single tense table with examples and gloss analysis.
+
+        Args:
+            verb: Verb data dictionary
+            tense: Tense name
+            tense_display: Display name for the tense
+            preverb: Optional preverb to use
+
+        Returns:
+            HTML string for single tense table
+        """
+        try:
+            # Generate conjugation table
+            conjugation_table = self._generate_conjugation_table(verb, tense, preverb)
+
+            # Generate examples
+            examples_section = self._generate_examples_section(verb, tense, preverb)
+
+            # Generate gloss analysis
+            gloss_analysis = self._generate_gloss_analysis(verb, tense, preverb)
+
+            return f"""
+                <h3>{tense_display}</h3>
+                {conjugation_table}
+                {examples_section}
+                {gloss_analysis}
+            """
+
+        except Exception as e:
+            logger.warning(
+                f"Failed to generate tense table for verb {verb.get('id', 'unknown')}, tense {tense}: {e}"
+            )
+            return ""
+
+    def _generate_conjugation_table(
+        self, verb: Dict, tense: str, preverb: Optional[str] = None
+    ) -> str:
+        """
+        Generate conjugation table HTML for a specific tense.
+
+        Args:
+            verb: Verb data dictionary
+            tense: Tense name
+            preverb: Optional preverb to use
+
+        Returns:
+            HTML string for conjugation table
+        """
+        try:
+            # Define persons
+            persons = [
+                ("1st", "1sg", "1pl"),
+                ("2nd", "2sg", "2pl"),
+                ("3rd", "3sg", "3pl"),
+            ]
+
+            # Generate table rows
+            table_rows = ""
+            for person_display, sg_person, pl_person in persons:
+                sg_form = get_conjugation_form(verb, tense, sg_person, preverb)
+                pl_form = get_conjugation_form(verb, tense, pl_person, preverb)
+
+                table_rows += f"""
+                    <tr>
+                        <td>{person_display}</td>
+                        <td class="georgian-text">{sg_form}</td>
+                        <td class="georgian-text">{pl_form}</td>
+                    </tr>
+                """
+
+            return f"""
+                <div class="table-container regular-table-container">
+                    <table class="regular-table">
+                        <thead>
+                            <tr>
+                                <th>Person</th>
+                                <th>Singular</th>
+                                <th>Plural</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {table_rows}
+                        </tbody>
+                    </table>
+                </div>
+            """
+
+        except Exception as e:
+            logger.warning(
+                f"Failed to generate conjugation table for verb {verb.get('id', 'unknown')}, tense {tense}: {e}"
+            )
+            return ""
+
+    def _generate_examples_section(
+        self, verb: Dict, tense: str, preverb: Optional[str] = None
+    ) -> str:
+        """
+        Generate examples section HTML using example generator.
+
+        Args:
+            verb: Verb data dictionary
+            tense: Tense name
+            preverb: Optional preverb to use
+
+        Returns:
+            HTML string for examples section
+        """
+        try:
+            enhanced_examples = generate_pedagogical_examples(verb, tense, preverb)
+            if enhanced_examples.get("enhanced", False) and enhanced_examples.get(
+                "examples"
+            ):
+                return self._format_pedagogical_examples(enhanced_examples["examples"])
+            return ""
+        except Exception as e:
+            logger.warning(
+                f"Failed to generate examples for verb {verb.get('id', 'unknown')}, tense {tense}: {e}"
+            )
+            return ""
+
+    def _format_pedagogical_examples(self, examples: List[Dict]) -> str:
+        """
+        Format pedagogical examples into HTML.
+
+        Args:
+            examples: List of example dictionaries
+
+        Returns:
+            HTML string for formatted examples
+        """
+        try:
+            if not examples:
+                return ""
+
+            examples_html = ""
+            for example in examples:
+                georgian_html = example.get("html", example.get("georgian", ""))
+                english_text = example.get("english", "")
+                copy_text = example.get("copy_text", english_text)
+
+                # Ensure copy_text is plain text (remove HTML tags if present)
+                import re
+
+                plain_copy_text = re.sub(r"<[^>]+>", "", copy_text)
+
+                examples_html += f"""
+                    <li class="example-item">
+                        <div class="georgian georgian-text">
+                            {georgian_html}
+                        </div>
+                        <div class="translation english-text" data-copy-text="{plain_copy_text}">
+                            {english_text}
+                        </div>
+                    </li>
+                """
+
+            return f"""
+                <div class="examples">
+                    <h4>Examples:</h4>
+                    <ul>
+                        {examples_html}
+                    </ul>
+                </div>
+            """
+
+        except Exception as e:
+            logger.warning(f"Failed to format pedagogical examples: {e}")
+            return ""
+
+    def _generate_gloss_analysis(
+        self, verb: Dict, tense: str, preverb: Optional[str] = None
+    ) -> str:
+        """
+        Generate gloss analysis HTML using gloss parser.
+
+        Args:
+            verb: Verb data dictionary
+            tense: Tense name
+            preverb: Optional preverb to use
+
+        Returns:
+            HTML string for gloss analysis
+        """
+        try:
+            gloss_parser = GlossParser()
+
+            # Get raw gloss from verb data
+            conjugations = verb.get("conjugations", {})
+            tense_data = conjugations.get(tense, {})
+
+            # Handle different data structures
+            raw_gloss = ""
+            gloss_preverb = preverb
+
+            if isinstance(tense_data, dict):
+                if "gloss" in tense_data:
+                    gloss_data = tense_data["gloss"]
+                    if isinstance(gloss_data, dict):
+                        # New structure: gloss is a dictionary with raw_gloss and preverb
+                        raw_gloss = gloss_data.get("raw_gloss", "")
+                        gloss_preverb = gloss_data.get("preverb", preverb)
+                    else:
+                        # Old structure: gloss is a string
+                        raw_gloss = gloss_data
+                elif "forms" in tense_data and isinstance(tense_data["forms"], dict):
+                    # Try to get gloss from forms structure
+                    raw_gloss = tense_data["forms"].get("gloss", "")
+
+            if not raw_gloss:
+                return ""
+
+            # Parse the raw gloss
+            parsed_gloss = gloss_parser.parse_raw_gloss(raw_gloss, gloss_preverb)
+
+            if not parsed_gloss:
+                return ""
+
+            # Format the gloss analysis with color coding
+            from tools.core.gloss_parser import (
+                format_raw_gloss_with_colors,
+                format_gloss_for_html,
+                process_raw_gloss_simple,
+            )
+
+            color_coded_raw = format_raw_gloss_with_colors(raw_gloss)
+            simple_parsed_gloss = process_raw_gloss_simple(raw_gloss, gloss_preverb)
+            color_coded_expanded = format_gloss_for_html(simple_parsed_gloss)
+
+            return f"""
+                <div class="case-gloss">
+                    <div class="gloss-header">
+                        <strong>Verb Gloss Analysis</strong>
+                    </div>
+                    <div class="gloss-content">
+                        <div class="raw-gloss">
+                            <strong>Raw:</strong>
+                            <code>{color_coded_raw}</code>
+                        </div>
+                        <div class="expanded-gloss">
+                            <strong>Expanded:</strong>
+                            <div class="gloss-definitions">
+                                {color_coded_expanded}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            """
+
+        except Exception as e:
+            logger.warning(
+                f"Failed to generate gloss analysis for verb {verb.get('id', 'unknown')}, tense {tense}: {e}"
+            )
+            return ""

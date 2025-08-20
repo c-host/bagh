@@ -60,6 +60,46 @@ class VerbDataLoader:
             logger.error(f"Unexpected error loading verbs data: {e}")
             return [], {}
 
+    def load_dev_verbs(self, dev_config: List[Dict]) -> Tuple[List[Dict], Dict]:
+        """
+        Load only the specified verbs for development build.
+        
+        Args:
+            dev_config: Development configuration with verb specifications
+            
+        Returns:
+            Tuple of (filtered_verbs_list, duplicate_primary_verbs_dict)
+        """
+        all_verbs, all_duplicates = self.load_json_data()
+        
+        # Filter verbs based on dev configuration
+        dev_verbs = []
+        for dev_verb_spec in dev_config:
+            matching_verb = self.find_verb_by_spec(all_verbs, dev_verb_spec)
+            if matching_verb:
+                dev_verbs.append(matching_verb)
+                logger.info(f"✅ Found dev verb: {matching_verb.get('georgian', 'N/A')} ({dev_verb_spec.get('reason', 'N/A')})")
+            else:
+                logger.warning(f"⚠️ Dev verb not found: {dev_verb_spec}")
+        
+        # Get duplicates for filtered verbs only
+        dev_duplicates = self.get_duplicate_primary_verbs(dev_verbs)
+        
+        logger.info(f"🔧 Dev mode: Filtered to {len(dev_verbs)} verbs")
+        return dev_verbs, dev_duplicates
+
+    def find_verb_by_spec(self, verbs: List[Dict], spec: Dict) -> Optional[Dict]:
+        """Find verb by Georgian text or semantic key."""
+        georgian = spec.get("georgian")
+        semantic_key = spec.get("semantic_key")
+        
+        for verb in verbs:
+            if (verb.get("georgian") == georgian or 
+                verb.get("semantic_key") == semantic_key):
+                return verb
+        
+        return None
+
     def validate_verb_data(self, verbs: List[Dict]) -> bool:
         """
         Validate verb data for uniqueness and consistency.
