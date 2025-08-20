@@ -768,6 +768,14 @@ document.addEventListener('DOMContentLoaded', function () {
             return false;
         }
 
+        // Check if this is a multi-preverb verb and load data immediately if needed
+        if (verbSection.getAttribute('data-has-multiple-preverbs') === 'true') {
+            const verbId = verbSection.dataset.verbId;
+            if (verbId && window.verbDataManager) {
+                window.verbDataManager.loadVerbDataImmediately(verbId);
+            }
+        }
+
         // Calculate proper offset accounting for sticky header
         const stickyHeaderHeight = 80; // Adjust based on actual header height
         const rect = verbSection.getBoundingClientRect();
@@ -797,6 +805,11 @@ document.addEventListener('DOMContentLoaded', function () {
         if (hash && hash.startsWith('#')) {
             const primaryVerb = decodeURIComponent(hash.substring(1)); // Remove the # symbol
             scrollToVerb(primaryVerb);
+
+            // Check if we need to load multi-preverb verb data immediately
+            if (window.verbDataManager) {
+                window.verbDataManager.checkForImmediateLoading();
+            }
         }
     }
 
@@ -1325,6 +1338,9 @@ document.addEventListener('DOMContentLoaded', function () {
     const verbDataManager = new VerbDataManager();
     const preverbManager = new PreverbManager(verbDataManager);
 
+    // Make verbDataManager globally available for anchor navigation
+    window.verbDataManager = verbDataManager;
+
     // Initialize verb sections with external data
     setTimeout(() => {
         verbDataManager.initializeVerbSections().catch(error => {
@@ -1540,6 +1556,7 @@ function initializeCollapsibleHeaders() {
  * 
  * This class manages the loading of verb data from external JSON files
  * and provides a unified interface for accessing verb information.
+ * Now includes lazy loading for multi-preverb verbs.
  */
 class VerbDataManager {
     constructor() {
@@ -1550,6 +1567,206 @@ class VerbDataManager {
         this.preverbConfigs = null;
         this.loadingPromises = {};
         this.isInitialized = false;
+
+        // Lazy loading infrastructure
+        this.loadedVerbs = new Set();
+        this.loadingVerbs = new Set();
+        this.verbCache = new Map();
+        this.intersectionObserver = null;
+        this.retryAttempts = new Map();
+        this.maxRetries = 3;
+
+        // Initialize intersection observer for lazy loading
+        this.initializeIntersectionObserver();
+    }
+
+    // Initialize intersection observer for lazy loading
+    initializeIntersectionObserver() {
+        if (!window.IntersectionObserver) {
+            // Fallback for older browsers - load all data immediately
+            this.loadAllDataImmediately();
+            return;
+        }
+
+        this.intersectionObserver = new IntersectionObserver(
+            (entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        const verbSection = entry.target;
+                        const verbId = verbSection.dataset.verbId;
+
+                        if (verbId && verbSection.getAttribute('data-has-multiple-preverbs') === 'true') {
+                            this.loadVerbDataLazily(verbId, verbSection);
+                        }
+                    }
+                });
+            },
+            {
+                rootMargin: '100px', // Start loading 100px before the element comes into view
+                threshold: 0.1
+            }
+        );
+    }
+
+    // Load all data immediately (fallback for older browsers)
+    async loadAllDataImmediately() {
+        try {
+            await this.preloadAllData();
+            this.initializeVerbSections();
+        } catch (error) {
+            // Silent fail for background loading
+        }
+    }
+
+    // Lazy load data for a specific verb
+    async loadVerbDataLazily(verbId, verbSection) {
+        // Skip if already loaded or loading
+        if (this.loadedVerbs.has(verbId) || this.loadingVerbs.has(verbId)) {
+            return;
+        }
+
+        this.loadingVerbs.add(verbId);
+
+        try {
+            const verbData = await this.getVerbData(verbId);
+            if (verbData) {
+                await this.populateVerbSection(verbSection, verbData);
+                verbSection.dataset.dataLoaded = 'true';
+                this.loadedVerbs.add(verbId);
+                this.verbCache.set(verbId, verbData);
+            }
+        } catch (error) {
+            this.handleLoadError(verbId, verbSection, error);
+        } finally {
+            this.loadingVerbs.delete(verbId);
+        }
+    }
+
+    // Handle loading errors with retry logic
+    handleLoadError(verbId, verbSection, error) {
+        const attempts = this.retryAttempts.get(verbId) || 0;
+
+        if (attempts < this.maxRetries) {
+            this.retryAttempts.set(verbId, attempts + 1);
+
+            // Exponential backoff retry
+            const delay = Math.pow(2, attempts) * 1000;
+            setTimeout(() => {
+                this.loadingVerbs.delete(verbId);
+                this.loadVerbDataLazily(verbId, verbSection);
+            }, delay);
+        } else {
+            // Max retries reached, show error state
+            this.showErrorState(verbSection);
+            this.retryAttempts.delete(verbId);
+        }
+    }
+
+    // Start observing multi-preverb verb sections
+    startObservingVerbSections() {
+        const multiPreverbSections = document.querySelectorAll('.verb-section[data-has-multiple-preverbs="true"]');
+
+        multiPreverbSections.forEach(section => {
+            this.intersectionObserver.observe(section);
+        });
+    }
+
+    // Stop observing a specific section (after data is loaded)
+    stopObservingSection(verbSection) {
+        if (this.intersectionObserver) {
+            this.intersectionObserver.unobserve(verbSection);
+        }
+    }
+
+    // Clean up resources when needed
+    cleanup() {
+        if (this.intersectionObserver) {
+            this.intersectionObserver.disconnect();
+            this.intersectionObserver = null;
+        }
+
+        // Clear caches
+        this.verbCache.clear();
+        this.loadedVerbs.clear();
+        this.loadingVerbs.clear();
+        this.retryAttempts.clear();
+    }
+
+    // Get cache statistics for debugging
+    getCacheStats() {
+        return {
+            loadedVerbs: this.loadedVerbs.size,
+            cachedVerbs: this.verbCache.size,
+            loadingVerbs: this.loadingVerbs.size,
+            retryAttempts: this.retryAttempts.size
+        };
+    }
+
+    // Clear cache for a specific verb (useful for testing or data updates)
+    clearVerbCache(verbId) {
+        this.verbCache.delete(verbId);
+        this.loadedVerbs.delete(verbId);
+        this.loadingVerbs.delete(verbId);
+        this.retryAttempts.delete(verbId);
+    }
+
+    // Load verb data immediately (for direct navigation)
+    async loadVerbDataImmediately(verbId) {
+        const verbSection = document.querySelector(`[data-verb-id="${verbId}"]`);
+        if (verbSection && verbSection.getAttribute('data-has-multiple-preverbs') === 'true') {
+            await this.loadVerbDataLazily(verbId, verbSection);
+        }
+    }
+
+    // Check if a verb section needs immediate loading (for anchor navigation)
+    checkForImmediateLoading() {
+        const hash = window.location.hash;
+        if (hash && hash.startsWith('#')) {
+            const anchorId = decodeURIComponent(hash.substring(1));
+            const targetSection = document.getElementById(anchorId);
+
+            if (targetSection && targetSection.getAttribute('data-has-multiple-preverbs') === 'true') {
+                const verbId = targetSection.dataset.verbId;
+                if (verbId) {
+                    // Load immediately if it's a multi-preverb verb
+                    this.loadVerbDataImmediately(verbId);
+                }
+            }
+        }
+    }
+
+    // Enhanced getVerbData with caching
+    async getVerbData(verbId) {
+        // Check cache first
+        if (this.verbCache.has(verbId)) {
+            return this.verbCache.get(verbId);
+        }
+
+        // Check if this is a multi-preverb verb
+        const verbSection = document.querySelector(`[data-verb-id="${verbId}"]`);
+        if (!verbSection || verbSection.getAttribute('data-has-multiple-preverbs') !== 'true') {
+            return null;
+        }
+
+        const [coreData, conjugations, examples, glossData, preverbConfigs] = await Promise.all([
+            this.loadCoreData(),
+            this.loadConjugations(),
+            this.loadExamples(),
+            this.loadGlossData(),
+            this.loadPreverbConfigs()
+        ]);
+
+        const verbData = {
+            core: coreData.verbs[verbId],
+            conjugations: conjugations.conjugations[verbId],
+            examples: examples.examples[verbId],
+            glossAnalyses: glossData.gloss_analyses[verbId],
+            preverbConfig: preverbConfigs.preverb_configs[verbId]
+        };
+
+        // Cache the result
+        this.verbCache.set(verbId, verbData);
+        return verbData;
     }
 
     async loadCoreData() {
@@ -1632,30 +1849,7 @@ class VerbDataManager {
         return this.preverbConfigs;
     }
 
-    async getVerbData(verbId) {
-        // Check if this is a multi-preverb verb
-        const verbSection = document.querySelector(`[data-verb-id="${verbId}"]`);
-        if (!verbSection || verbSection.getAttribute('data-has-multiple-preverbs') !== 'true') {
-            return null;
-        }
-
-        const [coreData, conjugations, examples, glossData, preverbConfigs] = await Promise.all([
-            this.loadCoreData(),
-            this.loadConjugations(),
-            this.loadExamples(),
-            this.loadGlossData(),
-            this.loadPreverbConfigs()
-        ]);
-
-        return {
-            core: coreData.verbs[verbId],
-            conjugations: conjugations.conjugations[verbId],
-            examples: examples.examples[verbId],
-            glossAnalyses: glossData.gloss_analyses[verbId],
-            preverbConfig: preverbConfigs.preverb_configs[verbId]
-        };
-    }
-
+    // Enhanced preloadAllData for non-lazy loading scenarios
     async preloadAllData() {
         if (this.isInitialized) {
             return;
@@ -1745,8 +1939,12 @@ class VerbDataManager {
         return result;
     }
 
+    // Enhanced initializeVerbSections with lazy loading
     async initializeVerbSections() {
-        // Only initialize multi-preverb verbs since all other content is now static
+        // Start observing multi-preverb verb sections for lazy loading
+        this.startObservingVerbSections();
+
+        // For non-multi-preverb verbs, no initialization needed as they're static
         const multiPreverbSections = document.querySelectorAll('.verb-section[data-has-multiple-preverbs="true"]');
 
         if (multiPreverbSections.length > 0) {
@@ -1755,6 +1953,7 @@ class VerbDataManager {
         }
     }
 
+    // Enhanced processVerbSectionsInChunks with lazy loading
     async processVerbSectionsInChunks(sections) {
         for (let i = 0; i < sections.length; i++) {
             const section = sections[i];
@@ -1767,10 +1966,10 @@ class VerbDataManager {
                         await new Promise(resolve => setTimeout(resolve, 0));
                     }
 
-                    const verbData = await this.getVerbData(verbId);
-                    if (verbData) {
-                        await this.populateVerbSection(section, verbData);
-                        section.dataset.dataLoaded = 'true';
+                    // For lazy loading, we don't load data here - intersection observer will handle it
+                    // Just ensure the section is being observed
+                    if (this.intersectionObserver) {
+                        this.intersectionObserver.observe(section);
                     }
                 } catch (error) {
                     this.showErrorState(section);
@@ -2049,11 +2248,48 @@ class VerbDataManager {
  * This class manages the interactive preverb selection system that allows users
  * to switch between different preverb forms of Georgian verbs (e.g., მი-, წა-, etc.)
  * and updates all related content (tables, examples) accordingly.
+ * Now includes caching for improved performance with lazy loading.
  */
 class PreverbManager {
     constructor(verbDataManager) {
         this.verbDataManager = verbDataManager;
+        this.preverbFormCache = new Map(); // Cache calculated preverb forms
         this.initializePreverbToggles();
+    }
+
+    // Generate cache key for preverb forms
+    generateCacheKey(verbId, preverb) {
+        return `${verbId}-${preverb}`;
+    }
+
+    // Get cached preverb forms or calculate them
+    getCachedPreverbForms(verbId, preverb, conjugations, preverbConfig) {
+        const cacheKey = this.generateCacheKey(verbId, preverb);
+
+        if (this.preverbFormCache.has(cacheKey)) {
+            return this.preverbFormCache.get(cacheKey);
+        }
+
+        const calculatedForms = this.verbDataManager.getConjugationsForPreverb(
+            conjugations,
+            preverbConfig,
+            preverb
+        );
+
+        // Cache the result
+        this.preverbFormCache.set(cacheKey, calculatedForms);
+        return calculatedForms;
+    }
+
+    // Clear cache for a specific verb (when data is reloaded)
+    clearVerbCache(verbId) {
+        const keysToDelete = [];
+        for (const key of this.preverbFormCache.keys()) {
+            if (key.startsWith(`${verbId}-`)) {
+                keysToDelete.push(key);
+            }
+        }
+        keysToDelete.forEach(key => this.preverbFormCache.delete(key));
     }
 
     initializePreverbToggles() {
@@ -2082,18 +2318,24 @@ class PreverbManager {
         const verbId = verbSection.dataset.verbId;
 
         try {
-            // Get verb data from external files
-            const verbData = await this.verbDataManager.getVerbData(verbId);
+            // Get verb data from cache or external files
+            let verbData = this.verbDataManager.verbCache.get(verbId);
+
+            if (!verbData) {
+                // If not in cache, load it (this should rarely happen with lazy loading)
+                verbData = await this.verbDataManager.getVerbData(verbId);
+            }
 
             if (!verbData) {
                 return;
             }
 
-            // Get conjugations for selected preverb
-            const conjugations = this.verbDataManager.getConjugationsForPreverb(
+            // Get conjugations for selected preverb (with caching)
+            const conjugations = this.getCachedPreverbForms(
+                verbId,
+                preverb,
                 verbData.conjugations,
-                verbData.preverbConfig,
-                preverb
+                verbData.preverbConfig
             );
 
             // Update overview table
@@ -2109,17 +2351,10 @@ class PreverbManager {
                 this.verbDataManager.populateTenseColumn(column, tense, conjugations[tense], verbData, preverb);
             });
 
-
         } catch (error) {
             this.verbDataManager.showErrorState(verbSection);
         }
     }
-
-
-
-
-
-
 
     calculatePreverbForms(conjugations, preverbRules, targetPreverb) {
         if (!preverbRules) {
