@@ -26,7 +26,7 @@ class ConfigManager:
 
         Args:
             project_root: Path to project root. If None, auto-detects from current directory.
-            build_mode: Build mode ('dev' or 'production')
+            build_mode: Build mode ('reference' or 'production')
         """
         self.project_root = project_root or self._detect_project_root()
         self.build_mode = build_mode
@@ -57,7 +57,7 @@ class ConfigManager:
         self.paths = {
             "project_root": self.project_root,
             "src_dir": self.project_root / "src",
-            "dist_dir": self.project_root / ("dev" if self.build_mode == 'dev' else "dist"),
+            "dist_dir": self.project_root / ("ref" if self.build_mode == 'reference' else "dist"),
             "tools_dir": self.project_root / "tools",
             "modules_dir": self.project_root / "tools" / "modules",
         }
@@ -123,9 +123,9 @@ class ConfigManager:
             "clean_existing_assets": True,
         }
 
-        # Dev build configuration
-        self.dev_config = {
-            "dev_verbs": [
+        # Reference build configuration
+        self.reference_config = {
+            "reference_verbs": [
                 {
                     "georgian": "ჩვენება",
                     "semantic_key": "show",
@@ -137,8 +137,8 @@ class ConfigManager:
                     "reason": "multi_preverb_verb"
                 }
             ],
-            "dev_output_dir": "dev",
-            "dev_verb_limit": 2
+            "reference_output_dir": "ref",
+            "reference_verb_limit": 2
         }
 
     def get_path(self, path_key: str) -> Path:
@@ -274,7 +274,7 @@ class ConfigManager:
             "validation_config": self.validation_config,
             "external_data_config": self.external_data_config,
             "asset_config": self.asset_config,
-            "dev_config": self.dev_config,
+            "reference_config": self.reference_config,
         }
 
     def create_directories(self) -> bool:

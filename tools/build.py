@@ -12,7 +12,7 @@ This script:
 
 Usage: 
     python tools/build.py --production  # Build production version (default)
-    python tools/build.py --dev         # Build development version with 2 verbs
+    python tools/build.py --reference   # Build reference version with 2 verbs
 """
 
 import argparse
@@ -38,7 +38,7 @@ logger = logging.getLogger(__name__)
 def parse_arguments():
     """Parse command line arguments."""
     parser = argparse.ArgumentParser(description='Build script for verb website')
-    parser.add_argument('--dev', action='store_true', help='Build development version with reduced verbs')
+    parser.add_argument('--reference', action='store_true', help='Build reference version with 2 verbs')
     parser.add_argument('--production', action='store_true', help='Build production version with all verbs')
     return parser.parse_args()
 
@@ -49,7 +49,7 @@ def main():
     args = parse_arguments()
     
     # Determine build mode
-    build_mode = 'dev' if args.dev else 'production'
+    build_mode = 'reference' if args.reference else 'production'
     
     logger.info(f"🚀 Starting {build_mode} build process...")
 
@@ -84,10 +84,10 @@ def main():
 
     # Load and validate verb data based on build mode
     logger.info("📖 Loading verb data...")
-    if build_mode == 'dev':
-        dev_config = config_manager.get_setting("dev_config", "dev_verbs")
-        verbs, duplicate_primary_verbs = data_loader.load_dev_verbs(dev_config)
-        logger.info(f"🔧 Dev mode: Loaded {len(verbs)} verbs for development build")
+    if build_mode == 'reference':
+        reference_config = config_manager.get_setting("reference_config", "reference_verbs")
+        verbs, duplicate_primary_verbs = data_loader.load_reference_verbs(reference_config)
+        logger.info(f"🔧 Reference mode: Loaded {len(verbs)} verbs for reference build")
     else:
         verbs, duplicate_primary_verbs = data_loader.load_json_data()
         logger.info(f"🏭 Production mode: Loaded {len(verbs)} verbs for production build")

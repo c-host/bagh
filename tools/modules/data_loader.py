@@ -60,33 +60,33 @@ class VerbDataLoader:
             logger.error(f"Unexpected error loading verbs data: {e}")
             return [], {}
 
-    def load_dev_verbs(self, dev_config: List[Dict]) -> Tuple[List[Dict], Dict]:
+    def load_reference_verbs(self, reference_config: List[Dict]) -> Tuple[List[Dict], Dict]:
         """
-        Load only the specified verbs for development build.
+        Load only the specified verbs for reference build.
         
         Args:
-            dev_config: Development configuration with verb specifications
+            reference_config: Reference configuration with verb specifications
             
         Returns:
             Tuple of (filtered_verbs_list, duplicate_primary_verbs_dict)
         """
         all_verbs, all_duplicates = self.load_json_data()
         
-        # Filter verbs based on dev configuration
-        dev_verbs = []
-        for dev_verb_spec in dev_config:
-            matching_verb = self.find_verb_by_spec(all_verbs, dev_verb_spec)
+        # Filter verbs based on reference configuration
+        reference_verbs = []
+        for reference_verb_spec in reference_config:
+            matching_verb = self.find_verb_by_spec(all_verbs, reference_verb_spec)
             if matching_verb:
-                dev_verbs.append(matching_verb)
-                logger.info(f"✅ Found dev verb: {matching_verb.get('georgian', 'N/A')} ({dev_verb_spec.get('reason', 'N/A')})")
+                reference_verbs.append(matching_verb)
+                logger.info(f"✅ Found reference verb: {matching_verb.get('georgian', 'N/A')} ({reference_verb_spec.get('reason', 'N/A')})")
             else:
-                logger.warning(f"⚠️ Dev verb not found: {dev_verb_spec}")
+                logger.warning(f"⚠️ Reference verb not found: {reference_verb_spec}")
         
         # Get duplicates for filtered verbs only
-        dev_duplicates = self.get_duplicate_primary_verbs(dev_verbs)
+        reference_duplicates = self.get_duplicate_primary_verbs(reference_verbs)
         
-        logger.info(f"🔧 Dev mode: Filtered to {len(dev_verbs)} verbs")
-        return dev_verbs, dev_duplicates
+        logger.info(f"🔧 Reference mode: Filtered to {len(reference_verbs)} verbs")
+        return reference_verbs, reference_duplicates
 
     def find_verb_by_spec(self, verbs: List[Dict], spec: Dict) -> Optional[Dict]:
         """Find verb by Georgian text or semantic key."""

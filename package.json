@@ -4,9 +4,10 @@
   "description": "Bagh",
   "main": "dist/index.html",
   "scripts": {
-    "build": "cd tools && python build.py",
-    "dev": "cd tools && python build.py && start dist/index.html",
-    "clean": "rm -rf dist/ temp/"
+    "build_production": "cd tools && python build.py --production",
+    "build_reference": "cd tools && python build.py --reference",
+    "dev": "npm run build_production && start dist/index.html",
+    "clean": "rm -rf dist/"
   },
   "keywords": [
     "georgian",
