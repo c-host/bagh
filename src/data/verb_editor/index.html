@@ -1,0 +1,533 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Georgian Verb Editor</title>
+    <link rel="stylesheet" href="styles/main.css">
+    <link rel="stylesheet" href="styles/components.css">
+</head>
+
+<body>
+    <div class="verb-editor">
+        <header class="editor-header">
+            <h1>Georgian Verb Editor</h1>
+            <div class="header-controls">
+                <button id="newVerbBtn" class="btn btn-primary">New Verb</button>
+                <button id="loadVerbBtn" class="btn btn-secondary">Load Verb</button>
+                <button id="saveVerbBtn" class="btn btn-success">Save Verb</button>
+                <button id="previewJsonBtn" class="btn btn-info">Preview JSON</button>
+                <button id="clearSavedDataBtn" class="btn btn-warning"
+                    title="Clear all saved data from local storage">Clear Saved Data</button>
+            </div>
+        </header>
+
+        <main class="editor-main">
+            <!-- Basic Information Section -->
+            <section id="basicInfoSection" class="editor-section">
+                <h2>Basic Verb Information</h2>
+                <div class="form-group">
+                    <label for="georgian">Georgian:</label>
+                    <input type="text" id="georgian" name="georgian" placeholder="e.g. დანახვა">
+                    <div class="field-help">Enter the Georgian verbal noun (similar to infinitive form in English) of
+                        the verb
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="description">Description:</label>
+                    <input type="text" id="description" name="description" placeholder="e.g. to see">
+                    <div class="field-help">Enter the English description of the verb (e.g., 'to see')</div>
+                </div>
+
+                <div class="form-group">
+                    <label for="category">Category:</label>
+                    <select id="category" name="category">
+                        <option value="">Select a category</option>
+                        <option value="perception">Perception</option>
+                        <option value="movement">Movement</option>
+                        <option value="communication">Communication</option>
+                        <option value="education">Education</option>
+                        <option value="family">Family</option>
+                        <option value="profession">Profession</option>
+                        <option value="commerce">Commerce</option>
+                        <option value="entertainment">Entertainment</option>
+                        <option value="other">Other</option>
+                    </select>
+                    <div class="field-help">Select the semantic category for this verb</div>
+                </div>
+
+                <div class="form-group">
+                    <label for="verbClass">Class:</label>
+                    <select id="verbClass" name="verbClass">
+                        <option value="">Select a class</option>
+                        <option value="Class-I">Class-I</option>
+                        <option value="Class-II">Class-II</option>
+                        <option value="Class-III">Class-III</option>
+                        <option value="Class-IV">Class-IV</option>
+                    </select>
+                    <div class="field-help">Select the Georgian verb class</div>
+                </div>
+
+                <div class="form-group">
+                    <label for="semanticKey">Semantic Key:</label>
+                    <input type="text" id="semanticKey" name="semanticKey" placeholder="e.g., to_see, to_write">
+                    <div class="field-help">Unique identifier for semantic matching</div>
+                </div>
+
+                <div class="form-group">
+                    <label for="notes">Notes:</label>
+                    <textarea id="notes" name="notes" rows="3"
+                        placeholder="Additional notes about the verb..."></textarea>
+                    <div class="field-help">Optional notes about usage, exceptions, or other relevant information</div>
+                </div>
+
+                <div class="form-group">
+                    <label for="url">URL:</label>
+                    <input type="url" id="url" name="url" placeholder="https://lingua.ge/verbs/...">
+                    <div class="field-help">Optional: URL to the verb page on lingua.ge</div>
+                </div>
+
+                <div class="form-actions">
+                    <button id="scrapeBtn" class="btn btn-info">Scrape from URL</button>
+                    <button id="clearFormBtn" class="btn btn-warning">Clear Form</button>
+                </div>
+
+            </section>
+
+            <!-- English Translations Section -->
+            <section id="englishTranslationsSection" class="editor-section">
+                <h2>English Translations</h2>
+                <div class="field-help">
+                    <strong>Note:</strong> These translations will be used for all tenses unless overridden by
+                    preverb-specific translations below.
+                </div>
+
+                <div class="translations-grid">
+                    <div class="form-group">
+                        <label for="translationPresent">Present:</label>
+                        <input type="text" id="translationPresent" name="translationPresent" placeholder="to show">
+                        <div class="field-help">Present form (e.g., 'to show')</div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="translationImperfect">Imperfect:</label>
+                        <input type="text" id="translationImperfect" name="translationImperfect"
+                            placeholder="was showing">
+                        <div class="field-help">Past continuous (e.g., 'was showing')</div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="translationFuture">Future:</label>
+                        <input type="text" id="translationFuture" name="translationFuture" placeholder="will show">
+                        <div class="field-help">Future tense (e.g., 'will show')</div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="translationAorist">Aorist:</label>
+                        <input type="text" id="translationAorist" name="translationAorist" placeholder="showed">
+                        <div class="field-help">Simple past (e.g., 'showed')</div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="translationOptative">Optative:</label>
+                        <input type="text" id="translationOptative" name="translationOptative" placeholder="show">
+                        <div class="field-help">Subjunctive/optative (e.g., 'show')</div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="translationImperative">Imperative:</label>
+                        <input type="text" id="translationImperative" name="translationImperative" placeholder="show">
+                        <div class="field-help">Command form (e.g., 'show')</div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Argument Pattern Section -->
+            <section id="argumentPatternSection" class="editor-section">
+                <h2>Argument Pattern</h2>
+                <div class="form-group">
+                    <label for="argumentPattern">Global Argument Pattern:</label>
+                    <select id="argumentPattern" name="argumentPattern">
+                        <option value="">Select an argument pattern</option>
+                        <option value="<S>">Subject only (&lt;S&gt;)</option>
+                        <option value="<S-DO>">Subject + Direct Object (&lt;S-DO&gt;)</option>
+                        <option value="<S-IO>">Subject + Indirect Object (&lt;S-IO&gt;)</option>
+                        <option value="<S-DO-IO>">Subject + Direct Object + Indirect Object (&lt;S-DO-IO&gt;)</option>
+                    </select>
+                    <div class="field-help">Select the argument pattern for this verb</div>
+                </div>
+
+
+            </section>
+
+            <!-- Arguments Section (Conditional) -->
+            <section id="argumentsSection" class="editor-section hidden">
+                <h2>Arguments</h2>
+
+
+
+                <!-- Subject Arguments Section -->
+                <div id="subjectArguments" class="argument-section">
+                    <h3>Subject Arguments</h3>
+                    <p class="argument-note">Subject arguments are only required for 3sg and 3pl forms. 1sg forms do not
+                        take subject arguments.</p>
+
+                    <!-- Subject Filters -->
+                    <div class="argument-filters">
+                        <div class="filter-tabs">
+                            <button class="filter-tab active" data-filter-type="adjective"
+                                data-arg-section="subject">Adjective Filter</button>
+                            <button class="filter-tab" data-filter-type="noun" data-arg-section="subject">Noun
+                                Filter</button>
+                        </div>
+                        <div class="filter-content">
+                            <div class="filter-columns">
+                                <div class="filter-column">
+                                    <h4>Categories</h4>
+                                    <div id="subjectCategoryFilters" class="filter-checkboxes">
+                                        <!-- Subject category checkboxes will be populated here -->
+                                    </div>
+                                </div>
+                                <div class="filter-column">
+                                    <h4>Semantic Domains</h4>
+                                    <div id="subjectSemanticDomainFilters" class="filter-checkboxes">
+                                        <!-- Subject semantic domain checkboxes will be populated here -->
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="filter-info">
+                                <small>Filter options for subject arguments only.</small>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Subject Argument Fields -->
+                    <div id="subjectFields" class="argument-fields">
+                        <!-- Subject argument fields will be generated here -->
+                    </div>
+                </div>
+
+                <!-- Direct Object Arguments Section -->
+                <div id="directObjectArguments" class="argument-section">
+                    <h3>Direct Object Arguments</h3>
+
+                    <!-- Direct Object Filters -->
+                    <div class="argument-filters">
+                        <div class="filter-tabs">
+                            <button class="filter-tab active" data-filter-type="adjective"
+                                data-arg-section="direct_object">Adjective Filter</button>
+                            <button class="filter-tab" data-filter-type="noun" data-arg-section="direct_object">Noun
+                                Filter</button>
+                        </div>
+                        <div class="filter-content">
+                            <div class="filter-columns">
+                                <div class="filter-column">
+                                    <h4>Categories</h4>
+                                    <div id="directObjectCategoryFilters" class="filter-checkboxes">
+                                        <!-- Direct object category checkboxes will be populated here -->
+                                    </div>
+                                </div>
+                                <div class="filter-column">
+                                    <h4>Semantic Domains</h4>
+                                    <div id="directObjectSemanticDomainFilters" class="filter-checkboxes">
+                                        <!-- Direct object semantic domain checkboxes will be populated here -->
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="filter-info">
+                                <small>Filter options for direct object arguments only.</small>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Direct Object Argument Fields -->
+                    <div id="directObjectFields" class="argument-fields">
+                        <!-- Direct object argument fields will be generated here -->
+                    </div>
+                </div>
+
+                <!-- Indirect Object Arguments Section -->
+                <div id="indirectObjectArguments" class="argument-section">
+                    <h3>Indirect Object Arguments</h3>
+
+                    <!-- Indirect Object Filters -->
+                    <div class="argument-filters">
+                        <div class="filter-tabs">
+                            <button class="filter-tab active" data-filter-type="adjective"
+                                data-arg-section="indirect_object">Adjective Filter</button>
+                            <button class="filter-tab" data-filter-type="noun" data-arg-section="indirect_object">Noun
+                                Filter</button>
+                        </div>
+                        <div class="filter-content">
+                            <div class="filter-columns">
+                                <div class="filter-column">
+                                    <h4>Categories</h4>
+                                    <div id="indirectObjectCategoryFilters" class="filter-checkboxes">
+                                        <!-- Indirect object category checkboxes will be populated here -->
+                                    </div>
+                                </div>
+                                <div class="filter-column">
+                                    <h4>Semantic Domains</h4>
+                                    <div id="indirectObjectSemanticDomainFilters" class="filter-checkboxes">
+                                        <!-- Indirect object semantic domain checkboxes will be populated here -->
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="filter-info">
+                                <small>Filter options for indirect object arguments only.</small>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Indirect Object Argument Fields -->
+                    <div id="indirectObjectFields" class="argument-fields">
+                        <!-- Indirect object argument fields will be generated here -->
+                    </div>
+                </div>
+
+                <!-- Prepositions Section -->
+                <div id="prepositionsSection" class="prepositions-section">
+                    <h3>Prepositions</h3>
+                    <div class="field-help">Configure prepositions for each argument type. These will be used in English
+                        translations.</div>
+
+                    <div class="preposition-fields">
+                        <div class="form-group">
+                            <label for="subjectPreposition">Subject Preposition:</label>
+                            <input type="text" id="subjectPreposition" name="subjectPreposition" placeholder="the"
+                                value="the">
+                            <div class="field-help">Preposition for subject (e.g., "the" in "the student sees")</div>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="directObjectPreposition">Direct Object Preposition:</label>
+                            <input type="text" id="directObjectPreposition" name="directObjectPreposition"
+                                placeholder="the" value="the">
+                            <div class="field-help">Preposition for direct object (e.g., "the" in "sees the book")</div>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="indirectObjectPreposition">Indirect Object Preposition:</label>
+                            <input type="text" id="indirectObjectPreposition" name="indirectObjectPreposition"
+                                placeholder="to">
+                            <div class="field-help">Preposition for indirect object (e.g., "to" in "gives to the
+                                student")</div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+
+            <!-- Conjugations Section -->
+            <section id="conjugationsSection" class="editor-section">
+                <h2>Conjugations</h2>
+
+                <div class="form-actions">
+                    <button id="enableManualEditBtn" class="btn btn-warning hidden">Enable Manual Editing</button>
+                    <button id="disableManualEditBtn" class="btn btn-secondary hidden">Disable Manual Editing</button>
+                </div>
+
+                <div class="field-help">
+                    <strong>Conjugation Section Purpose:</strong><br>
+                    • <strong>Verb Forms:</strong> Display Georgian verb forms scraped from lingua.ge or enter
+                    manually<br>
+                    • <strong>Raw Gloss:</strong> Define the linguistic structure for each tense<br>
+                    • <strong>Examples:</strong> Preview Georgian and English sentences using arguments and prepositions
+                    from the Arguments section<br>
+                    • <strong>Manual Editing:</strong> Click "Enable Manual Editing" to modify scraped forms or enter
+                    new ones
+                </div>
+
+                <div id="conjugationsContent">
+                    <!-- Individual tense sections will be generated here -->
+                    <!-- Each tense will show: verb forms, raw gloss input, and example previews -->
+                </div>
+            </section>
+
+            <!-- Preverb Configuration Section (Conditional) -->
+            <section id="preverbSection" class="editor-section">
+                <h2>Preverb Configuration</h2>
+                <div class="form-group">
+                    <label>Does this verb have multiple preverbs?</label>
+                    <div class="radio-group">
+                        <label><input type="radio" name="hasMultiplePreverbs" value="false" checked> No</label>
+                        <label><input type="radio" name="hasMultiplePreverbs" value="true"> Yes</label>
+                    </div>
+                    <div class="field-help">Select "Yes" if this verb can take different preverbs that change its
+                        meaning</div>
+                </div>
+
+                <div id="preverbConfigContent" class="hidden">
+                    <!-- Basic Preverb Configuration -->
+                    <div id="basicPreverbConfig" class="preverb-config-section">
+                        <h3>Basic Configuration</h3>
+
+                        <div class="form-group">
+                            <label for="defaultPreverb">Default Preverb:</label>
+                            <select id="defaultPreverb" name="defaultPreverb">
+                                <option value="">Select default preverb</option>
+                                <option value="მი">მი</option>
+                                <option value="მო">მო</option>
+                                <option value="გა">გა</option>
+                                <option value="წა">წა</option>
+                                <option value="შე">შე</option>
+                                <option value="გამო">გამო</option>
+                                <option value="ჩა">ჩა</option>
+                                <option value="და">და</option>
+                            </select>
+                            <div class="field-help">Select the most common or basic form of the preverb</div>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="availablePreverbs">Available Preverbs:</label>
+                            <div id="preverbCheckboxes" class="checkbox-group">
+                                <label><input type="checkbox" name="availablePreverbs" value="მი"> მი</label>
+                                <label><input type="checkbox" name="availablePreverbs" value="მო"> მო</label>
+                                <label><input type="checkbox" name="availablePreverbs" value="გა"> გა</label>
+                                <label><input type="checkbox" name="availablePreverbs" value="წა"> წა</label>
+                                <label><input type="checkbox" name="availablePreverbs" value="შე"> შე</label>
+                                <label><input type="checkbox" name="availablePreverbs" value="გამო"> გამო</label>
+                                <label><input type="checkbox" name="availablePreverbs" value="ჩა"> ჩა</label>
+                                <label><input type="checkbox" name="availablePreverbs" value="და"> და</label>
+                            </div>
+                            <div class="field-help">Check all preverbs that this verb can take</div>
+                        </div>
+
+
+                    </div>
+
+                    <!-- Advanced Preverb Configuration -->
+                    <div id="advancedPreverbConfig" class="preverb-config-section">
+                        <h3>Advanced Configuration</h3>
+
+                        <div class="form-group">
+                            <label>
+                                <input type="checkbox" id="hasComplexRules" name="hasComplexRules">
+                                This verb has complex preverb rules
+                            </label>
+                            <div class="field-help">Check if preverbs change meaning significantly or have special
+                                tense/translation rules</div>
+                        </div>
+
+                        <div id="complexRulesContent" class="hidden">
+                            <!-- Preverb Rules Interface -->
+                            <div id="preverbRulesSection" class="rules-section">
+                                <h4>Preverb Rules</h4>
+                                <div class="field-help">
+                                    <strong>Note:</strong> These rules define how preverbs change in different tenses
+                                    and their English translations.
+                                </div>
+
+                                <!-- Tense-Specific Fallbacks -->
+                                <div class="form-group">
+                                    <label>Tense-Specific Fallbacks:</label>
+                                    <div class="field-help">Define which preverbs should fall back to others in specific
+                                        tenses</div>
+                                    <div id="tenseFallbacksList">
+                                        <!-- Fallbacks will be dynamically generated -->
+                                    </div>
+                                    <button type="button" id="addTenseFallbackBtn" class="btn btn-secondary">Add Tense
+                                        Fallback</button>
+                                </div>
+                            </div>
+
+                            <!-- Preverb Overrides Interface -->
+                            <div id="preverbOverridesSection" class="overrides-section">
+                                <h4>Preverb Overrides</h4>
+                                <div class="form-group">
+                                    <label>
+                                        <input type="checkbox" id="hasArgumentOverrides" name="hasArgumentOverrides">
+                                        Some preverbs change arguments (nouns/adjectives)
+                                    </label>
+                                    <div class="field-help">Check if different preverbs require different nouns or
+                                        adjectives</div>
+                                </div>
+
+                                <div id="argumentOverridesContent" class="hidden">
+                                    <div id="preverbOverridesList">
+                                        <!-- Overrides will be dynamically generated -->
+                                    </div>
+                                    <button type="button" id="addPreverbOverrideBtn" class="btn btn-secondary">Add
+                                        Preverb Override</button>
+                                </div>
+                            </div>
+
+                            <!-- English Translations for Preverbs -->
+                            <div id="preverbTranslationsSection" class="translations-section">
+                                <h4>Preverb-Specific Translations</h4>
+                                <div id="preverbTranslationsList">
+                                    <!-- Translations will be dynamically generated -->
+                                </div>
+                                <button type="button" id="addPreverbTranslationBtn" class="btn btn-secondary">Add
+                                    Translation Override</button>
+                            </div>
+                        </div>
+                    </div>
+
+
+                </div>
+            </section>
+
+
+        </main>
+
+        <!-- Progress Bar -->
+        <div id="progressBar" class="progress-bar hidden">
+            <div class="progress-fill"></div>
+            <span class="progress-text">Processing...</span>
+        </div>
+
+        <!-- Error Display -->
+        <div id="errorDisplay" class="error-display hidden">
+            <div class="error-header">
+                <h3>Validation Errors</h3>
+                <button id="closeErrorsBtn" class="btn btn-small">×</button>
+            </div>
+            <div id="errorList" class="error-list">
+                <!-- Errors will be populated here -->
+            </div>
+        </div>
+
+        <!-- Success Message -->
+        <div id="successMessage" class="success-message hidden">
+            <span id="successText">Verb saved successfully!</span>
+            <button id="closeSuccessBtn" class="btn btn-small">×</button>
+        </div>
+
+        <!-- JSON Preview Modal -->
+        <div id="jsonPreviewModal" class="modal hidden">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h3>JSON Preview</h3>
+                    <button id="closeJsonPreviewBtn" class="btn btn-small">×</button>
+                </div>
+                <div class="modal-body">
+                    <div class="preview-info">
+                        <p>This is the exact JSON structure that would be inserted into <code>verbs.json</code>:</p>
+                    </div>
+                    <div class="json-display">
+                        <pre id="jsonPreviewContent"></pre>
+                    </div>
+                    <div class="preview-actions">
+                        <button id="copyJsonBtn" class="btn btn-secondary">Copy JSON</button>
+                        <button id="downloadJsonBtn" class="btn btn-success">Download JSON</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Scripts -->
+    <script src="scripts/utils.js"></script>
+    <script src="scripts/validation.js"></script>
+    <script src="scripts/storage.js"></script>
+    <script src="scripts/database.js"></script>
+    <script src="scripts/scraper.js"></script>
+    <script src="scripts/debug_helper.js"></script>
+    <script src="scripts/gnc_integration.js"></script>
+    <script src="scripts/main.js"></script>
+</body>
+
+</html>

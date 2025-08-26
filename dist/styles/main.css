@@ -19,8 +19,7 @@
 
 @font-face {
     font-family: 'k_gorga';
-    src: url('../assets/fonts/k_gorga.woff2') format('woff2'),
-         url('../assets/fonts/k_gorga.ttf') format('truetype');
+    src: url('../assets/fonts/k_gorga.ttf') format('truetype');
     font-weight: normal;
     font-style: normal;
     font-display: block;
@@ -28,8 +27,7 @@
 
 @font-face {
     font-family: 'k_grigol';
-    src: url('../assets/fonts/k_grigol.woff2') format('woff2'),
-         url('../assets/fonts/k_grigol.ttf') format('truetype');
+    src: url('../assets/fonts/k_grigol.ttf') format('truetype');
     font-weight: normal;
     font-style: normal;
     font-display: block;
@@ -37,8 +35,7 @@
 
 @font-face {
     font-family: 'k_kalig';
-    src: url('../assets/fonts/k_kalig.woff2') format('woff2'),
-         url('../assets/fonts/k_kalig.ttf') format('truetype');
+    src: url('../assets/fonts/k_kalig.ttf') format('truetype');
     font-weight: normal;
     font-style: normal;
     font-display: block;
@@ -46,8 +43,7 @@
 
 @font-face {
     font-family: 'k_lortki';
-    src: url('../assets/fonts/k_lortki.woff2') format('woff2'),
-         url('../assets/fonts/k_lortki.ttf') format('truetype');
+    src: url('../assets/fonts/k_lortki.ttf') format('truetype');
     font-weight: normal;
     font-style: normal;
     font-display: block;
@@ -870,12 +866,12 @@ tr:nth-child(even) {
     /* Mobile Examples Section */
     .examples .georgian,
     .examples .georgian-text {
-        font-size: 12px;
+        font-size: 12px !important;
         line-height: 1.4;
     }
 
     .examples .translation {
-        font-size: 12px;
+        font-size: 12px !important;
         margin-top: var(--spacing-xs);
     }
 
@@ -947,12 +943,12 @@ tr:nth-child(even) {
     /* Extra Small Mobile */
     .examples .georgian,
     .examples .georgian-text {
-        font-size: 12px;
+        font-size: 12px !important;
         line-height: 1.3;
     }
 
     .examples .translation {
-        font-size: 12px;
+        font-size: 12px !important;
         margin-top: 3px;
     }
 
