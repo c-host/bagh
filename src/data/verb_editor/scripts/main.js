@@ -27,6 +27,7 @@ class VerbEditor {
         this.database = null;
         this.currentVerb = null;
         this.scrapedData = null;
+        this.isLoadingVerb = false; // Add flag to prevent local storage interference
 
         try {
             this.database = new Database();
@@ -38,7 +39,7 @@ class VerbEditor {
             // Initialize GNC integration
             this.gncIntegration = new VerbEditorGNCIntegration(this);
 
-            this.debugHelper = null; // Will be initialized after components are ready
+
 
             this.initialize();
         } catch (error) {
@@ -56,7 +57,7 @@ class VerbEditor {
             this.setupValidationRules();
             this.generateConjugationForms();
             this.setupExampleGeneration();
-            this.initializeDebugHelper();
+
 
             // Test localStorage functionality
             this.testStorage();
@@ -110,10 +111,6 @@ class VerbEditor {
             if (savedData) {
                 this.currentVerb = savedData;
                 this.populateFormWithSavedData(savedData);
-
-                // Show success message
-                this.showSuccess('📁 Previous work restored from local storage');
-                console.log('[STORAGE] Successfully loaded saved data from localStorage');
             }
         } catch (error) {
             console.warn('Failed to load saved data:', error);
@@ -125,9 +122,20 @@ class VerbEditor {
      */
     populateFormWithSavedData(savedData) {
         // Populate basic fields
-        if (savedData.georgian) {
-            const georgianField = document.getElementById('georgian');
-            if (georgianField) georgianField.value = savedData.georgian;
+        if (savedData.georgian_wrapper) {
+            const georgianWrapperField = document.getElementById('georgianWrapper');
+            if (georgianWrapperField) georgianWrapperField.value = savedData.georgian_wrapper;
+        }
+        if (savedData.georgian_display) {
+            const georgianDisplayField = document.getElementById('georgianDisplay');
+            if (georgianDisplayField) georgianDisplayField.value = savedData.georgian_display;
+        }
+        // Backward compatibility for old georgian field
+        if (!savedData.georgian_wrapper && !savedData.georgian_display && savedData.georgian) {
+            const georgianWrapperField = document.getElementById('georgianWrapper');
+            const georgianDisplayField = document.getElementById('georgianDisplay');
+            if (georgianWrapperField) georgianWrapperField.value = savedData.georgian;
+            if (georgianDisplayField) georgianDisplayField.value = savedData.georgian;
         }
         if (savedData.description) {
             const descriptionField = document.getElementById('description');
@@ -152,6 +160,26 @@ class VerbEditor {
         if (savedData.url) {
             const urlField = document.getElementById('url');
             if (urlField) urlField.value = savedData.url;
+        }
+
+        // Populate argument pattern and valency fields
+        if (savedData.global_argument_pattern) {
+            const argumentPatternField = document.getElementById('argumentPattern');
+            if (argumentPatternField) argumentPatternField.value = savedData.global_argument_pattern;
+        }
+        if (savedData.valency) {
+            // Populate default valency
+            if (savedData.valency.default) {
+                const valencyDefaultField = document.getElementById('valencyDefault');
+                if (valencyDefaultField) valencyDefaultField.value = savedData.valency.default;
+            }
+            // Populate alternative valencies
+            if (savedData.valency.alternatives && Array.isArray(savedData.valency.alternatives)) {
+                savedData.valency.alternatives.forEach(alternative => {
+                    const checkbox = document.querySelector(`input[name="valencyAlternatives"][value="${alternative}"]`);
+                    if (checkbox) checkbox.checked = true;
+                });
+            }
         }
 
         // Populate English translations
@@ -240,10 +268,10 @@ class VerbEditor {
 
             // Populate preverb configuration fields
             this.populatePreverbConfigWithSavedData(savedData.preverb_config);
+        } else {
+            // Update progressive disclosure immediately if no preverb config to restore
+            this.updateProgressiveDisclosure();
         }
-
-        // Update progressive disclosure after populating fields
-        this.updateProgressiveDisclosure();
 
         // Initialize preverb selection after form is populated
         setTimeout(() => {
@@ -269,12 +297,15 @@ class VerbEditor {
             const hasArgumentFields = document.querySelectorAll('.noun-select, .adjective-select').length > 0;
             const hasNounOptions = document.querySelectorAll('.noun-select option').length > 1; // More than just "Select noun"
 
+
+
             if (hasArgumentFields && hasNounOptions) {
                 // Fields exist and have options, populate them
                 let populatedCount = 0;
 
                 Object.keys(argumentsData).forEach(argType => {
                     const argData = argumentsData[argType];
+
                     Object.keys(argData).forEach(person => {
                         const personData = argData[person];
 
@@ -436,6 +467,7 @@ class VerbEditor {
      */
     populatePreverbConfigWithSavedData(preverbConfig) {
         console.log('[STORAGE] Restoring preverb configuration:', preverbConfig);
+        console.log('[STORAGE] Current progressive disclosure state before restoration:', this.progressiveDisclosure.getFormState());
 
         // Set default preverb
         if (preverbConfig.default_preverb) {
@@ -459,6 +491,9 @@ class VerbEditor {
 
         // Handle advanced configuration with delays to ensure UI is ready
         setTimeout(() => {
+            // Ensure hasMultiplePreverbs is set in progressive disclosure form state first
+            this.progressiveDisclosure.updateFormState({ hasMultiplePreverbs: 'true' });
+
             if (preverbConfig.has_complex_rules !== undefined) {
                 const hasComplexRulesCheckbox = document.getElementById('hasComplexRules');
                 if (hasComplexRulesCheckbox) {
@@ -484,7 +519,7 @@ class VerbEditor {
         if (preverbConfig.has_complex_rules && preverbConfig.rules) {
             setTimeout(() => {
                 this.restoreComplexRulesData(preverbConfig.rules);
-            }, 200);
+            }, 250);
         }
 
         // Restore argument overrides data if available
@@ -505,12 +540,40 @@ class VerbEditor {
         setTimeout(() => {
             this.autoSave();
         }, 500);
+
+        // Final form state synchronization to ensure progressive disclosure matches UI state
+        setTimeout(() => {
+            // Update form state based on current UI state
+            const hasComplexRules = document.getElementById('hasComplexRules')?.checked || false;
+            const hasArgumentOverrides = document.getElementById('hasArgumentOverrides')?.checked || false;
+
+            this.progressiveDisclosure.updateFormState({
+                hasMultiplePreverbs: 'true', // Ensure this is preserved
+                hasComplexRules: hasComplexRules,
+                hasArgumentOverrides: hasArgumentOverrides
+            });
+
+            console.log('[STORAGE] Final form state synchronization completed:', {
+                hasMultiplePreverbs: 'true',
+                hasComplexRules: hasComplexRules,
+                hasArgumentOverrides: hasArgumentOverrides
+            });
+
+            // Update progressive disclosure visibility after all form state is synchronized
+            this.progressiveDisclosure.updateVisibility();
+
+            console.log('[STORAGE] Progressive disclosure state after final update:', this.progressiveDisclosure.getFormState());
+            console.log('[STORAGE] Progressive disclosure visibility status after final update:', this.progressiveDisclosure.getVisibilityStatus());
+        }, 600);
     }
 
     /**
      * Handle complex rules checkbox change
      */
     handleComplexRulesChange(hasComplexRules) {
+        console.log('[COMPLEX_RULES] handleComplexRulesChange called with:', hasComplexRules);
+        console.log('[COMPLEX_RULES] Current progressive disclosure state before update:', this.progressiveDisclosure.getFormState());
+
         const complexRulesContent = document.getElementById('complexRulesContent');
         if (complexRulesContent) {
             if (hasComplexRules) {
@@ -519,8 +582,17 @@ class VerbEditor {
                 complexRulesContent.classList.add('hidden');
             }
         }
-        // Update progressive disclosure
-        this.updateProgressiveDisclosure();
+
+        // Update progressive disclosure form state to match UI state
+        // Preserve existing form state and only update hasComplexRules
+        const currentFormState = this.progressiveDisclosure.getFormState();
+        this.progressiveDisclosure.updateFormState({
+            ...currentFormState,
+            hasComplexRules: hasComplexRules
+        });
+
+        console.log('[COMPLEX_RULES] Progressive disclosure state after update:', this.progressiveDisclosure.getFormState());
+        console.log('[COMPLEX_RULES] Progressive disclosure visibility status after update:', this.progressiveDisclosure.getVisibilityStatus());
     }
 
     /**
@@ -535,14 +607,21 @@ class VerbEditor {
                 argumentOverridesContent.classList.add('hidden');
             }
         }
-        // Update progressive disclosure
-        this.updateProgressiveDisclosure();
+        // Update progressive disclosure form state to match UI state
+        // Preserve existing form state and only update hasArgumentOverrides
+        const currentFormState = this.progressiveDisclosure.getFormState();
+        this.progressiveDisclosure.updateFormState({
+            ...currentFormState,
+            hasArgumentOverrides: hasArgumentOverrides
+        });
     }
 
     /**
      * Restore complex rules data from saved configuration
      */
     restoreComplexRulesData(rules) {
+        console.log('[STORAGE] Restoring complex rules data:', rules);
+
         // Restore tense-specific fallbacks
         if (rules.tense_specific_fallbacks) {
             // Group fallbacks by preverb and fallback combination to avoid duplicates
@@ -567,6 +646,22 @@ class VerbEditor {
                 this.addTenseFallbackWithData(group.preverb, group.tenses, group.fallback);
             });
         }
+
+        // Ensure the complex rules checkbox is checked and form state is updated
+        const hasComplexRulesCheckbox = document.getElementById('hasComplexRules');
+        if (hasComplexRulesCheckbox && !hasComplexRulesCheckbox.checked) {
+            hasComplexRulesCheckbox.checked = true;
+            console.log('[STORAGE] Ensuring complex rules checkbox is checked during data restoration');
+        }
+
+        // Update progressive disclosure form state to reflect that complex rules are enabled
+        const currentFormState = this.progressiveDisclosure.getFormState();
+        this.progressiveDisclosure.updateFormState({
+            ...currentFormState,
+            hasComplexRules: true
+        });
+
+        console.log('[STORAGE] Complex rules data restoration completed');
     }
 
     /**
@@ -585,53 +680,72 @@ class VerbEditor {
      * Restore translation overrides data from saved configuration
      */
     restoreTranslationOverridesData(translations) {
+        console.log('[STORAGE] Restoring translation overrides data:', translations);
+
         Object.entries(translations).forEach(([preverb, translationData]) => {
             this.addPreverbTranslationWithData(preverb, translationData);
         });
+
+        // Ensure the complex rules checkbox is checked since we have translation overrides
+        const hasComplexRulesCheckbox = document.getElementById('hasComplexRules');
+        if (hasComplexRulesCheckbox && !hasComplexRulesCheckbox.checked) {
+            hasComplexRulesCheckbox.checked = true;
+            console.log('[STORAGE] Ensuring complex rules checkbox is checked during translation restoration');
+        }
+
+        // Update progressive disclosure form state to reflect that complex rules are enabled
+        const currentFormState = this.progressiveDisclosure.getFormState();
+        this.progressiveDisclosure.updateFormState({
+            ...currentFormState,
+            hasComplexRules: true
+        });
+
+        console.log('[STORAGE] Translation overrides data restoration completed');
     }
 
     /**
-     * Add tense fallback with pre-populated data
-     */
+ * Add tense fallback with pre-populated data
+ */
     addTenseFallbackWithData(preverb, tenses, fallback) {
         // First add a new fallback item
         this.addTenseFallback();
 
-        // Get the last added fallback item
-        const fallbackItems = document.querySelectorAll('.fallback-item');
-        const lastItem = fallbackItems[fallbackItems.length - 1];
+        // Use a small delay to ensure DOM elements are fully created
+        setTimeout(() => {
+            // Get the last added fallback item
+            const fallbackItems = document.querySelectorAll('.fallback-item');
+            const lastItem = fallbackItems[fallbackItems.length - 1];
 
-        if (lastItem) {
-            const fallbackId = lastItem.id;
+            if (lastItem) {
+                // Set the preverb
+                const preverbSelect = lastItem.querySelector('[data-field="preverb"]');
+                if (preverbSelect) {
+                    preverbSelect.value = preverb;
+                }
 
-            // Set the preverb
-            const preverbSelect = lastItem.querySelector('[data-field="preverb"]');
-            if (preverbSelect) {
-                preverbSelect.value = preverb;
-            }
+                // Set the fallback preverb
+                const fallbackSelect = lastItem.querySelector('[data-field="fallback"]');
+                if (fallbackSelect) {
+                    fallbackSelect.value = fallback;
+                }
 
-            // Set the fallback preverb
-            const fallbackSelect = lastItem.querySelector('[data-field="fallback"]');
-            if (fallbackSelect) {
-                fallbackSelect.value = fallback;
-            }
-
-            // Check all the specified tense checkboxes
-            if (Array.isArray(tenses)) {
-                tenses.forEach(tense => {
-                    const tenseCheckbox = lastItem.querySelector(`input[type="checkbox"][value="${tense}"]`);
+                // Check all the specified tense checkboxes
+                if (Array.isArray(tenses)) {
+                    tenses.forEach(tense => {
+                        const tenseCheckbox = lastItem.querySelector(`input[type="checkbox"][value="${tense}"]`);
+                        if (tenseCheckbox) {
+                            tenseCheckbox.checked = true;
+                        }
+                    });
+                } else {
+                    // Handle single tense for backward compatibility
+                    const tenseCheckbox = lastItem.querySelector(`input[type="checkbox"][value="${tenses}"]`);
                     if (tenseCheckbox) {
                         tenseCheckbox.checked = true;
                     }
-                });
-            } else {
-                // Handle single tense for backward compatibility
-                const tenseCheckbox = lastItem.querySelector(`input[type="checkbox"][value="${tenses}"]`);
-                if (tenseCheckbox) {
-                    tenseCheckbox.checked = true;
                 }
             }
-        }
+        }, 50); // Small delay to ensure DOM is ready
     }
 
     /**
@@ -760,6 +874,19 @@ class VerbEditor {
         // Form field changes
         addEventListenerSafely('argumentPattern', 'change', (e) => this.handleArgumentPatternChange(e.target.value));
 
+        // Georgian field changes
+        addEventListenerSafely('georgianWrapper', 'input', () => this.autoSave());
+        addEventListenerSafely('georgianDisplay', 'input', () => this.autoSave());
+
+        // Valency field changes
+        addEventListenerSafely('valencyDefault', 'change', () => this.autoSave());
+
+        // Valency alternatives checkbox changes
+        const valencyAlternativeCheckboxes = document.querySelectorAll('input[name="valencyAlternatives"]');
+        valencyAlternativeCheckboxes.forEach(checkbox => {
+            checkbox.addEventListener('change', () => this.autoSave());
+        });
+
         // Preposition field changes
         addEventListenerSafely('subjectPreposition', 'input', (e) => this.handlePrepositionChange('subject', e.target.value));
         addEventListenerSafely('directObjectPreposition', 'input', (e) => this.handlePrepositionChange('directObject', e.target.value));
@@ -822,24 +949,30 @@ class VerbEditor {
 
     setupValidationRules() {
         // Add validation rules for each field
-        this.validationEngine.addRule('georgian', (value) => {
-            if (!value.trim()) return 'Georgian text is required';
-            if (!/^[ა-ჰ\s]+$/.test(value)) return 'Georgian text must contain only Georgian characters';
+        this.validationEngine.addRule('georgian_wrapper', (value) => {
+            if (!value || !value.trim()) return 'Georgian verb name (wrapper) is required';
+            if (!/^[ა-ჰ\s]+$/.test(value)) return 'Georgian verb name must contain only Georgian characters';
+            return true;
+        });
+
+        this.validationEngine.addRule('georgian_display', (value) => {
+            if (!value || !value.trim()) return 'Georgian verb name (display) is required';
+            if (!/^[ა-ჰ\s\/]+$/.test(value)) return 'Georgian verb name must contain only Georgian characters, spaces, and forward slashes';
             return true;
         });
 
         this.validationEngine.addRule('description', (value) => {
-            if (!value.trim()) return 'Description is required';
+            if (!value || !value.trim()) return 'Description is required';
             return true;
         });
 
         this.validationEngine.addRule('category', (value) => {
-            if (!value.trim()) return 'Category is required';
+            if (!value || !value.trim()) return 'Category is required';
             return true;
         });
 
-        this.validationEngine.addRule('argumentPattern', (value) => {
-            if (!value.trim()) return 'Argument pattern is required';
+        this.validationEngine.addRule('argument_pattern', (value) => {
+            if (!value || !value.trim()) return 'Argument pattern is required';
 
             // Validate specific pattern combinations
             const validPatterns = ['<S>', '<S-DO>', '<S-IO>', '<S-DO-IO>'];
@@ -850,21 +983,33 @@ class VerbEditor {
             return true;
         });
 
-        this.validationEngine.addRule('semanticKey', (value) => {
-            if (!value.trim()) return 'Semantic key is required';
+        this.validationEngine.addRule('valencyDefault', (value) => {
+            if (!value || !value.trim()) return 'Default valency is required';
+
+            // Validate specific pattern combinations
+            const validPatterns = ['<S>', '<S-DO>', '<S-IO>', '<S-DO-IO>'];
+            if (!validPatterns.includes(value)) {
+                return 'Invalid default valency. Please select from the dropdown options.';
+            }
+
+            return true;
+        });
+
+        this.validationEngine.addRule('semantic_key', (value) => {
+            if (!value || !value.trim()) return 'Semantic key is required';
             if (!/^[a-z_]+$/.test(value)) return 'Semantic key must contain only lowercase letters and underscores';
             return true;
         });
 
         // Add validation for preposition fields
         this.validationEngine.addRule('subjectPreposition', (value) => {
-            if (!value.trim()) return 'Subject preposition is required';
+            if (!value || !value.trim()) return 'Subject preposition is required';
             if (!/^[a-zA-Z\s]+$/.test(value)) return 'Subject preposition must contain only letters and spaces';
             return true;
         });
 
         this.validationEngine.addRule('directObjectPreposition', (value) => {
-            if (!value.trim()) return 'Direct object preposition is required';
+            if (!value || !value.trim()) return 'Direct object preposition is required';
             if (!/^[a-zA-Z\s]+$/.test(value)) return 'Direct object preposition must contain only letters and spaces';
             return true;
         });
@@ -877,7 +1022,7 @@ class VerbEditor {
 
         // Add validation for raw gloss fields
         this.validationEngine.addRule('rawGloss', (value) => {
-            if (!value.trim()) return 'Raw gloss is required for each tense';
+            if (!value || !value.trim()) return 'Raw gloss is required for each tense';
             if (!/^<[SDOI]:[A-Za-z]+>(\s+<[SDOI]:[A-Za-z]+>)*$/.test(value)) {
                 return 'Raw gloss must follow format: <S:Erg> <DO:Nom> etc.';
             }
@@ -896,7 +1041,7 @@ class VerbEditor {
         }
 
         // Basic form fields
-        const formFields = ['georgian', 'description', 'category', 'argumentPattern', 'semanticKey', 'notes', 'url', 'verbClass'];
+        const formFields = ['georgianWrapper', 'georgianDisplay', 'description', 'category', 'argumentPattern', 'valencyDefault', 'semanticKey', 'notes', 'url', 'verbClass'];
 
         formFields.forEach(fieldId => {
             const field = document.getElementById(fieldId);
@@ -971,7 +1116,7 @@ class VerbEditor {
             hasComplexRulesCheckbox.addEventListener('change', (e) => {
                 this.handleComplexRulesChange(e.target.checked);
                 this.autoSave();
-                this.updateProgressiveDisclosure();
+                // Note: handleComplexRulesChange already updates progressive disclosure
             });
         }
 
@@ -980,7 +1125,7 @@ class VerbEditor {
             hasArgumentOverridesCheckbox.addEventListener('change', (e) => {
                 this.handleArgumentOverridesChange(e.target.checked);
                 this.autoSave();
-                this.updateProgressiveDisclosure();
+                // Note: handleArgumentOverridesChange already updates progressive disclosure
             });
         }
 
@@ -1067,23 +1212,10 @@ class VerbEditor {
 
     async autoSave() {
         try {
-            console.log('[AUTO-SAVE] Starting auto-save...');
             const formData = this.getFormData();
-            console.log('[AUTO-SAVE] Form data collected:', {
-                georgian: formData.georgian,
-                class: formData.class,
-                semantic_key: formData.semantic_key,
-                hasArguments: !!formData.syntax?.arguments,
-                argumentCount: Object.keys(formData.syntax?.arguments || {}).length,
-                hasPrepositions: !!formData.syntax?.prepositions,
-                hasPreverbConfig: !!formData.preverb_config?.has_multiple_preverbs,
-                argumentsData: formData.syntax?.arguments,
-                prepositionsData: formData.syntax?.prepositions
-            });
 
             // Create a new verb object if one doesn't exist
             if (!this.currentVerb) {
-                console.log('[AUTO-SAVE] Creating new verb object');
                 this.currentVerb = {
                     id: null,
                     georgian: '',
@@ -1099,7 +1231,7 @@ class VerbEditor {
                         arguments: {},
                         prepositions: {
                             indirect_object: '',
-                            direct_object: 'the'
+                            direct_object: ''
                         },
                         preverb_overrides: {}
                     },
@@ -1138,14 +1270,10 @@ class VerbEditor {
 
             // Update the current verb with form data
             this.currentVerb = { ...this.currentVerb, ...formData };
-            console.log('[AUTO-SAVE] Saving verb data with arguments:', this.currentVerb.syntax?.arguments);
-            console.log('[AUTO-SAVE] Saving verb data with prepositions:', this.currentVerb.syntax?.prepositions);
-            console.log('[AUTO-SAVE] Saving verb data with preverb config:', this.currentVerb.preverb_config);
             await this.storageManager.saveProgress(this.currentVerb);
 
             // Show auto-save indicator (briefly)
             this.showAutoSaveIndicator();
-            console.log('[AUTO-SAVE] Auto-save completed successfully');
         } catch (error) {
             console.warn('Auto-save failed:', error);
         }
@@ -1270,8 +1398,16 @@ class VerbEditor {
         };
 
         // Get arguments data
-        const argumentsData = this.getArgumentsData();
-        console.log('[FORM_DATA] Arguments data collected:', argumentsData);
+        let argumentsData;
+        if (this.isLoadingVerb && this.currentVerb && this.currentVerb.syntax && this.currentVerb.syntax.arguments) {
+            // When loading a verb, use the database data instead of form fields
+            argumentsData = this.currentVerb.syntax.arguments;
+            console.log('[FORM_DATA] Arguments data from database:', argumentsData);
+        } else {
+            // When not loading, get data from form fields
+            argumentsData = this.getArgumentsData();
+            console.log('[FORM_DATA] Arguments data collected from form:', argumentsData);
+        }
 
         // Get prepositions data
         const prepositionsData = this.getPrepositionsData();
@@ -1281,34 +1417,69 @@ class VerbEditor {
         const preverbConfigData = this.getPreverbConfigData();
         console.log('[FORM_DATA] Preverb config data collected:', preverbConfigData);
 
+        // Get preverb translations data
+        const preverbTranslationsData = this.getPreverbTranslations();
+        console.log('[FORM_DATA] Preverb translations data collected:', preverbTranslationsData);
+
         const formData = {
-            georgian: getFieldValue('georgian'),
+            georgian_wrapper: getFieldValue('georgianWrapper'),
+            georgian_display: getFieldValue('georgianDisplay'),
             description: getFieldValue('description'),
             category: getFieldValue('category'),
             class: getFieldValue('verbClass'), // Map verbClass to class
             url: getFieldValue('url'),
             argument_pattern: getFieldValue('argumentPattern'), // Map argumentPattern to argument_pattern
+            valency_default: getFieldValue('valencyDefault'),
+            valency_alternatives: this.getSelectedValencyAlternatives(),
             semantic_key: getFieldValue('semanticKey'), // Map semanticKey to semantic_key
             notes: getFieldValue('notes'),
+            hasMultiplePreverbs: document.querySelector('input[name="hasMultiplePreverbs"]:checked')?.value === 'true',
+            defaultPreverb: getFieldValue('defaultPreverb'),
+            subjectPreposition: getFieldValue('subjectPreposition'),
+            directObjectPreposition: getFieldValue('directObjectPreposition'),
+            indirectObjectPreposition: getFieldValue('indirectObjectPreposition'),
+            translationPresent: getFieldValue('translationPresent'),
+            translationImperfect: getFieldValue('translationImperfect'),
+            translationFuture: getFieldValue('translationFuture'),
+            translationAorist: getFieldValue('translationAorist'),
+            translationOptative: getFieldValue('translationOptative'),
+            translationImperative: getFieldValue('translationImperative'),
             syntax: {
                 arguments: argumentsData,
                 prepositions: prepositionsData,
                 preverb_overrides: {}
             },
-            english_translations: {
-                default: this.getTranslationData()
-            },
+            english_translations: (() => {
+                const translations = {
+                    default: this.getTranslationData()
+                };
+
+                // Add preverb-specific translations if they exist
+                if (preverbTranslationsData && Object.keys(preverbTranslationsData).length > 0) {
+                    Object.entries(preverbTranslationsData).forEach(([preverb, preverbTranslations]) => {
+                        translations[preverb] = preverbTranslations;
+                    });
+                }
+
+                return translations;
+            })(),
             conjugations: this.getConjugationData(),
-            preverb_config: preverbConfigData
+            preverb_config: preverbConfigData,
+            preverbTranslations: preverbTranslationsData
         };
 
         console.log('[FORM_DATA] Complete form data:', {
-            georgian: formData.georgian,
+            georgian_wrapper: formData.georgian_wrapper,
+            georgian_display: formData.georgian_display,
             class: formData.class,
             semantic_key: formData.semantic_key,
+            argument_pattern: formData.argument_pattern,
+            valency_default: formData.valency_default,
+            valency_alternatives: formData.valency_alternatives,
             hasArguments: Object.keys(argumentsData).length > 0,
             hasPrepositions: Object.keys(prepositionsData).length > 0,
-            hasPreverbConfig: !!preverbConfigData.has_multiple_preverbs
+            hasPreverbConfig: !!preverbConfigData.has_multiple_preverbs,
+            hasPreverbTranslations: Object.keys(preverbTranslationsData).length > 0
         });
 
         return formData;
@@ -1316,6 +1487,11 @@ class VerbEditor {
 
     getFormState() {
         return this.getFormData();
+    }
+
+    getSelectedValencyAlternatives() {
+        const checkboxes = document.querySelectorAll('input[name="valencyAlternatives"]:checked');
+        return Array.from(checkboxes).map(checkbox => checkbox.value);
     }
 
     getArgumentsData() {
@@ -1426,8 +1602,8 @@ class VerbEditor {
         };
 
         const prepositions = {
-            subject: getPrepositionValue('subjectPreposition', 'the'),
-            direct_object: getPrepositionValue('directObjectPreposition', 'the'),
+            subject: getPrepositionValue('subjectPreposition', ''),
+            direct_object: getPrepositionValue('directObjectPreposition', ''),
             indirect_object: getPrepositionValue('indirectObjectPreposition', '')
         };
 
@@ -1458,6 +1634,16 @@ class VerbEditor {
                 translations[tense] = description;
             }
         });
+
+        // Ensure optative translation doesn't have "should" prefix added automatically
+        if (translations.optative && translations.optative.trim() !== '') {
+            // Remove any automatic "should" prefix that might have been added
+            const optativeValue = translations.optative.trim();
+            if (optativeValue.toLowerCase().startsWith('should ')) {
+                translations.optative = optativeValue.substring(7); // Remove "should " prefix
+                console.log('[TRANSLATIONS] Removed automatic "should" prefix from optative:', optativeValue, '->', translations.optative);
+            }
+        }
 
         return translations;
     }
@@ -1511,8 +1697,8 @@ class VerbEditor {
         // Update form state and refresh progressive disclosure
         this.progressiveDisclosure.updateFormState({ argumentPattern: pattern });
 
-        // Restore argument data after fields are generated
-        if (Object.keys(currentArguments).length > 0) {
+        // Restore argument data after fields are generated, but only if we're not loading a new verb
+        if (Object.keys(currentArguments).length > 0 && !this.isLoadingVerb) {
             setTimeout(() => {
                 this.populateArgumentsWithSavedData(currentArguments).catch(error => {
                     console.error('[ARGUMENT_PATTERN] Error restoring arguments after pattern change:', error);
@@ -1559,11 +1745,16 @@ class VerbEditor {
     }
 
     handlePreverbChange(hasMultiple) {
+        console.log('[PREVERB] handlePreverbChange called with:', hasMultiple);
+
         // Update form state and refresh progressive disclosure
         this.progressiveDisclosure.updateFormState({ hasMultiplePreverbs: hasMultiple });
 
         // Also update the progressive disclosure visibility
         this.progressiveDisclosure.updateVisibility();
+
+        console.log('[PREVERB] Progressive disclosure state after update:', this.progressiveDisclosure.getFormState());
+        console.log('[PREVERB] Progressive disclosure visibility status:', this.progressiveDisclosure.getVisibilityStatus());
     }
 
 
@@ -1603,10 +1794,18 @@ class VerbEditor {
             // Setup listeners for argument changes AFTER filters are set up
             this.setupArgumentChangeListeners();
 
-            // Restore saved argument values if they exist
-            if (this.currentVerb && this.currentVerb.syntax && this.currentVerb.syntax.arguments) {
+            // Restore saved argument values if they exist AND we're not in the middle of loading a verb
+            // This prevents local storage from overriding newly loaded verb data
+            if (this.currentVerb && this.currentVerb.syntax && this.currentVerb.syntax.arguments && !this.isLoadingVerb) {
                 this.populateArgumentsWithSavedData(this.currentVerb.syntax.arguments).catch(error => {
                     console.error('[STORAGE] Error restoring arguments after pattern change:', error);
+                });
+            }
+
+            // Also handle semantic arguments when loading a verb (after fields are generated)
+            if (this.currentVerb && this.currentVerb.syntax && this.currentVerb.syntax.arguments && this.isLoadingVerb) {
+                this.populateArgumentsWithSavedData(this.currentVerb.syntax.arguments).catch(error => {
+                    console.error('[LOADER] Error loading semantic arguments after field generation:', error);
                 });
             }
         }, 50);
@@ -2754,7 +2953,7 @@ class VerbEditor {
         if (!pattern.test(rawGloss)) {
             return {
                 isValid: false,
-                error: 'Raw gloss must follow format: V MedAct Tense <S:Erg> <DO:Nom> etc.',
+                error: 'Raw gloss must follow format: V MedAct Tense <S:Erg> <DO:Dat> etc.',
                 suggestion: 'Example: V MedAct Pres <S:Erg> <DO:Dat>'
             };
         }
@@ -3071,7 +3270,9 @@ class VerbEditor {
         const defaultPreverb = document.getElementById('defaultPreverb')?.value || '';
         const availablePreverbs = Array.from(document.querySelectorAll('input[name="availablePreverbs"]:checked')).map(cb => cb.value);
 
-        // Get advanced configuration states
+
+
+        // Get the current state of complex rules and argument overrides checkboxes
         const hasComplexRules = document.getElementById('hasComplexRules')?.checked || false;
         const hasArgumentOverrides = document.getElementById('hasArgumentOverrides')?.checked || false;
 
@@ -3089,6 +3290,7 @@ class VerbEditor {
 
     getPreverbRules() {
         const rules = {
+            default: document.getElementById('defaultPreverb')?.value || '',
             replacements: {},
             tense_specific_fallbacks: {},
             english_fallbacks: {}
@@ -3504,54 +3706,52 @@ class VerbEditor {
                     <button type="button" class="btn btn-danger btn-small" onclick="verbEditor.removePreverbTranslation('${translationId}')">Remove</button>
                 </div>
                 <h5>Translation Override</h5>
-                <div class="translation-fields">
-                    <div class="translation-field">
-                        <label>Preverb:</label>
-                        <select data-field="preverb" data-translation-id="${translationId}">
-                            <option value="">Select preverb</option>
-                            ${preverbOptions}
-                        </select>
-                        <div class="field-help">Select the preverb for which you want to define specific English translations</div>
-                    </div>
-                    
-                    <div class="translation-overrides" id="translation-overrides-${translationId}" style="display: none;">
-                        <h6>English Translations for <span class="selected-preverb">[Preverb]</span></h6>
-                        <div class="translations-grid">
-                            <div class="form-group">
-                                <label for="translationPresent_${translationId}">Present:</label>
-                                <input type="text" id="translationPresent_${translationId}" name="translationPresent_${translationId}" placeholder="to show">
-                                <div class="field-help">Present form (e.g., 'to show')</div>
-                            </div>
+                <div class="translation-field">
+                    <label>Preverb:</label>
+                    <select data-field="preverb" data-translation-id="${translationId}">
+                        <option value="">Select preverb</option>
+                        ${preverbOptions}
+                    </select>
+                    <div class="field-help">Select the preverb for which you want to define specific English translations</div>
+                </div>
+                
+                <div class="translation-overrides" id="translation-overrides-${translationId}" style="display: none;">
+                    <h6>English Translations for <span class="selected-preverb">[Preverb]</span></h6>
+                    <div class="translations-grid">
+                        <div class="form-group">
+                            <label for="translationPresent_${translationId}">Present:</label>
+                            <input type="text" id="translationPresent_${translationId}" name="translationPresent_${translationId}" placeholder="to show">
+                            <div class="field-help">Present form (e.g., 'to show')</div>
+                        </div>
 
-                            <div class="form-group">
-                                <label for="translationImperfect_${translationId}">Imperfect:</label>
-                                <input type="text" id="translationImperfect_${translationId}" name="translationImperfect_${translationId}" placeholder="was showing">
-                                <div class="field-help">Past continuous (e.g., 'was showing')</div>
-                            </div>
+                        <div class="form-group">
+                            <label for="translationImperfect_${translationId}">Imperfect:</label>
+                            <input type="text" id="translationImperfect_${translationId}" name="translationImperfect_${translationId}" placeholder="was showing">
+                            <div class="field-help">Past continuous (e.g., 'was showing')</div>
+                        </div>
 
-                            <div class="form-group">
-                                <label for="translationFuture_${translationId}">Future:</label>
-                                <input type="text" id="translationFuture_${translationId}" name="translationFuture_${translationId}" placeholder="will show">
-                                <div class="field-help">Future tense (e.g., 'will show')</div>
-                            </div>
+                        <div class="form-group">
+                            <label for="translationFuture_${translationId}">Future:</label>
+                            <input type="text" id="translationFuture_${translationId}" name="translationFuture_${translationId}" placeholder="will show">
+                            <div class="field-help">Future tense (e.g., 'will show')</div>
+                        </div>
 
-                            <div class="form-group">
-                                <label for="translationAorist_${translationId}">Aorist:</label>
-                                <input type="text" id="translationAorist_${translationId}" name="translationAorist_${translationId}" placeholder="showed">
-                                <div class="field-help">Simple past (e.g., 'showed')</div>
-                            </div>
+                        <div class="form-group">
+                            <label for="translationAorist_${translationId}">Aorist:</label>
+                            <input type="text" id="translationAorist_${translationId}" name="translationAorist_${translationId}" placeholder="showed">
+                            <div class="field-help">Simple past (e.g., 'showed')</div>
+                        </div>
 
-                            <div class="form-group">
-                                <label for="translationOptative_${translationId}">Optative:</label>
-                                <input type="text" id="translationOptative_${translationId}" name="translationOptative_${translationId}" placeholder="show">
-                                <div class="field-help">Subjunctive/optative (e.g., 'show')</div>
-                            </div>
+                        <div class="form-group">
+                            <label for="translationOptative_${translationId}">Optative:</label>
+                            <input type="text" id="translationOptative_${translationId}" name="translationOptative_${translationId}" placeholder="show">
+                            <div class="field-help">Subjunctive/optative (e.g., 'show')</div>
+                        </div>
 
-                            <div class="form-group">
-                                <label for="translationImperative_${translationId}">Imperative:</label>
-                                <input type="text" id="translationImperative_${translationId}" name="translationImperative_${translationId}" placeholder="show">
-                                <div class="field-help">Command form (e.g., 'show')</div>
-                            </div>
+                        <div class="form-group">
+                            <label for="translationImperative_${translationId}">Imperative:</label>
+                            <input type="text" id="translationImperative_${translationId}" name="translationImperative_${translationId}" placeholder="show">
+                            <div class="field-help">Command form (e.g., 'show')</div>
                         </div>
                     </div>
                 </div>
@@ -3586,8 +3786,6 @@ class VerbEditor {
             if (selectedPreverbSpan) {
                 selectedPreverbSpan.textContent = selectedPreverb;
             }
-
-            this.showSuccess(`Preverb-specific English translations for "${selectedPreverb}" are now editable`);
         } else {
             // Hide the translations section if no preverb is selected
             if (translationsContainer) {
@@ -3733,7 +3931,7 @@ class VerbEditor {
                 arguments: {},
                 prepositions: {
                     indirect_object: '',
-                    direct_object: 'the'
+                    direct_object: ''
                 },
                 preverb_overrides: {}
             },
@@ -3776,30 +3974,252 @@ class VerbEditor {
     }
 
     async loadVerb() {
-        const verbId = prompt('Enter verb ID, semantic key, or Georgian text to load:');
-        if (!verbId) return;
+        // Show the verb selection modal
+        this.showVerbSelectionModal();
+    }
+
+    showVerbSelectionModal() {
+        const modal = document.getElementById('verbSelectionModal');
+        modal.style.display = 'block';
+
+        // Load and display verbs
+        this.loadVerbsForSelection();
+
+        // Setup event listeners
+        this.setupVerbSelectionEventListeners();
+    }
+
+    hideVerbSelectionModal() {
+        const modal = document.getElementById('verbSelectionModal');
+        modal.style.display = 'none';
+
+        // Clear selection
+        this.selectedVerb = null;
+        document.getElementById('loadSelectedVerbBtn').disabled = true;
+    }
+
+    setupVerbSelectionEventListeners() {
+        // Close modal when clicking X or outside
+        const modal = document.getElementById('verbSelectionModal');
+        const closeBtn = modal.querySelector('.close');
+        const cancelBtn = document.getElementById('cancelVerbSelectionBtn');
+
+        closeBtn.onclick = () => {
+            this.hideVerbSelectionModal();
+        };
+        cancelBtn.onclick = () => {
+            this.hideVerbSelectionModal();
+        };
+
+        // Close modal when clicking outside
+        window.onclick = (event) => {
+            if (event.target === modal) {
+                this.hideVerbSelectionModal();
+            }
+        };
+
+        // Search functionality
+        const searchInput = document.getElementById('verbSearchInput');
+        const categoryFilter = document.getElementById('categoryFilter');
+        const classFilter = document.getElementById('classFilter');
+
+        searchInput.oninput = () => {
+            this.filterVerbs();
+        };
+        categoryFilter.onchange = () => {
+            this.filterVerbs();
+        };
+        classFilter.onchange = () => {
+            this.filterVerbs();
+        };
+
+        // Load selected verb
+        const loadBtn = document.getElementById('loadSelectedVerbBtn');
+        loadBtn.onclick = () => {
+            this.loadSelectedVerb();
+        };
+    }
+
+    async loadVerbsForSelection() {
+        try {
+            // Show loading state
+            document.getElementById('verbListLoading').style.display = 'block';
+            document.getElementById('verbList').innerHTML = '';
+            document.getElementById('verbListEmpty').style.display = 'none';
+
+            // Ensure database is loaded
+            if (!this.database.isReady()) {
+                await this.database.initialize();
+            }
+
+            // Get all verbs
+            const verbs = this.database.verbs || [];
+
+            // Store verbs for filtering
+            this.allVerbs = verbs;
+
+            // Display verbs
+            this.displayVerbs(verbs);
+
+            // Hide loading state
+            document.getElementById('verbListLoading').style.display = 'none';
+
+        } catch (error) {
+            console.error('[VERB SELECTION] Failed to load verbs for selection:', error);
+            document.getElementById('verbListLoading').style.display = 'none';
+            document.getElementById('verbListEmpty').style.display = 'block';
+            document.getElementById('verbListEmpty').textContent = 'Failed to load verbs. Please try again.';
+        }
+    }
+
+    displayVerbs(verbs) {
+        const verbList = document.getElementById('verbList');
+        const emptyMessage = document.getElementById('verbListEmpty');
+
+        if (verbs.length === 0) {
+            verbList.innerHTML = '';
+            emptyMessage.style.display = 'block';
+            return;
+        }
+
+        emptyMessage.style.display = 'none';
+
+        const verbItems = verbs.map(verb => this.createVerbListItem(verb)).join('');
+        verbList.innerHTML = verbItems;
+
+        // Add click listeners to verb items
+        this.addVerbItemClickListeners();
+    }
+
+    createVerbListItem(verb) {
+        // Use georgian_wrapper for display (the key), with backward compatibility
+        const georgian = verb.georgian_wrapper || verb.georgian || 'No Georgian text';
+        const description = verb.description || 'No description';
+        const category = verb.category || 'Uncategorized';
+        const verbClass = verb.class || 'Unknown';
+        const semanticKey = verb.semantic_key || 'No semantic key';
+        const argumentPattern = verb.global_argument_pattern || verb.valency?.default || 'No pattern';
+        const id = verb.id || 'No ID';
+
+        return `
+            <div class="verb-item" data-verb-id="${id}" data-semantic-key="${semanticKey}">
+                <div class="verb-item-info">
+                    <div class="verb-item-georgian">${georgian}</div>
+                    <div class="verb-item-description">${description}</div>
+                    <div class="verb-item-meta">
+                        <span>ID: ${id}</span>
+                        <span>${category}</span>
+                        <span>${verbClass}</span>
+                        <span>${semanticKey}</span>
+                        <span>${argumentPattern}</span>
+                    </div>
+                </div>
+                <div class="verb-item-id">#${id}</div>
+            </div>
+        `;
+    }
+
+    addVerbItemClickListeners() {
+        const verbItems = document.querySelectorAll('.verb-item');
+
+        verbItems.forEach(item => {
+            item.addEventListener('click', () => {
+                // Remove previous selection
+                document.querySelectorAll('.verb-item').forEach(i => i.classList.remove('selected'));
+
+                // Add selection to clicked item
+                item.classList.add('selected');
+
+                // Store selected verb
+                const verbId = item.dataset.verbId;
+                const semanticKey = item.dataset.semanticKey;
+
+                // Try to get verb by ID first, then by semantic key
+                this.selectedVerb = this.database.getVerb(verbId);
+
+                if (!this.selectedVerb && semanticKey) {
+                    this.selectedVerb = this.database.getVerb(semanticKey);
+                }
+
+                // Enable load button
+                document.getElementById('loadSelectedVerbBtn').disabled = false;
+            });
+        });
+    }
+
+    filterVerbs() {
+        const searchTerm = document.getElementById('verbSearchInput').value.toLowerCase();
+        const categoryFilter = document.getElementById('categoryFilter').value;
+        const classFilter = document.getElementById('classFilter').value;
+        const argumentPatternFilter = document.getElementById('argumentPatternFilter').value;
+
+        if (!this.allVerbs || this.allVerbs.length === 0) {
+            this.displayVerbs([]);
+            return;
+        }
+
+        const filteredVerbs = this.allVerbs.filter(verb => {
+            // Search filter
+            const matchesSearch = !searchTerm ||
+                (verb.georgian_wrapper && verb.georgian_wrapper.toLowerCase().includes(searchTerm)) ||
+                (verb.georgian && verb.georgian.toLowerCase().includes(searchTerm)) || // Backward compatibility
+                (verb.description && verb.description.toLowerCase().includes(searchTerm)) ||
+                (verb.semantic_key && verb.semantic_key.toLowerCase().includes(searchTerm)) ||
+                (verb.global_argument_pattern && verb.global_argument_pattern.toLowerCase().includes(searchTerm)) ||
+                (verb.valency && verb.valency.default && verb.valency.default.toLowerCase().includes(searchTerm));
+
+            // Category filter
+            const matchesCategory = !categoryFilter || verb.category === categoryFilter;
+
+            // Class filter
+            const matchesClass = !classFilter || verb.class === classFilter;
+
+            // Argument pattern filter
+            const verbPattern = verb.global_argument_pattern || verb.valency?.default;
+            const matchesArgumentPattern = !argumentPatternFilter || verbPattern === argumentPatternFilter;
+
+            return matchesSearch && matchesCategory && matchesClass && matchesArgumentPattern;
+        });
+
+        this.displayVerbs(filteredVerbs);
+    }
+
+    loadSelectedVerb() {
+        if (!this.selectedVerb) {
+            this.showError('No verb selected');
+            return;
+        }
 
         try {
-            const verb = this.database.getVerb(verbId);
+            // Store verb data before clearing selection
+            const verbToLoad = this.selectedVerb;
+            const verbName = verbToLoad.georgian || verbToLoad.semantic_key;
 
-            if (verb) {
-                // Clear localStorage when loading a new verb
-                this.storageManager.clearProgress();
-                this.loadVerbForEditing(verb);
-            } else {
-                this.showError('Verb not found. Please check the identifier and try again.');
-            }
+            // Clear localStorage when loading a new verb
+            this.storageManager.clearProgress();
+            this.loadVerbForEditing(this.selectedVerb);
+
+            // Hide modal
+            this.hideVerbSelectionModal();
+
+            this.showSuccess(`Loaded verb: ${verbName}`);
+
         } catch (error) {
-            this.showError(`Failed to load verb: ${error.message}`);
+            console.error('[VERB SELECTION] Error loading verb:', error);
+            this.showError(`Failed to load verb: ${error.message || 'Unknown error occurred'}`);
         }
     }
 
     async saveVerb() {
         try {
+            console.log('[SAVE] Starting save process...');
             const formData = this.getFormData();
+            console.log('[SAVE] Form data collected:', formData);
 
             // Validate form data
+            console.log('[SAVE] Validating form data...');
             const validationResult = this.validationEngine.validateForm(formData);
+            console.log('[SAVE] Validation result:', validationResult);
 
             if (!validationResult.isValid) {
                 this.showValidationErrors(validationResult.errors);
@@ -3808,6 +4228,7 @@ class VerbEditor {
 
             // Check if verb already exists (for new verbs)
             if (!this.currentVerb || !this.currentVerb.id) {
+                console.log('[SAVE] Checking if verb exists...');
                 const existsCheck = await this.database.checkVerbExists(formData.georgian, formData.semantic_key);
                 if (existsCheck.exists) {
                     this.showError('A verb with this Georgian text or semantic key already exists. Please use a different value.');
@@ -3815,19 +4236,54 @@ class VerbEditor {
                 }
             }
 
-            // Update current verb with form data
+            // Convert form data to new semantic-only structure
+            console.log('[SAVE] Converting form data to verb structure...');
+            const verbData = this.convertFormDataToVerbStructure(formData);
+            console.log('[SAVE] Verb data converted:', verbData);
+
+            // Update current verb with converted data
             if (!this.currentVerb) {
                 this.currentVerb = {};
             }
-            Object.assign(this.currentVerb, formData);
+            Object.assign(this.currentVerb, verbData);
 
             // Save to localStorage
+            console.log('[SAVE] Saving to localStorage...');
             await this.storageManager.saveProgress(this.currentVerb);
 
-            // TODO: File I/O will be implemented later
-            this.showSuccess('Verb saved to local storage successfully!');
+            // Save to file
+            console.log('[SAVE] Saving to file...');
+            await this.saveVerbToFile(verbData);
+
+            // Show detailed success message with file location
+            const successMessage = `Verb saved successfully!
+            
+File Location: ${this.getVerbsFilePath()}
+Verb ID: ${verbData.id}
+Georgian: ${verbData.georgian_wrapper}
+Semantic Key: ${verbData.semantic_key}
+
+The verb has been saved to the verbs.json file and all form data has been cleared.`;
+
+            // Show both alert and success message for save operations
+            alert(`✅ SAVE SUCCESSFUL!\n\n${successMessage}`);
+            this.showSuccess(successMessage);
+
+            // Clear all form data
+            this.clearAllFormData();
+
+            // Log detailed save operation
+            console.log('✅ [SAVE_SUCCESS] Verb saved successfully!');
+            console.log('✅ [SAVE_SUCCESS] File location:', this.getVerbsFilePath());
+            console.log('✅ [SAVE_SUCCESS] Verb data:', verbData);
+            console.log('✅ [SAVE_SUCCESS] Form data cleared');
+
+            // Verify the save operation by checking if the verb exists in the file
+            this.verifySaveOperation(verbData);
 
         } catch (error) {
+            console.error('[SAVE] Error in saveVerb:', error);
+            console.error('[SAVE] Error stack:', error.stack);
             this.showError(`Failed to save verb: ${error.message}`);
         }
     }
@@ -3864,18 +4320,34 @@ class VerbEditor {
 
 
     populateFormWithScrapedData(scrapedData) {
-        // Populate basic fields
+        // Populate basic fields with new structure
         if (scrapedData.georgian) {
-            document.getElementById('georgian').value = scrapedData.georgian;
+            // Populate both wrapper and display fields with the scraped Georgian text
+            const georgianWrapperField = document.getElementById('georgianWrapper');
+            const georgianDisplayField = document.getElementById('georgianDisplay');
+
+            if (georgianWrapperField) {
+                georgianWrapperField.value = scrapedData.georgian;
+            }
+            if (georgianDisplayField) {
+                georgianDisplayField.value = scrapedData.georgian;
+            }
         }
+
         if (scrapedData.english) {
-            document.getElementById('description').value = scrapedData.english;
+            const descriptionField = document.getElementById('description');
+            if (descriptionField) {
+                descriptionField.value = scrapedData.english;
+            }
         }
 
         // Generate semantic key from Georgian text
         if (scrapedData.georgian) {
             const semanticKey = this.scraperIntegration.generateSemanticKey(scrapedData.georgian);
-            document.getElementById('semanticKey').value = semanticKey;
+            const semanticKeyField = document.getElementById('semanticKey');
+            if (semanticKeyField) {
+                semanticKeyField.value = semanticKey;
+            }
         }
 
         // Check if verb already exists
@@ -3908,52 +4380,197 @@ class VerbEditor {
     }
 
     loadVerbForEditing(verb) {
+        console.log('[LOADER] loadVerbForEditing called with verb:', verb);
+
+        if (!verb) {
+            console.error('[LOADER] Error: verb parameter is null or undefined');
+            this.showError('Failed to load verb: verb data is missing');
+            return;
+        }
+
+        // Set loading flag to prevent local storage interference
+        this.isLoadingVerb = true;
+
         this.currentVerb = verb;
+        console.log('[LOADER] Current verb set:', this.currentVerb);
 
         // Populate form with existing verb data
-        if (verb.georgian) document.getElementById('georgian').value = verb.georgian;
-        if (verb.description) document.getElementById('description').value = verb.description;
-        if (verb.category) document.getElementById('category').value = verb.category;
-        if (verb.class) document.getElementById('verbClass').value = verb.class;
-        if (verb.semantic_key) document.getElementById('semanticKey').value = verb.semantic_key;
-        if (verb.notes) document.getElementById('notes').value = verb.notes;
-        if (verb.url) document.getElementById('url').value = verb.url;
+        // Handle Georgian fields with new structure - clear if no data
+        const georgianWrapperField = document.getElementById('georgianWrapper');
+        const georgianDisplayField = document.getElementById('georgianDisplay');
 
-        // Populate English translations
+        if (georgianWrapperField) {
+            if (verb.georgian_wrapper) {
+                // Use the wrapper field (from top-level key) for the wrapper input
+                georgianWrapperField.value = verb.georgian_wrapper;
+            } else if (verb.georgian) {
+                // Backward compatibility: use old georgian field as wrapper
+                georgianWrapperField.value = verb.georgian;
+            } else {
+                georgianWrapperField.value = '';
+            }
+        }
+
+        if (georgianDisplayField) {
+            if (verb.georgian) {
+                // Use the georgian field for the display input
+                georgianDisplayField.value = verb.georgian;
+            } else if (verb.georgian_display) {
+                // Backward compatibility: use old georgian_display field
+                georgianDisplayField.value = verb.georgian_display;
+            } else {
+                georgianDisplayField.value = '';
+            }
+        }
+
+        // Handle basic form fields - clear if no data
+        const descriptionField = document.getElementById('description');
+        const categoryField = document.getElementById('category');
+        const verbClassField = document.getElementById('verbClass');
+        const semanticKeyField = document.getElementById('semanticKey');
+
+        if (descriptionField) {
+            descriptionField.value = verb.description || '';
+        }
+        if (categoryField) {
+            categoryField.value = verb.category || '';
+        }
+        if (verbClassField) {
+            verbClassField.value = verb.class || '';
+        }
+        if (semanticKeyField) {
+            semanticKeyField.value = verb.semantic_key || '';
+        }
+        // Handle notes field - set to empty string if notes is empty or undefined
+        const notesField = document.getElementById('notes');
+        if (notesField) {
+            notesField.value = verb.notes || '';
+        }
+        // Handle URL field - clear if no data
+        const urlField = document.getElementById('url');
+        if (urlField) {
+            urlField.value = verb.url || '';
+        }
+
+        // Populate English translations (new structure) - clear fields if no data
+        const translationFields = {
+            present: document.getElementById('translationPresent'),
+            imperfect: document.getElementById('translationImperfect'),
+            future: document.getElementById('translationFuture'),
+            aorist: document.getElementById('translationAorist'),
+            optative: document.getElementById('translationOptative'),
+            imperative: document.getElementById('translationImperative')
+        };
+
         if (verb.english_translations && verb.english_translations.default) {
             const translations = verb.english_translations.default;
-            if (translations.present) document.getElementById('translationPresent').value = translations.present;
-            if (translations.imperfect) document.getElementById('translationImperfect').value = translations.imperfect;
-            if (translations.future) document.getElementById('translationFuture').value = translations.future;
-            if (translations.aorist) document.getElementById('translationAorist').value = translations.aorist;
-            if (translations.optative) document.getElementById('translationOptative').value = translations.optative;
-            if (translations.imperative) document.getElementById('translationImperative').value = translations.imperative;
+            Object.keys(translationFields).forEach(tense => {
+                if (translationFields[tense]) {
+                    translationFields[tense].value = translations[tense] || '';
+                }
+            });
+        } else {
+            // Clear all translation fields if no translations data
+            Object.values(translationFields).forEach(field => {
+                if (field) {
+                    field.value = '';
+                }
+            });
         }
 
-        // Handle argument pattern
-        if (verb.argument_pattern) {
-            document.getElementById('argumentPattern').value = verb.argument_pattern;
-            this.handleArgumentPatternChange(verb.argument_pattern);
+        // Handle argument pattern - determine from raw gloss in conjugations
+        if (verb && verb.conjugations) {
+            const argumentPattern = this.determineArgumentPatternFromGloss(verb);
+            if (argumentPattern) {
+                document.getElementById('argumentPattern').value = argumentPattern;
+                this.handleArgumentPatternChange(argumentPattern);
+            }
         }
 
-        // Handle arguments and prepositions
-        if (verb.syntax && verb.syntax.prepositions) {
-            const prepositions = verb.syntax.prepositions;
-            if (prepositions.subject) document.getElementById('subjectPreposition').value = prepositions.subject;
-            if (prepositions.direct_object) document.getElementById('directObjectPreposition').value = prepositions.direct_object;
-            if (prepositions.indirect_object) document.getElementById('indirectObjectPreposition').value = prepositions.indirect_object;
+        // Handle valency configuration
+        if (verb && verb.valency) {
+            if (verb.valency.default) {
+                document.getElementById('valencyDefault').value = verb.valency.default;
+            }
+            if (verb.valency.alternatives && Array.isArray(verb.valency.alternatives)) {
+                // Clear all checkboxes first
+                document.querySelectorAll('input[name="valencyAlternatives"]').forEach(checkbox => {
+                    checkbox.checked = false;
+                });
+                // Check the appropriate ones
+                verb.valency.alternatives.forEach(alternative => {
+                    const checkbox = document.querySelector(`input[name="valencyAlternatives"][value="${alternative}"]`);
+                    if (checkbox) {
+                        checkbox.checked = true;
+                    }
+                });
+            }
+        } else if (verb && verb.global_argument_pattern) {
+            // Backward compatibility: use global_argument_pattern if valency not present
+            document.getElementById('argumentPattern').value = verb.global_argument_pattern;
+            this.handleArgumentPatternChange(verb.global_argument_pattern);
+        }
+
+        // Handle arguments and prepositions (new semantic-only structure)
+        if (verb && verb.syntax) {
+            // Handle prepositions - clear fields if no data
+            const subjectPrepositionField = document.getElementById('subjectPreposition');
+            const directObjectPrepositionField = document.getElementById('directObjectPreposition');
+            const indirectObjectPrepositionField = document.getElementById('indirectObjectPreposition');
+
+            if (verb.syntax.prepositions) {
+                const prepositions = verb.syntax.prepositions;
+                if (subjectPrepositionField) {
+                    subjectPrepositionField.value = prepositions.subject || '';
+                }
+                if (directObjectPrepositionField) {
+                    directObjectPrepositionField.value = prepositions.direct_object || '';
+                }
+                if (indirectObjectPrepositionField) {
+                    indirectObjectPrepositionField.value = prepositions.indirect_object || '';
+                }
+            } else {
+                // Clear preposition fields if no prepositions data
+                if (subjectPrepositionField) {
+                    subjectPrepositionField.value = '';
+                }
+                if (directObjectPrepositionField) {
+                    directObjectPrepositionField.value = '';
+                }
+                if (indirectObjectPrepositionField) {
+                    indirectObjectPrepositionField.value = '';
+                }
+            }
+
+            // Handle semantic-only arguments - will be loaded after argument pattern is set
+            // to ensure fields are generated first
         }
 
         // Handle conjugations
-        if (verb.conjugations) {
+        if (verb && verb.conjugations) {
             this.loadConjugations(verb.conjugations);
         }
 
-        // Handle preverb configuration
-        if (verb.preverb_config && verb.preverb_config.has_multiple_preverbs) {
-            document.querySelector('input[name="hasMultiplePreverbs"][value="true"]').checked = true;
-            this.handlePreverbChange('true');
+        // Handle preverb configuration (new structure)
+        if (verb && verb.preverb_config) {
+            this.loadPreverbConfiguration(verb.preverb_config, verb.preverb_rules);
         }
+
+        // Handle preverb-specific translations
+        if (verb && verb.english_translations) {
+            this.loadPreverbTranslations(verb.english_translations);
+        }
+
+        // Handle preverb rules (tense-specific fallbacks)
+        if (verb && verb.preverb_rules) {
+            console.log('[LOADER] Loading preverb rules:', verb.preverb_rules);
+            this.loadPreverbRules(verb.preverb_rules);
+        } else {
+            console.log('[LOADER] No preverb rules found in verb:', verb?.preverb_rules);
+        }
+
+        // Reset loading flag after all data is loaded
+        this.isLoadingVerb = false;
 
         this.showSuccess('Existing verb loaded for editing');
     }
@@ -3992,6 +4609,14 @@ class VerbEditor {
                     }
                 });
                 console.log('[STORAGE] Conjugations loaded successfully');
+
+                // Generate preverb checkboxes for examples section if this is a multi-preverb verb
+                // Use a small delay to ensure DOM elements are fully created
+                setTimeout(() => {
+                    if (this.currentVerb && this.currentVerb.preverb_config && this.currentVerb.preverb_config.has_multiple_preverbs) {
+                        this.generatePreverbCheckboxesForExamples();
+                    }
+                }, 100);
             } else {
                 // Forms don't exist yet, generate them and try again
                 if (attempts === 1) {
@@ -4063,6 +4688,1269 @@ class VerbEditor {
         this.storageManager.clearProgress();
     }
 
+    /**
+     * Determine argument pattern from raw gloss in conjugations
+     * Updated for semantic-only approach
+     */
+    determineArgumentPatternFromGloss(verb) {
+        console.log('[ARGUMENT_PATTERN] determineArgumentPatternFromGloss called with verb:', verb);
+
+        if (!verb) {
+            console.error('[ARGUMENT_PATTERN] Error: verb parameter is null or undefined');
+            return null;
+        }
+
+        if (!verb.conjugations) {
+            console.log('[ARGUMENT_PATTERN] No conjugations found in verb');
+            return null;
+        }
+
+        console.log('[ARGUMENT_PATTERN] Verb conjugations:', verb.conjugations);
+
+        // Look for raw gloss in any conjugation
+        for (const [tense, data] of Object.entries(verb.conjugations)) {
+            console.log(`[ARGUMENT_PATTERN] Checking tense: ${tense}, data:`, data);
+            if (data.raw_gloss) {
+                const rawGloss = data.raw_gloss;
+                console.log(`[ARGUMENT_PATTERN] Found raw gloss: ${rawGloss}`);
+
+                // Parse valency from raw gloss patterns
+                if (rawGloss.includes('<S-DO-IO>') || rawGloss.includes('<S-IO-DO>')) {
+                    console.log('[ARGUMENT_PATTERN] Pattern found: <S-DO-IO>');
+                    return '<S-DO-IO>';
+                } else if (rawGloss.includes('<S-DO>')) {
+                    console.log('[ARGUMENT_PATTERN] Pattern found: <S-DO>');
+                    return '<S-DO>';
+                } else if (rawGloss.includes('<S-IO>')) {
+                    console.log('[ARGUMENT_PATTERN] Pattern found: <S-IO>');
+                    return '<S-IO>';
+                } else if (rawGloss.includes('<S>')) {
+                    console.log('[ARGUMENT_PATTERN] Pattern found: <S>');
+                    return '<S>';
+                }
+            }
+        }
+        console.log('[ARGUMENT_PATTERN] No pattern found, returning null');
+        return null;
+    }
+
+    /**
+     * Load semantic-only arguments from new structure
+     */
+    loadSemanticArguments(argumentData) {
+        // Wait for argument sections to be generated
+        const maxAttempts = 10;
+        let attempts = 0;
+
+        const tryLoadArguments = () => {
+            attempts++;
+
+            // Check if argument sections exist
+            const hasArgumentSections = document.getElementById('subjectArguments') &&
+                document.getElementById('directObjectArguments') &&
+                document.getElementById('indirectObjectArguments');
+
+            if (hasArgumentSections) {
+                // Load subject arguments
+                if (argumentData.subject) {
+                    this.loadArgumentData('subject', argumentData.subject);
+                }
+
+                // Load direct object arguments
+                if (argumentData.direct_object) {
+                    this.loadArgumentData('direct_object', argumentData.direct_object);
+                }
+
+                // Load indirect object arguments
+                if (argumentData.indirect_object) {
+                    this.loadArgumentData('indirect_object', argumentData.indirect_object);
+                }
+
+                console.log('[LOADER] Semantic arguments loaded successfully');
+            } else {
+                // Sections don't exist yet, try again
+                if (attempts < maxAttempts) {
+                    setTimeout(tryLoadArguments, 200);
+                } else {
+                    console.warn('[LOADER] Failed to load arguments after maximum attempts');
+                }
+            }
+        };
+
+        // Start the loading process
+        tryLoadArguments();
+    }
+
+    /**
+     * Load argument data for a specific argument type
+     */
+    loadArgumentData(argType, argData) {
+        // Get all fields for this argument type
+        const fields = {
+            '3sg': {
+                noun: document.getElementById(`${argType}Noun3sg`),
+                adjective: document.getElementById(`${argType}Adjective3sg`)
+            },
+            '3pl': {
+                noun: document.getElementById(`${argType}Noun3pl`),
+                adjective: document.getElementById(`${argType}Adjective3pl`)
+            }
+        };
+
+        // Load 3sg data
+        if (argData['3sg']) {
+            if (fields['3sg'].noun) {
+                fields['3sg'].noun.value = argData['3sg'].noun || '';
+            }
+            if (fields['3sg'].adjective) {
+                fields['3sg'].adjective.value = argData['3sg'].adjective || '';
+            }
+        } else {
+            // Clear 3sg fields if no data
+            if (fields['3sg'].noun) {
+                fields['3sg'].noun.value = '';
+            }
+            if (fields['3sg'].adjective) {
+                fields['3sg'].adjective.value = '';
+            }
+        }
+
+        // Load 3pl data
+        if (argData['3pl']) {
+            if (fields['3pl'].noun) {
+                fields['3pl'].noun.value = argData['3pl'].noun || '';
+            }
+            if (fields['3pl'].adjective) {
+                fields['3pl'].adjective.value = argData['3pl'].adjective || '';
+            }
+        } else {
+            // Clear 3pl fields if no data
+            if (fields['3pl'].noun) {
+                fields['3pl'].noun.value = '';
+            }
+            if (fields['3pl'].adjective) {
+                fields['3pl'].adjective.value = '';
+            }
+        }
+    }
+
+    /**
+     * Load preverb configuration from new structure
+     */
+    loadPreverbConfiguration(preverbConfig, preverbRules) {
+        // Clear all preverb-related form fields first
+        this.clearPreverbFormFields();
+
+        // Set multiple preverbs flag
+        if (preverbConfig && preverbConfig.has_multiple_preverbs) {
+            document.querySelector('input[name="hasMultiplePreverbs"][value="true"]').checked = true;
+            this.handlePreverbChange('true');
+
+            // Set default preverb
+            if (preverbConfig.default_preverb) {
+                const defaultPreverbSelect = document.getElementById('defaultPreverb');
+                if (defaultPreverbSelect) {
+                    defaultPreverbSelect.value = preverbConfig.default_preverb;
+                }
+            }
+
+            // Set available preverbs
+            if (preverbConfig.available_preverbs && preverbConfig.available_preverbs.length > 0) {
+                preverbConfig.available_preverbs.forEach(preverb => {
+                    const checkbox = document.querySelector(`input[name="availablePreverbs"][value="${preverb}"]`);
+                    if (checkbox) {
+                        checkbox.checked = true;
+                    }
+                });
+            }
+
+            // Load preverb rules if they exist
+            if (preverbRules) {
+                this.loadPreverbRules(preverbRules);
+            }
+
+            // Update progressive disclosure form state after loading preverb configuration
+            setTimeout(() => {
+                const hasComplexRules = document.getElementById('hasComplexRules')?.checked || false;
+                const hasArgumentOverrides = document.getElementById('hasArgumentOverrides')?.checked || false;
+
+                this.progressiveDisclosure.updateFormState({
+                    hasComplexRules: hasComplexRules,
+                    hasArgumentOverrides: hasArgumentOverrides
+                });
+
+                console.log('[LOADER] Preverb configuration form state synchronized:', {
+                    hasComplexRules: hasComplexRules,
+                    hasArgumentOverrides: hasArgumentOverrides
+                });
+            }, 100);
+        } else {
+            // Single preverb verb - set "No" radio button and hide preverb config
+            document.querySelector('input[name="hasMultiplePreverbs"][value="false"]').checked = true;
+            this.handlePreverbChange('false');
+        }
+    }
+
+    /**
+ * Generate preverb checkboxes for examples section
+ */
+    generatePreverbCheckboxesForExamples() {
+        if (!this.currentVerb || !this.currentVerb.preverb_config) {
+            return;
+        }
+
+        const availablePreverbs = this.currentVerb.preverb_config.available_preverbs || [];
+        const defaultPreverb = this.currentVerb.preverb_config.default_preverb || '';
+
+        // Use a retry mechanism to wait for DOM elements to be created
+        const maxAttempts = 10;
+        let attempts = 0;
+
+        const tryGenerateCheckboxes = () => {
+            attempts++;
+
+            // Get all tense sections
+            const tenseSections = ['present', 'imperfect', 'future', 'aorist', 'optative', 'imperative'];
+            let allContainersFound = true;
+
+            tenseSections.forEach(tense => {
+                const checkboxesContainer = document.getElementById(`preverbCheckboxes_${tense}`);
+                if (!checkboxesContainer) {
+                    allContainersFound = false;
+                }
+            });
+
+            if (allContainersFound) {
+                tenseSections.forEach(tense => {
+                    const checkboxesContainer = document.getElementById(`preverbCheckboxes_${tense}`);
+
+                    // Generate checkboxes
+                    let checkboxesHTML = '';
+                    availablePreverbs.forEach(preverb => {
+                        const isDefault = preverb === defaultPreverb;
+                        checkboxesHTML += `
+                            <label>
+                                <input type="checkbox" name="preverbCheckbox" value="${preverb}" 
+                                       ${isDefault ? 'checked' : ''} data-tense="${tense}">
+                                <span>${preverb}${isDefault ? ' (default)' : ''}</span>
+                            </label>
+                        `;
+                    });
+
+                    checkboxesContainer.innerHTML = checkboxesHTML;
+
+                    // Show the preverb selection section
+                    const preverbSelection = document.getElementById(`preverbSelection_${tense}`);
+                    if (preverbSelection) {
+                        preverbSelection.style.display = 'block';
+                    }
+                });
+            } else if (attempts < maxAttempts) {
+                setTimeout(tryGenerateCheckboxes, 200);
+            }
+        };
+
+        // Start the retry process
+        tryGenerateCheckboxes();
+    }
+
+    /**
+     * Clear all preverb-related form fields
+     */
+    clearPreverbFormFields() {
+        // Clear default preverb select
+        const defaultPreverbSelect = document.getElementById('defaultPreverb');
+        if (defaultPreverbSelect) {
+            defaultPreverbSelect.value = '';
+        }
+
+        // Clear all available preverb checkboxes
+        document.querySelectorAll('input[name="availablePreverbs"]').forEach(checkbox => {
+            checkbox.checked = false;
+        });
+
+        // Clear complex rules checkbox
+        const complexRulesCheckbox = document.getElementById('hasComplexRules');
+        if (complexRulesCheckbox) {
+            complexRulesCheckbox.checked = false;
+        }
+
+        // Clear argument overrides checkbox
+        const argumentOverridesCheckbox = document.getElementById('hasArgumentOverrides');
+        if (argumentOverridesCheckbox) {
+            argumentOverridesCheckbox.checked = false;
+        }
+
+        // Clear complex rules content
+        const complexRulesContent = document.getElementById('complexRulesContent');
+        if (complexRulesContent) {
+            complexRulesContent.classList.add('hidden');
+        }
+
+        // Clear argument overrides content
+        const argumentOverridesContent = document.getElementById('argumentOverridesContent');
+        if (argumentOverridesContent) {
+            argumentOverridesContent.classList.add('hidden');
+        }
+
+        // Clear preverb translations list
+        const preverbTranslationsList = document.getElementById('preverbTranslationsList');
+        if (preverbTranslationsList) {
+            preverbTranslationsList.innerHTML = '';
+        }
+
+        // Clear tense fallbacks list
+        const tenseFallbacksList = document.getElementById('tenseFallbacksList');
+        if (tenseFallbacksList) {
+            tenseFallbacksList.innerHTML = '';
+        }
+
+        // Clear preverb overrides list
+        const preverbOverridesList = document.getElementById('preverbOverridesList');
+        if (preverbOverridesList) {
+            preverbOverridesList.innerHTML = '';
+        }
+
+        // Clear preverb checkboxes in examples section
+        const tenseSections = ['present', 'imperfect', 'future', 'aorist', 'optative', 'imperative'];
+        tenseSections.forEach(tense => {
+            const checkboxesContainer = document.getElementById(`preverbCheckboxes_${tense}`);
+            if (checkboxesContainer) {
+                checkboxesContainer.innerHTML = '';
+            }
+
+            // Hide the preverb selection section
+            const preverbSelection = document.getElementById(`preverbSelection_${tense}`);
+            if (preverbSelection) {
+                preverbSelection.style.display = 'none';
+            }
+        });
+    }
+
+    /**
+     * Load preverb rules from new structure
+     */
+    loadPreverbRules(preverbRules) {
+        console.log('[LOADER] Loading preverb rules:', preverbRules);
+
+        // Show complex rules section if there are any preverb rules (indicating multi-preverb verb)
+        // or if there are actual fallback data
+        const hasComplexRules = preverbRules.default ||
+            preverbRules.replacements ||
+            (preverbRules.tense_specific_fallbacks && Object.keys(preverbRules.tense_specific_fallbacks).length > 0) ||
+            (preverbRules.english_fallbacks && Object.keys(preverbRules.english_fallbacks).length > 0);
+
+        if (hasComplexRules) {
+            // Check the complex rules checkbox and show the content
+            const complexRulesCheckbox = document.getElementById('hasComplexRules');
+            const complexRulesContent = document.getElementById('complexRulesContent');
+
+            if (complexRulesCheckbox) {
+                complexRulesCheckbox.checked = true;
+            }
+
+            if (complexRulesContent) {
+                complexRulesContent.classList.remove('hidden');
+            }
+
+            // Update progressive disclosure form state to match UI state
+            this.progressiveDisclosure.updateFormState({ hasComplexRules: true });
+
+            // Load tense-specific fallbacks
+            if (preverbRules.tense_specific_fallbacks && Object.keys(preverbRules.tense_specific_fallbacks).length > 0) {
+                console.log('[LOADER] Found tense-specific fallbacks, calling loadTenseSpecificFallbacks');
+                this.loadTenseSpecificFallbacks(preverbRules.tense_specific_fallbacks);
+            } else {
+                console.log('[LOADER] No tense-specific fallbacks found in preverbRules:', preverbRules.tense_specific_fallbacks);
+            }
+
+            // Load English fallbacks (same as tense-specific for now)
+            if (preverbRules.english_fallbacks && Object.keys(preverbRules.english_fallbacks).length > 0) {
+                console.log('[LOADER] English fallbacks found:', preverbRules.english_fallbacks);
+            }
+        }
+    }
+
+    /**
+     * Load preverb-specific translations from english_translations
+     */
+    loadPreverbTranslations(englishTranslations) {
+        console.log('[LOADER] Loading preverb-specific translations:', englishTranslations);
+
+        if (!englishTranslations) {
+            console.log('[LOADER] No english translations found');
+            return;
+        }
+
+        // Find preverb-specific translations (any key that's not 'default')
+        const preverbTranslations = {};
+        Object.entries(englishTranslations).forEach(([key, translations]) => {
+            if (key !== 'default') {
+                preverbTranslations[key] = translations;
+            }
+        });
+
+        if (Object.keys(preverbTranslations).length === 0) {
+            console.log('[LOADER] No preverb-specific translations found');
+            return;
+        }
+
+        // Check the complex rules checkbox and show the content
+        const complexRulesCheckbox = document.getElementById('hasComplexRules');
+        const complexRulesContent = document.getElementById('complexRulesContent');
+
+        if (complexRulesCheckbox) {
+            complexRulesCheckbox.checked = true;
+        }
+
+        if (complexRulesContent) {
+            complexRulesContent.classList.remove('hidden');
+        }
+
+        // Update progressive disclosure form state to match UI state
+        this.progressiveDisclosure.updateFormState({ hasComplexRules: true });
+
+        console.log('[LOADER] Found preverb translations:', preverbTranslations);
+        this.loadPreverbTranslationsIntoUI(preverbTranslations);
+    }
+
+    /**
+     * Load preverb-specific translations into the UI
+     */
+    loadPreverbTranslationsIntoUI(preverbTranslations) {
+        const translationsList = document.getElementById('preverbTranslationsList');
+        if (!translationsList) {
+            console.error('[LOADER] Preverb translations list container not found');
+            return;
+        }
+
+        // Clear existing translations
+        translationsList.innerHTML = '';
+
+        // Add each preverb translation
+        Object.entries(preverbTranslations).forEach(([preverb, translations]) => {
+            this.addPreverbTranslationItem(preverb, translations);
+        });
+    }
+
+    /**
+     * Add a preverb translation item to the UI
+     */
+    addPreverbTranslationItem(preverb, translations) {
+        const translationsList = document.getElementById('preverbTranslationsList');
+        const itemId = `translation_${Date.now()}_${Math.random().toString(36).substr(2, 9)}`;
+
+        const tenses = ['present', 'imperfect', 'future', 'aorist', 'optative', 'imperative'];
+        const tenseInputs = tenses.map(tense => {
+            const translation = translations[tense] || '';
+            let placeholder = '';
+            if (tense === 'present') placeholder = 'show';
+            else if (tense === 'imperfect') placeholder = 'was showing';
+            else if (tense === 'future') placeholder = 'will show';
+            else if (tense === 'aorist') placeholder = 'showed';
+            else if (tense === 'optative') placeholder = 'show (should added in examples)';
+            else if (tense === 'imperative') placeholder = 'show';
+
+            return `
+                <div class="form-group">
+                    <label for="translation${tense.charAt(0).toUpperCase() + tense.slice(1)}_${itemId}">${tense.charAt(0).toUpperCase() + tense.slice(1)}:</label>
+                    <input type="text" id="translation${tense.charAt(0).toUpperCase() + tense.slice(1)}_${itemId}" 
+                           value="${translation}" placeholder="e.g., ${placeholder}">
+                    <div class="field-help">${tense.charAt(0).toUpperCase() + tense.slice(1)} form</div>
+                </div>
+            `;
+        }).join('');
+
+        const html = `
+            <div class="translation-item" id="${itemId}">
+                <div class="translation-controls">
+                    <button type="button" class="btn btn-danger btn-small" onclick="this.closest('.translation-item').remove()">Remove</button>
+                </div>
+                <h5>Preverb: ${preverb}</h5>
+                <input type="hidden" data-field="preverb" value="${preverb}">
+                <div class="translation-overrides" style="display: block;">
+                    <h6>English Translations for ${preverb}</h6>
+                    <div class="translations-grid">
+                        ${tenseInputs}
+                    </div>
+                </div>
+            </div>
+        `;
+
+        translationsList.insertAdjacentHTML('beforeend', html);
+    }
+
+    /**
+     * Load tense-specific fallbacks into the UI
+     */
+    loadTenseSpecificFallbacks(tenseFallbacks) {
+        console.log('[LOADER] Loading tense-specific fallbacks:', tenseFallbacks);
+
+        const fallbacksList = document.getElementById('tenseFallbacksList');
+        if (!fallbacksList) {
+            console.error('[LOADER] Tense fallbacks list container not found');
+            return;
+        }
+
+        // Clear existing fallbacks
+        fallbacksList.innerHTML = '';
+
+        if (!tenseFallbacks || Object.keys(tenseFallbacks).length === 0) {
+            console.log('[LOADER] No tense fallbacks to load');
+            return;
+        }
+
+        console.log('[LOADER] Processing fallbacks:', Object.entries(tenseFallbacks));
+
+        // Group fallbacks by preverb and fallback target
+        const fallbackGroups = new Map();
+
+        Object.entries(tenseFallbacks).forEach(([preverb, tenseFallbacks]) => {
+            console.log('[LOADER] Processing preverb:', preverb, 'with fallbacks:', tenseFallbacks);
+            Object.entries(tenseFallbacks).forEach(([tense, fallback]) => {
+                console.log('[LOADER] Adding fallback item:', preverb, tense, fallback);
+
+                const key = `${preverb}-${fallback}`;
+                if (!fallbackGroups.has(key)) {
+                    fallbackGroups.set(key, {
+                        preverb: preverb,
+                        fallback: fallback,
+                        tenses: []
+                    });
+                }
+                fallbackGroups.get(key).tenses.push(tense);
+            });
+        });
+
+        // Create consolidated fallback sections
+        fallbackGroups.forEach((group) => {
+            console.log('[LOADER] Creating consolidated fallback for:', group);
+            this.addTenseFallbackWithData(group.preverb, group.tenses, group.fallback);
+        });
+    }
+
+    /**
+     * Add a tense fallback item to the UI (DEPRECATED - use addTenseFallbackWithData instead)
+     * This method creates individual fallback sections for each tense, which is not the desired behavior.
+     * The consolidated approach using addTenseFallbackWithData is preferred.
+     */
+    addTenseFallbackItem(preverb, tense, fallback) {
+        console.warn('[LOADER] addTenseFallbackItem is deprecated. Use addTenseFallbackWithData for consolidated fallback sections.');
+
+        // For backward compatibility, create a single consolidated section
+        this.addTenseFallbackWithData(preverb, [tense], fallback);
+    }
+
+    /**
+     * Generate preverb options for select dropdowns
+     */
+    generatePreverbOptions(selectedPreverb) {
+        // Get available preverbs from the current verb's configuration
+        let availablePreverbs = ['მი', 'მო', 'გა', 'წა']; // Default fallback
+
+        if (this.currentVerb && this.currentVerb.preverb_config && this.currentVerb.preverb_config.available_preverbs) {
+            availablePreverbs = this.currentVerb.preverb_config.available_preverbs;
+            console.log('[LOADER] Using available preverbs from verb config:', availablePreverbs);
+        } else {
+            console.log('[LOADER] Using default preverbs:', availablePreverbs);
+        }
+
+        return availablePreverbs.map(preverb =>
+            `<option value="${preverb}" ${preverb === selectedPreverb ? 'selected' : ''}>${preverb}</option>`
+        ).join('');
+    }
+
+    /**
+     * Convert form data to new semantic-only verb structure
+     */
+    convertFormDataToVerbStructure(formData) {
+        console.log('[CONVERT] Starting conversion with formData:', formData);
+
+        try {
+            console.log('[CONVERT] Building valency section...');
+            const valency = this.buildValencySection(formData);
+            console.log('[CONVERT] Valency built:', valency);
+
+            console.log('[CONVERT] Building syntax section...');
+            const syntax = this.buildSyntaxSection(formData);
+            console.log('[CONVERT] Syntax built:', syntax);
+
+            console.log('[CONVERT] Building English translations...');
+            const english_translations = this.buildEnglishTranslations(formData);
+            console.log('[CONVERT] English translations built:', english_translations);
+
+            console.log('[CONVERT] Building conjugations...');
+            const conjugations = this.buildConjugations(formData);
+            console.log('[CONVERT] Conjugations built:', conjugations);
+
+            console.log('[CONVERT] Building preverb config...');
+            const preverb_config = this.buildPreverbConfig(formData);
+            console.log('[CONVERT] Preverb config built:', preverb_config);
+
+            console.log('[CONVERT] Building preverb rules...');
+            const preverb_rules = this.buildPreverbRules(formData);
+            console.log('[CONVERT] Preverb rules built:', preverb_rules);
+
+            const verbData = {
+                id: this.currentVerb?.id || null, // Don't assign ID for new verbs - let server assign it
+                georgian: formData.georgian_display, // Use georgian_display as the main georgian field
+                description: formData.description,
+                category: formData.category,
+                class: formData.class,
+                semantic_key: formData.semantic_key,
+                notes: formData.notes,
+                url: formData.url,
+                global_argument_pattern: formData.argument_pattern,
+                valency: valency,
+                syntax: syntax,
+                english_translations: english_translations,
+                conjugations: conjugations,
+                preverb_config: preverb_config,
+                preverb_rules: preverb_rules
+            };
+
+            console.log('[CONVERT] Final verb data:', verbData);
+            return verbData;
+        } catch (error) {
+            console.error('[CONVERT] Error in convertFormDataToVerbStructure:', error);
+            console.error('[CONVERT] Error stack:', error.stack);
+            throw error;
+        }
+    }
+
+    /**
+     * Build valency section
+     */
+    buildValencySection(formData) {
+        // Use the valency data that was already collected in getFormData()
+        if (formData.valency && formData.valency.default) {
+            console.log('[VALENCY] Using pre-collected valency data:', formData.valency);
+            return formData.valency;
+        }
+
+        // Fallback: collect valency data directly from form
+        console.log('[VALENCY] Collecting valency data from form...');
+        const defaultValency = formData.valency_default || formData.argument_pattern;
+        const alternatives = formData.valency_alternatives || [];
+
+        return {
+            default: defaultValency,
+            alternatives: alternatives
+        };
+    }
+
+    /**
+     * Build syntax section with semantic-only arguments
+     */
+    buildSyntaxSection(formData) {
+        // Use the syntax data that was already collected in getFormData()
+        if (formData.syntax && formData.syntax.arguments) {
+            console.log('[SYNTAX] Using pre-collected syntax data:', formData.syntax);
+            return formData.syntax;
+        }
+
+        // Fallback: collect syntax data directly from form
+        console.log('[SYNTAX] Collecting syntax data from form...');
+        const syntax = {
+            arguments: {},
+            prepositions: {
+                subject: formData.subjectPreposition || "",
+                direct_object: formData.directObjectPreposition || "",
+                indirect_object: formData.indirectObjectPreposition || ""
+            },
+            preverb_overrides: {}
+        };
+
+        // Get arguments data from form fields
+        syntax.arguments = this.getArgumentsDataFromForm(formData.argument_pattern);
+
+        return syntax;
+    }
+
+    /**
+     * Build English translations section
+     */
+    buildEnglishTranslations(formData) {
+        // Use the english_translations data that was already collected in getFormData()
+        if (formData.english_translations && formData.english_translations.default) {
+            console.log('[TRANSLATIONS] Using pre-collected translations data:', formData.english_translations);
+            return formData.english_translations;
+        }
+
+        // Fallback: collect translations data directly from form
+        console.log('[TRANSLATIONS] Collecting translations data from form...');
+
+        // Ensure optative translation doesn't have "should" prefix
+        let optativeTranslation = formData.translationOptative || "";
+        if (optativeTranslation && optativeTranslation.trim() !== '') {
+            const optativeValue = optativeTranslation.trim();
+            if (optativeValue.toLowerCase().startsWith('should ')) {
+                optativeTranslation = optativeValue.substring(7); // Remove "should " prefix
+                console.log('[TRANSLATIONS] Removed automatic "should" prefix from optative in fallback:', optativeValue, '->', optativeTranslation);
+            }
+        }
+
+        const translations = {
+            default: {
+                present: formData.translationPresent || "",
+                imperfect: formData.translationImperfect || "",
+                future: formData.translationFuture || "",
+                aorist: formData.translationAorist || "",
+                optative: optativeTranslation,
+                imperative: formData.translationImperative || ""
+            }
+        };
+
+        // Add preverb-specific translations if they exist
+        if (formData.preverbTranslations && Object.keys(formData.preverbTranslations).length > 0) {
+            Object.entries(formData.preverbTranslations).forEach(([preverb, preverbTranslations]) => {
+                translations[preverb] = {
+                    present: preverbTranslations.present || "",
+                    imperfect: preverbTranslations.imperfect || "",
+                    future: preverbTranslations.future || "",
+                    aorist: preverbTranslations.aorist || "",
+                    optative: preverbTranslations.optative || "",
+                    imperative: preverbTranslations.imperative || ""
+                };
+            });
+        }
+
+        return translations;
+    }
+
+    /**
+     * Add "should" prefix to optative translations if not already present
+     */
+    addShouldPrefix(optativeTranslation) {
+        if (!optativeTranslation || optativeTranslation.trim() === '') {
+            return "";
+        }
+
+        const trimmed = optativeTranslation.trim();
+
+        // If it already starts with "should", return as is
+        if (trimmed.toLowerCase().startsWith('should ')) {
+            return trimmed;
+        }
+
+        // Add "should" prefix
+        return `should ${trimmed}`;
+    }
+
+    /**
+     * Build conjugations section
+     */
+    buildConjugations(formData) {
+        // Use the conjugations data that was already collected in getFormData()
+        if (formData.conjugations && Object.keys(formData.conjugations).length > 0) {
+            console.log('[CONJUGATIONS] Using pre-collected conjugations data:', formData.conjugations);
+            return formData.conjugations;
+        }
+
+        // Fallback: collect conjugations data directly from form
+        console.log('[CONJUGATIONS] Collecting conjugations data from form...');
+        const conjugations = {};
+        const tenses = ['present', 'imperfect', 'future', 'aorist', 'optative', 'imperative'];
+
+        tenses.forEach(tense => {
+            conjugations[tense] = {
+                raw_gloss: this.getRawGlossFromForm(tense),
+                forms: this.getConjugationFormsForTense(tense),
+                examples: []
+            };
+        });
+
+        return conjugations;
+    }
+
+    /**
+     * Build preverb configuration
+     */
+    buildPreverbConfig(formData) {
+        // Use the preverb_config data that was already collected in getFormData()
+        if (formData.preverb_config) {
+            console.log('[PREVERB_CONFIG] Using pre-collected preverb config data:', formData.preverb_config);
+
+            // Clean up the pre-collected data to remove extra keys for simple verbs
+            const hasMultiplePreverbs = formData.preverb_config.has_multiple_preverbs;
+            const cleanedConfig = {
+                has_multiple_preverbs: hasMultiplePreverbs,
+                default_preverb: formData.preverb_config.default_preverb || "",
+                available_preverbs: formData.preverb_config.available_preverbs || []
+            };
+
+            // Only add complex keys if has_multiple_preverbs is true
+            // Note: Removed has_complex_rules and has_argument_overrides as they are not needed
+
+            console.log('[PREVERB_CONFIG] Cleaned config:', cleanedConfig);
+            return cleanedConfig;
+        }
+
+        // Fallback: collect preverb config data directly from form
+        console.log('[PREVERB_CONFIG] Collecting preverb config data from form...');
+        const hasMultiplePreverbs = formData.hasMultiplePreverbs === 'true';
+
+        const config = {
+            has_multiple_preverbs: hasMultiplePreverbs,
+            default_preverb: formData.defaultPreverb || "",
+            available_preverbs: this.getSelectedPreverbsFromForm()
+        };
+
+        // Note: Removed has_complex_rules and has_argument_overrides as they are not needed
+
+        return config;
+    }
+
+    /**
+     * Build preverb rules
+     */
+    buildPreverbRules(formData) {
+        // Check if we have pre-collected preverb_rules data in preverb_config
+        if (formData.preverb_config && formData.preverb_config.rules) {
+            console.log('[PREVERB_RULES] Using pre-collected preverb_rules data from preverb_config:', formData.preverb_config.rules);
+
+            // For simple verbs, return empty object regardless of pre-collected data
+            const hasMultiplePreverbs = formData.hasMultiplePreverbs === 'true' ||
+                (formData.preverb_config && formData.preverb_config.has_multiple_preverbs);
+
+            if (!hasMultiplePreverbs) {
+                console.log('[PREVERB_RULES] Simple verb - returning empty preverb_rules object');
+                return {};
+            }
+
+            // For complex verbs, return the pre-collected data
+            console.log('[PREVERB_RULES] Complex verb - returning pre-collected preverb_rules structure');
+            return formData.preverb_config.rules;
+        }
+
+        // Fallback: determine from form data
+        const hasMultiplePreverbs = formData.hasMultiplePreverbs === 'true';
+
+        // For simple verbs (has_multiple_preverbs: false), return empty object
+        if (!hasMultiplePreverbs) {
+            console.log('[PREVERB_RULES] Simple verb - returning empty preverb_rules object');
+            return {};
+        }
+
+        // For complex verbs (has_multiple_preverbs: true), return full structure
+        console.log('[PREVERB_RULES] Complex verb - returning full preverb_rules structure');
+
+        // Get the preverb config data to build proper rules
+        const preverbConfig = formData.preverb_config;
+        const rules = {
+            default: preverbConfig?.default_preverb || formData.defaultPreverb || "",
+            replacements: {},
+            tense_specific_fallbacks: {},
+            english_fallbacks: {}
+        };
+
+        // Generate replacements based on available preverbs
+        if (preverbConfig?.available_preverbs) {
+            preverbConfig.available_preverbs.forEach(preverb => {
+                rules.replacements[preverb] = preverb;
+            });
+        }
+
+        return rules;
+    }
+
+    /**
+     * Get the path to the verbs.json file
+     */
+    getVerbsFilePath() {
+        // Return the relative path to the verbs.json file
+        return 'src/data/verbs.json';
+    }
+
+    /**
+     * Clear all form data and reset the form
+     */
+    clearAllFormData() {
+        console.log('[CLEAR] Clearing all form data...');
+
+        // Clear basic information fields
+        const basicFields = [
+            'georgianWrapper', 'georgianDisplay', 'description', 'category',
+            'verbClass', 'semanticKey', 'notes', 'url', 'argumentPattern',
+            'valencyDefault', 'subjectPreposition', 'directObjectPreposition',
+            'indirectObjectPreposition'
+        ];
+
+        basicFields.forEach(fieldId => {
+            const element = document.getElementById(fieldId);
+            if (element) {
+                element.value = '';
+                console.log(`[CLEAR] Cleared field: ${fieldId}`);
+            }
+        });
+
+        // Clear translation fields
+        const translationFields = [
+            'translationPresent', 'translationImperfect', 'translationFuture',
+            'translationAorist', 'translationOptative', 'translationImperative'
+        ];
+
+        translationFields.forEach(fieldId => {
+            const element = document.getElementById(fieldId);
+            if (element) {
+                element.value = '';
+                console.log(`[CLEAR] Cleared translation field: ${fieldId}`);
+            }
+        });
+
+        // Clear valency alternatives checkboxes
+        const valencyCheckboxes = document.querySelectorAll('input[name="valencyAlternatives"]:checked');
+        valencyCheckboxes.forEach(checkbox => {
+            checkbox.checked = false;
+            console.log(`[CLEAR] Unchecked valency alternative: ${checkbox.value}`);
+        });
+
+        // Clear preverb configuration
+        const preverbRadios = document.querySelectorAll('input[name="hasMultiplePreverbs"]');
+        preverbRadios.forEach(radio => {
+            radio.checked = false;
+        });
+        document.querySelector('input[name="hasMultiplePreverbs"][value="false"]').checked = true;
+
+        const defaultPreverbSelect = document.getElementById('defaultPreverb');
+        if (defaultPreverbSelect) {
+            defaultPreverbSelect.value = '';
+        }
+
+        const preverbCheckboxes = document.querySelectorAll('input[name="availablePreverbs"]:checked');
+        preverbCheckboxes.forEach(checkbox => {
+            checkbox.checked = false;
+        });
+
+        // Clear conjugation forms
+        const tenses = ['present', 'imperfect', 'future', 'aorist', 'optative', 'imperative'];
+        tenses.forEach(tense => {
+            const rawGlossElement = document.getElementById(`rawGloss_${tense}`);
+            if (rawGlossElement) {
+                rawGlossElement.value = '';
+            }
+
+            const personForms = this.getPersonFormsForTense(tense);
+            personForms.forEach(person => {
+                const conjugationElement = document.getElementById(`conjugation_${tense}_${person}`);
+                if (conjugationElement) {
+                    conjugationElement.value = '';
+                }
+            });
+        });
+
+        // Clear argument fields
+        const argumentSelects = document.querySelectorAll('.noun-select, .adjective-select');
+        argumentSelects.forEach(select => {
+            select.value = '';
+        });
+
+        // Reset current verb
+        this.currentVerb = null;
+
+        // Clear localStorage
+        if (this.storageManager) {
+            try {
+                this.storageManager.clearAllData();
+            } catch (error) {
+                console.log('[CLEAR] Storage manager clearAllData not available, clearing localStorage manually');
+                // Clear localStorage manually
+                const keys = Object.keys(localStorage);
+                keys.forEach(key => {
+                    if (key.startsWith('verb_editor_')) {
+                        localStorage.removeItem(key);
+                        console.log(`[CLEAR] Removed localStorage key: ${key}`);
+                    }
+                });
+            }
+        } else {
+            // Clear localStorage manually if storage manager not available
+            const keys = Object.keys(localStorage);
+            keys.forEach(key => {
+                if (key.startsWith('verb_editor_')) {
+                    localStorage.removeItem(key);
+                    console.log(`[CLEAR] Removed localStorage key: ${key}`);
+                }
+            });
+        }
+
+        // Hide any error or success messages
+        this.hideErrors();
+        this.hideSuccess();
+
+        console.log('[CLEAR] All form data cleared successfully');
+    }
+
+    /**
+     * Verify that the save operation was successful by checking if the verb exists in the file
+     */
+    async verifySaveOperation(verbData) {
+        try {
+            console.log('[VERIFY] Verifying save operation...');
+
+            // Wait a moment for the file to be written
+            await new Promise(resolve => setTimeout(resolve, 1000));
+
+            // Try to fetch the verb from the server to verify it was saved
+            const serverUrl = 'http://localhost:5002/api/verbs';
+            const response = await fetch(`${serverUrl}/${verbData.id}`);
+
+            if (response.ok) {
+                const result = await response.json();
+                if (result.success && result.verb) {
+                    console.log('✅ [VERIFY] Save verification successful!');
+                    console.log('✅ [VERIFY] Verb found in file:', result.verb);
+                } else {
+                    console.warn('⚠️ [VERIFY] Save verification failed - verb not found in file');
+                }
+            } else {
+                console.warn('⚠️ [VERIFY] Save verification failed - server response not ok');
+            }
+        } catch (error) {
+            console.warn('⚠️ [VERIFY] Save verification failed:', error.message);
+        }
+    }
+
+    /**
+     * Get next available verb ID
+     */
+    getNextVerbId() {
+        if (!this.database || !this.database.verbs || this.database.verbs.length === 0) {
+            return 1;
+        }
+
+        const maxId = Math.max(...this.database.verbs.map(v => v.id || 0));
+        return maxId + 1;
+    }
+
+    /**
+     * Get arguments data from form fields
+     */
+    getArgumentsDataFromForm(argumentPattern) {
+        const argumentsData = {};
+
+        if (!argumentPattern || !/^<[SDOI\-]+>$/.test(argumentPattern)) {
+            console.log('[ARGUMENTS] No valid argument pattern:', argumentPattern);
+            return argumentsData;
+        }
+
+        const args = argumentPattern.slice(1, -1).split('-');
+        console.log('[ARGUMENTS] Processing argument pattern:', argumentPattern, 'args:', args);
+
+        args.forEach(arg => {
+            if (arg === 'S') {
+                // Subject arguments for 3sg and 3pl only
+                const subjectData = {
+                    '3sg': this.getArgumentFormData('subject', '3sg'),
+                    '3pl': this.getArgumentFormData('subject', '3pl')
+                };
+
+                // Only add if there is actual data
+                if (subjectData['3sg'].noun || subjectData['3sg'].adjective ||
+                    subjectData['3pl'].noun || subjectData['3pl'].adjective) {
+                    argumentsData.subject = subjectData;
+                    console.log('[ARGUMENTS] Subject data:', argumentsData.subject);
+                }
+            } else if (arg === 'DO') {
+                // Direct object arguments for all persons
+                const directObjectData = {
+                    '1sg': this.getArgumentFormData('direct_object', '1sg'),
+                    '2sg': this.getArgumentFormData('direct_object', '2sg'),
+                    '3sg': this.getArgumentFormData('direct_object', '3sg'),
+                    '1pl': this.getArgumentFormData('direct_object', '1pl'),
+                    '2pl': this.getArgumentFormData('direct_object', '2pl'),
+                    '3pl': this.getArgumentFormData('direct_object', '3pl')
+                };
+
+                // Only add if there is actual data
+                const hasDirectObjectData = Object.values(directObjectData).some(data => data.noun || data.adjective);
+                if (hasDirectObjectData) {
+                    argumentsData.direct_object = directObjectData;
+                    console.log('[ARGUMENTS] Direct object data:', argumentsData.direct_object);
+                }
+            } else if (arg === 'IO') {
+                // Indirect object arguments for all persons
+                const indirectObjectData = {
+                    '1sg': this.getArgumentFormData('indirect_object', '1sg'),
+                    '2sg': this.getArgumentFormData('indirect_object', '2sg'),
+                    '3sg': this.getArgumentFormData('indirect_object', '3sg'),
+                    '1pl': this.getArgumentFormData('indirect_object', '1pl'),
+                    '2pl': this.getArgumentFormData('indirect_object', '2pl'),
+                    '3pl': this.getArgumentFormData('indirect_object', '3pl')
+                };
+
+                // Only add if there is actual data
+                const hasIndirectObjectData = Object.values(indirectObjectData).some(data => data.noun || data.adjective);
+                if (hasIndirectObjectData) {
+                    argumentsData.indirect_object = indirectObjectData;
+                    console.log('[ARGUMENTS] Indirect object data:', argumentsData.indirect_object);
+                }
+            }
+        });
+
+        console.log('[ARGUMENTS] Final arguments data:', argumentsData);
+        return argumentsData;
+    }
+
+    /**
+     * Get raw gloss for a specific tense from the form
+     */
+    getRawGlossFromForm(tense) {
+        const rawGlossElement = document.getElementById(`rawGloss_${tense}`);
+        if (rawGlossElement && rawGlossElement.value) {
+            return rawGlossElement.value.trim();
+        }
+
+        // Fallback to basic pattern if no raw gloss is entered
+        const argumentPatternElement = document.getElementById('argumentPattern');
+        const argumentPattern = argumentPatternElement ? argumentPatternElement.value : '';
+        return this.getRawGlossForTense(tense, argumentPattern);
+    }
+
+    /**
+     * Get raw gloss for a specific tense and argument pattern (fallback method)
+     */
+    getRawGlossForTense(tense, argumentPattern) {
+        if (!argumentPattern) return "";
+
+        // Convert argument pattern to raw gloss format
+        return argumentPattern;
+    }
+
+    /**
+     * Get conjugation forms for a specific tense
+     */
+    getConjugationFormsForTense(tense) {
+        const forms = {};
+        const persons = ['1sg', '2sg', '3sg', '1pl', '2pl', '3pl'];
+
+        persons.forEach(person => {
+            const element = document.getElementById(`conjugation_${tense}_${person}`);
+            if (element) {
+                forms[person] = element.value || "";
+            }
+        });
+
+        return forms;
+    }
+
+    /**
+     * Get selected preverbs from form
+     */
+    getSelectedPreverbsFromForm() {
+        const selectedPreverbs = [];
+        const preverbCheckboxes = document.querySelectorAll('input[name="availablePreverbs"]:checked');
+
+        preverbCheckboxes.forEach(checkbox => {
+            selectedPreverbs.push(checkbox.value);
+        });
+
+        return selectedPreverbs;
+    }
+
+    /**
+     * Save verb data to file via server API
+     */
+    async saveVerbToFile(verbData) {
+        try {
+            console.log('[SAVE_FILE] Starting save to file with verbData:', verbData);
+            const serverUrl = 'http://localhost:5002/api/verbs';
+
+            // Check if verb actually exists in the database by ID
+            let isNewVerb = true;
+            if (verbData.id) {
+                try {
+                    const checkResponse = await fetch(`${serverUrl}/${verbData.id}`, {
+                        method: 'GET',
+                        headers: {
+                            'Content-Type': 'application/json',
+                        }
+                    });
+                    isNewVerb = !checkResponse.ok;
+                    console.log('[SAVE_FILE] Verb exists check result:', !isNewVerb);
+                } catch (error) {
+                    console.log('[SAVE_FILE] Error checking if verb exists, treating as new verb:', error);
+                    isNewVerb = true;
+                }
+            }
+            console.log('[SAVE_FILE] Is new verb:', isNewVerb);
+
+            let response;
+            if (isNewVerb) {
+                // Add new verb
+                console.log('[SAVE_FILE] Adding new verb...');
+                response = await fetch(serverUrl, {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify(verbData)
+                });
+            } else {
+                // Update existing verb
+                console.log('[SAVE_FILE] Updating existing verb...');
+                response = await fetch(`${serverUrl}/${verbData.id}`, {
+                    method: 'PUT',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify(verbData)
+                });
+            }
+
+            console.log('[SAVE_FILE] Response received:', response);
+            const result = await response.json();
+            console.log('[SAVE_FILE] Result:', result);
+
+            if (result.success) {
+                console.log('[SAVE_FILE] Verb saved successfully:', result.message);
+
+                // Update the current verb with the saved data
+                if (result.verb) {
+                    console.log('[SAVE_FILE] Updating current verb with:', result.verb);
+                    this.currentVerb = result.verb;
+                }
+
+                return result;
+            } else {
+                throw new Error(result.error || 'Failed to save verb');
+            }
+
+        } catch (error) {
+            console.error('[SAVE_FILE] Failed to save verb to file:', error);
+            console.error('[SAVE_FILE] Error stack:', error.stack);
+
+            // Fallback to download if server is not available
+            if (error.message.includes('fetch') || error.message.includes('network')) {
+                console.warn('[SAVE_FILE] Server not available, falling back to download');
+                this.downloadVerbAsFile(verbData);
+                return { success: true, message: 'Verb downloaded as file (server unavailable)' };
+            }
+
+            throw new Error(`File save failed: ${error.message}`);
+        }
+    }
+
+    /**
+     * Download verb data as file (fallback method)
+     */
+    downloadVerbAsFile(verbData) {
+        try {
+            const dataStr = JSON.stringify(verbData, null, 2);
+            const dataBlob = new Blob([dataStr], { type: 'application/json' });
+
+            const link = document.createElement('a');
+            link.href = URL.createObjectURL(dataBlob);
+            link.download = `verb_${verbData.semantic_key || verbData.georgian}.json`;
+            link.click();
+
+            console.log('[SAVE] Verb data downloaded as file:', verbData);
+        } catch (error) {
+            console.error('[SAVE] Failed to download verb file:', error);
+            throw error;
+        }
+    }
+
     showProgress(message) {
         const progressBar = document.getElementById('progressBar');
         const progressText = document.querySelector('.progress-text');
@@ -4122,20 +6010,10 @@ class VerbEditor {
     }
 
     showError(message) {
-        // TODO: Enhance error display
         alert(`Error: ${message}`);
     }
 
-    /**
-     * Initialize debug helper for validation debugging
-     */
-    initializeDebugHelper() {
-        try {
-            this.debugHelper = new ValidationDebugHelper(this, this.validationEngine);
-        } catch (error) {
-            console.error('Failed to initialize debug helper:', error);
-        }
-    }
+
 
 
 
@@ -4533,9 +6411,13 @@ class VerbEditor {
 
             // Debug logging for form data structure
             console.log('[JSON_GENERATION] Form data structure:', {
-                georgian: formData.georgian,
+                georgian_wrapper: formData.georgian_wrapper,
+                georgian_display: formData.georgian_display,
                 class: formData.class,
                 semantic_key: formData.semantic_key,
+                argument_pattern: formData.argument_pattern,
+                valency_default: formData.valency_default,
+                valency_alternatives: formData.valency_alternatives,
                 hasArguments: !!formData.syntax?.arguments,
                 hasPrepositions: !!formData.syntax?.prepositions,
                 hasEnglishTranslations: !!formData.english_translations,
@@ -4552,13 +6434,18 @@ class VerbEditor {
             // Transform form data to match the target database structure
             const verbJson = {
                 id: this.currentVerb?.id || null, // Will be assigned when saving to verbs.json
-                georgian: formData.georgian || '',
+                georgian: formData.georgian_display || '', // Use georgian_display as the internal georgian field
                 description: formData.description || '', // Use description field value
                 category: formData.category || '',
                 class: formData.class || '',
                 semantic_key: formData.semantic_key || '',
                 notes: formData.notes || '',
                 url: formData.url || '',
+                global_argument_pattern: formData.argument_pattern || '',
+                valency: {
+                    default: formData.valency_default || formData.argument_pattern || '',
+                    alternatives: formData.valency_alternatives || []
+                },
 
                 // Syntax (argument pattern removed from final output)
                 syntax: {
@@ -4626,8 +6513,12 @@ class VerbEditor {
             // Debug logging for final JSON structure
             console.log('[JSON_GENERATION] Final verb JSON structure:', {
                 georgian: verbJson.georgian,
+                description: verbJson.description,
+                category: verbJson.category,
                 class: verbJson.class,
                 semantic_key: verbJson.semantic_key,
+                global_argument_pattern: verbJson.global_argument_pattern,
+                valency: verbJson.valency,
                 hasArguments: Object.keys(verbJson.syntax?.arguments || {}).length > 0,
                 hasPrepositions: Object.keys(verbJson.syntax?.prepositions || {}).length > 0,
                 argumentsKeys: Object.keys(verbJson.syntax?.arguments || {}),
@@ -4643,17 +6534,19 @@ class VerbEditor {
 
     generateVerbJsonWithVerbsWrapper() {
         try {
-            const verbData = this.generateVerbJson();
-            const georgianText = verbData.georgian;
+            const formData = this.getFormData();
+            const georgianWrapper = formData.georgian_wrapper; // Use the wrapper field as the key
 
-            if (!georgianText) {
-                throw new Error('Georgian text is required for verbs wrapper');
+            if (!georgianWrapper) {
+                throw new Error('Georgian wrapper text is required for verbs wrapper');
             }
+
+            const verbData = this.generateVerbJson();
 
             // Create internal structure with "verbs" wrapper (matches verbs.json)
             const verbsWrapperJson = {
                 verbs: {
-                    [georgianText]: verbData
+                    [georgianWrapper]: verbData
                 }
             };
 
@@ -4666,16 +6559,18 @@ class VerbEditor {
 
     generateVerbJsonWithMetaWrapper() {
         try {
-            const verbData = this.generateVerbJson();
-            const georgianText = verbData.georgian;
+            const formData = this.getFormData();
+            const georgianWrapper = formData.georgian_wrapper; // Use the wrapper field as the key
 
-            if (!georgianText) {
-                throw new Error('Georgian text is required for meta-verb wrapper');
+            if (!georgianWrapper) {
+                throw new Error('Georgian wrapper text is required for meta-verb wrapper');
             }
+
+            const verbData = this.generateVerbJson();
 
             // Create meta-verb wrapper structure
             const metaVerbJson = {
-                [georgianText]: verbData
+                [georgianWrapper]: verbData
             };
 
             return metaVerbJson;
@@ -4687,17 +6582,19 @@ class VerbEditor {
 
     generateVerbJsonForVerbsFile() {
         try {
-            const verbData = this.generateVerbJson();
-            const georgianText = verbData.georgian;
+            const formData = this.getFormData();
+            const georgianWrapper = formData.georgian_wrapper; // Use the wrapper field as the key
 
-            if (!georgianText) {
-                throw new Error('Georgian text is required for verbs.json format');
+            if (!georgianWrapper) {
+                throw new Error('Georgian wrapper text is required for verbs.json format');
             }
+
+            const verbData = this.generateVerbJson();
 
             // Create the structure that matches verbs.json format
             const verbsFileJson = {
                 verbs: {
-                    [georgianText]: verbData
+                    [georgianWrapper]: verbData
                 }
             };
 
@@ -4714,11 +6611,18 @@ class VerbEditor {
 
         // Populate form fields with scraped data
         if (scrapedData.georgian) {
-            const georgianField = document.getElementById('georgian');
-            if (georgianField) {
-                georgianField.value = scrapedData.georgian;
-                this.checkVerbExists(scrapedData.georgian);
+            // Populate both wrapper and display fields with the scraped Georgian text
+            const georgianWrapperField = document.getElementById('georgianWrapper');
+            const georgianDisplayField = document.getElementById('georgianDisplay');
+
+            if (georgianWrapperField) {
+                georgianWrapperField.value = scrapedData.georgian;
             }
+            if (georgianDisplayField) {
+                georgianDisplayField.value = scrapedData.georgian;
+            }
+
+            this.checkVerbExists(scrapedData.georgian);
         }
 
         // Populate description field
@@ -4865,6 +6769,18 @@ class VerbEditor {
             const actualVerbData = verbData.verbs[georgianText];
             console.log(`🔍 [EXAMPLES] Actual verb data for ${georgianText}:`, actualVerbData);
 
+            // Check if arguments are properly configured
+            const argumentPattern = actualVerbData.global_argument_pattern || actualVerbData.valency?.default;
+            const syntax = actualVerbData.syntax || {};
+            const argumentData = syntax.arguments || {};
+
+            // Check if arguments are missing
+            const missingArguments = this.checkMissingArguments(argumentPattern, argumentData);
+            if (missingArguments.length > 0) {
+                this.showArgumentGuidance(tense, missingArguments);
+                return;
+            }
+
             // Check if verb has multiple preverbs
             const hasMultiplePreverbs = actualVerbData.preverb_config?.has_multiple_preverbs;
             console.log(`🔍 [EXAMPLES] Has multiple preverbs: ${hasMultiplePreverbs}`);
@@ -4880,6 +6796,9 @@ class VerbEditor {
             console.log(`🔍 [EXAMPLES] Selected preverbs for ${tense}:`, selectedPreverbs);
 
             console.log(`🔍 [EXAMPLES] Calling example generation script for ${tense}`);
+
+            // Debug: Check what prepositions are being passed
+            console.log(`🔍 [EXAMPLES] Prepositions being passed:`, actualVerbData.syntax?.prepositions);
 
             // Call the example generation script
             const examples = await this.callExampleGenerationScript(verbData, tense, selectedPreverbs);
@@ -4898,6 +6817,90 @@ class VerbEditor {
             // Hide loading state
             loadingElement.style.display = 'none';
         }
+    }
+
+    /**
+     * Check if arguments are missing based on the argument pattern
+     */
+    checkMissingArguments(argumentPattern, argumentData) {
+        if (!argumentPattern) return [];
+
+        const missing = [];
+        const args = argumentPattern.slice(1, -1).split('-'); // Remove < > and split
+
+        args.forEach(arg => {
+            const argType = this.getArgumentTypeFromPattern(arg);
+            if (argType && (!argumentData[argType] || this.isArgumentEmpty(argumentData[argType]))) {
+                missing.push(argType);
+            }
+        });
+
+        return missing;
+    }
+
+    /**
+     * Get argument type from pattern (S -> subject, DO -> direct_object, IO -> indirect_object)
+     */
+    getArgumentTypeFromPattern(pattern) {
+        switch (pattern) {
+            case 'S': return 'subject';
+            case 'DO': return 'direct_object';
+            case 'IO': return 'indirect_object';
+            default: return null;
+        }
+    }
+
+    /**
+     * Check if an argument is empty (no nouns or adjectives selected)
+     */
+    isArgumentEmpty(argument) {
+        if (!argument) return true;
+
+        // Check if any person has a noun or adjective selected
+        for (const person of ['3sg', '3pl']) {
+            const personData = argument[person];
+            if (personData && (personData.noun || personData.adjective)) {
+                return false;
+            }
+        }
+
+        return true;
+    }
+
+    /**
+     * Show guidance when arguments are missing
+     */
+    showArgumentGuidance(tense, missingArguments) {
+        const loadingElement = document.getElementById(`exampleLoading_${tense}`);
+        const errorElement = document.getElementById(`exampleError_${tense}`);
+        const containerElement = document.getElementById(`examplesContainer_${tense}`);
+
+        // Hide loading state
+        loadingElement.style.display = 'none';
+        containerElement.style.display = 'none';
+
+        // Show guidance message
+        errorElement.style.display = 'block';
+
+        const argNames = missingArguments.map(arg => {
+            switch (arg) {
+                case 'subject': return 'Subject';
+                case 'direct_object': return 'Direct Object';
+                case 'indirect_object': return 'Indirect Object';
+                default: return arg;
+            }
+        }).join(', ');
+
+        errorElement.innerHTML = `
+            <div class="argument-guidance">
+                <h4>⚠️ Arguments Not Configured</h4>
+                <p>Please configure the following arguments in the <strong>Arguments</strong> section before generating examples:</p>
+                <ul>
+                    ${missingArguments.map(arg => `<li><strong>${this.getArgumentTypeFromPattern(arg === 'subject' ? 'S' : arg === 'direct_object' ? 'DO' : 'IO')}</strong> - ${arg.replace('_', ' ')}</li>`).join('')}
+                </ul>
+                <p><em>This ensures examples use your selected nouns and adjectives instead of fallback values.</em></p>
+            </div>
+        `;
     }
 
     showPreverbSelection(tense, verbData) {
@@ -5263,7 +7266,8 @@ class VerbEditor {
         if (!formData) {
             const basicVerbData = {
                 id: null,
-                georgian: document.getElementById('georgian')?.value || '',
+                georgian_wrapper: document.getElementById('georgianWrapper')?.value || '',
+                georgian_display: document.getElementById('georgianDisplay')?.value || '',
                 description: document.getElementById('description')?.value || '',
                 semantic_key: document.getElementById('semanticKey')?.value || '',
                 conjugations: this.collectConjugationData(),
@@ -5275,7 +7279,7 @@ class VerbEditor {
             // Return with internal "verbs" wrapper structure
             return {
                 verbs: {
-                    [basicVerbData.georgian || 'temp']: basicVerbData
+                    [basicVerbData.georgian_wrapper || 'temp']: basicVerbData
                 }
             };
         }
@@ -5283,7 +7287,8 @@ class VerbEditor {
         // Use the existing form data collection and enhance it
         const verbData = {
             id: this.currentVerb?.id || null,
-            georgian: formData.georgian || '',
+            georgian_wrapper: formData.georgian_wrapper || '',
+            georgian_display: formData.georgian_display || '',
             description: formData.description || '',
             category: formData.category || '',
             class: formData.class || '',
@@ -5294,7 +7299,7 @@ class VerbEditor {
             // Enhanced syntax data collection
             syntax: {
                 arguments: this.collectEnhancedSyntaxData(),
-                prepositions: formData.prepositions || {},
+                prepositions: formData.syntax?.prepositions || {},
                 preverb_overrides: formData.preverb_config?.overrides || {}
             },
 
@@ -5314,7 +7319,7 @@ class VerbEditor {
         // Return with internal "verbs" wrapper structure (matches verbs.json)
         return {
             verbs: {
-                [verbData.georgian || 'temp']: verbData
+                [verbData.georgian_wrapper || 'temp']: verbData
             }
         };
     }
@@ -5939,7 +7944,7 @@ class VerbEditor {
 document.addEventListener('DOMContentLoaded', () => {
     // Only initialize if on the main application page
     // Check if the required elements exist
-    const requiredElements = ['newVerbBtn', 'loadVerbBtn', 'saveVerbBtn', 'scrapeBtn', 'clearFormBtn'];
+    const requiredElements = ['newVerbBtn', 'loadVerbBtn', 'saveVerbBtn', 'scrapeBtn', 'clearFormBtn', 'verbSelectionModal', 'verbSearchInput', 'categoryFilter', 'classFilter', 'verbList', 'verbListLoading', 'verbListEmpty', 'loadSelectedVerbBtn', 'cancelVerbSelectionBtn'];
     const allElementsExist = requiredElements.every(id => document.getElementById(id));
 
     if (allElementsExist) {

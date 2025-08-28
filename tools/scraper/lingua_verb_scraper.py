@@ -383,7 +383,7 @@ class VerbScraper:
             verb_data["preverb_translations"] = {}
 
         if "prepositions" not in verb_data:
-            verb_data["prepositions"] = {"indirect_object": "", "direct_object": "the"}
+            verb_data["prepositions"] = {"indirect_object": "", "direct_object": ""}
 
         if "overrides" not in verb_data:
             verb_data["overrides"] = {

@@ -10,28 +10,42 @@ class ValidationEngine {
     }
 
     setupDefaultRules() {
-        // Georgian text validation
+        // Georgian wrapper validation
+        this.addRule('georgian_wrapper', (value) => {
+            if (!value || !value.trim()) return 'Georgian verb name (wrapper) is required';
+            if (!/^[ა-ჰ\s]+$/.test(value)) return 'Georgian verb name must contain only Georgian characters';
+            return true;
+        });
+
+        // Georgian display validation
+        this.addRule('georgian_display', (value) => {
+            if (!value || !value.trim()) return 'Georgian verb name (display) is required';
+            if (!/^[ა-ჰ\s\/]+$/.test(value)) return 'Georgian display name must contain only Georgian characters, spaces, and forward slashes';
+            return true;
+        });
+
+        // Backward compatibility for old georgian field
         this.addRule('georgian', (value) => {
-            if (!value.trim()) return 'Georgian text is required';
+            if (!value || !value.trim()) return 'Georgian text is required';
             if (!/^[ა-ჰ\s]+$/.test(value)) return 'Georgian text must contain only Georgian characters';
             return true;
         });
 
         // Description validation
         this.addRule('description', (value) => {
-            if (!value.trim()) return 'Description is required';
+            if (!value || !value.trim()) return 'Description is required';
             return true;
         });
 
         // Category validation
         this.addRule('category', (value) => {
-            if (!value.trim()) return 'Category is required';
+            if (!value || !value.trim()) return 'Category is required';
             return true;
         });
 
         // Argument pattern validation
-        this.addRule('argumentPattern', (value) => {
-            if (!value.trim()) return 'Argument pattern is required';
+        this.addRule('argument_pattern', (value) => {
+            if (!value || !value.trim()) return 'Argument pattern is required';
             if (!/^<[SDOI\-]+>$/.test(value)) return 'Invalid argument pattern format. Use format like <S>, <S-DO>, <S-IO>, or <S-DO-IO>';
 
             // Extract the pattern without brackets
@@ -52,9 +66,29 @@ class ValidationEngine {
             return true;
         });
 
+        // Valency default validation
+        this.addRule('valencyDefault', (value) => {
+            if (value && !/^<[SDOI\-]+>$/.test(value)) {
+                return 'Invalid valency default format. Use format like <S>, <S-DO>, <S-IO>, or <S-DO-IO>';
+            }
+            return true;
+        });
+
+        // Valency alternatives validation
+        this.addRule('valencyAlternatives', (value) => {
+            if (value && Array.isArray(value)) {
+                for (const alternative of value) {
+                    if (!/^<[SDOI\-]+>$/.test(alternative)) {
+                        return 'Invalid valency alternative format. Use format like <S>, <S-DO>, <S-IO>, or <S-DO-IO>';
+                    }
+                }
+            }
+            return true;
+        });
+
         // Semantic key validation
-        this.addRule('semanticKey', (value) => {
-            if (!value.trim()) return 'Semantic key is required';
+        this.addRule('semantic_key', (value) => {
+            if (!value || !value.trim()) return 'Semantic key is required';
             if (!/^[a-z_]+$/.test(value)) return 'Semantic key must contain only lowercase letters and underscores';
             return true;
         });
@@ -67,7 +101,7 @@ class ValidationEngine {
 
         // Raw gloss validation
         this.addRule('rawGloss', (value) => {
-            if (!value.trim()) return 'Raw gloss is required for each tense';
+            if (!value || !value.trim()) return 'Raw gloss is required for each tense';
             // Basic validation for raw gloss format - allow more flexible patterns
             if (!/^V\s+[A-Za-z]+\s+[A-Za-z]+\s+<[SDOI\-:]+>/.test(value)) {
                 return 'Raw gloss must follow the format: V MedAct Tense <S-DO> <S:Case> <DO:Case>';
@@ -109,7 +143,7 @@ class ValidationEngine {
         let isValid = true;
 
         // Validate required fields
-        const requiredFields = ['georgian', 'description', 'category', 'argumentPattern', 'semanticKey'];
+        const requiredFields = ['georgian_wrapper', 'georgian_display', 'description', 'category', 'semantic_key'];
         requiredFields.forEach(field => {
             const validation = this.validateField(field, formData[field]);
             if (!validation.isValid) {
@@ -119,8 +153,8 @@ class ValidationEngine {
         });
 
         // Validate conditional fields based on argument pattern
-        if (formData.argumentPattern) {
-            const args = this.parseArgumentPattern(formData.argumentPattern);
+        if (formData.argument_pattern) {
+            const args = this.parseArgumentPattern(formData.argument_pattern);
 
             // Validate that argument fields are filled if pattern requires them
             if (args.includes('S')) {
@@ -175,7 +209,7 @@ class ValidationEngine {
 
     validateSubjectArguments(formData) {
         // Check if subject arguments are specified for 3sg and 3pl (not 1sg)
-        const subjectArgs = formData.arguments?.subject;
+        const subjectArgs = formData.syntax?.arguments?.subject;
         if (!subjectArgs) {
             return false;
         }
@@ -190,17 +224,17 @@ class ValidationEngine {
 
     validateDirectObjectArguments(formData) {
         // Check if direct object arguments are specified for all person forms
-        const doArgs = formData.arguments?.direct_object;
+        const doArgs = formData.syntax?.arguments?.direct_object;
         if (!doArgs) {
-            // console.log('❌ No direct_object arguments found in formData.arguments');
+            // console.log('❌ No direct_object arguments found in formData.syntax.arguments');
             return false;
         }
 
         const personForms = ['1sg', '2sg', '3sg', '1pl', '2pl', '3pl'];
         const validationResult = personForms.every(person => {
             const personData = doArgs[person];
-            const hasNoun = personData && personData.noun && personData.noun.trim();
-            const hasAdjective = personData && personData.adjective && personData.adjective.trim();
+            const hasNoun = personData && personData.noun && typeof personData.noun === 'string' && personData.noun.trim();
+            const hasAdjective = personData && personData.adjective && typeof personData.adjective === 'string' && personData.adjective.trim();
 
             if (!hasNoun || !hasAdjective) {
                 // console.log(`❌ ${person}: noun="${personData?.noun || ''}", adjective="${personData?.adjective || ''}"`);
@@ -215,17 +249,17 @@ class ValidationEngine {
 
     validateIndirectObjectArguments(formData) {
         // Check if indirect object arguments are specified for all person forms
-        const ioArgs = formData.arguments?.indirect_object;
+        const ioArgs = formData.syntax?.arguments?.indirect_object;
         if (!ioArgs) {
-            // console.log('❌ No indirect_object arguments found in formData.arguments');
+            // console.log('❌ No indirect_object arguments found in formData.syntax.arguments');
             return false;
         }
 
         const personForms = ['1sg', '2sg', '3sg', '1pl', '2pl', '3pl'];
         const validationResult = personForms.every(person => {
             const personData = ioArgs[person];
-            const hasNoun = personData && personData.noun && personData.noun.trim();
-            const hasAdjective = personData && personData.adjective && personData.adjective.trim();
+            const hasNoun = personData && personData.noun && typeof personData.noun === 'string' && personData.noun.trim();
+            const hasAdjective = personData && personData.adjective && typeof personData.adjective === 'string' && personData.adjective.trim();
 
             if (!hasNoun || !hasAdjective) {
                 // console.log(`❌ ${person}: noun="${personData?.noun || ''}", adjective="${personData?.adjective || ''}"`);
@@ -245,7 +279,7 @@ class ValidationEngine {
         }
 
         // If multiple preverbs is enabled, check basic required fields
-        const config = formData.preverbConfig; // Note: using camelCase to match form data
+        const config = formData.preverb_config; // Note: using snake_case to match form data
         if (!config) return false;
 
         // Basic validation: default preverb and available preverbs
@@ -329,7 +363,7 @@ class ValidationEngine {
 
     // Enhanced validation for preverb argument overrides
     validatePreverbArgumentOverrides(formData) {
-        const config = formData.preverbConfig;
+        const config = formData.preverb_config;
         if (!config || !config.has_multiple_preverbs) {
             return true; // No validation needed
         }
@@ -360,7 +394,7 @@ class ValidationEngine {
                     const valueType = form.classList.contains('noun-select') ? 'noun' : 'adjective';
                     const value = form.value;
 
-                    if (value && value.trim() !== '') {
+                    if (value && typeof value === 'string' && value.trim() !== '') {
                         // Value is set, validate it's not empty
                         if (value.trim() === '') {
                             errors.push(`Empty ${valueType} value for ${preverb} ${argType} ${person}`);
@@ -509,7 +543,7 @@ class ValidationEngine {
 
         // Check that all expected persons are present
         for (const person of expectedPersons) {
-            if (!forms[person] || typeof forms[person] !== 'object') {
+            if (!forms[person] || typeof forms[person] !== 'string') {
                 console.log(`❌ ${tenseName}: Missing or invalid person form for ${person}`);
                 return false;
             }
@@ -528,9 +562,9 @@ class ValidationEngine {
             case 'future':
             case 'aorist':
             case 'optative':
-                return ['1sg', '3sg', '3pl']; // Only 1sg, 3sg, 3pl for these tenses
+                return ['1sg', '2sg', '3sg', '1pl', '2pl', '3pl']; // All person forms for these tenses
             default:
-                return ['1sg', '3sg', '3pl']; // Default to 1sg, 3sg, 3pl
+                return ['1sg', '2sg', '3sg', '1pl', '2pl', '3pl']; // Default to all person forms
         }
     }
 
@@ -555,7 +589,7 @@ class ValidationEngine {
         }
 
         // Check for empty strings
-        if (!text.trim()) {
+        if (typeof text === 'string' && !text.trim()) {
             errors.push('Text cannot be empty');
         }
 

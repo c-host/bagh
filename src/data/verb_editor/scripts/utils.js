@@ -33,8 +33,10 @@ class ProgressiveDisclosure {
      * Update visibility of all sections based on current form state
      */
     updateVisibility() {
+        console.log('[PROGRESSIVE] updateVisibility called with form state:', this.formState);
         this.sections.forEach((section, sectionId) => {
             const shouldBeVisible = this.evaluateVisibility(sectionId);
+            console.log(`[PROGRESSIVE] Section ${sectionId}: shouldBeVisible = ${shouldBeVisible}, currently visible = ${section.visible}`);
             this.setSectionVisibility(sectionId, shouldBeVisible);
         });
     }
@@ -44,10 +46,14 @@ class ProgressiveDisclosure {
      */
     evaluateVisibility(sectionId) {
         const callback = this.visibilityCallbacks.get(sectionId);
-        if (!callback) return false;
+        if (!callback) {
+            console.log(`[PROGRESSIVE] No callback found for section ${sectionId}`);
+            return false;
+        }
 
         try {
             const result = callback(this.formState);
+            console.log(`[PROGRESSIVE] Section ${sectionId} evaluation: callback(${JSON.stringify(this.formState)}) = ${result}`);
             return result;
         } catch (error) {
             console.warn(`Error evaluating visibility for section ${sectionId}:`, error);

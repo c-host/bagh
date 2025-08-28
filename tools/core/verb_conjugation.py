@@ -334,6 +334,33 @@ def get_english_translation(
     return fallback
 
 
+def add_should_prefix_for_optative(translation: str, tense: str) -> str:
+    """
+    Add "should" prefix to optative translations if not already present.
+
+    Args:
+        translation: The translation string
+        tense: The tense name
+
+    Returns:
+        Translation with "should" prefix added for optative tense if needed
+    """
+    if not translation or not translation.strip():
+        return ""
+
+    if tense != "optative":
+        return translation
+
+    trimmed = translation.strip()
+
+    # If it already starts with "should", return as is
+    if trimmed.lower().startswith("should "):
+        return trimmed
+
+    # Add "should" prefix for optative tense
+    return f"should {trimmed}"
+
+
 def get_indirect_object_preposition(verb: Dict) -> str:
     """
     Get the appropriate preposition for indirect objects with this verb.

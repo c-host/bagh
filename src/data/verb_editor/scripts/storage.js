@@ -30,7 +30,10 @@ class StorageManager {
 
             console.log('[STORAGE] Progress saved successfully');
             console.log('[STORAGE] Saved data includes:', {
-                hasGeorgian: !!verbData.georgian,
+                hasGeorgianWrapper: !!verbData.georgian_wrapper,
+                hasGeorgianDisplay: !!verbData.georgian_display,
+                hasGlobalArgumentPattern: !!verbData.global_argument_pattern,
+                hasValency: !!verbData.valency,
                 hasConjugations: !!verbData.conjugations,
                 hasArguments: !!verbData.syntax?.arguments,
                 hasRawGlosses: verbData.conjugations ? Object.keys(verbData.conjugations).filter(tense => verbData.conjugations[tense].raw_gloss).length : 0
@@ -64,7 +67,10 @@ class StorageManager {
 
             console.log('[STORAGE] Progress loaded successfully');
             console.log('[STORAGE] Loaded data includes:', {
-                hasGeorgian: !!parsed.verb.georgian,
+                hasGeorgianWrapper: !!parsed.verb.georgian_wrapper,
+                hasGeorgianDisplay: !!parsed.verb.georgian_display,
+                hasGlobalArgumentPattern: !!parsed.verb.global_argument_pattern,
+                hasValency: !!parsed.verb.valency,
                 hasConjugations: !!parsed.verb.conjugations,
                 hasArguments: !!parsed.verb.syntax?.arguments,
                 hasRawGlosses: parsed.verb.conjugations ? Object.keys(parsed.verb.conjugations).filter(tense => parsed.verb.conjugations[tense].raw_gloss).length : 0,
@@ -166,7 +172,7 @@ class StorageManager {
 
         // Basic validation of verb structure
         const verb = data.verb;
-        const requiredFields = ['georgian', 'description', 'category', 'semantic_key'];
+        const requiredFields = ['georgian_wrapper', 'georgian_display', 'description', 'category', 'semantic_key'];
 
         return requiredFields.every(field =>
             verb.hasOwnProperty(field) && verb[field] !== undefined
@@ -251,7 +257,7 @@ class StorageManager {
         if (!verbData || typeof verbData !== 'object') return false;
 
         // Check for required fields
-        const requiredFields = ['georgian', 'description', 'category', 'semantic_key'];
+        const requiredFields = ['georgian_wrapper', 'georgian_display', 'description', 'category', 'semantic_key'];
         if (!requiredFields.every(field => verbData.hasOwnProperty(field))) {
             return false;
         }
@@ -259,6 +265,11 @@ class StorageManager {
         // Check for basic structure
         if (!verbData.syntax || !verbData.conjugations || !verbData.english_translations) {
             return false;
+        }
+
+        // Check for new fields (optional but recommended)
+        if (!verbData.global_argument_pattern || !verbData.valency) {
+            console.warn('[STORAGE] Missing new fields (global_argument_pattern or valency) - this is expected for older data');
         }
 
         return true;

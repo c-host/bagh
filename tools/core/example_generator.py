@@ -1122,6 +1122,9 @@ class PedagogicalExampleGenerator:
     ) -> str:
         """Generate English translation using new JSON structure"""
         try:
+            logger.info(
+                f"[ENGLISH_TRANSLATION] Starting translation generation with tense: '{tense}', person: '{person}'"
+            )
             # Get English translations from new structure
             english_translations = (
                 verb_data.get("english_translations", {}) if verb_data else {}
@@ -1132,23 +1135,13 @@ class PedagogicalExampleGenerator:
 
             # Debug logging
             logger.info(
-                f"[ENGLISH_TRANSLATION] Effective preverb: '{effective_preverb}'"
-            )
-            logger.info(f"[ENGLISH_TRANSLATION] Original tense: '{original_tense}'")
-            logger.info(
-                f"[ENGLISH_TRANSLATION] Available preverbs in english_translations: {list(english_translations.keys())}"
-            )
-            logger.info(
-                f"[ENGLISH_TRANSLATION] English translations structure: {english_translations}"
+                f"[ENGLISH_TRANSLATION] Effective preverb: '{effective_preverb}', Original tense: '{original_tense}'"
             )
 
             # Get the correct verb translation based on preverb
             if effective_preverb and effective_preverb in english_translations:
                 # Use preverb-specific translation
                 preverb_translations = english_translations[effective_preverb]
-                logger.info(
-                    f"[ENGLISH_TRANSLATION] Found preverb translations for '{effective_preverb}': {preverb_translations}"
-                )
                 verb_translation = preverb_translations.get(original_tense, "")
                 logger.info(
                     f"[ENGLISH_TRANSLATION] Using preverb-specific translation: '{verb_translation}'"
@@ -1156,9 +1149,6 @@ class PedagogicalExampleGenerator:
             else:
                 # Use default translation
                 default_translations = english_translations.get("default", {})
-                logger.info(
-                    f"[ENGLISH_TRANSLATION] Using default translations: {default_translations}"
-                )
                 verb_translation = default_translations.get(original_tense, "")
                 logger.info(
                     f"[ENGLISH_TRANSLATION] Using default translation: '{verb_translation}'"
@@ -1209,16 +1199,41 @@ class PedagogicalExampleGenerator:
                     else:
                         subject_text = noun_english
 
-                    # Add definite article for 3rd person
-                    subject_text = self._add_definite_article(subject_text)
+                    # Add subject preposition if specified (capitalize if it's "the")
+                    syntax = verb_data.get("syntax", {}) if verb_data else {}
+                    prepositions = syntax.get("prepositions", {})
+                    subject_preposition = prepositions.get("subject", "")
+
+                    if subject_preposition:
+                        # Capitalize "the" to "The" for subjects
+                        if subject_preposition.lower() == "the":
+                            subject_preposition = "The"
+                        subject_text = f"{subject_preposition} {subject_text}"
+                    else:
+                        # Add "The" as default for 3rd person subjects if no preposition specified
+                        subject_text = self._add_definite_article(subject_text)
+
                     english_parts.append(
                         f'<strong data-role="subject">{subject_text}</strong>'
                     )
 
-            # Add verb
-            english_parts.append(
-                f'<strong data-role="verb">{verb_translation}</strong>'
-            )
+            # Add verb (with "should" for optative forms)
+            if tense == "Opt":
+                # Check if verb_translation already contains "should" to avoid duplication
+                if "should" in verb_translation.lower():
+                    # Verb translation already includes "should", don't add it again
+                    english_parts.append(
+                        f'<strong data-role="verb">{verb_translation}</strong>'
+                    )
+                else:
+                    # Add "should" for optative tense
+                    english_parts.append(
+                        f'<strong data-role="verb">should</strong> <strong data-role="verb">{verb_translation}</strong>'
+                    )
+            else:
+                english_parts.append(
+                    f'<strong data-role="verb">{verb_translation}</strong>'
+                )
 
             # Add direct object if present
             syntax = verb_data.get("syntax", {}) if verb_data else {}
@@ -1243,6 +1258,14 @@ class PedagogicalExampleGenerator:
                         do_text = f"{adj_english} {noun_english}"
                     else:
                         do_text = noun_english
+
+                    # Add direct object preposition if specified
+                    syntax = verb_data.get("syntax", {}) if verb_data else {}
+                    prepositions = syntax.get("prepositions", {})
+                    do_preposition = prepositions.get("direct_object", "")
+
+                    if do_preposition:
+                        do_text = f"{do_preposition} {do_text}"
 
                     english_parts.append(
                         f'<strong data-role="direct-object">{do_text}</strong>'
@@ -1271,8 +1294,14 @@ class PedagogicalExampleGenerator:
                         io_text = noun_english
 
                     # Add appropriate preposition for indirect object
-                    # This could be enhanced to use verb-specific prepositions
-                    io_text = f"to {io_text}"
+                    # Get preposition from verb data if available
+                    syntax = verb_data.get("syntax", {}) if verb_data else {}
+                    prepositions = syntax.get("prepositions", {})
+                    io_preposition = prepositions.get("indirect_object", "")
+
+                    if io_preposition:
+                        io_text = f"{io_preposition} {io_text}"
+                    # Note: If no preposition is specified, no preposition will be added
 
                     english_parts.append(
                         f'<strong data-role="indirect-object">{io_text}</strong>'
@@ -1395,9 +1424,13 @@ def generate_pedagogical_examples(
                     continue
 
                 # Generate the example using the new structure
+                mapped_tense = generator.tense_mapping.get(tense, tense)
+                logger.info(
+                    f"[EXAMPLES] Original tense: '{tense}', mapped tense: '{mapped_tense}'"
+                )
                 example = generator.generate_example_with_new_structure(
                     verb_id=verb_id,
-                    tense=generator.tense_mapping.get(tense, tense),
+                    tense=mapped_tense,
                     person=person,
                     raw_gloss=raw_gloss,
                     verb_semantics=verb_semantics,

@@ -23,15 +23,80 @@
             </div>
         </header>
 
+        <!-- Verb Selection Modal -->
+        <div id="verbSelectionModal" class="modal">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h2>Select Verb to Load</h2>
+                    <span class="close">&times;</span>
+                </div>
+                <div class="modal-body">
+                    <div class="search-container">
+                        <input type="text" id="verbSearchInput"
+                            placeholder="Search verbs by Georgian text, English description, or semantic key..."
+                            class="search-input">
+                        <div class="search-filters">
+                            <select id="categoryFilter" class="filter-select">
+                                <option value="">All Categories</option>
+                                <option value="Actions & Control">Actions & Control</option>
+                                <option value="Communication & Language">Communication & Language</option>
+                                <option value="Daily Activities">Daily Activities</option>
+                                <option value="Mental Activities & Cognition">Mental Activities & Cognition</option>
+                                <option value="Modal & Auxiliary Verbs">Modal & Auxiliary Verbs</option>
+                                <option value="Movement & Transport">Movement & Transport</option>
+                                <option value="Physical Activities & Sports">Physical Activities & Sports</option>
+                                <option value="Work & Commerce">Work & Commerce</option>
+                            </select>
+                            <select id="classFilter" class="filter-select">
+                                <option value="">All Classes</option>
+                                <option value="Class-I">Class-I</option>
+                                <option value="Class-II">Class-II</option>
+                                <option value="Class-III">Class-III</option>
+                                <option value="Class-IV">Class-IV</option>
+                            </select>
+                            <select id="argumentPatternFilter" class="filter-select">
+                                <option value="">All Argument Patterns</option>
+                                <option value="<S>">Subject only (&lt;S&gt;)</option>
+                                <option value="<S-DO>">Subject + Direct Object (&lt;S-DO&gt;)</option>
+                                <option value="<S-IO>">Subject + Indirect Object (&lt;S-IO&gt;)</option>
+                                <option value="<S-DO-IO>">Subject + Direct Object + Indirect Object (&lt;S-DO-IO&gt;)
+                                </option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="verb-list-container">
+                        <div id="verbList" class="verb-list">
+                            <!-- Verb items will be populated here -->
+                        </div>
+                        <div id="verbListLoading" class="loading-message">Loading verbs...</div>
+                        <div id="verbListEmpty" class="empty-message" style="display: none;">No verbs found matching
+                            your search criteria.</div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button id="loadSelectedVerbBtn" class="btn btn-primary" disabled>Load Selected Verb</button>
+                    <button id="cancelVerbSelectionBtn" class="btn btn-secondary">Cancel</button>
+                </div>
+            </div>
+        </div>
+
         <main class="editor-main">
             <!-- Basic Information Section -->
             <section id="basicInfoSection" class="editor-section">
                 <h2>Basic Verb Information</h2>
                 <div class="form-group">
-                    <label for="georgian">Georgian:</label>
-                    <input type="text" id="georgian" name="georgian" placeholder="e.g. დანახვა">
-                    <div class="field-help">Enter the Georgian verbal noun (similar to infinitive form in English) of
-                        the verb
+                    <label for="georgianWrapper">Georgian Verb Name (Wrapper):</label>
+                    <input type="text" id="georgianWrapper" name="georgianWrapper" placeholder="e.g. მიტანა">
+                    <div class="field-help">Enter the Georgian verb name used as the key/wrapper (e.g., "მიტანა")
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="georgianDisplay">Georgian Verb Name (Display):</label>
+                    <input type="text" id="georgianDisplay" name="georgianDisplay"
+                        placeholder="e.g. მიტანა / მოტანა / გატანა / წატანა">
+                    <div class="field-help">Enter the full Georgian verb form for display (e.g., "მიტანა / მოტანა /
+                        გატანა / წატანა")
                     </div>
                 </div>
 
@@ -45,15 +110,14 @@
                     <label for="category">Category:</label>
                     <select id="category" name="category">
                         <option value="">Select a category</option>
-                        <option value="perception">Perception</option>
-                        <option value="movement">Movement</option>
-                        <option value="communication">Communication</option>
-                        <option value="education">Education</option>
-                        <option value="family">Family</option>
-                        <option value="profession">Profession</option>
-                        <option value="commerce">Commerce</option>
-                        <option value="entertainment">Entertainment</option>
-                        <option value="other">Other</option>
+                        <option value="Actions & Control">Actions & Control</option>
+                        <option value="Communication & Language">Communication & Language</option>
+                        <option value="Daily Activities">Daily Activities</option>
+                        <option value="Mental Activities & Cognition">Mental Activities & Cognition</option>
+                        <option value="Modal & Auxiliary Verbs">Modal & Auxiliary Verbs</option>
+                        <option value="Movement & Transport">Movement & Transport</option>
+                        <option value="Physical Activities & Sports">Physical Activities & Sports</option>
+                        <option value="Work & Commerce">Work & Commerce</option>
                     </select>
                     <div class="field-help">Select the semantic category for this verb</div>
                 </div>
@@ -133,7 +197,8 @@
                     <div class="form-group">
                         <label for="translationOptative">Optative:</label>
                         <input type="text" id="translationOptative" name="translationOptative" placeholder="show">
-                        <div class="field-help">Subjunctive/optative (e.g., 'show')</div>
+                        <div class="field-help">Subjunctive/optative (e.g., 'show') - "should" will be added during
+                            example generation</div>
                     </div>
 
                     <div class="form-group">
@@ -146,7 +211,7 @@
 
             <!-- Argument Pattern Section -->
             <section id="argumentPatternSection" class="editor-section">
-                <h2>Argument Pattern</h2>
+                <h2>Argument Pattern & Valency</h2>
                 <div class="form-group">
                     <label for="argumentPattern">Global Argument Pattern:</label>
                     <select id="argumentPattern" name="argumentPattern">
@@ -156,9 +221,45 @@
                         <option value="<S-IO>">Subject + Indirect Object (&lt;S-IO&gt;)</option>
                         <option value="<S-DO-IO>">Subject + Direct Object + Indirect Object (&lt;S-DO-IO&gt;)</option>
                     </select>
-                    <div class="field-help">Select the argument pattern for this verb</div>
+                    <div class="field-help">Select the primary argument pattern for this verb</div>
                 </div>
 
+                <div class="form-group">
+                    <label for="valencyDefault">Default Valency:</label>
+                    <select id="valencyDefault" name="valencyDefault">
+                        <option value="">Same as Global Pattern</option>
+                        <option value="<S>">Subject only (&lt;S&gt;)</option>
+                        <option value="<S-DO>">Subject + Direct Object (&lt;S-DO&gt;)</option>
+                        <option value="<S-IO>">Subject + Indirect Object (&lt;S-IO&gt;)</option>
+                        <option value="<S-DO-IO>">Subject + Direct Object + Indirect Object (&lt;S-DO-IO&gt;)</option>
+                    </select>
+                    <div class="field-help">Select the default valency for example generation (if different from global
+                        pattern)</div>
+                </div>
+
+                <div class="form-group">
+                    <label for="valencyAlternatives">Alternative Valencies:</label>
+                    <div class="checkbox-group" id="valencyAlternatives">
+                        <div class="checkbox-item">
+                            <input type="checkbox" id="altS" name="valencyAlternatives" value="<S>">
+                            <label for="altS">Subject only (&lt;S&gt;)</label>
+                        </div>
+                        <div class="checkbox-item">
+                            <input type="checkbox" id="altSDO" name="valencyAlternatives" value="<S-DO>">
+                            <label for="altSDO">Subject + Direct Object (&lt;S-DO&gt;)</label>
+                        </div>
+                        <div class="checkbox-item">
+                            <input type="checkbox" id="altSIO" name="valencyAlternatives" value="<S-IO>">
+                            <label for="altSIO">Subject + Indirect Object (&lt;S-IO&gt;)</label>
+                        </div>
+                        <div class="checkbox-item">
+                            <input type="checkbox" id="altSDOIO" name="valencyAlternatives" value="<S-DO-IO>">
+                            <label for="altSDOIO">Subject + Direct Object + Indirect Object (&lt;S-DO-IO&gt;)</label>
+                        </div>
+                    </div>
+                    <div class="field-help">Select alternative valencies that this verb can use (for future example
+                        generation features)</div>
+                </div>
 
             </section>
 
@@ -296,15 +397,14 @@
                     <div class="preposition-fields">
                         <div class="form-group">
                             <label for="subjectPreposition">Subject Preposition:</label>
-                            <input type="text" id="subjectPreposition" name="subjectPreposition" placeholder="the"
-                                value="the">
+                            <input type="text" id="subjectPreposition" name="subjectPreposition" placeholder="the">
                             <div class="field-help">Preposition for subject (e.g., "the" in "the student sees")</div>
                         </div>
 
                         <div class="form-group">
                             <label for="directObjectPreposition">Direct Object Preposition:</label>
                             <input type="text" id="directObjectPreposition" name="directObjectPreposition"
-                                placeholder="the" value="the">
+                                placeholder="the">
                             <div class="field-help">Preposition for direct object (e.g., "the" in "sees the book")</div>
                         </div>
 

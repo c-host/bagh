@@ -33,17 +33,17 @@ from pathlib import Path
 logs_dir = Path(__file__).parent / "logs"
 logs_dir.mkdir(exist_ok=True)
 
-# Clear log files on server restart
-log_files = [
-    logs_dir / "example_generator_server.log",
-    logs_dir / "example_generator.log",
-    logs_dir / "verb_conjugation.log",
-]
-
-for log_file in log_files:
-    if log_file.exists():
-        log_file.unlink()  # Delete the file
-        print(f"Cleared log file: {log_file.name}")
+# Don't clear log files on server restart to preserve debugging information
+# log_files = [
+#     logs_dir / "example_generator_server.log",
+#     logs_dir / "example_generator.log",
+#     logs_dir / "verb_conjugation.log",
+# ]
+#
+# for log_file in log_files:
+#     if log_file.exists():
+#         log_file.unlink()  # Delete the file
+#         print(f"Cleared log file: {log_file.name}")
 
 # Configure logging to both file and console
 logging.basicConfig(
@@ -130,6 +130,14 @@ def generate_examples():
         logger.info(
             f"Generating examples for tense: {tense}, preverbs: {selected_preverbs}"
         )
+
+        # Debug: Check preposition data (simplified)
+        if verb_data and "syntax" in verb_data:
+            syntax = verb_data.get("syntax", {})
+            prepositions = syntax.get("prepositions", {})
+            logger.info(f"[SERVER] Prepositions received: {prepositions}")
+        else:
+            logger.info("[SERVER] No syntax data found in verb_data")
 
         # Call the example generator
         result = generate_pedagogical_examples(

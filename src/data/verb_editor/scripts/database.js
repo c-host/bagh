@@ -133,6 +133,7 @@ class Database {
 
     /**
      * Optimized verbs database loading with caching
+     * Updated to handle new semantic-only migrated data structure
      */
     async loadVerbsDatabase() {
         const cacheKey = 'verbs_database';
@@ -141,19 +142,37 @@ class Database {
         if (this.isCacheValid(cacheKey)) {
             this.verbs = this.cache.get(cacheKey);
             this.performanceMetrics.cacheHits++;
+            console.log('[DATABASE] Using cached verbs data');
             return;
         }
 
         const loadStartTime = performance.now();
 
         try {
+            console.log('[DATABASE] Loading verbs from ../verbs.json...');
             const response = await fetch('../verbs.json');
             if (!response.ok) {
                 throw new Error(`Failed to load verbs: ${response.statusText}`);
             }
 
             const data = await response.json();
-            this.verbs = Array.isArray(data.verbs) ? data.verbs : [];
+            console.log('[DATABASE] Raw data structure:', Object.keys(data));
+
+            // Handle new migrated structure with verbs object
+            if (data.verbs && typeof data.verbs === 'object') {
+                // Convert object format to array format for compatibility, preserving the key as georgian_wrapper
+                this.verbs = Object.entries(data.verbs).map(([key, verb]) => ({
+                    ...verb,
+                    georgian_wrapper: key // Preserve the top-level key as georgian_wrapper
+                }));
+                console.log('[DATABASE] Converted object format to array, found', this.verbs.length, 'verbs');
+            } else if (Array.isArray(data.verbs)) {
+                this.verbs = data.verbs;
+                console.log('[DATABASE] Using array format, found', this.verbs.length, 'verbs');
+            } else {
+                this.verbs = [];
+                console.log('[DATABASE] No verbs found in data');
+            }
 
             // Cache the result
             this.cache.set(cacheKey, this.verbs);
@@ -162,8 +181,10 @@ class Database {
             this.performanceMetrics.loadTimes.verbs = performance.now() - loadStartTime;
             this.performanceMetrics.cacheMisses++;
 
+            console.log(`[DATABASE] Loaded ${this.verbs.length} verbs from migrated data structure`);
+
         } catch (error) {
-            console.warn('Failed to load verbs database:', error);
+            console.warn('[DATABASE] Failed to load verbs database:', error);
             this.verbs = [];
         }
     }
@@ -544,17 +565,31 @@ class Database {
     getVerb(identifier) {
         if (!identifier) return null;
 
-        // Try to find by ID first
-        let verb = this.verbs.find(v => v.id === identifier);
-        if (verb) return verb;
+        console.log('[DATABASE] Looking for verb with identifier:', identifier, 'type:', typeof identifier);
+
+        // Try to find by ID first (handle both string and number)
+        let verb = this.verbs.find(v => v.id == identifier); // Use == for type coercion
+        if (verb) {
+            console.log('[DATABASE] Found verb by ID:', verb.georgian);
+            return verb;
+        }
 
         // Try to find by semantic key
         verb = this.verbs.find(v => v.semantic_key === identifier);
-        if (verb) return verb;
+        if (verb) {
+            console.log('[DATABASE] Found verb by semantic key:', verb.georgian);
+            return verb;
+        }
 
         // Try to find by Georgian text
         verb = this.verbs.find(v => v.georgian === identifier);
-        return verb || null;
+        if (verb) {
+            console.log('[DATABASE] Found verb by Georgian text:', verb.georgian);
+            return verb;
+        }
+
+        console.log('[DATABASE] Verb not found for identifier:', identifier);
+        return null;
     }
 
     /**
