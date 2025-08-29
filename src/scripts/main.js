@@ -2106,6 +2106,8 @@ class VerbDataManager {
     }
 
     populateTenseColumn(column, tense, tenseData, verbData, selectedPreverb) {
+        console.log(`[JS] populateTenseColumn: tense=${tense}, selectedPreverb=${selectedPreverb}`);
+
         const tenseNames = {
             "present": "Present Indicative",
             "imperfect": "Imperfect",
@@ -2124,33 +2126,105 @@ class VerbDataManager {
             verbData.preverbConfig.preverb_config &&
             verbData.preverbConfig.preverb_config.has_multiple_preverbs === true;
 
+        console.log(`[JS] isMultiPreverb: ${isMultiPreverb}`);
+
         if (isMultiPreverb) {
-            // Multi-preverb verb: get examples for the specific preverb
+            // Multi-preverb verb: get examples for the specific preverb from external data
             const normalizedPreverb = selectedPreverb.replace('-', '');
             const preverbExamples = verbData.examples[normalizedPreverb] || {};
             const preverbGloss = verbData.glossAnalyses[normalizedPreverb] || {};
 
-            examplesHtml = this.generateExamplesHtmlForTense(preverbExamples[tense]);
+            console.log(`[JS] Multi-preverb data: examples=${!!preverbExamples[tense]}, gloss=${!!preverbGloss[tense]}`);
+            console.log(`[JS] Preverb examples keys: ${Object.keys(preverbExamples)}`);
+            console.log(`[JS] Preverb gloss keys: ${Object.keys(preverbGloss)}`);
+
+            examplesHtml = this.generateExamplesHtmlForTense(preverbExamples[tense], normalizedPreverb);
             glossHtml = this.generateGlossHtmlForTense(preverbGloss[tense]);
         } else {
             // Single-preverb verb: examples are organized by tense
             const examples = verbData.examples || {};
             const glossAnalyses = verbData.glossAnalyses || {};
 
+            console.log(`[JS] Single-preverb data: examples=${!!examples[tense]}, gloss=${!!glossAnalyses[tense]}`);
+
             examplesHtml = this.generateExamplesHtmlForTense(examples[tense]);
             glossHtml = this.generateGlossHtmlForTense(glossAnalyses[tense]);
+        }
+
+        console.log(`[JS] Generated HTML lengths: examples=${examplesHtml.length}, gloss=${glossHtml.length}`);
+        if (glossHtml) {
+            console.log(`[JS] Gloss HTML preview: ${glossHtml.substring(0, 200)}...`);
         }
 
         // Generate conjugation table for this tense
         const conjugationTableHtml = this.generateTenseConjugationTable(tense, tenseData);
 
-        // Combine all content for this tense column
-        column.innerHTML = `
-            <h3>${tenseNames[tense]}</h3>
-            ${conjugationTableHtml}
-            ${examplesHtml}
-            ${glossHtml}
-        `;
+        // Update the column content by replacing specific sections instead of the entire content
+        this.updateColumnContent(column, tense, tenseNames[tense], conjugationTableHtml, examplesHtml, glossHtml);
+    }
+
+    updateColumnContent(column, tense, tenseDisplay, conjugationTableHtml, examplesHtml, glossHtml) {
+        console.log(`[JS] updateColumnContent: tense=${tense}, examplesLength=${examplesHtml.length}, glossLength=${glossHtml.length}`);
+
+        // First, ensure we have the basic structure
+        if (!column.querySelector('h3')) {
+            column.innerHTML = `<h3>${tenseDisplay}</h3>`;
+        }
+
+        // Update conjugation table
+        const existingTable = column.querySelector('.table-container');
+        if (existingTable) {
+            existingTable.outerHTML = conjugationTableHtml;
+        } else {
+            // Insert after the h3
+            const h3 = column.querySelector('h3');
+            h3.insertAdjacentHTML('afterend', conjugationTableHtml);
+        }
+
+        // Update examples section
+        const existingExamples = column.querySelector('.examples');
+        if (examplesHtml) {
+            if (existingExamples) {
+                existingExamples.outerHTML = examplesHtml;
+            } else {
+                // Insert after conjugation table
+                const tableContainer = column.querySelector('.table-container');
+                if (tableContainer) {
+                    tableContainer.insertAdjacentHTML('afterend', examplesHtml);
+                }
+            }
+        } else if (existingExamples) {
+            // Remove examples if no new ones provided
+            existingExamples.remove();
+        }
+
+        // Update gloss section - this is the key fix
+        // Find ALL existing gloss sections and remove them
+        const existingGlossSections = column.querySelectorAll('.case-gloss');
+        console.log(`[JS] Found ${existingGlossSections.length} existing gloss sections to replace`);
+
+        if (glossHtml) {
+            // Remove all existing gloss sections first
+            existingGlossSections.forEach(glossSection => {
+                console.log(`[JS] Removing existing gloss section`);
+                glossSection.remove();
+            });
+
+            // Insert the new gloss section
+            const examples = column.querySelector('.examples');
+            const tableContainer = column.querySelector('.table-container');
+            const insertAfter = examples || tableContainer;
+            if (insertAfter) {
+                insertAfter.insertAdjacentHTML('afterend', glossHtml);
+                console.log(`[JS] Inserted new gloss section after ${insertAfter.className}`);
+            }
+        } else if (existingGlossSections.length > 0) {
+            // Remove all gloss sections if no new one provided
+            existingGlossSections.forEach(glossSection => {
+                console.log(`[JS] Removing existing gloss section (no replacement)`);
+                glossSection.remove();
+            });
+        }
     }
 
     generateTenseConjugationTable(tense, tenseData) {
@@ -2200,7 +2274,7 @@ class VerbDataManager {
         return tableHtml;
     }
 
-    generateExamplesHtmlForTense(tenseExamples) {
+    generateExamplesHtmlForTense(tenseExamples, preverb) {
         if (!tenseExamples || typeof tenseExamples !== 'string') {
             return '';
         }

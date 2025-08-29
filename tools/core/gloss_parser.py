@@ -267,55 +267,83 @@ def process_raw_gloss_simple(raw_gloss: str, preverb: str = None) -> str:
             print(f"Warning: Preverb required for gloss containing 'Pv': {raw_gloss}")
             return raw_gloss
 
-    # Parse the raw gloss to get the structure
-    parsed_gloss = parser.parse_raw_gloss(raw_gloss)
+    # Load the gloss reference data
+    gloss_reference = _load_gloss_reference()
 
     # Convert the parsed gloss to a simple formatted string
     formatted_parts = []
 
-    # Add V
-    formatted_parts.append("V: Verb")
+    # Process each component in the raw gloss to ensure we don't miss anything
+    raw_parts = raw_gloss.split()
 
-    # Add voice
-    voice = parsed_gloss.get("voice", "")
-    if voice:
-        formatted_parts.append(f"{voice}: {voice}ive")
-
-    # Add tense
-    tense = parsed_gloss.get("tense", "")
-    if tense:
-        formatted_parts.append(f"{tense}: {tense}")
-
-    # Add preverb if present
-    preverb = parsed_gloss.get("preverb")
-    if preverb:
-        formatted_parts.append(f"Pv: Preverb ({preverb})")
-
-    # Add argument pattern
-    argument_pattern = parsed_gloss.get("argument_pattern", "")
-    if argument_pattern:
-        # Map argument patterns to descriptions
-        pattern_descriptions = {
-            "<S>": "Intransitive",
-            "<S-DO>": "Transitive absolute",
-            "<S-IO>": "Ditransitive (Subject-Indirect Object)",
-            "<S-DO-IO>": "Ditransitive (Subject-Direct Object-Indirect Object)",
-        }
-        description = pattern_descriptions.get(argument_pattern, "Transitive absolute")
-        formatted_parts.append(f"{argument_pattern}: {description}")
-
-    # Add individual arguments
-    arguments = parsed_gloss.get("arguments", {})
-    for arg_type, arg_data in arguments.items():
-        case = arg_data.get("case", "")
-        if case:
-            case_desc = f"{case}inative" if case == "Nom" else f"{case}ative"
-            arg_desc = f"{arg_type.title()} {case_desc.lower()}"
-            # Fix: Use the role abbreviation (S, DO, IO) instead of the argument type name
-            role = arg_data.get("type", arg_type)
-            formatted_parts.append(f"<{role}:{case}>: {arg_desc}")
+    for part in raw_parts:
+        if part == "V":
+            formatted_parts.append("V: Verb")
+        elif part == "Pv":
+            # Preverb marker - will be handled with the actual preverb value
+            if preverb:
+                formatted_parts.append(f"Pv: Preverb ({preverb})")
+            else:
+                formatted_parts.append("Pv: Preverb")
+        elif part.startswith("Pv(") and part.endswith(")"):
+            # Preverb with value already included - extract the preverb value
+            preverb_value = part[3:-1]  # Remove "Pv(" and ")"
+            formatted_parts.append(f"Pv: Preverb ({preverb_value})")
+        elif part.startswith("(") and part.endswith(")") and len(part) > 2:
+            # This is a preverb value in parentheses - skip it as it's already handled by Pv()
+            continue
+        elif part.startswith("<") and part.endswith(">"):
+            # Look up in gloss reference first
+            if part in gloss_reference:
+                formatted_parts.append(f"{part}: {gloss_reference[part]}")
+            else:
+                # Fallback for case specifications like <S:Nom>
+                if ":" in part:
+                    role, case = part[1:-1].split(":", 1)
+                    case_desc = f"{case}inative" if case == "Nom" else f"{case}ative"
+                    role_desc = f"{role.title()} {case_desc.lower()}"
+                    formatted_parts.append(f"{part}: {role_desc}")
+                else:
+                    # Fallback for argument patterns
+                    pattern_descriptions = {
+                        "<S>": "Intransitive",
+                        "<S-DO>": "Transitive absolute",
+                        "<S-IO>": "Ditransitive (Subject-Indirect Object)",
+                        "<S-DO-IO>": "Ditransitive (Subject-Direct Object-Indirect Object)",
+                    }
+                    description = pattern_descriptions.get(part, "Transitive absolute")
+                    formatted_parts.append(f"{part}: {description}")
+        else:
+            # Look up in gloss reference for all other elements
+            if part in gloss_reference:
+                formatted_parts.append(f"{part}: {gloss_reference[part]}")
+            else:
+                # Fallback for unknown elements
+                formatted_parts.append(f"{part}: {part}")
 
     return "\n".join(formatted_parts)
+
+
+def _load_gloss_reference() -> Dict[str, str]:
+    """Load the gloss reference data from JSON file."""
+    try:
+        # Fix path to look in the correct location
+        gloss_path = (
+            Path(__file__).parent.parent.parent
+            / "src"
+            / "data"
+            / "gloss_reference.json"
+        )
+        with open(gloss_path, "r", encoding="utf-8") as f:
+            return json.load(f)
+    except FileNotFoundError:
+        logger.warning(
+            f"gloss_reference.json not found at {gloss_path} (this is optional)"
+        )
+        return {}
+    except json.JSONDecodeError as e:
+        logger.error(f"Error parsing gloss reference: {e}")
+        return {}
 
 
 def format_raw_gloss_with_colors(raw_gloss: str) -> str:
@@ -844,6 +872,9 @@ class StandardizedRawGlossParser:
 
         # Check if the raw gloss contains 'Pv' (preverb marker)
         if "Pv" in raw_gloss:
+            # If the raw gloss already contains a preverb value like "Pv (მო)", no additional preverb is needed
+            if "Pv(" in raw_gloss and ")" in raw_gloss:
+                return False
             # If Pv is present but no preverb is provided, it's required
             return not preverb or not preverb.strip()
 

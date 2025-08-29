@@ -951,6 +951,13 @@ class PedagogicalExampleGenerator:
             noun_key = person_data.get("noun", "")
             adjective_key = person_data.get("adjective", "")
 
+            # Handle empty noun key - use fallback
+            if not noun_key:
+                logger.warning(
+                    f"Empty noun key for person {person} in verb {verb_id}, using fallback"
+                )
+                noun_key = "student"  # Fallback noun
+
             # Get case form - use plural for 3pl
             case = subject_arg.get("case", "nom").lower()
             number = "plural" if person == "3pl" else "singular"
@@ -1013,6 +1020,13 @@ class PedagogicalExampleGenerator:
             noun_key = person_data.get("noun", "")
             adjective_key = person_data.get("adjective", "")
 
+            # Handle empty noun key - use fallback
+            if not noun_key:
+                logger.warning(
+                    f"Empty noun key for person {person} in verb {verb_id}, using fallback"
+                )
+                noun_key = "book"  # Fallback noun
+
             # Get case form
             case = do_arg.get("case", "dat").lower()
 
@@ -1073,6 +1087,13 @@ class PedagogicalExampleGenerator:
             person_data = io_args.get(person, {})
             noun_key = person_data.get("noun", "")
             adjective_key = person_data.get("adjective", "")
+
+            # Handle empty noun key - use fallback
+            if not noun_key:
+                logger.warning(
+                    f"Empty noun key for person {person} in verb {verb_id}, using fallback"
+                )
+                noun_key = "friend"  # Fallback noun
 
             # Get case form
             case = io_arg.get("case", "dat").lower()
@@ -1397,8 +1418,13 @@ def generate_pedagogical_examples(
 
                 # Check if preverb fallback occurred
                 if effective_preverb != preverb:
+                    # Sanitize Georgian text for logging
+                    safe_preverb = preverb if ord(preverb[0]) < 128 else "[GE]"
+                    safe_effective = (
+                        effective_preverb if ord(effective_preverb[0]) < 128 else "[GE]"
+                    )
                     logger.warning(
-                        f"[EXAMPLES] Preverb fallback: {preverb} -> {effective_preverb}"
+                        f"[EXAMPLES] Preverb fallback: {safe_preverb} -> {safe_effective}"
                     )
                     fallback_warnings.append(
                         {

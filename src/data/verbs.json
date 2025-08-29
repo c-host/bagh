@@ -194,32 +194,32 @@
                 "arguments": {
                     "subject": {
                         "3sg": {
-                            "noun": "",
-                            "adjective": ""
+                            "noun": "teacher",
+                            "adjective": "kind"
                         },
                         "3pl": {
-                            "noun": "",
-                            "adjective": ""
+                            "noun": "student",
+                            "adjective": "clever"
                         }
                     },
                     "direct_object": {
                         "3sg": {
-                            "noun": "",
-                            "adjective": ""
+                            "noun": "photo",
+                            "adjective": "beautiful"
                         },
                         "3pl": {
-                            "noun": "",
-                            "adjective": ""
+                            "noun": "story",
+                            "adjective": "interesting"
                         }
                     },
                     "indirect_object": {
                         "3sg": {
-                            "noun": "",
-                            "adjective": ""
+                            "noun": "child",
+                            "adjective": "happy"
                         },
                         "3pl": {
-                            "noun": "",
-                            "adjective": ""
+                            "noun": "friend",
+                            "adjective": "best"
                         }
                     }
                 },
@@ -345,36 +345,36 @@
                     "subject": {
                         "3sg": {
                             "noun": "mother",
-                            "adjective": "kind"
+                            "adjective": "loving"
                         },
                         "3pl": {
-                            "noun": "seller",
-                            "adjective": "fast"
+                            "noun": "friend",
+                            "adjective": "good"
                         }
                     },
                     "direct_object": {
                         "1sg": {
-                            "noun": "paper",
-                            "adjective": "white"
+                            "noun": "letter",
+                            "adjective": "long"
                         },
                         "2sg": {
-                            "noun": "computer",
-                            "adjective": "old"
+                            "noun": "package",
+                            "adjective": "small"
                         },
                         "3sg": {
                             "noun": "gift",
-                            "adjective": "beautiful"
+                            "adjective": "special"
                         },
                         "1pl": {
-                            "noun": "paper",
-                            "adjective": "white"
+                            "noun": "card",
+                            "adjective": "nice"
                         },
                         "2pl": {
-                            "noun": "letter",
-                            "adjective": "interesting"
+                            "noun": "message",
+                            "adjective": "important"
                         },
                         "3pl": {
-                            "noun": "clothes",
+                            "noun": "book",
                             "adjective": "new"
                         }
                     }
@@ -491,29 +491,45 @@
                 "arguments": {
                     "subject": {
                         "3sg": {
-                            "noun": "",
-                            "adjective": ""
+                            "noun": "mother",
+                            "adjective": "careful"
                         },
                         "3pl": {
-                            "noun": "",
-                            "adjective": ""
+                            "noun": "child",
+                            "adjective": "young"
                         }
                     },
                     "direct_object": {
+                        "1sg": {
+                            "noun": "phone",
+                            "adjective": "new"
+                        },
+                        "2sg": {
+                            "noun": "key",
+                            "adjective": "important"
+                        },
                         "3sg": {
-                            "noun": "",
-                            "adjective": ""
+                            "noun": "book",
+                            "adjective": "heavy"
+                        },
+                        "1pl": {
+                            "noun": "bag",
+                            "adjective": "big"
+                        },
+                        "2pl": {
+                            "noun": "cup",
+                            "adjective": "clean"
                         },
                         "3pl": {
-                            "noun": "",
-                            "adjective": ""
+                            "noun": "toy",
+                            "adjective": "small"
                         }
                     }
                 },
                 "prepositions": {
                     "subject": "the",
                     "direct_object": "the",
-                    "indirect_object": "the"
+                    "indirect_object": ""
                 },
                 "preverb_overrides": {}
             },
@@ -745,7 +761,7 @@
                     "examples": []
                 },
                 "imperative": {
-                    "raw_gloss": "V Act Impv SV <S-DO> <S:Erg> <DO:Nom>",
+                    "raw_gloss": "V Act Impv SV Pv <S-DO> <S:Erg> <DO:Nom>",
                     "forms": {
                         "2sg": "გამოიყენე",
                         "2pl": "გამოიყენეთ"
@@ -755,8 +771,10 @@
             },
             "preverb_config": {
                 "has_multiple_preverbs": false,
-                "default_preverb": "",
-                "available_preverbs": []
+                "default_preverb": "გამო",
+                "available_preverbs": [
+                    "გამო"
+                ]
             },
             "preverb_rules": {}
         },
@@ -778,22 +796,38 @@
                 "arguments": {
                     "subject": {
                         "3sg": {
-                            "noun": "",
-                            "adjective": ""
+                            "noun": "doctor",
+                            "adjective": "smart"
                         },
                         "3pl": {
-                            "noun": "",
-                            "adjective": ""
+                            "noun": "neighbor",
+                            "adjective": "nice"
                         }
                     },
                     "indirect_object": {
+                        "1sg": {
+                            "noun": "mother",
+                            "adjective": "tired"
+                        },
+                        "2sg": {
+                            "noun": "sister",
+                            "adjective": "young"
+                        },
                         "3sg": {
-                            "noun": "",
-                            "adjective": ""
+                            "noun": "patient",
+                            "adjective": "sick"
+                        },
+                        "1pl": {
+                            "noun": "family",
+                            "adjective": "big"
+                        },
+                        "2pl": {
+                            "noun": "grandmother",
+                            "adjective": "old"
                         },
                         "3pl": {
-                            "noun": "",
-                            "adjective": ""
+                            "noun": "people",
+                            "adjective": "poor"
                         }
                     }
                 },
@@ -890,8 +924,10 @@
             },
             "preverb_config": {
                 "has_multiple_preverbs": false,
-                "default_preverb": "",
-                "available_preverbs": []
+                "default_preverb": "და",
+                "available_preverbs": [
+                    "და"
+                ]
             },
             "preverb_rules": {
                 "default": "",
@@ -918,22 +954,38 @@
                 "arguments": {
                     "subject": {
                         "3sg": {
-                            "noun": "teacher",
-                            "adjective": ""
+                            "noun": "student",
+                            "adjective": "clever"
                         },
                         "3pl": {
-                            "noun": "teacher",
-                            "adjective": ""
+                            "noun": "worker",
+                            "adjective": "good"
                         }
                     },
                     "direct_object": {
+                        "1sg": {
+                            "noun": "homework",
+                            "adjective": "difficult"
+                        },
+                        "2sg": {
+                            "noun": "project",
+                            "adjective": "big"
+                        },
                         "3sg": {
-                            "noun": "",
-                            "adjective": ""
+                            "noun": "work",
+                            "adjective": "important"
+                        },
+                        "1pl": {
+                            "noun": "task",
+                            "adjective": "easy"
+                        },
+                        "2pl": {
+                            "noun": "job",
+                            "adjective": "new"
                         },
                         "3pl": {
-                            "noun": "",
-                            "adjective": ""
+                            "noun": "book",
+                            "adjective": "thick"
                         }
                     }
                 },
@@ -1030,8 +1082,10 @@
             },
             "preverb_config": {
                 "has_multiple_preverbs": false,
-                "default_preverb": "",
-                "available_preverbs": []
+                "default_preverb": "და",
+                "available_preverbs": [
+                    "და"
+                ]
             },
             "preverb_rules": {
                 "default": "",
@@ -1058,22 +1112,38 @@
                 "arguments": {
                     "subject": {
                         "3sg": {
-                            "noun": "",
-                            "adjective": ""
+                            "noun": "child",
+                            "adjective": "patient"
                         },
                         "3pl": {
-                            "noun": "",
-                            "adjective": ""
+                            "noun": "customer",
+                            "adjective": "angry"
                         }
                     },
                     "indirect_object": {
+                        "1sg": {
+                            "noun": "bus",
+                            "adjective": "late"
+                        },
+                        "2sg": {
+                            "noun": "friend",
+                            "adjective": "best"
+                        },
                         "3sg": {
-                            "noun": "",
-                            "adjective": ""
+                            "noun": "mother",
+                            "adjective": "busy"
+                        },
+                        "1pl": {
+                            "noun": "train",
+                            "adjective": "slow"
+                        },
+                        "2pl": {
+                            "noun": "teacher",
+                            "adjective": "new"
                         },
                         "3pl": {
-                            "noun": "",
-                            "adjective": ""
+                            "noun": "service",
+                            "adjective": "slow"
                         }
                     }
                 },
@@ -1170,8 +1240,10 @@
             },
             "preverb_config": {
                 "has_multiple_preverbs": false,
-                "default_preverb": "",
-                "available_preverbs": []
+                "default_preverb": "და",
+                "available_preverbs": [
+                    "და"
+                ]
             },
             "preverb_rules": {
                 "default": "",
@@ -1198,22 +1270,38 @@
                 "arguments": {
                     "subject": {
                         "3sg": {
-                            "noun": "",
-                            "adjective": ""
+                            "noun": "customer",
+                            "adjective": "rich"
                         },
                         "3pl": {
-                            "noun": "",
-                            "adjective": ""
+                            "noun": "brother",
+                            "adjective": "kind"
                         }
                     },
                     "direct_object": {
+                        "1sg": {
+                            "noun": "bill",
+                            "adjective": "electric"
+                        },
+                        "2sg": {
+                            "noun": "rent",
+                            "adjective": "monthly"
+                        },
                         "3sg": {
-                            "noun": "",
-                            "adjective": ""
+                            "noun": "food",
+                            "adjective": "expensive"
+                        },
+                        "1pl": {
+                            "noun": "meal",
+                            "adjective": "delicious"
+                        },
+                        "2pl": {
+                            "noun": "service",
+                            "adjective": "good"
                         },
                         "3pl": {
-                            "noun": "",
-                            "adjective": ""
+                            "noun": "clothes",
+                            "adjective": "new"
                         }
                     }
                 },
@@ -1310,8 +1398,10 @@
             },
             "preverb_config": {
                 "has_multiple_preverbs": false,
-                "default_preverb": "",
-                "available_preverbs": []
+                "default_preverb": "გადა",
+                "available_preverbs": [
+                    "გადა"
+                ]
             },
             "preverb_rules": {
                 "default": "",
@@ -1338,22 +1428,38 @@
                 "arguments": {
                     "subject": {
                         "3sg": {
-                            "noun": "",
-                            "adjective": ""
+                            "noun": "athlete",
+                            "adjective": "strong"
                         },
                         "3pl": {
-                            "noun": "",
-                            "adjective": ""
+                            "noun": "child",
+                            "adjective": "young"
                         }
                     },
                     "indirect_object": {
+                        "1sg": {
+                            "noun": "game",
+                            "adjective": "new"
+                        },
+                        "2sg": {
+                            "noun": "song",
+                            "adjective": "difficult"
+                        },
                         "3sg": {
-                            "noun": "",
-                            "adjective": "none"
+                            "noun": "exercise",
+                            "adjective": "hard"
+                        },
+                        "1pl": {
+                            "noun": "recipe",
+                            "adjective": "easy"
+                        },
+                        "2pl": {
+                            "noun": "dance",
+                            "adjective": "traditional"
                         },
                         "3pl": {
-                            "noun": "",
-                            "adjective": "none"
+                            "noun": "sport",
+                            "adjective": "popular"
                         }
                     }
                 },
@@ -1450,8 +1556,10 @@
             },
             "preverb_config": {
                 "has_multiple_preverbs": false,
-                "default_preverb": "",
-                "available_preverbs": []
+                "default_preverb": "შე",
+                "available_preverbs": [
+                    "შე"
+                ]
             },
             "preverb_rules": {
                 "default": "",
@@ -1478,22 +1586,38 @@
                 "arguments": {
                     "subject": {
                         "3sg": {
-                            "noun": "",
-                            "adjective": ""
+                            "noun": "mother",
+                            "adjective": "careful"
                         },
                         "3pl": {
-                            "noun": "",
-                            "adjective": ""
+                            "noun": "tourist",
+                            "adjective": "foreign"
                         }
                     },
                     "direct_object": {
+                        "1sg": {
+                            "noun": "apple",
+                            "adjective": "red"
+                        },
+                        "2sg": {
+                            "noun": "bag",
+                            "adjective": "heavy"
+                        },
                         "3sg": {
-                            "noun": "",
-                            "adjective": ""
+                            "noun": "book",
+                            "adjective": "precious"
+                        },
+                        "1pl": {
+                            "noun": "picture",
+                            "adjective": "old"
+                        },
+                        "2pl": {
+                            "noun": "key",
+                            "adjective": "important"
                         },
                         "3pl": {
-                            "noun": "",
-                            "adjective": ""
+                            "noun": "map",
+                            "adjective": "new"
                         }
                     }
                 },
@@ -1576,7 +1700,7 @@
                     "examples": []
                 },
                 "imperative": {
-                    "raw_gloss": "V Act Impv SV <S-DO> <S:Erg> <DO:Nom>",
+                    "raw_gloss": "V Act Impv Pv SV <S-DO> <S:Erg> <DO:Nom>",
                     "forms": {
                         "1sg": "-",
                         "2sg": "აიღე",
@@ -1590,8 +1714,10 @@
             },
             "preverb_config": {
                 "has_multiple_preverbs": false,
-                "default_preverb": "",
-                "available_preverbs": []
+                "default_preverb": "ა",
+                "available_preverbs": [
+                    "ა"
+                ]
             },
             "preverb_rules": {
                 "default": "",
@@ -1618,12 +1744,12 @@
                 "arguments": {
                     "subject": {
                         "3sg": {
-                            "noun": "",
-                            "adjective": ""
+                            "noun": "grandfather",
+                            "adjective": "old"
                         },
                         "3pl": {
-                            "noun": "",
-                            "adjective": ""
+                            "noun": "friend",
+                            "adjective": "young"
                         }
                     }
                 },
@@ -1748,12 +1874,12 @@
                 "arguments": {
                     "subject": {
                         "3sg": {
-                            "noun": "",
-                            "adjective": ""
+                            "noun": "teacher",
+                            "adjective": "smart"
                         },
                         "3pl": {
-                            "noun": "",
-                            "adjective": ""
+                            "noun": "student",
+                            "adjective": "curious"
                         }
                     }
                 },
@@ -1878,32 +2004,64 @@
                 "arguments": {
                     "subject": {
                         "3sg": {
-                            "noun": "",
-                            "adjective": ""
+                            "noun": "mother",
+                            "adjective": "honest"
                         },
                         "3pl": {
-                            "noun": "",
-                            "adjective": ""
+                            "noun": "friend",
+                            "adjective": "funny"
                         }
                     },
                     "direct_object": {
+                        "1sg": {
+                            "noun": "story",
+                            "adjective": "funny"
+                        },
+                        "2sg": {
+                            "noun": "secret",
+                            "adjective": "big"
+                        },
                         "3sg": {
-                            "noun": "",
-                            "adjective": ""
+                            "noun": "truth",
+                            "adjective": "sad"
+                        },
+                        "1pl": {
+                            "noun": "joke",
+                            "adjective": "funny"
+                        },
+                        "2pl": {
+                            "noun": "news",
+                            "adjective": "good"
                         },
                         "3pl": {
-                            "noun": "",
-                            "adjective": ""
+                            "noun": "story",
+                            "adjective": "funny"
                         }
                     },
                     "indirect_object": {
+                        "1sg": {
+                            "noun": "child",
+                            "adjective": "small"
+                        },
+                        "2sg": {
+                            "noun": "sister",
+                            "adjective": "young"
+                        },
                         "3sg": {
-                            "noun": "",
-                            "adjective": ""
+                            "noun": "father",
+                            "adjective": "old"
+                        },
+                        "1pl": {
+                            "noun": "family",
+                            "adjective": "big"
+                        },
+                        "2pl": {
+                            "noun": "neighbor",
+                            "adjective": "nice"
                         },
                         "3pl": {
-                            "noun": "",
-                            "adjective": ""
+                            "noun": "friend",
+                            "adjective": "new"
                         }
                     }
                 },
@@ -2028,12 +2186,12 @@
                 "arguments": {
                     "subject": {
                         "3sg": {
-                            "noun": "",
-                            "adjective": ""
+                            "noun": "engineer",
+                            "adjective": "young"
                         },
                         "3pl": {
-                            "noun": "",
-                            "adjective": ""
+                            "noun": "nurse",
+                            "adjective": "kind"
                         }
                     }
                 },
@@ -2158,22 +2316,38 @@
                 "arguments": {
                     "subject": {
                         "3sg": {
-                            "noun": "",
-                            "adjective": ""
+                            "noun": "child",
+                            "adjective": "small"
                         },
                         "3pl": {
-                            "noun": "",
-                            "adjective": ""
+                            "noun": "family",
+                            "adjective": "big"
                         }
                     },
                     "indirect_object": {
+                        "1sg": {
+                            "noun": "movie",
+                            "adjective": "funny"
+                        },
+                        "2sg": {
+                            "noun": "game",
+                            "adjective": "exciting"
+                        },
                         "3sg": {
-                            "noun": "",
-                            "adjective": ""
+                            "noun": "television",
+                            "adjective": "old"
+                        },
+                        "1pl": {
+                            "noun": "show",
+                            "adjective": "interesting"
+                        },
+                        "2pl": {
+                            "noun": "match",
+                            "adjective": "exciting"
                         },
                         "3pl": {
-                            "noun": "",
-                            "adjective": ""
+                            "noun": "movie",
+                            "adjective": "new"
                         }
                     }
                 },
@@ -2298,22 +2472,38 @@
                 "arguments": {
                     "subject": {
                         "3sg": {
-                            "noun": "",
-                            "adjective": ""
+                            "noun": "grandmother",
+                            "adjective": "old"
                         },
                         "3pl": {
-                            "noun": "",
-                            "adjective": ""
+                            "noun": "student",
+                            "adjective": "young"
                         }
                     },
                     "direct_object": {
+                        "1sg": {
+                            "noun": "name",
+                            "adjective": "new"
+                        },
+                        "2sg": {
+                            "noun": "key",
+                            "adjective": "small"
+                        },
                         "3sg": {
-                            "noun": "",
-                            "adjective": ""
+                            "noun": "word",
+                            "adjective": "difficult"
+                        },
+                        "1pl": {
+                            "noun": "date",
+                            "adjective": "special"
+                        },
+                        "2pl": {
+                            "noun": "number",
+                            "adjective": "long"
                         },
                         "3pl": {
-                            "noun": "",
-                            "adjective": ""
+                            "noun": "homework",
+                            "adjective": "important"
                         }
                     }
                 },
@@ -2396,7 +2586,7 @@
                     "examples": []
                 },
                 "imperative": {
-                    "raw_gloss": "V Act Impv SV <S-DO> <S:Erg> <DO:Nom>",
+                    "raw_gloss": "V Act Impv SV PV <S-DO> <S:Erg> <DO:Nom>",
                     "forms": {
                         "1sg": "-",
                         "2sg": "დაივიწყე",
@@ -2410,8 +2600,10 @@
             },
             "preverb_config": {
                 "has_multiple_preverbs": false,
-                "default_preverb": "",
-                "available_preverbs": []
+                "default_preverb": "და",
+                "available_preverbs": [
+                    "და"
+                ]
             },
             "preverb_rules": {
                 "default": "",
@@ -2438,22 +2630,38 @@
                 "arguments": {
                     "subject": {
                         "3sg": {
-                            "noun": "",
-                            "adjective": ""
+                            "noun": "doctor",
+                            "adjective": "smart"
                         },
                         "3pl": {
-                            "noun": "",
-                            "adjective": ""
+                            "noun": "artist",
+                            "adjective": "famous"
                         }
                     },
                     "direct_object": {
+                        "1sg": {
+                            "noun": "story",
+                            "adjective": "funny"
+                        },
+                        "2sg": {
+                            "noun": "rule",
+                            "adjective": "important"
+                        },
                         "3sg": {
-                            "noun": "",
-                            "adjective": ""
+                            "noun": "operation",
+                            "adjective": "important"
+                        },
+                        "1pl": {
+                            "noun": "memory",
+                            "adjective": "happy"
+                        },
+                        "2pl": {
+                            "noun": "date",
+                            "adjective": "important"
                         },
                         "3pl": {
-                            "noun": "",
-                            "adjective": ""
+                            "noun": "paint",
+                            "adjective": "blue"
                         }
                     }
                 },
@@ -2578,22 +2786,38 @@
                 "arguments": {
                     "subject": {
                         "3sg": {
-                            "noun": "",
-                            "adjective": ""
+                            "noun": "writer",
+                            "adjective": "creative"
                         },
                         "3pl": {
-                            "noun": "",
-                            "adjective": ""
+                            "noun": "scientist",
+                            "adjective": "smart"
                         }
                     },
                     "direct_object": {
+                        "1sg": {
+                            "noun": "story",
+                            "adjective": "amazing"
+                        },
+                        "2sg": {
+                            "noun": "world",
+                            "adjective": "perfect"
+                        },
                         "3sg": {
-                            "noun": "",
-                            "adjective": ""
+                            "noun": "future",
+                            "adjective": "bright"
+                        },
+                        "1pl": {
+                            "noun": "solution",
+                            "adjective": "simple"
+                        },
+                        "2pl": {
+                            "noun": "machine",
+                            "adjective": "new"
                         },
                         "3pl": {
-                            "noun": "",
-                            "adjective": ""
+                            "noun": "planet",
+                            "adjective": "distant"
                         }
                     }
                 },
@@ -2676,7 +2900,7 @@
                     "examples": []
                 },
                 "imperative": {
-                    "raw_gloss": "V Act Impv SV <S-DO> <S:Erg> <DO:Nom>",
+                    "raw_gloss": "V Act Impv SV PV <S-DO> <S:Erg> <DO:Nom>",
                     "forms": {
                         "1sg": "-",
                         "2sg": "წარმოიდგინე",
@@ -2690,8 +2914,10 @@
             },
             "preverb_config": {
                 "has_multiple_preverbs": false,
-                "default_preverb": "",
-                "available_preverbs": []
+                "default_preverb": "წარმო",
+                "available_preverbs": [
+                    "წარმო"
+                ]
             },
             "preverb_rules": {
                 "default": "",
@@ -2718,22 +2944,38 @@
                 "arguments": {
                     "subject": {
                         "3sg": {
-                            "noun": "",
-                            "adjective": ""
+                            "noun": "student",
+                            "adjective": "brilliant"
                         },
                         "3pl": {
-                            "noun": "",
-                            "adjective": ""
+                            "noun": "engineer",
+                            "adjective": "experienced"
                         }
                     },
                     "direct_object": {
+                        "1sg": {
+                            "noun": "problem",
+                            "adjective": "difficult"
+                        },
+                        "2sg": {
+                            "noun": "language",
+                            "adjective": "foreign"
+                        },
                         "3sg": {
-                            "noun": "",
-                            "adjective": ""
+                            "noun": "lesson",
+                            "adjective": "important"
+                        },
+                        "1pl": {
+                            "noun": "idea",
+                            "adjective": "new"
+                        },
+                        "2pl": {
+                            "noun": "system",
+                            "adjective": "complex"
                         },
                         "3pl": {
-                            "noun": "",
-                            "adjective": ""
+                            "noun": "technology",
+                            "adjective": "modern"
                         }
                     }
                 },
@@ -2816,7 +3058,7 @@
                     "examples": []
                 },
                 "imperative": {
-                    "raw_gloss": "V Act Impv SV <S-DO> <S:Erg> <DO:Nom>",
+                    "raw_gloss": "V Act Impv SV PV <S-DO> <S:Erg> <DO:Nom>",
                     "forms": {
                         "1sg": "-",
                         "2sg": "გაიგე",
@@ -2830,8 +3072,10 @@
             },
             "preverb_config": {
                 "has_multiple_preverbs": false,
-                "default_preverb": "",
-                "available_preverbs": []
+                "default_preverb": "გა",
+                "available_preverbs": [
+                    "გა"
+                ]
             },
             "preverb_rules": {
                 "default": "",
@@ -2858,22 +3102,38 @@
                 "arguments": {
                     "subject": {
                         "3sg": {
-                            "noun": "",
-                            "adjective": ""
+                            "noun": "musician",
+                            "adjective": "talented"
                         },
                         "3pl": {
-                            "noun": "",
-                            "adjective": ""
+                            "noun": "audience",
+                            "adjective": "large"
                         }
                     },
                     "indirect_object": {
+                        "1sg": {
+                            "noun": "sound",
+                            "adjective": "beautiful"
+                        },
+                        "2sg": {
+                            "noun": "story",
+                            "adjective": "interesting"
+                        },
                         "3sg": {
-                            "noun": "",
-                            "adjective": ""
+                            "noun": "instrument",
+                            "adjective": "old"
+                        },
+                        "1pl": {
+                            "noun": "news",
+                            "adjective": "important"
+                        },
+                        "2pl": {
+                            "noun": "speech",
+                            "adjective": "long"
                         },
                         "3pl": {
-                            "noun": "",
-                            "adjective": ""
+                            "noun": "music",
+                            "adjective": "live"
                         }
                     }
                 },
@@ -2956,7 +3216,7 @@
                     "examples": []
                 },
                 "imperative": {
-                    "raw_gloss": "V Act Impv OV <S-IO> <S:Erg> <IO:Dat>",
+                    "raw_gloss": "V Act Impv OV Pv <S-IO> <S:Erg> <IO:Dat>",
                     "forms": {
                         "1sg": "-",
                         "2sg": "მოუსმინე",
@@ -2970,8 +3230,10 @@
             },
             "preverb_config": {
                 "has_multiple_preverbs": false,
-                "default_preverb": "",
-                "available_preverbs": []
+                "default_preverb": "მო",
+                "available_preverbs": [
+                    "მო"
+                ]
             },
             "preverb_rules": {
                 "default": "",
@@ -2998,22 +3260,38 @@
                 "arguments": {
                     "subject": {
                         "3sg": {
-                            "noun": "",
-                            "adjective": ""
+                            "noun": "reporter",
+                            "adjective": "young"
                         },
                         "3pl": {
-                            "noun": "",
-                            "adjective": ""
+                            "noun": "witness",
+                            "adjective": "honest"
                         }
                     },
                     "direct_object": {
+                        "1sg": {
+                            "noun": "name",
+                            "adjective": "full"
+                        },
+                        "2sg": {
+                            "noun": "address",
+                            "adjective": "correct"
+                        },
                         "3sg": {
-                            "noun": "",
-                            "adjective": ""
+                            "noun": "truth",
+                            "adjective": "important"
+                        },
+                        "1pl": {
+                            "noun": "opinion",
+                            "adjective": "strong"
+                        },
+                        "2pl": {
+                            "noun": "answer",
+                            "adjective": "short"
                         },
                         "3pl": {
-                            "noun": "",
-                            "adjective": ""
+                            "noun": "story",
+                            "adjective": "complete"
                         }
                     }
                 },
@@ -3308,22 +3586,38 @@
                 "arguments": {
                     "subject": {
                         "3sg": {
-                            "noun": "",
-                            "adjective": ""
+                            "noun": "customer",
+                            "adjective": "regular"
                         },
                         "3pl": {
-                            "noun": "",
-                            "adjective": ""
+                            "noun": "tourist",
+                            "adjective": "foreign"
                         }
                     },
                     "direct_object": {
+                        "1sg": {
+                            "noun": "bread",
+                            "adjective": "hot"
+                        },
+                        "2sg": {
+                            "noun": "milk",
+                            "adjective": "cold"
+                        },
                         "3sg": {
-                            "noun": "",
-                            "adjective": ""
+                            "noun": "newspaper",
+                            "adjective": "daily"
+                        },
+                        "1pl": {
+                            "noun": "vegetable",
+                            "adjective": "delicious"
+                        },
+                        "2pl": {
+                            "noun": "fruit",
+                            "adjective": "sweet"
                         },
                         "3pl": {
-                            "noun": "",
-                            "adjective": ""
+                            "noun": "souvenir",
+                            "adjective": "cheap"
                         }
                     }
                 },
@@ -3448,22 +3742,38 @@
                 "arguments": {
                     "subject": {
                         "3sg": {
-                            "noun": "",
-                            "adjective": ""
+                            "noun": "worker",
+                            "adjective": "diligent"
                         },
                         "3pl": {
-                            "noun": "",
-                            "adjective": ""
+                            "noun": "researcher",
+                            "adjective": "careful"
                         }
                     },
                     "direct_object": {
+                        "1sg": {
+                            "noun": "exercise",
+                            "adjective": "daily"
+                        },
+                        "2sg": {
+                            "noun": "homework",
+                            "adjective": "difficult"
+                        },
                         "3sg": {
-                            "noun": "",
-                            "adjective": ""
+                            "noun": "work",
+                            "adjective": "important"
+                        },
+                        "1pl": {
+                            "noun": "project",
+                            "adjective": "big"
+                        },
+                        "2pl": {
+                            "noun": "task",
+                            "adjective": "simple"
                         },
                         "3pl": {
-                            "noun": "",
-                            "adjective": ""
+                            "noun": "research",
+                            "adjective": "scientific"
                         }
                     }
                 },
@@ -3546,7 +3856,7 @@
                     "examples": []
                 },
                 "imperative": {
-                    "raw_gloss": "V Act Impv <S-DO> <S:Erg> <DO:Nom>",
+                    "raw_gloss": "V Act Impv Pv <S-DO> <S:Erg> <DO:Nom>",
                     "forms": {
                         "1sg": "-",
                         "2sg": "გააკეთე",
@@ -3560,8 +3870,10 @@
             },
             "preverb_config": {
                 "has_multiple_preverbs": false,
-                "default_preverb": "",
-                "available_preverbs": []
+                "default_preverb": "გა",
+                "available_preverbs": [
+                    "გა"
+                ]
             },
             "preverb_rules": {
                 "default": "",
@@ -3588,22 +3900,38 @@
                 "arguments": {
                     "subject": {
                         "3sg": {
-                            "noun": "",
-                            "adjective": ""
+                            "noun": "chef",
+                            "adjective": "experienced"
                         },
                         "3pl": {
-                            "noun": "",
-                            "adjective": ""
+                            "noun": "teacher",
+                            "adjective": "dedicated"
                         }
                     },
                     "direct_object": {
+                        "1sg": {
+                            "noun": "breakfast",
+                            "adjective": "healthy"
+                        },
+                        "2sg": {
+                            "noun": "lunch",
+                            "adjective": "delicious"
+                        },
                         "3sg": {
-                            "noun": "",
-                            "adjective": ""
+                            "noun": "meal",
+                            "adjective": "special"
+                        },
+                        "1pl": {
+                            "noun": "dinner",
+                            "adjective": "traditional"
+                        },
+                        "2pl": {
+                            "noun": "snack",
+                            "adjective": "quick"
                         },
                         "3pl": {
-                            "noun": "",
-                            "adjective": ""
+                            "noun": "lesson",
+                            "adjective": "interesting"
                         }
                     }
                 },
@@ -3686,7 +4014,7 @@
                     "examples": []
                 },
                 "imperative": {
-                    "raw_gloss": "V Act Impv <S-DO> <S:Erg> <DO:Nom>",
+                    "raw_gloss": "V Act Impv Pv <S-DO> <S:Erg> <DO:Nom>",
                     "forms": {
                         "1sg": "-",
                         "2sg": "მოამზადე",
@@ -3700,8 +4028,10 @@
             },
             "preverb_config": {
                 "has_multiple_preverbs": false,
-                "default_preverb": "",
-                "available_preverbs": []
+                "default_preverb": "მო",
+                "available_preverbs": [
+                    "მო"
+                ]
             },
             "preverb_rules": {
                 "default": "",
@@ -3728,22 +4058,38 @@
                 "arguments": {
                     "subject": {
                         "3sg": {
-                            "noun": "",
-                            "adjective": ""
+                            "noun": "worker",
+                            "adjective": "curious"
                         },
                         "3pl": {
-                            "noun": "",
-                            "adjective": ""
+                            "noun": "team",
+                            "adjective": "creative"
                         }
                     },
                     "direct_object": {
+                        "1sg": {
+                            "noun": "project",
+                            "adjective": "new"
+                        },
+                        "2sg": {
+                            "noun": "meeting",
+                            "adjective": "important"
+                        },
                         "3sg": {
-                            "noun": "",
-                            "adjective": ""
+                            "noun": "job",
+                            "adjective": "new"
+                        },
+                        "1pl": {
+                            "noun": "campaign",
+                            "adjective": "advertising"
+                        },
+                        "2pl": {
+                            "noun": "discussion",
+                            "adjective": "serious"
                         },
                         "3pl": {
-                            "noun": "",
-                            "adjective": ""
+                            "noun": "workshop",
+                            "adjective": "useful"
                         }
                     }
                 },
@@ -3826,7 +4172,7 @@
                     "examples": []
                 },
                 "imperative": {
-                    "raw_gloss": "V Act Impv SV <S-DO> <S:Erg> <DO:Nom>",
+                    "raw_gloss": "V Act Impv SV Pv <S-DO> <S:Erg> <DO:Nom>",
                     "forms": {
                         "1sg": "-",
                         "2sg": "დაიწყე",
@@ -3840,8 +4186,10 @@
             },
             "preverb_config": {
                 "has_multiple_preverbs": false,
-                "default_preverb": "",
-                "available_preverbs": []
+                "default_preverb": "და",
+                "available_preverbs": [
+                    "და"
+                ]
             },
             "preverb_rules": {
                 "default": "",
@@ -3868,22 +4216,38 @@
                 "arguments": {
                     "subject": {
                         "3sg": {
-                            "noun": "",
-                            "adjective": ""
+                            "noun": "family",
+                            "adjective": "big"
                         },
                         "3pl": {
-                            "noun": "",
-                            "adjective": ""
+                            "noun": "neighbor",
+                            "adjective": "busy"
                         }
                     },
                     "direct_object": {
+                        "1sg": {
+                            "noun": "book",
+                            "adjective": "red"
+                        },
+                        "2sg": {
+                            "noun": "key",
+                            "adjective": "new"
+                        },
                         "3sg": {
-                            "noun": "",
-                            "adjective": ""
+                            "noun": "garden",
+                            "adjective": "beautiful"
+                        },
+                        "1pl": {
+                            "noun": "computer",
+                            "adjective": "modern"
+                        },
+                        "2pl": {
+                            "noun": "map",
+                            "adjective": "detailed"
                         },
                         "3pl": {
-                            "noun": "",
-                            "adjective": ""
+                            "noun": "schedule",
+                            "adjective": "full"
                         }
                     }
                 },
@@ -4008,18 +4372,18 @@
                 "arguments": {
                     "subject": {
                         "3sg": {
-                            "noun": "",
-                            "adjective": ""
+                            "noun": "doctor",
+                            "adjective": "young"
                         },
                         "3pl": {
-                            "noun": "",
-                            "adjective": ""
+                            "noun": "artist",
+                            "adjective": "talented"
                         }
                     }
                 },
                 "prepositions": {
                     "subject": "the",
-                    "direct_object": "the",
+                    "direct_object": "",
                     "indirect_object": ""
                 },
                 "preverb_overrides": {}
@@ -4138,22 +4502,38 @@
                 "arguments": {
                     "subject": {
                         "3sg": {
-                            "noun": "",
-                            "adjective": ""
+                            "noun": "child",
+                            "adjective": "hungry"
                         },
                         "3pl": {
-                            "noun": "",
-                            "adjective": ""
+                            "noun": "tourist",
+                            "adjective": "curious"
                         }
                     },
                     "direct_object": {
+                        "1sg": {
+                            "noun": "pizza",
+                            "adjective": "delicious"
+                        },
+                        "2sg": {
+                            "noun": "coffee",
+                            "adjective": "hot"
+                        },
                         "3sg": {
-                            "noun": "",
-                            "adjective": ""
+                            "noun": "ice cream",
+                            "adjective": "sweet"
+                        },
+                        "1pl": {
+                            "noun": "adventure",
+                            "adjective": "exciting"
+                        },
+                        "2pl": {
+                            "noun": "rest",
+                            "adjective": "peaceful"
                         },
                         "3pl": {
-                            "noun": "",
-                            "adjective": ""
+                            "noun": "experience",
+                            "adjective": "new"
                         }
                     }
                 },
@@ -4278,22 +4658,38 @@
                 "arguments": {
                     "subject": {
                         "3sg": {
-                            "noun": "",
-                            "adjective": ""
+                            "noun": "author",
+                            "adjective": "famous"
                         },
                         "3pl": {
-                            "noun": "",
-                            "adjective": ""
+                            "noun": "journalist",
+                            "adjective": "experienced"
                         }
                     },
                     "direct_object": {
+                        "1sg": {
+                            "noun": "letter",
+                            "adjective": "long"
+                        },
+                        "2sg": {
+                            "noun": "email",
+                            "adjective": "important"
+                        },
                         "3sg": {
-                            "noun": "",
-                            "adjective": ""
+                            "noun": "novel",
+                            "adjective": "interesting"
+                        },
+                        "1pl": {
+                            "noun": "article",
+                            "adjective": "short"
+                        },
+                        "2pl": {
+                            "noun": "message",
+                            "adjective": "quick"
                         },
                         "3pl": {
-                            "noun": "",
-                            "adjective": ""
+                            "noun": "report",
+                            "adjective": "detailed"
                         }
                     }
                 },
@@ -4390,8 +4786,10 @@
             },
             "preverb_config": {
                 "has_multiple_preverbs": false,
-                "default_preverb": "",
-                "available_preverbs": []
+                "default_preverb": "და",
+                "available_preverbs": [
+                    "და"
+                ]
             },
             "preverb_rules": {
                 "default": "",
@@ -4418,45 +4816,45 @@
                 "arguments": {
                     "subject": {
                         "3sg": {
-                            "noun": "student",
-                            "adjective": "new"
+                            "noun": "child",
+                            "adjective": "young"
                         },
                         "3pl": {
-                            "noun": "driver",
-                            "adjective": "fast"
+                            "noun": "employee",
+                            "adjective": "new"
                         }
                     },
                     "indirect_object": {
                         "1sg": {
-                            "noun": "father",
-                            "adjective": "kind"
+                            "noun": "mother",
+                            "adjective": "worried"
                         },
                         "2sg": {
-                            "noun": "friend",
-                            "adjective": "old"
+                            "noun": "boss",
+                            "adjective": "strict"
                         },
                         "3sg": {
-                            "noun": "teacher",
-                            "adjective": "good"
+                            "noun": "parent",
+                            "adjective": "concerned"
                         },
                         "1pl": {
-                            "noun": "father",
-                            "adjective": "kind"
+                            "noun": "manager",
+                            "adjective": "busy"
                         },
                         "2pl": {
-                            "noun": "question",
-                            "adjective": "important"
+                            "noun": "supervisor",
+                            "adjective": "demanding"
                         },
                         "3pl": {
-                            "noun": "phone",
-                            "adjective": "new"
+                            "noun": "authority",
+                            "adjective": "official"
                         }
                     }
                 },
                 "prepositions": {
                     "subject": "the",
                     "direct_object": "",
-                    "indirect_object": "the"
+                    "indirect_object": "to the"
                 },
                 "preverb_overrides": {}
             },
@@ -4565,12 +4963,12 @@
                 "arguments": {
                     "subject": {
                         "3sg": {
-                            "noun": "",
-                            "adjective": ""
+                            "noun": "businessman",
+                            "adjective": "busy"
                         },
                         "3pl": {
-                            "noun": "",
-                            "adjective": ""
+                            "noun": "family",
+                            "adjective": "happy"
                         }
                     }
                 },
@@ -4695,22 +5093,38 @@
                 "arguments": {
                     "subject": {
                         "3sg": {
-                            "noun": "",
-                            "adjective": ""
+                            "noun": "patient",
+                            "adjective": "sick"
                         },
                         "3pl": {
-                            "noun": "",
-                            "adjective": ""
+                            "noun": "family",
+                            "adjective": "hungry"
                         }
                     },
                     "direct_object": {
+                        "1sg": {
+                            "noun": "medicine",
+                            "adjective": "strong"
+                        },
+                        "2sg": {
+                            "noun": "money",
+                            "adjective": "extra"
+                        },
                         "3sg": {
-                            "noun": "",
-                            "adjective": ""
+                            "noun": "help",
+                            "adjective": "medical"
+                        },
+                        "1pl": {
+                            "noun": "food",
+                            "adjective": "hot"
+                        },
+                        "2pl": {
+                            "noun": "water",
+                            "adjective": "fresh"
                         },
                         "3pl": {
-                            "noun": "",
-                            "adjective": ""
+                            "noun": "meal",
+                            "adjective": "complete"
                         }
                     }
                 },
@@ -4807,8 +5221,10 @@
             },
             "preverb_config": {
                 "has_multiple_preverbs": false,
-                "default_preverb": "",
-                "available_preverbs": []
+                "default_preverb": "და",
+                "available_preverbs": [
+                    "და"
+                ]
             },
             "preverb_rules": {
                 "default": "",
@@ -4835,22 +5251,38 @@
                 "arguments": {
                     "subject": {
                         "3sg": {
-                            "noun": "",
-                            "adjective": ""
+                            "noun": "baker",
+                            "adjective": "friendly"
                         },
                         "3pl": {
-                            "noun": "",
-                            "adjective": ""
+                            "noun": "market",
+                            "adjective": "busy"
                         }
                     },
                     "direct_object": {
+                        "1sg": {
+                            "noun": "book",
+                            "adjective": "old"
+                        },
+                        "2sg": {
+                            "noun": "car",
+                            "adjective": "used"
+                        },
                         "3sg": {
-                            "noun": "",
-                            "adjective": ""
+                            "noun": "bread",
+                            "adjective": "hot"
+                        },
+                        "1pl": {
+                            "noun": "house",
+                            "adjective": "small"
+                        },
+                        "2pl": {
+                            "noun": "phone",
+                            "adjective": "new"
                         },
                         "3pl": {
-                            "noun": "",
-                            "adjective": ""
+                            "noun": "fruit",
+                            "adjective": "sweet"
                         }
                     }
                 },
@@ -4947,8 +5379,10 @@
             },
             "preverb_config": {
                 "has_multiple_preverbs": false,
-                "default_preverb": "",
-                "available_preverbs": []
+                "default_preverb": "გა",
+                "available_preverbs": [
+                    "გა"
+                ]
             },
             "preverb_rules": {
                 "default": "",
@@ -4975,22 +5409,38 @@
                 "arguments": {
                     "subject": {
                         "3sg": {
-                            "noun": "",
-                            "adjective": ""
+                            "noun": "mother",
+                            "adjective": "worried"
                         },
                         "3pl": {
-                            "noun": "",
-                            "adjective": ""
+                            "noun": "dancer",
+                            "adjective": "inexperienced"
                         }
                     },
                     "direct_object": {
+                        "1sg": {
+                            "noun": "doctor",
+                            "adjective": "good"
+                        },
+                        "2sg": {
+                            "noun": "friend",
+                            "adjective": "old"
+                        },
                         "3sg": {
-                            "noun": "",
-                            "adjective": ""
+                            "noun": "parent",
+                            "adjective": "concerned"
+                        },
+                        "1pl": {
+                            "noun": "sister",
+                            "adjective": "good"
+                        },
+                        "2pl": {
+                            "noun": "brother",
+                            "adjective": "nice"
                         },
                         "3pl": {
-                            "noun": "",
-                            "adjective": ""
+                            "noun": "teacher",
+                            "adjective": "knowledgeable"
                         }
                     }
                 },
@@ -5087,8 +5537,10 @@
             },
             "preverb_config": {
                 "has_multiple_preverbs": false,
-                "default_preverb": "",
-                "available_preverbs": []
+                "default_preverb": "და",
+                "available_preverbs": [
+                    "და"
+                ]
             },
             "preverb_rules": {
                 "default": "",
@@ -5115,22 +5567,38 @@
                 "arguments": {
                     "subject": {
                         "3sg": {
-                            "noun": "",
-                            "adjective": ""
+                            "noun": "teacher",
+                            "adjective": "experienced"
                         },
                         "3pl": {
-                            "noun": "",
-                            "adjective": ""
+                            "noun": "child",
+                            "adjective": "young"
                         }
                     },
                     "direct_object": {
+                        "1sg": {
+                            "noun": "answer",
+                            "adjective": "correct"
+                        },
+                        "2sg": {
+                            "noun": "word",
+                            "adjective": "difficult"
+                        },
                         "3sg": {
-                            "noun": "",
-                            "adjective": ""
+                            "noun": "history",
+                            "adjective": "complete"
+                        },
+                        "1pl": {
+                            "noun": "rule",
+                            "adjective": "simple"
+                        },
+                        "2pl": {
+                            "noun": "fact",
+                            "adjective": "interesting"
                         },
                         "3pl": {
-                            "noun": "",
-                            "adjective": ""
+                            "noun": "story",
+                            "adjective": "whole"
                         }
                     }
                 },
@@ -5255,22 +5723,38 @@
                 "arguments": {
                     "subject": {
                         "3sg": {
-                            "noun": "",
-                            "adjective": ""
+                            "noun": "tourist",
+                            "adjective": "foreign"
                         },
                         "3pl": {
-                            "noun": "",
-                            "adjective": ""
+                            "noun": "visitor",
+                            "adjective": "new"
                         }
                     },
                     "direct_object": {
+                        "1sg": {
+                            "noun": "city",
+                            "adjective": "big"
+                        },
+                        "2sg": {
+                            "noun": "area",
+                            "adjective": "local"
+                        },
                         "3sg": {
-                            "noun": "",
-                            "adjective": ""
+                            "noun": "place",
+                            "adjective": "famous"
+                        },
+                        "1pl": {
+                            "noun": "street",
+                            "adjective": "main"
+                        },
+                        "2pl": {
+                            "noun": "building",
+                            "adjective": "old"
                         },
                         "3pl": {
-                            "noun": "",
-                            "adjective": ""
+                            "noun": "neighborhood",
+                            "adjective": "quiet"
                         }
                     }
                 },
@@ -5353,7 +5837,7 @@
                     "examples": []
                 },
                 "imperative": {
-                    "raw_gloss": "V Act Impv SV <S-DO> <S:Erg> <DO:Nom>",
+                    "raw_gloss": "V Act Impv SV Pv <S-DO> <S:Erg> <DO:Nom>",
                     "forms": {
                         "1sg": "-",
                         "2sg": "გაიცანი",
@@ -5367,8 +5851,10 @@
             },
             "preverb_config": {
                 "has_multiple_preverbs": false,
-                "default_preverb": "",
-                "available_preverbs": []
+                "default_preverb": "გა",
+                "available_preverbs": [
+                    "გა"
+                ]
             },
             "preverb_rules": {
                 "default": "",
@@ -5395,22 +5881,38 @@
                 "arguments": {
                     "subject": {
                         "3sg": {
-                            "noun": "",
-                            "adjective": ""
+                            "noun": "patient",
+                            "adjective": "sick"
                         },
                         "3pl": {
-                            "noun": "",
-                            "adjective": ""
+                            "noun": "child",
+                            "adjective": "young"
                         }
                     },
                     "direct_object": {
+                        "1sg": {
+                            "noun": "cold",
+                            "adjective": "bad"
+                        },
+                        "2sg": {
+                            "noun": "warmth",
+                            "adjective": "nice"
+                        },
                         "3sg": {
-                            "noun": "",
-                            "adjective": ""
+                            "noun": "pain",
+                            "adjective": "strong"
+                        },
+                        "1pl": {
+                            "noun": "joy",
+                            "adjective": "great"
+                        },
+                        "2pl": {
+                            "noun": "comfort",
+                            "adjective": "good"
                         },
                         "3pl": {
-                            "noun": "",
-                            "adjective": ""
+                            "noun": "happiness",
+                            "adjective": "simple"
                         }
                     }
                 },
@@ -5535,22 +6037,38 @@
                 "arguments": {
                     "subject": {
                         "3sg": {
-                            "noun": "",
-                            "adjective": ""
+                            "noun": "student",
+                            "adjective": "young"
                         },
                         "3pl": {
-                            "noun": "",
-                            "adjective": ""
+                            "noun": "worker",
+                            "adjective": "experienced"
                         }
                     },
                     "direct_object": {
+                        "1sg": {
+                            "noun": "problem",
+                            "adjective": "difficult"
+                        },
+                        "2sg": {
+                            "noun": "question",
+                            "adjective": "important"
+                        },
                         "3sg": {
-                            "noun": "",
-                            "adjective": ""
+                            "noun": "lesson",
+                            "adjective": "new"
+                        },
+                        "1pl": {
+                            "noun": "idea",
+                            "adjective": "good"
+                        },
+                        "2pl": {
+                            "noun": "plan",
+                            "adjective": "simple"
                         },
                         "3pl": {
-                            "noun": "",
-                            "adjective": ""
+                            "noun": "solution",
+                            "adjective": "perfect"
                         }
                     }
                 },
@@ -5675,12 +6193,12 @@
                 "arguments": {
                     "subject": {
                         "3sg": {
-                            "noun": "",
-                            "adjective": ""
+                            "noun": "grandfather",
+                            "adjective": "old"
                         },
                         "3pl": {
-                            "noun": "",
-                            "adjective": ""
+                            "noun": "child",
+                            "adjective": "tired"
                         }
                     }
                 },
@@ -5805,22 +6323,38 @@
                 "arguments": {
                     "subject": {
                         "3sg": {
-                            "noun": "",
-                            "adjective": ""
+                            "noun": "child",
+                            "adjective": "active"
                         },
                         "3pl": {
-                            "noun": "",
-                            "adjective": ""
+                            "noun": "child",
+                            "adjective": "brave"
                         }
                     },
                     "direct_object": {
+                        "1sg": {
+                            "noun": "baby",
+                            "adjective": "small"
+                        },
+                        "2sg": {
+                            "noun": "child",
+                            "adjective": "young"
+                        },
                         "3sg": {
-                            "noun": "",
-                            "adjective": ""
+                            "noun": "student",
+                            "adjective": "sleepy"
+                        },
+                        "1pl": {
+                            "noun": "friend",
+                            "adjective": "good"
+                        },
+                        "2pl": {
+                            "noun": "guest",
+                            "adjective": "new"
                         },
                         "3pl": {
-                            "noun": "",
-                            "adjective": ""
+                            "noun": "parent",
+                            "adjective": "tired"
                         }
                     }
                 },
@@ -5903,7 +6437,7 @@
                     "examples": []
                 },
                 "imperative": {
-                    "raw_gloss": "V Act Impv SV <S-DO> <S:Erg> <DO:Nom>",
+                    "raw_gloss": "V Act Impv SV Pv <S-DO> <S:Erg> <DO:Nom>",
                     "forms": {
                         "1sg": "-",
                         "2sg": "გაიღვიძე",
@@ -5917,8 +6451,10 @@
             },
             "preverb_config": {
                 "has_multiple_preverbs": false,
-                "default_preverb": "",
-                "available_preverbs": []
+                "default_preverb": "გა",
+                "available_preverbs": [
+                    "გა"
+                ]
             },
             "preverb_rules": {
                 "default": "",
@@ -5945,28 +6481,44 @@
                 "arguments": {
                     "subject": {
                         "3sg": {
-                            "noun": "",
-                            "adjective": ""
+                            "noun": "athlete",
+                            "adjective": "strong"
                         },
                         "3pl": {
-                            "noun": "",
-                            "adjective": ""
+                            "noun": "worker",
+                            "adjective": "skilled"
                         }
                     },
                     "direct_object": {
+                        "1sg": {
+                            "noun": "task",
+                            "adjective": "difficult"
+                        },
+                        "2sg": {
+                            "noun": "work",
+                            "adjective": "hard"
+                        },
                         "3sg": {
-                            "noun": "",
-                            "adjective": "none"
+                            "noun": "exercise",
+                            "adjective": "easy"
+                        },
+                        "1pl": {
+                            "noun": "job",
+                            "adjective": "simple"
+                        },
+                        "2pl": {
+                            "noun": "project",
+                            "adjective": "big"
                         },
                         "3pl": {
-                            "noun": "",
-                            "adjective": "none"
+                            "noun": "work",
+                            "adjective": "skilled"
                         }
                     }
                 },
                 "prepositions": {
                     "subject": "the",
-                    "direct_object": "",
+                    "direct_object": "do",
                     "indirect_object": ""
                 },
                 "preverb_overrides": {}
@@ -6057,8 +6609,10 @@
             },
             "preverb_config": {
                 "has_multiple_preverbs": false,
-                "default_preverb": "",
-                "available_preverbs": []
+                "default_preverb": "შე",
+                "available_preverbs": [
+                    "შე"
+                ]
             },
             "preverb_rules": {
                 "default": "",
@@ -6085,18 +6639,18 @@
                 "arguments": {
                     "subject": {
                         "3sg": {
-                            "noun": "",
-                            "adjective": ""
+                            "noun": "problem",
+                            "adjective": "big"
                         },
                         "3pl": {
-                            "noun": "",
-                            "adjective": ""
+                            "noun": "question",
+                            "adjective": "interesting"
                         }
                     }
                 },
                 "prepositions": {
                     "subject": "the",
-                    "direct_object": "the",
+                    "direct_object": "",
                     "indirect_object": ""
                 },
                 "preverb_overrides": {}
@@ -6215,22 +6769,38 @@
                 "arguments": {
                     "subject": {
                         "3sg": {
-                            "noun": "",
-                            "adjective": ""
+                            "noun": "child",
+                            "adjective": "young"
                         },
                         "3pl": {
-                            "noun": "",
-                            "adjective": ""
+                            "noun": "child",
+                            "adjective": "happy"
                         }
                     },
                     "direct_object": {
+                        "1sg": {
+                            "noun": "ice cream",
+                            "adjective": "sweet"
+                        },
+                        "2sg": {
+                            "noun": "movie",
+                            "adjective": "funny"
+                        },
                         "3sg": {
-                            "noun": "",
-                            "adjective": ""
+                            "noun": "game",
+                            "adjective": "new"
+                        },
+                        "1pl": {
+                            "noun": "music",
+                            "adjective": "loud"
+                        },
+                        "2pl": {
+                            "noun": "book",
+                            "adjective": "interesting"
                         },
                         "3pl": {
-                            "noun": "",
-                            "adjective": ""
+                            "noun": "toy",
+                            "adjective": "new"
                         }
                     }
                 },
@@ -6327,8 +6897,10 @@
             },
             "preverb_config": {
                 "has_multiple_preverbs": false,
-                "default_preverb": "",
-                "available_preverbs": []
+                "default_preverb": "მო",
+                "available_preverbs": [
+                    "მო"
+                ]
             },
             "preverb_rules": {
                 "default": "",
@@ -6355,12 +6927,12 @@
                 "arguments": {
                     "subject": {
                         "3sg": {
-                            "noun": "",
-                            "adjective": ""
+                            "noun": "reporter",
+                            "adjective": "friendly"
                         },
                         "3pl": {
-                            "noun": "",
-                            "adjective": ""
+                            "noun": "neighbor",
+                            "adjective": "helpful"
                         }
                     }
                 },
@@ -6485,18 +7057,18 @@
                 "arguments": {
                     "subject": {
                         "3sg": {
-                            "noun": "",
-                            "adjective": ""
+                            "noun": "athlete",
+                            "adjective": "tired"
                         },
                         "3pl": {
-                            "noun": "",
-                            "adjective": ""
+                            "noun": "grandfather",
+                            "adjective": "old"
                         }
                     }
                 },
                 "prepositions": {
                     "subject": "the",
-                    "direct_object": "the",
+                    "direct_object": "",
                     "indirect_object": ""
                 },
                 "preverb_overrides": {}
@@ -6615,29 +7187,45 @@
                 "arguments": {
                     "subject": {
                         "3sg": {
-                            "noun": "",
-                            "adjective": ""
+                            "noun": "manager",
+                            "adjective": "experienced"
                         },
                         "3pl": {
-                            "noun": "",
-                            "adjective": ""
+                            "noun": "employee",
+                            "adjective": "dedicated"
                         }
                     },
                     "indirect_object": {
+                        "1sg": {
+                            "noun": "friend",
+                            "adjective": "best"
+                        },
+                        "2sg": {
+                            "noun": "teacher",
+                            "adjective": "kind"
+                        },
                         "3sg": {
-                            "noun": "",
-                            "adjective": ""
+                            "noun": "colleague",
+                            "adjective": "helpful"
+                        },
+                        "1pl": {
+                            "noun": "neighbor",
+                            "adjective": "friendly"
+                        },
+                        "2pl": {
+                            "noun": "group",
+                            "adjective": "large"
                         },
                         "3pl": {
-                            "noun": "",
-                            "adjective": ""
+                            "noun": "client",
+                            "adjective": "important"
                         }
                     }
                 },
                 "prepositions": {
                     "subject": "the",
-                    "direct_object": "the",
-                    "indirect_object": ""
+                    "direct_object": "",
+                    "indirect_object": "the"
                 },
                 "preverb_overrides": {}
             },
@@ -6713,7 +7301,7 @@
                     "examples": []
                 },
                 "imperative": {
-                    "raw_gloss": "V Pass Impv <S-IO> <S:Nom> <IO:Dat>",
+                    "raw_gloss": "V Pass Impv Pv <S-IO> <S:Nom> <IO:Dat>",
                     "forms": {
                         "1sg": "-",
                         "2sg": "შეხვდი",
@@ -6727,8 +7315,10 @@
             },
             "preverb_config": {
                 "has_multiple_preverbs": false,
-                "default_preverb": "",
-                "available_preverbs": []
+                "default_preverb": "შე",
+                "available_preverbs": [
+                    "შე"
+                ]
             },
             "preverb_rules": {
                 "default": "",
@@ -6755,22 +7345,38 @@
                 "arguments": {
                     "subject": {
                         "3sg": {
-                            "noun": "",
-                            "adjective": ""
+                            "noun": "nurse",
+                            "adjective": "careful"
                         },
                         "3pl": {
-                            "noun": "",
-                            "adjective": ""
+                            "noun": "supervisor",
+                            "adjective": "experienced"
                         }
                     },
                     "direct_object": {
+                        "1sg": {
+                            "noun": "patient",
+                            "adjective": "sick"
+                        },
+                        "2sg": {
+                            "noun": "report",
+                            "adjective": "detailed"
+                        },
                         "3sg": {
-                            "noun": "",
-                            "adjective": ""
+                            "noun": "document",
+                            "adjective": "important"
+                        },
+                        "1pl": {
+                            "noun": "work",
+                            "adjective": "finished"
+                        },
+                        "2pl": {
+                            "noun": "list",
+                            "adjective": "complete"
                         },
                         "3pl": {
-                            "noun": "",
-                            "adjective": ""
+                            "noun": "schedule",
+                            "adjective": "busy"
                         }
                     }
                 },
@@ -6853,7 +7459,7 @@
                     "examples": []
                 },
                 "imperative": {
-                    "raw_gloss": "V Act Impv <S-DO> <S:Erg> <DO:Nom>",
+                    "raw_gloss": "V Act Impv Pv <S-DO> <S:Erg> <DO:Nom>",
                     "forms": {
                         "1sg": "-",
                         "2sg": "შეამოწმე",
@@ -6867,8 +7473,10 @@
             },
             "preverb_config": {
                 "has_multiple_preverbs": false,
-                "default_preverb": "",
-                "available_preverbs": []
+                "default_preverb": "შე",
+                "available_preverbs": [
+                    "შე"
+                ]
             },
             "preverb_rules": {
                 "default": "",
@@ -6895,22 +7503,38 @@
                 "arguments": {
                     "subject": {
                         "3sg": {
-                            "noun": "",
-                            "adjective": ""
+                            "noun": "artist",
+                            "adjective": "talented"
                         },
                         "3pl": {
-                            "noun": "",
-                            "adjective": ""
+                            "noun": "student",
+                            "adjective": "young"
                         }
                     },
                     "direct_object": {
+                        "1sg": {
+                            "noun": "picture",
+                            "adjective": "beautiful"
+                        },
+                        "2sg": {
+                            "noun": "flower",
+                            "adjective": "red"
+                        },
                         "3sg": {
-                            "noun": "",
-                            "adjective": ""
+                            "noun": "house",
+                            "adjective": "big"
+                        },
+                        "1pl": {
+                            "noun": "tree",
+                            "adjective": "tall"
+                        },
+                        "2pl": {
+                            "noun": "sun",
+                            "adjective": "bright"
                         },
                         "3pl": {
-                            "noun": "",
-                            "adjective": ""
+                            "noun": "mountain",
+                            "adjective": "big"
                         }
                     }
                 },
@@ -7007,8 +7631,10 @@
             },
             "preverb_config": {
                 "has_multiple_preverbs": false,
-                "default_preverb": "",
-                "available_preverbs": []
+                "default_preverb": "და",
+                "available_preverbs": [
+                    "და"
+                ]
             },
             "preverb_rules": {
                 "default": "",
@@ -7035,12 +7661,12 @@
                 "arguments": {
                     "subject": {
                         "3sg": {
-                            "noun": "",
-                            "adjective": ""
+                            "noun": "baby",
+                            "adjective": "small"
                         },
                         "3pl": {
-                            "noun": "",
-                            "adjective": ""
+                            "noun": "girl",
+                            "adjective": "small"
                         }
                     }
                 },
@@ -7137,8 +7763,10 @@
             },
             "preverb_config": {
                 "has_multiple_preverbs": false,
-                "default_preverb": "",
-                "available_preverbs": []
+                "default_preverb": "და",
+                "available_preverbs": [
+                    "და"
+                ]
             },
             "preverb_rules": {
                 "default": "",
@@ -7165,12 +7793,12 @@
                 "arguments": {
                     "subject": {
                         "3sg": {
-                            "noun": "",
-                            "adjective": ""
+                            "noun": "guard",
+                            "adjective": "tall"
                         },
                         "3pl": {
-                            "noun": "",
-                            "adjective": ""
+                            "noun": "soldier",
+                            "adjective": "brave"
                         }
                     }
                 },
@@ -7295,12 +7923,12 @@
                 "arguments": {
                     "subject": {
                         "3sg": {
-                            "noun": "",
-                            "adjective": ""
+                            "noun": "child",
+                            "adjective": "sleepy"
                         },
                         "3pl": {
-                            "noun": "",
-                            "adjective": ""
+                            "noun": "boy",
+                            "adjective": "young"
                         }
                     }
                 },
@@ -7425,22 +8053,38 @@
                 "arguments": {
                     "subject": {
                         "3sg": {
-                            "noun": "",
-                            "adjective": ""
+                            "noun": "family",
+                            "adjective": "happy"
                         },
                         "3pl": {
-                            "noun": "",
-                            "adjective": ""
+                            "noun": "neighbor",
+                            "adjective": "friendly"
                         }
                     },
                     "direct_object": {
+                        "1sg": {
+                            "noun": "dog",
+                            "adjective": "big"
+                        },
+                        "2sg": {
+                            "noun": "cat",
+                            "adjective": "small"
+                        },
                         "3sg": {
-                            "noun": "",
-                            "adjective": ""
+                            "noun": "sister",
+                            "adjective": "young"
+                        },
+                        "1pl": {
+                            "noun": "brother",
+                            "adjective": "old"
+                        },
+                        "2pl": {
+                            "noun": "friend",
+                            "adjective": "good"
                         },
                         "3pl": {
-                            "noun": "",
-                            "adjective": ""
+                            "noun": "cousin",
+                            "adjective": "close"
                         }
                     }
                 },
@@ -7565,22 +8209,38 @@
                 "arguments": {
                     "subject": {
                         "3sg": {
-                            "noun": "",
-                            "adjective": ""
+                            "noun": "mother",
+                            "adjective": "kind"
                         },
                         "3pl": {
-                            "noun": "",
-                            "adjective": ""
+                            "noun": "grandfather",
+                            "adjective": "old"
                         }
                     },
                     "direct_object": {
+                        "1sg": {
+                            "noun": "music",
+                            "adjective": "beautiful"
+                        },
+                        "2sg": {
+                            "noun": "book",
+                            "adjective": "interesting"
+                        },
                         "3sg": {
-                            "noun": "",
-                            "adjective": ""
+                            "noun": "child",
+                            "adjective": "small"
+                        },
+                        "1pl": {
+                            "noun": "family",
+                            "adjective": "happy"
+                        },
+                        "2pl": {
+                            "noun": "food",
+                            "adjective": "delicious"
                         },
                         "3pl": {
-                            "noun": "",
-                            "adjective": ""
+                            "noun": "home",
+                            "adjective": "warm"
                         }
                     }
                 },
@@ -7705,22 +8365,38 @@
                 "arguments": {
                     "subject": {
                         "3sg": {
-                            "noun": "",
-                            "adjective": ""
+                            "noun": "student",
+                            "adjective": "curious"
                         },
                         "3pl": {
-                            "noun": "",
-                            "adjective": ""
+                            "noun": "teacher",
+                            "adjective": "experienced"
                         }
                     },
                     "indirect_object": {
+                        "1sg": {
+                            "noun": "picture",
+                            "adjective": "beautiful"
+                        },
+                        "2sg": {
+                            "noun": "movie",
+                            "adjective": "interesting"
+                        },
                         "3sg": {
-                            "noun": "",
-                            "adjective": ""
+                            "noun": "picture",
+                            "adjective": "strange"
+                        },
+                        "1pl": {
+                            "noun": "show",
+                            "adjective": "funny"
+                        },
+                        "2pl": {
+                            "noun": "game",
+                            "adjective": "exciting"
                         },
                         "3pl": {
-                            "noun": "",
-                            "adjective": ""
+                            "noun": "student",
+                            "adjective": "young"
                         }
                     }
                 },
@@ -7817,8 +8493,10 @@
             },
             "preverb_config": {
                 "has_multiple_preverbs": false,
-                "default_preverb": "",
-                "available_preverbs": []
+                "default_preverb": "და",
+                "available_preverbs": [
+                    "და"
+                ]
             },
             "preverb_rules": {
                 "default": "",
@@ -7845,12 +8523,12 @@
                 "arguments": {
                     "subject": {
                         "3sg": {
-                            "noun": "",
-                            "adjective": ""
+                            "noun": "girl",
+                            "adjective": "young"
                         },
                         "3pl": {
-                            "noun": "",
-                            "adjective": ""
+                            "noun": "dancer",
+                            "adjective": "talented"
                         }
                     }
                 },
@@ -7975,12 +8653,12 @@
                 "arguments": {
                     "subject": {
                         "3sg": {
-                            "noun": "",
-                            "adjective": ""
+                            "noun": "boy",
+                            "adjective": "strong"
                         },
                         "3pl": {
-                            "noun": "",
-                            "adjective": ""
+                            "noun": "fish",
+                            "adjective": "small"
                         }
                     }
                 },
@@ -8105,22 +8783,38 @@
                 "arguments": {
                     "subject": {
                         "3sg": {
-                            "noun": "",
-                            "adjective": ""
+                            "noun": "mother",
+                            "adjective": "kind"
                         },
                         "3pl": {
-                            "noun": "",
-                            "adjective": ""
+                            "noun": "veterinarian",
+                            "adjective": "careful"
                         }
                     },
                     "direct_object": {
+                        "1sg": {
+                            "noun": "hand",
+                            "adjective": "dirty"
+                        },
+                        "2sg": {
+                            "noun": "face",
+                            "adjective": "oily"
+                        },
                         "3sg": {
-                            "noun": "",
-                            "adjective": ""
+                            "noun": "baby",
+                            "adjective": "small"
+                        },
+                        "1pl": {
+                            "noun": "child",
+                            "adjective": "young"
+                        },
+                        "2pl": {
+                            "noun": "foot",
+                            "adjective": "dry"
                         },
                         "3pl": {
-                            "noun": "",
-                            "adjective": ""
+                            "noun": "dog",
+                            "adjective": "big"
                         }
                     }
                 },
@@ -8218,7 +8912,9 @@
             "preverb_config": {
                 "has_multiple_preverbs": false,
                 "default_preverb": "და",
-                "available_preverbs": []
+                "available_preverbs": [
+                    "და"
+                ]
             },
             "preverb_rules": {
                 "default": "და",
@@ -8245,29 +8941,45 @@
                 "arguments": {
                     "subject": {
                         "3sg": {
-                            "noun": "",
-                            "adjective": ""
+                            "noun": "child",
+                            "adjective": "happy"
                         },
                         "3pl": {
-                            "noun": "",
-                            "adjective": ""
+                            "noun": "boy",
+                            "adjective": "young"
                         }
                     },
                     "direct_object": {
+                        "1sg": {
+                            "noun": "sport",
+                            "adjective": "fun"
+                        },
+                        "2sg": {
+                            "noun": "game",
+                            "adjective": "new"
+                        },
                         "3sg": {
-                            "noun": "",
-                            "adjective": ""
+                            "noun": "game",
+                            "adjective": "new"
+                        },
+                        "1pl": {
+                            "noun": "sport",
+                            "adjective": "difficult"
+                        },
+                        "2pl": {
+                            "noun": "sport",
+                            "adjective": "exciting"
                         },
                         "3pl": {
-                            "noun": "",
-                            "adjective": ""
+                            "noun": "sport",
+                            "adjective": "popular"
                         }
                     }
                 },
                 "prepositions": {
                     "subject": "the",
                     "direct_object": "the",
-                    "indirect_object": "to"
+                    "indirect_object": ""
                 },
                 "preverb_overrides": {}
             },
@@ -8385,22 +9097,38 @@
                 "arguments": {
                     "subject": {
                         "3sg": {
-                            "noun": "",
-                            "adjective": ""
+                            "noun": "family",
+                            "adjective": "big"
                         },
                         "3pl": {
-                            "noun": "",
-                            "adjective": ""
+                            "noun": "worker",
+                            "adjective": "hungry"
                         }
                     },
                     "direct_object": {
+                        "1sg": {
+                            "noun": "fruit",
+                            "adjective": "fresh"
+                        },
+                        "2sg": {
+                            "noun": "apple",
+                            "adjective": "red"
+                        },
                         "3sg": {
-                            "noun": "",
-                            "adjective": ""
+                            "noun": "meal",
+                            "adjective": "big"
+                        },
+                        "1pl": {
+                            "noun": "rice",
+                            "adjective": "white"
+                        },
+                        "2pl": {
+                            "noun": "chicken",
+                            "adjective": "fried"
                         },
                         "3pl": {
-                            "noun": "",
-                            "adjective": ""
+                            "noun": "bread",
+                            "adjective": "hot"
                         }
                     }
                 },
@@ -8497,8 +9225,10 @@
             },
             "preverb_config": {
                 "has_multiple_preverbs": false,
-                "default_preverb": "",
-                "available_preverbs": []
+                "default_preverb": "შე",
+                "available_preverbs": [
+                    "შე"
+                ]
             },
             "preverb_rules": {
                 "default": "",
@@ -8525,32 +9255,64 @@
                 "arguments": {
                     "subject": {
                         "3sg": {
-                            "noun": "",
-                            "adjective": ""
+                            "noun": "student",
+                            "adjective": "curious"
                         },
                         "3pl": {
-                            "noun": "",
-                            "adjective": ""
+                            "noun": "child",
+                            "adjective": "young"
                         }
                     },
                     "direct_object": {
+                        "1sg": {
+                            "noun": "question",
+                            "adjective": "difficult"
+                        },
+                        "2sg": {
+                            "noun": "question",
+                            "adjective": "simple"
+                        },
                         "3sg": {
-                            "noun": "",
-                            "adjective": ""
+                            "noun": "question",
+                            "adjective": "important"
+                        },
+                        "1pl": {
+                            "noun": "question",
+                            "adjective": "easy"
+                        },
+                        "2pl": {
+                            "noun": "question",
+                            "adjective": "important"
                         },
                         "3pl": {
-                            "noun": "",
-                            "adjective": ""
+                            "noun": "question",
+                            "adjective": "difficult"
                         }
                     },
                     "indirect_object": {
+                        "1sg": {
+                            "noun": "teacher",
+                            "adjective": "knowledgeable"
+                        },
+                        "2sg": {
+                            "noun": "friend",
+                            "adjective": "helpful"
+                        },
                         "3sg": {
-                            "noun": "",
-                            "adjective": ""
+                            "noun": "parent",
+                            "adjective": "wise"
+                        },
+                        "1pl": {
+                            "noun": "neighbor",
+                            "adjective": "friendly"
+                        },
+                        "2pl": {
+                            "noun": "doctor",
+                            "adjective": "experienced"
                         },
                         "3pl": {
-                            "noun": "",
-                            "adjective": ""
+                            "noun": "expert",
+                            "adjective": "knowledgeable"
                         }
                     }
                 },
@@ -8647,8 +9409,10 @@
             },
             "preverb_config": {
                 "has_multiple_preverbs": false,
-                "default_preverb": "",
-                "available_preverbs": []
+                "default_preverb": "მო",
+                "available_preverbs": [
+                    "მო"
+                ]
             },
             "preverb_rules": {
                 "default": "",
@@ -8675,12 +9439,12 @@
                 "arguments": {
                     "subject": {
                         "3sg": {
-                            "noun": "",
-                            "adjective": ""
+                            "noun": "soldier",
+                            "adjective": "brave"
                         },
                         "3pl": {
-                            "noun": "",
-                            "adjective": ""
+                            "noun": "boxer",
+                            "adjective": "strong"
                         }
                     }
                 },
@@ -8805,22 +9569,38 @@
                 "arguments": {
                     "subject": {
                         "3sg": {
-                            "noun": "",
-                            "adjective": ""
+                            "noun": "detective",
+                            "adjective": "clever"
                         },
                         "3pl": {
-                            "noun": "",
-                            "adjective": ""
+                            "noun": "woman",
+                            "adjective": "happy"
                         }
                     },
                     "direct_object": {
+                        "1sg": {
+                            "noun": "key",
+                            "adjective": "lost"
+                        },
+                        "2sg": {
+                            "noun": "book",
+                            "adjective": "old"
+                        },
                         "3sg": {
-                            "noun": "",
-                            "adjective": ""
+                            "noun": "treasure",
+                            "adjective": "hidden"
+                        },
+                        "1pl": {
+                            "noun": "coin",
+                            "adjective": "golden"
+                        },
+                        "2pl": {
+                            "noun": "phone",
+                            "adjective": "missing"
                         },
                         "3pl": {
-                            "noun": "",
-                            "adjective": ""
+                            "noun": "ring",
+                            "adjective": "precious"
                         }
                     }
                 },
@@ -8945,12 +9725,12 @@
                 "arguments": {
                     "subject": {
                         "3sg": {
-                            "noun": "",
-                            "adjective": ""
+                            "noun": "worker",
+                            "adjective": "diligent"
                         },
                         "3pl": {
-                            "noun": "",
-                            "adjective": ""
+                            "noun": "farmer",
+                            "adjective": "tired"
                         }
                     }
                 },
@@ -9075,22 +9855,38 @@
                 "arguments": {
                     "subject": {
                         "3sg": {
-                            "noun": "",
-                            "adjective": ""
+                            "noun": "mother",
+                            "adjective": "kind"
                         },
                         "3pl": {
-                            "noun": "",
-                            "adjective": ""
+                            "noun": "friend",
+                            "adjective": "helpful"
                         }
                     },
                     "direct_object": {
+                        "1sg": {
+                            "noun": "child",
+                            "adjective": "small"
+                        },
+                        "2sg": {
+                            "noun": "dog",
+                            "adjective": "big"
+                        },
                         "3sg": {
-                            "noun": "",
-                            "adjective": ""
+                            "noun": "sister",
+                            "adjective": "young"
+                        },
+                        "1pl": {
+                            "noun": "cat",
+                            "adjective": "small"
+                        },
+                        "2pl": {
+                            "noun": "brother",
+                            "adjective": "old"
                         },
                         "3pl": {
-                            "noun": "",
-                            "adjective": ""
+                            "noun": "cousin",
+                            "adjective": "close"
                         }
                     }
                 },
@@ -9187,8 +9983,10 @@
             },
             "preverb_config": {
                 "has_multiple_preverbs": false,
-                "default_preverb": "",
-                "available_preverbs": []
+                "default_preverb": "მო",
+                "available_preverbs": [
+                    "მო"
+                ]
             },
             "preverb_rules": {
                 "default": "",
@@ -9215,12 +10013,12 @@
                 "arguments": {
                     "subject": {
                         "3sg": {
-                            "noun": "",
-                            "adjective": ""
+                            "noun": "athlete",
+                            "adjective": "fast"
                         },
                         "3pl": {
-                            "noun": "",
-                            "adjective": ""
+                            "noun": "boy",
+                            "adjective": "young"
                         }
                     }
                 },
@@ -9317,8 +10115,10 @@
             },
             "preverb_config": {
                 "has_multiple_preverbs": false,
-                "default_preverb": "",
-                "available_preverbs": []
+                "default_preverb": "და",
+                "available_preverbs": [
+                    "და"
+                ]
             },
             "preverb_rules": {
                 "default": "",
@@ -9345,38 +10145,38 @@
                 "arguments": {
                     "subject": {
                         "3sg": {
-                            "noun": "sister",
-                            "adjective": "beautiful"
+                            "noun": "manager",
+                            "adjective": "experienced"
                         },
                         "3pl": {
-                            "noun": "mother",
-                            "adjective": "kind"
+                            "noun": "teacher",
+                            "adjective": "strict"
                         }
                     },
                     "direct_object": {
                         "1sg": {
-                            "noun": "guest",
-                            "adjective": "important"
-                        },
-                        "2sg": {
-                            "noun": "child",
-                            "adjective": "small"
-                        },
-                        "3sg": {
-                            "noun": "child",
-                            "adjective": "young"
-                        },
-                        "1pl": {
-                            "noun": "guest",
-                            "adjective": "important"
-                        },
-                        "2pl": {
-                            "noun": "guest",
+                            "noun": "employee",
                             "adjective": "new"
                         },
+                        "2sg": {
+                            "noun": "student",
+                            "adjective": "young"
+                        },
+                        "3sg": {
+                            "noun": "worker",
+                            "adjective": "good"
+                        },
+                        "1pl": {
+                            "noun": "team",
+                            "adjective": "small"
+                        },
+                        "2pl": {
+                            "noun": "group",
+                            "adjective": "large"
+                        },
                         "3pl": {
-                            "noun": "father",
-                            "adjective": "strong"
+                            "noun": "assistant",
+                            "adjective": "helpful"
                         }
                     }
                 },

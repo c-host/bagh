@@ -20,7 +20,9 @@ logger = logging.getLogger(__name__)
 class ConfigManager:
     """Manages configuration for the build process."""
 
-    def __init__(self, project_root: Optional[Path] = None, build_mode: str = 'production'):
+    def __init__(
+        self, project_root: Optional[Path] = None, build_mode: str = "production"
+    ):
         """
         Initialize configuration manager.
 
@@ -57,7 +59,8 @@ class ConfigManager:
         self.paths = {
             "project_root": self.project_root,
             "src_dir": self.project_root / "src",
-            "dist_dir": self.project_root / ("ref" if self.build_mode == 'reference' else "dist"),
+            "dist_dir": self.project_root
+            / ("ref" if self.build_mode == "reference" else "dist"),
             "tools_dir": self.project_root / "tools",
             "modules_dir": self.project_root / "tools" / "modules",
         }
@@ -94,7 +97,11 @@ class ConfigManager:
             "ensure_ascii": False,
             "backup_suffix": ".backup",
             "log_level": "INFO",
-            "log_format": "%(asctime)s - %(name)s - %(levelname)s - %(message)s",
+            "log_format": (
+                "%(levelname)s - %(message)s"
+                if self.build_mode == "production"
+                else "%(asctime)s - %(name)s - %(levelname)s - %(message)s"
+            ),
         }
 
         # Validation settings
@@ -129,16 +136,16 @@ class ConfigManager:
                 {
                     "georgian": "ჩვენება",
                     "semantic_key": "show",
-                    "reason": "stative_verb_no_preverbs"
+                    "reason": "stative_verb_no_preverbs",
                 },
                 {
-                    "georgian": "მიტანა", 
+                    "georgian": "მიტანა",
                     "semantic_key": "bring",
-                    "reason": "multi_preverb_verb"
-                }
+                    "reason": "multi_preverb_verb",
+                },
             ],
             "reference_output_dir": "ref",
-            "reference_verb_limit": 2
+            "reference_verb_limit": 2,
         }
 
     def get_path(self, path_key: str) -> Path:

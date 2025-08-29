@@ -27,6 +27,7 @@ class ExternalDataGenerator:
         if config_manager is None:
             # Import here to avoid circular imports
             from tools.modules.config_manager import ConfigManager
+
             self.config_manager = ConfigManager(project_root)
         else:
             self.config_manager = config_manager
@@ -75,13 +76,16 @@ class ExternalDataGenerator:
         forms = tense_data["forms"]
         if effective_preverb and metadata.get("preverb_rules"):
             from tools.core.verb_conjugation import calculate_preverb_forms
+
             try:
                 calculated_forms = calculate_preverb_forms(
                     tense_data["forms"], metadata["preverb_rules"], effective_preverb
                 )
                 forms = calculated_forms
             except Exception as e:
-                logger.warning(f"Failed to calculate preverb forms for {effective_preverb}: {e}")
+                logger.warning(
+                    f"Failed to calculate preverb forms for {effective_preverb}: {e}"
+                )
 
         return {
             "id": metadata["id"],
@@ -164,7 +168,7 @@ class ExternalDataGenerator:
     def create_examples_data(self, verbs: List[Dict]) -> Dict:
         """
         Extract examples data for external JSON file.
-        For multi-preverb verbs, generates examples for each preverb.
+        For multi-preverb verbs, generates examples for each preverb using enhanced generation.
         For single-preverb verbs, uses existing examples data.
 
         Args:
@@ -183,10 +187,8 @@ class ExternalDataGenerator:
             metadata = self._get_verb_metadata(verb)
 
             if metadata["has_multiple_preverbs"]:
-                # Generate examples for each preverb using existing logic
-                examples_by_preverb, _ = self._create_preverb_aware_examples(
-                    verb, metadata["preverb_rules"]
-                )
+                # Generate examples for each preverb using enhanced generation
+                examples_by_preverb = self._create_enhanced_multi_preverb_examples(verb)
                 examples_data[verb_id] = examples_by_preverb
             else:
                 # Single-preverb verbs: generate examples for each tense
@@ -228,9 +230,9 @@ class ExternalDataGenerator:
             metadata = self._get_verb_metadata(verb)
 
             if metadata["has_multiple_preverbs"]:
-                # Generate gloss analyses for each preverb using existing logic
-                _, gloss_analyses_by_preverb = self._create_preverb_aware_examples(
-                    verb, metadata["preverb_rules"]
+                # Generate gloss analyses for each preverb using the same approach as examples
+                gloss_analyses_by_preverb = (
+                    self._create_enhanced_multi_preverb_gloss_analyses(verb)
                 )
                 gloss_data[verb_id] = gloss_analyses_by_preverb
             else:
@@ -241,7 +243,7 @@ class ExternalDataGenerator:
                     if "forms" in tense_data:
                         preverb = tense_data.get("gloss", {}).get("preverb", "")
                         gloss_html = self._create_gloss_analysis_for_preverb(
-                            tense_data, preverb, tense
+                            verb, tense, preverb
                         )
                         if gloss_html:
                             gloss_analyses_by_tense[tense] = gloss_html
@@ -328,7 +330,7 @@ class ExternalDataGenerator:
 
                     # Generate gloss analysis for this preverb and tense
                     gloss_html = self._create_gloss_analysis_for_preverb(
-                        tense_data, effective_preverb, tense
+                        verb_data, tense, effective_preverb
                     )
                     if gloss_html:
                         gloss_analyses_by_tense[tense] = gloss_html
@@ -338,7 +340,327 @@ class ExternalDataGenerator:
 
         return examples_by_preverb, gloss_analyses_by_preverb
 
-    def _create_examples_without_gloss(self, verb: Dict, tense: str, preverb: Optional[str] = None) -> str:
+    def _create_enhanced_multi_preverb_examples(
+        self, verb: Dict
+    ) -> Dict[str, Dict[str, str]]:
+        """
+        Create enhanced multi-preverb examples for external data.
+
+        Args:
+            verb: Verb data dictionary
+
+        Returns:
+            dict: Examples organized by preverb and tense
+        """
+        preverb_debug_logger = logging.getLogger("tools.preverb_debug")
+        preverb_debug_logger.info(
+            f"Creating enhanced multi-preverb examples for verb {verb.get('id', 'unknown')}"
+        )
+
+        examples_by_preverb = {}
+
+        # Get preverb configuration
+        preverb_config = verb.get("preverb_config", {})
+        available_preverbs = preverb_config.get("available_preverbs", [])
+        preverb_debug_logger.info(f"Available preverbs: {available_preverbs}")
+
+        # Define tenses to generate examples for
+        tenses = ["present", "imperfect", "future", "aorist", "optative", "imperative"]
+
+        for preverb in available_preverbs:
+            examples_by_tense = {}
+            preverb_debug_logger.info(f"Processing preverb: {preverb}")
+
+            for tense in tenses:
+                try:
+                    preverb_debug_logger.debug(
+                        f"Generating examples for verb {verb.get('id', 'unknown')}, tense {tense}, preverb {preverb}"
+                    )
+
+                    # Use the enhanced example generation
+                    from tools.core.example_generator import (
+                        generate_pedagogical_examples,
+                    )
+
+                    enhanced_examples = generate_pedagogical_examples(
+                        verb, tense, [preverb]
+                    )
+
+                    if enhanced_examples.get(
+                        "enhanced", False
+                    ) and enhanced_examples.get("examples"):
+                        # Extract examples for this specific preverb from the nested structure
+                        examples_data = enhanced_examples["examples"]
+                        preverb_examples = []
+
+                        # Find examples for this specific preverb
+                        for preverb_group in examples_data:
+                            if (
+                                isinstance(preverb_group, dict)
+                                and preverb_group.get("preverb") == preverb
+                            ):
+                                preverb_examples = preverb_group.get("examples", [])
+                                break
+
+                        # Format the examples for this preverb
+                        if preverb_examples:
+                            preverb_debug_logger.debug(
+                                f"Found {len(preverb_examples)} examples for preverb {preverb}, tense {tense}"
+                            )
+
+                            examples_html = (
+                                self._format_enhanced_multi_preverb_examples(
+                                    preverb_examples, preverb
+                                )
+                            )
+                            if examples_html:
+                                # Also generate gloss analysis for this preverb and tense
+                                preverb_debug_logger.debug(
+                                    f"Generating gloss analysis for preverb {preverb}, tense {tense}"
+                                )
+                                gloss_html = self._create_gloss_analysis_for_preverb(
+                                    verb, tense, preverb
+                                )
+                                preverb_debug_logger.debug(
+                                    f"Gloss analysis generated: {len(gloss_html)} characters"
+                                )
+
+                                # Combine examples and gloss analysis
+                                combined_html = examples_html + gloss_html
+                                examples_by_tense[tense] = combined_html
+                                preverb_debug_logger.debug(
+                                    f"Combined HTML length: {len(combined_html)} characters"
+                                )
+                            else:
+                                preverb_debug_logger.warning(
+                                    f"No examples HTML generated for preverb {preverb}, tense {tense}"
+                                )
+                        else:
+                            preverb_debug_logger.warning(
+                                f"No examples found for preverb {preverb}, tense {tense}"
+                            )
+                    else:
+                        preverb_debug_logger.warning(
+                            f"No enhanced examples generated for preverb {preverb}, tense {tense}"
+                        )
+
+                except Exception as e:
+                    preverb_debug_logger.error(
+                        f"Failed to generate enhanced examples for verb {verb.get('id', 'unknown')}, "
+                        f"tense {tense}, preverb {preverb}: {e}"
+                    )
+
+            if examples_by_tense:
+                examples_by_preverb[preverb] = examples_by_tense
+                preverb_debug_logger.info(
+                    f"Added examples for preverb {preverb}: {list(examples_by_tense.keys())}"
+                )
+            else:
+                preverb_debug_logger.warning(
+                    f"No examples generated for preverb {preverb}"
+                )
+
+        preverb_debug_logger.info(
+            f"Final result: {len(examples_by_preverb)} preverbs with examples"
+        )
+        return examples_by_preverb
+
+    def _create_enhanced_multi_preverb_gloss_analyses(
+        self, verb: Dict
+    ) -> Dict[str, Dict[str, str]]:
+        """
+        Create enhanced multi-preverb gloss analyses for external data.
+
+        Args:
+            verb: Verb data dictionary
+
+        Returns:
+            dict: Gloss analyses organized by preverb and tense
+        """
+        preverb_debug_logger = logging.getLogger("tools.preverb_debug")
+        preverb_debug_logger.info(
+            f"Creating enhanced multi-preverb gloss analyses for verb {verb.get('id', 'unknown')}"
+        )
+
+        gloss_analyses_by_preverb = {}
+
+        # Get preverb configuration
+        preverb_config = verb.get("preverb_config", {})
+        available_preverbs = preverb_config.get("available_preverbs", [])
+        preverb_debug_logger.info(f"Available preverbs for gloss: {available_preverbs}")
+
+        # Define tenses to generate gloss analyses for
+        tenses = ["present", "imperfect", "future", "aorist", "optative", "imperative"]
+
+        for preverb in available_preverbs:
+            gloss_analyses_by_tense = {}
+            preverb_debug_logger.info(f"Processing gloss for preverb: {preverb}")
+
+            for tense in tenses:
+                try:
+                    preverb_debug_logger.debug(
+                        f"Generating gloss analysis for verb {verb.get('id', 'unknown')}, tense {tense}, preverb {preverb}"
+                    )
+
+                    # Generate gloss analysis for this preverb and tense
+                    gloss_html = self._create_gloss_analysis_for_preverb(
+                        verb, tense, preverb
+                    )
+                    preverb_debug_logger.debug(
+                        f"Gloss analysis generated for {preverb}, {tense}: {len(gloss_html)} characters"
+                    )
+
+                    if gloss_html:
+                        gloss_analyses_by_tense[tense] = gloss_html
+                        preverb_debug_logger.debug(
+                            f"Added gloss analysis for preverb {preverb}, tense {tense}"
+                        )
+                    else:
+                        preverb_debug_logger.warning(
+                            f"No gloss analysis generated for preverb {preverb}, tense {tense}"
+                        )
+
+                except Exception as e:
+                    preverb_debug_logger.error(
+                        f"Failed to generate gloss analysis for verb {verb.get('id', 'unknown')}, "
+                        f"tense {tense}, preverb {preverb}: {e}"
+                    )
+
+            if gloss_analyses_by_tense:
+                gloss_analyses_by_preverb[preverb] = gloss_analyses_by_tense
+                preverb_debug_logger.info(
+                    f"Added gloss analyses for preverb {preverb}: {list(gloss_analyses_by_tense.keys())}"
+                )
+            else:
+                preverb_debug_logger.warning(
+                    f"No gloss analyses generated for preverb {preverb}"
+                )
+
+        preverb_debug_logger.info(
+            f"Final gloss result: {len(gloss_analyses_by_preverb)} preverbs with gloss analyses"
+        )
+        return gloss_analyses_by_preverb
+
+    def _create_gloss_analysis_for_preverb(
+        self, verb: Dict, tense: str, preverb: str
+    ) -> str:
+        """
+        Create gloss analysis HTML for a specific preverb and tense.
+
+        Args:
+            verb: Verb data dictionary
+            tense: Tense name
+            preverb: Preverb to use
+
+        Returns:
+            HTML string for gloss analysis
+        """
+        verb_id = verb.get("id", "unknown")
+        logger.info(
+            f"[EXT_GLOSS] Creating external gloss for verb {verb_id}, tense {tense}, preverb {preverb}"
+        )
+
+        preverb_debug_logger = logging.getLogger("tools.preverb_debug")
+        preverb_debug_logger.debug(
+            f"Creating gloss analysis for verb {verb_id}, tense {tense}, preverb {preverb}"
+        )
+
+        try:
+            from tools.core.gloss_parser import (
+                format_raw_gloss_with_colors,
+                format_gloss_for_html,
+                process_raw_gloss_simple,
+            )
+
+            # Get raw gloss from verb data
+            conjugations = verb.get("conjugations", {})
+            preverb_debug_logger.debug(
+                f"Conjugations keys: {list(conjugations.keys())}"
+            )
+            tense_data = conjugations.get(tense, {})
+            preverb_debug_logger.debug(f"Tense data for {tense}: {tense_data}")
+
+            if not isinstance(tense_data, dict):
+                preverb_debug_logger.warning(f"No valid tense data for tense {tense}")
+                return ""
+
+            # Get the raw gloss
+            raw_gloss = tense_data.get("raw_gloss", "")
+            logger.info(
+                f"[EXT_GLOSS] Raw gloss for verb {verb_id}, tense {tense}: '{raw_gloss}'"
+            )
+            preverb_debug_logger.debug(f"Raw gloss for tense {tense}: '{raw_gloss}'")
+
+            if not raw_gloss:
+                logger.info(
+                    f"[EXT_GLOSS] No raw gloss found for verb {verb_id}, tense {tense}"
+                )
+                preverb_debug_logger.warning(f"No raw gloss found for tense {tense}")
+                return ""
+
+            # Keep the raw gloss unchanged - the preverb will be handled in the expanded gloss
+            logger.info(f"[EXT_GLOSS] Using raw gloss as-is: '{raw_gloss}'")
+            preverb_debug_logger.debug(f"Using raw gloss as-is: '{raw_gloss}'")
+
+            # Process raw gloss to get full expanded format
+            expanded_gloss = process_raw_gloss_simple(raw_gloss, preverb)
+            logger.info(
+                f"[EXT_GLOSS] Expanded gloss for verb {verb_id}, tense {tense}: '{expanded_gloss[:100]}...'"
+            )
+            preverb_debug_logger.debug(
+                f"Expanded gloss for tense {tense}:\n{expanded_gloss}"
+            )
+
+            if not expanded_gloss:
+                logger.warning(
+                    f"[EXT_GLOSS] No expanded gloss generated for verb {verb_id}, tense {tense}"
+                )
+                preverb_debug_logger.warning(
+                    f"No expanded gloss generated for tense {tense}"
+                )
+                return ""
+
+            # Format the gloss display with full expanded version
+            color_coded_raw = format_raw_gloss_with_colors(raw_gloss)
+            color_coded_expanded = format_gloss_for_html(expanded_gloss)
+
+            gloss_html = f"""
+                <div class="case-gloss" data-verb-id="{verb_id}" data-tense="{tense}" data-preverb="{preverb}">
+                    <div class="gloss-header">
+                        <strong>Verb Gloss Analysis</strong>
+                    </div>
+                    <div class="gloss-content">
+                        <div class="raw-gloss">
+                            <strong>Raw:</strong> <code>{color_coded_raw}</code>
+                        </div>
+                        <div class="expanded-gloss">
+                            <strong>Expanded:</strong>
+                            <div class="gloss-definitions">
+                                {color_coded_expanded}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            """
+
+            logger.info(
+                f"[EXT_GLOSS] Generated external gloss HTML for verb {verb_id}, tense {tense}, preverb {preverb}, length: {len(gloss_html)}"
+            )
+            preverb_debug_logger.debug(
+                f"Generated gloss HTML length: {len(gloss_html)} characters"
+            )
+            return gloss_html
+
+        except Exception as e:
+            preverb_debug_logger.error(
+                f"Failed to generate gloss analysis for verb {verb.get('id', 'unknown')}, "
+                f"tense {tense}, preverb {preverb}: {e}"
+            )
+            return ""
+
+    def _create_examples_without_gloss(
+        self, verb: Dict, tense: str, preverb: Optional[str] = None
+    ) -> str:
         """Create examples HTML for a verb and tense without the gloss analysis section."""
         # Generate pedagogical examples
         try:
@@ -388,46 +710,47 @@ class ExternalDataGenerator:
         html_parts.extend(["</ul>", "</div>"])
         return "\n".join(html_parts)
 
-    def _create_gloss_analysis_for_preverb(
-        self, tense_data: Dict, preverb: str, tense: str
+    def _format_enhanced_multi_preverb_examples(
+        self, examples: List[Dict], preverb: str
     ) -> str:
-        """Create gloss analysis HTML for a specific preverb and tense."""
-        if not isinstance(tense_data, dict):
+        """
+        Format enhanced multi-preverb examples into HTML with preverb-specific sections.
+
+        Args:
+            examples: List of example dictionaries for a specific preverb
+            preverb: The preverb being formatted
+
+        Returns:
+            HTML string for formatted multi-preverb examples
+        """
+        if not examples:
             return ""
 
-        # Get the raw gloss and update it with the correct preverb
-        raw_gloss = tense_data.get("gloss", {}).get("raw_gloss", "")
-        if not raw_gloss:
-            return ""
+        html_parts = [
+            f'<div class="examples" data-preverb="{preverb}">',
+            f"<h4>Examples ({preverb}):</h4>",
+            "<ul>",
+        ]
 
-        # Update the raw gloss to use the correct preverb
-        updated_raw_gloss = re.sub(r"Pv \([^)]+\)", f"Pv ({preverb})", raw_gloss)
+        for example in examples:
+            georgian_html = example.get("html", example.get("georgian", ""))
+            english_text = example.get("english", "")
+            english_plain = example.get("english_plain", "")
 
-        # Process raw gloss to verbose format
-        case_gloss = self._process_raw_gloss(updated_raw_gloss, preverb)
+            if not english_plain:
+                english_plain = re.sub(r"<[^>]+>", "", english_text)
 
-        if not case_gloss:
-            return ""
+            html_parts.extend(
+                [
+                    '<li class="example-item">',
+                    f'<div class="georgian georgian-text">{georgian_html}</div>',
+                    f'<div class="translation english-text" data-copy-text="{english_plain}">{english_text}</div>',
+                    "</li>",
+                ]
+            )
 
-        # Format the gloss display
-        return f"""
-        <div class="case-gloss">
-            <div class="gloss-header">
-                <strong>Verb Gloss Analysis</strong>
-            </div>
-            <div class="gloss-content">
-                <div class="raw-gloss">
-                    <strong>Raw:</strong> <code>{self._format_raw_gloss_with_colors(updated_raw_gloss)}</code>
-                </div>
-                <div class="expanded-gloss">
-                    <strong>Expanded:</strong>
-                    <div class="gloss-definitions">
-                        {self._format_gloss_for_html(case_gloss)}
-                    </div>
-                </div>
-            </div>
-        </div>
-    """
+        html_parts.extend(["</ul>", "</div>"])
+        return "\n".join(html_parts)
 
     def _process_raw_gloss(self, raw_gloss: str, preverb: str = None) -> str:
         """
@@ -734,24 +1057,35 @@ class ExternalDataGenerator:
 
             # Filter verbs to only include multi-preverb verbs
             multi_preverb_verbs = [
-                verb for verb in verbs 
+                verb
+                for verb in verbs
                 if verb.get("preverb_config", {}).get("has_multiple_preverbs", False)
             ]
-            
+
             # Only generate files for multi-preverb verbs
             if not multi_preverb_verbs:
-                logger.info("No multi-preverb verbs found, skipping external data generation")
+                logger.info(
+                    "No multi-preverb verbs found. Skipping external data generation."
+                )
                 return True
-            
-            logger.info(f"Found {len(multi_preverb_verbs)} multi-preverb verbs for external data generation")
 
-            # Generate each data file only for multi-preverb verbs
+            logger.info(
+                f"Found {len(multi_preverb_verbs)} multi-preverb verbs for external data generation"
+            )
+
+            # Generate each data file for multi-preverb verbs only
             data_files = [
                 ("verbs-data.json", self.create_core_verb_data(multi_preverb_verbs)),
-                ("conjugations-data.json", self.create_conjugations_data(multi_preverb_verbs)),
+                (
+                    "conjugations-data.json",
+                    self.create_conjugations_data(multi_preverb_verbs),
+                ),
                 ("examples-data.json", self.create_examples_data(multi_preverb_verbs)),
                 ("gloss-data.json", self.create_gloss_data(multi_preverb_verbs)),
-                ("preverb-config.json", self.create_preverb_config_data(multi_preverb_verbs)),
+                (
+                    "preverb-config.json",
+                    self.create_preverb_config_data(multi_preverb_verbs),
+                ),
             ]
 
             for filename, data in data_files:

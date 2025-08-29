@@ -627,13 +627,17 @@ class HTMLGenerator:
         notes = verb.get("notes", "")
         url = verb.get("url", "")
 
-        # Generate static content
-        overview_table = self._generate_overview_table(verb)
-        tense_tables = self._generate_tense_tables(verb)
+        # Get preverb configuration for single-preverb verbs
+        preverb_config = verb.get("preverb_config", {})
+        default_preverb = preverb_config.get("default_preverb", "")
+
+        # Generate static content with default preverb
+        overview_table = self._generate_overview_table(verb, default_preverb)
+        tense_tables = self._generate_tense_tables(verb, default_preverb)
 
         # Get category for the verb
         category = verb.get("category", "Unknown")
-        
+
         # Create complete static verb section
         section_html = f"""
             <div class="verb-section" id="{anchor_id}" 
@@ -703,7 +707,7 @@ class HTMLGenerator:
 
         # Get category for the verb
         category = verb.get("category", "Unknown")
-        
+
         # Generate static content with default preverb
         overview_table = self._generate_overview_table(verb, default_preverb)
         tense_tables = self._generate_tense_tables(verb, default_preverb)
@@ -950,7 +954,7 @@ class HTMLGenerator:
         self, verb: Dict, tense: str, preverb: Optional[str] = None
     ) -> str:
         """
-        Generate examples section HTML using example generator.
+        Generate examples section HTML using example generator with multi-preverb support.
 
         Args:
             verb: Verb data dictionary
@@ -961,12 +965,103 @@ class HTMLGenerator:
             HTML string for examples section
         """
         try:
-            enhanced_examples = generate_pedagogical_examples(verb, tense, preverb)
-            if enhanced_examples.get("enhanced", False) and enhanced_examples.get(
-                "examples"
-            ):
-                return self._format_pedagogical_examples(enhanced_examples["examples"])
-            return ""
+            logger.info(
+                f"Generating examples for verb {verb.get('id', 'unknown')}, tense {tense}, preverb {preverb}"
+            )
+
+            # Check if verb has multiple preverbs
+            preverb_config = verb.get("preverb_config", {})
+            has_multiple_preverbs = preverb_config.get("has_multiple_preverbs", False)
+
+            logger.info(f"Verb has multiple preverbs: {has_multiple_preverbs}")
+            logger.info(f"Preverb config: {preverb_config}")
+
+            if has_multiple_preverbs:
+                # Generate examples for the default preverb only (static)
+                default_preverb = preverb_config.get("default_preverb", "")
+                examples_html = ""
+
+                logger.info(
+                    f"Multi-preverb verb, generating examples for default preverb: {default_preverb}"
+                )
+
+                # Generate examples for the default preverb only
+                enhanced_examples = generate_pedagogical_examples(
+                    verb, tense, [default_preverb]
+                )
+                logger.info(
+                    f"Enhanced examples result for default preverb: {enhanced_examples}"
+                )
+
+                if enhanced_examples.get("enhanced", False) and enhanced_examples.get(
+                    "examples"
+                ):
+                    # Handle the new nested structure
+                    examples_data = enhanced_examples["examples"]
+                    if isinstance(examples_data, list) and examples_data:
+                        # Check if this is the new nested structure
+                        first_item = examples_data[0]
+                        if isinstance(first_item, dict) and "examples" in first_item:
+                            # New nested structure: examples grouped by preverb
+                            for item in examples_data:
+                                if item.get("preverb") == default_preverb:
+                                    examples_html = self._format_multi_preverb_examples(
+                                        item.get("examples", []), default_preverb
+                                    )
+                                    logger.info(
+                                        f"Added examples for default preverb {default_preverb}"
+                                    )
+                                    break
+                        else:
+                            # Old structure: direct list of examples
+                            examples_html = self._format_multi_preverb_examples(
+                                examples_data, default_preverb
+                            )
+                            logger.info(
+                                f"Added examples for default preverb {default_preverb}"
+                            )
+
+                logger.info(f"Final examples HTML length: {len(examples_html)}")
+                return examples_html
+            else:
+                # Single preverb - use existing logic
+                logger.info(f"Single preverb verb, generating examples")
+                enhanced_examples = generate_pedagogical_examples(verb, tense, preverb)
+                logger.info(f"Enhanced examples result: {enhanced_examples}")
+
+                if enhanced_examples.get("enhanced", False) and enhanced_examples.get(
+                    "examples"
+                ):
+                    # Handle the new nested structure where examples are grouped by preverb
+                    examples_data = enhanced_examples["examples"]
+                    if isinstance(examples_data, list) and examples_data:
+                        # Check if this is the new nested structure
+                        first_item = examples_data[0]
+                        if isinstance(first_item, dict) and "examples" in first_item:
+                            # New nested structure: examples grouped by preverb
+                            # For single preverb, extract examples from the first (and only) preverb group
+                            if examples_data:
+                                first_preverb_group = examples_data[0]
+                                examples_list = first_preverb_group.get("examples", [])
+                                result = self._format_pedagogical_examples(
+                                    examples_list
+                                )
+                            else:
+                                result = ""
+                        else:
+                            # Old structure: direct list of examples
+                            result = self._format_pedagogical_examples(examples_data)
+                    else:
+                        result = ""
+
+                    logger.info(f"Formatted examples HTML length: {len(result)}")
+                    return result
+                else:
+                    logger.warning(
+                        f"No examples generated for verb {verb.get('id', 'unknown')}, tense {tense}"
+                    )
+                return ""
+
         except Exception as e:
             logger.warning(
                 f"Failed to generate examples for verb {verb.get('id', 'unknown')}, tense {tense}: {e}"
@@ -1022,6 +1117,119 @@ class HTMLGenerator:
             logger.warning(f"Failed to format pedagogical examples: {e}")
             return ""
 
+    def _format_multi_preverb_examples(self, examples: List[Dict], preverb: str) -> str:
+        """
+        Format multi-preverb examples into HTML with preverb-specific sections.
+
+        Args:
+            examples: List of example dictionaries for a specific preverb
+            preverb: The preverb being formatted
+
+        Returns:
+            HTML string for formatted multi-preverb examples
+        """
+        try:
+            if not examples:
+                return ""
+
+            examples_html = ""
+            for example in examples:
+                georgian_html = example.get("html", example.get("georgian", ""))
+                english_text = example.get("english", "")
+                copy_text = example.get("copy_text", english_text)
+
+                # Ensure copy_text is plain text (remove HTML tags if present)
+                import re
+
+                plain_copy_text = re.sub(r"<[^>]+>", "", copy_text)
+
+                examples_html += f"""
+                    <li class="example-item">
+                        <div class="georgian georgian-text">
+                            {georgian_html}
+                        </div>
+                        <div class="translation english-text" data-copy-text="{plain_copy_text}">
+                            {english_text}
+                        </div>
+                    </li>
+                """
+
+            return f"""
+                <div class="examples" data-preverb="{preverb}">
+                    <h4>Examples ({preverb}):</h4>
+                    <ul>
+                        {examples_html}
+                    </ul>
+                </div>
+            """
+
+        except Exception as e:
+            logger.warning(
+                f"Failed to format multi-preverb examples for preverb {preverb}: {e}"
+            )
+            return ""
+
+    def _format_nested_examples(self, examples_data: List[Dict]) -> str:
+        """
+        Format nested examples (where examples are grouped by preverb) into HTML.
+
+        Args:
+            examples_data: List of dictionaries, where each dictionary contains a 'preverb' key
+            and a 'examples' key (which is a list of example dictionaries).
+
+        Returns:
+            HTML string for formatted nested examples.
+        """
+        try:
+            if not examples_data:
+                return ""
+
+            nested_examples_html = ""
+            for item in examples_data:
+                preverb = item.get("preverb", "N/A")
+                examples_list = item.get("examples", [])
+
+                if not examples_list:
+                    continue
+
+                # Format the individual examples for this preverb
+                examples_html = ""
+                for example in examples_list:
+                    georgian_html = example.get("html", example.get("georgian", ""))
+                    english_text = example.get("english", "")
+                    copy_text = example.get("copy_text", english_text)
+
+                    # Ensure copy_text is plain text (remove HTML tags if present)
+                    import re
+
+                    plain_copy_text = re.sub(r"<[^>]+>", "", copy_text)
+
+                    examples_html += f"""
+                        <li class="example-item">
+                            <div class="georgian georgian-text">
+                                {georgian_html}
+                            </div>
+                            <div class="translation english-text" data-copy-text="{plain_copy_text}">
+                                {english_text}
+                            </div>
+                        </li>
+                    """
+
+                nested_examples_html += f"""
+                    <div class="examples" data-preverb="{preverb}">
+                        <h4>Examples ({preverb}):</h4>
+                        <ul>
+                            {examples_html}
+                        </ul>
+                    </div>
+                """
+
+            return nested_examples_html
+
+        except Exception as e:
+            logger.warning(f"Failed to format nested examples: {e}")
+            return ""
+
     def _generate_gloss_analysis(
         self, verb: Dict, tense: str, preverb: Optional[str] = None
     ) -> str:
@@ -1037,6 +1245,15 @@ class HTMLGenerator:
             HTML string for gloss analysis
         """
         try:
+            verb_id = verb.get("id", "unknown")
+            has_multiple_preverbs = verb.get("preverb_config", {}).get(
+                "has_multiple_preverbs", False
+            )
+
+            logger.info(
+                f"[GLOSS] Generating static gloss for verb {verb_id}, tense {tense}, preverb {preverb}, multi-preverb: {has_multiple_preverbs}"
+            )
+
             gloss_parser = GlossParser()
 
             # Get raw gloss from verb data
@@ -1048,7 +1265,10 @@ class HTMLGenerator:
             gloss_preverb = preverb
 
             if isinstance(tense_data, dict):
-                if "gloss" in tense_data:
+                if "raw_gloss" in tense_data:
+                    # New structure: raw_gloss is directly in tense_data
+                    raw_gloss = tense_data.get("raw_gloss", "")
+                elif "gloss" in tense_data:
                     gloss_data = tense_data["gloss"]
                     if isinstance(gloss_data, dict):
                         # New structure: gloss is a dictionary with raw_gloss and preverb
@@ -1061,28 +1281,43 @@ class HTMLGenerator:
                     # Try to get gloss from forms structure
                     raw_gloss = tense_data["forms"].get("gloss", "")
 
+            logger.info(
+                f"[GLOSS] Raw gloss for verb {verb_id}, tense {tense}: '{raw_gloss}'"
+            )
+
             if not raw_gloss:
+                logger.info(
+                    f"[GLOSS] No raw gloss found for verb {verb_id}, tense {tense}"
+                )
                 return ""
 
-            # Parse the raw gloss
-            parsed_gloss = gloss_parser.parse_raw_gloss(raw_gloss, gloss_preverb)
+            # Keep the raw gloss unchanged - the preverb will be handled in the expanded gloss
+            logger.info(f"[GLOSS] Using raw gloss as-is: '{raw_gloss}'")
 
-            if not parsed_gloss:
-                return ""
-
-            # Format the gloss analysis with color coding
+            # Process raw gloss to get full expanded format using the same method as external data
             from tools.core.gloss_parser import (
                 format_raw_gloss_with_colors,
                 format_gloss_for_html,
                 process_raw_gloss_simple,
             )
 
-            color_coded_raw = format_raw_gloss_with_colors(raw_gloss)
-            simple_parsed_gloss = process_raw_gloss_simple(raw_gloss, gloss_preverb)
-            color_coded_expanded = format_gloss_for_html(simple_parsed_gloss)
+            expanded_gloss = process_raw_gloss_simple(raw_gloss, gloss_preverb)
+            if not expanded_gloss:
+                logger.warning(
+                    f"[GLOSS] No expanded gloss generated for verb {verb_id}, tense {tense}"
+                )
+                return ""
 
-            return f"""
-                <div class="case-gloss">
+            logger.info(
+                f"[GLOSS] Expanded gloss for verb {verb_id}, tense {tense}: '{expanded_gloss[:100]}...'"
+            )
+
+            # Format the gloss analysis with color coding
+            color_coded_raw = format_raw_gloss_with_colors(raw_gloss)
+            color_coded_expanded = format_gloss_for_html(expanded_gloss)
+
+            gloss_html = f"""
+                <div class="case-gloss" data-verb-id="{verb_id}" data-tense="{tense}" data-preverb="{preverb or ''}">
                     <div class="gloss-header">
                         <strong>Verb Gloss Analysis</strong>
                     </div>
@@ -1100,6 +1335,11 @@ class HTMLGenerator:
                     </div>
                 </div>
             """
+
+            logger.info(
+                f"[GLOSS] Generated static gloss HTML for verb {verb_id}, tense {tense}, length: {len(gloss_html)}"
+            )
+            return gloss_html
 
         except Exception as e:
             logger.warning(
