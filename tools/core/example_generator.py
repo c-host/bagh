@@ -599,9 +599,10 @@ class PedagogicalExampleGenerator:
 
             # Get the correct verb translation based on preverb
             if effective_preverb and effective_preverb in english_translations:
-                # Use preverb-specific translation
-                preverb_translations = english_translations[effective_preverb]
-                verb_translation = preverb_translations.get(original_tense, "")
+                # Use preverb-specific translation directly from english_translations
+                verb_translation = english_translations[effective_preverb].get(
+                    original_tense, ""
+                )
                 logger.info(
                     f"[ENGLISH_TRANSLATION] Using preverb-specific translation: '{verb_translation}'"
                 )

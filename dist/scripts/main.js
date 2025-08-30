@@ -1338,8 +1338,9 @@ document.addEventListener('DOMContentLoaded', function () {
     const verbDataManager = new VerbDataManager();
     const preverbManager = new PreverbManager(verbDataManager);
 
-    // Make verbDataManager globally available for anchor navigation
+    // Make both managers globally available for anchor navigation and cross-manager communication
     window.verbDataManager = verbDataManager;
+    window.preverbManager = preverbManager;
 
     // Initialize verb sections with external data
     setTimeout(() => {
@@ -1578,6 +1579,9 @@ class VerbDataManager {
 
         // Initialize intersection observer for lazy loading
         this.initializeIntersectionObserver();
+
+        // Add loading state styles
+        this.addLoadingStyles();
     }
 
     // Initialize intersection observer for lazy loading
@@ -1748,6 +1752,7 @@ class VerbDataManager {
             return null;
         }
 
+        console.log(`[DATA_LOAD] Starting to load all data for verb ${verbId}`);
         const [coreData, conjugations, examples, glossData, preverbConfigs] = await Promise.all([
             this.loadCoreData(),
             this.loadConjugations(),
@@ -1756,28 +1761,60 @@ class VerbDataManager {
             this.loadPreverbConfigs()
         ]);
 
+        console.log(`[DATA_LOAD] All data loaded for verb ${verbId}:`, {
+            hasCoreData: !!coreData,
+            hasConjugations: !!conjugations,
+            hasExamples: !!examples,
+            hasGlossData: !!glossData,
+            hasPreverbConfigs: !!preverbConfigs,
+            coreVerbsCount: coreData ? Object.keys(coreData).length : 0,
+            conjugationsCount: conjugations ? Object.keys(conjugations).length : 0,
+            examplesCount: examples ? Object.keys(examples).length : 0,
+            glossCount: glossData ? Object.keys(glossData).length : 0,
+            preverbConfigCount: preverbConfigs ? Object.keys(preverbConfigs).length : 0
+        });
+
         const verbData = {
-            core: coreData.verbs[verbId],
-            conjugations: conjugations.conjugations[verbId],
-            examples: examples.examples[verbId],
-            glossAnalyses: glossData.gloss_analyses[verbId],
-            preverbConfig: preverbConfigs.preverb_configs[verbId]
+            core: coreData[verbId],
+            conjugations: conjugations[verbId],
+            examples: examples[verbId],
+            glossAnalyses: glossData[verbId],
+            preverbConfig: preverbConfigs[verbId]
         };
+
+        console.log(`[DATA_LOAD] Verb data constructed for ${verbId}:`, {
+            hasCore: !!verbData.core,
+            hasConjugations: !!verbData.conjugations,
+            hasExamples: !!verbData.examples,
+            hasGlossAnalyses: !!verbData.glossAnalyses,
+            hasPreverbConfig: !!verbData.preverbConfig
+        });
 
         // Cache the result
         this.verbCache.set(verbId, verbData);
+        console.log(`[CACHE] Verb ${verbId} cached successfully. Cache size: ${this.verbCache.size}`);
         return verbData;
     }
 
     async loadCoreData() {
         if (!this.coreData) {
             if (!this.loadingPromises.coreData) {
+                console.log(`[DATA_LOAD] Loading core data from data/verbs-data.json`);
                 this.loadingPromises.coreData = fetch('data/verbs-data.json')
                     .then(response => {
+                        console.log(`[DATA_LOAD] Core data response status: ${response.status}`);
                         if (!response.ok) {
                             throw new Error(`Failed to load core data: ${response.status}`);
                         }
                         return response.json();
+                    })
+                    .then(data => {
+                        console.log(`[DATA_LOAD] Core data loaded successfully, verbs count: ${Object.keys(data || {}).length}`);
+                        return data;
+                    })
+                    .catch(error => {
+                        console.error(`[DATA_LOAD] Core data loading failed:`, error);
+                        throw error;
                     });
             }
             this.coreData = await this.loadingPromises.coreData;
@@ -1788,12 +1825,22 @@ class VerbDataManager {
     async loadConjugations() {
         if (!this.conjugations) {
             if (!this.loadingPromises.conjugations) {
+                console.log(`[DATA_LOAD] Loading conjugations from data/conjugations-data.json`);
                 this.loadingPromises.conjugations = fetch('data/conjugations-data.json')
                     .then(response => {
+                        console.log(`[DATA_LOAD] Conjugations response status: ${response.status}`);
                         if (!response.ok) {
                             throw new Error(`Failed to load conjugations: ${response.status}`);
                         }
                         return response.json();
+                    })
+                    .then(data => {
+                        console.log(`[DATA_LOAD] Conjugations loaded successfully, verbs count: ${Object.keys(data || {}).length}`);
+                        return data;
+                    })
+                    .catch(error => {
+                        console.error(`[DATA_LOAD] Conjugations loading failed:`, error);
+                        throw error;
                     });
             }
             this.conjugations = await this.loadingPromises.conjugations;
@@ -1953,6 +2000,25 @@ class VerbDataManager {
         }
     }
 
+    // Add loading state styles to the document
+    addLoadingStyles() {
+        if (document.getElementById('preverb-loading-styles')) return;
+
+        const style = document.createElement('style');
+        style.id = 'preverb-loading-styles';
+        style.textContent = `
+            .preverb-toggle.loading {
+                opacity: 0.6;
+                cursor: not-allowed;
+                background-color: #f5f5f5;
+            }
+            .preverb-toggle.loading option {
+                color: #999;
+            }
+        `;
+        document.head.appendChild(style);
+    }
+
     // Enhanced processVerbSectionsInChunks with lazy loading
     async processVerbSectionsInChunks(sections) {
         for (let i = 0; i < sections.length; i++) {
@@ -1979,33 +2045,56 @@ class VerbDataManager {
     }
 
     async populateVerbSection(section, verbData) {
+        console.log(`[POPULATE_SECTION] populateVerbSection called for section:`, section);
+        console.log(`[POPULATE_SECTION] Verb data:`, verbData);
+
         try {
             // Check if verbData is null (non-multi-preverb verb)
             if (!verbData) {
+                console.log(`[POPULATE_SECTION] No verb data, returning early`);
                 return;
             }
 
             // Generate initial conjugation tables
             const defaultPreverb = verbData.core.default_preverb || 'მი';
+            console.log(`[POPULATE_SECTION] Default preverb: ${defaultPreverb}`);
+            console.log(`[POPULATE_SECTION] Core data:`, verbData.core);
+            console.log(`[POPULATE_SECTION] Conjugations data:`, verbData.conjugations);
+            console.log(`[POPULATE_SECTION] Preverb config:`, verbData.preverbConfig);
+
             const conjugations = this.getConjugationsForPreverb(
-                verbData.conjugations,
-                verbData.preverbConfig,
+                verbData.conjugations.conjugations,
+                verbData.conjugations.preverb_rules,
                 defaultPreverb
             );
+
+            console.log(`[POPULATE_SECTION] Processed conjugations:`, conjugations);
 
             // Populate overview table
             const overviewContainer = section.querySelector('.table-container');
             if (overviewContainer) {
+                console.log(`[POPULATE_SECTION] Found overview container, generating table`);
                 overviewContainer.innerHTML = this.generateOverviewTable(conjugations);
+            } else {
+                console.log(`[POPULATE_SECTION] No overview container found`);
             }
 
             // Populate each tense column
             const tenseColumns = section.querySelectorAll('.tense-column');
+            console.log(`[POPULATE_SECTION] Found ${tenseColumns.length} tense columns`);
             tenseColumns.forEach(column => {
                 const tense = column.dataset.tense;
+                console.log(`[POPULATE_SECTION] Populating tense column: ${tense}`);
                 this.populateTenseColumn(column, tense, conjugations[tense], verbData, defaultPreverb);
             });
+
+            // Enable the preverb selector now that data is loaded
+            const verbId = section.dataset.verbId;
+            if (verbId && window.preverbManager) {
+                window.preverbManager.enablePreverbSelector(verbId);
+            }
         } catch (error) {
+            console.error(`[POPULATE_SECTION] Error in populateVerbDisplay:`, error);
             this.showErrorState(section);
         }
     }
@@ -2013,28 +2102,56 @@ class VerbDataManager {
 
 
     getConjugationsForPreverb(conjugations, preverbConfig, targetPreverb) {
+        console.log(`[PREVERB_SWITCH] getConjugationsForPreverb: targetPreverb=${targetPreverb}`);
+        console.log(`[PREVERB_SWITCH] Input conjugations:`, conjugations);
+        console.log(`[PREVERB_SWITCH] preverbConfig:`, preverbConfig);
+
         if (!preverbConfig) {
+            console.log(`[PREVERB_SWITCH] No preverb config, returning original conjugations`);
             return conjugations;
         }
 
         // Extract the preverb rules from the config
-        const preverbRules = preverbConfig.preverb_rules || {};
+        const preverbRules = preverbConfig || {};
         const defaultPreverb = preverbRules.default || "";
         const replacements = preverbRules.replacements || {};
         const tenseSpecificFallbacks = preverbRules.tense_specific_fallbacks || {};
+
+        console.log(`[PREVERB_SWITCH] Preverb rules:`, {
+            defaultPreverb,
+            replacements: Object.keys(replacements),
+            tenseSpecificFallbacks: Object.keys(tenseSpecificFallbacks)
+        });
 
         // Normalize preverb values by removing hyphens for comparison
         const normalizedTarget = targetPreverb.replace("-", "");
         const normalizedDefault = defaultPreverb.replace("-", "");
 
-        // Check if this is a multi-preverb verb using the has_multiple_preverbs flag
-        const isMultiPreverb = preverbConfig.preverb_config && preverbConfig.preverb_config.has_multiple_preverbs === true;
+        // Check if this is a multi-preverb verb by looking at the replacements
+        const isMultiPreverb = preverbRules && preverbRules.replacements && Object.keys(preverbRules.replacements).length > 1;
+
+        console.log(`[PREVERB_SWITCH] Multi-preverb check:`, {
+            normalizedTarget,
+            normalizedDefault,
+            isMultiPreverb,
+            replacementsCount: preverbRules.replacements ? Object.keys(preverbRules.replacements).length : 0,
+            replacements: preverbRules.replacements ? Object.keys(preverbRules.replacements) : []
+        });
 
         if (isMultiPreverb) {
-            // This is a multi-preverb verb, calculate the target preverb forms
+            console.log(`[PREVERB_SWITCH] Processing multi-preverb verb with ${Object.keys(conjugations).length} tenses`);
+            console.log(`[PREVERB_SWITCH] Available tenses:`, Object.keys(conjugations));
 
+            // This is a multi-preverb verb, calculate the target preverb forms
             const preverbConjugations = {};
             for (const [tense, tenseData] of Object.entries(conjugations)) {
+                console.log(`[PREVERB_SWITCH] Processing tense ${tense}:`, {
+                    hasTenseData: !!tenseData,
+                    tenseDataKeys: tenseData ? Object.keys(tenseData) : 'none',
+                    hasForms: tenseData?.forms ? !!tenseData.forms : false,
+                    formsKeys: tenseData?.forms ? Object.keys(tenseData.forms) : 'none'
+                });
+
                 if (tenseData && typeof tenseData === 'object' && tenseData.forms) {
                     // Calculate the preverb forms for this tense
                     const calculatedConjugations = this.calculatePreverbForms(
@@ -2044,23 +2161,35 @@ class VerbDataManager {
                     );
 
                     const calculatedForms = calculatedConjugations[tense]?.forms || tenseData.forms;
+                    console.log(`[PREVERB_SWITCH] Calculated forms for ${tense}:`, calculatedForms);
 
                     preverbConjugations[tense] = {
                         forms: calculatedForms,
                         gloss: tenseData.gloss || {},
                         examples: tenseData.examples || []
                     };
+                } else {
+                    console.log(`[PREVERB_SWITCH] Skipping tense ${tense} - no valid tense data or forms`);
                 }
             }
 
+            console.log(`[PREVERB_SWITCH] Final multi-preverb result:`, {
+                tenseCount: Object.keys(preverbConjugations).length,
+                tenses: Object.keys(preverbConjugations),
+                preverbConjugations
+            });
             return preverbConjugations;
         } else {
+            console.log(`[PREVERB_SWITCH] Single-preverb verb, returning original conjugations`);
             // This is a single-preverb verb, return the original data as-is
             return conjugations;
         }
     }
 
     generateOverviewTable(conjugations) {
+        console.log(`[OVERVIEW_TABLE] generateOverviewTable called with conjugations:`, conjugations);
+        console.log(`[OVERVIEW_TABLE] Conjugations keys:`, conjugations ? Object.keys(conjugations) : 'none');
+
         const tenses = ["present", "imperfect", "future", "aorist", "optative", "imperative"];
         const tenseNames = {
             "present": "PRES", "imperfect": "IMPF", "future": "FUT",
@@ -2083,6 +2212,14 @@ class VerbDataManager {
             const tenseData = conjugations[tense];
             const forms = tenseData?.forms || {};
 
+            console.log(`[OVERVIEW_TABLE] Processing tense ${tense}:`, {
+                hasTenseData: !!tenseData,
+                tenseDataKeys: tenseData ? Object.keys(tenseData) : 'none',
+                hasForms: !!forms,
+                formsKeys: forms ? Object.keys(forms) : 'none',
+                formsContent: forms
+            });
+
             tableHtml += `
                 <tr class="tense-${tense}">
                     <td>${tenseNames[tense]}</td>
@@ -2102,11 +2239,18 @@ class VerbDataManager {
             </div>
         `;
 
+        console.log(`[OVERVIEW_TABLE] Generated HTML length: ${tableHtml.length}`);
         return tableHtml;
     }
 
     populateTenseColumn(column, tense, tenseData, verbData, selectedPreverb) {
         console.log(`[JS] populateTenseColumn: tense=${tense}, selectedPreverb=${selectedPreverb}`);
+        console.log(`[PREVERB_SWITCH] populateTenseColumn data:`, {
+            hasTenseData: !!tenseData,
+            hasVerbData: !!verbData,
+            tenseDataKeys: tenseData ? Object.keys(tenseData) : 'none',
+            verbDataKeys: verbData ? Object.keys(verbData) : 'none'
+        });
 
         const tenseNames = {
             "present": "Present Indicative",
@@ -2121,10 +2265,11 @@ class VerbDataManager {
         let examplesHtml = '';
         let glossHtml = '';
 
-        // Check if this is a multi-preverb verb
-        const isMultiPreverb = verbData.preverbConfig &&
-            verbData.preverbConfig.preverb_config &&
-            verbData.preverbConfig.preverb_config.has_multiple_preverbs === true;
+        // Check if this is a multi-preverb verb by looking at the replacements
+        const isMultiPreverb = verbData.conjugations &&
+            verbData.conjugations.preverb_rules &&
+            verbData.conjugations.preverb_rules.replacements &&
+            Object.keys(verbData.conjugations.preverb_rules.replacements).length > 1;
 
         console.log(`[JS] isMultiPreverb: ${isMultiPreverb}`);
 
@@ -2228,10 +2373,22 @@ class VerbDataManager {
     }
 
     generateTenseConjugationTable(tense, tenseData) {
+        console.log(`[TENSE_TABLE] generateTenseConjugationTable called for tense ${tense}:`, {
+            hasTenseData: !!tenseData,
+            tenseDataKeys: tenseData ? Object.keys(tenseData) : 'none',
+            tenseDataContent: tenseData
+        });
+
         const forms = tenseData?.forms || {};
+        console.log(`[TENSE_TABLE] Forms extracted for ${tense}:`, {
+            hasForms: !!forms,
+            formsKeys: forms ? Object.keys(forms) : 'none',
+            formsContent: forms
+        });
 
         // Check if any forms are available
         if (!forms || Object.keys(forms).length === 0) {
+            console.log(`[TENSE_TABLE] No forms available for ${tense}, returning fallback message`);
             return '<div class="table-container regular-table-container"><p>No conjugation data available</p></div>';
         }
 
@@ -2256,11 +2413,15 @@ class VerbDataManager {
         ];
 
         for (const person of persons) {
+            const singularForm = forms[person.sg] || '-';
+            const pluralForm = forms[person.pl] || '-';
+            console.log(`[TENSE_TABLE] ${tense} ${person.name}: sg="${singularForm}", pl="${pluralForm}"`);
+
             tableHtml += `
                 <tr>
                     <td>${person.name}</td>
-                    <td class="georgian-text">${forms[person.sg] || '-'}</td>
-                    <td class="georgian-text">${forms[person.pl] || '-'}</td>
+                    <td class="georgian-text">${singularForm}</td>
+                    <td class="georgian-text">${pluralForm}</td>
                 </tr>
             `;
         }
@@ -2271,6 +2432,7 @@ class VerbDataManager {
             </div>
         `;
 
+        console.log(`[TENSE_TABLE] Generated table HTML length for ${tense}: ${tableHtml.length}`);
         return tableHtml;
     }
 
@@ -2339,16 +2501,24 @@ class PreverbManager {
     // Get cached preverb forms or calculate them
     getCachedPreverbForms(verbId, preverb, conjugations, preverbConfig) {
         const cacheKey = this.generateCacheKey(verbId, preverb);
+        console.log(`[PREVERB_SWITCH] getCachedPreverbForms: verbId=${verbId}, preverb=${preverb}, cacheKey=${cacheKey}`);
 
         if (this.preverbFormCache.has(cacheKey)) {
+            console.log(`[PREVERB_SWITCH] Using cached preverb forms for ${cacheKey}`);
             return this.preverbFormCache.get(cacheKey);
         }
 
+        console.log(`[PREVERB_SWITCH] Calculating new preverb forms for ${cacheKey}`);
         const calculatedForms = this.verbDataManager.getConjugationsForPreverb(
             conjugations,
             preverbConfig,
             preverb
         );
+
+        console.log(`[PREVERB_SWITCH] Calculated forms result:`, {
+            hasForms: !!calculatedForms,
+            tenseKeys: calculatedForms ? Object.keys(calculatedForms) : 'none'
+        });
 
         // Cache the result
         this.preverbFormCache.set(cacheKey, calculatedForms);
@@ -2366,11 +2536,97 @@ class PreverbManager {
         keysToDelete.forEach(key => this.preverbFormCache.delete(key));
     }
 
+    // Enable preverb selector for a specific verb once data is loaded
+    enablePreverbSelector(verbId) {
+        const verbSection = document.querySelector(`[data-verb-id="${verbId}"]`);
+        if (!verbSection) return;
+
+        const preverbSelector = verbSection.querySelector('.preverb-toggle');
+        if (!preverbSelector) return;
+
+        console.log(`[PREVERB_LOADING] Enabling preverb selector for verb ${verbId}`);
+        console.log(`[PREVERB_LOADING] Current selector state:`, {
+            disabled: preverbSelector.disabled,
+            hasLoadingClass: preverbSelector.classList.contains('loading'),
+            hasOriginalOptions: !!preverbSelector.dataset.originalOptions,
+            originalOptionsLength: preverbSelector.dataset.originalOptions ? preverbSelector.dataset.originalOptions.length : 0,
+            currentInnerHTML: preverbSelector.innerHTML
+        });
+
+        // Re-enable the selector
+        preverbSelector.disabled = false;
+        preverbSelector.classList.remove('loading');
+
+        // Restore original options
+        if (preverbSelector.dataset.originalOptions) {
+            console.log(`[PREVERB_LOADING] Restoring original options:`, preverbSelector.dataset.originalOptions);
+            preverbSelector.innerHTML = preverbSelector.dataset.originalOptions;
+
+            // Set to default preverb if available
+            const defaultPreverb = preverbSelector.querySelector('option[value="მი"]') ||
+                preverbSelector.querySelector('option:first-child');
+            if (defaultPreverb) {
+                preverbSelector.value = defaultPreverb.value;
+                console.log(`[PREVERB_LOADING] Set default preverb to: ${defaultPreverb.value}`);
+            } else {
+                console.log(`[PREVERB_LOADING] No default preverb found, available options:`,
+                    Array.from(preverbSelector.querySelectorAll('option')).map(opt => opt.value));
+            }
+        } else {
+            console.warn(`[PREVERB_LOADING] No original options found for verb ${verbId}`);
+        }
+
+        // Remove loading attributes
+        delete preverbSelector.dataset.originalOptions;
+        delete preverbSelector.dataset.originalValue;
+
+        console.log(`[PREVERB_LOADING] Preverb selector enabled for verb ${verbId}, ready for user interaction`);
+        console.log(`[PREVERB_LOADING] Final selector state:`, {
+            disabled: preverbSelector.disabled,
+            hasLoadingClass: preverbSelector.classList.contains('loading'),
+            innerHTML: preverbSelector.innerHTML,
+            value: preverbSelector.value
+        });
+    }
+
     initializePreverbToggles() {
         // Only initialize preverb toggles for multi-preverb verbs
         document.querySelectorAll('.verb-section[data-has-multiple-preverbs="true"] .preverb-toggle').forEach(selector => {
+            // Store original options BEFORE we replace them
+            const originalOptions = selector.innerHTML;
+            const originalValue = selector.value;
+
+            console.log(`[PREVERB_LOADING] Storing original options for verb ${selector.dataset.verbId}:`, {
+                originalOptionsLength: originalOptions.length,
+                originalValue: originalValue,
+                hasOptions: originalOptions.includes('<option')
+            });
+
+            // Store original options for later restoration
+            selector.dataset.originalOptions = originalOptions;
+            selector.dataset.originalValue = originalValue;
+
+            // Initially disable the preverb selector until data is loaded
+            selector.disabled = true;
+            selector.classList.add('loading');
+
+            // Add loading text to show it's not ready yet
+            selector.innerHTML = '<option value="">Loading...</option>';
+
+            // Add change event listener (will be enabled when data loads)
             selector.addEventListener('change', (e) => {
-                this.handlePreverbChange(e.target);
+                if (!selector.disabled) {
+                    this.handlePreverbChange(e.target);
+                }
+            });
+
+            // Add click event listener to show loading message if clicked while disabled
+            selector.addEventListener('click', (e) => {
+                if (selector.disabled) {
+                    e.preventDefault();
+                    console.log(`[PREVERB_LOADING] Preverb selector clicked while loading for verb ${selector.dataset.verbId}`);
+                    // Could show a tooltip or notification here if desired
+                }
             });
         });
     }
@@ -2380,36 +2636,57 @@ class PreverbManager {
         const selectedPreverb = selector.value;
         const verbSection = document.querySelector(`[data-verb-id="${verbId}"]`);
 
+        console.log(`[PREVERB_SWITCH] Preverb changed: verbId=${verbId}, selectedPreverb=${selectedPreverb}`);
+        console.log(`[PREVERB_SWITCH] Verb section found: ${!!verbSection}, hasMultiplePreverbs: ${verbSection?.getAttribute('data-has-multiple-preverbs')}`);
+
         if (verbSection && verbSection.getAttribute('data-has-multiple-preverbs') === 'true') {
+            console.log(`[PREVERB_SWITCH] Starting updateVerbDisplay for verb ${verbId} with preverb ${selectedPreverb}`);
             // Update verb display asynchronously
             this.updateVerbDisplay(verbSection, selectedPreverb).catch(error => {
+                console.error(`[PREVERB_SWITCH] Error in updateVerbDisplay:`, error);
                 this.verbDataManager.showErrorState(verbSection);
             });
+        } else {
+            console.warn(`[PREVERB_SWITCH] Cannot update: verbSection=${!!verbSection}, hasMultiplePreverbs=${verbSection?.getAttribute('data-has-multiple-preverbs')}`);
         }
     }
 
     async updateVerbDisplay(verbSection, preverb) {
         const verbId = verbSection.dataset.verbId;
+        console.log(`[PREVERB_SWITCH] updateVerbDisplay: verbId=${verbId}, preverb=${preverb}`);
 
         try {
             // Get verb data from cache or external files
             let verbData = this.verbDataManager.verbCache.get(verbId);
+            console.log(`[PREVERB_SWITCH] Cached verb data found: ${!!verbData}`);
 
             if (!verbData) {
+                console.log(`[PREVERB_SWITCH] Loading verb data from external files...`);
                 // If not in cache, load it (this should rarely happen with lazy loading)
                 verbData = await this.verbDataManager.getVerbData(verbId);
+                console.log(`[PREVERB_SWITCH] External verb data loaded: ${!!verbData}`);
             }
 
             if (!verbData) {
+                console.warn(`[PREVERB_SWITCH] No verb data available for verb ${verbId}`);
                 return;
             }
+
+            console.log(`[PREVERB_SWITCH] Verb data structure:`, {
+                hasConjugations: !!verbData.conjugations,
+                hasExamples: !!verbData.examples,
+                hasGlossAnalyses: !!verbData.glossAnalyses,
+                hasPreverbConfig: !!verbData.preverbConfig,
+                examplesKeys: verbData.examples ? Object.keys(verbData.examples) : 'none',
+                glossKeys: verbData.glossAnalyses ? Object.keys(verbData.glossAnalyses) : 'none'
+            });
 
             // Get conjugations for selected preverb (with caching)
             const conjugations = this.getCachedPreverbForms(
                 verbId,
                 preverb,
-                verbData.conjugations,
-                verbData.preverbConfig
+                verbData.conjugations.conjugations,
+                verbData.conjugations.preverb_rules
             );
 
             // Update overview table
@@ -2420,8 +2697,10 @@ class PreverbManager {
 
             // Update each tense column
             const tenseColumns = verbSection.querySelectorAll('.tense-column');
+            console.log(`[PREVERB_SWITCH] Updating ${tenseColumns.length} tense columns`);
             tenseColumns.forEach(column => {
                 const tense = column.dataset.tense;
+                console.log(`[PREVERB_SWITCH] Updating tense column: ${tense}`);
                 this.verbDataManager.populateTenseColumn(column, tense, conjugations[tense], verbData, preverb);
             });
 

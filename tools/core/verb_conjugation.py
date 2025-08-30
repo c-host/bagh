@@ -310,12 +310,14 @@ def get_english_translation(
 
     # Check for preverb-specific translations first
     if preverb and preverb in english_translations:
-        preverb_translations = english_translations[preverb]
         logger.info(
-            f"Found preverb translations for '{preverb}': {preverb_translations}"
+            f"Found preverb translations for '{preverb}': {english_translations[preverb]}"
         )
-        if isinstance(preverb_translations, dict) and tense in preverb_translations:
-            result = preverb_translations[tense]
+        if (
+            isinstance(english_translations[preverb], dict)
+            and tense in english_translations[preverb]
+        ):
+            result = english_translations[preverb][tense]
             logger.info(f"Using preverb-specific translation: '{result}'")
             return result
 

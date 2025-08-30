@@ -58,7 +58,6 @@ class ExternalDataGenerator:
             "preverb_rules": verb.get("preverb_rules", {}),
             "conjugations": verb.get("conjugations", {}),
             "english_translations": verb.get("english_translations", {}),
-            "preverb_translations": verb.get("preverb_translations", {}),
             "prepositions": verb.get("prepositions", {}),
             "overrides": verb.get("overrides", {}),
         }
@@ -96,12 +95,11 @@ class ExternalDataGenerator:
                     "forms": forms,
                     "examples": tense_data.get("examples", []),
                     "gloss": tense_data.get("gloss", {}),
-                    "raw_gloss": tense_data.get("gloss", {}).get("raw_gloss", ""),
+                    "raw_gloss": tense_data.get("raw_gloss", ""),
                     "preverb": effective_preverb
                     or tense_data.get("gloss", {}).get("preverb", ""),
                 }
             },
-            "preverb_translations": metadata["preverb_translations"],
             "preverb_config": verb.get("preverb_config", {}),
             "prepositions": metadata["prepositions"],
             "overrides": metadata["overrides"],
@@ -273,7 +271,6 @@ class ExternalDataGenerator:
             preverb_config_data[verb_id] = {
                 "preverb_config": verb.get("preverb_config", {}),
                 "preverb_rules": metadata["preverb_rules"],
-                "preverb_translations": metadata["preverb_translations"],
             }
 
         return {"preverb_configs": preverb_config_data}
@@ -1206,22 +1203,54 @@ class ExternalDataGenerator:
 
     def _extract_examples_data(self, verb: Dict) -> Dict:
         """Extract examples data for external files."""
-        return {
-            "examples": verb.get("examples", {}),
-            "preverb_config": verb.get("preverb_config", {}),
-        }
+        # Check if this is a multi-preverb verb that needs example generation
+        preverb_config = verb.get("preverb_config", {})
+        has_multiple_preverbs = preverb_config.get("has_multiple_preverbs", False)
+
+        if has_multiple_preverbs:
+            # For multi-preverb verbs, generate examples using enhanced generation
+            examples_by_preverb = self._create_enhanced_multi_preverb_examples(verb)
+            return examples_by_preverb
+        else:
+            # For single-preverb verbs, extract existing examples
+            examples_by_tense = {}
+            conjugations = verb.get("conjugations", {})
+
+            for tense, tense_data in conjugations.items():
+                if isinstance(tense_data, dict) and "examples" in tense_data:
+                    examples_by_tense[tense] = tense_data["examples"]
+
+            return examples_by_tense
 
     def _extract_gloss_data(self, verb: Dict) -> Dict:
         """Extract gloss data for external files."""
-        return {
-            "gloss_analyses": verb.get("gloss_analyses", {}),
-            "raw_gloss": verb.get("raw_gloss", ""),
-        }
+        # Check if this is a multi-preverb verb that needs gloss generation
+        preverb_config = verb.get("preverb_config", {})
+        has_multiple_preverbs = preverb_config.get("has_multiple_preverbs", False)
+
+        if has_multiple_preverbs:
+            # For multi-preverb verbs, generate gloss analyses using enhanced generation
+            gloss_analyses_by_preverb = (
+                self._create_enhanced_multi_preverb_gloss_analyses(verb)
+            )
+            return gloss_analyses_by_preverb
+        else:
+            # For single-preverb verbs, extract existing gloss data
+            gloss_by_tense = {}
+            conjugations = verb.get("conjugations", {})
+
+            for tense, tense_data in conjugations.items():
+                if isinstance(tense_data, dict):
+                    gloss_by_tense[tense] = {
+                        "raw_gloss": tense_data.get("raw_gloss", ""),
+                        "gloss": tense_data.get("gloss", {}),
+                    }
+
+            return gloss_by_tense
 
     def _extract_preverb_config_data(self, verb: Dict) -> Dict:
         """Extract preverb configuration data for external files."""
         return {
             "preverb_config": verb.get("preverb_config", {}),
             "preverb_rules": verb.get("preverb_rules", {}),
-            "preverb_translations": verb.get("preverb_translations", {}),
         }

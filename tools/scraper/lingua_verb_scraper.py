@@ -112,7 +112,6 @@ class VerbScraper:
                     "optative": english or "",
                     "imperative": english or "",
                 },
-                "preverb_translations": {},
                 "prepositions": {"indirect_object": "to", "direct_object": ""},
                 "overrides": {
                     "subject": {"noun": "", "adjective": ""},
@@ -378,9 +377,6 @@ class VerbScraper:
                 "optative": verb_data.get("english", ""),
                 "imperative": verb_data.get("english", ""),
             }
-
-        if "preverb_translations" not in verb_data:
-            verb_data["preverb_translations"] = {}
 
         if "prepositions" not in verb_data:
             verb_data["prepositions"] = {"indirect_object": "", "direct_object": ""}
