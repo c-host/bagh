@@ -55,14 +55,13 @@ def get_conjugation_form(
         conjugations = verb.get("conjugations", {})
         tense_data = conjugations.get(tense, {})
 
-        # Check if this is the new structure with forms/gloss
+        # New structure with forms
         if isinstance(tense_data, dict) and "forms" in tense_data:
             base_form = tense_data["forms"].get(person, "-")
             logger.info(f"[CONJUGATION] Using new structure, form: {base_form}")
         else:
-            # Old structure - direct forms
-            base_form = tense_data.get(person, "-")
-            logger.info(f"[CONJUGATION] Using old structure, form: {base_form}")
+            base_form = "-"
+            logger.warning(f"[CONJUGATION] No forms found in tense data")
 
     else:
         # Multi-preverb verb

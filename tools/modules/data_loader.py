@@ -19,9 +19,15 @@ class VerbDataLoader:
         self.data_dir = project_root / "src" / "data"
         self.verbs_file = self.data_dir / "verbs.json"
 
+        # Add caching for performance
+        self._verbs_cache = None
+        self._duplicates_cache = None
+        self._last_modified = None
+
     def load_json_data(self) -> Tuple[List[Dict], Dict]:
         """
         Load verb data from JSON file and return processed data.
+        Uses caching for improved performance.
 
         Returns:
             Tuple of (verbs_list, duplicate_primary_verbs_dict)
@@ -31,6 +37,18 @@ class VerbDataLoader:
                 logger.error(f"Verbs file not found: {self.verbs_file}")
                 return [], {}
 
+            # Check if file has been modified since last load
+            current_modified = self.verbs_file.stat().st_mtime
+            if (
+                self._verbs_cache is not None
+                and self._duplicates_cache is not None
+                and self._last_modified == current_modified
+            ):
+                logger.info("Using cached verb data (file unchanged)")
+                return self._verbs_cache, self._duplicates_cache
+
+            # Load fresh data
+            logger.info("Loading fresh verb data from file")
             with open(self.verbs_file, "r", encoding="utf-8") as f:
                 data = json.load(f)
 
@@ -47,7 +65,12 @@ class VerbDataLoader:
             # Identify duplicate primary verbs for smart disambiguation
             duplicate_primary_verbs = self.get_duplicate_primary_verbs(verbs)
 
-            logger.info(f"Successfully loaded {len(verbs)} verbs")
+            # Cache the results
+            self._verbs_cache = verbs
+            self._duplicates_cache = duplicate_primary_verbs
+            self._last_modified = current_modified
+
+            logger.info(f"Successfully loaded {len(verbs)} verbs (cached)")
             return verbs, duplicate_primary_verbs
 
         except FileNotFoundError:
@@ -60,31 +83,35 @@ class VerbDataLoader:
             logger.error(f"Unexpected error loading verbs data: {e}")
             return [], {}
 
-    def load_reference_verbs(self, reference_config: List[Dict]) -> Tuple[List[Dict], Dict]:
+    def load_reference_verbs(
+        self, reference_config: List[Dict]
+    ) -> Tuple[List[Dict], Dict]:
         """
         Load only the specified verbs for reference build.
-        
+
         Args:
             reference_config: Reference configuration with verb specifications
-            
+
         Returns:
             Tuple of (filtered_verbs_list, duplicate_primary_verbs_dict)
         """
         all_verbs, all_duplicates = self.load_json_data()
-        
+
         # Filter verbs based on reference configuration
         reference_verbs = []
         for reference_verb_spec in reference_config:
             matching_verb = self.find_verb_by_spec(all_verbs, reference_verb_spec)
             if matching_verb:
                 reference_verbs.append(matching_verb)
-                logger.info(f"✅ Found reference verb: {matching_verb.get('georgian', 'N/A')} ({reference_verb_spec.get('reason', 'N/A')})")
+                logger.info(
+                    f"✅ Found reference verb: {matching_verb.get('georgian', 'N/A')} ({reference_verb_spec.get('reason', 'N/A')})"
+                )
             else:
                 logger.warning(f"⚠️ Reference verb not found: {reference_verb_spec}")
-        
+
         # Get duplicates for filtered verbs only
         reference_duplicates = self.get_duplicate_primary_verbs(reference_verbs)
-        
+
         logger.info(f"🔧 Reference mode: Filtered to {len(reference_verbs)} verbs")
         return reference_verbs, reference_duplicates
 
@@ -92,12 +119,14 @@ class VerbDataLoader:
         """Find verb by Georgian text or semantic key."""
         georgian = spec.get("georgian")
         semantic_key = spec.get("semantic_key")
-        
+
         for verb in verbs:
-            if (verb.get("georgian") == georgian or 
-                verb.get("semantic_key") == semantic_key):
+            if (
+                verb.get("georgian") == georgian
+                or verb.get("semantic_key") == semantic_key
+            ):
                 return verb
-        
+
         return None
 
     def validate_verb_data(self, verbs: List[Dict]) -> bool:
@@ -323,3 +352,10 @@ class VerbDataLoader:
         logger.info(f"Validation results: {passed_checks}/{total_checks} checks passed")
 
         return passed_checks == total_checks
+
+    def clear_cache(self):
+        """Clear the data cache to force reload on next access."""
+        self._verbs_cache = None
+        self._duplicates_cache = None
+        self._last_modified = None
+        logger.info("Data cache cleared")

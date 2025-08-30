@@ -20,6 +20,7 @@ import json
 import logging
 import sys
 import os
+import time
 from pathlib import Path
 
 # Add the project root to the Python path
@@ -178,6 +179,9 @@ def setup_logging(config_manager):
 
 def main():
     """Main function to build the HTML file."""
+    # Start timing
+    start_time = time.time()
+
     # Parse command line arguments
     args = parse_arguments()
 
@@ -212,6 +216,7 @@ def main():
     file_writer = FileWriter(project_root, config_manager)
 
     # Load and validate verb data based on build mode
+    data_start_time = time.time()
     logger.info("📖 Loading verb data...")
     if build_mode == "reference":
         reference_config = config_manager.get_setting(
@@ -227,6 +232,9 @@ def main():
             f"🏭 Production mode: Loaded {len(verbs)} verbs for production build"
         )
 
+    data_load_time = time.time() - data_start_time
+    logger.info(f"⏱️ Data loading completed in {data_load_time:.2f} seconds")
+
     if not verbs:
         logger.error("❌ No verbs loaded. Exiting.")
         return
@@ -237,17 +245,26 @@ def main():
     if not validation_success:
         logger.warning("⚠️ Validation failed, but continuing with build...")
 
-    # Generate external data files
+    # Generate external data files (optimized single-pass)
+    external_start_time = time.time()
     logger.info("📁 Generating external data files...")
-    external_data_success = external_data_generator.generate_external_data_files(verbs)
+    external_data_success = (
+        external_data_generator.generate_external_data_files_optimized(verbs)
+    )
     if external_data_success:
-        logger.info("✅ External data files generated successfully")
+        external_time = time.time() - external_start_time
+        logger.info(
+            f"✅ External data files generated successfully (optimized) in {external_time:.2f} seconds"
+        )
     else:
         logger.error("❌ Failed to generate external data files")
 
-    # Generate HTML
+    # Generate HTML (full-featured)
+    html_start_time = time.time()
     logger.info("🌐 Generating HTML...")
     html_content = html_generator.generate_html(verbs, duplicate_primary_verbs)
+    html_time = time.time() - html_start_time
+    logger.info(f"⏱️ HTML generation completed in {html_time:.2f} seconds")
 
     # Copy assets
     asset_success = asset_manager.copy_assets()
@@ -257,8 +274,23 @@ def main():
     # Write HTML file
     write_success = file_writer.write_html_file(html_content)
     if write_success:
+        total_time = time.time() - start_time
         logger.info("🎉 Build completed successfully!")
         logger.info(f"📄 Output: {file_writer.get_output_path()}")
+        logger.info(f"⏱️ Total build time: {total_time:.2f} seconds")
+        logger.info(f"📊 Performance breakdown:")
+        logger.info(
+            f"   - Data loading: {data_load_time:.2f}s ({data_load_time/total_time*100:.1f}%)"
+        )
+        logger.info(
+            f"   - External data: {external_time:.2f}s ({external_time/total_time*100:.1f}%)"
+        )
+        logger.info(
+            f"   - HTML generation: {html_time:.2f}s ({html_time/total_time*100:.1f}%)"
+        )
+        logger.info(
+            f"   - Other operations: {total_time-data_load_time-external_time-html_time:.2f}s ({(total_time-data_load_time-external_time-html_time)/total_time*100:.1f}%)"
+        )
     else:
         logger.error("❌ Failed to write HTML file")
         return

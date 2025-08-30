@@ -553,6 +553,166 @@ class HTMLGenerator:
 
         return html_content
 
+    def generate_html_optimized(
+        self, verbs: List[Dict], duplicate_primary_verbs: Optional[Dict] = None
+    ) -> str:
+        """
+        Generate the complete HTML file with optimized performance.
+
+        Args:
+            verbs: List of verb dictionaries
+            duplicate_primary_verbs: Dictionary of duplicate primary verbs
+
+        Returns:
+            Complete HTML content string
+        """
+        # Generate table of contents first
+        toc_section = self.create_toc(verbs, duplicate_primary_verbs)
+
+        # Group verbs by category more efficiently
+        verbs_by_category = {}
+        for verb in verbs:
+            category = verb.get("category", "Unknown")
+            if category not in verbs_by_category:
+                verbs_by_category[category] = []
+            verbs_by_category[category].append(verb)
+
+        # Get all unique categories for dynamic generation
+        all_categories = sorted(verbs_by_category.keys())
+
+        # Generate category options more efficiently using list comprehension
+        category_options = [
+            f'<option value="{category}">{category}</option>'
+            for category in all_categories
+        ]
+        sidebar_category_options = "".join(category_options)
+        filter_category_options = "".join(category_options)
+
+        # Generate verb sections organized by category using list comprehension
+        verb_sections_parts = []
+
+        for i, (category, category_verbs) in enumerate(
+            sorted(verbs_by_category.items())
+        ):
+            # Add category header with collapsible functionality
+            category_header = f"""
+            <div class="category-container" data-category="{category}">
+                <h1 class="main-category-header collapsible-header" data-category="{category}">
+                    <span class="collapse-icon">▼</span>
+                    <span class="category-title">{category}</span>
+                </h1>
+                <div class="category-content" data-category="{category}">
+            """
+
+            # Calculate starting index for this category
+            category_start_index = sum(
+                len(verbs_by_category[cat])
+                for cat in sorted(verbs_by_category.keys())
+                if cat < category
+            )
+
+            # Generate verb sections for this category
+            verb_parts = []
+            for j, verb in enumerate(category_verbs):
+                global_index = category_start_index + j + 1
+                verb_html = self.create_verb_section(
+                    verb, global_index, duplicate_primary_verbs
+                )
+                verb_parts.append(verb_html)
+
+            # Combine category content
+            category_content = "".join(verb_parts)
+            category_footer = """
+                </div>
+            </div>
+            """
+
+            verb_sections_parts.append(
+                category_header + category_content + category_footer
+            )
+
+        # Join all verb sections
+        verb_sections = "".join(verb_sections_parts)
+
+        # Create the complete HTML using f-string for better performance
+        html_content = f"""<!DOCTYPE html>
+<html lang="en-ka">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ბაღ</title>
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/svg+xml" href="assets/favicon.svg">
+    <link rel="alternate icon" href="assets/favicon.svg">
+    
+    <script>
+        (function() {{
+            const savedTheme = localStorage.getItem('theme') || 'light';
+            const savedFont = localStorage.getItem('font') || 'default';
+            document.documentElement.setAttribute('data-theme', savedTheme);
+            document.documentElement.setAttribute('data-font', savedFont);
+        }})();
+    </script>
+    
+    <link rel="stylesheet" href="styles/main.css">
+</head>
+
+<body>
+    <div class="container">
+        <header class="main-header">
+            <h1 class="site-title">ბაღ</h1>
+            <p class="site-subtitle">Georgian Verb Conjugations</p>
+        </header>
+
+        <div class="main-content">
+            <aside class="sidebar">
+                <div class="sidebar-section">
+                    <h3>Categories</h3>
+                    <select id="category-filter" class="category-filter">
+                        <option value="">All Categories</option>
+                        {sidebar_category_options}
+                    </select>
+                </div>
+                
+                <div class="sidebar-section">
+                    <h3>Table of Contents</h3>
+                    {toc_section}
+                </div>
+            </aside>
+
+            <main class="content-area">
+                {verb_sections}
+            </main>
+        </div>
+
+        <div class="filter-modal" id="filterModal">
+            <div class="modal-content">
+                <span class="close">&times;</span>
+                <h2>Filter Verbs</h2>
+                <div class="filter-section">
+                    <label for="filter-category">Category:</label>
+                    <select id="filter-category" class="filter-select">
+                        <option value="">All Categories</option>
+                        {filter_category_options}
+                    </select>
+                </div>
+                <div class="filter-section">
+                    <label for="filter-text">Search:</label>
+                    <input type="text" id="filter-text" class="filter-input" placeholder="Search verbs...">
+                </div>
+                <button id="apply-filters" class="filter-button">Apply Filters</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="scripts/main.js"></script>
+</body>
+</html>"""
+
+        return html_content
+
     # ============================================================================
     # STATIC CONTENT GENERATION METHODS
     # ============================================================================
@@ -1012,14 +1172,7 @@ class HTMLGenerator:
                                         f"Added examples for default preverb {default_preverb}"
                                     )
                                     break
-                        else:
-                            # Old structure: direct list of examples
-                            examples_html = self._format_multi_preverb_examples(
-                                examples_data, default_preverb
-                            )
-                            logger.info(
-                                f"Added examples for default preverb {default_preverb}"
-                            )
+                        # New nested structure only - no old structure handling needed
 
                 logger.info(f"Final examples HTML length: {len(examples_html)}")
                 return examples_html
@@ -1048,9 +1201,7 @@ class HTMLGenerator:
                                 )
                             else:
                                 result = ""
-                        else:
-                            # Old structure: direct list of examples
-                            result = self._format_pedagogical_examples(examples_data)
+                        # New nested structure only - no old structure handling needed
                     else:
                         result = ""
 
@@ -1268,18 +1419,7 @@ class HTMLGenerator:
                 if "raw_gloss" in tense_data:
                     # New structure: raw_gloss is directly in tense_data
                     raw_gloss = tense_data.get("raw_gloss", "")
-                elif "gloss" in tense_data:
-                    gloss_data = tense_data["gloss"]
-                    if isinstance(gloss_data, dict):
-                        # New structure: gloss is a dictionary with raw_gloss and preverb
-                        raw_gloss = gloss_data.get("raw_gloss", "")
-                        gloss_preverb = gloss_data.get("preverb", preverb)
-                    else:
-                        # Old structure: gloss is a string
-                        raw_gloss = gloss_data
-                elif "forms" in tense_data and isinstance(tense_data["forms"], dict):
-                    # Try to get gloss from forms structure
-                    raw_gloss = tense_data["forms"].get("gloss", "")
+                # New structure: raw_gloss is directly in tense_data
 
             logger.info(
                 f"[GLOSS] Raw gloss for verb {verb_id}, tense {tense}: '{raw_gloss}'"

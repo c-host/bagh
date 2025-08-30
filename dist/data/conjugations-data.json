@@ -1,6 +1,6 @@
 {
-  "conjugations": {
-    "1": {
+  "1": {
+    "conjugations": {
       "present": {
         "raw_gloss": "V MedAct Inv Pres Pv LV <S-DO> <S:Dat> <DO:Nom>",
         "forms": {
@@ -70,7 +70,19 @@
         "examples": []
       }
     },
-    "23": {
+    "preverb_rules": {
+      "default": "მი",
+      "replacements": {
+        "მი": "მი",
+        "მო": "მო",
+        "წა": "წა"
+      },
+      "tense_specific_fallbacks": {},
+      "english_fallbacks": {}
+    }
+  },
+  "23": {
+    "conjugations": {
       "present": {
         "raw_gloss": "V MedPass Pres Pv <S> <S:Nom>",
         "forms": {
@@ -140,7 +152,30 @@
         "examples": []
       }
     },
-    "68": {
+    "preverb_rules": {
+      "default": "მი",
+      "replacements": {
+        "მი": "მი",
+        "მო": "მო",
+        "გა": "გა",
+        "წა": "წა"
+      },
+      "tense_specific_fallbacks": {
+        "წა": {
+          "present": "მი",
+          "imperfect": "მი"
+        }
+      },
+      "english_fallbacks": {
+        "წა": {
+          "present": "მი",
+          "imperfect": "მი"
+        }
+      }
+    }
+  },
+  "68": {
+    "conjugations": {
       "present": {
         "raw_gloss": "V Act Pres SV <S-DO> <S:Nom> <DO:Dat>",
         "forms": {
@@ -208,6 +243,25 @@
           "2pl": "მიიწვიეთ"
         },
         "examples": []
+      }
+    },
+    "preverb_rules": {
+      "default": "მი",
+      "replacements": {
+        "მი": "მი",
+        "მო": "მო"
+      },
+      "tense_specific_fallbacks": {
+        "მო": {
+          "present": "მი",
+          "imperfect": "მი"
+        }
+      },
+      "english_fallbacks": {
+        "მო": {
+          "present": "მი",
+          "imperfect": "მი"
+        }
       }
     }
   }

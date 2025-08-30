@@ -1099,3 +1099,129 @@ class ExternalDataGenerator:
         except Exception as e:
             logger.error(f"Error generating external data files: {e}")
             return False
+
+    def generate_external_data_files_optimized(self, verbs: List[Dict]) -> bool:
+        """
+        Generate external data files in a single optimized pass.
+
+        Args:
+            verbs: List of verb dictionaries from load_json_data()
+
+        Returns:
+            bool: True if successful, False otherwise
+        """
+        try:
+            # Create dist/data directory
+            self.data_dir.mkdir(exist_ok=True)
+
+            logger.info(f"Generating external data files in: {self.data_dir}")
+
+            # Filter verbs to only include multi-preverb verbs
+            multi_preverb_verbs = [
+                verb
+                for verb in verbs
+                if verb.get("preverb_config", {}).get("has_multiple_preverbs", False)
+            ]
+
+            # Only generate files for multi-preverb verbs
+            if not multi_preverb_verbs:
+                logger.info(
+                    "No multi-preverb verbs found. Skipping external data generation."
+                )
+                return True
+
+            logger.info(
+                f"Found {len(multi_preverb_verbs)} multi-preverb verbs for external data generation"
+            )
+
+            # Process all data in a single pass to avoid redundant operations
+            logger.info("Processing all data in single pass...")
+
+            # Initialize all data structures
+            core_verb_data = {}
+            conjugations_data = {}
+            examples_data = {}
+            gloss_data = {}
+            preverb_config_data = {}
+
+            # Single pass through all verbs
+            for verb in multi_preverb_verbs:
+                verb_id = verb.get("id")
+                if not verb_id:
+                    continue
+
+                # Process core verb data
+                core_verb_data[verb_id] = self._extract_core_verb_data(verb)
+
+                # Process conjugations
+                conjugations_data[verb_id] = self._extract_conjugations_data(verb)
+
+                # Process examples
+                examples_data[verb_id] = self._extract_examples_data(verb)
+
+                # Process gloss data
+                gloss_data[verb_id] = self._extract_gloss_data(verb)
+
+                # Process preverb config
+                preverb_config_data[verb_id] = self._extract_preverb_config_data(verb)
+
+            # Write all files at once
+            data_files = [
+                ("verbs-data.json", core_verb_data),
+                ("conjugations-data.json", conjugations_data),
+                ("examples-data.json", examples_data),
+                ("gloss-data.json", gloss_data),
+                ("preverb-config.json", preverb_config_data),
+            ]
+
+            for filename, data in data_files:
+                file_path = self.data_dir / filename
+                with open(file_path, "w", encoding="utf-8") as f:
+                    json.dump(data, f, ensure_ascii=False, indent=2)
+                logger.info(f"  Generated: {filename}")
+
+            logger.info("✅ All external data files generated in single pass")
+            return True
+
+        except Exception as e:
+            logger.error(f"Error generating external data files: {e}")
+            return False
+
+    def _extract_core_verb_data(self, verb: Dict) -> Dict:
+        """Extract core verb data for external files."""
+        return {
+            "id": verb.get("id"),
+            "georgian": verb.get("georgian"),
+            "semantic_key": verb.get("semantic_key"),
+            "category": verb.get("category"),
+            "preverb_config": verb.get("preverb_config", {}),
+        }
+
+    def _extract_conjugations_data(self, verb: Dict) -> Dict:
+        """Extract conjugations data for external files."""
+        return {
+            "conjugations": verb.get("conjugations", {}),
+            "preverb_rules": verb.get("preverb_rules", {}),
+        }
+
+    def _extract_examples_data(self, verb: Dict) -> Dict:
+        """Extract examples data for external files."""
+        return {
+            "examples": verb.get("examples", {}),
+            "preverb_config": verb.get("preverb_config", {}),
+        }
+
+    def _extract_gloss_data(self, verb: Dict) -> Dict:
+        """Extract gloss data for external files."""
+        return {
+            "gloss_analyses": verb.get("gloss_analyses", {}),
+            "raw_gloss": verb.get("raw_gloss", ""),
+        }
+
+    def _extract_preverb_config_data(self, verb: Dict) -> Dict:
+        """Extract preverb configuration data for external files."""
+        return {
+            "preverb_config": verb.get("preverb_config", {}),
+            "preverb_rules": verb.get("preverb_rules", {}),
+            "preverb_translations": verb.get("preverb_translations", {}),
+        }

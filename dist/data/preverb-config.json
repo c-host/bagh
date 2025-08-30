@@ -1,90 +1,88 @@
 {
-  "preverb_configs": {
-    "1": {
-      "preverb_config": {
-        "has_multiple_preverbs": true,
-        "default_preverb": "მი",
-        "available_preverbs": [
-          "მი",
-          "მო",
-          "წა"
-        ]
-      },
-      "preverb_rules": {
-        "default": "მი",
-        "replacements": {
-          "მი": "მი",
-          "მო": "მო",
-          "წა": "წა"
-        },
-        "tense_specific_fallbacks": {},
-        "english_fallbacks": {}
-      },
-      "preverb_translations": {}
+  "1": {
+    "preverb_config": {
+      "has_multiple_preverbs": true,
+      "default_preverb": "მი",
+      "available_preverbs": [
+        "მი",
+        "მო",
+        "წა"
+      ]
     },
-    "23": {
-      "preverb_config": {
-        "has_multiple_preverbs": true,
-        "default_preverb": "მი",
-        "available_preverbs": [
-          "მი",
-          "მო",
-          "გა",
-          "წა"
-        ]
+    "preverb_rules": {
+      "default": "მი",
+      "replacements": {
+        "მი": "მი",
+        "მო": "მო",
+        "წა": "წა"
       },
-      "preverb_rules": {
-        "default": "მი",
-        "replacements": {
-          "მი": "მი",
-          "მო": "მო",
-          "გა": "გა",
-          "წა": "წა"
-        },
-        "tense_specific_fallbacks": {
-          "წა": {
-            "present": "მი",
-            "imperfect": "მი"
-          }
-        },
-        "english_fallbacks": {
-          "წა": {
-            "present": "მი",
-            "imperfect": "მი"
-          }
+      "tense_specific_fallbacks": {},
+      "english_fallbacks": {}
+    },
+    "preverb_translations": {}
+  },
+  "23": {
+    "preverb_config": {
+      "has_multiple_preverbs": true,
+      "default_preverb": "მი",
+      "available_preverbs": [
+        "მი",
+        "მო",
+        "გა",
+        "წა"
+      ]
+    },
+    "preverb_rules": {
+      "default": "მი",
+      "replacements": {
+        "მი": "მი",
+        "მო": "მო",
+        "გა": "გა",
+        "წა": "წა"
+      },
+      "tense_specific_fallbacks": {
+        "წა": {
+          "present": "მი",
+          "imperfect": "მი"
         }
       },
-      "preverb_translations": {}
+      "english_fallbacks": {
+        "წა": {
+          "present": "მი",
+          "imperfect": "მი"
+        }
+      }
     },
-    "68": {
-      "preverb_config": {
-        "has_multiple_preverbs": true,
-        "default_preverb": "მი",
-        "available_preverbs": [
-          "მი",
-          "მო"
-        ]
+    "preverb_translations": {}
+  },
+  "68": {
+    "preverb_config": {
+      "has_multiple_preverbs": true,
+      "default_preverb": "მი",
+      "available_preverbs": [
+        "მი",
+        "მო"
+      ]
+    },
+    "preverb_rules": {
+      "default": "მი",
+      "replacements": {
+        "მი": "მი",
+        "მო": "მო"
       },
-      "preverb_rules": {
-        "default": "მი",
-        "replacements": {
-          "მი": "მი",
-          "მო": "მო"
-        },
-        "tense_specific_fallbacks": {
-          "მო": {
-            "present": "მი",
-            "imperfect": "მი"
-          }
-        },
-        "english_fallbacks": {
-          "მო": {
-            "present": "მი",
-            "imperfect": "მი"
-          }
+      "tense_specific_fallbacks": {
+        "მო": {
+          "present": "მი",
+          "imperfect": "მი"
         }
       },
-      "preverb_translations": {}
-    }
+      "english_fallbacks": {
+        "მო": {
+          "present": "მი",
+          "imperfect": "მი"
+        }
+      }
+    },
+    "preverb_translations": {}
   }
 }
