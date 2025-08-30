@@ -20,9 +20,9 @@ from .verb_conjugation import (
     add_should_prefix_for_optative,
 )
 from .example_generator import PedagogicalExampleGenerator, ExampleGenerationError
-from .noun_adjective_selection_engine import (
-    NounAdjectiveSelectionEngine,
-    NounSelectionError,
+from .argument_resolver import (
+    ArgumentResolver,
+    ArgumentResolutionError,
     CaseFormMissingError,
 )
 
@@ -43,8 +43,8 @@ __all__ = [
     # Example generation
     "PedagogicalExampleGenerator",
     "ExampleGenerationError",
-    # Noun/adjective selection
-    "NounAdjectiveSelectionEngine",
-    "NounSelectionError",
+    # Argument resolution
+    "ArgumentResolver",
+    "ArgumentResolutionError",
     "CaseFormMissingError",
 ]

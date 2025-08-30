@@ -15,9 +15,9 @@ from typing import Dict, List, Optional, Tuple, Any
 from pathlib import Path
 import json
 
-from tools.core.noun_adjective_selection_engine import (
-    NounAdjectiveSelectionEngine,
-    NounSelectionError,
+from tools.core.argument_resolver import (
+    ArgumentResolver,
+    ArgumentResolutionError,
     CaseFormMissingError,
 )
 from tools.core.gloss_parser import StandardizedRawGlossParser, RawGlossParseError
@@ -79,8 +79,8 @@ class ExampleGenerationError(Exception):
 
 class PedagogicalExampleGenerator:
     def __init__(self):
-        """Initialize the example generator with selection engine and parser"""
-        self.selection_engine = NounAdjectiveSelectionEngine()
+        """Initialize the example generator with argument resolver and parser"""
+        self.argument_resolver = ArgumentResolver()
         self.raw_gloss_parser = StandardizedRawGlossParser()
 
         # Case name mappings for English translations
@@ -248,27 +248,21 @@ class PedagogicalExampleGenerator:
             io_adj_key = None
 
             if "subject" in arguments and self._should_include_subject(person):
-                # Extract keys from subject selection
-                subject_key, subject_adj_key = (
-                    self.selection_engine.select_subject_with_adjective(
-                        verb_id, tense, person, raw_gloss, verb_semantics, verb_data
-                    )
+                # Extract keys from subject definition
+                subject_key, subject_adj_key = self.argument_resolver.get_argument_pair(
+                    verb_data, "subject", person
                 )
 
             if "direct_object" in arguments:
-                # Extract keys from direct object selection
-                do_key, do_adj_key = (
-                    self.selection_engine.select_direct_object_with_adjective(
-                        verb_id, tense, person, raw_gloss, verb_semantics, verb_data
-                    )
+                # Extract keys from direct object definition
+                do_key, do_adj_key = self.argument_resolver.get_argument_pair(
+                    verb_data, "direct_object", person
                 )
 
             if "indirect_object" in arguments:
-                # Extract keys from indirect object selection
-                io_key, io_adj_key = (
-                    self.selection_engine.select_indirect_object_with_adjective(
-                        verb_id, tense, person, raw_gloss, verb_semantics, verb_data
-                    )
+                # Extract keys from indirect object definition
+                io_key, io_adj_key = self.argument_resolver.get_argument_pair(
+                    verb_data, "indirect_object", person
                 )
 
             english_translation = self._generate_english_translation(
@@ -471,11 +465,9 @@ class PedagogicalExampleGenerator:
     ) -> Dict[str, Any]:
         """Generate subject component with case marking"""
         try:
-            # Select subject and adjective deterministically
+            # Get subject and adjective from explicit definition
             selected_subject, selected_adjective = (
-                self.selection_engine.select_subject_with_adjective(
-                    verb_id, tense, person, raw_gloss, verb_semantics, verb_data
-                )
+                self.argument_resolver.get_argument_pair(verb_data, "subject", person)
             )
 
             # Get case form - use plural for 3pl
@@ -483,13 +475,13 @@ class PedagogicalExampleGenerator:
             number = "plural" if person == "3pl" else "singular"
 
             # Get case form from selected subject
-            case_form = self.selection_engine.get_case_form(
+            case_form = self.argument_resolver.get_case_form(
                 selected_subject, case, number
             )
 
             # Get adjective form if present
             if selected_adjective:
-                adj_case_form = self.selection_engine.get_adjective_form(
+                adj_case_form = self.argument_resolver.get_adjective_form(
                     selected_adjective, case, number
                 )
                 georgian_text = f"{adj_case_form} {case_form}"
@@ -530,10 +522,10 @@ class PedagogicalExampleGenerator:
     ) -> Dict[str, Any]:
         """Generate direct object component with case marking"""
         try:
-            # Select direct object and adjective
+            # Get direct object and adjective from explicit definition
             selected_object, selected_adjective = (
-                self.selection_engine.select_direct_object_with_adjective(
-                    verb_id, tense, person, raw_gloss, verb_semantics, verb_data
+                self.argument_resolver.get_argument_pair(
+                    verb_data, "direct_object", person
                 )
             )
 
@@ -541,11 +533,11 @@ class PedagogicalExampleGenerator:
             case = do_arg.get("case", "dat").lower()
 
             # Get case form from selected object
-            case_form = self.selection_engine.get_case_form(selected_object, case)
+            case_form = self.argument_resolver.get_case_form(selected_object, case)
 
             # Get adjective form if present
             if selected_adjective:
-                adj_case_form = self.selection_engine.get_adjective_form(
+                adj_case_form = self.argument_resolver.get_adjective_form(
                     selected_adjective, case
                 )
                 georgian_text = f"{adj_case_form} {case_form}"
@@ -586,10 +578,10 @@ class PedagogicalExampleGenerator:
     ) -> Dict[str, Any]:
         """Generate indirect object component with case marking"""
         try:
-            # Select indirect object and adjective
+            # Get indirect object and adjective from explicit definition
             selected_object, selected_adjective = (
-                self.selection_engine.select_indirect_object_with_adjective(
-                    verb_id, tense, person, raw_gloss, verb_semantics, verb_data
+                self.argument_resolver.get_argument_pair(
+                    verb_data, "indirect_object", person
                 )
             )
 
@@ -597,11 +589,11 @@ class PedagogicalExampleGenerator:
             case = io_arg.get("case", "dat").lower()
 
             # Get case form from selected object
-            case_form = self.selection_engine.get_case_form(selected_object, case)
+            case_form = self.argument_resolver.get_case_form(selected_object, case)
 
             # Get adjective form if present
             if selected_adjective:
-                adj_case_form = self.selection_engine.get_adjective_form(
+                adj_case_form = self.argument_resolver.get_adjective_form(
                     selected_adjective, case
                 )
                 georgian_text = f"{adj_case_form} {case_form}"
@@ -831,7 +823,7 @@ class PedagogicalExampleGenerator:
     ) -> str:
         """Get English base form from database"""
         try:
-            return self.selection_engine.get_english_base_form(
+            return self.argument_resolver.get_english_base_form(
                 key, database_type, number
             )
         except Exception:
@@ -963,11 +955,11 @@ class PedagogicalExampleGenerator:
             number = "plural" if person == "3pl" else "singular"
 
             # Get case form from selected subject
-            case_form = self.selection_engine.get_case_form(noun_key, case, number)
+            case_form = self.argument_resolver.get_case_form(noun_key, case, number)
 
             # Get adjective form if present
             if adjective_key:
-                adj_case_form = self.selection_engine.get_adjective_form(
+                adj_case_form = self.argument_resolver.get_adjective_form(
                     adjective_key, case, number
                 )
                 georgian_text = f"{adj_case_form} {case_form}"
@@ -1031,11 +1023,11 @@ class PedagogicalExampleGenerator:
             case = do_arg.get("case", "dat").lower()
 
             # Get case form from selected object
-            case_form = self.selection_engine.get_case_form(noun_key, case)
+            case_form = self.argument_resolver.get_case_form(noun_key, case)
 
             # Get adjective form if present
             if adjective_key:
-                adj_case_form = self.selection_engine.get_adjective_form(
+                adj_case_form = self.argument_resolver.get_adjective_form(
                     adjective_key, case
                 )
                 georgian_text = f"{adj_case_form} {case_form}"
@@ -1099,11 +1091,11 @@ class PedagogicalExampleGenerator:
             case = io_arg.get("case", "dat").lower()
 
             # Get case form from selected object
-            case_form = self.selection_engine.get_case_form(noun_key, case)
+            case_form = self.argument_resolver.get_case_form(noun_key, case)
 
             # Get adjective form if present
             if adjective_key:
-                adj_case_form = self.selection_engine.get_adjective_form(
+                adj_case_form = self.argument_resolver.get_adjective_form(
                     adjective_key, case
                 )
                 georgian_text = f"{adj_case_form} {case_form}"
