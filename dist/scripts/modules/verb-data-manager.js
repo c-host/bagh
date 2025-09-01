@@ -5,7 +5,7 @@
  * implementing lazy loading with intersection observer for performance optimization.
  */
 
-import { showNotification } from '../shared/utils.js';
+
 
 /**
  * Manages verb data loading, caching, and lazy loading functionality

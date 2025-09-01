@@ -13,13 +13,11 @@
 
 // Import shared modules
 import { DOMManager } from './shared/dom-manager.js';
-import { showNotification } from './shared/utils.js';
 
 // Import feature modules
 import { ThemeManager } from './modules/theme-manager.js';
 import { FontManager } from './modules/font-manager.js';
 import { NotepadManager } from './modules/notepad-manager.js';
-
 import { SidebarManager } from './modules/sidebar-manager.js';
 import { VerbDataManager } from './modules/verb-data-manager.js';
 import { PreverbManager } from './modules/preverb-manager.js';
@@ -27,12 +25,9 @@ import { EventManager } from './modules/event-manager.js';
 import { HelpManager } from './modules/help-manager.js';
 
 // Import new missing functionality modules
-
 import { CategoryManager } from './modules/category-manager.js';
 import { StickyHeaderManager } from './modules/sticky-header-manager.js';
-// Import testing and optimization modules
-import { TestUtils } from './test-config.js';
-import { ProductionBuilder } from './build-production.js';
+
 
 /**
  * Main Application Class
@@ -52,8 +47,6 @@ class App {
         /** @type {Object} Notepad Manager instance */
         this.notepadManager = null;
 
-
-
         /** @type {Object} Sidebar Manager instance */
         this.sidebarManager = null;
 
@@ -66,8 +59,6 @@ class App {
         /** @type {Object} Help Manager instance */
         this.helpManager = null;
 
-
-
         /** @type {Object} Category Manager instance */
         this.categoryManager = null;
 
@@ -78,56 +69,6 @@ class App {
         this.initialized = false;
     }
 
-    /**
-     * Run comprehensive testing suite
-     * @returns {Promise<Object>} Test results
-     */
-    async runTests() {
-        if (!this.initialized) {
-            console.warn('⚠️ Cannot run tests - application not initialized');
-            return { error: 'Application not initialized' };
-        }
-
-        console.log('🧪 Starting comprehensive testing suite...');
-
-        try {
-            // Run module tests
-            const moduleTests = await TestUtils.runModuleTests(this);
-
-            // Run performance benchmark
-            const performanceBenchmark = await TestUtils.runPerformanceBenchmark(this);
-
-            // Run integration tests
-            const integrationTests = await this.runIntegrationTests();
-
-            const results = {
-                moduleTests,
-                performanceBenchmark,
-                integrationTests,
-                timestamp: new Date().toISOString(),
-                summary: {
-                    total: moduleTests.total,
-                    passed: moduleTests.passed,
-                    failed: moduleTests.failed,
-                    successRate: `${((moduleTests.passed / moduleTests.total) * 100).toFixed(1)}%`
-                }
-            };
-
-            console.log('🧪 Testing suite completed');
-            console.log(`📊 Results: ${results.summary.passed}/${results.summary.total} tests passed (${results.summary.successRate} success rate)`);
-
-            return results;
-
-        } catch (error) {
-            console.error('❌ Testing suite failed:', error);
-            return { error: error.message };
-        }
-    }
-
-    /**
-     * Run integration tests between modules
-     * @returns {Promise<Object>} Integration test results
-     */
     async runIntegrationTests() {
         const results = {
             total: 0,
@@ -194,8 +135,6 @@ class App {
             results.details.fontIntegration = { status: 'ERROR', message: error.message };
         }
 
-
-
         // Test verb data manager integration
         try {
             results.total++;
@@ -216,31 +155,6 @@ class App {
 
         console.log(`🔗 Integration tests: ${results.passed}/${results.total} passed`);
         return results;
-    }
-
-    /**
-     * Run production build analysis
-     * @returns {Promise<Object>} Build analysis results
-     */
-    async runProductionBuild() {
-        console.log('🏗️ Starting production build analysis...');
-
-        try {
-            const builder = new ProductionBuilder();
-            const buildResults = await builder.runBuild();
-
-            if (buildResults.success) {
-                console.log('✅ Production build analysis completed successfully');
-                return buildResults;
-            } else {
-                console.error('❌ Production build analysis failed');
-                return buildResults;
-            }
-
-        } catch (error) {
-            console.error('❌ Production build analysis failed:', error);
-            return { success: false, error: error.message };
-        }
     }
 
     /**
@@ -440,14 +354,12 @@ class App {
             this.initialized = true;
             console.log('🎉 Bagh application initialized successfully!');
 
-            // Show welcome notification
-            showNotification('Welcome to Bagh!', 'success');
+
 
             return true;
 
         } catch (error) {
             console.error('❌ Failed to initialize Bagh application:', error);
-            showNotification('Failed to initialize application', 'error');
             return false;
         }
     }
@@ -510,11 +422,11 @@ class App {
 
         // Listen for global errors from EventManager
         document.addEventListener('globalError', (event) => {
-            showNotification('An error occurred', 'error');
+            console.error('Global error:', event.detail);
         });
 
         document.addEventListener('unhandledRejection', (event) => {
-            showNotification('An error occurred', 'error');
+            console.error('Unhandled rejection:', event.detail);
         });
 
         // Listen for category events
@@ -552,13 +464,11 @@ class App {
             themeManager: this.themeManager?.isInitialized() || false,
             fontManager: this.fontManager?.isInitialized() || false,
             notepadManager: this.notepadManager?.isInitialized() || false,
-
             sidebarManager: this.sidebarManager?.isInitialized() || false,
             verbDataManager: this.verbDataManager?.isInitialized() || false,
             preverbManager: this.preverbManager?.isInitialized() || false,
             eventManager: this.eventManager?.isInitialized() || false,
             helpManager: this.helpManager?.isInitialized() || false,
-
             categoryManager: this.categoryManager?.isInitialized() || false,
             stickyHeaderManager: this.stickyHeaderManager?.isInitialized() || false
         };
@@ -574,13 +484,11 @@ class App {
             themeManager: this.themeManager,
             fontManager: this.fontManager,
             notepadManager: this.notepadManager,
-
             sidebarManager: this.sidebarManager,
             verbDataManager: this.verbDataManager,
             preverbManager: this.preverbManager,
             eventManager: this.eventManager,
             helpManager: this.helpManager,
-
             categoryManager: this.categoryManager,
             stickyHeaderManager: this.stickyHeaderManager
         };

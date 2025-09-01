@@ -4,7 +4,7 @@
  */
 
 import { FONTS, FONTS_TO_PRELOAD, STORAGE_KEYS, TIMING, ELEMENT_IDS } from '../shared/constants.js';
-import { showNotification } from '../shared/utils.js';
+
 
 /**
  * Font Manager Class
@@ -274,8 +274,7 @@ export class FontManager {
             }
         }
 
-        // Show notification
-        showNotification(`Font changed to ${fontName}`, 'success');
+
     }
 
     /**

@@ -4,7 +4,7 @@
  */
 
 import { ELEMENT_IDS } from '../shared/constants.js';
-import { showNotification } from '../shared/utils.js';
+
 
 /**
  * Help Manager Class
@@ -116,7 +116,7 @@ export class HelpManager {
         helpOverlay.classList.add('active');
         this.isOpen = true;
 
-        showNotification('Help opened', 'info');
+
     }
 
     /**
@@ -132,7 +132,7 @@ export class HelpManager {
         helpOverlay.classList.remove('active');
         this.isOpen = false;
 
-        showNotification('Help closed', 'info');
+
     }
 
     /**

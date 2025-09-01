@@ -3,7 +3,7 @@
  * Handles sidebar functionality matching the original main.js implementation
  */
 import { STORAGE_KEYS, ELEMENT_IDS } from '../shared/constants.js';
-import { showNotification } from '../shared/utils.js';
+
 
 /**
  * Sidebar Manager Class
@@ -312,7 +312,7 @@ export class SidebarManager {
                             this.navigateToVerbSection(verb.section, verb.section.id, verb.georgian);
                         }, 100);
                     } else {
-                        showNotification(`Verb "${verb.georgian}" not found`, 'error');
+                        console.error(`Verb "${verb.georgian}" not found`);
                     }
                 }.bind(this));
 
@@ -556,7 +556,7 @@ export class SidebarManager {
      */
     navigateToVerbSection(verbSection, primaryVerb, fullGeorgian) {
         if (!verbSection) {
-            showNotification(`Verb "${fullGeorgian}" not found`, 'error');
+            console.error(`Verb "${fullGeorgian}" not found`);
             return false;
         }
 

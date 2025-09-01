@@ -4,7 +4,7 @@
  */
 
 import { STORAGE_KEYS, ELEMENT_IDS } from '../shared/constants.js';
-import { showNotification } from '../shared/utils.js';
+
 
 /**
  * Notepad Manager Class
@@ -149,7 +149,7 @@ export class NotepadManager {
             this.updateNotepadFont();
         }, 100);
 
-        showNotification('Notepad opened', 'info');
+
     }
 
     /**
@@ -164,7 +164,7 @@ export class NotepadManager {
         notepadOverlay.classList.remove('active');
         this.isOpen = false;
 
-        showNotification('Notepad closed', 'info');
+
     }
 
     /**
@@ -246,7 +246,7 @@ export class NotepadManager {
      */
     clearContent() {
         this.setContent('');
-        showNotification('Notepad cleared', 'success');
+
     }
 
     /**
@@ -303,7 +303,7 @@ export class NotepadManager {
     reset() {
         this.setContent('');
         this.setFontSize('16');
-        showNotification('Notepad reset to default', 'success');
+
     }
 
     /**
@@ -322,7 +322,7 @@ export class NotepadManager {
      */
     importContent(content) {
         this.setContent(content);
-        showNotification('Content imported successfully', 'success');
+
     }
 
     /**

@@ -4,7 +4,7 @@
  */
 
 import { THEMES, STORAGE_KEYS, TIMING, ELEMENT_IDS } from '../shared/constants.js';
-import { showNotification } from '../shared/utils.js';
+
 
 /**
  * Theme Manager Class
@@ -102,12 +102,8 @@ export class ThemeManager {
                 this.enableTransitions();
             }, TIMING.THEME_TRANSITION_DISABLE);
 
-            // Show notification
-            showNotification(`Switched to ${theme} theme`, 'success');
-
         } catch (error) {
             console.error('Failed to set theme:', error);
-            showNotification('Failed to switch theme', 'error');
         }
     }
 

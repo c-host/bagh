@@ -35,46 +35,7 @@ export function safeGetElementById(id) {
     }
 }
 
-/**
- * Show notification message
- * @param {string} message - Message to display
- * @param {string} type - Notification type (info, success, error)
- */
-export function showNotification(message, type = 'info') {
-    // Create notification element
-    const notification = document.createElement('div');
-    notification.className = `notification notification-${type}`;
-    notification.textContent = message;
-    notification.style.cssText = `
-        position: fixed;
-        top: 20px;
-        right: 20px;
-        padding: 12px 20px;
-        border-radius: 8px;
-        color: white;
-        font-weight: 500;
-        z-index: 10000;
-        animation: slideIn 0.3s ease-out;
-    `;
 
-    // Set background color based on type
-    if (type === 'error') {
-        notification.style.backgroundColor = '#dc3545';
-    } else if (type === 'success') {
-        notification.style.backgroundColor = '#28a745';
-    } else {
-        notification.style.backgroundColor = '#17a2b8';
-    }
-
-    document.body.appendChild(notification);
-
-    // Remove after 3 seconds
-    setTimeout(() => {
-        if (notification.parentNode) {
-            notification.parentNode.removeChild(notification);
-        }
-    }, 3000);
-}
 
 /**
  * Copy text to clipboard using modern API
