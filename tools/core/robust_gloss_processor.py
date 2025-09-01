@@ -19,6 +19,7 @@ from typing import Dict, List, Optional, Tuple
 from dataclasses import dataclass
 
 from tools.utils import DatabaseLoader
+from tools.modules.config_manager import ConfigManager
 
 logger = logging.getLogger(__name__)
 
@@ -47,6 +48,9 @@ class RobustGlossProcessor:
     """Processes raw gloss strings into structured data for consistent HTML generation."""
 
     def __init__(self):
+        # Initialize config manager
+        self.config = ConfigManager()
+        
         # Define color mappings for different component types - using existing CSS classes
         self.color_mapping = {
             "verb": "gloss-verb",  # Blue
@@ -73,14 +77,8 @@ class RobustGlossProcessor:
     def _load_gloss_reference(self) -> Dict[str, str]:
         """Load the gloss reference data for proper expanded definitions."""
         try:
-            import json
-            import os
-
-            # Get the path to the gloss reference file
-            current_dir = os.path.dirname(os.path.abspath(__file__))
-            gloss_ref_path = os.path.join(
-                current_dir, "..", "..", "src", "data", "gloss_reference.json"
-            )
+            # Use config manager to get the gloss reference path
+            gloss_ref_path = self.config.get_path("gloss_reference")
 
             with open(gloss_ref_path, "r", encoding="utf-8") as f:
                 return json.load(f)

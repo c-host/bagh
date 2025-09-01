@@ -72,6 +72,28 @@ class ConfigManager:
             "dist_styles_dir": self.paths["dist_dir"] / "styles",
             "dist_scripts_dir": self.paths["dist_dir"] / "scripts",
             "dist_assets_dir": self.paths["dist_dir"] / "assets",
+            # Database files
+            "subject_database": self.paths["src_dir"]
+            / "data"
+            / "databases"
+            / "subject_database.json",
+            "direct_object_database": self.paths["src_dir"]
+            / "data"
+            / "databases"
+            / "direct_object_database.json",
+            "indirect_object_database": self.paths["src_dir"]
+            / "data"
+            / "databases"
+            / "indirect_object_database.json",
+            "adjective_database": self.paths["src_dir"]
+            / "data"
+            / "databases"
+            / "adjective_database.json",
+            # Reference files
+            "gloss_reference": self.paths["src_dir"]
+            / "data"
+            / "references"
+            / "gloss_reference.json",
         }
 
         # Source asset paths

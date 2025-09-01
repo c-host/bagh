@@ -204,7 +204,7 @@ class Database {
         const loadStartTime = performance.now();
 
         try {
-            const response = await fetch('../subject_database.json');
+            const response = await fetch('../databases/subject_database.json');
             if (!response.ok) {
                 throw new Error(`Failed to load subjects: ${response.statusText}`);
             }
@@ -239,7 +239,7 @@ class Database {
         const loadStartTime = performance.now();
 
         try {
-            const response = await fetch('../direct_object_database.json');
+            const response = await fetch('../databases/direct_object_database.json');
             if (!response.ok) {
                 throw new Error(`Failed to load direct objects: ${response.statusText}`);
             }
@@ -274,7 +274,7 @@ class Database {
         const loadStartTime = performance.now();
 
         try {
-            const response = await fetch('../indirect_object_database.json');
+            const response = await fetch('../databases/indirect_object_database.json');
             if (!response.ok) {
                 throw new Error(`Failed to load indirect objects: ${response.statusText}`);
             }
@@ -311,7 +311,7 @@ class Database {
         const loadStartTime = performance.now();
 
         try {
-            const response = await fetch('../gloss_reference.json');
+            const response = await fetch('../references/gloss_reference.json');
             if (!response.ok) {
                 throw new Error(`Failed to load categories: ${response.statusText}`);
             }
@@ -348,7 +348,7 @@ class Database {
         const loadStartTime = performance.now();
 
         try {
-            const response = await fetch('../adjective_database.json');
+            const response = await fetch('../databases/adjective_database.json');
             if (!response.ok) {
                 throw new Error(`Failed to load adjectives: ${response.statusText}`);
             }

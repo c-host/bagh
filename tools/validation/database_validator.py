@@ -3,10 +3,10 @@
 Database Validator for Georgian Verb Example System
 
 This script validates the completeness and format consistency of the four databases:
-- subject_database.json
-- direct_object_database.json
-- indirect_object_database.json
-- adjective_database.json
+- subject_database.json (from src/data/databases/)
+- direct_object_database.json (from src/data/databases/)
+- indirect_object_database.json (from src/data/databases/)
+- adjective_database.json (from src/data/databases/)
 
 It checks for:
 - Required case forms (nom, erg, dat, gen, inst, adv)
@@ -17,14 +17,17 @@ It checks for:
 
 import os
 import sys
+import json
 from typing import Dict, List, Set
 from pathlib import Path
 
 from tools.utils import DatabaseLoader, validate_file_path
+from tools.modules.config_manager import ConfigManager
 
 
 class DatabaseValidator:
     def __init__(self):
+        self.config = ConfigManager()
         self.db_loader = DatabaseLoader()
         self.required_cases = ["nom", "erg", "dat", "gen", "inst", "adv"]
         self.required_fields = {
@@ -63,10 +66,10 @@ class DatabaseValidator:
         print("=" * 60)
 
         databases = [
-            ("subjects", "subject_database.json"),
-            ("direct_objects", "direct_object_database.json"),
-            ("indirect_objects", "indirect_object_database.json"),
-            ("adjectives", "adjective_database.json"),
+            ("subjects", self.config.get_path("subject_database")),
+            ("direct_objects", self.config.get_path("direct_object_database")),
+            ("indirect_objects", self.config.get_path("indirect_object_database")),
+            ("adjectives", self.config.get_path("adjective_database")),
         ]
 
         all_valid = True
@@ -87,7 +90,9 @@ class DatabaseValidator:
         try:
             data = self.db_loader.get_database(db_type)
             if not data:
-                self.errors.append(f"Database {db_type} is empty or could not be loaded")
+                self.errors.append(
+                    f"Database {db_type} is empty or could not be loaded"
+                )
                 return False
         except Exception as e:
             self.errors.append(f"Error reading {filename}: {e}")
@@ -229,14 +234,13 @@ class DatabaseValidator:
         print("=" * 60)
 
         databases = [
-            ("subjects", "subject_database.json"),
-            ("direct_objects", "direct_object_database.json"),
-            ("indirect_objects", "indirect_object_database.json"),
-            ("adjectives", "adjective_database.json"),
+            ("subjects", self.config.get_path("subject_database")),
+            ("direct_objects", self.config.get_path("direct_object_database")),
+            ("indirect_objects", self.config.get_path("indirect_object_database")),
+            ("adjectives", self.config.get_path("adjective_database")),
         ]
 
-        for db_type, filename in databases:
-            filepath = self.data_dir / filename
+        for db_type, filepath in databases:
             if filepath.exists():
                 try:
                     with open(filepath, "r", encoding="utf-8") as f:

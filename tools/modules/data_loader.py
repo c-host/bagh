@@ -7,6 +7,7 @@ import json
 from pathlib import Path
 from typing import Dict, List, Tuple, Optional
 import logging
+from .config_manager import ConfigManager
 
 logger = logging.getLogger(__name__)
 
@@ -16,6 +17,7 @@ class VerbDataLoader:
 
     def __init__(self, project_root: Path):
         self.project_root = project_root
+        self.config = ConfigManager(project_root)
         self.data_dir = project_root / "src" / "data"
         self.verbs_file = self.data_dir / "verbs.json"
 
@@ -292,27 +294,26 @@ class VerbDataLoader:
         """
         validation_errors = []
         required_databases = [
-            "subject_database.json",
-            "direct_object_database.json",
-            "indirect_object_database.json",
-            "adjective_database.json",
+            self.config.get_path("subject_database"),
+            self.config.get_path("direct_object_database"),
+            self.config.get_path("indirect_object_database"),
+            self.config.get_path("adjective_database"),
         ]
 
-        for db_file in required_databases:
-            db_path = self.data_dir / db_file
+        for db_path in required_databases:
             if not db_path.exists():
-                validation_errors.append(f"Database file missing: {db_file}")
+                validation_errors.append(f"Database file missing: {db_path.name}")
             else:
                 try:
                     with open(db_path, "r", encoding="utf-8") as f:
                         data = json.load(f)
                 except json.JSONDecodeError as e:
                     validation_errors.append(
-                        f"Database file {db_file} has invalid JSON: {e}"
+                        f"Database file {db_path.name} has invalid JSON: {e}"
                     )
                 except Exception as e:
                     validation_errors.append(
-                        f"Error reading database file {db_file}: {e}"
+                        f"Error reading database file {db_path.name}: {e}"
                     )
         for error in validation_errors:
             logger.error(error)
