@@ -1,0 +1,823 @@
+{
+  "id": 43,
+  "georgian": "შეძლება",
+  "description": "To Be Able / Can",
+  "category": "Modal & Auxiliary Verbs",
+  "class": "Class-I",
+  "semantic_key": "can",
+  "notes": "",
+  "url": "https://lingua.ge/verbs/%e1%83%a8%e1%83%94%e1%83%ab%e1%83%9a%e1%83%94%e1%83%91%e1%83%90/",
+  "global_argument_pattern": "<S-DO>",
+  "valency": {
+    "default": "<S-DO>",
+    "alternatives": []
+  },
+  "syntax": {
+    "arguments": {
+      "subject": {
+        "3sg": {
+          "noun": "athlete",
+          "adjective": "strong"
+        },
+        "3pl": {
+          "noun": "worker",
+          "adjective": "skilled"
+        }
+      },
+      "direct_object": {
+        "1sg": {
+          "noun": "task",
+          "adjective": "difficult"
+        },
+        "2sg": {
+          "noun": "work",
+          "adjective": "hard"
+        },
+        "3sg": {
+          "noun": "exercise",
+          "adjective": "easy"
+        },
+        "1pl": {
+          "noun": "job",
+          "adjective": "simple"
+        },
+        "2pl": {
+          "noun": "project",
+          "adjective": "big"
+        },
+        "3pl": {
+          "noun": "work",
+          "adjective": "skilled"
+        }
+      }
+    },
+    "prepositions": {
+      "subject": "the",
+      "direct_object": "do",
+      "indirect_object": ""
+    },
+    "preverb_overrides": {}
+  },
+  "english_translations": {
+    "default": {
+      "present": "am able",
+      "imperfect": "was able",
+      "future": "will be able",
+      "aorist": "was able",
+      "optative": "be able",
+      "imperative": "be able"
+    }
+  },
+  "conjugations": {
+    "present": {
+      "raw_gloss": "V MedPass Inv Pres Pv OV <S-DO> <S:Dat> <DO:Nom>",
+      "forms": {
+        "1sg": "შემიძლია",
+        "2sg": "შეგიძლია",
+        "3sg": "შეუძლია",
+        "1pl": "შგვიძლია",
+        "2pl": "შეგიძლიათ",
+        "3pl": "შეუძლიათ"
+      },
+      "examples": []
+    },
+    "imperfect": {
+      "raw_gloss": "",
+      "forms": {
+        "1sg": "-",
+        "2sg": "-",
+        "3sg": "-",
+        "1pl": "-",
+        "2pl": "-",
+        "3pl": "-"
+      },
+      "examples": []
+    },
+    "future": {
+      "raw_gloss": "V MedPass Inv Fut Pv <S-DO> <S:Dat> <DO:Nom>",
+      "forms": {
+        "1sg": "შემეძლება",
+        "2sg": "შეგეძლება",
+        "3sg": "შეეძლება",
+        "1pl": "შეგვეძლება",
+        "2pl": "შეგეძლებათ",
+        "3pl": "შეეძლებათ"
+      },
+      "examples": []
+    },
+    "aorist": {
+      "raw_gloss": "V MedPass Inv Aor Pv <S-DO> <S:Dat> <DO:Nom>",
+      "forms": {
+        "1sg": "შემეძლო",
+        "2sg": "შეგეძლო",
+        "3sg": "შეეძლო",
+        "1pl": "შეგვეძლო",
+        "2pl": "შეგეძლოთ",
+        "3pl": "შეეძლოთ"
+      },
+      "examples": []
+    },
+    "optative": {
+      "raw_gloss": "V MedPass Inv Opt Pv <S-DO> <S:Dat> <DO:Nom>",
+      "forms": {
+        "1sg": "შემეძლოს",
+        "2sg": "შეგეძლოს",
+        "3sg": "შეეძლოს",
+        "1pl": "შგვეძლოს",
+        "2pl": "შეგეძლოთ",
+        "3pl": "შეეძლოთ"
+      },
+      "examples": []
+    },
+    "imperative": {
+      "raw_gloss": "",
+      "forms": {
+        "1sg": "-",
+        "2sg": "-",
+        "3sg": "-",
+        "1pl": "-",
+        "2pl": "-",
+        "3pl": "-"
+      },
+      "examples": []
+    }
+  },
+  "preverb_config": {
+    "has_multiple_preverbs": false,
+    "default_preverb": "შე",
+    "available_preverbs": [
+      "შე"
+    ]
+  },
+  "preverb_rules": {
+    "default": "",
+    "replacements": {},
+    "tense_specific_fallbacks": {},
+    "english_fallbacks": {}
+  },
+  "examples": {
+    "null": {
+      "present": [
+        {
+          "georgian": "რთული საქმე შემიძლია",
+          "english": "<strong data-role=\"subject\" data-person=\"1sg\">I</strong> <strong data-role=\"verb\">am able</strong> <strong data-role=\"direct-object\">do difficult task</strong>",
+          "english_plain": "I am able do difficult task",
+          "html": "<span data-case=\"nom\" data-role=\"direct-object\">რთული საქმე</span> <span data-role=\"verb\">შემიძლია</span>",
+          "case_marking": {
+            "direct_object": {
+              "case": "nom",
+              "word": "საქმე"
+            }
+          },
+          "georgian_verb_form": "შემიძლია"
+        },
+        {
+          "georgian": "ძლიერ სპორტსმენს მარტივი სავარჯიშო შეუძლია",
+          "english": "<strong data-role=\"subject\">The strong athlete</strong> <strong data-role=\"verb\">is able</strong> <strong data-role=\"direct-object\">do easy exercise</strong>",
+          "english_plain": "The strong athlete is able do easy exercise",
+          "html": "<span data-case=\"dat\" data-role=\"subject\">ძლიერ სპორტსმენს</span> <span data-case=\"nom\" data-role=\"direct-object\">მარტივი სავარჯიშო</span> <span data-role=\"verb\">შეუძლია</span>",
+          "case_marking": {
+            "subject": {
+              "case": "dat",
+              "word": "სპორტსმენს"
+            },
+            "direct_object": {
+              "case": "nom",
+              "word": "სავარჯიშო"
+            }
+          },
+          "georgian_verb_form": "შეუძლია"
+        },
+        {
+          "georgian": "კვალიფიციურ მუშებს კვალიფიციური სამუშაო შეუძლიათ",
+          "english": "<strong data-role=\"subject\">The skilled workers</strong> <strong data-role=\"verb\">are able</strong> <strong data-role=\"direct-object\">do skilled work</strong>",
+          "english_plain": "The skilled workers are able do skilled work",
+          "html": "<span data-case=\"dat\" data-role=\"subject\">კვალიფიციურ მუშებს</span> <span data-case=\"nom\" data-role=\"direct-object\">კვალიფიციური სამუშაო</span> <span data-role=\"verb\">შეუძლიათ</span>",
+          "case_marking": {
+            "subject": {
+              "case": "dat",
+              "word": "მუშებს"
+            },
+            "direct_object": {
+              "case": "nom",
+              "word": "სამუშაო"
+            }
+          },
+          "georgian_verb_form": "შეუძლიათ"
+        }
+      ],
+      "imperfect": [],
+      "future": [
+        {
+          "georgian": "რთული საქმე შემეძლება",
+          "english": "<strong data-role=\"subject\" data-person=\"1sg\">I</strong> <strong data-role=\"verb\">will be able</strong> <strong data-role=\"direct-object\">do difficult task</strong>",
+          "english_plain": "I will be able do difficult task",
+          "html": "<span data-case=\"nom\" data-role=\"direct-object\">რთული საქმე</span> <span data-role=\"verb\">შემეძლება</span>",
+          "case_marking": {
+            "direct_object": {
+              "case": "nom",
+              "word": "საქმე"
+            }
+          },
+          "georgian_verb_form": "შემეძლება"
+        },
+        {
+          "georgian": "ძლიერ სპორტსმენს მარტივი სავარჯიშო შეეძლება",
+          "english": "<strong data-role=\"subject\">The strong athlete</strong> <strong data-role=\"verb\">will be able</strong> <strong data-role=\"direct-object\">do easy exercise</strong>",
+          "english_plain": "The strong athlete will be able do easy exercise",
+          "html": "<span data-case=\"dat\" data-role=\"subject\">ძლიერ სპორტსმენს</span> <span data-case=\"nom\" data-role=\"direct-object\">მარტივი სავარჯიშო</span> <span data-role=\"verb\">შეეძლება</span>",
+          "case_marking": {
+            "subject": {
+              "case": "dat",
+              "word": "სპორტსმენს"
+            },
+            "direct_object": {
+              "case": "nom",
+              "word": "სავარჯიშო"
+            }
+          },
+          "georgian_verb_form": "შეეძლება"
+        },
+        {
+          "georgian": "კვალიფიციურ მუშებს კვალიფიციური სამუშაო შეეძლებათ",
+          "english": "<strong data-role=\"subject\">The skilled workers</strong> <strong data-role=\"verb\">will be able</strong> <strong data-role=\"direct-object\">do skilled work</strong>",
+          "english_plain": "The skilled workers will be able do skilled work",
+          "html": "<span data-case=\"dat\" data-role=\"subject\">კვალიფიციურ მუშებს</span> <span data-case=\"nom\" data-role=\"direct-object\">კვალიფიციური სამუშაო</span> <span data-role=\"verb\">შეეძლებათ</span>",
+          "case_marking": {
+            "subject": {
+              "case": "dat",
+              "word": "მუშებს"
+            },
+            "direct_object": {
+              "case": "nom",
+              "word": "სამუშაო"
+            }
+          },
+          "georgian_verb_form": "შეეძლებათ"
+        }
+      ],
+      "aorist": [
+        {
+          "georgian": "რთული საქმე შემეძლო",
+          "english": "<strong data-role=\"subject\" data-person=\"1sg\">I</strong> <strong data-role=\"verb\">was able</strong> <strong data-role=\"direct-object\">do difficult task</strong>",
+          "english_plain": "I was able do difficult task",
+          "html": "<span data-case=\"nom\" data-role=\"direct-object\">რთული საქმე</span> <span data-role=\"verb\">შემეძლო</span>",
+          "case_marking": {
+            "direct_object": {
+              "case": "nom",
+              "word": "საქმე"
+            }
+          },
+          "georgian_verb_form": "შემეძლო"
+        },
+        {
+          "georgian": "ძლიერ სპორტსმენს მარტივი სავარჯიშო შეეძლო",
+          "english": "<strong data-role=\"subject\">The strong athlete</strong> <strong data-role=\"verb\">was able</strong> <strong data-role=\"direct-object\">do easy exercise</strong>",
+          "english_plain": "The strong athlete was able do easy exercise",
+          "html": "<span data-case=\"dat\" data-role=\"subject\">ძლიერ სპორტსმენს</span> <span data-case=\"nom\" data-role=\"direct-object\">მარტივი სავარჯიშო</span> <span data-role=\"verb\">შეეძლო</span>",
+          "case_marking": {
+            "subject": {
+              "case": "dat",
+              "word": "სპორტსმენს"
+            },
+            "direct_object": {
+              "case": "nom",
+              "word": "სავარჯიშო"
+            }
+          },
+          "georgian_verb_form": "შეეძლო"
+        },
+        {
+          "georgian": "კვალიფიციურ მუშებს კვალიფიციური სამუშაო შეეძლოთ",
+          "english": "<strong data-role=\"subject\">The skilled workers</strong> <strong data-role=\"verb\">were able</strong> <strong data-role=\"direct-object\">do skilled work</strong>",
+          "english_plain": "The skilled workers were able do skilled work",
+          "html": "<span data-case=\"dat\" data-role=\"subject\">კვალიფიციურ მუშებს</span> <span data-case=\"nom\" data-role=\"direct-object\">კვალიფიციური სამუშაო</span> <span data-role=\"verb\">შეეძლოთ</span>",
+          "case_marking": {
+            "subject": {
+              "case": "dat",
+              "word": "მუშებს"
+            },
+            "direct_object": {
+              "case": "nom",
+              "word": "სამუშაო"
+            }
+          },
+          "georgian_verb_form": "შეეძლოთ"
+        }
+      ],
+      "optative": [
+        {
+          "georgian": "რთული საქმე უნდა შემეძლოს",
+          "english": "<strong data-role=\"subject\" data-person=\"1sg\">I</strong> <strong data-role=\"verb\">should</strong> <strong data-role=\"verb\">be able</strong> <strong data-role=\"direct-object\">do difficult task</strong>",
+          "english_plain": "I should be able do difficult task",
+          "html": "<span data-case=\"nom\" data-role=\"direct-object\">რთული საქმე</span> <span data-role=\"verb\">უნდა შემეძლოს</span>",
+          "case_marking": {
+            "direct_object": {
+              "case": "nom",
+              "word": "საქმე"
+            }
+          },
+          "georgian_verb_form": "შემეძლოს"
+        },
+        {
+          "georgian": "ძლიერ სპორტსმენს მარტივი სავარჯიშო უნდა შეეძლოს",
+          "english": "<strong data-role=\"subject\">The strong athlete</strong> <strong data-role=\"verb\">should</strong> <strong data-role=\"verb\">be able</strong> <strong data-role=\"direct-object\">do easy exercise</strong>",
+          "english_plain": "The strong athlete should be able do easy exercise",
+          "html": "<span data-case=\"dat\" data-role=\"subject\">ძლიერ სპორტსმენს</span> <span data-case=\"nom\" data-role=\"direct-object\">მარტივი სავარჯიშო</span> <span data-role=\"verb\">უნდა შეეძლოს</span>",
+          "case_marking": {
+            "subject": {
+              "case": "dat",
+              "word": "სპორტსმენს"
+            },
+            "direct_object": {
+              "case": "nom",
+              "word": "სავარჯიშო"
+            }
+          },
+          "georgian_verb_form": "შეეძლოს"
+        },
+        {
+          "georgian": "კვალიფიციურ მუშებს კვალიფიციური სამუშაო უნდა შეეძლოთ",
+          "english": "<strong data-role=\"subject\">The skilled workers</strong> <strong data-role=\"verb\">should</strong> <strong data-role=\"verb\">be able</strong> <strong data-role=\"direct-object\">do skilled work</strong>",
+          "english_plain": "The skilled workers should be able do skilled work",
+          "html": "<span data-case=\"dat\" data-role=\"subject\">კვალიფიციურ მუშებს</span> <span data-case=\"nom\" data-role=\"direct-object\">კვალიფიციური სამუშაო</span> <span data-role=\"verb\">უნდა შეეძლოთ</span>",
+          "case_marking": {
+            "subject": {
+              "case": "dat",
+              "word": "მუშებს"
+            },
+            "direct_object": {
+              "case": "nom",
+              "word": "სამუშაო"
+            }
+          },
+          "georgian_verb_form": "შეეძლოთ"
+        }
+      ],
+      "imperative": []
+    }
+  },
+  "gloss_analysis": {
+    "present": {
+      "raw_gloss": "V MedPass Inv Pres Pv OV <S-DO> <S:Dat> <DO:Nom>",
+      "structured_gloss": {
+        "raw_components": [
+          {
+            "text": "V",
+            "component_type": "verb",
+            "color_class": "gloss-verb",
+            "description": "Verb"
+          },
+          {
+            "text": "MedPass",
+            "component_type": "voice",
+            "color_class": "gloss-voice",
+            "description": "Mediopassive"
+          },
+          {
+            "text": "Inv",
+            "component_type": "tense",
+            "color_class": "gloss-tense",
+            "description": "Inverted"
+          },
+          {
+            "text": "Pres",
+            "component_type": "tense",
+            "color_class": "gloss-tense",
+            "description": "Present"
+          },
+          {
+            "text": "Pv",
+            "component_type": "preverb",
+            "color_class": "gloss-preverb",
+            "description": "Preverb"
+          },
+          {
+            "text": "OV",
+            "component_type": "unknown",
+            "color_class": "gloss-default",
+            "description": "Objective Version"
+          },
+          {
+            "text": "<S-DO>",
+            "component_type": "argument_pattern",
+            "color_class": "gloss-argument",
+            "description": "Transitive absolute"
+          },
+          {
+            "text": "<S:Dat>",
+            "component_type": "case_spec",
+            "color_class": "gloss-case",
+            "description": "Dative subject"
+          },
+          {
+            "text": "<DO:Nom>",
+            "component_type": "case_spec",
+            "color_class": "gloss-case",
+            "description": "Nominative direct object"
+          }
+        ],
+        "expanded_components": [
+          {
+            "text": "V",
+            "component_type": "verb",
+            "color_class": "gloss-verb",
+            "description": "Verb"
+          },
+          {
+            "text": "MedPass",
+            "component_type": "voice",
+            "color_class": "gloss-voice",
+            "description": "Mediopassive"
+          },
+          {
+            "text": "Inv",
+            "component_type": "tense",
+            "color_class": "gloss-tense",
+            "description": "Inverted"
+          },
+          {
+            "text": "Pres",
+            "component_type": "tense",
+            "color_class": "gloss-tense",
+            "description": "Present"
+          },
+          {
+            "text": "Pv",
+            "component_type": "preverb",
+            "color_class": "gloss-preverb",
+            "description": "Preverb"
+          },
+          {
+            "text": "OV",
+            "component_type": "unknown",
+            "color_class": "gloss-default",
+            "description": "Objective Version"
+          },
+          {
+            "text": "<S-DO>",
+            "component_type": "argument_pattern",
+            "color_class": "gloss-argument",
+            "description": "Transitive absolute"
+          },
+          {
+            "text": "<S:Dat>",
+            "component_type": "case_spec",
+            "color_class": "gloss-subject",
+            "description": "Dative subject"
+          },
+          {
+            "text": "<DO:Nom>",
+            "component_type": "case_spec",
+            "color_class": "gloss-direct-object",
+            "description": "Nominative direct object"
+          }
+        ],
+        "argument_pattern": "<S-DO>",
+        "case_specifications": [
+          "<S:Dat>",
+          "<DO:Nom>"
+        ]
+      }
+    },
+    "imperfect": {
+      "raw_gloss": "",
+      "structured_gloss": {}
+    },
+    "future": {
+      "raw_gloss": "V MedPass Inv Fut Pv <S-DO> <S:Dat> <DO:Nom>",
+      "structured_gloss": {
+        "raw_components": [
+          {
+            "text": "V",
+            "component_type": "verb",
+            "color_class": "gloss-verb",
+            "description": "Verb"
+          },
+          {
+            "text": "MedPass",
+            "component_type": "voice",
+            "color_class": "gloss-voice",
+            "description": "Mediopassive"
+          },
+          {
+            "text": "Inv",
+            "component_type": "tense",
+            "color_class": "gloss-tense",
+            "description": "Inverted"
+          },
+          {
+            "text": "Fut",
+            "component_type": "tense",
+            "color_class": "gloss-tense",
+            "description": "Future"
+          },
+          {
+            "text": "Pv",
+            "component_type": "preverb",
+            "color_class": "gloss-preverb",
+            "description": "Preverb"
+          },
+          {
+            "text": "<S-DO>",
+            "component_type": "argument_pattern",
+            "color_class": "gloss-argument",
+            "description": "Transitive absolute"
+          },
+          {
+            "text": "<S:Dat>",
+            "component_type": "case_spec",
+            "color_class": "gloss-case",
+            "description": "Dative subject"
+          },
+          {
+            "text": "<DO:Nom>",
+            "component_type": "case_spec",
+            "color_class": "gloss-case",
+            "description": "Nominative direct object"
+          }
+        ],
+        "expanded_components": [
+          {
+            "text": "V",
+            "component_type": "verb",
+            "color_class": "gloss-verb",
+            "description": "Verb"
+          },
+          {
+            "text": "MedPass",
+            "component_type": "voice",
+            "color_class": "gloss-voice",
+            "description": "Mediopassive"
+          },
+          {
+            "text": "Inv",
+            "component_type": "tense",
+            "color_class": "gloss-tense",
+            "description": "Inverted"
+          },
+          {
+            "text": "Fut",
+            "component_type": "tense",
+            "color_class": "gloss-tense",
+            "description": "Future"
+          },
+          {
+            "text": "Pv",
+            "component_type": "preverb",
+            "color_class": "gloss-preverb",
+            "description": "Preverb"
+          },
+          {
+            "text": "<S-DO>",
+            "component_type": "argument_pattern",
+            "color_class": "gloss-argument",
+            "description": "Transitive absolute"
+          },
+          {
+            "text": "<S:Dat>",
+            "component_type": "case_spec",
+            "color_class": "gloss-subject",
+            "description": "Dative subject"
+          },
+          {
+            "text": "<DO:Nom>",
+            "component_type": "case_spec",
+            "color_class": "gloss-direct-object",
+            "description": "Nominative direct object"
+          }
+        ],
+        "argument_pattern": "<S-DO>",
+        "case_specifications": [
+          "<S:Dat>",
+          "<DO:Nom>"
+        ]
+      }
+    },
+    "aorist": {
+      "raw_gloss": "V MedPass Inv Aor Pv <S-DO> <S:Dat> <DO:Nom>",
+      "structured_gloss": {
+        "raw_components": [
+          {
+            "text": "V",
+            "component_type": "verb",
+            "color_class": "gloss-verb",
+            "description": "Verb"
+          },
+          {
+            "text": "MedPass",
+            "component_type": "voice",
+            "color_class": "gloss-voice",
+            "description": "Mediopassive"
+          },
+          {
+            "text": "Inv",
+            "component_type": "tense",
+            "color_class": "gloss-tense",
+            "description": "Inverted"
+          },
+          {
+            "text": "Aor",
+            "component_type": "tense",
+            "color_class": "gloss-tense",
+            "description": "Aorist"
+          },
+          {
+            "text": "Pv",
+            "component_type": "preverb",
+            "color_class": "gloss-preverb",
+            "description": "Preverb"
+          },
+          {
+            "text": "<S-DO>",
+            "component_type": "argument_pattern",
+            "color_class": "gloss-argument",
+            "description": "Transitive absolute"
+          },
+          {
+            "text": "<S:Dat>",
+            "component_type": "case_spec",
+            "color_class": "gloss-case",
+            "description": "Dative subject"
+          },
+          {
+            "text": "<DO:Nom>",
+            "component_type": "case_spec",
+            "color_class": "gloss-case",
+            "description": "Nominative direct object"
+          }
+        ],
+        "expanded_components": [
+          {
+            "text": "V",
+            "component_type": "verb",
+            "color_class": "gloss-verb",
+            "description": "Verb"
+          },
+          {
+            "text": "MedPass",
+            "component_type": "voice",
+            "color_class": "gloss-voice",
+            "description": "Mediopassive"
+          },
+          {
+            "text": "Inv",
+            "component_type": "tense",
+            "color_class": "gloss-tense",
+            "description": "Inverted"
+          },
+          {
+            "text": "Aor",
+            "component_type": "tense",
+            "color_class": "gloss-tense",
+            "description": "Aorist"
+          },
+          {
+            "text": "Pv",
+            "component_type": "preverb",
+            "color_class": "gloss-preverb",
+            "description": "Preverb"
+          },
+          {
+            "text": "<S-DO>",
+            "component_type": "argument_pattern",
+            "color_class": "gloss-argument",
+            "description": "Transitive absolute"
+          },
+          {
+            "text": "<S:Dat>",
+            "component_type": "case_spec",
+            "color_class": "gloss-subject",
+            "description": "Dative subject"
+          },
+          {
+            "text": "<DO:Nom>",
+            "component_type": "case_spec",
+            "color_class": "gloss-direct-object",
+            "description": "Nominative direct object"
+          }
+        ],
+        "argument_pattern": "<S-DO>",
+        "case_specifications": [
+          "<S:Dat>",
+          "<DO:Nom>"
+        ]
+      }
+    },
+    "optative": {
+      "raw_gloss": "V MedPass Inv Opt Pv <S-DO> <S:Dat> <DO:Nom>",
+      "structured_gloss": {
+        "raw_components": [
+          {
+            "text": "V",
+            "component_type": "verb",
+            "color_class": "gloss-verb",
+            "description": "Verb"
+          },
+          {
+            "text": "MedPass",
+            "component_type": "voice",
+            "color_class": "gloss-voice",
+            "description": "Mediopassive"
+          },
+          {
+            "text": "Inv",
+            "component_type": "tense",
+            "color_class": "gloss-tense",
+            "description": "Inverted"
+          },
+          {
+            "text": "Opt",
+            "component_type": "tense",
+            "color_class": "gloss-tense",
+            "description": "Optative"
+          },
+          {
+            "text": "Pv",
+            "component_type": "preverb",
+            "color_class": "gloss-preverb",
+            "description": "Preverb"
+          },
+          {
+            "text": "<S-DO>",
+            "component_type": "argument_pattern",
+            "color_class": "gloss-argument",
+            "description": "Transitive absolute"
+          },
+          {
+            "text": "<S:Dat>",
+            "component_type": "case_spec",
+            "color_class": "gloss-case",
+            "description": "Dative subject"
+          },
+          {
+            "text": "<DO:Nom>",
+            "component_type": "case_spec",
+            "color_class": "gloss-case",
+            "description": "Nominative direct object"
+          }
+        ],
+        "expanded_components": [
+          {
+            "text": "V",
+            "component_type": "verb",
+            "color_class": "gloss-verb",
+            "description": "Verb"
+          },
+          {
+            "text": "MedPass",
+            "component_type": "voice",
+            "color_class": "gloss-voice",
+            "description": "Mediopassive"
+          },
+          {
+            "text": "Inv",
+            "component_type": "tense",
+            "color_class": "gloss-tense",
+            "description": "Inverted"
+          },
+          {
+            "text": "Opt",
+            "component_type": "tense",
+            "color_class": "gloss-tense",
+            "description": "Optative"
+          },
+          {
+            "text": "Pv",
+            "component_type": "preverb",
+            "color_class": "gloss-preverb",
+            "description": "Preverb"
+          },
+          {
+            "text": "<S-DO>",
+            "component_type": "argument_pattern",
+            "color_class": "gloss-argument",
+            "description": "Transitive absolute"
+          },
+          {
+            "text": "<S:Dat>",
+            "component_type": "case_spec",
+            "color_class": "gloss-subject",
+            "description": "Dative subject"
+          },
+          {
+            "text": "<DO:Nom>",
+            "component_type": "case_spec",
+            "color_class": "gloss-direct-object",
+            "description": "Nominative direct object"
+          }
+        ],
+        "argument_pattern": "<S-DO>",
+        "case_specifications": [
+          "<S:Dat>",
+          "<DO:Nom>"
+        ]
+      }
+    },
+    "imperative": {
+      "raw_gloss": "",
+      "structured_gloss": {}
+    }
+  },
+  "preverb_forms": {}
+}

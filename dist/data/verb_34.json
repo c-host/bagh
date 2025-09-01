@@ -1,0 +1,1074 @@
+{
+  "id": 34,
+  "georgian": "საჭიროება",
+  "description": "To Need",
+  "category": "Mental Activities & Cognition",
+  "class": "Class-I",
+  "semantic_key": "need",
+  "notes": "",
+  "url": "https://lingua.ge/verbs/%e1%83%a1%e1%83%90%e1%83%ad%e1%83%98%e1%83%a0%e1%83%9d%e1%83%94%e1%83%91%e1%83%90/",
+  "global_argument_pattern": "<S-DO>",
+  "valency": {
+    "default": "<S-DO>",
+    "alternatives": []
+  },
+  "syntax": {
+    "arguments": {
+      "subject": {
+        "3sg": {
+          "noun": "patient",
+          "adjective": "sick"
+        },
+        "3pl": {
+          "noun": "family",
+          "adjective": "hungry"
+        }
+      },
+      "direct_object": {
+        "1sg": {
+          "noun": "medicine",
+          "adjective": "strong"
+        },
+        "2sg": {
+          "noun": "money",
+          "adjective": "extra"
+        },
+        "3sg": {
+          "noun": "help",
+          "adjective": "medical"
+        },
+        "1pl": {
+          "noun": "food",
+          "adjective": "hot"
+        },
+        "2pl": {
+          "noun": "water",
+          "adjective": "cold"
+        },
+        "3pl": {
+          "noun": "meal",
+          "adjective": "complete"
+        }
+      }
+    },
+    "prepositions": {
+      "subject": "the",
+      "direct_object": "the",
+      "indirect_object": ""
+    },
+    "preverb_overrides": {}
+  },
+  "english_translations": {
+    "default": {
+      "present": "need",
+      "imperfect": "was needing",
+      "future": "will need",
+      "aorist": "needed",
+      "optative": "need",
+      "imperative": "need"
+    }
+  },
+  "conjugations": {
+    "present": {
+      "raw_gloss": "V Pass Inv Pres <S-DO> <S:Dat> <DO:Nom>",
+      "forms": {
+        "1sg": "მჭირდება",
+        "2sg": "გჭირდება",
+        "3sg": "სჭირდება",
+        "1pl": "გვჭირდება",
+        "2pl": "გჭირდებათ",
+        "3pl": "სჭირდებათ"
+      },
+      "examples": []
+    },
+    "imperfect": {
+      "raw_gloss": "V Pass Inv Impf <S-DO> <S:Dat> <DO:Nom>",
+      "forms": {
+        "1sg": "მჭირდებოდა",
+        "2sg": "გჭირდებოდა",
+        "3sg": "სჭირდებოდა",
+        "1pl": "გვჭირდებოდა",
+        "2pl": "გჭირდებოდათ",
+        "3pl": "სჭირდებოდათ"
+      },
+      "examples": []
+    },
+    "future": {
+      "raw_gloss": "V Pass Inv Fut Pv <S-DO> <S:Dat> <DO:Nom>",
+      "forms": {
+        "1sg": "დამჭირდება",
+        "2sg": "დაგჭირდება",
+        "3sg": "დასჭირდება",
+        "1pl": "დაგვჭირდება",
+        "2pl": "დაგჭირდებათ",
+        "3pl": "დასჭირდებათ"
+      },
+      "examples": []
+    },
+    "aorist": {
+      "raw_gloss": "V Pass Inv Aor Pv <S-DO> <S:Dat> <DO:Nom>",
+      "forms": {
+        "1sg": "დამჭირდა",
+        "2sg": "დაგჭირდა",
+        "3sg": "დასჭირდა",
+        "1pl": "დაგვჭირდა",
+        "2pl": "დაგჭირდათ",
+        "3pl": "დასჭირდათ"
+      },
+      "examples": []
+    },
+    "optative": {
+      "raw_gloss": "V Pass Inv Opt Pv <S-DO> <S:Dat> <DO:Nom>",
+      "forms": {
+        "1sg": "დამჭირდეს",
+        "2sg": "დაგჭირდეს",
+        "3sg": "დასჭირდეს",
+        "1pl": "დაგვჭირდეს",
+        "2pl": "დაგჭირდეთ",
+        "3pl": "დასჭირდეთ"
+      },
+      "examples": []
+    },
+    "imperative": {
+      "raw_gloss": "V Pass Inv Impv Pv <S-DO> <S:Dat> <DO:Nom>",
+      "forms": {
+        "1sg": "-",
+        "2sg": "დაგჭირდეს",
+        "3sg": "-",
+        "1pl": "-",
+        "2pl": "დაგჭირდეთ",
+        "3pl": "-"
+      },
+      "examples": []
+    }
+  },
+  "preverb_config": {
+    "has_multiple_preverbs": false,
+    "default_preverb": "და",
+    "available_preverbs": [
+      "და"
+    ]
+  },
+  "preverb_rules": {
+    "default": "",
+    "replacements": {},
+    "tense_specific_fallbacks": {},
+    "english_fallbacks": {}
+  },
+  "examples": {
+    "null": {
+      "present": [
+        {
+          "georgian": "ძლიერი წამალი მჭირდება",
+          "english": "<strong data-role=\"subject\" data-person=\"1sg\">I</strong> <strong data-role=\"verb\">need</strong> <strong data-role=\"direct-object\">the strong medicine</strong>",
+          "english_plain": "I need the strong medicine",
+          "html": "<span data-case=\"nom\" data-role=\"direct-object\">ძლიერი წამალი</span> <span data-role=\"verb\">მჭირდება</span>",
+          "case_marking": {
+            "direct_object": {
+              "case": "nom",
+              "word": "წამალი"
+            }
+          },
+          "georgian_verb_form": "მჭირდება"
+        },
+        {
+          "georgian": "ავადმყოფ პაციენტს სამედიცინო დახმარება სჭირდება",
+          "english": "<strong data-role=\"subject\">The sick patient</strong> <strong data-role=\"verb\">needs</strong> <strong data-role=\"direct-object\">the medical help</strong>",
+          "english_plain": "The sick patient needs the medical help",
+          "html": "<span data-case=\"dat\" data-role=\"subject\">ავადმყოფ პაციენტს</span> <span data-case=\"nom\" data-role=\"direct-object\">სამედიცინო დახმარება</span> <span data-role=\"verb\">სჭირდება</span>",
+          "case_marking": {
+            "subject": {
+              "case": "dat",
+              "word": "პაციენტს"
+            },
+            "direct_object": {
+              "case": "nom",
+              "word": "დახმარება"
+            }
+          },
+          "georgian_verb_form": "სჭირდება"
+        },
+        {
+          "georgian": "მშიერ ოჯახებს სრული კვება სჭირდებათ",
+          "english": "<strong data-role=\"subject\">The hungry families</strong> <strong data-role=\"verb\">need</strong> <strong data-role=\"direct-object\">the complete meal</strong>",
+          "english_plain": "The hungry families need the complete meal",
+          "html": "<span data-case=\"dat\" data-role=\"subject\">მშიერ ოჯახებს</span> <span data-case=\"nom\" data-role=\"direct-object\">სრული კვება</span> <span data-role=\"verb\">სჭირდებათ</span>",
+          "case_marking": {
+            "subject": {
+              "case": "dat",
+              "word": "ოჯახებს"
+            },
+            "direct_object": {
+              "case": "nom",
+              "word": "კვება"
+            }
+          },
+          "georgian_verb_form": "სჭირდებათ"
+        }
+      ],
+      "imperfect": [
+        {
+          "georgian": "ძლიერი წამალი მჭირდებოდა",
+          "english": "<strong data-role=\"subject\" data-person=\"1sg\">I</strong> <strong data-role=\"verb\">was needing</strong> <strong data-role=\"direct-object\">the strong medicine</strong>",
+          "english_plain": "I was needing the strong medicine",
+          "html": "<span data-case=\"nom\" data-role=\"direct-object\">ძლიერი წამალი</span> <span data-role=\"verb\">მჭირდებოდა</span>",
+          "case_marking": {
+            "direct_object": {
+              "case": "nom",
+              "word": "წამალი"
+            }
+          },
+          "georgian_verb_form": "მჭირდებოდა"
+        },
+        {
+          "georgian": "ავადმყოფ პაციენტს სამედიცინო დახმარება სჭირდებოდა",
+          "english": "<strong data-role=\"subject\">The sick patient</strong> <strong data-role=\"verb\">was needing</strong> <strong data-role=\"direct-object\">the medical help</strong>",
+          "english_plain": "The sick patient was needing the medical help",
+          "html": "<span data-case=\"dat\" data-role=\"subject\">ავადმყოფ პაციენტს</span> <span data-case=\"nom\" data-role=\"direct-object\">სამედიცინო დახმარება</span> <span data-role=\"verb\">სჭირდებოდა</span>",
+          "case_marking": {
+            "subject": {
+              "case": "dat",
+              "word": "პაციენტს"
+            },
+            "direct_object": {
+              "case": "nom",
+              "word": "დახმარება"
+            }
+          },
+          "georgian_verb_form": "სჭირდებოდა"
+        },
+        {
+          "georgian": "მშიერ ოჯახებს სრული კვება სჭირდებოდათ",
+          "english": "<strong data-role=\"subject\">The hungry families</strong> <strong data-role=\"verb\">were needing</strong> <strong data-role=\"direct-object\">the complete meal</strong>",
+          "english_plain": "The hungry families were needing the complete meal",
+          "html": "<span data-case=\"dat\" data-role=\"subject\">მშიერ ოჯახებს</span> <span data-case=\"nom\" data-role=\"direct-object\">სრული კვება</span> <span data-role=\"verb\">სჭირდებოდათ</span>",
+          "case_marking": {
+            "subject": {
+              "case": "dat",
+              "word": "ოჯახებს"
+            },
+            "direct_object": {
+              "case": "nom",
+              "word": "კვება"
+            }
+          },
+          "georgian_verb_form": "სჭირდებოდათ"
+        }
+      ],
+      "future": [
+        {
+          "georgian": "ძლიერი წამალი დამჭირდება",
+          "english": "<strong data-role=\"subject\" data-person=\"1sg\">I</strong> <strong data-role=\"verb\">will need</strong> <strong data-role=\"direct-object\">the strong medicine</strong>",
+          "english_plain": "I will need the strong medicine",
+          "html": "<span data-case=\"nom\" data-role=\"direct-object\">ძლიერი წამალი</span> <span data-role=\"verb\">დამჭირდება</span>",
+          "case_marking": {
+            "direct_object": {
+              "case": "nom",
+              "word": "წამალი"
+            }
+          },
+          "georgian_verb_form": "დამჭირდება"
+        },
+        {
+          "georgian": "ავადმყოფ პაციენტს სამედიცინო დახმარება დასჭირდება",
+          "english": "<strong data-role=\"subject\">The sick patient</strong> <strong data-role=\"verb\">will need</strong> <strong data-role=\"direct-object\">the medical help</strong>",
+          "english_plain": "The sick patient will need the medical help",
+          "html": "<span data-case=\"dat\" data-role=\"subject\">ავადმყოფ პაციენტს</span> <span data-case=\"nom\" data-role=\"direct-object\">სამედიცინო დახმარება</span> <span data-role=\"verb\">დასჭირდება</span>",
+          "case_marking": {
+            "subject": {
+              "case": "dat",
+              "word": "პაციენტს"
+            },
+            "direct_object": {
+              "case": "nom",
+              "word": "დახმარება"
+            }
+          },
+          "georgian_verb_form": "დასჭირდება"
+        },
+        {
+          "georgian": "მშიერ ოჯახებს სრული კვება დასჭირდებათ",
+          "english": "<strong data-role=\"subject\">The hungry families</strong> <strong data-role=\"verb\">will need</strong> <strong data-role=\"direct-object\">the complete meal</strong>",
+          "english_plain": "The hungry families will need the complete meal",
+          "html": "<span data-case=\"dat\" data-role=\"subject\">მშიერ ოჯახებს</span> <span data-case=\"nom\" data-role=\"direct-object\">სრული კვება</span> <span data-role=\"verb\">დასჭირდებათ</span>",
+          "case_marking": {
+            "subject": {
+              "case": "dat",
+              "word": "ოჯახებს"
+            },
+            "direct_object": {
+              "case": "nom",
+              "word": "კვება"
+            }
+          },
+          "georgian_verb_form": "დასჭირდებათ"
+        }
+      ],
+      "aorist": [
+        {
+          "georgian": "ძლიერი წამალი დამჭირდა",
+          "english": "<strong data-role=\"subject\" data-person=\"1sg\">I</strong> <strong data-role=\"verb\">needed</strong> <strong data-role=\"direct-object\">the strong medicine</strong>",
+          "english_plain": "I needed the strong medicine",
+          "html": "<span data-case=\"nom\" data-role=\"direct-object\">ძლიერი წამალი</span> <span data-role=\"verb\">დამჭირდა</span>",
+          "case_marking": {
+            "direct_object": {
+              "case": "nom",
+              "word": "წამალი"
+            }
+          },
+          "georgian_verb_form": "დამჭირდა"
+        },
+        {
+          "georgian": "ავადმყოფ პაციენტს სამედიცინო დახმარება დასჭირდა",
+          "english": "<strong data-role=\"subject\">The sick patient</strong> <strong data-role=\"verb\">needed</strong> <strong data-role=\"direct-object\">the medical help</strong>",
+          "english_plain": "The sick patient needed the medical help",
+          "html": "<span data-case=\"dat\" data-role=\"subject\">ავადმყოფ პაციენტს</span> <span data-case=\"nom\" data-role=\"direct-object\">სამედიცინო დახმარება</span> <span data-role=\"verb\">დასჭირდა</span>",
+          "case_marking": {
+            "subject": {
+              "case": "dat",
+              "word": "პაციენტს"
+            },
+            "direct_object": {
+              "case": "nom",
+              "word": "დახმარება"
+            }
+          },
+          "georgian_verb_form": "დასჭირდა"
+        },
+        {
+          "georgian": "მშიერ ოჯახებს სრული კვება დასჭირდათ",
+          "english": "<strong data-role=\"subject\">The hungry families</strong> <strong data-role=\"verb\">needed</strong> <strong data-role=\"direct-object\">the complete meal</strong>",
+          "english_plain": "The hungry families needed the complete meal",
+          "html": "<span data-case=\"dat\" data-role=\"subject\">მშიერ ოჯახებს</span> <span data-case=\"nom\" data-role=\"direct-object\">სრული კვება</span> <span data-role=\"verb\">დასჭირდათ</span>",
+          "case_marking": {
+            "subject": {
+              "case": "dat",
+              "word": "ოჯახებს"
+            },
+            "direct_object": {
+              "case": "nom",
+              "word": "კვება"
+            }
+          },
+          "georgian_verb_form": "დასჭირდათ"
+        }
+      ],
+      "optative": [
+        {
+          "georgian": "ძლიერი წამალი უნდა დამჭირდეს",
+          "english": "<strong data-role=\"subject\" data-person=\"1sg\">I</strong> <strong data-role=\"verb\">should</strong> <strong data-role=\"verb\">need</strong> <strong data-role=\"direct-object\">the strong medicine</strong>",
+          "english_plain": "I should need the strong medicine",
+          "html": "<span data-case=\"nom\" data-role=\"direct-object\">ძლიერი წამალი</span> <span data-role=\"verb\">უნდა დამჭირდეს</span>",
+          "case_marking": {
+            "direct_object": {
+              "case": "nom",
+              "word": "წამალი"
+            }
+          },
+          "georgian_verb_form": "დამჭირდეს"
+        },
+        {
+          "georgian": "ავადმყოფ პაციენტს სამედიცინო დახმარება უნდა დასჭირდეს",
+          "english": "<strong data-role=\"subject\">The sick patient</strong> <strong data-role=\"verb\">should</strong> <strong data-role=\"verb\">need</strong> <strong data-role=\"direct-object\">the medical help</strong>",
+          "english_plain": "The sick patient should need the medical help",
+          "html": "<span data-case=\"dat\" data-role=\"subject\">ავადმყოფ პაციენტს</span> <span data-case=\"nom\" data-role=\"direct-object\">სამედიცინო დახმარება</span> <span data-role=\"verb\">უნდა დასჭირდეს</span>",
+          "case_marking": {
+            "subject": {
+              "case": "dat",
+              "word": "პაციენტს"
+            },
+            "direct_object": {
+              "case": "nom",
+              "word": "დახმარება"
+            }
+          },
+          "georgian_verb_form": "დასჭირდეს"
+        },
+        {
+          "georgian": "მშიერ ოჯახებს სრული კვება უნდა დასჭირდეთ",
+          "english": "<strong data-role=\"subject\">The hungry families</strong> <strong data-role=\"verb\">should</strong> <strong data-role=\"verb\">need</strong> <strong data-role=\"direct-object\">the complete meal</strong>",
+          "english_plain": "The hungry families should need the complete meal",
+          "html": "<span data-case=\"dat\" data-role=\"subject\">მშიერ ოჯახებს</span> <span data-case=\"nom\" data-role=\"direct-object\">სრული კვება</span> <span data-role=\"verb\">უნდა დასჭირდეთ</span>",
+          "case_marking": {
+            "subject": {
+              "case": "dat",
+              "word": "ოჯახებს"
+            },
+            "direct_object": {
+              "case": "nom",
+              "word": "კვება"
+            }
+          },
+          "georgian_verb_form": "დასჭირდეთ"
+        }
+      ],
+      "imperative": [
+        {
+          "georgian": "დამატებითი ფული დაგჭირდეს",
+          "english": "<strong data-role=\"verb\">need</strong> <strong data-role=\"direct-object\">the extra money</strong>",
+          "english_plain": "need the extra money",
+          "html": "<span data-case=\"nom\" data-role=\"direct-object\">დამატებითი ფული</span> <span data-role=\"verb\">დაგჭირდეს</span>",
+          "case_marking": {
+            "direct_object": {
+              "case": "nom",
+              "word": "ფული"
+            }
+          },
+          "georgian_verb_form": "დაგჭირდეს"
+        },
+        {
+          "georgian": "ცივი წყალი დაგჭირდეთ",
+          "english": "<strong data-role=\"verb\">need</strong> <strong data-role=\"direct-object\">the cold water</strong>",
+          "english_plain": "need the cold water",
+          "html": "<span data-case=\"nom\" data-role=\"direct-object\">ცივი წყალი</span> <span data-role=\"verb\">დაგჭირდეთ</span>",
+          "case_marking": {
+            "direct_object": {
+              "case": "nom",
+              "word": "წყალი"
+            }
+          },
+          "georgian_verb_form": "დაგჭირდეთ"
+        }
+      ]
+    }
+  },
+  "gloss_analysis": {
+    "present": {
+      "raw_gloss": "V Pass Inv Pres <S-DO> <S:Dat> <DO:Nom>",
+      "structured_gloss": {
+        "raw_components": [
+          {
+            "text": "V",
+            "component_type": "verb",
+            "color_class": "gloss-verb",
+            "description": "Verb"
+          },
+          {
+            "text": "Pass",
+            "component_type": "voice",
+            "color_class": "gloss-voice",
+            "description": "Passive"
+          },
+          {
+            "text": "Inv",
+            "component_type": "tense",
+            "color_class": "gloss-tense",
+            "description": "Inverted"
+          },
+          {
+            "text": "Pres",
+            "component_type": "tense",
+            "color_class": "gloss-tense",
+            "description": "Present"
+          },
+          {
+            "text": "<S-DO>",
+            "component_type": "argument_pattern",
+            "color_class": "gloss-argument",
+            "description": "Transitive absolute"
+          },
+          {
+            "text": "<S:Dat>",
+            "component_type": "case_spec",
+            "color_class": "gloss-case",
+            "description": "Dative subject"
+          },
+          {
+            "text": "<DO:Nom>",
+            "component_type": "case_spec",
+            "color_class": "gloss-case",
+            "description": "Nominative direct object"
+          }
+        ],
+        "expanded_components": [
+          {
+            "text": "V",
+            "component_type": "verb",
+            "color_class": "gloss-verb",
+            "description": "Verb"
+          },
+          {
+            "text": "Pass",
+            "component_type": "voice",
+            "color_class": "gloss-voice",
+            "description": "Passive"
+          },
+          {
+            "text": "Inv",
+            "component_type": "tense",
+            "color_class": "gloss-tense",
+            "description": "Inverted"
+          },
+          {
+            "text": "Pres",
+            "component_type": "tense",
+            "color_class": "gloss-tense",
+            "description": "Present"
+          },
+          {
+            "text": "<S-DO>",
+            "component_type": "argument_pattern",
+            "color_class": "gloss-argument",
+            "description": "Transitive absolute"
+          },
+          {
+            "text": "<S:Dat>",
+            "component_type": "case_spec",
+            "color_class": "gloss-subject",
+            "description": "Dative subject"
+          },
+          {
+            "text": "<DO:Nom>",
+            "component_type": "case_spec",
+            "color_class": "gloss-direct-object",
+            "description": "Nominative direct object"
+          }
+        ],
+        "argument_pattern": "<S-DO>",
+        "case_specifications": [
+          "<S:Dat>",
+          "<DO:Nom>"
+        ]
+      }
+    },
+    "imperfect": {
+      "raw_gloss": "V Pass Inv Impf <S-DO> <S:Dat> <DO:Nom>",
+      "structured_gloss": {
+        "raw_components": [
+          {
+            "text": "V",
+            "component_type": "verb",
+            "color_class": "gloss-verb",
+            "description": "Verb"
+          },
+          {
+            "text": "Pass",
+            "component_type": "voice",
+            "color_class": "gloss-voice",
+            "description": "Passive"
+          },
+          {
+            "text": "Inv",
+            "component_type": "tense",
+            "color_class": "gloss-tense",
+            "description": "Inverted"
+          },
+          {
+            "text": "Impf",
+            "component_type": "tense",
+            "color_class": "gloss-tense",
+            "description": "Imperfect"
+          },
+          {
+            "text": "<S-DO>",
+            "component_type": "argument_pattern",
+            "color_class": "gloss-argument",
+            "description": "Transitive absolute"
+          },
+          {
+            "text": "<S:Dat>",
+            "component_type": "case_spec",
+            "color_class": "gloss-case",
+            "description": "Dative subject"
+          },
+          {
+            "text": "<DO:Nom>",
+            "component_type": "case_spec",
+            "color_class": "gloss-case",
+            "description": "Nominative direct object"
+          }
+        ],
+        "expanded_components": [
+          {
+            "text": "V",
+            "component_type": "verb",
+            "color_class": "gloss-verb",
+            "description": "Verb"
+          },
+          {
+            "text": "Pass",
+            "component_type": "voice",
+            "color_class": "gloss-voice",
+            "description": "Passive"
+          },
+          {
+            "text": "Inv",
+            "component_type": "tense",
+            "color_class": "gloss-tense",
+            "description": "Inverted"
+          },
+          {
+            "text": "Impf",
+            "component_type": "tense",
+            "color_class": "gloss-tense",
+            "description": "Imperfect"
+          },
+          {
+            "text": "<S-DO>",
+            "component_type": "argument_pattern",
+            "color_class": "gloss-argument",
+            "description": "Transitive absolute"
+          },
+          {
+            "text": "<S:Dat>",
+            "component_type": "case_spec",
+            "color_class": "gloss-subject",
+            "description": "Dative subject"
+          },
+          {
+            "text": "<DO:Nom>",
+            "component_type": "case_spec",
+            "color_class": "gloss-direct-object",
+            "description": "Nominative direct object"
+          }
+        ],
+        "argument_pattern": "<S-DO>",
+        "case_specifications": [
+          "<S:Dat>",
+          "<DO:Nom>"
+        ]
+      }
+    },
+    "future": {
+      "raw_gloss": "V Pass Inv Fut Pv <S-DO> <S:Dat> <DO:Nom>",
+      "structured_gloss": {
+        "raw_components": [
+          {
+            "text": "V",
+            "component_type": "verb",
+            "color_class": "gloss-verb",
+            "description": "Verb"
+          },
+          {
+            "text": "Pass",
+            "component_type": "voice",
+            "color_class": "gloss-voice",
+            "description": "Passive"
+          },
+          {
+            "text": "Inv",
+            "component_type": "tense",
+            "color_class": "gloss-tense",
+            "description": "Inverted"
+          },
+          {
+            "text": "Fut",
+            "component_type": "tense",
+            "color_class": "gloss-tense",
+            "description": "Future"
+          },
+          {
+            "text": "Pv",
+            "component_type": "preverb",
+            "color_class": "gloss-preverb",
+            "description": "Preverb"
+          },
+          {
+            "text": "<S-DO>",
+            "component_type": "argument_pattern",
+            "color_class": "gloss-argument",
+            "description": "Transitive absolute"
+          },
+          {
+            "text": "<S:Dat>",
+            "component_type": "case_spec",
+            "color_class": "gloss-case",
+            "description": "Dative subject"
+          },
+          {
+            "text": "<DO:Nom>",
+            "component_type": "case_spec",
+            "color_class": "gloss-case",
+            "description": "Nominative direct object"
+          }
+        ],
+        "expanded_components": [
+          {
+            "text": "V",
+            "component_type": "verb",
+            "color_class": "gloss-verb",
+            "description": "Verb"
+          },
+          {
+            "text": "Pass",
+            "component_type": "voice",
+            "color_class": "gloss-voice",
+            "description": "Passive"
+          },
+          {
+            "text": "Inv",
+            "component_type": "tense",
+            "color_class": "gloss-tense",
+            "description": "Inverted"
+          },
+          {
+            "text": "Fut",
+            "component_type": "tense",
+            "color_class": "gloss-tense",
+            "description": "Future"
+          },
+          {
+            "text": "Pv",
+            "component_type": "preverb",
+            "color_class": "gloss-preverb",
+            "description": "Preverb"
+          },
+          {
+            "text": "<S-DO>",
+            "component_type": "argument_pattern",
+            "color_class": "gloss-argument",
+            "description": "Transitive absolute"
+          },
+          {
+            "text": "<S:Dat>",
+            "component_type": "case_spec",
+            "color_class": "gloss-subject",
+            "description": "Dative subject"
+          },
+          {
+            "text": "<DO:Nom>",
+            "component_type": "case_spec",
+            "color_class": "gloss-direct-object",
+            "description": "Nominative direct object"
+          }
+        ],
+        "argument_pattern": "<S-DO>",
+        "case_specifications": [
+          "<S:Dat>",
+          "<DO:Nom>"
+        ]
+      }
+    },
+    "aorist": {
+      "raw_gloss": "V Pass Inv Aor Pv <S-DO> <S:Dat> <DO:Nom>",
+      "structured_gloss": {
+        "raw_components": [
+          {
+            "text": "V",
+            "component_type": "verb",
+            "color_class": "gloss-verb",
+            "description": "Verb"
+          },
+          {
+            "text": "Pass",
+            "component_type": "voice",
+            "color_class": "gloss-voice",
+            "description": "Passive"
+          },
+          {
+            "text": "Inv",
+            "component_type": "tense",
+            "color_class": "gloss-tense",
+            "description": "Inverted"
+          },
+          {
+            "text": "Aor",
+            "component_type": "tense",
+            "color_class": "gloss-tense",
+            "description": "Aorist"
+          },
+          {
+            "text": "Pv",
+            "component_type": "preverb",
+            "color_class": "gloss-preverb",
+            "description": "Preverb"
+          },
+          {
+            "text": "<S-DO>",
+            "component_type": "argument_pattern",
+            "color_class": "gloss-argument",
+            "description": "Transitive absolute"
+          },
+          {
+            "text": "<S:Dat>",
+            "component_type": "case_spec",
+            "color_class": "gloss-case",
+            "description": "Dative subject"
+          },
+          {
+            "text": "<DO:Nom>",
+            "component_type": "case_spec",
+            "color_class": "gloss-case",
+            "description": "Nominative direct object"
+          }
+        ],
+        "expanded_components": [
+          {
+            "text": "V",
+            "component_type": "verb",
+            "color_class": "gloss-verb",
+            "description": "Verb"
+          },
+          {
+            "text": "Pass",
+            "component_type": "voice",
+            "color_class": "gloss-voice",
+            "description": "Passive"
+          },
+          {
+            "text": "Inv",
+            "component_type": "tense",
+            "color_class": "gloss-tense",
+            "description": "Inverted"
+          },
+          {
+            "text": "Aor",
+            "component_type": "tense",
+            "color_class": "gloss-tense",
+            "description": "Aorist"
+          },
+          {
+            "text": "Pv",
+            "component_type": "preverb",
+            "color_class": "gloss-preverb",
+            "description": "Preverb"
+          },
+          {
+            "text": "<S-DO>",
+            "component_type": "argument_pattern",
+            "color_class": "gloss-argument",
+            "description": "Transitive absolute"
+          },
+          {
+            "text": "<S:Dat>",
+            "component_type": "case_spec",
+            "color_class": "gloss-subject",
+            "description": "Dative subject"
+          },
+          {
+            "text": "<DO:Nom>",
+            "component_type": "case_spec",
+            "color_class": "gloss-direct-object",
+            "description": "Nominative direct object"
+          }
+        ],
+        "argument_pattern": "<S-DO>",
+        "case_specifications": [
+          "<S:Dat>",
+          "<DO:Nom>"
+        ]
+      }
+    },
+    "optative": {
+      "raw_gloss": "V Pass Inv Opt Pv <S-DO> <S:Dat> <DO:Nom>",
+      "structured_gloss": {
+        "raw_components": [
+          {
+            "text": "V",
+            "component_type": "verb",
+            "color_class": "gloss-verb",
+            "description": "Verb"
+          },
+          {
+            "text": "Pass",
+            "component_type": "voice",
+            "color_class": "gloss-voice",
+            "description": "Passive"
+          },
+          {
+            "text": "Inv",
+            "component_type": "tense",
+            "color_class": "gloss-tense",
+            "description": "Inverted"
+          },
+          {
+            "text": "Opt",
+            "component_type": "tense",
+            "color_class": "gloss-tense",
+            "description": "Optative"
+          },
+          {
+            "text": "Pv",
+            "component_type": "preverb",
+            "color_class": "gloss-preverb",
+            "description": "Preverb"
+          },
+          {
+            "text": "<S-DO>",
+            "component_type": "argument_pattern",
+            "color_class": "gloss-argument",
+            "description": "Transitive absolute"
+          },
+          {
+            "text": "<S:Dat>",
+            "component_type": "case_spec",
+            "color_class": "gloss-case",
+            "description": "Dative subject"
+          },
+          {
+            "text": "<DO:Nom>",
+            "component_type": "case_spec",
+            "color_class": "gloss-case",
+            "description": "Nominative direct object"
+          }
+        ],
+        "expanded_components": [
+          {
+            "text": "V",
+            "component_type": "verb",
+            "color_class": "gloss-verb",
+            "description": "Verb"
+          },
+          {
+            "text": "Pass",
+            "component_type": "voice",
+            "color_class": "gloss-voice",
+            "description": "Passive"
+          },
+          {
+            "text": "Inv",
+            "component_type": "tense",
+            "color_class": "gloss-tense",
+            "description": "Inverted"
+          },
+          {
+            "text": "Opt",
+            "component_type": "tense",
+            "color_class": "gloss-tense",
+            "description": "Optative"
+          },
+          {
+            "text": "Pv",
+            "component_type": "preverb",
+            "color_class": "gloss-preverb",
+            "description": "Preverb"
+          },
+          {
+            "text": "<S-DO>",
+            "component_type": "argument_pattern",
+            "color_class": "gloss-argument",
+            "description": "Transitive absolute"
+          },
+          {
+            "text": "<S:Dat>",
+            "component_type": "case_spec",
+            "color_class": "gloss-subject",
+            "description": "Dative subject"
+          },
+          {
+            "text": "<DO:Nom>",
+            "component_type": "case_spec",
+            "color_class": "gloss-direct-object",
+            "description": "Nominative direct object"
+          }
+        ],
+        "argument_pattern": "<S-DO>",
+        "case_specifications": [
+          "<S:Dat>",
+          "<DO:Nom>"
+        ]
+      }
+    },
+    "imperative": {
+      "raw_gloss": "V Pass Inv Impv Pv <S-DO> <S:Dat> <DO:Nom>",
+      "structured_gloss": {
+        "raw_components": [
+          {
+            "text": "V",
+            "component_type": "verb",
+            "color_class": "gloss-verb",
+            "description": "Verb"
+          },
+          {
+            "text": "Pass",
+            "component_type": "voice",
+            "color_class": "gloss-voice",
+            "description": "Passive"
+          },
+          {
+            "text": "Inv",
+            "component_type": "tense",
+            "color_class": "gloss-tense",
+            "description": "Inverted"
+          },
+          {
+            "text": "Impv",
+            "component_type": "tense",
+            "color_class": "gloss-tense",
+            "description": "Imperative"
+          },
+          {
+            "text": "Pv",
+            "component_type": "preverb",
+            "color_class": "gloss-preverb",
+            "description": "Preverb"
+          },
+          {
+            "text": "<S-DO>",
+            "component_type": "argument_pattern",
+            "color_class": "gloss-argument",
+            "description": "Transitive absolute"
+          },
+          {
+            "text": "<S:Dat>",
+            "component_type": "case_spec",
+            "color_class": "gloss-case",
+            "description": "Dative subject"
+          },
+          {
+            "text": "<DO:Nom>",
+            "component_type": "case_spec",
+            "color_class": "gloss-case",
+            "description": "Nominative direct object"
+          }
+        ],
+        "expanded_components": [
+          {
+            "text": "V",
+            "component_type": "verb",
+            "color_class": "gloss-verb",
+            "description": "Verb"
+          },
+          {
+            "text": "Pass",
+            "component_type": "voice",
+            "color_class": "gloss-voice",
+            "description": "Passive"
+          },
+          {
+            "text": "Inv",
+            "component_type": "tense",
+            "color_class": "gloss-tense",
+            "description": "Inverted"
+          },
+          {
+            "text": "Impv",
+            "component_type": "tense",
+            "color_class": "gloss-tense",
+            "description": "Imperative"
+          },
+          {
+            "text": "Pv",
+            "component_type": "preverb",
+            "color_class": "gloss-preverb",
+            "description": "Preverb"
+          },
+          {
+            "text": "<S-DO>",
+            "component_type": "argument_pattern",
+            "color_class": "gloss-argument",
+            "description": "Transitive absolute"
+          },
+          {
+            "text": "<S:Dat>",
+            "component_type": "case_spec",
+            "color_class": "gloss-subject",
+            "description": "Dative subject"
+          },
+          {
+            "text": "<DO:Nom>",
+            "component_type": "case_spec",
+            "color_class": "gloss-direct-object",
+            "description": "Nominative direct object"
+          }
+        ],
+        "argument_pattern": "<S-DO>",
+        "case_specifications": [
+          "<S:Dat>",
+          "<DO:Nom>"
+        ]
+      }
+    }
+  },
+  "preverb_forms": {}
+}

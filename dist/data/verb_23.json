@@ -1,0 +1,3208 @@
+{
+  "id": 23,
+  "georgian": "მისვლა / მოსვლა / გასვლა / წასვლა",
+  "description": "Movement Verbs",
+  "category": "Movement & Transport",
+  "class": "Class-I",
+  "semantic_key": "go",
+  "notes": "",
+  "url": "https://lingua.ge/verbs/%e1%83%93%e1%83%98-%e1%83%95%e1%83%90%e1%83%9a-%e1%83%95%e1%83%94%e1%83%93-%e1%83%a1%e1%83%a3%e1%83%9a/",
+  "global_argument_pattern": "<S>",
+  "valency": {
+    "default": "<S>",
+    "alternatives": []
+  },
+  "syntax": {
+    "arguments": {
+      "subject": {
+        "3sg": {
+          "noun": "worker",
+          "adjective": "strong"
+        },
+        "3pl": {
+          "noun": "librarian",
+          "adjective": "slow"
+        }
+      }
+    },
+    "prepositions": {
+      "subject": "the",
+      "direct_object": "the",
+      "indirect_object": "to"
+    },
+    "preverb_overrides": {}
+  },
+  "english_translations": {
+    "default": {
+      "present": "go",
+      "imperfect": "was going",
+      "future": "will go",
+      "aorist": "went",
+      "optative": "go",
+      "imperative": "go"
+    },
+    "მო": {
+      "present": "come",
+      "imperfect": "was coming",
+      "future": "will come",
+      "aorist": "came",
+      "optative": "come",
+      "imperative": "come"
+    },
+    "გა": {
+      "present": "go away",
+      "imperfect": "was going away",
+      "future": "will go away",
+      "aorist": "went away",
+      "optative": "go away",
+      "imperative": "go away"
+    },
+    "წა": {
+      "present": "go",
+      "imperfect": "was going",
+      "future": "will depart",
+      "aorist": "departed",
+      "optative": "depart",
+      "imperative": "depart"
+    }
+  },
+  "conjugations": {
+    "present": {
+      "raw_gloss": "V MedPass Pres Pv <S> <S:Nom>",
+      "forms": {
+        "1sg": "მივდივარ",
+        "1pl": "მივდივართ",
+        "2sg": "მიდიხარ",
+        "2pl": "მიდიხართ",
+        "3sg": "მიდის",
+        "3pl": "მიდიან"
+      },
+      "examples": []
+    },
+    "imperfect": {
+      "raw_gloss": "V MedPass Impf Pv <S> <S:Nom>",
+      "forms": {
+        "1sg": "მივდიოდი",
+        "1pl": "მივდიოდით",
+        "2sg": "მიდიოდი",
+        "2pl": "მიდიოდით",
+        "3sg": "მიდიოდა",
+        "3pl": "მიდიოდნენ"
+      },
+      "examples": []
+    },
+    "future": {
+      "raw_gloss": "V MedPass Fut Pv <S> <S:Nom>",
+      "forms": {
+        "1sg": "მივალ",
+        "1pl": "მივალთ",
+        "2sg": "მიხვალ",
+        "2pl": "მიხვალთ",
+        "3sg": "მივა",
+        "3pl": "მივლენ"
+      },
+      "examples": []
+    },
+    "aorist": {
+      "raw_gloss": "V MedPass Aor Pv <S> <S:Nom>",
+      "forms": {
+        "1sg": "მივედი",
+        "1pl": "მივედით",
+        "2sg": "მიხვედი",
+        "2pl": "მიხვედით",
+        "3sg": "მივიდა",
+        "3pl": "მივიდნენ"
+      },
+      "examples": []
+    },
+    "optative": {
+      "raw_gloss": "V MedPass Opt Pv <S> <S:Nom>",
+      "forms": {
+        "1sg": "მივიდე",
+        "1pl": "მივიდეთ",
+        "2sg": "მიხვიდე",
+        "2pl": "მიხვიდეთ",
+        "3sg": "მივიდეს",
+        "3pl": "მივიდნენ"
+      },
+      "examples": []
+    },
+    "imperative": {
+      "raw_gloss": "V MedPass Impv Pv <S> <S:Nom>",
+      "forms": {
+        "2sg": "მიდი",
+        "2pl": "მიდით"
+      },
+      "examples": []
+    }
+  },
+  "preverb_config": {
+    "has_multiple_preverbs": true,
+    "default_preverb": "მი",
+    "available_preverbs": [
+      "მი",
+      "მო",
+      "გა",
+      "წა"
+    ]
+  },
+  "preverb_rules": {
+    "default": "მი",
+    "replacements": {
+      "მი": "მი",
+      "მო": "მო",
+      "გა": "გა",
+      "წა": "წა"
+    },
+    "tense_specific_fallbacks": {
+      "წა": {
+        "present": "მი",
+        "imperfect": "მი"
+      }
+    },
+    "english_fallbacks": {
+      "წა": {
+        "present": "მი",
+        "imperfect": "მი"
+      }
+    }
+  },
+  "examples": {
+    "მი": {
+      "present": [
+        {
+          "georgian": "მივდივარ",
+          "english": "<strong data-role=\"subject\" data-person=\"1sg\">I</strong> <strong data-role=\"verb\">go</strong>",
+          "english_plain": "I go",
+          "html": " <span data-role=\"verb\">მივდივარ</span>",
+          "case_marking": {},
+          "georgian_verb_form": "მივდივარ"
+        },
+        {
+          "georgian": "ძლიერი მუშა მიდის",
+          "english": "<strong data-role=\"subject\">The strong worker</strong> <strong data-role=\"verb\">goes</strong>",
+          "english_plain": "The strong worker goes",
+          "html": "<span data-case=\"nom\" data-role=\"subject\">ძლიერი მუშა</span> <span data-role=\"verb\">მიდის</span>",
+          "case_marking": {
+            "subject": {
+              "case": "nom",
+              "word": "მუშა"
+            }
+          },
+          "georgian_verb_form": "მიდის"
+        },
+        {
+          "georgian": "ნელი ბიბლიოთეკარები მიდიან",
+          "english": "<strong data-role=\"subject\">The slow librarians</strong> <strong data-role=\"verb\">go</strong>",
+          "english_plain": "The slow librarians go",
+          "html": "<span data-case=\"nom\" data-role=\"subject\">ნელი ბიბლიოთეკარები</span> <span data-role=\"verb\">მიდიან</span>",
+          "case_marking": {
+            "subject": {
+              "case": "nom",
+              "word": "ბიბლიოთეკარები"
+            }
+          },
+          "georgian_verb_form": "მიდიან"
+        }
+      ],
+      "imperfect": [
+        {
+          "georgian": "მივდიოდი",
+          "english": "<strong data-role=\"subject\" data-person=\"1sg\">I</strong> <strong data-role=\"verb\">was going</strong>",
+          "english_plain": "I was going",
+          "html": " <span data-role=\"verb\">მივდიოდი</span>",
+          "case_marking": {},
+          "georgian_verb_form": "მივდიოდი"
+        },
+        {
+          "georgian": "ძლიერი მუშა მიდიოდა",
+          "english": "<strong data-role=\"subject\">The strong worker</strong> <strong data-role=\"verb\">was going</strong>",
+          "english_plain": "The strong worker was going",
+          "html": "<span data-case=\"nom\" data-role=\"subject\">ძლიერი მუშა</span> <span data-role=\"verb\">მიდიოდა</span>",
+          "case_marking": {
+            "subject": {
+              "case": "nom",
+              "word": "მუშა"
+            }
+          },
+          "georgian_verb_form": "მიდიოდა"
+        },
+        {
+          "georgian": "ნელი ბიბლიოთეკარები მიდიოდნენ",
+          "english": "<strong data-role=\"subject\">The slow librarians</strong> <strong data-role=\"verb\">were going</strong>",
+          "english_plain": "The slow librarians were going",
+          "html": "<span data-case=\"nom\" data-role=\"subject\">ნელი ბიბლიოთეკარები</span> <span data-role=\"verb\">მიდიოდნენ</span>",
+          "case_marking": {
+            "subject": {
+              "case": "nom",
+              "word": "ბიბლიოთეკარები"
+            }
+          },
+          "georgian_verb_form": "მიდიოდნენ"
+        }
+      ],
+      "future": [
+        {
+          "georgian": "მივალ",
+          "english": "<strong data-role=\"subject\" data-person=\"1sg\">I</strong> <strong data-role=\"verb\">will go</strong>",
+          "english_plain": "I will go",
+          "html": " <span data-role=\"verb\">მივალ</span>",
+          "case_marking": {},
+          "georgian_verb_form": "მივალ"
+        },
+        {
+          "georgian": "ძლიერი მუშა მივა",
+          "english": "<strong data-role=\"subject\">The strong worker</strong> <strong data-role=\"verb\">will go</strong>",
+          "english_plain": "The strong worker will go",
+          "html": "<span data-case=\"nom\" data-role=\"subject\">ძლიერი მუშა</span> <span data-role=\"verb\">მივა</span>",
+          "case_marking": {
+            "subject": {
+              "case": "nom",
+              "word": "მუშა"
+            }
+          },
+          "georgian_verb_form": "მივა"
+        },
+        {
+          "georgian": "ნელი ბიბლიოთეკარები მივლენ",
+          "english": "<strong data-role=\"subject\">The slow librarians</strong> <strong data-role=\"verb\">will go</strong>",
+          "english_plain": "The slow librarians will go",
+          "html": "<span data-case=\"nom\" data-role=\"subject\">ნელი ბიბლიოთეკარები</span> <span data-role=\"verb\">მივლენ</span>",
+          "case_marking": {
+            "subject": {
+              "case": "nom",
+              "word": "ბიბლიოთეკარები"
+            }
+          },
+          "georgian_verb_form": "მივლენ"
+        }
+      ],
+      "aorist": [
+        {
+          "georgian": "მივედი",
+          "english": "<strong data-role=\"subject\" data-person=\"1sg\">I</strong> <strong data-role=\"verb\">went</strong>",
+          "english_plain": "I went",
+          "html": " <span data-role=\"verb\">მივედი</span>",
+          "case_marking": {},
+          "georgian_verb_form": "მივედი"
+        },
+        {
+          "georgian": "ძლიერი მუშა მივიდა",
+          "english": "<strong data-role=\"subject\">The strong worker</strong> <strong data-role=\"verb\">went</strong>",
+          "english_plain": "The strong worker went",
+          "html": "<span data-case=\"nom\" data-role=\"subject\">ძლიერი მუშა</span> <span data-role=\"verb\">მივიდა</span>",
+          "case_marking": {
+            "subject": {
+              "case": "nom",
+              "word": "მუშა"
+            }
+          },
+          "georgian_verb_form": "მივიდა"
+        },
+        {
+          "georgian": "ნელი ბიბლიოთეკარები მივიდნენ",
+          "english": "<strong data-role=\"subject\">The slow librarians</strong> <strong data-role=\"verb\">went</strong>",
+          "english_plain": "The slow librarians went",
+          "html": "<span data-case=\"nom\" data-role=\"subject\">ნელი ბიბლიოთეკარები</span> <span data-role=\"verb\">მივიდნენ</span>",
+          "case_marking": {
+            "subject": {
+              "case": "nom",
+              "word": "ბიბლიოთეკარები"
+            }
+          },
+          "georgian_verb_form": "მივიდნენ"
+        }
+      ],
+      "optative": [
+        {
+          "georgian": "უნდა მივიდე",
+          "english": "<strong data-role=\"subject\" data-person=\"1sg\">I</strong> <strong data-role=\"verb\">should</strong> <strong data-role=\"verb\">go</strong>",
+          "english_plain": "I should go",
+          "html": " <span data-role=\"verb\">უნდა მივიდე</span>",
+          "case_marking": {},
+          "georgian_verb_form": "მივიდე"
+        },
+        {
+          "georgian": "ძლიერი მუშა უნდა მივიდეს",
+          "english": "<strong data-role=\"subject\">The strong worker</strong> <strong data-role=\"verb\">should</strong> <strong data-role=\"verb\">go</strong>",
+          "english_plain": "The strong worker should go",
+          "html": "<span data-case=\"nom\" data-role=\"subject\">ძლიერი მუშა</span> <span data-role=\"verb\">უნდა მივიდეს</span>",
+          "case_marking": {
+            "subject": {
+              "case": "nom",
+              "word": "მუშა"
+            }
+          },
+          "georgian_verb_form": "მივიდეს"
+        },
+        {
+          "georgian": "ნელი ბიბლიოთეკარები უნდა მივიდნენ",
+          "english": "<strong data-role=\"subject\">The slow librarians</strong> <strong data-role=\"verb\">should</strong> <strong data-role=\"verb\">go</strong>",
+          "english_plain": "The slow librarians should go",
+          "html": "<span data-case=\"nom\" data-role=\"subject\">ნელი ბიბლიოთეკარები</span> <span data-role=\"verb\">უნდა მივიდნენ</span>",
+          "case_marking": {
+            "subject": {
+              "case": "nom",
+              "word": "ბიბლიოთეკარები"
+            }
+          },
+          "georgian_verb_form": "მივიდნენ"
+        }
+      ],
+      "imperative": [
+        {
+          "georgian": "მიდი",
+          "english": "<strong data-role=\"verb\">go</strong>",
+          "english_plain": "go",
+          "html": " <span data-role=\"verb\">მიდი</span>",
+          "case_marking": {},
+          "georgian_verb_form": "მიდი"
+        },
+        {
+          "georgian": "მიდით",
+          "english": "<strong data-role=\"verb\">go</strong>",
+          "english_plain": "go",
+          "html": " <span data-role=\"verb\">მიდით</span>",
+          "case_marking": {},
+          "georgian_verb_form": "მიდით"
+        }
+      ]
+    },
+    "მო": {
+      "present": [
+        {
+          "georgian": "მოვდივარ",
+          "english": "<strong data-role=\"subject\" data-person=\"1sg\">I</strong> <strong data-role=\"verb\">come</strong>",
+          "english_plain": "I come",
+          "html": " <span data-role=\"verb\">მოვდივარ</span>",
+          "case_marking": {},
+          "georgian_verb_form": "მოვდივარ"
+        },
+        {
+          "georgian": "ძლიერი მუშა მოდის",
+          "english": "<strong data-role=\"subject\">The strong worker</strong> <strong data-role=\"verb\">comes</strong>",
+          "english_plain": "The strong worker comes",
+          "html": "<span data-case=\"nom\" data-role=\"subject\">ძლიერი მუშა</span> <span data-role=\"verb\">მოდის</span>",
+          "case_marking": {
+            "subject": {
+              "case": "nom",
+              "word": "მუშა"
+            }
+          },
+          "georgian_verb_form": "მოდის"
+        },
+        {
+          "georgian": "ნელი ბიბლიოთეკარები მოდიან",
+          "english": "<strong data-role=\"subject\">The slow librarians</strong> <strong data-role=\"verb\">come</strong>",
+          "english_plain": "The slow librarians come",
+          "html": "<span data-case=\"nom\" data-role=\"subject\">ნელი ბიბლიოთეკარები</span> <span data-role=\"verb\">მოდიან</span>",
+          "case_marking": {
+            "subject": {
+              "case": "nom",
+              "word": "ბიბლიოთეკარები"
+            }
+          },
+          "georgian_verb_form": "მოდიან"
+        }
+      ],
+      "imperfect": [
+        {
+          "georgian": "მოვდიოდი",
+          "english": "<strong data-role=\"subject\" data-person=\"1sg\">I</strong> <strong data-role=\"verb\">was coming</strong>",
+          "english_plain": "I was coming",
+          "html": " <span data-role=\"verb\">მოვდიოდი</span>",
+          "case_marking": {},
+          "georgian_verb_form": "მოვდიოდი"
+        },
+        {
+          "georgian": "ძლიერი მუშა მოდიოდა",
+          "english": "<strong data-role=\"subject\">The strong worker</strong> <strong data-role=\"verb\">was coming</strong>",
+          "english_plain": "The strong worker was coming",
+          "html": "<span data-case=\"nom\" data-role=\"subject\">ძლიერი მუშა</span> <span data-role=\"verb\">მოდიოდა</span>",
+          "case_marking": {
+            "subject": {
+              "case": "nom",
+              "word": "მუშა"
+            }
+          },
+          "georgian_verb_form": "მოდიოდა"
+        },
+        {
+          "georgian": "ნელი ბიბლიოთეკარები მოდიოდნენ",
+          "english": "<strong data-role=\"subject\">The slow librarians</strong> <strong data-role=\"verb\">were coming</strong>",
+          "english_plain": "The slow librarians were coming",
+          "html": "<span data-case=\"nom\" data-role=\"subject\">ნელი ბიბლიოთეკარები</span> <span data-role=\"verb\">მოდიოდნენ</span>",
+          "case_marking": {
+            "subject": {
+              "case": "nom",
+              "word": "ბიბლიოთეკარები"
+            }
+          },
+          "georgian_verb_form": "მოდიოდნენ"
+        }
+      ],
+      "future": [
+        {
+          "georgian": "მოვალ",
+          "english": "<strong data-role=\"subject\" data-person=\"1sg\">I</strong> <strong data-role=\"verb\">will come</strong>",
+          "english_plain": "I will come",
+          "html": " <span data-role=\"verb\">მოვალ</span>",
+          "case_marking": {},
+          "georgian_verb_form": "მოვალ"
+        },
+        {
+          "georgian": "ძლიერი მუშა მოვა",
+          "english": "<strong data-role=\"subject\">The strong worker</strong> <strong data-role=\"verb\">will come</strong>",
+          "english_plain": "The strong worker will come",
+          "html": "<span data-case=\"nom\" data-role=\"subject\">ძლიერი მუშა</span> <span data-role=\"verb\">მოვა</span>",
+          "case_marking": {
+            "subject": {
+              "case": "nom",
+              "word": "მუშა"
+            }
+          },
+          "georgian_verb_form": "მოვა"
+        },
+        {
+          "georgian": "ნელი ბიბლიოთეკარები მოვლენ",
+          "english": "<strong data-role=\"subject\">The slow librarians</strong> <strong data-role=\"verb\">will come</strong>",
+          "english_plain": "The slow librarians will come",
+          "html": "<span data-case=\"nom\" data-role=\"subject\">ნელი ბიბლიოთეკარები</span> <span data-role=\"verb\">მოვლენ</span>",
+          "case_marking": {
+            "subject": {
+              "case": "nom",
+              "word": "ბიბლიოთეკარები"
+            }
+          },
+          "georgian_verb_form": "მოვლენ"
+        }
+      ],
+      "aorist": [
+        {
+          "georgian": "მოვედი",
+          "english": "<strong data-role=\"subject\" data-person=\"1sg\">I</strong> <strong data-role=\"verb\">came</strong>",
+          "english_plain": "I came",
+          "html": " <span data-role=\"verb\">მოვედი</span>",
+          "case_marking": {},
+          "georgian_verb_form": "მოვედი"
+        },
+        {
+          "georgian": "ძლიერი მუშა მოვიდა",
+          "english": "<strong data-role=\"subject\">The strong worker</strong> <strong data-role=\"verb\">came</strong>",
+          "english_plain": "The strong worker came",
+          "html": "<span data-case=\"nom\" data-role=\"subject\">ძლიერი მუშა</span> <span data-role=\"verb\">მოვიდა</span>",
+          "case_marking": {
+            "subject": {
+              "case": "nom",
+              "word": "მუშა"
+            }
+          },
+          "georgian_verb_form": "მოვიდა"
+        },
+        {
+          "georgian": "ნელი ბიბლიოთეკარები მოვიდნენ",
+          "english": "<strong data-role=\"subject\">The slow librarians</strong> <strong data-role=\"verb\">came</strong>",
+          "english_plain": "The slow librarians came",
+          "html": "<span data-case=\"nom\" data-role=\"subject\">ნელი ბიბლიოთეკარები</span> <span data-role=\"verb\">მოვიდნენ</span>",
+          "case_marking": {
+            "subject": {
+              "case": "nom",
+              "word": "ბიბლიოთეკარები"
+            }
+          },
+          "georgian_verb_form": "მოვიდნენ"
+        }
+      ],
+      "optative": [
+        {
+          "georgian": "უნდა მოვიდე",
+          "english": "<strong data-role=\"subject\" data-person=\"1sg\">I</strong> <strong data-role=\"verb\">should</strong> <strong data-role=\"verb\">come</strong>",
+          "english_plain": "I should come",
+          "html": " <span data-role=\"verb\">უნდა მოვიდე</span>",
+          "case_marking": {},
+          "georgian_verb_form": "მოვიდე"
+        },
+        {
+          "georgian": "ძლიერი მუშა უნდა მოვიდეს",
+          "english": "<strong data-role=\"subject\">The strong worker</strong> <strong data-role=\"verb\">should</strong> <strong data-role=\"verb\">come</strong>",
+          "english_plain": "The strong worker should come",
+          "html": "<span data-case=\"nom\" data-role=\"subject\">ძლიერი მუშა</span> <span data-role=\"verb\">უნდა მოვიდეს</span>",
+          "case_marking": {
+            "subject": {
+              "case": "nom",
+              "word": "მუშა"
+            }
+          },
+          "georgian_verb_form": "მოვიდეს"
+        },
+        {
+          "georgian": "ნელი ბიბლიოთეკარები უნდა მოვიდნენ",
+          "english": "<strong data-role=\"subject\">The slow librarians</strong> <strong data-role=\"verb\">should</strong> <strong data-role=\"verb\">come</strong>",
+          "english_plain": "The slow librarians should come",
+          "html": "<span data-case=\"nom\" data-role=\"subject\">ნელი ბიბლიოთეკარები</span> <span data-role=\"verb\">უნდა მოვიდნენ</span>",
+          "case_marking": {
+            "subject": {
+              "case": "nom",
+              "word": "ბიბლიოთეკარები"
+            }
+          },
+          "georgian_verb_form": "მოვიდნენ"
+        }
+      ],
+      "imperative": [
+        {
+          "georgian": "მოდი",
+          "english": "<strong data-role=\"verb\">come</strong>",
+          "english_plain": "come",
+          "html": " <span data-role=\"verb\">მოდი</span>",
+          "case_marking": {},
+          "georgian_verb_form": "მოდი"
+        },
+        {
+          "georgian": "მოდით",
+          "english": "<strong data-role=\"verb\">come</strong>",
+          "english_plain": "come",
+          "html": " <span data-role=\"verb\">მოდით</span>",
+          "case_marking": {},
+          "georgian_verb_form": "მოდით"
+        }
+      ]
+    },
+    "გა": {
+      "present": [
+        {
+          "georgian": "გავდივარ",
+          "english": "<strong data-role=\"subject\" data-person=\"1sg\">I</strong> <strong data-role=\"verb\">go away</strong>",
+          "english_plain": "I go away",
+          "html": " <span data-role=\"verb\">გავდივარ</span>",
+          "case_marking": {},
+          "georgian_verb_form": "გავდივარ"
+        },
+        {
+          "georgian": "ძლიერი მუშა გადის",
+          "english": "<strong data-role=\"subject\">The strong worker</strong> <strong data-role=\"verb\">go aways</strong>",
+          "english_plain": "The strong worker go aways",
+          "html": "<span data-case=\"nom\" data-role=\"subject\">ძლიერი მუშა</span> <span data-role=\"verb\">გადის</span>",
+          "case_marking": {
+            "subject": {
+              "case": "nom",
+              "word": "მუშა"
+            }
+          },
+          "georgian_verb_form": "გადის"
+        },
+        {
+          "georgian": "ნელი ბიბლიოთეკარები გადიან",
+          "english": "<strong data-role=\"subject\">The slow librarians</strong> <strong data-role=\"verb\">go away</strong>",
+          "english_plain": "The slow librarians go away",
+          "html": "<span data-case=\"nom\" data-role=\"subject\">ნელი ბიბლიოთეკარები</span> <span data-role=\"verb\">გადიან</span>",
+          "case_marking": {
+            "subject": {
+              "case": "nom",
+              "word": "ბიბლიოთეკარები"
+            }
+          },
+          "georgian_verb_form": "გადიან"
+        }
+      ],
+      "imperfect": [
+        {
+          "georgian": "გავდიოდი",
+          "english": "<strong data-role=\"subject\" data-person=\"1sg\">I</strong> <strong data-role=\"verb\">was going away</strong>",
+          "english_plain": "I was going away",
+          "html": " <span data-role=\"verb\">გავდიოდი</span>",
+          "case_marking": {},
+          "georgian_verb_form": "გავდიოდი"
+        },
+        {
+          "georgian": "ძლიერი მუშა გადიოდა",
+          "english": "<strong data-role=\"subject\">The strong worker</strong> <strong data-role=\"verb\">was going away</strong>",
+          "english_plain": "The strong worker was going away",
+          "html": "<span data-case=\"nom\" data-role=\"subject\">ძლიერი მუშა</span> <span data-role=\"verb\">გადიოდა</span>",
+          "case_marking": {
+            "subject": {
+              "case": "nom",
+              "word": "მუშა"
+            }
+          },
+          "georgian_verb_form": "გადიოდა"
+        },
+        {
+          "georgian": "ნელი ბიბლიოთეკარები გადიოდნენ",
+          "english": "<strong data-role=\"subject\">The slow librarians</strong> <strong data-role=\"verb\">were going away</strong>",
+          "english_plain": "The slow librarians were going away",
+          "html": "<span data-case=\"nom\" data-role=\"subject\">ნელი ბიბლიოთეკარები</span> <span data-role=\"verb\">გადიოდნენ</span>",
+          "case_marking": {
+            "subject": {
+              "case": "nom",
+              "word": "ბიბლიოთეკარები"
+            }
+          },
+          "georgian_verb_form": "გადიოდნენ"
+        }
+      ],
+      "future": [
+        {
+          "georgian": "გავალ",
+          "english": "<strong data-role=\"subject\" data-person=\"1sg\">I</strong> <strong data-role=\"verb\">will go away</strong>",
+          "english_plain": "I will go away",
+          "html": " <span data-role=\"verb\">გავალ</span>",
+          "case_marking": {},
+          "georgian_verb_form": "გავალ"
+        },
+        {
+          "georgian": "ძლიერი მუშა გავა",
+          "english": "<strong data-role=\"subject\">The strong worker</strong> <strong data-role=\"verb\">will go away</strong>",
+          "english_plain": "The strong worker will go away",
+          "html": "<span data-case=\"nom\" data-role=\"subject\">ძლიერი მუშა</span> <span data-role=\"verb\">გავა</span>",
+          "case_marking": {
+            "subject": {
+              "case": "nom",
+              "word": "მუშა"
+            }
+          },
+          "georgian_verb_form": "გავა"
+        },
+        {
+          "georgian": "ნელი ბიბლიოთეკარები გავლენ",
+          "english": "<strong data-role=\"subject\">The slow librarians</strong> <strong data-role=\"verb\">will go away</strong>",
+          "english_plain": "The slow librarians will go away",
+          "html": "<span data-case=\"nom\" data-role=\"subject\">ნელი ბიბლიოთეკარები</span> <span data-role=\"verb\">გავლენ</span>",
+          "case_marking": {
+            "subject": {
+              "case": "nom",
+              "word": "ბიბლიოთეკარები"
+            }
+          },
+          "georgian_verb_form": "გავლენ"
+        }
+      ],
+      "aorist": [
+        {
+          "georgian": "გავედი",
+          "english": "<strong data-role=\"subject\" data-person=\"1sg\">I</strong> <strong data-role=\"verb\">went away</strong>",
+          "english_plain": "I went away",
+          "html": " <span data-role=\"verb\">გავედი</span>",
+          "case_marking": {},
+          "georgian_verb_form": "გავედი"
+        },
+        {
+          "georgian": "ძლიერი მუშა გავიდა",
+          "english": "<strong data-role=\"subject\">The strong worker</strong> <strong data-role=\"verb\">went away</strong>",
+          "english_plain": "The strong worker went away",
+          "html": "<span data-case=\"nom\" data-role=\"subject\">ძლიერი მუშა</span> <span data-role=\"verb\">გავიდა</span>",
+          "case_marking": {
+            "subject": {
+              "case": "nom",
+              "word": "მუშა"
+            }
+          },
+          "georgian_verb_form": "გავიდა"
+        },
+        {
+          "georgian": "ნელი ბიბლიოთეკარები გავიდნენ",
+          "english": "<strong data-role=\"subject\">The slow librarians</strong> <strong data-role=\"verb\">went away</strong>",
+          "english_plain": "The slow librarians went away",
+          "html": "<span data-case=\"nom\" data-role=\"subject\">ნელი ბიბლიოთეკარები</span> <span data-role=\"verb\">გავიდნენ</span>",
+          "case_marking": {
+            "subject": {
+              "case": "nom",
+              "word": "ბიბლიოთეკარები"
+            }
+          },
+          "georgian_verb_form": "გავიდნენ"
+        }
+      ],
+      "optative": [
+        {
+          "georgian": "უნდა გავიდე",
+          "english": "<strong data-role=\"subject\" data-person=\"1sg\">I</strong> <strong data-role=\"verb\">should</strong> <strong data-role=\"verb\">go away</strong>",
+          "english_plain": "I should go away",
+          "html": " <span data-role=\"verb\">უნდა გავიდე</span>",
+          "case_marking": {},
+          "georgian_verb_form": "გავიდე"
+        },
+        {
+          "georgian": "ძლიერი მუშა უნდა გავიდეს",
+          "english": "<strong data-role=\"subject\">The strong worker</strong> <strong data-role=\"verb\">should</strong> <strong data-role=\"verb\">go away</strong>",
+          "english_plain": "The strong worker should go away",
+          "html": "<span data-case=\"nom\" data-role=\"subject\">ძლიერი მუშა</span> <span data-role=\"verb\">უნდა გავიდეს</span>",
+          "case_marking": {
+            "subject": {
+              "case": "nom",
+              "word": "მუშა"
+            }
+          },
+          "georgian_verb_form": "გავიდეს"
+        },
+        {
+          "georgian": "ნელი ბიბლიოთეკარები უნდა გავიდნენ",
+          "english": "<strong data-role=\"subject\">The slow librarians</strong> <strong data-role=\"verb\">should</strong> <strong data-role=\"verb\">go away</strong>",
+          "english_plain": "The slow librarians should go away",
+          "html": "<span data-case=\"nom\" data-role=\"subject\">ნელი ბიბლიოთეკარები</span> <span data-role=\"verb\">უნდა გავიდნენ</span>",
+          "case_marking": {
+            "subject": {
+              "case": "nom",
+              "word": "ბიბლიოთეკარები"
+            }
+          },
+          "georgian_verb_form": "გავიდნენ"
+        }
+      ],
+      "imperative": [
+        {
+          "georgian": "გადი",
+          "english": "<strong data-role=\"verb\">go away</strong>",
+          "english_plain": "go away",
+          "html": " <span data-role=\"verb\">გადი</span>",
+          "case_marking": {},
+          "georgian_verb_form": "გადი"
+        },
+        {
+          "georgian": "გადით",
+          "english": "<strong data-role=\"verb\">go away</strong>",
+          "english_plain": "go away",
+          "html": " <span data-role=\"verb\">გადით</span>",
+          "case_marking": {},
+          "georgian_verb_form": "გადით"
+        }
+      ]
+    },
+    "წა": {
+      "present": [
+        {
+          "georgian": "მივდივარ",
+          "english": "<strong data-role=\"subject\" data-person=\"1sg\">I</strong> <strong data-role=\"verb\">go</strong>",
+          "english_plain": "I go",
+          "html": " <span data-role=\"verb\">მივდივარ</span>",
+          "case_marking": {},
+          "georgian_verb_form": "მივდივარ"
+        },
+        {
+          "georgian": "ძლიერი მუშა მიდის",
+          "english": "<strong data-role=\"subject\">The strong worker</strong> <strong data-role=\"verb\">goes</strong>",
+          "english_plain": "The strong worker goes",
+          "html": "<span data-case=\"nom\" data-role=\"subject\">ძლიერი მუშა</span> <span data-role=\"verb\">მიდის</span>",
+          "case_marking": {
+            "subject": {
+              "case": "nom",
+              "word": "მუშა"
+            }
+          },
+          "georgian_verb_form": "მიდის"
+        },
+        {
+          "georgian": "ნელი ბიბლიოთეკარები მიდიან",
+          "english": "<strong data-role=\"subject\">The slow librarians</strong> <strong data-role=\"verb\">go</strong>",
+          "english_plain": "The slow librarians go",
+          "html": "<span data-case=\"nom\" data-role=\"subject\">ნელი ბიბლიოთეკარები</span> <span data-role=\"verb\">მიდიან</span>",
+          "case_marking": {
+            "subject": {
+              "case": "nom",
+              "word": "ბიბლიოთეკარები"
+            }
+          },
+          "georgian_verb_form": "მიდიან"
+        }
+      ],
+      "imperfect": [
+        {
+          "georgian": "მივდიოდი",
+          "english": "<strong data-role=\"subject\" data-person=\"1sg\">I</strong> <strong data-role=\"verb\">was going</strong>",
+          "english_plain": "I was going",
+          "html": " <span data-role=\"verb\">მივდიოდი</span>",
+          "case_marking": {},
+          "georgian_verb_form": "მივდიოდი"
+        },
+        {
+          "georgian": "ძლიერი მუშა მიდიოდა",
+          "english": "<strong data-role=\"subject\">The strong worker</strong> <strong data-role=\"verb\">was going</strong>",
+          "english_plain": "The strong worker was going",
+          "html": "<span data-case=\"nom\" data-role=\"subject\">ძლიერი მუშა</span> <span data-role=\"verb\">მიდიოდა</span>",
+          "case_marking": {
+            "subject": {
+              "case": "nom",
+              "word": "მუშა"
+            }
+          },
+          "georgian_verb_form": "მიდიოდა"
+        },
+        {
+          "georgian": "ნელი ბიბლიოთეკარები მიდიოდნენ",
+          "english": "<strong data-role=\"subject\">The slow librarians</strong> <strong data-role=\"verb\">were going</strong>",
+          "english_plain": "The slow librarians were going",
+          "html": "<span data-case=\"nom\" data-role=\"subject\">ნელი ბიბლიოთეკარები</span> <span data-role=\"verb\">მიდიოდნენ</span>",
+          "case_marking": {
+            "subject": {
+              "case": "nom",
+              "word": "ბიბლიოთეკარები"
+            }
+          },
+          "georgian_verb_form": "მიდიოდნენ"
+        }
+      ],
+      "future": [
+        {
+          "georgian": "წავალ",
+          "english": "<strong data-role=\"subject\" data-person=\"1sg\">I</strong> <strong data-role=\"verb\">will depart</strong>",
+          "english_plain": "I will depart",
+          "html": " <span data-role=\"verb\">წავალ</span>",
+          "case_marking": {},
+          "georgian_verb_form": "წავალ"
+        },
+        {
+          "georgian": "ძლიერი მუშა წავა",
+          "english": "<strong data-role=\"subject\">The strong worker</strong> <strong data-role=\"verb\">will depart</strong>",
+          "english_plain": "The strong worker will depart",
+          "html": "<span data-case=\"nom\" data-role=\"subject\">ძლიერი მუშა</span> <span data-role=\"verb\">წავა</span>",
+          "case_marking": {
+            "subject": {
+              "case": "nom",
+              "word": "მუშა"
+            }
+          },
+          "georgian_verb_form": "წავა"
+        },
+        {
+          "georgian": "ნელი ბიბლიოთეკარები წავლენ",
+          "english": "<strong data-role=\"subject\">The slow librarians</strong> <strong data-role=\"verb\">will depart</strong>",
+          "english_plain": "The slow librarians will depart",
+          "html": "<span data-case=\"nom\" data-role=\"subject\">ნელი ბიბლიოთეკარები</span> <span data-role=\"verb\">წავლენ</span>",
+          "case_marking": {
+            "subject": {
+              "case": "nom",
+              "word": "ბიბლიოთეკარები"
+            }
+          },
+          "georgian_verb_form": "წავლენ"
+        }
+      ],
+      "aorist": [
+        {
+          "georgian": "წავედი",
+          "english": "<strong data-role=\"subject\" data-person=\"1sg\">I</strong> <strong data-role=\"verb\">departed</strong>",
+          "english_plain": "I departed",
+          "html": " <span data-role=\"verb\">წავედი</span>",
+          "case_marking": {},
+          "georgian_verb_form": "წავედი"
+        },
+        {
+          "georgian": "ძლიერი მუშა წავიდა",
+          "english": "<strong data-role=\"subject\">The strong worker</strong> <strong data-role=\"verb\">departed</strong>",
+          "english_plain": "The strong worker departed",
+          "html": "<span data-case=\"nom\" data-role=\"subject\">ძლიერი მუშა</span> <span data-role=\"verb\">წავიდა</span>",
+          "case_marking": {
+            "subject": {
+              "case": "nom",
+              "word": "მუშა"
+            }
+          },
+          "georgian_verb_form": "წავიდა"
+        },
+        {
+          "georgian": "ნელი ბიბლიოთეკარები წავიდნენ",
+          "english": "<strong data-role=\"subject\">The slow librarians</strong> <strong data-role=\"verb\">departed</strong>",
+          "english_plain": "The slow librarians departed",
+          "html": "<span data-case=\"nom\" data-role=\"subject\">ნელი ბიბლიოთეკარები</span> <span data-role=\"verb\">წავიდნენ</span>",
+          "case_marking": {
+            "subject": {
+              "case": "nom",
+              "word": "ბიბლიოთეკარები"
+            }
+          },
+          "georgian_verb_form": "წავიდნენ"
+        }
+      ],
+      "optative": [
+        {
+          "georgian": "უნდა წავიდე",
+          "english": "<strong data-role=\"subject\" data-person=\"1sg\">I</strong> <strong data-role=\"verb\">should</strong> <strong data-role=\"verb\">depart</strong>",
+          "english_plain": "I should depart",
+          "html": " <span data-role=\"verb\">უნდა წავიდე</span>",
+          "case_marking": {},
+          "georgian_verb_form": "წავიდე"
+        },
+        {
+          "georgian": "ძლიერი მუშა უნდა წავიდეს",
+          "english": "<strong data-role=\"subject\">The strong worker</strong> <strong data-role=\"verb\">should</strong> <strong data-role=\"verb\">depart</strong>",
+          "english_plain": "The strong worker should depart",
+          "html": "<span data-case=\"nom\" data-role=\"subject\">ძლიერი მუშა</span> <span data-role=\"verb\">უნდა წავიდეს</span>",
+          "case_marking": {
+            "subject": {
+              "case": "nom",
+              "word": "მუშა"
+            }
+          },
+          "georgian_verb_form": "წავიდეს"
+        },
+        {
+          "georgian": "ნელი ბიბლიოთეკარები უნდა წავიდნენ",
+          "english": "<strong data-role=\"subject\">The slow librarians</strong> <strong data-role=\"verb\">should</strong> <strong data-role=\"verb\">depart</strong>",
+          "english_plain": "The slow librarians should depart",
+          "html": "<span data-case=\"nom\" data-role=\"subject\">ნელი ბიბლიოთეკარები</span> <span data-role=\"verb\">უნდა წავიდნენ</span>",
+          "case_marking": {
+            "subject": {
+              "case": "nom",
+              "word": "ბიბლიოთეკარები"
+            }
+          },
+          "georgian_verb_form": "წავიდნენ"
+        }
+      ],
+      "imperative": [
+        {
+          "georgian": "წადი",
+          "english": "<strong data-role=\"verb\">depart</strong>",
+          "english_plain": "depart",
+          "html": " <span data-role=\"verb\">წადი</span>",
+          "case_marking": {},
+          "georgian_verb_form": "წადი"
+        },
+        {
+          "georgian": "წადით",
+          "english": "<strong data-role=\"verb\">depart</strong>",
+          "english_plain": "depart",
+          "html": " <span data-role=\"verb\">წადით</span>",
+          "case_marking": {},
+          "georgian_verb_form": "წადით"
+        }
+      ]
+    }
+  },
+  "gloss_analysis": {
+    "მი": {
+      "present": {
+        "raw_gloss": "V MedPass Pres Pv <S> <S:Nom>",
+        "structured_gloss": {
+          "raw_components": [
+            {
+              "text": "V",
+              "component_type": "verb",
+              "color_class": "gloss-verb",
+              "description": "Verb"
+            },
+            {
+              "text": "MedPass",
+              "component_type": "voice",
+              "color_class": "gloss-voice",
+              "description": "Mediopassive"
+            },
+            {
+              "text": "Pres",
+              "component_type": "tense",
+              "color_class": "gloss-tense",
+              "description": "Present"
+            },
+            {
+              "text": "Pv",
+              "component_type": "preverb",
+              "color_class": "gloss-preverb",
+              "description": "Preverb"
+            },
+            {
+              "text": "<S>",
+              "component_type": "argument_pattern",
+              "color_class": "gloss-argument",
+              "description": "Intransitive absolute"
+            },
+            {
+              "text": "<S:Nom>",
+              "component_type": "case_spec",
+              "color_class": "gloss-case",
+              "description": "Nominative subject"
+            }
+          ],
+          "expanded_components": [
+            {
+              "text": "V",
+              "component_type": "verb",
+              "color_class": "gloss-verb",
+              "description": "Verb"
+            },
+            {
+              "text": "MedPass",
+              "component_type": "voice",
+              "color_class": "gloss-voice",
+              "description": "Mediopassive"
+            },
+            {
+              "text": "Pres",
+              "component_type": "tense",
+              "color_class": "gloss-tense",
+              "description": "Present"
+            },
+            {
+              "text": "Pv",
+              "component_type": "preverb",
+              "color_class": "gloss-preverb",
+              "description": "Preverb"
+            },
+            {
+              "text": "<S>",
+              "component_type": "argument_pattern",
+              "color_class": "gloss-argument",
+              "description": "Intransitive absolute"
+            },
+            {
+              "text": "<S:Nom>",
+              "component_type": "case_spec",
+              "color_class": "gloss-subject",
+              "description": "Nominative subject"
+            }
+          ],
+          "argument_pattern": "<S>",
+          "case_specifications": [
+            "<S:Nom>"
+          ]
+        }
+      },
+      "imperfect": {
+        "raw_gloss": "V MedPass Impf Pv <S> <S:Nom>",
+        "structured_gloss": {
+          "raw_components": [
+            {
+              "text": "V",
+              "component_type": "verb",
+              "color_class": "gloss-verb",
+              "description": "Verb"
+            },
+            {
+              "text": "MedPass",
+              "component_type": "voice",
+              "color_class": "gloss-voice",
+              "description": "Mediopassive"
+            },
+            {
+              "text": "Impf",
+              "component_type": "tense",
+              "color_class": "gloss-tense",
+              "description": "Imperfect"
+            },
+            {
+              "text": "Pv",
+              "component_type": "preverb",
+              "color_class": "gloss-preverb",
+              "description": "Preverb"
+            },
+            {
+              "text": "<S>",
+              "component_type": "argument_pattern",
+              "color_class": "gloss-argument",
+              "description": "Intransitive absolute"
+            },
+            {
+              "text": "<S:Nom>",
+              "component_type": "case_spec",
+              "color_class": "gloss-case",
+              "description": "Nominative subject"
+            }
+          ],
+          "expanded_components": [
+            {
+              "text": "V",
+              "component_type": "verb",
+              "color_class": "gloss-verb",
+              "description": "Verb"
+            },
+            {
+              "text": "MedPass",
+              "component_type": "voice",
+              "color_class": "gloss-voice",
+              "description": "Mediopassive"
+            },
+            {
+              "text": "Impf",
+              "component_type": "tense",
+              "color_class": "gloss-tense",
+              "description": "Imperfect"
+            },
+            {
+              "text": "Pv",
+              "component_type": "preverb",
+              "color_class": "gloss-preverb",
+              "description": "Preverb"
+            },
+            {
+              "text": "<S>",
+              "component_type": "argument_pattern",
+              "color_class": "gloss-argument",
+              "description": "Intransitive absolute"
+            },
+            {
+              "text": "<S:Nom>",
+              "component_type": "case_spec",
+              "color_class": "gloss-subject",
+              "description": "Nominative subject"
+            }
+          ],
+          "argument_pattern": "<S>",
+          "case_specifications": [
+            "<S:Nom>"
+          ]
+        }
+      },
+      "future": {
+        "raw_gloss": "V MedPass Fut Pv <S> <S:Nom>",
+        "structured_gloss": {
+          "raw_components": [
+            {
+              "text": "V",
+              "component_type": "verb",
+              "color_class": "gloss-verb",
+              "description": "Verb"
+            },
+            {
+              "text": "MedPass",
+              "component_type": "voice",
+              "color_class": "gloss-voice",
+              "description": "Mediopassive"
+            },
+            {
+              "text": "Fut",
+              "component_type": "tense",
+              "color_class": "gloss-tense",
+              "description": "Future"
+            },
+            {
+              "text": "Pv",
+              "component_type": "preverb",
+              "color_class": "gloss-preverb",
+              "description": "Preverb"
+            },
+            {
+              "text": "<S>",
+              "component_type": "argument_pattern",
+              "color_class": "gloss-argument",
+              "description": "Intransitive absolute"
+            },
+            {
+              "text": "<S:Nom>",
+              "component_type": "case_spec",
+              "color_class": "gloss-case",
+              "description": "Nominative subject"
+            }
+          ],
+          "expanded_components": [
+            {
+              "text": "V",
+              "component_type": "verb",
+              "color_class": "gloss-verb",
+              "description": "Verb"
+            },
+            {
+              "text": "MedPass",
+              "component_type": "voice",
+              "color_class": "gloss-voice",
+              "description": "Mediopassive"
+            },
+            {
+              "text": "Fut",
+              "component_type": "tense",
+              "color_class": "gloss-tense",
+              "description": "Future"
+            },
+            {
+              "text": "Pv",
+              "component_type": "preverb",
+              "color_class": "gloss-preverb",
+              "description": "Preverb"
+            },
+            {
+              "text": "<S>",
+              "component_type": "argument_pattern",
+              "color_class": "gloss-argument",
+              "description": "Intransitive absolute"
+            },
+            {
+              "text": "<S:Nom>",
+              "component_type": "case_spec",
+              "color_class": "gloss-subject",
+              "description": "Nominative subject"
+            }
+          ],
+          "argument_pattern": "<S>",
+          "case_specifications": [
+            "<S:Nom>"
+          ]
+        }
+      },
+      "aorist": {
+        "raw_gloss": "V MedPass Aor Pv <S> <S:Nom>",
+        "structured_gloss": {
+          "raw_components": [
+            {
+              "text": "V",
+              "component_type": "verb",
+              "color_class": "gloss-verb",
+              "description": "Verb"
+            },
+            {
+              "text": "MedPass",
+              "component_type": "voice",
+              "color_class": "gloss-voice",
+              "description": "Mediopassive"
+            },
+            {
+              "text": "Aor",
+              "component_type": "tense",
+              "color_class": "gloss-tense",
+              "description": "Aorist"
+            },
+            {
+              "text": "Pv",
+              "component_type": "preverb",
+              "color_class": "gloss-preverb",
+              "description": "Preverb"
+            },
+            {
+              "text": "<S>",
+              "component_type": "argument_pattern",
+              "color_class": "gloss-argument",
+              "description": "Intransitive absolute"
+            },
+            {
+              "text": "<S:Nom>",
+              "component_type": "case_spec",
+              "color_class": "gloss-case",
+              "description": "Nominative subject"
+            }
+          ],
+          "expanded_components": [
+            {
+              "text": "V",
+              "component_type": "verb",
+              "color_class": "gloss-verb",
+              "description": "Verb"
+            },
+            {
+              "text": "MedPass",
+              "component_type": "voice",
+              "color_class": "gloss-voice",
+              "description": "Mediopassive"
+            },
+            {
+              "text": "Aor",
+              "component_type": "tense",
+              "color_class": "gloss-tense",
+              "description": "Aorist"
+            },
+            {
+              "text": "Pv",
+              "component_type": "preverb",
+              "color_class": "gloss-preverb",
+              "description": "Preverb"
+            },
+            {
+              "text": "<S>",
+              "component_type": "argument_pattern",
+              "color_class": "gloss-argument",
+              "description": "Intransitive absolute"
+            },
+            {
+              "text": "<S:Nom>",
+              "component_type": "case_spec",
+              "color_class": "gloss-subject",
+              "description": "Nominative subject"
+            }
+          ],
+          "argument_pattern": "<S>",
+          "case_specifications": [
+            "<S:Nom>"
+          ]
+        }
+      },
+      "optative": {
+        "raw_gloss": "V MedPass Opt Pv <S> <S:Nom>",
+        "structured_gloss": {
+          "raw_components": [
+            {
+              "text": "V",
+              "component_type": "verb",
+              "color_class": "gloss-verb",
+              "description": "Verb"
+            },
+            {
+              "text": "MedPass",
+              "component_type": "voice",
+              "color_class": "gloss-voice",
+              "description": "Mediopassive"
+            },
+            {
+              "text": "Opt",
+              "component_type": "tense",
+              "color_class": "gloss-tense",
+              "description": "Optative"
+            },
+            {
+              "text": "Pv",
+              "component_type": "preverb",
+              "color_class": "gloss-preverb",
+              "description": "Preverb"
+            },
+            {
+              "text": "<S>",
+              "component_type": "argument_pattern",
+              "color_class": "gloss-argument",
+              "description": "Intransitive absolute"
+            },
+            {
+              "text": "<S:Nom>",
+              "component_type": "case_spec",
+              "color_class": "gloss-case",
+              "description": "Nominative subject"
+            }
+          ],
+          "expanded_components": [
+            {
+              "text": "V",
+              "component_type": "verb",
+              "color_class": "gloss-verb",
+              "description": "Verb"
+            },
+            {
+              "text": "MedPass",
+              "component_type": "voice",
+              "color_class": "gloss-voice",
+              "description": "Mediopassive"
+            },
+            {
+              "text": "Opt",
+              "component_type": "tense",
+              "color_class": "gloss-tense",
+              "description": "Optative"
+            },
+            {
+              "text": "Pv",
+              "component_type": "preverb",
+              "color_class": "gloss-preverb",
+              "description": "Preverb"
+            },
+            {
+              "text": "<S>",
+              "component_type": "argument_pattern",
+              "color_class": "gloss-argument",
+              "description": "Intransitive absolute"
+            },
+            {
+              "text": "<S:Nom>",
+              "component_type": "case_spec",
+              "color_class": "gloss-subject",
+              "description": "Nominative subject"
+            }
+          ],
+          "argument_pattern": "<S>",
+          "case_specifications": [
+            "<S:Nom>"
+          ]
+        }
+      },
+      "imperative": {
+        "raw_gloss": "V MedPass Impv Pv <S> <S:Nom>",
+        "structured_gloss": {
+          "raw_components": [
+            {
+              "text": "V",
+              "component_type": "verb",
+              "color_class": "gloss-verb",
+              "description": "Verb"
+            },
+            {
+              "text": "MedPass",
+              "component_type": "voice",
+              "color_class": "gloss-voice",
+              "description": "Mediopassive"
+            },
+            {
+              "text": "Impv",
+              "component_type": "tense",
+              "color_class": "gloss-tense",
+              "description": "Imperative"
+            },
+            {
+              "text": "Pv",
+              "component_type": "preverb",
+              "color_class": "gloss-preverb",
+              "description": "Preverb"
+            },
+            {
+              "text": "<S>",
+              "component_type": "argument_pattern",
+              "color_class": "gloss-argument",
+              "description": "Intransitive absolute"
+            },
+            {
+              "text": "<S:Nom>",
+              "component_type": "case_spec",
+              "color_class": "gloss-case",
+              "description": "Nominative subject"
+            }
+          ],
+          "expanded_components": [
+            {
+              "text": "V",
+              "component_type": "verb",
+              "color_class": "gloss-verb",
+              "description": "Verb"
+            },
+            {
+              "text": "MedPass",
+              "component_type": "voice",
+              "color_class": "gloss-voice",
+              "description": "Mediopassive"
+            },
+            {
+              "text": "Impv",
+              "component_type": "tense",
+              "color_class": "gloss-tense",
+              "description": "Imperative"
+            },
+            {
+              "text": "Pv",
+              "component_type": "preverb",
+              "color_class": "gloss-preverb",
+              "description": "Preverb"
+            },
+            {
+              "text": "<S>",
+              "component_type": "argument_pattern",
+              "color_class": "gloss-argument",
+              "description": "Intransitive absolute"
+            },
+            {
+              "text": "<S:Nom>",
+              "component_type": "case_spec",
+              "color_class": "gloss-subject",
+              "description": "Nominative subject"
+            }
+          ],
+          "argument_pattern": "<S>",
+          "case_specifications": [
+            "<S:Nom>"
+          ]
+        }
+      }
+    },
+    "მო": {
+      "present": {
+        "raw_gloss": "V MedPass Pres Pv <S> <S:Nom>",
+        "structured_gloss": {
+          "raw_components": [
+            {
+              "text": "V",
+              "component_type": "verb",
+              "color_class": "gloss-verb",
+              "description": "Verb"
+            },
+            {
+              "text": "MedPass",
+              "component_type": "voice",
+              "color_class": "gloss-voice",
+              "description": "Mediopassive"
+            },
+            {
+              "text": "Pres",
+              "component_type": "tense",
+              "color_class": "gloss-tense",
+              "description": "Present"
+            },
+            {
+              "text": "Pv",
+              "component_type": "preverb",
+              "color_class": "gloss-preverb",
+              "description": "Preverb"
+            },
+            {
+              "text": "<S>",
+              "component_type": "argument_pattern",
+              "color_class": "gloss-argument",
+              "description": "Intransitive absolute"
+            },
+            {
+              "text": "<S:Nom>",
+              "component_type": "case_spec",
+              "color_class": "gloss-case",
+              "description": "Nominative subject"
+            }
+          ],
+          "expanded_components": [
+            {
+              "text": "V",
+              "component_type": "verb",
+              "color_class": "gloss-verb",
+              "description": "Verb"
+            },
+            {
+              "text": "MedPass",
+              "component_type": "voice",
+              "color_class": "gloss-voice",
+              "description": "Mediopassive"
+            },
+            {
+              "text": "Pres",
+              "component_type": "tense",
+              "color_class": "gloss-tense",
+              "description": "Present"
+            },
+            {
+              "text": "Pv",
+              "component_type": "preverb",
+              "color_class": "gloss-preverb",
+              "description": "Preverb"
+            },
+            {
+              "text": "<S>",
+              "component_type": "argument_pattern",
+              "color_class": "gloss-argument",
+              "description": "Intransitive absolute"
+            },
+            {
+              "text": "<S:Nom>",
+              "component_type": "case_spec",
+              "color_class": "gloss-subject",
+              "description": "Nominative subject"
+            }
+          ],
+          "argument_pattern": "<S>",
+          "case_specifications": [
+            "<S:Nom>"
+          ]
+        }
+      },
+      "imperfect": {
+        "raw_gloss": "V MedPass Impf Pv <S> <S:Nom>",
+        "structured_gloss": {
+          "raw_components": [
+            {
+              "text": "V",
+              "component_type": "verb",
+              "color_class": "gloss-verb",
+              "description": "Verb"
+            },
+            {
+              "text": "MedPass",
+              "component_type": "voice",
+              "color_class": "gloss-voice",
+              "description": "Mediopassive"
+            },
+            {
+              "text": "Impf",
+              "component_type": "tense",
+              "color_class": "gloss-tense",
+              "description": "Imperfect"
+            },
+            {
+              "text": "Pv",
+              "component_type": "preverb",
+              "color_class": "gloss-preverb",
+              "description": "Preverb"
+            },
+            {
+              "text": "<S>",
+              "component_type": "argument_pattern",
+              "color_class": "gloss-argument",
+              "description": "Intransitive absolute"
+            },
+            {
+              "text": "<S:Nom>",
+              "component_type": "case_spec",
+              "color_class": "gloss-case",
+              "description": "Nominative subject"
+            }
+          ],
+          "expanded_components": [
+            {
+              "text": "V",
+              "component_type": "verb",
+              "color_class": "gloss-verb",
+              "description": "Verb"
+            },
+            {
+              "text": "MedPass",
+              "component_type": "voice",
+              "color_class": "gloss-voice",
+              "description": "Mediopassive"
+            },
+            {
+              "text": "Impf",
+              "component_type": "tense",
+              "color_class": "gloss-tense",
+              "description": "Imperfect"
+            },
+            {
+              "text": "Pv",
+              "component_type": "preverb",
+              "color_class": "gloss-preverb",
+              "description": "Preverb"
+            },
+            {
+              "text": "<S>",
+              "component_type": "argument_pattern",
+              "color_class": "gloss-argument",
+              "description": "Intransitive absolute"
+            },
+            {
+              "text": "<S:Nom>",
+              "component_type": "case_spec",
+              "color_class": "gloss-subject",
+              "description": "Nominative subject"
+            }
+          ],
+          "argument_pattern": "<S>",
+          "case_specifications": [
+            "<S:Nom>"
+          ]
+        }
+      },
+      "future": {
+        "raw_gloss": "V MedPass Fut Pv <S> <S:Nom>",
+        "structured_gloss": {
+          "raw_components": [
+            {
+              "text": "V",
+              "component_type": "verb",
+              "color_class": "gloss-verb",
+              "description": "Verb"
+            },
+            {
+              "text": "MedPass",
+              "component_type": "voice",
+              "color_class": "gloss-voice",
+              "description": "Mediopassive"
+            },
+            {
+              "text": "Fut",
+              "component_type": "tense",
+              "color_class": "gloss-tense",
+              "description": "Future"
+            },
+            {
+              "text": "Pv",
+              "component_type": "preverb",
+              "color_class": "gloss-preverb",
+              "description": "Preverb"
+            },
+            {
+              "text": "<S>",
+              "component_type": "argument_pattern",
+              "color_class": "gloss-argument",
+              "description": "Intransitive absolute"
+            },
+            {
+              "text": "<S:Nom>",
+              "component_type": "case_spec",
+              "color_class": "gloss-case",
+              "description": "Nominative subject"
+            }
+          ],
+          "expanded_components": [
+            {
+              "text": "V",
+              "component_type": "verb",
+              "color_class": "gloss-verb",
+              "description": "Verb"
+            },
+            {
+              "text": "MedPass",
+              "component_type": "voice",
+              "color_class": "gloss-voice",
+              "description": "Mediopassive"
+            },
+            {
+              "text": "Fut",
+              "component_type": "tense",
+              "color_class": "gloss-tense",
+              "description": "Future"
+            },
+            {
+              "text": "Pv",
+              "component_type": "preverb",
+              "color_class": "gloss-preverb",
+              "description": "Preverb"
+            },
+            {
+              "text": "<S>",
+              "component_type": "argument_pattern",
+              "color_class": "gloss-argument",
+              "description": "Intransitive absolute"
+            },
+            {
+              "text": "<S:Nom>",
+              "component_type": "case_spec",
+              "color_class": "gloss-subject",
+              "description": "Nominative subject"
+            }
+          ],
+          "argument_pattern": "<S>",
+          "case_specifications": [
+            "<S:Nom>"
+          ]
+        }
+      },
+      "aorist": {
+        "raw_gloss": "V MedPass Aor Pv <S> <S:Nom>",
+        "structured_gloss": {
+          "raw_components": [
+            {
+              "text": "V",
+              "component_type": "verb",
+              "color_class": "gloss-verb",
+              "description": "Verb"
+            },
+            {
+              "text": "MedPass",
+              "component_type": "voice",
+              "color_class": "gloss-voice",
+              "description": "Mediopassive"
+            },
+            {
+              "text": "Aor",
+              "component_type": "tense",
+              "color_class": "gloss-tense",
+              "description": "Aorist"
+            },
+            {
+              "text": "Pv",
+              "component_type": "preverb",
+              "color_class": "gloss-preverb",
+              "description": "Preverb"
+            },
+            {
+              "text": "<S>",
+              "component_type": "argument_pattern",
+              "color_class": "gloss-argument",
+              "description": "Intransitive absolute"
+            },
+            {
+              "text": "<S:Nom>",
+              "component_type": "case_spec",
+              "color_class": "gloss-case",
+              "description": "Nominative subject"
+            }
+          ],
+          "expanded_components": [
+            {
+              "text": "V",
+              "component_type": "verb",
+              "color_class": "gloss-verb",
+              "description": "Verb"
+            },
+            {
+              "text": "MedPass",
+              "component_type": "voice",
+              "color_class": "gloss-voice",
+              "description": "Mediopassive"
+            },
+            {
+              "text": "Aor",
+              "component_type": "tense",
+              "color_class": "gloss-tense",
+              "description": "Aorist"
+            },
+            {
+              "text": "Pv",
+              "component_type": "preverb",
+              "color_class": "gloss-preverb",
+              "description": "Preverb"
+            },
+            {
+              "text": "<S>",
+              "component_type": "argument_pattern",
+              "color_class": "gloss-argument",
+              "description": "Intransitive absolute"
+            },
+            {
+              "text": "<S:Nom>",
+              "component_type": "case_spec",
+              "color_class": "gloss-subject",
+              "description": "Nominative subject"
+            }
+          ],
+          "argument_pattern": "<S>",
+          "case_specifications": [
+            "<S:Nom>"
+          ]
+        }
+      },
+      "optative": {
+        "raw_gloss": "V MedPass Opt Pv <S> <S:Nom>",
+        "structured_gloss": {
+          "raw_components": [
+            {
+              "text": "V",
+              "component_type": "verb",
+              "color_class": "gloss-verb",
+              "description": "Verb"
+            },
+            {
+              "text": "MedPass",
+              "component_type": "voice",
+              "color_class": "gloss-voice",
+              "description": "Mediopassive"
+            },
+            {
+              "text": "Opt",
+              "component_type": "tense",
+              "color_class": "gloss-tense",
+              "description": "Optative"
+            },
+            {
+              "text": "Pv",
+              "component_type": "preverb",
+              "color_class": "gloss-preverb",
+              "description": "Preverb"
+            },
+            {
+              "text": "<S>",
+              "component_type": "argument_pattern",
+              "color_class": "gloss-argument",
+              "description": "Intransitive absolute"
+            },
+            {
+              "text": "<S:Nom>",
+              "component_type": "case_spec",
+              "color_class": "gloss-case",
+              "description": "Nominative subject"
+            }
+          ],
+          "expanded_components": [
+            {
+              "text": "V",
+              "component_type": "verb",
+              "color_class": "gloss-verb",
+              "description": "Verb"
+            },
+            {
+              "text": "MedPass",
+              "component_type": "voice",
+              "color_class": "gloss-voice",
+              "description": "Mediopassive"
+            },
+            {
+              "text": "Opt",
+              "component_type": "tense",
+              "color_class": "gloss-tense",
+              "description": "Optative"
+            },
+            {
+              "text": "Pv",
+              "component_type": "preverb",
+              "color_class": "gloss-preverb",
+              "description": "Preverb"
+            },
+            {
+              "text": "<S>",
+              "component_type": "argument_pattern",
+              "color_class": "gloss-argument",
+              "description": "Intransitive absolute"
+            },
+            {
+              "text": "<S:Nom>",
+              "component_type": "case_spec",
+              "color_class": "gloss-subject",
+              "description": "Nominative subject"
+            }
+          ],
+          "argument_pattern": "<S>",
+          "case_specifications": [
+            "<S:Nom>"
+          ]
+        }
+      },
+      "imperative": {
+        "raw_gloss": "V MedPass Impv Pv <S> <S:Nom>",
+        "structured_gloss": {
+          "raw_components": [
+            {
+              "text": "V",
+              "component_type": "verb",
+              "color_class": "gloss-verb",
+              "description": "Verb"
+            },
+            {
+              "text": "MedPass",
+              "component_type": "voice",
+              "color_class": "gloss-voice",
+              "description": "Mediopassive"
+            },
+            {
+              "text": "Impv",
+              "component_type": "tense",
+              "color_class": "gloss-tense",
+              "description": "Imperative"
+            },
+            {
+              "text": "Pv",
+              "component_type": "preverb",
+              "color_class": "gloss-preverb",
+              "description": "Preverb"
+            },
+            {
+              "text": "<S>",
+              "component_type": "argument_pattern",
+              "color_class": "gloss-argument",
+              "description": "Intransitive absolute"
+            },
+            {
+              "text": "<S:Nom>",
+              "component_type": "case_spec",
+              "color_class": "gloss-case",
+              "description": "Nominative subject"
+            }
+          ],
+          "expanded_components": [
+            {
+              "text": "V",
+              "component_type": "verb",
+              "color_class": "gloss-verb",
+              "description": "Verb"
+            },
+            {
+              "text": "MedPass",
+              "component_type": "voice",
+              "color_class": "gloss-voice",
+              "description": "Mediopassive"
+            },
+            {
+              "text": "Impv",
+              "component_type": "tense",
+              "color_class": "gloss-tense",
+              "description": "Imperative"
+            },
+            {
+              "text": "Pv",
+              "component_type": "preverb",
+              "color_class": "gloss-preverb",
+              "description": "Preverb"
+            },
+            {
+              "text": "<S>",
+              "component_type": "argument_pattern",
+              "color_class": "gloss-argument",
+              "description": "Intransitive absolute"
+            },
+            {
+              "text": "<S:Nom>",
+              "component_type": "case_spec",
+              "color_class": "gloss-subject",
+              "description": "Nominative subject"
+            }
+          ],
+          "argument_pattern": "<S>",
+          "case_specifications": [
+            "<S:Nom>"
+          ]
+        }
+      }
+    },
+    "გა": {
+      "present": {
+        "raw_gloss": "V MedPass Pres Pv <S> <S:Nom>",
+        "structured_gloss": {
+          "raw_components": [
+            {
+              "text": "V",
+              "component_type": "verb",
+              "color_class": "gloss-verb",
+              "description": "Verb"
+            },
+            {
+              "text": "MedPass",
+              "component_type": "voice",
+              "color_class": "gloss-voice",
+              "description": "Mediopassive"
+            },
+            {
+              "text": "Pres",
+              "component_type": "tense",
+              "color_class": "gloss-tense",
+              "description": "Present"
+            },
+            {
+              "text": "Pv",
+              "component_type": "preverb",
+              "color_class": "gloss-preverb",
+              "description": "Preverb"
+            },
+            {
+              "text": "<S>",
+              "component_type": "argument_pattern",
+              "color_class": "gloss-argument",
+              "description": "Intransitive absolute"
+            },
+            {
+              "text": "<S:Nom>",
+              "component_type": "case_spec",
+              "color_class": "gloss-case",
+              "description": "Nominative subject"
+            }
+          ],
+          "expanded_components": [
+            {
+              "text": "V",
+              "component_type": "verb",
+              "color_class": "gloss-verb",
+              "description": "Verb"
+            },
+            {
+              "text": "MedPass",
+              "component_type": "voice",
+              "color_class": "gloss-voice",
+              "description": "Mediopassive"
+            },
+            {
+              "text": "Pres",
+              "component_type": "tense",
+              "color_class": "gloss-tense",
+              "description": "Present"
+            },
+            {
+              "text": "Pv",
+              "component_type": "preverb",
+              "color_class": "gloss-preverb",
+              "description": "Preverb"
+            },
+            {
+              "text": "<S>",
+              "component_type": "argument_pattern",
+              "color_class": "gloss-argument",
+              "description": "Intransitive absolute"
+            },
+            {
+              "text": "<S:Nom>",
+              "component_type": "case_spec",
+              "color_class": "gloss-subject",
+              "description": "Nominative subject"
+            }
+          ],
+          "argument_pattern": "<S>",
+          "case_specifications": [
+            "<S:Nom>"
+          ]
+        }
+      },
+      "imperfect": {
+        "raw_gloss": "V MedPass Impf Pv <S> <S:Nom>",
+        "structured_gloss": {
+          "raw_components": [
+            {
+              "text": "V",
+              "component_type": "verb",
+              "color_class": "gloss-verb",
+              "description": "Verb"
+            },
+            {
+              "text": "MedPass",
+              "component_type": "voice",
+              "color_class": "gloss-voice",
+              "description": "Mediopassive"
+            },
+            {
+              "text": "Impf",
+              "component_type": "tense",
+              "color_class": "gloss-tense",
+              "description": "Imperfect"
+            },
+            {
+              "text": "Pv",
+              "component_type": "preverb",
+              "color_class": "gloss-preverb",
+              "description": "Preverb"
+            },
+            {
+              "text": "<S>",
+              "component_type": "argument_pattern",
+              "color_class": "gloss-argument",
+              "description": "Intransitive absolute"
+            },
+            {
+              "text": "<S:Nom>",
+              "component_type": "case_spec",
+              "color_class": "gloss-case",
+              "description": "Nominative subject"
+            }
+          ],
+          "expanded_components": [
+            {
+              "text": "V",
+              "component_type": "verb",
+              "color_class": "gloss-verb",
+              "description": "Verb"
+            },
+            {
+              "text": "MedPass",
+              "component_type": "voice",
+              "color_class": "gloss-voice",
+              "description": "Mediopassive"
+            },
+            {
+              "text": "Impf",
+              "component_type": "tense",
+              "color_class": "gloss-tense",
+              "description": "Imperfect"
+            },
+            {
+              "text": "Pv",
+              "component_type": "preverb",
+              "color_class": "gloss-preverb",
+              "description": "Preverb"
+            },
+            {
+              "text": "<S>",
+              "component_type": "argument_pattern",
+              "color_class": "gloss-argument",
+              "description": "Intransitive absolute"
+            },
+            {
+              "text": "<S:Nom>",
+              "component_type": "case_spec",
+              "color_class": "gloss-subject",
+              "description": "Nominative subject"
+            }
+          ],
+          "argument_pattern": "<S>",
+          "case_specifications": [
+            "<S:Nom>"
+          ]
+        }
+      },
+      "future": {
+        "raw_gloss": "V MedPass Fut Pv <S> <S:Nom>",
+        "structured_gloss": {
+          "raw_components": [
+            {
+              "text": "V",
+              "component_type": "verb",
+              "color_class": "gloss-verb",
+              "description": "Verb"
+            },
+            {
+              "text": "MedPass",
+              "component_type": "voice",
+              "color_class": "gloss-voice",
+              "description": "Mediopassive"
+            },
+            {
+              "text": "Fut",
+              "component_type": "tense",
+              "color_class": "gloss-tense",
+              "description": "Future"
+            },
+            {
+              "text": "Pv",
+              "component_type": "preverb",
+              "color_class": "gloss-preverb",
+              "description": "Preverb"
+            },
+            {
+              "text": "<S>",
+              "component_type": "argument_pattern",
+              "color_class": "gloss-argument",
+              "description": "Intransitive absolute"
+            },
+            {
+              "text": "<S:Nom>",
+              "component_type": "case_spec",
+              "color_class": "gloss-case",
+              "description": "Nominative subject"
+            }
+          ],
+          "expanded_components": [
+            {
+              "text": "V",
+              "component_type": "verb",
+              "color_class": "gloss-verb",
+              "description": "Verb"
+            },
+            {
+              "text": "MedPass",
+              "component_type": "voice",
+              "color_class": "gloss-voice",
+              "description": "Mediopassive"
+            },
+            {
+              "text": "Fut",
+              "component_type": "tense",
+              "color_class": "gloss-tense",
+              "description": "Future"
+            },
+            {
+              "text": "Pv",
+              "component_type": "preverb",
+              "color_class": "gloss-preverb",
+              "description": "Preverb"
+            },
+            {
+              "text": "<S>",
+              "component_type": "argument_pattern",
+              "color_class": "gloss-argument",
+              "description": "Intransitive absolute"
+            },
+            {
+              "text": "<S:Nom>",
+              "component_type": "case_spec",
+              "color_class": "gloss-subject",
+              "description": "Nominative subject"
+            }
+          ],
+          "argument_pattern": "<S>",
+          "case_specifications": [
+            "<S:Nom>"
+          ]
+        }
+      },
+      "aorist": {
+        "raw_gloss": "V MedPass Aor Pv <S> <S:Nom>",
+        "structured_gloss": {
+          "raw_components": [
+            {
+              "text": "V",
+              "component_type": "verb",
+              "color_class": "gloss-verb",
+              "description": "Verb"
+            },
+            {
+              "text": "MedPass",
+              "component_type": "voice",
+              "color_class": "gloss-voice",
+              "description": "Mediopassive"
+            },
+            {
+              "text": "Aor",
+              "component_type": "tense",
+              "color_class": "gloss-tense",
+              "description": "Aorist"
+            },
+            {
+              "text": "Pv",
+              "component_type": "preverb",
+              "color_class": "gloss-preverb",
+              "description": "Preverb"
+            },
+            {
+              "text": "<S>",
+              "component_type": "argument_pattern",
+              "color_class": "gloss-argument",
+              "description": "Intransitive absolute"
+            },
+            {
+              "text": "<S:Nom>",
+              "component_type": "case_spec",
+              "color_class": "gloss-case",
+              "description": "Nominative subject"
+            }
+          ],
+          "expanded_components": [
+            {
+              "text": "V",
+              "component_type": "verb",
+              "color_class": "gloss-verb",
+              "description": "Verb"
+            },
+            {
+              "text": "MedPass",
+              "component_type": "voice",
+              "color_class": "gloss-voice",
+              "description": "Mediopassive"
+            },
+            {
+              "text": "Aor",
+              "component_type": "tense",
+              "color_class": "gloss-tense",
+              "description": "Aorist"
+            },
+            {
+              "text": "Pv",
+              "component_type": "preverb",
+              "color_class": "gloss-preverb",
+              "description": "Preverb"
+            },
+            {
+              "text": "<S>",
+              "component_type": "argument_pattern",
+              "color_class": "gloss-argument",
+              "description": "Intransitive absolute"
+            },
+            {
+              "text": "<S:Nom>",
+              "component_type": "case_spec",
+              "color_class": "gloss-subject",
+              "description": "Nominative subject"
+            }
+          ],
+          "argument_pattern": "<S>",
+          "case_specifications": [
+            "<S:Nom>"
+          ]
+        }
+      },
+      "optative": {
+        "raw_gloss": "V MedPass Opt Pv <S> <S:Nom>",
+        "structured_gloss": {
+          "raw_components": [
+            {
+              "text": "V",
+              "component_type": "verb",
+              "color_class": "gloss-verb",
+              "description": "Verb"
+            },
+            {
+              "text": "MedPass",
+              "component_type": "voice",
+              "color_class": "gloss-voice",
+              "description": "Mediopassive"
+            },
+            {
+              "text": "Opt",
+              "component_type": "tense",
+              "color_class": "gloss-tense",
+              "description": "Optative"
+            },
+            {
+              "text": "Pv",
+              "component_type": "preverb",
+              "color_class": "gloss-preverb",
+              "description": "Preverb"
+            },
+            {
+              "text": "<S>",
+              "component_type": "argument_pattern",
+              "color_class": "gloss-argument",
+              "description": "Intransitive absolute"
+            },
+            {
+              "text": "<S:Nom>",
+              "component_type": "case_spec",
+              "color_class": "gloss-case",
+              "description": "Nominative subject"
+            }
+          ],
+          "expanded_components": [
+            {
+              "text": "V",
+              "component_type": "verb",
+              "color_class": "gloss-verb",
+              "description": "Verb"
+            },
+            {
+              "text": "MedPass",
+              "component_type": "voice",
+              "color_class": "gloss-voice",
+              "description": "Mediopassive"
+            },
+            {
+              "text": "Opt",
+              "component_type": "tense",
+              "color_class": "gloss-tense",
+              "description": "Optative"
+            },
+            {
+              "text": "Pv",
+              "component_type": "preverb",
+              "color_class": "gloss-preverb",
+              "description": "Preverb"
+            },
+            {
+              "text": "<S>",
+              "component_type": "argument_pattern",
+              "color_class": "gloss-argument",
+              "description": "Intransitive absolute"
+            },
+            {
+              "text": "<S:Nom>",
+              "component_type": "case_spec",
+              "color_class": "gloss-subject",
+              "description": "Nominative subject"
+            }
+          ],
+          "argument_pattern": "<S>",
+          "case_specifications": [
+            "<S:Nom>"
+          ]
+        }
+      },
+      "imperative": {
+        "raw_gloss": "V MedPass Impv Pv <S> <S:Nom>",
+        "structured_gloss": {
+          "raw_components": [
+            {
+              "text": "V",
+              "component_type": "verb",
+              "color_class": "gloss-verb",
+              "description": "Verb"
+            },
+            {
+              "text": "MedPass",
+              "component_type": "voice",
+              "color_class": "gloss-voice",
+              "description": "Mediopassive"
+            },
+            {
+              "text": "Impv",
+              "component_type": "tense",
+              "color_class": "gloss-tense",
+              "description": "Imperative"
+            },
+            {
+              "text": "Pv",
+              "component_type": "preverb",
+              "color_class": "gloss-preverb",
+              "description": "Preverb"
+            },
+            {
+              "text": "<S>",
+              "component_type": "argument_pattern",
+              "color_class": "gloss-argument",
+              "description": "Intransitive absolute"
+            },
+            {
+              "text": "<S:Nom>",
+              "component_type": "case_spec",
+              "color_class": "gloss-case",
+              "description": "Nominative subject"
+            }
+          ],
+          "expanded_components": [
+            {
+              "text": "V",
+              "component_type": "verb",
+              "color_class": "gloss-verb",
+              "description": "Verb"
+            },
+            {
+              "text": "MedPass",
+              "component_type": "voice",
+              "color_class": "gloss-voice",
+              "description": "Mediopassive"
+            },
+            {
+              "text": "Impv",
+              "component_type": "tense",
+              "color_class": "gloss-tense",
+              "description": "Imperative"
+            },
+            {
+              "text": "Pv",
+              "component_type": "preverb",
+              "color_class": "gloss-preverb",
+              "description": "Preverb"
+            },
+            {
+              "text": "<S>",
+              "component_type": "argument_pattern",
+              "color_class": "gloss-argument",
+              "description": "Intransitive absolute"
+            },
+            {
+              "text": "<S:Nom>",
+              "component_type": "case_spec",
+              "color_class": "gloss-subject",
+              "description": "Nominative subject"
+            }
+          ],
+          "argument_pattern": "<S>",
+          "case_specifications": [
+            "<S:Nom>"
+          ]
+        }
+      }
+    },
+    "წა": {
+      "present": {
+        "raw_gloss": "V MedPass Pres Pv <S> <S:Nom>",
+        "structured_gloss": {
+          "raw_components": [
+            {
+              "text": "V",
+              "component_type": "verb",
+              "color_class": "gloss-verb",
+              "description": "Verb"
+            },
+            {
+              "text": "MedPass",
+              "component_type": "voice",
+              "color_class": "gloss-voice",
+              "description": "Mediopassive"
+            },
+            {
+              "text": "Pres",
+              "component_type": "tense",
+              "color_class": "gloss-tense",
+              "description": "Present"
+            },
+            {
+              "text": "Pv",
+              "component_type": "preverb",
+              "color_class": "gloss-preverb",
+              "description": "Preverb"
+            },
+            {
+              "text": "<S>",
+              "component_type": "argument_pattern",
+              "color_class": "gloss-argument",
+              "description": "Intransitive absolute"
+            },
+            {
+              "text": "<S:Nom>",
+              "component_type": "case_spec",
+              "color_class": "gloss-case",
+              "description": "Nominative subject"
+            }
+          ],
+          "expanded_components": [
+            {
+              "text": "V",
+              "component_type": "verb",
+              "color_class": "gloss-verb",
+              "description": "Verb"
+            },
+            {
+              "text": "MedPass",
+              "component_type": "voice",
+              "color_class": "gloss-voice",
+              "description": "Mediopassive"
+            },
+            {
+              "text": "Pres",
+              "component_type": "tense",
+              "color_class": "gloss-tense",
+              "description": "Present"
+            },
+            {
+              "text": "Pv",
+              "component_type": "preverb",
+              "color_class": "gloss-preverb",
+              "description": "Preverb"
+            },
+            {
+              "text": "<S>",
+              "component_type": "argument_pattern",
+              "color_class": "gloss-argument",
+              "description": "Intransitive absolute"
+            },
+            {
+              "text": "<S:Nom>",
+              "component_type": "case_spec",
+              "color_class": "gloss-subject",
+              "description": "Nominative subject"
+            }
+          ],
+          "argument_pattern": "<S>",
+          "case_specifications": [
+            "<S:Nom>"
+          ]
+        }
+      },
+      "imperfect": {
+        "raw_gloss": "V MedPass Impf Pv <S> <S:Nom>",
+        "structured_gloss": {
+          "raw_components": [
+            {
+              "text": "V",
+              "component_type": "verb",
+              "color_class": "gloss-verb",
+              "description": "Verb"
+            },
+            {
+              "text": "MedPass",
+              "component_type": "voice",
+              "color_class": "gloss-voice",
+              "description": "Mediopassive"
+            },
+            {
+              "text": "Impf",
+              "component_type": "tense",
+              "color_class": "gloss-tense",
+              "description": "Imperfect"
+            },
+            {
+              "text": "Pv",
+              "component_type": "preverb",
+              "color_class": "gloss-preverb",
+              "description": "Preverb"
+            },
+            {
+              "text": "<S>",
+              "component_type": "argument_pattern",
+              "color_class": "gloss-argument",
+              "description": "Intransitive absolute"
+            },
+            {
+              "text": "<S:Nom>",
+              "component_type": "case_spec",
+              "color_class": "gloss-case",
+              "description": "Nominative subject"
+            }
+          ],
+          "expanded_components": [
+            {
+              "text": "V",
+              "component_type": "verb",
+              "color_class": "gloss-verb",
+              "description": "Verb"
+            },
+            {
+              "text": "MedPass",
+              "component_type": "voice",
+              "color_class": "gloss-voice",
+              "description": "Mediopassive"
+            },
+            {
+              "text": "Impf",
+              "component_type": "tense",
+              "color_class": "gloss-tense",
+              "description": "Imperfect"
+            },
+            {
+              "text": "Pv",
+              "component_type": "preverb",
+              "color_class": "gloss-preverb",
+              "description": "Preverb"
+            },
+            {
+              "text": "<S>",
+              "component_type": "argument_pattern",
+              "color_class": "gloss-argument",
+              "description": "Intransitive absolute"
+            },
+            {
+              "text": "<S:Nom>",
+              "component_type": "case_spec",
+              "color_class": "gloss-subject",
+              "description": "Nominative subject"
+            }
+          ],
+          "argument_pattern": "<S>",
+          "case_specifications": [
+            "<S:Nom>"
+          ]
+        }
+      },
+      "future": {
+        "raw_gloss": "V MedPass Fut Pv <S> <S:Nom>",
+        "structured_gloss": {
+          "raw_components": [
+            {
+              "text": "V",
+              "component_type": "verb",
+              "color_class": "gloss-verb",
+              "description": "Verb"
+            },
+            {
+              "text": "MedPass",
+              "component_type": "voice",
+              "color_class": "gloss-voice",
+              "description": "Mediopassive"
+            },
+            {
+              "text": "Fut",
+              "component_type": "tense",
+              "color_class": "gloss-tense",
+              "description": "Future"
+            },
+            {
+              "text": "Pv",
+              "component_type": "preverb",
+              "color_class": "gloss-preverb",
+              "description": "Preverb"
+            },
+            {
+              "text": "<S>",
+              "component_type": "argument_pattern",
+              "color_class": "gloss-argument",
+              "description": "Intransitive absolute"
+            },
+            {
+              "text": "<S:Nom>",
+              "component_type": "case_spec",
+              "color_class": "gloss-case",
+              "description": "Nominative subject"
+            }
+          ],
+          "expanded_components": [
+            {
+              "text": "V",
+              "component_type": "verb",
+              "color_class": "gloss-verb",
+              "description": "Verb"
+            },
+            {
+              "text": "MedPass",
+              "component_type": "voice",
+              "color_class": "gloss-voice",
+              "description": "Mediopassive"
+            },
+            {
+              "text": "Fut",
+              "component_type": "tense",
+              "color_class": "gloss-tense",
+              "description": "Future"
+            },
+            {
+              "text": "Pv",
+              "component_type": "preverb",
+              "color_class": "gloss-preverb",
+              "description": "Preverb"
+            },
+            {
+              "text": "<S>",
+              "component_type": "argument_pattern",
+              "color_class": "gloss-argument",
+              "description": "Intransitive absolute"
+            },
+            {
+              "text": "<S:Nom>",
+              "component_type": "case_spec",
+              "color_class": "gloss-subject",
+              "description": "Nominative subject"
+            }
+          ],
+          "argument_pattern": "<S>",
+          "case_specifications": [
+            "<S:Nom>"
+          ]
+        }
+      },
+      "aorist": {
+        "raw_gloss": "V MedPass Aor Pv <S> <S:Nom>",
+        "structured_gloss": {
+          "raw_components": [
+            {
+              "text": "V",
+              "component_type": "verb",
+              "color_class": "gloss-verb",
+              "description": "Verb"
+            },
+            {
+              "text": "MedPass",
+              "component_type": "voice",
+              "color_class": "gloss-voice",
+              "description": "Mediopassive"
+            },
+            {
+              "text": "Aor",
+              "component_type": "tense",
+              "color_class": "gloss-tense",
+              "description": "Aorist"
+            },
+            {
+              "text": "Pv",
+              "component_type": "preverb",
+              "color_class": "gloss-preverb",
+              "description": "Preverb"
+            },
+            {
+              "text": "<S>",
+              "component_type": "argument_pattern",
+              "color_class": "gloss-argument",
+              "description": "Intransitive absolute"
+            },
+            {
+              "text": "<S:Nom>",
+              "component_type": "case_spec",
+              "color_class": "gloss-case",
+              "description": "Nominative subject"
+            }
+          ],
+          "expanded_components": [
+            {
+              "text": "V",
+              "component_type": "verb",
+              "color_class": "gloss-verb",
+              "description": "Verb"
+            },
+            {
+              "text": "MedPass",
+              "component_type": "voice",
+              "color_class": "gloss-voice",
+              "description": "Mediopassive"
+            },
+            {
+              "text": "Aor",
+              "component_type": "tense",
+              "color_class": "gloss-tense",
+              "description": "Aorist"
+            },
+            {
+              "text": "Pv",
+              "component_type": "preverb",
+              "color_class": "gloss-preverb",
+              "description": "Preverb"
+            },
+            {
+              "text": "<S>",
+              "component_type": "argument_pattern",
+              "color_class": "gloss-argument",
+              "description": "Intransitive absolute"
+            },
+            {
+              "text": "<S:Nom>",
+              "component_type": "case_spec",
+              "color_class": "gloss-subject",
+              "description": "Nominative subject"
+            }
+          ],
+          "argument_pattern": "<S>",
+          "case_specifications": [
+            "<S:Nom>"
+          ]
+        }
+      },
+      "optative": {
+        "raw_gloss": "V MedPass Opt Pv <S> <S:Nom>",
+        "structured_gloss": {
+          "raw_components": [
+            {
+              "text": "V",
+              "component_type": "verb",
+              "color_class": "gloss-verb",
+              "description": "Verb"
+            },
+            {
+              "text": "MedPass",
+              "component_type": "voice",
+              "color_class": "gloss-voice",
+              "description": "Mediopassive"
+            },
+            {
+              "text": "Opt",
+              "component_type": "tense",
+              "color_class": "gloss-tense",
+              "description": "Optative"
+            },
+            {
+              "text": "Pv",
+              "component_type": "preverb",
+              "color_class": "gloss-preverb",
+              "description": "Preverb"
+            },
+            {
+              "text": "<S>",
+              "component_type": "argument_pattern",
+              "color_class": "gloss-argument",
+              "description": "Intransitive absolute"
+            },
+            {
+              "text": "<S:Nom>",
+              "component_type": "case_spec",
+              "color_class": "gloss-case",
+              "description": "Nominative subject"
+            }
+          ],
+          "expanded_components": [
+            {
+              "text": "V",
+              "component_type": "verb",
+              "color_class": "gloss-verb",
+              "description": "Verb"
+            },
+            {
+              "text": "MedPass",
+              "component_type": "voice",
+              "color_class": "gloss-voice",
+              "description": "Mediopassive"
+            },
+            {
+              "text": "Opt",
+              "component_type": "tense",
+              "color_class": "gloss-tense",
+              "description": "Optative"
+            },
+            {
+              "text": "Pv",
+              "component_type": "preverb",
+              "color_class": "gloss-preverb",
+              "description": "Preverb"
+            },
+            {
+              "text": "<S>",
+              "component_type": "argument_pattern",
+              "color_class": "gloss-argument",
+              "description": "Intransitive absolute"
+            },
+            {
+              "text": "<S:Nom>",
+              "component_type": "case_spec",
+              "color_class": "gloss-subject",
+              "description": "Nominative subject"
+            }
+          ],
+          "argument_pattern": "<S>",
+          "case_specifications": [
+            "<S:Nom>"
+          ]
+        }
+      },
+      "imperative": {
+        "raw_gloss": "V MedPass Impv Pv <S> <S:Nom>",
+        "structured_gloss": {
+          "raw_components": [
+            {
+              "text": "V",
+              "component_type": "verb",
+              "color_class": "gloss-verb",
+              "description": "Verb"
+            },
+            {
+              "text": "MedPass",
+              "component_type": "voice",
+              "color_class": "gloss-voice",
+              "description": "Mediopassive"
+            },
+            {
+              "text": "Impv",
+              "component_type": "tense",
+              "color_class": "gloss-tense",
+              "description": "Imperative"
+            },
+            {
+              "text": "Pv",
+              "component_type": "preverb",
+              "color_class": "gloss-preverb",
+              "description": "Preverb"
+            },
+            {
+              "text": "<S>",
+              "component_type": "argument_pattern",
+              "color_class": "gloss-argument",
+              "description": "Intransitive absolute"
+            },
+            {
+              "text": "<S:Nom>",
+              "component_type": "case_spec",
+              "color_class": "gloss-case",
+              "description": "Nominative subject"
+            }
+          ],
+          "expanded_components": [
+            {
+              "text": "V",
+              "component_type": "verb",
+              "color_class": "gloss-verb",
+              "description": "Verb"
+            },
+            {
+              "text": "MedPass",
+              "component_type": "voice",
+              "color_class": "gloss-voice",
+              "description": "Mediopassive"
+            },
+            {
+              "text": "Impv",
+              "component_type": "tense",
+              "color_class": "gloss-tense",
+              "description": "Imperative"
+            },
+            {
+              "text": "Pv",
+              "component_type": "preverb",
+              "color_class": "gloss-preverb",
+              "description": "Preverb"
+            },
+            {
+              "text": "<S>",
+              "component_type": "argument_pattern",
+              "color_class": "gloss-argument",
+              "description": "Intransitive absolute"
+            },
+            {
+              "text": "<S:Nom>",
+              "component_type": "case_spec",
+              "color_class": "gloss-subject",
+              "description": "Nominative subject"
+            }
+          ],
+          "argument_pattern": "<S>",
+          "case_specifications": [
+            "<S:Nom>"
+          ]
+        }
+      }
+    }
+  },
+  "preverb_forms": {
+    "მი": {
+      "present": {
+        "1sg": "მივდივარ",
+        "1pl": "მივდივართ",
+        "2sg": "მიდიხარ",
+        "2pl": "მიდიხართ",
+        "3sg": "მიდის",
+        "3pl": "მიდიან"
+      },
+      "imperfect": {
+        "1sg": "მივდიოდი",
+        "1pl": "მივდიოდით",
+        "2sg": "მიდიოდი",
+        "2pl": "მიდიოდით",
+        "3sg": "მიდიოდა",
+        "3pl": "მიდიოდნენ"
+      },
+      "future": {
+        "1sg": "მივალ",
+        "1pl": "მივალთ",
+        "2sg": "მიხვალ",
+        "2pl": "მიხვალთ",
+        "3sg": "მივა",
+        "3pl": "მივლენ"
+      },
+      "aorist": {
+        "1sg": "მივედი",
+        "1pl": "მივედით",
+        "2sg": "მიხვედი",
+        "2pl": "მიხვედით",
+        "3sg": "მივიდა",
+        "3pl": "მივიდნენ"
+      },
+      "optative": {
+        "1sg": "მივიდე",
+        "1pl": "მივიდეთ",
+        "2sg": "მიხვიდე",
+        "2pl": "მიხვიდეთ",
+        "3sg": "მივიდეს",
+        "3pl": "მივიდნენ"
+      },
+      "imperative": {
+        "2sg": "მიდი",
+        "2pl": "მიდით"
+      }
+    },
+    "მო": {
+      "present": {
+        "1sg": "მოვდივარ",
+        "1pl": "მოვდივართ",
+        "2sg": "მოდიხარ",
+        "2pl": "მოდიხართ",
+        "3sg": "მოდის",
+        "3pl": "მოდიან"
+      },
+      "imperfect": {
+        "1sg": "მოვდიოდი",
+        "1pl": "მოვდიოდით",
+        "2sg": "მოდიოდი",
+        "2pl": "მოდიოდით",
+        "3sg": "მოდიოდა",
+        "3pl": "მოდიოდნენ"
+      },
+      "future": {
+        "1sg": "მოვალ",
+        "1pl": "მოვალთ",
+        "2sg": "მოხვალ",
+        "2pl": "მოხვალთ",
+        "3sg": "მოვა",
+        "3pl": "მოვლენ"
+      },
+      "aorist": {
+        "1sg": "მოვედი",
+        "1pl": "მოვედით",
+        "2sg": "მოხვედი",
+        "2pl": "მოხვედით",
+        "3sg": "მოვიდა",
+        "3pl": "მოვიდნენ"
+      },
+      "optative": {
+        "1sg": "მოვიდე",
+        "1pl": "მოვიდეთ",
+        "2sg": "მოხვიდე",
+        "2pl": "მოხვიდეთ",
+        "3sg": "მოვიდეს",
+        "3pl": "მოვიდნენ"
+      },
+      "imperative": {
+        "2sg": "მოდი",
+        "2pl": "მოდით"
+      }
+    },
+    "გა": {
+      "present": {
+        "1sg": "გავდივარ",
+        "1pl": "გავდივართ",
+        "2sg": "გადიხარ",
+        "2pl": "გადიხართ",
+        "3sg": "გადის",
+        "3pl": "გადიან"
+      },
+      "imperfect": {
+        "1sg": "გავდიოდი",
+        "1pl": "გავდიოდით",
+        "2sg": "გადიოდი",
+        "2pl": "გადიოდით",
+        "3sg": "გადიოდა",
+        "3pl": "გადიოდნენ"
+      },
+      "future": {
+        "1sg": "გავალ",
+        "1pl": "გავალთ",
+        "2sg": "გახვალ",
+        "2pl": "გახვალთ",
+        "3sg": "გავა",
+        "3pl": "გავლენ"
+      },
+      "aorist": {
+        "1sg": "გავედი",
+        "1pl": "გავედით",
+        "2sg": "გახვედი",
+        "2pl": "გახვედით",
+        "3sg": "გავიდა",
+        "3pl": "გავიდნენ"
+      },
+      "optative": {
+        "1sg": "გავიდე",
+        "1pl": "გავიდეთ",
+        "2sg": "გახვიდე",
+        "2pl": "გახვიდეთ",
+        "3sg": "გავიდეს",
+        "3pl": "გავიდნენ"
+      },
+      "imperative": {
+        "2sg": "გადი",
+        "2pl": "გადით"
+      }
+    },
+    "წა": {
+      "present": {
+        "1sg": "წავდივარ",
+        "1pl": "წავდივართ",
+        "2sg": "წადიხარ",
+        "2pl": "წადიხართ",
+        "3sg": "წადის",
+        "3pl": "წადიან"
+      },
+      "imperfect": {
+        "1sg": "წავდიოდი",
+        "1pl": "წავდიოდით",
+        "2sg": "წადიოდი",
+        "2pl": "წადიოდით",
+        "3sg": "წადიოდა",
+        "3pl": "წადიოდნენ"
+      },
+      "future": {
+        "1sg": "წავალ",
+        "1pl": "წავალთ",
+        "2sg": "წახვალ",
+        "2pl": "წახვალთ",
+        "3sg": "წავა",
+        "3pl": "წავლენ"
+      },
+      "aorist": {
+        "1sg": "წავედი",
+        "1pl": "წავედით",
+        "2sg": "წახვედი",
+        "2pl": "წახვედით",
+        "3sg": "წავიდა",
+        "3pl": "წავიდნენ"
+      },
+      "optative": {
+        "1sg": "წავიდე",
+        "1pl": "წავიდეთ",
+        "2sg": "წახვიდე",
+        "2pl": "წახვიდეთ",
+        "3sg": "წავიდეს",
+        "3pl": "წავიდნენ"
+      },
+      "imperative": {
+        "2sg": "წადი",
+        "2pl": "წადით"
+      }
+    }
+  }
+}

@@ -1,0 +1,969 @@
+{
+  "id": 2,
+  "georgian": "ჩვენება",
+  "description": "To Show",
+  "category": "Communication & Language",
+  "class": "Class-I",
+  "semantic_key": "show",
+  "notes": "",
+  "url": "https://lingua.ge/verbs/%e1%83%a9%e1%83%95%e1%83%94%e1%83%9c%e1%83%94%e1%83%91%e1%83%90/",
+  "global_argument_pattern": "<S-DO-IO>",
+  "valency": {
+    "default": "<S-DO-IO>",
+    "alternatives": []
+  },
+  "syntax": {
+    "arguments": {
+      "subject": {
+        "3sg": {
+          "noun": "teacher",
+          "adjective": "kind"
+        },
+        "3pl": {
+          "noun": "student",
+          "adjective": "clever"
+        }
+      },
+      "direct_object": {
+        "1sg": {
+          "noun": "movie",
+          "adjective": "funny"
+        },
+        "2sg": {
+          "noun": "game",
+          "adjective": "exciting"
+        },
+        "3sg": {
+          "noun": "photo",
+          "adjective": "beautiful"
+        },
+        "1pl": {
+          "noun": "picture",
+          "adjective": "interesting"
+        },
+        "2pl": {
+          "noun": "toy",
+          "adjective": "new"
+        },
+        "3pl": {
+          "noun": "story",
+          "adjective": "interesting"
+        }
+      },
+      "indirect_object": {
+        "1sg": {
+          "noun": "mother",
+          "adjective": "happy"
+        },
+        "2sg": {
+          "noun": "sister",
+          "adjective": "happy"
+        },
+        "3sg": {
+          "noun": "child",
+          "adjective": "happy"
+        },
+        "1pl": {
+          "noun": "colleague",
+          "adjective": "interesting"
+        },
+        "2pl": {
+          "noun": "child",
+          "adjective": "young"
+        },
+        "3pl": {
+          "noun": "friend",
+          "adjective": "best"
+        }
+      }
+    },
+    "prepositions": {
+      "subject": "the",
+      "direct_object": "the",
+      "indirect_object": "to the"
+    },
+    "preverb_overrides": {}
+  },
+  "english_translations": {
+    "default": {
+      "present": "show",
+      "imperfect": "was showing",
+      "future": "will show",
+      "aorist": "showed",
+      "optative": "should show",
+      "imperative": "show"
+    }
+  },
+  "conjugations": {
+    "present": {
+      "raw_gloss": "V Act Pres <S-DO-IO> <S:Nom> <DO:Dat> <IO:Dat>",
+      "forms": {
+        "1sg": "ვაჩვენებ",
+        "2sg": "აჩვენებ",
+        "3sg": "აჩვენებს",
+        "1pl": "ვაჩვენებთ",
+        "2pl": "აჩვენებთ",
+        "3pl": "აჩვენებენ"
+      },
+      "examples": []
+    },
+    "imperfect": {
+      "raw_gloss": "V Act Impf <S-DO-IO> <S:Nom> <DO:Dat> <IO:Dat>",
+      "forms": {
+        "1sg": "ვაჩვენებდი",
+        "2sg": "აჩვენებდი",
+        "3sg": "აჩვენებდა",
+        "1pl": "ვაჩვენებდით",
+        "2pl": "აჩვენებდით",
+        "3pl": "აჩვენებდნენ"
+      },
+      "examples": []
+    },
+    "future": {
+      "raw_gloss": "",
+      "forms": {
+        "1sg": "-",
+        "2sg": "-",
+        "3sg": "-",
+        "1pl": "-",
+        "2pl": "-",
+        "3pl": "-"
+      },
+      "examples": []
+    },
+    "aorist": {
+      "raw_gloss": "V Act Aor <S-DO-IO> <S:Erg> <DO:Nom> <IO:Dat>",
+      "forms": {
+        "1sg": "ვაჩვენე",
+        "2sg": "აჩვენე",
+        "3sg": "აჩვენა",
+        "1pl": "ვაჩვენეთ",
+        "2pl": "აჩვენეთ",
+        "3pl": "აჩვენეს"
+      },
+      "examples": []
+    },
+    "optative": {
+      "raw_gloss": "V Act Opt <S-DO-IO> <S:Erg> <DO:Nom> <IO:Dat>",
+      "forms": {
+        "1sg": "ვაჩვენო",
+        "2sg": "აჩვენო",
+        "3sg": "აჩვენოს",
+        "1pl": "ვაჩვენოთ",
+        "2pl": "აჩვენოთ",
+        "3pl": "აჩვენონ"
+      },
+      "examples": []
+    },
+    "imperative": {
+      "raw_gloss": "V Act Impv <S-DO-IO> <S:Erg> <DO:Nom> <IO:Dat>",
+      "forms": {
+        "1sg": "-",
+        "2sg": "აჩვენე",
+        "3sg": "-",
+        "1pl": "-",
+        "2pl": "აჩვენეთ",
+        "3pl": "-"
+      },
+      "examples": []
+    }
+  },
+  "preverb_config": {
+    "has_multiple_preverbs": false,
+    "default_preverb": "",
+    "available_preverbs": []
+  },
+  "preverb_rules": {
+    "default": "",
+    "replacements": {},
+    "tense_specific_fallbacks": {},
+    "english_fallbacks": {}
+  },
+  "examples": {
+    "null": {
+      "present": [
+        {
+          "georgian": "სასაცილო ფილმს ბედნიერ დედას ვაჩვენებ",
+          "english": "<strong data-role=\"subject\" data-person=\"1sg\">I</strong> <strong data-role=\"verb\">show</strong> <strong data-role=\"direct-object\">the funny movie</strong> <strong data-role=\"indirect-object\">to the happy mother</strong>",
+          "english_plain": "I show the funny movie to the happy mother",
+          "html": "<span data-case=\"dat\" data-role=\"direct-object\">სასაცილო ფილმს</span> <span data-case=\"dat\" data-role=\"indirect-object\">ბედნიერ დედას</span> <span data-role=\"verb\">ვაჩვენებ</span>",
+          "case_marking": {
+            "direct_object": {
+              "case": "dat",
+              "word": "ფილმს"
+            },
+            "indirect_object": {
+              "case": "dat",
+              "word": "დედას"
+            }
+          },
+          "georgian_verb_form": "ვაჩვენებ"
+        },
+        {
+          "georgian": "კეთილი მასწავლებელი ლამაზ ფოტოს ბედნიერ ბავშვს აჩვენებს",
+          "english": "<strong data-role=\"subject\">The kind teacher</strong> <strong data-role=\"verb\">shows</strong> <strong data-role=\"direct-object\">the beautiful photo</strong> <strong data-role=\"indirect-object\">to the happy child</strong>",
+          "english_plain": "The kind teacher shows the beautiful photo to the happy child",
+          "html": "<span data-case=\"nom\" data-role=\"subject\">კეთილი მასწავლებელი</span> <span data-case=\"dat\" data-role=\"direct-object\">ლამაზ ფოტოს</span> <span data-case=\"dat\" data-role=\"indirect-object\">ბედნიერ ბავშვს</span> <span data-role=\"verb\">აჩვენებს</span>",
+          "case_marking": {
+            "subject": {
+              "case": "nom",
+              "word": "მასწავლებელი"
+            },
+            "direct_object": {
+              "case": "dat",
+              "word": "ფოტოს"
+            },
+            "indirect_object": {
+              "case": "dat",
+              "word": "ბავშვს"
+            }
+          },
+          "georgian_verb_form": "აჩვენებს"
+        },
+        {
+          "georgian": "ჭკვიანი სტუდენტები საინტერესო ამბავს საუკეთესო მეგობარს აჩვენებენ",
+          "english": "<strong data-role=\"subject\">The clever students</strong> <strong data-role=\"verb\">show</strong> <strong data-role=\"direct-object\">the interesting story</strong> <strong data-role=\"indirect-object\">to the best friend</strong>",
+          "english_plain": "The clever students show the interesting story to the best friend",
+          "html": "<span data-case=\"nom\" data-role=\"subject\">ჭკვიანი სტუდენტები</span> <span data-case=\"dat\" data-role=\"direct-object\">საინტერესო ამბავს</span> <span data-case=\"dat\" data-role=\"indirect-object\">საუკეთესო მეგობარს</span> <span data-role=\"verb\">აჩვენებენ</span>",
+          "case_marking": {
+            "subject": {
+              "case": "nom",
+              "word": "სტუდენტები"
+            },
+            "direct_object": {
+              "case": "dat",
+              "word": "ამბავს"
+            },
+            "indirect_object": {
+              "case": "dat",
+              "word": "მეგობარს"
+            }
+          },
+          "georgian_verb_form": "აჩვენებენ"
+        }
+      ],
+      "imperfect": [
+        {
+          "georgian": "სასაცილო ფილმს ბედნიერ დედას ვაჩვენებდი",
+          "english": "<strong data-role=\"subject\" data-person=\"1sg\">I</strong> <strong data-role=\"verb\">was showing</strong> <strong data-role=\"direct-object\">the funny movie</strong> <strong data-role=\"indirect-object\">to the happy mother</strong>",
+          "english_plain": "I was showing the funny movie to the happy mother",
+          "html": "<span data-case=\"dat\" data-role=\"direct-object\">სასაცილო ფილმს</span> <span data-case=\"dat\" data-role=\"indirect-object\">ბედნიერ დედას</span> <span data-role=\"verb\">ვაჩვენებდი</span>",
+          "case_marking": {
+            "direct_object": {
+              "case": "dat",
+              "word": "ფილმს"
+            },
+            "indirect_object": {
+              "case": "dat",
+              "word": "დედას"
+            }
+          },
+          "georgian_verb_form": "ვაჩვენებდი"
+        },
+        {
+          "georgian": "კეთილი მასწავლებელი ლამაზ ფოტოს ბედნიერ ბავშვს აჩვენებდა",
+          "english": "<strong data-role=\"subject\">The kind teacher</strong> <strong data-role=\"verb\">was showing</strong> <strong data-role=\"direct-object\">the beautiful photo</strong> <strong data-role=\"indirect-object\">to the happy child</strong>",
+          "english_plain": "The kind teacher was showing the beautiful photo to the happy child",
+          "html": "<span data-case=\"nom\" data-role=\"subject\">კეთილი მასწავლებელი</span> <span data-case=\"dat\" data-role=\"direct-object\">ლამაზ ფოტოს</span> <span data-case=\"dat\" data-role=\"indirect-object\">ბედნიერ ბავშვს</span> <span data-role=\"verb\">აჩვენებდა</span>",
+          "case_marking": {
+            "subject": {
+              "case": "nom",
+              "word": "მასწავლებელი"
+            },
+            "direct_object": {
+              "case": "dat",
+              "word": "ფოტოს"
+            },
+            "indirect_object": {
+              "case": "dat",
+              "word": "ბავშვს"
+            }
+          },
+          "georgian_verb_form": "აჩვენებდა"
+        },
+        {
+          "georgian": "ჭკვიანი სტუდენტები საინტერესო ამბავს საუკეთესო მეგობარს აჩვენებდნენ",
+          "english": "<strong data-role=\"subject\">The clever students</strong> <strong data-role=\"verb\">were showing</strong> <strong data-role=\"direct-object\">the interesting story</strong> <strong data-role=\"indirect-object\">to the best friend</strong>",
+          "english_plain": "The clever students were showing the interesting story to the best friend",
+          "html": "<span data-case=\"nom\" data-role=\"subject\">ჭკვიანი სტუდენტები</span> <span data-case=\"dat\" data-role=\"direct-object\">საინტერესო ამბავს</span> <span data-case=\"dat\" data-role=\"indirect-object\">საუკეთესო მეგობარს</span> <span data-role=\"verb\">აჩვენებდნენ</span>",
+          "case_marking": {
+            "subject": {
+              "case": "nom",
+              "word": "სტუდენტები"
+            },
+            "direct_object": {
+              "case": "dat",
+              "word": "ამბავს"
+            },
+            "indirect_object": {
+              "case": "dat",
+              "word": "მეგობარს"
+            }
+          },
+          "georgian_verb_form": "აჩვენებდნენ"
+        }
+      ],
+      "future": [],
+      "aorist": [
+        {
+          "georgian": "სასაცილო ფილმი ბედნიერ დედას ვაჩვენე",
+          "english": "<strong data-role=\"subject\" data-person=\"1sg\">I</strong> <strong data-role=\"verb\">showed</strong> <strong data-role=\"direct-object\">the funny movie</strong> <strong data-role=\"indirect-object\">to the happy mother</strong>",
+          "english_plain": "I showed the funny movie to the happy mother",
+          "html": "<span data-case=\"nom\" data-role=\"direct-object\">სასაცილო ფილმი</span> <span data-case=\"dat\" data-role=\"indirect-object\">ბედნიერ დედას</span> <span data-role=\"verb\">ვაჩვენე</span>",
+          "case_marking": {
+            "direct_object": {
+              "case": "nom",
+              "word": "ფილმი"
+            },
+            "indirect_object": {
+              "case": "dat",
+              "word": "დედას"
+            }
+          },
+          "georgian_verb_form": "ვაჩვენე"
+        },
+        {
+          "georgian": "კეთილმა მასწავლებელმა ლამაზი ფოტო ბედნიერ ბავშვს აჩვენა",
+          "english": "<strong data-role=\"subject\">The kind teacher</strong> <strong data-role=\"verb\">showed</strong> <strong data-role=\"direct-object\">the beautiful photo</strong> <strong data-role=\"indirect-object\">to the happy child</strong>",
+          "english_plain": "The kind teacher showed the beautiful photo to the happy child",
+          "html": "<span data-case=\"erg\" data-role=\"subject\">კეთილმა მასწავლებელმა</span> <span data-case=\"nom\" data-role=\"direct-object\">ლამაზი ფოტო</span> <span data-case=\"dat\" data-role=\"indirect-object\">ბედნიერ ბავშვს</span> <span data-role=\"verb\">აჩვენა</span>",
+          "case_marking": {
+            "subject": {
+              "case": "erg",
+              "word": "მასწავლებელმა"
+            },
+            "direct_object": {
+              "case": "nom",
+              "word": "ფოტო"
+            },
+            "indirect_object": {
+              "case": "dat",
+              "word": "ბავშვს"
+            }
+          },
+          "georgian_verb_form": "აჩვენა"
+        },
+        {
+          "georgian": "ჭკვიანმა სტუდენტებმა საინტერესო ამბავი საუკეთესო მეგობარს აჩვენეს",
+          "english": "<strong data-role=\"subject\">The clever students</strong> <strong data-role=\"verb\">showed</strong> <strong data-role=\"direct-object\">the interesting story</strong> <strong data-role=\"indirect-object\">to the best friend</strong>",
+          "english_plain": "The clever students showed the interesting story to the best friend",
+          "html": "<span data-case=\"erg\" data-role=\"subject\">ჭკვიანმა სტუდენტებმა</span> <span data-case=\"nom\" data-role=\"direct-object\">საინტერესო ამბავი</span> <span data-case=\"dat\" data-role=\"indirect-object\">საუკეთესო მეგობარს</span> <span data-role=\"verb\">აჩვენეს</span>",
+          "case_marking": {
+            "subject": {
+              "case": "erg",
+              "word": "სტუდენტებმა"
+            },
+            "direct_object": {
+              "case": "nom",
+              "word": "ამბავი"
+            },
+            "indirect_object": {
+              "case": "dat",
+              "word": "მეგობარს"
+            }
+          },
+          "georgian_verb_form": "აჩვენეს"
+        }
+      ],
+      "optative": [
+        {
+          "georgian": "სასაცილო ფილმი ბედნიერ დედას უნდა ვაჩვენო",
+          "english": "<strong data-role=\"subject\" data-person=\"1sg\">I</strong> <strong data-role=\"verb\">should show</strong> <strong data-role=\"direct-object\">the funny movie</strong> <strong data-role=\"indirect-object\">to the happy mother</strong>",
+          "english_plain": "I should show the funny movie to the happy mother",
+          "html": "<span data-case=\"nom\" data-role=\"direct-object\">სასაცილო ფილმი</span> <span data-case=\"dat\" data-role=\"indirect-object\">ბედნიერ დედას</span> <span data-role=\"verb\">უნდა ვაჩვენო</span>",
+          "case_marking": {
+            "direct_object": {
+              "case": "nom",
+              "word": "ფილმი"
+            },
+            "indirect_object": {
+              "case": "dat",
+              "word": "დედას"
+            }
+          },
+          "georgian_verb_form": "ვაჩვენო"
+        },
+        {
+          "georgian": "კეთილმა მასწავლებელმა ლამაზი ფოტო ბედნიერ ბავშვს უნდა აჩვენოს",
+          "english": "<strong data-role=\"subject\">The kind teacher</strong> <strong data-role=\"verb\">should show</strong> <strong data-role=\"direct-object\">the beautiful photo</strong> <strong data-role=\"indirect-object\">to the happy child</strong>",
+          "english_plain": "The kind teacher should show the beautiful photo to the happy child",
+          "html": "<span data-case=\"erg\" data-role=\"subject\">კეთილმა მასწავლებელმა</span> <span data-case=\"nom\" data-role=\"direct-object\">ლამაზი ფოტო</span> <span data-case=\"dat\" data-role=\"indirect-object\">ბედნიერ ბავშვს</span> <span data-role=\"verb\">უნდა აჩვენოს</span>",
+          "case_marking": {
+            "subject": {
+              "case": "erg",
+              "word": "მასწავლებელმა"
+            },
+            "direct_object": {
+              "case": "nom",
+              "word": "ფოტო"
+            },
+            "indirect_object": {
+              "case": "dat",
+              "word": "ბავშვს"
+            }
+          },
+          "georgian_verb_form": "აჩვენოს"
+        },
+        {
+          "georgian": "ჭკვიანმა სტუდენტებმა საინტერესო ამბავი საუკეთესო მეგობარს უნდა აჩვენონ",
+          "english": "<strong data-role=\"subject\">The clever students</strong> <strong data-role=\"verb\">should show</strong> <strong data-role=\"direct-object\">the interesting story</strong> <strong data-role=\"indirect-object\">to the best friend</strong>",
+          "english_plain": "The clever students should show the interesting story to the best friend",
+          "html": "<span data-case=\"erg\" data-role=\"subject\">ჭკვიანმა სტუდენტებმა</span> <span data-case=\"nom\" data-role=\"direct-object\">საინტერესო ამბავი</span> <span data-case=\"dat\" data-role=\"indirect-object\">საუკეთესო მეგობარს</span> <span data-role=\"verb\">უნდა აჩვენონ</span>",
+          "case_marking": {
+            "subject": {
+              "case": "erg",
+              "word": "სტუდენტებმა"
+            },
+            "direct_object": {
+              "case": "nom",
+              "word": "ამბავი"
+            },
+            "indirect_object": {
+              "case": "dat",
+              "word": "მეგობარს"
+            }
+          },
+          "georgian_verb_form": "აჩვენონ"
+        }
+      ],
+      "imperative": [
+        {
+          "georgian": "ამაღელვებელი თამაში ბედნიერ დას აჩვენე",
+          "english": "<strong data-role=\"verb\">show</strong> <strong data-role=\"direct-object\">the exciting game</strong> <strong data-role=\"indirect-object\">to the happy sister</strong>",
+          "english_plain": "show the exciting game to the happy sister",
+          "html": "<span data-case=\"nom\" data-role=\"direct-object\">ამაღელვებელი თამაში</span> <span data-case=\"dat\" data-role=\"indirect-object\">ბედნიერ დას</span> <span data-role=\"verb\">აჩვენე</span>",
+          "case_marking": {
+            "direct_object": {
+              "case": "nom",
+              "word": "თამაში"
+            },
+            "indirect_object": {
+              "case": "dat",
+              "word": "დას"
+            }
+          },
+          "georgian_verb_form": "აჩვენე"
+        },
+        {
+          "georgian": "ახალი სათამაშო ახალგაზრდა ბავშვს აჩვენეთ",
+          "english": "<strong data-role=\"verb\">show</strong> <strong data-role=\"direct-object\">the new toy</strong> <strong data-role=\"indirect-object\">to the young child</strong>",
+          "english_plain": "show the new toy to the young child",
+          "html": "<span data-case=\"nom\" data-role=\"direct-object\">ახალი სათამაშო</span> <span data-case=\"dat\" data-role=\"indirect-object\">ახალგაზრდა ბავშვს</span> <span data-role=\"verb\">აჩვენეთ</span>",
+          "case_marking": {
+            "direct_object": {
+              "case": "nom",
+              "word": "სათამაშო"
+            },
+            "indirect_object": {
+              "case": "dat",
+              "word": "ბავშვს"
+            }
+          },
+          "georgian_verb_form": "აჩვენეთ"
+        }
+      ]
+    }
+  },
+  "gloss_analysis": {
+    "present": {
+      "raw_gloss": "V Act Pres <S-DO-IO> <S:Nom> <DO:Dat> <IO:Dat>",
+      "structured_gloss": {
+        "raw_components": [
+          {
+            "text": "V",
+            "component_type": "verb",
+            "color_class": "gloss-verb",
+            "description": "Verb"
+          },
+          {
+            "text": "Act",
+            "component_type": "voice",
+            "color_class": "gloss-voice",
+            "description": "Active"
+          },
+          {
+            "text": "Pres",
+            "component_type": "tense",
+            "color_class": "gloss-tense",
+            "description": "Present"
+          },
+          {
+            "text": "<S-DO-IO>",
+            "component_type": "argument_pattern",
+            "color_class": "gloss-argument",
+            "description": "Transitive relative"
+          },
+          {
+            "text": "<S:Nom>",
+            "component_type": "case_spec",
+            "color_class": "gloss-case",
+            "description": "Nominative subject"
+          },
+          {
+            "text": "<DO:Dat>",
+            "component_type": "case_spec",
+            "color_class": "gloss-case",
+            "description": "Dative direct object"
+          },
+          {
+            "text": "<IO:Dat>",
+            "component_type": "case_spec",
+            "color_class": "gloss-case",
+            "description": "Dative indirect object"
+          }
+        ],
+        "expanded_components": [
+          {
+            "text": "V",
+            "component_type": "verb",
+            "color_class": "gloss-verb",
+            "description": "Verb"
+          },
+          {
+            "text": "Act",
+            "component_type": "voice",
+            "color_class": "gloss-voice",
+            "description": "Active"
+          },
+          {
+            "text": "Pres",
+            "component_type": "tense",
+            "color_class": "gloss-tense",
+            "description": "Present"
+          },
+          {
+            "text": "<S-DO-IO>",
+            "component_type": "argument_pattern",
+            "color_class": "gloss-argument",
+            "description": "Transitive relative"
+          },
+          {
+            "text": "<S:Nom>",
+            "component_type": "case_spec",
+            "color_class": "gloss-subject",
+            "description": "Nominative subject"
+          },
+          {
+            "text": "<DO:Dat>",
+            "component_type": "case_spec",
+            "color_class": "gloss-direct-object",
+            "description": "Dative direct object"
+          },
+          {
+            "text": "<IO:Dat>",
+            "component_type": "case_spec",
+            "color_class": "gloss-indirect-object",
+            "description": "Dative indirect object"
+          }
+        ],
+        "argument_pattern": "<S-DO-IO>",
+        "case_specifications": [
+          "<S:Nom>",
+          "<DO:Dat>",
+          "<IO:Dat>"
+        ]
+      }
+    },
+    "imperfect": {
+      "raw_gloss": "V Act Impf <S-DO-IO> <S:Nom> <DO:Dat> <IO:Dat>",
+      "structured_gloss": {
+        "raw_components": [
+          {
+            "text": "V",
+            "component_type": "verb",
+            "color_class": "gloss-verb",
+            "description": "Verb"
+          },
+          {
+            "text": "Act",
+            "component_type": "voice",
+            "color_class": "gloss-voice",
+            "description": "Active"
+          },
+          {
+            "text": "Impf",
+            "component_type": "tense",
+            "color_class": "gloss-tense",
+            "description": "Imperfect"
+          },
+          {
+            "text": "<S-DO-IO>",
+            "component_type": "argument_pattern",
+            "color_class": "gloss-argument",
+            "description": "Transitive relative"
+          },
+          {
+            "text": "<S:Nom>",
+            "component_type": "case_spec",
+            "color_class": "gloss-case",
+            "description": "Nominative subject"
+          },
+          {
+            "text": "<DO:Dat>",
+            "component_type": "case_spec",
+            "color_class": "gloss-case",
+            "description": "Dative direct object"
+          },
+          {
+            "text": "<IO:Dat>",
+            "component_type": "case_spec",
+            "color_class": "gloss-case",
+            "description": "Dative indirect object"
+          }
+        ],
+        "expanded_components": [
+          {
+            "text": "V",
+            "component_type": "verb",
+            "color_class": "gloss-verb",
+            "description": "Verb"
+          },
+          {
+            "text": "Act",
+            "component_type": "voice",
+            "color_class": "gloss-voice",
+            "description": "Active"
+          },
+          {
+            "text": "Impf",
+            "component_type": "tense",
+            "color_class": "gloss-tense",
+            "description": "Imperfect"
+          },
+          {
+            "text": "<S-DO-IO>",
+            "component_type": "argument_pattern",
+            "color_class": "gloss-argument",
+            "description": "Transitive relative"
+          },
+          {
+            "text": "<S:Nom>",
+            "component_type": "case_spec",
+            "color_class": "gloss-subject",
+            "description": "Nominative subject"
+          },
+          {
+            "text": "<DO:Dat>",
+            "component_type": "case_spec",
+            "color_class": "gloss-direct-object",
+            "description": "Dative direct object"
+          },
+          {
+            "text": "<IO:Dat>",
+            "component_type": "case_spec",
+            "color_class": "gloss-indirect-object",
+            "description": "Dative indirect object"
+          }
+        ],
+        "argument_pattern": "<S-DO-IO>",
+        "case_specifications": [
+          "<S:Nom>",
+          "<DO:Dat>",
+          "<IO:Dat>"
+        ]
+      }
+    },
+    "future": {
+      "raw_gloss": "",
+      "structured_gloss": {}
+    },
+    "aorist": {
+      "raw_gloss": "V Act Aor <S-DO-IO> <S:Erg> <DO:Nom> <IO:Dat>",
+      "structured_gloss": {
+        "raw_components": [
+          {
+            "text": "V",
+            "component_type": "verb",
+            "color_class": "gloss-verb",
+            "description": "Verb"
+          },
+          {
+            "text": "Act",
+            "component_type": "voice",
+            "color_class": "gloss-voice",
+            "description": "Active"
+          },
+          {
+            "text": "Aor",
+            "component_type": "tense",
+            "color_class": "gloss-tense",
+            "description": "Aorist"
+          },
+          {
+            "text": "<S-DO-IO>",
+            "component_type": "argument_pattern",
+            "color_class": "gloss-argument",
+            "description": "Transitive relative"
+          },
+          {
+            "text": "<S:Erg>",
+            "component_type": "case_spec",
+            "color_class": "gloss-case",
+            "description": "Ergative subject"
+          },
+          {
+            "text": "<DO:Nom>",
+            "component_type": "case_spec",
+            "color_class": "gloss-case",
+            "description": "Nominative direct object"
+          },
+          {
+            "text": "<IO:Dat>",
+            "component_type": "case_spec",
+            "color_class": "gloss-case",
+            "description": "Dative indirect object"
+          }
+        ],
+        "expanded_components": [
+          {
+            "text": "V",
+            "component_type": "verb",
+            "color_class": "gloss-verb",
+            "description": "Verb"
+          },
+          {
+            "text": "Act",
+            "component_type": "voice",
+            "color_class": "gloss-voice",
+            "description": "Active"
+          },
+          {
+            "text": "Aor",
+            "component_type": "tense",
+            "color_class": "gloss-tense",
+            "description": "Aorist"
+          },
+          {
+            "text": "<S-DO-IO>",
+            "component_type": "argument_pattern",
+            "color_class": "gloss-argument",
+            "description": "Transitive relative"
+          },
+          {
+            "text": "<S:Erg>",
+            "component_type": "case_spec",
+            "color_class": "gloss-subject",
+            "description": "Ergative subject"
+          },
+          {
+            "text": "<DO:Nom>",
+            "component_type": "case_spec",
+            "color_class": "gloss-direct-object",
+            "description": "Nominative direct object"
+          },
+          {
+            "text": "<IO:Dat>",
+            "component_type": "case_spec",
+            "color_class": "gloss-indirect-object",
+            "description": "Dative indirect object"
+          }
+        ],
+        "argument_pattern": "<S-DO-IO>",
+        "case_specifications": [
+          "<S:Erg>",
+          "<DO:Nom>",
+          "<IO:Dat>"
+        ]
+      }
+    },
+    "optative": {
+      "raw_gloss": "V Act Opt <S-DO-IO> <S:Erg> <DO:Nom> <IO:Dat>",
+      "structured_gloss": {
+        "raw_components": [
+          {
+            "text": "V",
+            "component_type": "verb",
+            "color_class": "gloss-verb",
+            "description": "Verb"
+          },
+          {
+            "text": "Act",
+            "component_type": "voice",
+            "color_class": "gloss-voice",
+            "description": "Active"
+          },
+          {
+            "text": "Opt",
+            "component_type": "tense",
+            "color_class": "gloss-tense",
+            "description": "Optative"
+          },
+          {
+            "text": "<S-DO-IO>",
+            "component_type": "argument_pattern",
+            "color_class": "gloss-argument",
+            "description": "Transitive relative"
+          },
+          {
+            "text": "<S:Erg>",
+            "component_type": "case_spec",
+            "color_class": "gloss-case",
+            "description": "Ergative subject"
+          },
+          {
+            "text": "<DO:Nom>",
+            "component_type": "case_spec",
+            "color_class": "gloss-case",
+            "description": "Nominative direct object"
+          },
+          {
+            "text": "<IO:Dat>",
+            "component_type": "case_spec",
+            "color_class": "gloss-case",
+            "description": "Dative indirect object"
+          }
+        ],
+        "expanded_components": [
+          {
+            "text": "V",
+            "component_type": "verb",
+            "color_class": "gloss-verb",
+            "description": "Verb"
+          },
+          {
+            "text": "Act",
+            "component_type": "voice",
+            "color_class": "gloss-voice",
+            "description": "Active"
+          },
+          {
+            "text": "Opt",
+            "component_type": "tense",
+            "color_class": "gloss-tense",
+            "description": "Optative"
+          },
+          {
+            "text": "<S-DO-IO>",
+            "component_type": "argument_pattern",
+            "color_class": "gloss-argument",
+            "description": "Transitive relative"
+          },
+          {
+            "text": "<S:Erg>",
+            "component_type": "case_spec",
+            "color_class": "gloss-subject",
+            "description": "Ergative subject"
+          },
+          {
+            "text": "<DO:Nom>",
+            "component_type": "case_spec",
+            "color_class": "gloss-direct-object",
+            "description": "Nominative direct object"
+          },
+          {
+            "text": "<IO:Dat>",
+            "component_type": "case_spec",
+            "color_class": "gloss-indirect-object",
+            "description": "Dative indirect object"
+          }
+        ],
+        "argument_pattern": "<S-DO-IO>",
+        "case_specifications": [
+          "<S:Erg>",
+          "<DO:Nom>",
+          "<IO:Dat>"
+        ]
+      }
+    },
+    "imperative": {
+      "raw_gloss": "V Act Impv <S-DO-IO> <S:Erg> <DO:Nom> <IO:Dat>",
+      "structured_gloss": {
+        "raw_components": [
+          {
+            "text": "V",
+            "component_type": "verb",
+            "color_class": "gloss-verb",
+            "description": "Verb"
+          },
+          {
+            "text": "Act",
+            "component_type": "voice",
+            "color_class": "gloss-voice",
+            "description": "Active"
+          },
+          {
+            "text": "Impv",
+            "component_type": "tense",
+            "color_class": "gloss-tense",
+            "description": "Imperative"
+          },
+          {
+            "text": "<S-DO-IO>",
+            "component_type": "argument_pattern",
+            "color_class": "gloss-argument",
+            "description": "Transitive relative"
+          },
+          {
+            "text": "<S:Erg>",
+            "component_type": "case_spec",
+            "color_class": "gloss-case",
+            "description": "Ergative subject"
+          },
+          {
+            "text": "<DO:Nom>",
+            "component_type": "case_spec",
+            "color_class": "gloss-case",
+            "description": "Nominative direct object"
+          },
+          {
+            "text": "<IO:Dat>",
+            "component_type": "case_spec",
+            "color_class": "gloss-case",
+            "description": "Dative indirect object"
+          }
+        ],
+        "expanded_components": [
+          {
+            "text": "V",
+            "component_type": "verb",
+            "color_class": "gloss-verb",
+            "description": "Verb"
+          },
+          {
+            "text": "Act",
+            "component_type": "voice",
+            "color_class": "gloss-voice",
+            "description": "Active"
+          },
+          {
+            "text": "Impv",
+            "component_type": "tense",
+            "color_class": "gloss-tense",
+            "description": "Imperative"
+          },
+          {
+            "text": "<S-DO-IO>",
+            "component_type": "argument_pattern",
+            "color_class": "gloss-argument",
+            "description": "Transitive relative"
+          },
+          {
+            "text": "<S:Erg>",
+            "component_type": "case_spec",
+            "color_class": "gloss-subject",
+            "description": "Ergative subject"
+          },
+          {
+            "text": "<DO:Nom>",
+            "component_type": "case_spec",
+            "color_class": "gloss-direct-object",
+            "description": "Nominative direct object"
+          },
+          {
+            "text": "<IO:Dat>",
+            "component_type": "case_spec",
+            "color_class": "gloss-indirect-object",
+            "description": "Dative indirect object"
+          }
+        ],
+        "argument_pattern": "<S-DO-IO>",
+        "case_specifications": [
+          "<S:Erg>",
+          "<DO:Nom>",
+          "<IO:Dat>"
+        ]
+      }
+    }
+  },
+  "preverb_forms": {}
+}

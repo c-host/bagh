@@ -1,0 +1,952 @@
+{
+  "id": 22,
+  "georgian": "თქმა",
+  "description": "To Say",
+  "category": "Communication & Language",
+  "class": "Class-I",
+  "semantic_key": "say",
+  "notes": "",
+  "url": "https://lingua.ge/verbs/%e1%83%97%e1%83%a5%e1%83%9b%e1%83%90-2/",
+  "global_argument_pattern": "<S-DO>",
+  "valency": {
+    "default": "<S-DO>",
+    "alternatives": []
+  },
+  "syntax": {
+    "arguments": {
+      "subject": {
+        "3sg": {
+          "noun": "reporter",
+          "adjective": "young"
+        },
+        "3pl": {
+          "noun": "witness",
+          "adjective": "honest"
+        }
+      },
+      "direct_object": {
+        "1sg": {
+          "noun": "name",
+          "adjective": "whole"
+        },
+        "2sg": {
+          "noun": "address",
+          "adjective": "correct"
+        },
+        "3sg": {
+          "noun": "truth",
+          "adjective": "important"
+        },
+        "1pl": {
+          "noun": "opinion",
+          "adjective": "strong"
+        },
+        "2pl": {
+          "noun": "answer",
+          "adjective": "short"
+        },
+        "3pl": {
+          "noun": "story",
+          "adjective": "complete"
+        }
+      }
+    },
+    "prepositions": {
+      "subject": "the",
+      "direct_object": "the",
+      "indirect_object": ""
+    },
+    "preverb_overrides": {}
+  },
+  "english_translations": {
+    "default": {
+      "present": "say",
+      "imperfect": "was saying",
+      "future": "will say",
+      "aorist": "said",
+      "optative": "say",
+      "imperative": "say"
+    }
+  },
+  "conjugations": {
+    "present": {
+      "raw_gloss": "V MedAct Pres <S-DO> <S:Nom> <DO:Dat>",
+      "forms": {
+        "1sg": "ვამბობ",
+        "2sg": "ამბობ",
+        "3sg": "ამბობს",
+        "1pl": "ვამბობთ",
+        "2pl": "ამბობთ",
+        "3pl": "ამბობენ"
+      },
+      "examples": []
+    },
+    "imperfect": {
+      "raw_gloss": "V MedAct Impf <S-DO> <S:Nom> <DO:Dat>",
+      "forms": {
+        "1sg": "ვამბობდი",
+        "2sg": "ამბობდი",
+        "3sg": "ამბობდა",
+        "1pl": "ვამბობდით",
+        "2pl": "ამბობდით",
+        "3pl": "ამბობდნენ"
+      },
+      "examples": []
+    },
+    "future": {
+      "raw_gloss": "V MedAct Fut <S-DO> <S:Nom> <DO:Dat>",
+      "forms": {
+        "1sg": "ვიტყვი",
+        "2sg": "იტყვი",
+        "3sg": "იტყვის",
+        "1pl": "ვიტყვით",
+        "2pl": "იტყვით",
+        "3pl": "იტყვიან"
+      },
+      "examples": []
+    },
+    "aorist": {
+      "raw_gloss": "V MedAct Aor <S-DO> <S:Erg> <DO:Nom>",
+      "forms": {
+        "1sg": "ვთქვი",
+        "2sg": "თქვი",
+        "3sg": "თქვა",
+        "1pl": "ვთქვით",
+        "2pl": "თქვით",
+        "3pl": "თქვეს"
+      },
+      "examples": []
+    },
+    "optative": {
+      "raw_gloss": "V MedAct Opt <S-DO> <S:Erg> <DO:Nom>",
+      "forms": {
+        "1sg": "ვთქვა",
+        "2sg": "თქვა",
+        "3sg": "თქვას",
+        "1pl": "ვთქვათ",
+        "2pl": "თქვათ",
+        "3pl": "თქვან"
+      },
+      "examples": []
+    },
+    "imperative": {
+      "raw_gloss": "V MedAct Impv <S-DO> <S:Erg> <DO:Nom>",
+      "forms": {
+        "1sg": "-",
+        "2sg": "თქვი",
+        "3sg": "-",
+        "1pl": "-",
+        "2pl": "თქვით",
+        "3pl": "-"
+      },
+      "examples": []
+    }
+  },
+  "preverb_config": {
+    "has_multiple_preverbs": false,
+    "default_preverb": "",
+    "available_preverbs": []
+  },
+  "preverb_rules": {
+    "default": "",
+    "replacements": {},
+    "tense_specific_fallbacks": {},
+    "english_fallbacks": {}
+  },
+  "examples": {
+    "null": {
+      "present": [
+        {
+          "georgian": "მთელ სახელს ვამბობ",
+          "english": "<strong data-role=\"subject\" data-person=\"1sg\">I</strong> <strong data-role=\"verb\">say</strong> <strong data-role=\"direct-object\">the whole name</strong>",
+          "english_plain": "I say the whole name",
+          "html": "<span data-case=\"dat\" data-role=\"direct-object\">მთელ სახელს</span> <span data-role=\"verb\">ვამბობ</span>",
+          "case_marking": {
+            "direct_object": {
+              "case": "dat",
+              "word": "სახელს"
+            }
+          },
+          "georgian_verb_form": "ვამბობ"
+        },
+        {
+          "georgian": "ახალგაზრდა რეპორტიორი მნიშვნელოვან სიმართლეს ამბობს",
+          "english": "<strong data-role=\"subject\">The young reporter</strong> <strong data-role=\"verb\">says</strong> <strong data-role=\"direct-object\">the important truth</strong>",
+          "english_plain": "The young reporter says the important truth",
+          "html": "<span data-case=\"nom\" data-role=\"subject\">ახალგაზრდა რეპორტიორი</span> <span data-case=\"dat\" data-role=\"direct-object\">მნიშვნელოვან სიმართლეს</span> <span data-role=\"verb\">ამბობს</span>",
+          "case_marking": {
+            "subject": {
+              "case": "nom",
+              "word": "რეპორტიორი"
+            },
+            "direct_object": {
+              "case": "dat",
+              "word": "სიმართლეს"
+            }
+          },
+          "georgian_verb_form": "ამბობს"
+        },
+        {
+          "georgian": "პატიოსანი მოწმეები სრულ ამბავს ამბობენ",
+          "english": "<strong data-role=\"subject\">The honest witnesses</strong> <strong data-role=\"verb\">say</strong> <strong data-role=\"direct-object\">the complete story</strong>",
+          "english_plain": "The honest witnesses say the complete story",
+          "html": "<span data-case=\"nom\" data-role=\"subject\">პატიოსანი მოწმეები</span> <span data-case=\"dat\" data-role=\"direct-object\">სრულ ამბავს</span> <span data-role=\"verb\">ამბობენ</span>",
+          "case_marking": {
+            "subject": {
+              "case": "nom",
+              "word": "მოწმეები"
+            },
+            "direct_object": {
+              "case": "dat",
+              "word": "ამბავს"
+            }
+          },
+          "georgian_verb_form": "ამბობენ"
+        }
+      ],
+      "imperfect": [
+        {
+          "georgian": "მთელ სახელს ვამბობდი",
+          "english": "<strong data-role=\"subject\" data-person=\"1sg\">I</strong> <strong data-role=\"verb\">was saying</strong> <strong data-role=\"direct-object\">the whole name</strong>",
+          "english_plain": "I was saying the whole name",
+          "html": "<span data-case=\"dat\" data-role=\"direct-object\">მთელ სახელს</span> <span data-role=\"verb\">ვამბობდი</span>",
+          "case_marking": {
+            "direct_object": {
+              "case": "dat",
+              "word": "სახელს"
+            }
+          },
+          "georgian_verb_form": "ვამბობდი"
+        },
+        {
+          "georgian": "ახალგაზრდა რეპორტიორი მნიშვნელოვან სიმართლეს ამბობდა",
+          "english": "<strong data-role=\"subject\">The young reporter</strong> <strong data-role=\"verb\">was saying</strong> <strong data-role=\"direct-object\">the important truth</strong>",
+          "english_plain": "The young reporter was saying the important truth",
+          "html": "<span data-case=\"nom\" data-role=\"subject\">ახალგაზრდა რეპორტიორი</span> <span data-case=\"dat\" data-role=\"direct-object\">მნიშვნელოვან სიმართლეს</span> <span data-role=\"verb\">ამბობდა</span>",
+          "case_marking": {
+            "subject": {
+              "case": "nom",
+              "word": "რეპორტიორი"
+            },
+            "direct_object": {
+              "case": "dat",
+              "word": "სიმართლეს"
+            }
+          },
+          "georgian_verb_form": "ამბობდა"
+        },
+        {
+          "georgian": "პატიოსანი მოწმეები სრულ ამბავს ამბობდნენ",
+          "english": "<strong data-role=\"subject\">The honest witnesses</strong> <strong data-role=\"verb\">were saying</strong> <strong data-role=\"direct-object\">the complete story</strong>",
+          "english_plain": "The honest witnesses were saying the complete story",
+          "html": "<span data-case=\"nom\" data-role=\"subject\">პატიოსანი მოწმეები</span> <span data-case=\"dat\" data-role=\"direct-object\">სრულ ამბავს</span> <span data-role=\"verb\">ამბობდნენ</span>",
+          "case_marking": {
+            "subject": {
+              "case": "nom",
+              "word": "მოწმეები"
+            },
+            "direct_object": {
+              "case": "dat",
+              "word": "ამბავს"
+            }
+          },
+          "georgian_verb_form": "ამბობდნენ"
+        }
+      ],
+      "future": [
+        {
+          "georgian": "მთელ სახელს ვიტყვი",
+          "english": "<strong data-role=\"subject\" data-person=\"1sg\">I</strong> <strong data-role=\"verb\">will say</strong> <strong data-role=\"direct-object\">the whole name</strong>",
+          "english_plain": "I will say the whole name",
+          "html": "<span data-case=\"dat\" data-role=\"direct-object\">მთელ სახელს</span> <span data-role=\"verb\">ვიტყვი</span>",
+          "case_marking": {
+            "direct_object": {
+              "case": "dat",
+              "word": "სახელს"
+            }
+          },
+          "georgian_verb_form": "ვიტყვი"
+        },
+        {
+          "georgian": "ახალგაზრდა რეპორტიორი მნიშვნელოვან სიმართლეს იტყვის",
+          "english": "<strong data-role=\"subject\">The young reporter</strong> <strong data-role=\"verb\">will say</strong> <strong data-role=\"direct-object\">the important truth</strong>",
+          "english_plain": "The young reporter will say the important truth",
+          "html": "<span data-case=\"nom\" data-role=\"subject\">ახალგაზრდა რეპორტიორი</span> <span data-case=\"dat\" data-role=\"direct-object\">მნიშვნელოვან სიმართლეს</span> <span data-role=\"verb\">იტყვის</span>",
+          "case_marking": {
+            "subject": {
+              "case": "nom",
+              "word": "რეპორტიორი"
+            },
+            "direct_object": {
+              "case": "dat",
+              "word": "სიმართლეს"
+            }
+          },
+          "georgian_verb_form": "იტყვის"
+        },
+        {
+          "georgian": "პატიოსანი მოწმეები სრულ ამბავს იტყვიან",
+          "english": "<strong data-role=\"subject\">The honest witnesses</strong> <strong data-role=\"verb\">will say</strong> <strong data-role=\"direct-object\">the complete story</strong>",
+          "english_plain": "The honest witnesses will say the complete story",
+          "html": "<span data-case=\"nom\" data-role=\"subject\">პატიოსანი მოწმეები</span> <span data-case=\"dat\" data-role=\"direct-object\">სრულ ამბავს</span> <span data-role=\"verb\">იტყვიან</span>",
+          "case_marking": {
+            "subject": {
+              "case": "nom",
+              "word": "მოწმეები"
+            },
+            "direct_object": {
+              "case": "dat",
+              "word": "ამბავს"
+            }
+          },
+          "georgian_verb_form": "იტყვიან"
+        }
+      ],
+      "aorist": [
+        {
+          "georgian": "მთელი სახელი ვთქვი",
+          "english": "<strong data-role=\"subject\" data-person=\"1sg\">I</strong> <strong data-role=\"verb\">said</strong> <strong data-role=\"direct-object\">the whole name</strong>",
+          "english_plain": "I said the whole name",
+          "html": "<span data-case=\"nom\" data-role=\"direct-object\">მთელი სახელი</span> <span data-role=\"verb\">ვთქვი</span>",
+          "case_marking": {
+            "direct_object": {
+              "case": "nom",
+              "word": "სახელი"
+            }
+          },
+          "georgian_verb_form": "ვთქვი"
+        },
+        {
+          "georgian": "ახალგაზრდა რეპორტიორმა მნიშვნელოვანი სიმართლე თქვა",
+          "english": "<strong data-role=\"subject\">The young reporter</strong> <strong data-role=\"verb\">said</strong> <strong data-role=\"direct-object\">the important truth</strong>",
+          "english_plain": "The young reporter said the important truth",
+          "html": "<span data-case=\"erg\" data-role=\"subject\">ახალგაზრდა რეპორტიორმა</span> <span data-case=\"nom\" data-role=\"direct-object\">მნიშვნელოვანი სიმართლე</span> <span data-role=\"verb\">თქვა</span>",
+          "case_marking": {
+            "subject": {
+              "case": "erg",
+              "word": "რეპორტიორმა"
+            },
+            "direct_object": {
+              "case": "nom",
+              "word": "სიმართლე"
+            }
+          },
+          "georgian_verb_form": "თქვა"
+        },
+        {
+          "georgian": "პატიოსანმა მოწმეებმა სრული ამბავი თქვეს",
+          "english": "<strong data-role=\"subject\">The honest witnesses</strong> <strong data-role=\"verb\">said</strong> <strong data-role=\"direct-object\">the complete story</strong>",
+          "english_plain": "The honest witnesses said the complete story",
+          "html": "<span data-case=\"erg\" data-role=\"subject\">პატიოსანმა მოწმეებმა</span> <span data-case=\"nom\" data-role=\"direct-object\">სრული ამბავი</span> <span data-role=\"verb\">თქვეს</span>",
+          "case_marking": {
+            "subject": {
+              "case": "erg",
+              "word": "მოწმეებმა"
+            },
+            "direct_object": {
+              "case": "nom",
+              "word": "ამბავი"
+            }
+          },
+          "georgian_verb_form": "თქვეს"
+        }
+      ],
+      "optative": [
+        {
+          "georgian": "მთელი სახელი უნდა ვთქვა",
+          "english": "<strong data-role=\"subject\" data-person=\"1sg\">I</strong> <strong data-role=\"verb\">should</strong> <strong data-role=\"verb\">say</strong> <strong data-role=\"direct-object\">the whole name</strong>",
+          "english_plain": "I should say the whole name",
+          "html": "<span data-case=\"nom\" data-role=\"direct-object\">მთელი სახელი</span> <span data-role=\"verb\">უნდა ვთქვა</span>",
+          "case_marking": {
+            "direct_object": {
+              "case": "nom",
+              "word": "სახელი"
+            }
+          },
+          "georgian_verb_form": "ვთქვა"
+        },
+        {
+          "georgian": "ახალგაზრდა რეპორტიორმა მნიშვნელოვანი სიმართლე უნდა თქვას",
+          "english": "<strong data-role=\"subject\">The young reporter</strong> <strong data-role=\"verb\">should</strong> <strong data-role=\"verb\">say</strong> <strong data-role=\"direct-object\">the important truth</strong>",
+          "english_plain": "The young reporter should say the important truth",
+          "html": "<span data-case=\"erg\" data-role=\"subject\">ახალგაზრდა რეპორტიორმა</span> <span data-case=\"nom\" data-role=\"direct-object\">მნიშვნელოვანი სიმართლე</span> <span data-role=\"verb\">უნდა თქვას</span>",
+          "case_marking": {
+            "subject": {
+              "case": "erg",
+              "word": "რეპორტიორმა"
+            },
+            "direct_object": {
+              "case": "nom",
+              "word": "სიმართლე"
+            }
+          },
+          "georgian_verb_form": "თქვას"
+        },
+        {
+          "georgian": "პატიოსანმა მოწმეებმა სრული ამბავი უნდა თქვან",
+          "english": "<strong data-role=\"subject\">The honest witnesses</strong> <strong data-role=\"verb\">should</strong> <strong data-role=\"verb\">say</strong> <strong data-role=\"direct-object\">the complete story</strong>",
+          "english_plain": "The honest witnesses should say the complete story",
+          "html": "<span data-case=\"erg\" data-role=\"subject\">პატიოსანმა მოწმეებმა</span> <span data-case=\"nom\" data-role=\"direct-object\">სრული ამბავი</span> <span data-role=\"verb\">უნდა თქვან</span>",
+          "case_marking": {
+            "subject": {
+              "case": "erg",
+              "word": "მოწმეებმა"
+            },
+            "direct_object": {
+              "case": "nom",
+              "word": "ამბავი"
+            }
+          },
+          "georgian_verb_form": "თქვან"
+        }
+      ],
+      "imperative": [
+        {
+          "georgian": "სწორი მისამართი თქვი",
+          "english": "<strong data-role=\"verb\">say</strong> <strong data-role=\"direct-object\">the correct address</strong>",
+          "english_plain": "say the correct address",
+          "html": "<span data-case=\"nom\" data-role=\"direct-object\">სწორი მისამართი</span> <span data-role=\"verb\">თქვი</span>",
+          "case_marking": {
+            "direct_object": {
+              "case": "nom",
+              "word": "მისამართი"
+            }
+          },
+          "georgian_verb_form": "თქვი"
+        },
+        {
+          "georgian": "დაბალი პასუხი თქვით",
+          "english": "<strong data-role=\"verb\">say</strong> <strong data-role=\"direct-object\">the short answer</strong>",
+          "english_plain": "say the short answer",
+          "html": "<span data-case=\"nom\" data-role=\"direct-object\">დაბალი პასუხი</span> <span data-role=\"verb\">თქვით</span>",
+          "case_marking": {
+            "direct_object": {
+              "case": "nom",
+              "word": "პასუხი"
+            }
+          },
+          "georgian_verb_form": "თქვით"
+        }
+      ]
+    }
+  },
+  "gloss_analysis": {
+    "present": {
+      "raw_gloss": "V MedAct Pres <S-DO> <S:Nom> <DO:Dat>",
+      "structured_gloss": {
+        "raw_components": [
+          {
+            "text": "V",
+            "component_type": "verb",
+            "color_class": "gloss-verb",
+            "description": "Verb"
+          },
+          {
+            "text": "MedAct",
+            "component_type": "voice",
+            "color_class": "gloss-voice",
+            "description": "Medioactive"
+          },
+          {
+            "text": "Pres",
+            "component_type": "tense",
+            "color_class": "gloss-tense",
+            "description": "Present"
+          },
+          {
+            "text": "<S-DO>",
+            "component_type": "argument_pattern",
+            "color_class": "gloss-argument",
+            "description": "Transitive absolute"
+          },
+          {
+            "text": "<S:Nom>",
+            "component_type": "case_spec",
+            "color_class": "gloss-case",
+            "description": "Nominative subject"
+          },
+          {
+            "text": "<DO:Dat>",
+            "component_type": "case_spec",
+            "color_class": "gloss-case",
+            "description": "Dative direct object"
+          }
+        ],
+        "expanded_components": [
+          {
+            "text": "V",
+            "component_type": "verb",
+            "color_class": "gloss-verb",
+            "description": "Verb"
+          },
+          {
+            "text": "MedAct",
+            "component_type": "voice",
+            "color_class": "gloss-voice",
+            "description": "Medioactive"
+          },
+          {
+            "text": "Pres",
+            "component_type": "tense",
+            "color_class": "gloss-tense",
+            "description": "Present"
+          },
+          {
+            "text": "<S-DO>",
+            "component_type": "argument_pattern",
+            "color_class": "gloss-argument",
+            "description": "Transitive absolute"
+          },
+          {
+            "text": "<S:Nom>",
+            "component_type": "case_spec",
+            "color_class": "gloss-subject",
+            "description": "Nominative subject"
+          },
+          {
+            "text": "<DO:Dat>",
+            "component_type": "case_spec",
+            "color_class": "gloss-direct-object",
+            "description": "Dative direct object"
+          }
+        ],
+        "argument_pattern": "<S-DO>",
+        "case_specifications": [
+          "<S:Nom>",
+          "<DO:Dat>"
+        ]
+      }
+    },
+    "imperfect": {
+      "raw_gloss": "V MedAct Impf <S-DO> <S:Nom> <DO:Dat>",
+      "structured_gloss": {
+        "raw_components": [
+          {
+            "text": "V",
+            "component_type": "verb",
+            "color_class": "gloss-verb",
+            "description": "Verb"
+          },
+          {
+            "text": "MedAct",
+            "component_type": "voice",
+            "color_class": "gloss-voice",
+            "description": "Medioactive"
+          },
+          {
+            "text": "Impf",
+            "component_type": "tense",
+            "color_class": "gloss-tense",
+            "description": "Imperfect"
+          },
+          {
+            "text": "<S-DO>",
+            "component_type": "argument_pattern",
+            "color_class": "gloss-argument",
+            "description": "Transitive absolute"
+          },
+          {
+            "text": "<S:Nom>",
+            "component_type": "case_spec",
+            "color_class": "gloss-case",
+            "description": "Nominative subject"
+          },
+          {
+            "text": "<DO:Dat>",
+            "component_type": "case_spec",
+            "color_class": "gloss-case",
+            "description": "Dative direct object"
+          }
+        ],
+        "expanded_components": [
+          {
+            "text": "V",
+            "component_type": "verb",
+            "color_class": "gloss-verb",
+            "description": "Verb"
+          },
+          {
+            "text": "MedAct",
+            "component_type": "voice",
+            "color_class": "gloss-voice",
+            "description": "Medioactive"
+          },
+          {
+            "text": "Impf",
+            "component_type": "tense",
+            "color_class": "gloss-tense",
+            "description": "Imperfect"
+          },
+          {
+            "text": "<S-DO>",
+            "component_type": "argument_pattern",
+            "color_class": "gloss-argument",
+            "description": "Transitive absolute"
+          },
+          {
+            "text": "<S:Nom>",
+            "component_type": "case_spec",
+            "color_class": "gloss-subject",
+            "description": "Nominative subject"
+          },
+          {
+            "text": "<DO:Dat>",
+            "component_type": "case_spec",
+            "color_class": "gloss-direct-object",
+            "description": "Dative direct object"
+          }
+        ],
+        "argument_pattern": "<S-DO>",
+        "case_specifications": [
+          "<S:Nom>",
+          "<DO:Dat>"
+        ]
+      }
+    },
+    "future": {
+      "raw_gloss": "V MedAct Fut <S-DO> <S:Nom> <DO:Dat>",
+      "structured_gloss": {
+        "raw_components": [
+          {
+            "text": "V",
+            "component_type": "verb",
+            "color_class": "gloss-verb",
+            "description": "Verb"
+          },
+          {
+            "text": "MedAct",
+            "component_type": "voice",
+            "color_class": "gloss-voice",
+            "description": "Medioactive"
+          },
+          {
+            "text": "Fut",
+            "component_type": "tense",
+            "color_class": "gloss-tense",
+            "description": "Future"
+          },
+          {
+            "text": "<S-DO>",
+            "component_type": "argument_pattern",
+            "color_class": "gloss-argument",
+            "description": "Transitive absolute"
+          },
+          {
+            "text": "<S:Nom>",
+            "component_type": "case_spec",
+            "color_class": "gloss-case",
+            "description": "Nominative subject"
+          },
+          {
+            "text": "<DO:Dat>",
+            "component_type": "case_spec",
+            "color_class": "gloss-case",
+            "description": "Dative direct object"
+          }
+        ],
+        "expanded_components": [
+          {
+            "text": "V",
+            "component_type": "verb",
+            "color_class": "gloss-verb",
+            "description": "Verb"
+          },
+          {
+            "text": "MedAct",
+            "component_type": "voice",
+            "color_class": "gloss-voice",
+            "description": "Medioactive"
+          },
+          {
+            "text": "Fut",
+            "component_type": "tense",
+            "color_class": "gloss-tense",
+            "description": "Future"
+          },
+          {
+            "text": "<S-DO>",
+            "component_type": "argument_pattern",
+            "color_class": "gloss-argument",
+            "description": "Transitive absolute"
+          },
+          {
+            "text": "<S:Nom>",
+            "component_type": "case_spec",
+            "color_class": "gloss-subject",
+            "description": "Nominative subject"
+          },
+          {
+            "text": "<DO:Dat>",
+            "component_type": "case_spec",
+            "color_class": "gloss-direct-object",
+            "description": "Dative direct object"
+          }
+        ],
+        "argument_pattern": "<S-DO>",
+        "case_specifications": [
+          "<S:Nom>",
+          "<DO:Dat>"
+        ]
+      }
+    },
+    "aorist": {
+      "raw_gloss": "V MedAct Aor <S-DO> <S:Erg> <DO:Nom>",
+      "structured_gloss": {
+        "raw_components": [
+          {
+            "text": "V",
+            "component_type": "verb",
+            "color_class": "gloss-verb",
+            "description": "Verb"
+          },
+          {
+            "text": "MedAct",
+            "component_type": "voice",
+            "color_class": "gloss-voice",
+            "description": "Medioactive"
+          },
+          {
+            "text": "Aor",
+            "component_type": "tense",
+            "color_class": "gloss-tense",
+            "description": "Aorist"
+          },
+          {
+            "text": "<S-DO>",
+            "component_type": "argument_pattern",
+            "color_class": "gloss-argument",
+            "description": "Transitive absolute"
+          },
+          {
+            "text": "<S:Erg>",
+            "component_type": "case_spec",
+            "color_class": "gloss-case",
+            "description": "Ergative subject"
+          },
+          {
+            "text": "<DO:Nom>",
+            "component_type": "case_spec",
+            "color_class": "gloss-case",
+            "description": "Nominative direct object"
+          }
+        ],
+        "expanded_components": [
+          {
+            "text": "V",
+            "component_type": "verb",
+            "color_class": "gloss-verb",
+            "description": "Verb"
+          },
+          {
+            "text": "MedAct",
+            "component_type": "voice",
+            "color_class": "gloss-voice",
+            "description": "Medioactive"
+          },
+          {
+            "text": "Aor",
+            "component_type": "tense",
+            "color_class": "gloss-tense",
+            "description": "Aorist"
+          },
+          {
+            "text": "<S-DO>",
+            "component_type": "argument_pattern",
+            "color_class": "gloss-argument",
+            "description": "Transitive absolute"
+          },
+          {
+            "text": "<S:Erg>",
+            "component_type": "case_spec",
+            "color_class": "gloss-subject",
+            "description": "Ergative subject"
+          },
+          {
+            "text": "<DO:Nom>",
+            "component_type": "case_spec",
+            "color_class": "gloss-direct-object",
+            "description": "Nominative direct object"
+          }
+        ],
+        "argument_pattern": "<S-DO>",
+        "case_specifications": [
+          "<S:Erg>",
+          "<DO:Nom>"
+        ]
+      }
+    },
+    "optative": {
+      "raw_gloss": "V MedAct Opt <S-DO> <S:Erg> <DO:Nom>",
+      "structured_gloss": {
+        "raw_components": [
+          {
+            "text": "V",
+            "component_type": "verb",
+            "color_class": "gloss-verb",
+            "description": "Verb"
+          },
+          {
+            "text": "MedAct",
+            "component_type": "voice",
+            "color_class": "gloss-voice",
+            "description": "Medioactive"
+          },
+          {
+            "text": "Opt",
+            "component_type": "tense",
+            "color_class": "gloss-tense",
+            "description": "Optative"
+          },
+          {
+            "text": "<S-DO>",
+            "component_type": "argument_pattern",
+            "color_class": "gloss-argument",
+            "description": "Transitive absolute"
+          },
+          {
+            "text": "<S:Erg>",
+            "component_type": "case_spec",
+            "color_class": "gloss-case",
+            "description": "Ergative subject"
+          },
+          {
+            "text": "<DO:Nom>",
+            "component_type": "case_spec",
+            "color_class": "gloss-case",
+            "description": "Nominative direct object"
+          }
+        ],
+        "expanded_components": [
+          {
+            "text": "V",
+            "component_type": "verb",
+            "color_class": "gloss-verb",
+            "description": "Verb"
+          },
+          {
+            "text": "MedAct",
+            "component_type": "voice",
+            "color_class": "gloss-voice",
+            "description": "Medioactive"
+          },
+          {
+            "text": "Opt",
+            "component_type": "tense",
+            "color_class": "gloss-tense",
+            "description": "Optative"
+          },
+          {
+            "text": "<S-DO>",
+            "component_type": "argument_pattern",
+            "color_class": "gloss-argument",
+            "description": "Transitive absolute"
+          },
+          {
+            "text": "<S:Erg>",
+            "component_type": "case_spec",
+            "color_class": "gloss-subject",
+            "description": "Ergative subject"
+          },
+          {
+            "text": "<DO:Nom>",
+            "component_type": "case_spec",
+            "color_class": "gloss-direct-object",
+            "description": "Nominative direct object"
+          }
+        ],
+        "argument_pattern": "<S-DO>",
+        "case_specifications": [
+          "<S:Erg>",
+          "<DO:Nom>"
+        ]
+      }
+    },
+    "imperative": {
+      "raw_gloss": "V MedAct Impv <S-DO> <S:Erg> <DO:Nom>",
+      "structured_gloss": {
+        "raw_components": [
+          {
+            "text": "V",
+            "component_type": "verb",
+            "color_class": "gloss-verb",
+            "description": "Verb"
+          },
+          {
+            "text": "MedAct",
+            "component_type": "voice",
+            "color_class": "gloss-voice",
+            "description": "Medioactive"
+          },
+          {
+            "text": "Impv",
+            "component_type": "tense",
+            "color_class": "gloss-tense",
+            "description": "Imperative"
+          },
+          {
+            "text": "<S-DO>",
+            "component_type": "argument_pattern",
+            "color_class": "gloss-argument",
+            "description": "Transitive absolute"
+          },
+          {
+            "text": "<S:Erg>",
+            "component_type": "case_spec",
+            "color_class": "gloss-case",
+            "description": "Ergative subject"
+          },
+          {
+            "text": "<DO:Nom>",
+            "component_type": "case_spec",
+            "color_class": "gloss-case",
+            "description": "Nominative direct object"
+          }
+        ],
+        "expanded_components": [
+          {
+            "text": "V",
+            "component_type": "verb",
+            "color_class": "gloss-verb",
+            "description": "Verb"
+          },
+          {
+            "text": "MedAct",
+            "component_type": "voice",
+            "color_class": "gloss-voice",
+            "description": "Medioactive"
+          },
+          {
+            "text": "Impv",
+            "component_type": "tense",
+            "color_class": "gloss-tense",
+            "description": "Imperative"
+          },
+          {
+            "text": "<S-DO>",
+            "component_type": "argument_pattern",
+            "color_class": "gloss-argument",
+            "description": "Transitive absolute"
+          },
+          {
+            "text": "<S:Erg>",
+            "component_type": "case_spec",
+            "color_class": "gloss-subject",
+            "description": "Ergative subject"
+          },
+          {
+            "text": "<DO:Nom>",
+            "component_type": "case_spec",
+            "color_class": "gloss-direct-object",
+            "description": "Nominative direct object"
+          }
+        ],
+        "argument_pattern": "<S-DO>",
+        "case_specifications": [
+          "<S:Erg>",
+          "<DO:Nom>"
+        ]
+      }
+    }
+  },
+  "preverb_forms": {}
+}

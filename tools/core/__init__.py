@@ -8,7 +8,7 @@ This package contains the core data processing functionality:
 - Noun/adjective selection
 """
 
-from .gloss_parser import GlossParser, StandardizedRawGlossParser, RawGlossParseError
+from .robust_gloss_processor import StandardizedRawGlossParser, RawGlossParseError
 from .verb_conjugation import (
     get_conjugation_form,
     get_verb_gloss,
@@ -28,7 +28,6 @@ from .argument_resolver import (
 
 __all__ = [
     # Gloss parsing
-    "GlossParser",
     "StandardizedRawGlossParser",
     "RawGlossParseError",
     # Verb conjugation

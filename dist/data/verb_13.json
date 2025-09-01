@@ -1,0 +1,773 @@
+{
+  "id": 13,
+  "georgian": "საუბარი",
+  "description": "To Converse",
+  "category": "Communication & Language",
+  "class": "Class-I",
+  "semantic_key": "converse",
+  "notes": "",
+  "url": "https://lingua.ge/verbs/%e1%83%9a%e1%83%90%e1%83%9e%e1%83%90%e1%83%a0%e1%83%90%e1%83%99%e1%83%98/",
+  "global_argument_pattern": "<S>",
+  "valency": {
+    "default": "<S>",
+    "alternatives": []
+  },
+  "syntax": {
+    "arguments": {
+      "subject": {
+        "3sg": {
+          "noun": "teacher",
+          "adjective": "smart"
+        },
+        "3pl": {
+          "noun": "student",
+          "adjective": "curious"
+        }
+      }
+    },
+    "prepositions": {
+      "subject": "the",
+      "direct_object": "",
+      "indirect_object": ""
+    },
+    "preverb_overrides": {}
+  },
+  "english_translations": {
+    "default": {
+      "present": "converse",
+      "imperfect": "was conversing",
+      "future": "will converse",
+      "aorist": "conversed",
+      "optative": "converse",
+      "imperative": "converse"
+    }
+  },
+  "conjugations": {
+    "present": {
+      "raw_gloss": "V Act Pres <S> <S:Nom>",
+      "forms": {
+        "1sg": "ვსაუბრობ",
+        "2sg": "საუბრობ",
+        "3sg": "საუბრობს",
+        "1pl": "ვსაუბრობთ",
+        "2pl": "საუბრობთ",
+        "3pl": "საუბრობენ"
+      },
+      "examples": []
+    },
+    "imperfect": {
+      "raw_gloss": "V Act Impf <S> <S:Nom>",
+      "forms": {
+        "1sg": "ვსაუბრობდი",
+        "2sg": "საუბრობდი",
+        "3sg": "საუბრობდა",
+        "1pl": "ვსაუბრობდით",
+        "2pl": "საუბრობდით",
+        "3pl": "საუბრობდნენ"
+      },
+      "examples": []
+    },
+    "future": {
+      "raw_gloss": "V Act Fut <S> <S:Nom>",
+      "forms": {
+        "1sg": "ვისაუბრებ",
+        "2sg": "ისაუბრებ",
+        "3sg": "ისაუბრებს",
+        "1pl": "ვისაუბრებთ",
+        "2pl": "ისაუბრებთ",
+        "3pl": "ისაუბრებენ"
+      },
+      "examples": []
+    },
+    "aorist": {
+      "raw_gloss": "V Act Aor <S> <S:Erg>",
+      "forms": {
+        "1sg": "ვისაუბრე",
+        "2sg": "ისაუბრე",
+        "3sg": "ისაუბრა",
+        "1pl": "ვისაუბრეთ",
+        "2pl": "ისაუბრეთ",
+        "3pl": "ისაუბრეს"
+      },
+      "examples": []
+    },
+    "optative": {
+      "raw_gloss": "V Act Opt <S> <S:Erg>",
+      "forms": {
+        "1sg": "ვისაუბრო",
+        "2sg": "ისაუბრო",
+        "3sg": "ისაუბროს",
+        "1pl": "ვისაუბროთ",
+        "2pl": "ისაუბროთ",
+        "3pl": "ისაუბრონ"
+      },
+      "examples": []
+    },
+    "imperative": {
+      "raw_gloss": "V Act Impv <S> <S:Erg>",
+      "forms": {
+        "1sg": "-",
+        "2sg": "ისაუბრე",
+        "3sg": "-",
+        "1pl": "-",
+        "2pl": "ისაუბრეთ",
+        "3pl": "-"
+      },
+      "examples": []
+    }
+  },
+  "preverb_config": {
+    "has_multiple_preverbs": false,
+    "default_preverb": "",
+    "available_preverbs": []
+  },
+  "preverb_rules": {
+    "default": "",
+    "replacements": {},
+    "tense_specific_fallbacks": {},
+    "english_fallbacks": {}
+  },
+  "examples": {
+    "null": {
+      "present": [
+        {
+          "georgian": "ვსაუბრობ",
+          "english": "<strong data-role=\"subject\" data-person=\"1sg\">I</strong> <strong data-role=\"verb\">converse</strong>",
+          "english_plain": "I converse",
+          "html": " <span data-role=\"verb\">ვსაუბრობ</span>",
+          "case_marking": {},
+          "georgian_verb_form": "ვსაუბრობ"
+        },
+        {
+          "georgian": "ჭკვიანი მასწავლებელი საუბრობს",
+          "english": "<strong data-role=\"subject\">The smart teacher</strong> <strong data-role=\"verb\">converses</strong>",
+          "english_plain": "The smart teacher converses",
+          "html": "<span data-case=\"nom\" data-role=\"subject\">ჭკვიანი მასწავლებელი</span> <span data-role=\"verb\">საუბრობს</span>",
+          "case_marking": {
+            "subject": {
+              "case": "nom",
+              "word": "მასწავლებელი"
+            }
+          },
+          "georgian_verb_form": "საუბრობს"
+        },
+        {
+          "georgian": "ცნობისმოყვარე სტუდენტები საუბრობენ",
+          "english": "<strong data-role=\"subject\">The curious students</strong> <strong data-role=\"verb\">converse</strong>",
+          "english_plain": "The curious students converse",
+          "html": "<span data-case=\"nom\" data-role=\"subject\">ცნობისმოყვარე სტუდენტები</span> <span data-role=\"verb\">საუბრობენ</span>",
+          "case_marking": {
+            "subject": {
+              "case": "nom",
+              "word": "სტუდენტები"
+            }
+          },
+          "georgian_verb_form": "საუბრობენ"
+        }
+      ],
+      "imperfect": [
+        {
+          "georgian": "ვსაუბრობდი",
+          "english": "<strong data-role=\"subject\" data-person=\"1sg\">I</strong> <strong data-role=\"verb\">was conversing</strong>",
+          "english_plain": "I was conversing",
+          "html": " <span data-role=\"verb\">ვსაუბრობდი</span>",
+          "case_marking": {},
+          "georgian_verb_form": "ვსაუბრობდი"
+        },
+        {
+          "georgian": "ჭკვიანი მასწავლებელი საუბრობდა",
+          "english": "<strong data-role=\"subject\">The smart teacher</strong> <strong data-role=\"verb\">was conversing</strong>",
+          "english_plain": "The smart teacher was conversing",
+          "html": "<span data-case=\"nom\" data-role=\"subject\">ჭკვიანი მასწავლებელი</span> <span data-role=\"verb\">საუბრობდა</span>",
+          "case_marking": {
+            "subject": {
+              "case": "nom",
+              "word": "მასწავლებელი"
+            }
+          },
+          "georgian_verb_form": "საუბრობდა"
+        },
+        {
+          "georgian": "ცნობისმოყვარე სტუდენტები საუბრობდნენ",
+          "english": "<strong data-role=\"subject\">The curious students</strong> <strong data-role=\"verb\">were conversing</strong>",
+          "english_plain": "The curious students were conversing",
+          "html": "<span data-case=\"nom\" data-role=\"subject\">ცნობისმოყვარე სტუდენტები</span> <span data-role=\"verb\">საუბრობდნენ</span>",
+          "case_marking": {
+            "subject": {
+              "case": "nom",
+              "word": "სტუდენტები"
+            }
+          },
+          "georgian_verb_form": "საუბრობდნენ"
+        }
+      ],
+      "future": [
+        {
+          "georgian": "ვისაუბრებ",
+          "english": "<strong data-role=\"subject\" data-person=\"1sg\">I</strong> <strong data-role=\"verb\">will converse</strong>",
+          "english_plain": "I will converse",
+          "html": " <span data-role=\"verb\">ვისაუბრებ</span>",
+          "case_marking": {},
+          "georgian_verb_form": "ვისაუბრებ"
+        },
+        {
+          "georgian": "ჭკვიანი მასწავლებელი ისაუბრებს",
+          "english": "<strong data-role=\"subject\">The smart teacher</strong> <strong data-role=\"verb\">will converse</strong>",
+          "english_plain": "The smart teacher will converse",
+          "html": "<span data-case=\"nom\" data-role=\"subject\">ჭკვიანი მასწავლებელი</span> <span data-role=\"verb\">ისაუბრებს</span>",
+          "case_marking": {
+            "subject": {
+              "case": "nom",
+              "word": "მასწავლებელი"
+            }
+          },
+          "georgian_verb_form": "ისაუბრებს"
+        },
+        {
+          "georgian": "ცნობისმოყვარე სტუდენტები ისაუბრებენ",
+          "english": "<strong data-role=\"subject\">The curious students</strong> <strong data-role=\"verb\">will converse</strong>",
+          "english_plain": "The curious students will converse",
+          "html": "<span data-case=\"nom\" data-role=\"subject\">ცნობისმოყვარე სტუდენტები</span> <span data-role=\"verb\">ისაუბრებენ</span>",
+          "case_marking": {
+            "subject": {
+              "case": "nom",
+              "word": "სტუდენტები"
+            }
+          },
+          "georgian_verb_form": "ისაუბრებენ"
+        }
+      ],
+      "aorist": [
+        {
+          "georgian": "ვისაუბრე",
+          "english": "<strong data-role=\"subject\" data-person=\"1sg\">I</strong> <strong data-role=\"verb\">conversed</strong>",
+          "english_plain": "I conversed",
+          "html": " <span data-role=\"verb\">ვისაუბრე</span>",
+          "case_marking": {},
+          "georgian_verb_form": "ვისაუბრე"
+        },
+        {
+          "georgian": "ჭკვიანმა მასწავლებელმა ისაუბრა",
+          "english": "<strong data-role=\"subject\">The smart teacher</strong> <strong data-role=\"verb\">conversed</strong>",
+          "english_plain": "The smart teacher conversed",
+          "html": "<span data-case=\"erg\" data-role=\"subject\">ჭკვიანმა მასწავლებელმა</span> <span data-role=\"verb\">ისაუბრა</span>",
+          "case_marking": {
+            "subject": {
+              "case": "erg",
+              "word": "მასწავლებელმა"
+            }
+          },
+          "georgian_verb_form": "ისაუბრა"
+        },
+        {
+          "georgian": "ცნობისმოყვარე სტუდენტებმა ისაუბრეს",
+          "english": "<strong data-role=\"subject\">The curious students</strong> <strong data-role=\"verb\">conversed</strong>",
+          "english_plain": "The curious students conversed",
+          "html": "<span data-case=\"erg\" data-role=\"subject\">ცნობისმოყვარე სტუდენტებმა</span> <span data-role=\"verb\">ისაუბრეს</span>",
+          "case_marking": {
+            "subject": {
+              "case": "erg",
+              "word": "სტუდენტებმა"
+            }
+          },
+          "georgian_verb_form": "ისაუბრეს"
+        }
+      ],
+      "optative": [
+        {
+          "georgian": "უნდა ვისაუბრო",
+          "english": "<strong data-role=\"subject\" data-person=\"1sg\">I</strong> <strong data-role=\"verb\">should</strong> <strong data-role=\"verb\">converse</strong>",
+          "english_plain": "I should converse",
+          "html": " <span data-role=\"verb\">უნდა ვისაუბრო</span>",
+          "case_marking": {},
+          "georgian_verb_form": "ვისაუბრო"
+        },
+        {
+          "georgian": "ჭკვიანმა მასწავლებელმა უნდა ისაუბროს",
+          "english": "<strong data-role=\"subject\">The smart teacher</strong> <strong data-role=\"verb\">should</strong> <strong data-role=\"verb\">converse</strong>",
+          "english_plain": "The smart teacher should converse",
+          "html": "<span data-case=\"erg\" data-role=\"subject\">ჭკვიანმა მასწავლებელმა</span> <span data-role=\"verb\">უნდა ისაუბროს</span>",
+          "case_marking": {
+            "subject": {
+              "case": "erg",
+              "word": "მასწავლებელმა"
+            }
+          },
+          "georgian_verb_form": "ისაუბროს"
+        },
+        {
+          "georgian": "ცნობისმოყვარე სტუდენტებმა უნდა ისაუბრონ",
+          "english": "<strong data-role=\"subject\">The curious students</strong> <strong data-role=\"verb\">should</strong> <strong data-role=\"verb\">converse</strong>",
+          "english_plain": "The curious students should converse",
+          "html": "<span data-case=\"erg\" data-role=\"subject\">ცნობისმოყვარე სტუდენტებმა</span> <span data-role=\"verb\">უნდა ისაუბრონ</span>",
+          "case_marking": {
+            "subject": {
+              "case": "erg",
+              "word": "სტუდენტებმა"
+            }
+          },
+          "georgian_verb_form": "ისაუბრონ"
+        }
+      ],
+      "imperative": [
+        {
+          "georgian": "ისაუბრე",
+          "english": "<strong data-role=\"verb\">converse</strong>",
+          "english_plain": "converse",
+          "html": " <span data-role=\"verb\">ისაუბრე</span>",
+          "case_marking": {},
+          "georgian_verb_form": "ისაუბრე"
+        },
+        {
+          "georgian": "ისაუბრეთ",
+          "english": "<strong data-role=\"verb\">converse</strong>",
+          "english_plain": "converse",
+          "html": " <span data-role=\"verb\">ისაუბრეთ</span>",
+          "case_marking": {},
+          "georgian_verb_form": "ისაუბრეთ"
+        }
+      ]
+    }
+  },
+  "gloss_analysis": {
+    "present": {
+      "raw_gloss": "V Act Pres <S> <S:Nom>",
+      "structured_gloss": {
+        "raw_components": [
+          {
+            "text": "V",
+            "component_type": "verb",
+            "color_class": "gloss-verb",
+            "description": "Verb"
+          },
+          {
+            "text": "Act",
+            "component_type": "voice",
+            "color_class": "gloss-voice",
+            "description": "Active"
+          },
+          {
+            "text": "Pres",
+            "component_type": "tense",
+            "color_class": "gloss-tense",
+            "description": "Present"
+          },
+          {
+            "text": "<S>",
+            "component_type": "argument_pattern",
+            "color_class": "gloss-argument",
+            "description": "Intransitive absolute"
+          },
+          {
+            "text": "<S:Nom>",
+            "component_type": "case_spec",
+            "color_class": "gloss-case",
+            "description": "Nominative subject"
+          }
+        ],
+        "expanded_components": [
+          {
+            "text": "V",
+            "component_type": "verb",
+            "color_class": "gloss-verb",
+            "description": "Verb"
+          },
+          {
+            "text": "Act",
+            "component_type": "voice",
+            "color_class": "gloss-voice",
+            "description": "Active"
+          },
+          {
+            "text": "Pres",
+            "component_type": "tense",
+            "color_class": "gloss-tense",
+            "description": "Present"
+          },
+          {
+            "text": "<S>",
+            "component_type": "argument_pattern",
+            "color_class": "gloss-argument",
+            "description": "Intransitive absolute"
+          },
+          {
+            "text": "<S:Nom>",
+            "component_type": "case_spec",
+            "color_class": "gloss-subject",
+            "description": "Nominative subject"
+          }
+        ],
+        "argument_pattern": "<S>",
+        "case_specifications": [
+          "<S:Nom>"
+        ]
+      }
+    },
+    "imperfect": {
+      "raw_gloss": "V Act Impf <S> <S:Nom>",
+      "structured_gloss": {
+        "raw_components": [
+          {
+            "text": "V",
+            "component_type": "verb",
+            "color_class": "gloss-verb",
+            "description": "Verb"
+          },
+          {
+            "text": "Act",
+            "component_type": "voice",
+            "color_class": "gloss-voice",
+            "description": "Active"
+          },
+          {
+            "text": "Impf",
+            "component_type": "tense",
+            "color_class": "gloss-tense",
+            "description": "Imperfect"
+          },
+          {
+            "text": "<S>",
+            "component_type": "argument_pattern",
+            "color_class": "gloss-argument",
+            "description": "Intransitive absolute"
+          },
+          {
+            "text": "<S:Nom>",
+            "component_type": "case_spec",
+            "color_class": "gloss-case",
+            "description": "Nominative subject"
+          }
+        ],
+        "expanded_components": [
+          {
+            "text": "V",
+            "component_type": "verb",
+            "color_class": "gloss-verb",
+            "description": "Verb"
+          },
+          {
+            "text": "Act",
+            "component_type": "voice",
+            "color_class": "gloss-voice",
+            "description": "Active"
+          },
+          {
+            "text": "Impf",
+            "component_type": "tense",
+            "color_class": "gloss-tense",
+            "description": "Imperfect"
+          },
+          {
+            "text": "<S>",
+            "component_type": "argument_pattern",
+            "color_class": "gloss-argument",
+            "description": "Intransitive absolute"
+          },
+          {
+            "text": "<S:Nom>",
+            "component_type": "case_spec",
+            "color_class": "gloss-subject",
+            "description": "Nominative subject"
+          }
+        ],
+        "argument_pattern": "<S>",
+        "case_specifications": [
+          "<S:Nom>"
+        ]
+      }
+    },
+    "future": {
+      "raw_gloss": "V Act Fut <S> <S:Nom>",
+      "structured_gloss": {
+        "raw_components": [
+          {
+            "text": "V",
+            "component_type": "verb",
+            "color_class": "gloss-verb",
+            "description": "Verb"
+          },
+          {
+            "text": "Act",
+            "component_type": "voice",
+            "color_class": "gloss-voice",
+            "description": "Active"
+          },
+          {
+            "text": "Fut",
+            "component_type": "tense",
+            "color_class": "gloss-tense",
+            "description": "Future"
+          },
+          {
+            "text": "<S>",
+            "component_type": "argument_pattern",
+            "color_class": "gloss-argument",
+            "description": "Intransitive absolute"
+          },
+          {
+            "text": "<S:Nom>",
+            "component_type": "case_spec",
+            "color_class": "gloss-case",
+            "description": "Nominative subject"
+          }
+        ],
+        "expanded_components": [
+          {
+            "text": "V",
+            "component_type": "verb",
+            "color_class": "gloss-verb",
+            "description": "Verb"
+          },
+          {
+            "text": "Act",
+            "component_type": "voice",
+            "color_class": "gloss-voice",
+            "description": "Active"
+          },
+          {
+            "text": "Fut",
+            "component_type": "tense",
+            "color_class": "gloss-tense",
+            "description": "Future"
+          },
+          {
+            "text": "<S>",
+            "component_type": "argument_pattern",
+            "color_class": "gloss-argument",
+            "description": "Intransitive absolute"
+          },
+          {
+            "text": "<S:Nom>",
+            "component_type": "case_spec",
+            "color_class": "gloss-subject",
+            "description": "Nominative subject"
+          }
+        ],
+        "argument_pattern": "<S>",
+        "case_specifications": [
+          "<S:Nom>"
+        ]
+      }
+    },
+    "aorist": {
+      "raw_gloss": "V Act Aor <S> <S:Erg>",
+      "structured_gloss": {
+        "raw_components": [
+          {
+            "text": "V",
+            "component_type": "verb",
+            "color_class": "gloss-verb",
+            "description": "Verb"
+          },
+          {
+            "text": "Act",
+            "component_type": "voice",
+            "color_class": "gloss-voice",
+            "description": "Active"
+          },
+          {
+            "text": "Aor",
+            "component_type": "tense",
+            "color_class": "gloss-tense",
+            "description": "Aorist"
+          },
+          {
+            "text": "<S>",
+            "component_type": "argument_pattern",
+            "color_class": "gloss-argument",
+            "description": "Intransitive absolute"
+          },
+          {
+            "text": "<S:Erg>",
+            "component_type": "case_spec",
+            "color_class": "gloss-case",
+            "description": "Ergative subject"
+          }
+        ],
+        "expanded_components": [
+          {
+            "text": "V",
+            "component_type": "verb",
+            "color_class": "gloss-verb",
+            "description": "Verb"
+          },
+          {
+            "text": "Act",
+            "component_type": "voice",
+            "color_class": "gloss-voice",
+            "description": "Active"
+          },
+          {
+            "text": "Aor",
+            "component_type": "tense",
+            "color_class": "gloss-tense",
+            "description": "Aorist"
+          },
+          {
+            "text": "<S>",
+            "component_type": "argument_pattern",
+            "color_class": "gloss-argument",
+            "description": "Intransitive absolute"
+          },
+          {
+            "text": "<S:Erg>",
+            "component_type": "case_spec",
+            "color_class": "gloss-subject",
+            "description": "Ergative subject"
+          }
+        ],
+        "argument_pattern": "<S>",
+        "case_specifications": [
+          "<S:Erg>"
+        ]
+      }
+    },
+    "optative": {
+      "raw_gloss": "V Act Opt <S> <S:Erg>",
+      "structured_gloss": {
+        "raw_components": [
+          {
+            "text": "V",
+            "component_type": "verb",
+            "color_class": "gloss-verb",
+            "description": "Verb"
+          },
+          {
+            "text": "Act",
+            "component_type": "voice",
+            "color_class": "gloss-voice",
+            "description": "Active"
+          },
+          {
+            "text": "Opt",
+            "component_type": "tense",
+            "color_class": "gloss-tense",
+            "description": "Optative"
+          },
+          {
+            "text": "<S>",
+            "component_type": "argument_pattern",
+            "color_class": "gloss-argument",
+            "description": "Intransitive absolute"
+          },
+          {
+            "text": "<S:Erg>",
+            "component_type": "case_spec",
+            "color_class": "gloss-case",
+            "description": "Ergative subject"
+          }
+        ],
+        "expanded_components": [
+          {
+            "text": "V",
+            "component_type": "verb",
+            "color_class": "gloss-verb",
+            "description": "Verb"
+          },
+          {
+            "text": "Act",
+            "component_type": "voice",
+            "color_class": "gloss-voice",
+            "description": "Active"
+          },
+          {
+            "text": "Opt",
+            "component_type": "tense",
+            "color_class": "gloss-tense",
+            "description": "Optative"
+          },
+          {
+            "text": "<S>",
+            "component_type": "argument_pattern",
+            "color_class": "gloss-argument",
+            "description": "Intransitive absolute"
+          },
+          {
+            "text": "<S:Erg>",
+            "component_type": "case_spec",
+            "color_class": "gloss-subject",
+            "description": "Ergative subject"
+          }
+        ],
+        "argument_pattern": "<S>",
+        "case_specifications": [
+          "<S:Erg>"
+        ]
+      }
+    },
+    "imperative": {
+      "raw_gloss": "V Act Impv <S> <S:Erg>",
+      "structured_gloss": {
+        "raw_components": [
+          {
+            "text": "V",
+            "component_type": "verb",
+            "color_class": "gloss-verb",
+            "description": "Verb"
+          },
+          {
+            "text": "Act",
+            "component_type": "voice",
+            "color_class": "gloss-voice",
+            "description": "Active"
+          },
+          {
+            "text": "Impv",
+            "component_type": "tense",
+            "color_class": "gloss-tense",
+            "description": "Imperative"
+          },
+          {
+            "text": "<S>",
+            "component_type": "argument_pattern",
+            "color_class": "gloss-argument",
+            "description": "Intransitive absolute"
+          },
+          {
+            "text": "<S:Erg>",
+            "component_type": "case_spec",
+            "color_class": "gloss-case",
+            "description": "Ergative subject"
+          }
+        ],
+        "expanded_components": [
+          {
+            "text": "V",
+            "component_type": "verb",
+            "color_class": "gloss-verb",
+            "description": "Verb"
+          },
+          {
+            "text": "Act",
+            "component_type": "voice",
+            "color_class": "gloss-voice",
+            "description": "Active"
+          },
+          {
+            "text": "Impv",
+            "component_type": "tense",
+            "color_class": "gloss-tense",
+            "description": "Imperative"
+          },
+          {
+            "text": "<S>",
+            "component_type": "argument_pattern",
+            "color_class": "gloss-argument",
+            "description": "Intransitive absolute"
+          },
+          {
+            "text": "<S:Erg>",
+            "component_type": "case_spec",
+            "color_class": "gloss-subject",
+            "description": "Ergative subject"
+          }
+        ],
+        "argument_pattern": "<S>",
+        "case_specifications": [
+          "<S:Erg>"
+        ]
+      }
+    }
+  },
+  "preverb_forms": {}
+}

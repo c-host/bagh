@@ -20,50 +20,19 @@ from tools.core.argument_resolver import (
     ArgumentResolutionError,
     CaseFormMissingError,
 )
-from tools.core.gloss_parser import StandardizedRawGlossParser, RawGlossParseError
+from tools.core.robust_gloss_processor import (
+    StandardizedRawGlossParser,
+    RawGlossParseError,
+)
 from tools.core.verb_conjugation import (
     get_conjugation_form,
 )
 
-# Configure logging
-import os
-from pathlib import Path
-
-# Create logs directory if it doesn't exist
-logs_dir = (
-    Path(__file__).parent.parent.parent
-    / "src"
-    / "data"
-    / "verb_editor"
-    / "servers"
-    / "logs"
-)
-logs_dir.mkdir(exist_ok=True)
+# Import Unicode-safe logging utilities
+from tools.utils.unicode_console import safe_log
 
 # Get the logger for this module
 logger = logging.getLogger(__name__)
-
-# Only configure logging if it hasn't been configured yet
-if not logger.handlers:
-    # Create file handler
-    file_handler = logging.FileHandler(logs_dir / "example_generator.log")
-    file_handler.setLevel(logging.INFO)
-
-    # Create console handler
-    console_handler = logging.StreamHandler()
-    console_handler.setLevel(logging.INFO)
-
-    # Create formatter
-    formatter = logging.Formatter(
-        "%(asctime)s - %(name)s - %(levelname)s - %(message)s"
-    )
-    file_handler.setFormatter(formatter)
-    console_handler.setFormatter(formatter)
-
-    # Add handlers to logger
-    logger.addHandler(file_handler)
-    logger.addHandler(console_handler)
-    logger.setLevel(logging.INFO)
 
 
 class ExampleGenerationError(Exception):
@@ -261,7 +230,9 @@ class PedagogicalExampleGenerator:
             }
 
         except Exception as e:
-            logger.error(f"Failed to generate example with new structure: {e}")
+            safe_log(
+                logger, "error", f"Failed to generate example with new structure: {e}"
+            )
             raise ExampleGenerationError(f"Example generation failed: {e}")
 
     def _get_english_base_form(
@@ -593,8 +564,10 @@ class PedagogicalExampleGenerator:
             original_tense = self.reverse_tense_mapping.get(tense, tense)
 
             # Debug logging
-            logger.info(
-                f"[ENGLISH_TRANSLATION] Effective preverb: '{effective_preverb}', Original tense: '{original_tense}'"
+            safe_log(
+                logger,
+                "info",
+                f"[ENGLISH_TRANSLATION] Effective preverb: '{effective_preverb}', Original tense: '{original_tense}'",
             )
 
             # Get the correct verb translation based on preverb
@@ -603,21 +576,27 @@ class PedagogicalExampleGenerator:
                 verb_translation = english_translations[effective_preverb].get(
                     original_tense, ""
                 )
-                logger.info(
-                    f"[ENGLISH_TRANSLATION] Using preverb-specific translation: '{verb_translation}'"
+                safe_log(
+                    logger,
+                    "info",
+                    f"[ENGLISH_TRANSLATION] Using preverb-specific translation: '{verb_translation}'",
                 )
             else:
                 # Use default translation
                 default_translations = english_translations.get("default", {})
                 verb_translation = default_translations.get(original_tense, "")
-                logger.info(
-                    f"[ENGLISH_TRANSLATION] Using default translation: '{verb_translation}'"
+                safe_log(
+                    logger,
+                    "info",
+                    f"[ENGLISH_TRANSLATION] Using default translation: '{verb_translation}'",
                 )
 
             if not verb_translation:
                 verb_translation = "go"  # Fallback
-                logger.info(
-                    f"[ENGLISH_TRANSLATION] Using fallback translation: '{verb_translation}'"
+                safe_log(
+                    logger,
+                    "info",
+                    f"[ENGLISH_TRANSLATION] Using fallback translation: '{verb_translation}'",
                 )
 
             # Apply subject-verb agreement
@@ -800,7 +779,11 @@ def generate_pedagogical_examples(
         tense_conjugation = conjugations.get(tense, {})
 
         if not isinstance(tense_conjugation, dict):
-            logger.warning(f"[EXAMPLES] No valid tense conjugation data for {tense}")
+            safe_log(
+                logger,
+                "warning",
+                f"[EXAMPLES] Verb {verb_id} ({verb_data.get('georgian', 'unknown')}): No valid tense conjugation data for {tense}",
+            )
             return {"examples": [], "raw_gloss": "", "enhanced": False}
 
         # Extract data from new structure
@@ -812,23 +795,37 @@ def generate_pedagogical_examples(
         preverb_config = verb_data.get("preverb_config", {})
         has_multiple_preverbs = preverb_config.get("has_multiple_preverbs", False)
 
-        logger.info(f"[EXAMPLES] Verb has multiple preverbs: {has_multiple_preverbs}")
-        logger.info(f"[EXAMPLES] Preverb config: {preverb_config}")
+        safe_log(
+            logger,
+            "info",
+            f"[EXAMPLES] Verb has multiple preverbs: {has_multiple_preverbs}",
+        )
+        safe_log(logger, "info", f"[EXAMPLES] Preverb config: {preverb_config}")
 
         if has_multiple_preverbs and selected_preverbs:
             # Multi-preverb verb with selected preverbs
             preverbs_to_generate = selected_preverbs
-            logger.info(f"[EXAMPLES] Using selected preverbs: {selected_preverbs}")
+            safe_log(
+                logger,
+                "info",
+                f"[EXAMPLES] Using selected preverbs: {selected_preverbs}",
+            )
         elif has_multiple_preverbs:
             # Multi-preverb verb, use all available preverbs
             preverbs_to_generate = preverb_config.get("available_preverbs", [])
-            logger.info(
-                f"[EXAMPLES] Using all available preverbs: {preverbs_to_generate}"
+            safe_log(
+                logger,
+                "info",
+                f"[EXAMPLES] Using all available preverbs: {preverbs_to_generate}",
             )
         else:
             # Single preverb verb, use default
             preverbs_to_generate = [preverb_config.get("default_preverb", "")]
-            logger.info(f"[EXAMPLES] Using default preverb: {preverbs_to_generate}")
+            safe_log(
+                logger,
+                "info",
+                f"[EXAMPLES] Using default preverb: {preverbs_to_generate}",
+            )
 
         # Generate examples for each preverb
         all_examples = []
@@ -845,25 +842,26 @@ def generate_pedagogical_examples(
         # Generate examples for each person across all preverbs
         for person in persons:
             for preverb in preverbs_to_generate:
-                logger.info(
-                    f"[EXAMPLES] Generating example for person: {person}, preverb: {preverb}"
+                safe_log(
+                    logger,
+                    "info",
+                    f"[EXAMPLES] Generating example for person: {person}, preverb: {preverb}",
                 )
 
                 # Handle preverb fallbacks (even for empty preverbs)
                 effective_preverb = get_effective_preverb(verb_data, preverb, tense)
-                logger.info(
-                    f"[EXAMPLES] Effective preverb for {preverb}: {effective_preverb}"
+                safe_log(
+                    logger,
+                    "info",
+                    f"[EXAMPLES] Effective preverb for {preverb}: {effective_preverb}",
                 )
 
                 # Check if preverb fallback occurred
                 if effective_preverb != preverb:
-                    # Sanitize Georgian text for logging
-                    safe_preverb = preverb if ord(preverb[0]) < 128 else "[GE]"
-                    safe_effective = (
-                        effective_preverb if ord(effective_preverb[0]) < 128 else "[GE]"
-                    )
-                    logger.warning(
-                        f"[EXAMPLES] Preverb fallback: {safe_preverb} -> {safe_effective}"
+                    safe_log(
+                        logger,
+                        "warning",
+                        f"[EXAMPLES] Verb {verb_id} ({verb_data.get('georgian', 'unknown')}): Preverb fallback '{preverb}' -> '{effective_preverb}' in {tense} tense",
                     )
                     fallback_warnings.append(
                         {
@@ -878,20 +876,26 @@ def generate_pedagogical_examples(
                 georgian_form = get_conjugation_form_for_preverb(
                     verb_data, tense, person, effective_preverb
                 )
-                logger.info(
-                    f"[EXAMPLES] Georgian form for {person} with preverb {effective_preverb}: {georgian_form}"
+                safe_log(
+                    logger,
+                    "info",
+                    f"[EXAMPLES] Georgian form for {person} with preverb {effective_preverb}: {georgian_form}",
                 )
 
                 if not georgian_form or georgian_form == "-":
-                    logger.warning(
-                        f"[EXAMPLES] No valid form for {person} with preverb {effective_preverb}"
+                    safe_log(
+                        logger,
+                        "warning",
+                        f"[EXAMPLES] Verb {verb_id} ({verb_data.get('georgian', 'unknown')}): No valid form for {person} with preverb '{effective_preverb}' in {tense} tense",
                     )
                     continue
 
                 # Generate the example using the new structure
                 mapped_tense = generator.tense_mapping.get(tense, tense)
-                logger.info(
-                    f"[EXAMPLES] Original tense: '{tense}', mapped tense: '{mapped_tense}'"
+                safe_log(
+                    logger,
+                    "info",
+                    f"[EXAMPLES] Original tense: '{tense}', mapped tense: '{mapped_tense}'",
                 )
                 example = generator.generate_example(
                     verb_id=verb_id,
@@ -903,8 +907,10 @@ def generate_pedagogical_examples(
                     verb_data=verb_data,
                     effective_preverb=effective_preverb,
                 )
-                logger.info(
-                    f"[EXAMPLES] Generated example: {example.get('georgian', 'N/A')} -> {example.get('english', 'N/A')}"
+                safe_log(
+                    logger,
+                    "info",
+                    f"[EXAMPLES] Generated example: {example.get('georgian', 'N/A')} -> {example.get('english', 'N/A')}",
                 )
 
                 # Find or create the preverb group in all_examples
@@ -921,7 +927,11 @@ def generate_pedagogical_examples(
                         "examples": [],
                     }
                     all_examples.append(preverb_group)
-                    logger.info(f"[EXAMPLES] Created new preverb group for: {preverb}")
+                    safe_log(
+                        logger,
+                        "info",
+                        f"[EXAMPLES] Created new preverb group for: {preverb}",
+                    )
 
                 preverb_group["examples"].append(example)
 
@@ -933,7 +943,7 @@ def generate_pedagogical_examples(
         }
 
     except Exception as e:
-        logger.error(f"Failed to generate pedagogical examples: {e}")
+        safe_log(logger, "error", f"Failed to generate pedagogical examples: {e}")
 
         # Provide more specific error information
         error_details = str(e)
@@ -972,17 +982,23 @@ def get_effective_preverb(verb_data: Dict, preverb: str, tense: str) -> str:
     Returns:
         Effective preverb to use (may be different due to fallbacks)
     """
-    logger.info(f"[PREVERB] Getting effective preverb for: {preverb} in tense: {tense}")
+    safe_log(
+        logger,
+        "info",
+        f"[PREVERB] Getting effective preverb for: {preverb} in tense: {tense}",
+    )
 
     preverb_rules = verb_data.get("preverb_rules", {})
-    logger.info(f"[PREVERB] Preverb rules: {preverb_rules}")
+    safe_log(logger, "info", f"[PREVERB] Preverb rules: {preverb_rules}")
 
     # Check for tense-specific fallbacks
     tense_fallbacks = preverb_rules.get("tense_specific_fallbacks", {})
     if preverb in tense_fallbacks and tense in tense_fallbacks[preverb]:
         effective = tense_fallbacks[preverb][tense]
-        logger.info(
-            f"[PREVERB] Found tense-specific fallback: {preverb} -> {effective}"
+        safe_log(
+            logger,
+            "info",
+            f"[PREVERB] Found tense-specific fallback: {preverb} -> {effective}",
         )
         return effective
 
@@ -990,11 +1006,19 @@ def get_effective_preverb(verb_data: Dict, preverb: str, tense: str) -> str:
     english_fallbacks = preverb_rules.get("english_fallbacks", {})
     if preverb in english_fallbacks and tense in english_fallbacks[preverb]:
         effective = english_fallbacks[preverb][tense]
-        logger.info(f"[PREVERB] Found English fallback: {preverb} -> {effective}")
+        safe_log(
+            logger,
+            "info",
+            f"[PREVERB] Found English fallback: {preverb} -> {effective}",
+        )
         return effective
 
     # No fallback, use original preverb
-    logger.info(f"[PREVERB] No fallback found, using original preverb: {preverb}")
+    safe_log(
+        logger,
+        "info",
+        f"[PREVERB] No fallback found, using original preverb: {preverb}",
+    )
     return preverb
 
 

@@ -1,0 +1,764 @@
+{
+  "id": 18,
+  "georgian": "დამახსოვრება",
+  "description": "To Remember",
+  "category": "Mental Activities & Cognition",
+  "class": "Class-I",
+  "semantic_key": "remember",
+  "notes": "",
+  "url": "https://lingua.ge/verbs/%e1%83%93%e1%83%90%e1%83%9b%e1%83%90%e1%83%ae%e1%83%a1%e1%83%9d%e1%83%95%e1%83%a0%e1%83%94%e1%83%91%e1%83%90/",
+  "global_argument_pattern": "<S-DO>",
+  "valency": {
+    "default": "<S-DO>",
+    "alternatives": []
+  },
+  "syntax": {
+    "arguments": {
+      "subject": {
+        "3sg": {
+          "noun": "doctor",
+          "adjective": "smart"
+        },
+        "3pl": {
+          "noun": "artist",
+          "adjective": "famous"
+        }
+      },
+      "direct_object": {
+        "1sg": {
+          "noun": "story",
+          "adjective": "funny"
+        },
+        "2sg": {
+          "noun": "rule",
+          "adjective": "important"
+        },
+        "3sg": {
+          "noun": "operation",
+          "adjective": "important"
+        },
+        "1pl": {
+          "noun": "memory",
+          "adjective": "happy"
+        },
+        "2pl": {
+          "noun": "date",
+          "adjective": "important"
+        },
+        "3pl": {
+          "noun": "paint",
+          "adjective": "blue"
+        }
+      }
+    },
+    "prepositions": {
+      "subject": "the",
+      "direct_object": "the",
+      "indirect_object": ""
+    },
+    "preverb_overrides": {}
+  },
+  "english_translations": {
+    "default": {
+      "present": "remember",
+      "imperfect": "was remembering",
+      "future": "will remember",
+      "aorist": "remembered",
+      "optative": "remember",
+      "imperative": "remember"
+    }
+  },
+  "conjugations": {
+    "present": {
+      "raw_gloss": "V MedPass Inv Pres LV <S-DO> <S:Dat> <DO:Nom>",
+      "forms": {
+        "1sg": "მახსოვს",
+        "2sg": "გახსოვს",
+        "3sg": "ახსოვს",
+        "1pl": "გვახსოვს",
+        "2pl": "გახსოვთ",
+        "3pl": "ახსოვთ"
+      },
+      "examples": []
+    },
+    "imperfect": {
+      "raw_gloss": "V Act Impf LV <S-DO> <S:Dat> <DO:Nom>",
+      "forms": {
+        "1sg": "მახსოვდა",
+        "2sg": "გახსოვდა",
+        "3sg": "ახსოვდა",
+        "1pl": "გვახსოვდა",
+        "2pl": "გახსოვდათ",
+        "3pl": "ახსოვდათ"
+      },
+      "examples": []
+    },
+    "future": {
+      "raw_gloss": "V MedPass Inv Pres <S-DO> <S:Dat> <DO:Nom>",
+      "forms": {
+        "1sg": "მემახსოვრება",
+        "2sg": "გემახსოვრება",
+        "3sg": "ემახსოვრება",
+        "1pl": "გვემახსოვრება",
+        "2pl": "გემახსოვრებათ",
+        "3pl": "ემახსოვრებათ"
+      },
+      "examples": []
+    },
+    "aorist": {
+      "raw_gloss": "",
+      "forms": {
+        "1sg": "-",
+        "2sg": "-",
+        "3sg": "-",
+        "1pl": "-",
+        "2pl": "-",
+        "3pl": "-"
+      },
+      "examples": []
+    },
+    "optative": {
+      "raw_gloss": "",
+      "forms": {
+        "1sg": "-",
+        "2sg": "-",
+        "3sg": "-",
+        "1pl": "-",
+        "2pl": "-",
+        "3pl": "-"
+      },
+      "examples": []
+    },
+    "imperative": {
+      "raw_gloss": "V MedPass Inv Impv LV <S-DO> <S:Dat> <DO:Nom>",
+      "forms": {
+        "1sg": "-",
+        "2sg": "გახსოვდეს",
+        "3sg": "-",
+        "1pl": "-",
+        "2pl": "გახსოვდეთ",
+        "3pl": "-"
+      },
+      "examples": []
+    }
+  },
+  "preverb_config": {
+    "has_multiple_preverbs": false,
+    "default_preverb": "",
+    "available_preverbs": []
+  },
+  "preverb_rules": {
+    "default": "",
+    "replacements": {},
+    "tense_specific_fallbacks": {},
+    "english_fallbacks": {}
+  },
+  "examples": {
+    "null": {
+      "present": [
+        {
+          "georgian": "სასაცილო ამბავი მახსოვს",
+          "english": "<strong data-role=\"subject\" data-person=\"1sg\">I</strong> <strong data-role=\"verb\">remember</strong> <strong data-role=\"direct-object\">the funny story</strong>",
+          "english_plain": "I remember the funny story",
+          "html": "<span data-case=\"nom\" data-role=\"direct-object\">სასაცილო ამბავი</span> <span data-role=\"verb\">მახსოვს</span>",
+          "case_marking": {
+            "direct_object": {
+              "case": "nom",
+              "word": "ამბავი"
+            }
+          },
+          "georgian_verb_form": "მახსოვს"
+        },
+        {
+          "georgian": "ჭკვიან ექიმს მნიშვნელოვანი ოპერაცია ახსოვს",
+          "english": "<strong data-role=\"subject\">The smart doctor</strong> <strong data-role=\"verb\">remembers</strong> <strong data-role=\"direct-object\">the important operation</strong>",
+          "english_plain": "The smart doctor remembers the important operation",
+          "html": "<span data-case=\"dat\" data-role=\"subject\">ჭკვიან ექიმს</span> <span data-case=\"nom\" data-role=\"direct-object\">მნიშვნელოვანი ოპერაცია</span> <span data-role=\"verb\">ახსოვს</span>",
+          "case_marking": {
+            "subject": {
+              "case": "dat",
+              "word": "ექიმს"
+            },
+            "direct_object": {
+              "case": "nom",
+              "word": "ოპერაცია"
+            }
+          },
+          "georgian_verb_form": "ახსოვს"
+        },
+        {
+          "georgian": "ცნობილ ხელოვანებს ლურჯი საღებავი ახსოვთ",
+          "english": "<strong data-role=\"subject\">The famous artists</strong> <strong data-role=\"verb\">remember</strong> <strong data-role=\"direct-object\">the blue paint</strong>",
+          "english_plain": "The famous artists remember the blue paint",
+          "html": "<span data-case=\"dat\" data-role=\"subject\">ცნობილ ხელოვანებს</span> <span data-case=\"nom\" data-role=\"direct-object\">ლურჯი საღებავი</span> <span data-role=\"verb\">ახსოვთ</span>",
+          "case_marking": {
+            "subject": {
+              "case": "dat",
+              "word": "ხელოვანებს"
+            },
+            "direct_object": {
+              "case": "nom",
+              "word": "საღებავი"
+            }
+          },
+          "georgian_verb_form": "ახსოვთ"
+        }
+      ],
+      "imperfect": [
+        {
+          "georgian": "სასაცილო ამბავი მახსოვდა",
+          "english": "<strong data-role=\"subject\" data-person=\"1sg\">I</strong> <strong data-role=\"verb\">was remembering</strong> <strong data-role=\"direct-object\">the funny story</strong>",
+          "english_plain": "I was remembering the funny story",
+          "html": "<span data-case=\"nom\" data-role=\"direct-object\">სასაცილო ამბავი</span> <span data-role=\"verb\">მახსოვდა</span>",
+          "case_marking": {
+            "direct_object": {
+              "case": "nom",
+              "word": "ამბავი"
+            }
+          },
+          "georgian_verb_form": "მახსოვდა"
+        },
+        {
+          "georgian": "ჭკვიან ექიმს მნიშვნელოვანი ოპერაცია ახსოვდა",
+          "english": "<strong data-role=\"subject\">The smart doctor</strong> <strong data-role=\"verb\">was remembering</strong> <strong data-role=\"direct-object\">the important operation</strong>",
+          "english_plain": "The smart doctor was remembering the important operation",
+          "html": "<span data-case=\"dat\" data-role=\"subject\">ჭკვიან ექიმს</span> <span data-case=\"nom\" data-role=\"direct-object\">მნიშვნელოვანი ოპერაცია</span> <span data-role=\"verb\">ახსოვდა</span>",
+          "case_marking": {
+            "subject": {
+              "case": "dat",
+              "word": "ექიმს"
+            },
+            "direct_object": {
+              "case": "nom",
+              "word": "ოპერაცია"
+            }
+          },
+          "georgian_verb_form": "ახსოვდა"
+        },
+        {
+          "georgian": "ცნობილ ხელოვანებს ლურჯი საღებავი ახსოვდათ",
+          "english": "<strong data-role=\"subject\">The famous artists</strong> <strong data-role=\"verb\">were remembering</strong> <strong data-role=\"direct-object\">the blue paint</strong>",
+          "english_plain": "The famous artists were remembering the blue paint",
+          "html": "<span data-case=\"dat\" data-role=\"subject\">ცნობილ ხელოვანებს</span> <span data-case=\"nom\" data-role=\"direct-object\">ლურჯი საღებავი</span> <span data-role=\"verb\">ახსოვდათ</span>",
+          "case_marking": {
+            "subject": {
+              "case": "dat",
+              "word": "ხელოვანებს"
+            },
+            "direct_object": {
+              "case": "nom",
+              "word": "საღებავი"
+            }
+          },
+          "georgian_verb_form": "ახსოვდათ"
+        }
+      ],
+      "future": [
+        {
+          "georgian": "სასაცილო ამბავი მემახსოვრება",
+          "english": "<strong data-role=\"subject\" data-person=\"1sg\">I</strong> <strong data-role=\"verb\">will remember</strong> <strong data-role=\"direct-object\">the funny story</strong>",
+          "english_plain": "I will remember the funny story",
+          "html": "<span data-case=\"nom\" data-role=\"direct-object\">სასაცილო ამბავი</span> <span data-role=\"verb\">მემახსოვრება</span>",
+          "case_marking": {
+            "direct_object": {
+              "case": "nom",
+              "word": "ამბავი"
+            }
+          },
+          "georgian_verb_form": "მემახსოვრება"
+        },
+        {
+          "georgian": "ჭკვიან ექიმს მნიშვნელოვანი ოპერაცია ემახსოვრება",
+          "english": "<strong data-role=\"subject\">The smart doctor</strong> <strong data-role=\"verb\">will remember</strong> <strong data-role=\"direct-object\">the important operation</strong>",
+          "english_plain": "The smart doctor will remember the important operation",
+          "html": "<span data-case=\"dat\" data-role=\"subject\">ჭკვიან ექიმს</span> <span data-case=\"nom\" data-role=\"direct-object\">მნიშვნელოვანი ოპერაცია</span> <span data-role=\"verb\">ემახსოვრება</span>",
+          "case_marking": {
+            "subject": {
+              "case": "dat",
+              "word": "ექიმს"
+            },
+            "direct_object": {
+              "case": "nom",
+              "word": "ოპერაცია"
+            }
+          },
+          "georgian_verb_form": "ემახსოვრება"
+        },
+        {
+          "georgian": "ცნობილ ხელოვანებს ლურჯი საღებავი ემახსოვრებათ",
+          "english": "<strong data-role=\"subject\">The famous artists</strong> <strong data-role=\"verb\">will remember</strong> <strong data-role=\"direct-object\">the blue paint</strong>",
+          "english_plain": "The famous artists will remember the blue paint",
+          "html": "<span data-case=\"dat\" data-role=\"subject\">ცნობილ ხელოვანებს</span> <span data-case=\"nom\" data-role=\"direct-object\">ლურჯი საღებავი</span> <span data-role=\"verb\">ემახსოვრებათ</span>",
+          "case_marking": {
+            "subject": {
+              "case": "dat",
+              "word": "ხელოვანებს"
+            },
+            "direct_object": {
+              "case": "nom",
+              "word": "საღებავი"
+            }
+          },
+          "georgian_verb_form": "ემახსოვრებათ"
+        }
+      ],
+      "aorist": [],
+      "optative": [],
+      "imperative": [
+        {
+          "georgian": "მნიშვნელოვანი წესი გახსოვდეს",
+          "english": "<strong data-role=\"verb\">remember</strong> <strong data-role=\"direct-object\">the important rule</strong>",
+          "english_plain": "remember the important rule",
+          "html": "<span data-case=\"nom\" data-role=\"direct-object\">მნიშვნელოვანი წესი</span> <span data-role=\"verb\">გახსოვდეს</span>",
+          "case_marking": {
+            "direct_object": {
+              "case": "nom",
+              "word": "წესი"
+            }
+          },
+          "georgian_verb_form": "გახსოვდეს"
+        },
+        {
+          "georgian": "მნიშვნელოვანი თარიღი გახსოვდეთ",
+          "english": "<strong data-role=\"verb\">remember</strong> <strong data-role=\"direct-object\">the important date</strong>",
+          "english_plain": "remember the important date",
+          "html": "<span data-case=\"nom\" data-role=\"direct-object\">მნიშვნელოვანი თარიღი</span> <span data-role=\"verb\">გახსოვდეთ</span>",
+          "case_marking": {
+            "direct_object": {
+              "case": "nom",
+              "word": "თარიღი"
+            }
+          },
+          "georgian_verb_form": "გახსოვდეთ"
+        }
+      ]
+    }
+  },
+  "gloss_analysis": {
+    "present": {
+      "raw_gloss": "V MedPass Inv Pres LV <S-DO> <S:Dat> <DO:Nom>",
+      "structured_gloss": {
+        "raw_components": [
+          {
+            "text": "V",
+            "component_type": "verb",
+            "color_class": "gloss-verb",
+            "description": "Verb"
+          },
+          {
+            "text": "MedPass",
+            "component_type": "voice",
+            "color_class": "gloss-voice",
+            "description": "Mediopassive"
+          },
+          {
+            "text": "Inv",
+            "component_type": "tense",
+            "color_class": "gloss-tense",
+            "description": "Inverted"
+          },
+          {
+            "text": "Pres",
+            "component_type": "tense",
+            "color_class": "gloss-tense",
+            "description": "Present"
+          },
+          {
+            "text": "LV",
+            "component_type": "unknown",
+            "color_class": "gloss-default",
+            "description": "Locative Version"
+          },
+          {
+            "text": "<S-DO>",
+            "component_type": "argument_pattern",
+            "color_class": "gloss-argument",
+            "description": "Transitive absolute"
+          },
+          {
+            "text": "<S:Dat>",
+            "component_type": "case_spec",
+            "color_class": "gloss-case",
+            "description": "Dative subject"
+          },
+          {
+            "text": "<DO:Nom>",
+            "component_type": "case_spec",
+            "color_class": "gloss-case",
+            "description": "Nominative direct object"
+          }
+        ],
+        "expanded_components": [
+          {
+            "text": "V",
+            "component_type": "verb",
+            "color_class": "gloss-verb",
+            "description": "Verb"
+          },
+          {
+            "text": "MedPass",
+            "component_type": "voice",
+            "color_class": "gloss-voice",
+            "description": "Mediopassive"
+          },
+          {
+            "text": "Inv",
+            "component_type": "tense",
+            "color_class": "gloss-tense",
+            "description": "Inverted"
+          },
+          {
+            "text": "Pres",
+            "component_type": "tense",
+            "color_class": "gloss-tense",
+            "description": "Present"
+          },
+          {
+            "text": "LV",
+            "component_type": "unknown",
+            "color_class": "gloss-default",
+            "description": "Locative Version"
+          },
+          {
+            "text": "<S-DO>",
+            "component_type": "argument_pattern",
+            "color_class": "gloss-argument",
+            "description": "Transitive absolute"
+          },
+          {
+            "text": "<S:Dat>",
+            "component_type": "case_spec",
+            "color_class": "gloss-subject",
+            "description": "Dative subject"
+          },
+          {
+            "text": "<DO:Nom>",
+            "component_type": "case_spec",
+            "color_class": "gloss-direct-object",
+            "description": "Nominative direct object"
+          }
+        ],
+        "argument_pattern": "<S-DO>",
+        "case_specifications": [
+          "<S:Dat>",
+          "<DO:Nom>"
+        ]
+      }
+    },
+    "imperfect": {
+      "raw_gloss": "V Act Impf LV <S-DO> <S:Dat> <DO:Nom>",
+      "structured_gloss": {
+        "raw_components": [
+          {
+            "text": "V",
+            "component_type": "verb",
+            "color_class": "gloss-verb",
+            "description": "Verb"
+          },
+          {
+            "text": "Act",
+            "component_type": "voice",
+            "color_class": "gloss-voice",
+            "description": "Active"
+          },
+          {
+            "text": "Impf",
+            "component_type": "tense",
+            "color_class": "gloss-tense",
+            "description": "Imperfect"
+          },
+          {
+            "text": "LV",
+            "component_type": "unknown",
+            "color_class": "gloss-default",
+            "description": "Locative Version"
+          },
+          {
+            "text": "<S-DO>",
+            "component_type": "argument_pattern",
+            "color_class": "gloss-argument",
+            "description": "Transitive absolute"
+          },
+          {
+            "text": "<S:Dat>",
+            "component_type": "case_spec",
+            "color_class": "gloss-case",
+            "description": "Dative subject"
+          },
+          {
+            "text": "<DO:Nom>",
+            "component_type": "case_spec",
+            "color_class": "gloss-case",
+            "description": "Nominative direct object"
+          }
+        ],
+        "expanded_components": [
+          {
+            "text": "V",
+            "component_type": "verb",
+            "color_class": "gloss-verb",
+            "description": "Verb"
+          },
+          {
+            "text": "Act",
+            "component_type": "voice",
+            "color_class": "gloss-voice",
+            "description": "Active"
+          },
+          {
+            "text": "Impf",
+            "component_type": "tense",
+            "color_class": "gloss-tense",
+            "description": "Imperfect"
+          },
+          {
+            "text": "LV",
+            "component_type": "unknown",
+            "color_class": "gloss-default",
+            "description": "Locative Version"
+          },
+          {
+            "text": "<S-DO>",
+            "component_type": "argument_pattern",
+            "color_class": "gloss-argument",
+            "description": "Transitive absolute"
+          },
+          {
+            "text": "<S:Dat>",
+            "component_type": "case_spec",
+            "color_class": "gloss-subject",
+            "description": "Dative subject"
+          },
+          {
+            "text": "<DO:Nom>",
+            "component_type": "case_spec",
+            "color_class": "gloss-direct-object",
+            "description": "Nominative direct object"
+          }
+        ],
+        "argument_pattern": "<S-DO>",
+        "case_specifications": [
+          "<S:Dat>",
+          "<DO:Nom>"
+        ]
+      }
+    },
+    "future": {
+      "raw_gloss": "V MedPass Inv Pres <S-DO> <S:Dat> <DO:Nom>",
+      "structured_gloss": {
+        "raw_components": [
+          {
+            "text": "V",
+            "component_type": "verb",
+            "color_class": "gloss-verb",
+            "description": "Verb"
+          },
+          {
+            "text": "MedPass",
+            "component_type": "voice",
+            "color_class": "gloss-voice",
+            "description": "Mediopassive"
+          },
+          {
+            "text": "Inv",
+            "component_type": "tense",
+            "color_class": "gloss-tense",
+            "description": "Inverted"
+          },
+          {
+            "text": "Pres",
+            "component_type": "tense",
+            "color_class": "gloss-tense",
+            "description": "Present"
+          },
+          {
+            "text": "<S-DO>",
+            "component_type": "argument_pattern",
+            "color_class": "gloss-argument",
+            "description": "Transitive absolute"
+          },
+          {
+            "text": "<S:Dat>",
+            "component_type": "case_spec",
+            "color_class": "gloss-case",
+            "description": "Dative subject"
+          },
+          {
+            "text": "<DO:Nom>",
+            "component_type": "case_spec",
+            "color_class": "gloss-case",
+            "description": "Nominative direct object"
+          }
+        ],
+        "expanded_components": [
+          {
+            "text": "V",
+            "component_type": "verb",
+            "color_class": "gloss-verb",
+            "description": "Verb"
+          },
+          {
+            "text": "MedPass",
+            "component_type": "voice",
+            "color_class": "gloss-voice",
+            "description": "Mediopassive"
+          },
+          {
+            "text": "Inv",
+            "component_type": "tense",
+            "color_class": "gloss-tense",
+            "description": "Inverted"
+          },
+          {
+            "text": "Pres",
+            "component_type": "tense",
+            "color_class": "gloss-tense",
+            "description": "Present"
+          },
+          {
+            "text": "<S-DO>",
+            "component_type": "argument_pattern",
+            "color_class": "gloss-argument",
+            "description": "Transitive absolute"
+          },
+          {
+            "text": "<S:Dat>",
+            "component_type": "case_spec",
+            "color_class": "gloss-subject",
+            "description": "Dative subject"
+          },
+          {
+            "text": "<DO:Nom>",
+            "component_type": "case_spec",
+            "color_class": "gloss-direct-object",
+            "description": "Nominative direct object"
+          }
+        ],
+        "argument_pattern": "<S-DO>",
+        "case_specifications": [
+          "<S:Dat>",
+          "<DO:Nom>"
+        ]
+      }
+    },
+    "aorist": {
+      "raw_gloss": "",
+      "structured_gloss": {}
+    },
+    "optative": {
+      "raw_gloss": "",
+      "structured_gloss": {}
+    },
+    "imperative": {
+      "raw_gloss": "V MedPass Inv Impv LV <S-DO> <S:Dat> <DO:Nom>",
+      "structured_gloss": {
+        "raw_components": [
+          {
+            "text": "V",
+            "component_type": "verb",
+            "color_class": "gloss-verb",
+            "description": "Verb"
+          },
+          {
+            "text": "MedPass",
+            "component_type": "voice",
+            "color_class": "gloss-voice",
+            "description": "Mediopassive"
+          },
+          {
+            "text": "Inv",
+            "component_type": "tense",
+            "color_class": "gloss-tense",
+            "description": "Inverted"
+          },
+          {
+            "text": "Impv",
+            "component_type": "tense",
+            "color_class": "gloss-tense",
+            "description": "Imperative"
+          },
+          {
+            "text": "LV",
+            "component_type": "unknown",
+            "color_class": "gloss-default",
+            "description": "Locative Version"
+          },
+          {
+            "text": "<S-DO>",
+            "component_type": "argument_pattern",
+            "color_class": "gloss-argument",
+            "description": "Transitive absolute"
+          },
+          {
+            "text": "<S:Dat>",
+            "component_type": "case_spec",
+            "color_class": "gloss-case",
+            "description": "Dative subject"
+          },
+          {
+            "text": "<DO:Nom>",
+            "component_type": "case_spec",
+            "color_class": "gloss-case",
+            "description": "Nominative direct object"
+          }
+        ],
+        "expanded_components": [
+          {
+            "text": "V",
+            "component_type": "verb",
+            "color_class": "gloss-verb",
+            "description": "Verb"
+          },
+          {
+            "text": "MedPass",
+            "component_type": "voice",
+            "color_class": "gloss-voice",
+            "description": "Mediopassive"
+          },
+          {
+            "text": "Inv",
+            "component_type": "tense",
+            "color_class": "gloss-tense",
+            "description": "Inverted"
+          },
+          {
+            "text": "Impv",
+            "component_type": "tense",
+            "color_class": "gloss-tense",
+            "description": "Imperative"
+          },
+          {
+            "text": "LV",
+            "component_type": "unknown",
+            "color_class": "gloss-default",
+            "description": "Locative Version"
+          },
+          {
+            "text": "<S-DO>",
+            "component_type": "argument_pattern",
+            "color_class": "gloss-argument",
+            "description": "Transitive absolute"
+          },
+          {
+            "text": "<S:Dat>",
+            "component_type": "case_spec",
+            "color_class": "gloss-subject",
+            "description": "Dative subject"
+          },
+          {
+            "text": "<DO:Nom>",
+            "component_type": "case_spec",
+            "color_class": "gloss-direct-object",
+            "description": "Nominative direct object"
+          }
+        ],
+        "argument_pattern": "<S-DO>",
+        "case_specifications": [
+          "<S:Dat>",
+          "<DO:Nom>"
+        ]
+      }
+    }
+  },
+  "preverb_forms": {}
+}

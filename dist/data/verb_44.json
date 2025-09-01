@@ -1,0 +1,749 @@
+{
+  "id": 44,
+  "georgian": "არსებობა",
+  "description": "To Exist",
+  "category": "Modal & Auxiliary Verbs",
+  "class": "Class-I",
+  "semantic_key": "exist",
+  "notes": "",
+  "url": "https://lingua.ge/verbs/%e1%83%90%e1%83%a0%e1%83%a1%e1%83%94%e1%83%91%e1%83%9d%e1%83%91%e1%83%90/",
+  "global_argument_pattern": "<S>",
+  "valency": {
+    "default": "<S>",
+    "alternatives": []
+  },
+  "syntax": {
+    "arguments": {
+      "subject": {
+        "3sg": {
+          "noun": "problem",
+          "adjective": "big"
+        },
+        "3pl": {
+          "noun": "question",
+          "adjective": "interesting"
+        }
+      }
+    },
+    "prepositions": {
+      "subject": "the",
+      "direct_object": "",
+      "indirect_object": ""
+    },
+    "preverb_overrides": {}
+  },
+  "english_translations": {
+    "default": {
+      "present": "exist",
+      "imperfect": "was existing",
+      "future": "will exist",
+      "aorist": "existed",
+      "optative": "exist",
+      "imperative": "exist"
+    }
+  },
+  "conjugations": {
+    "present": {
+      "raw_gloss": "V MedAct Pres <S> <S:Nom>",
+      "forms": {
+        "1sg": "ვარსებობ",
+        "2sg": "არსებობ",
+        "3sg": "არსებობს",
+        "1pl": "ვარსებობთ",
+        "2pl": "არსებობთ",
+        "3pl": "არსებობენ"
+      },
+      "examples": []
+    },
+    "imperfect": {
+      "raw_gloss": "V MedAct Impf <S:Nom>",
+      "forms": {
+        "1sg": "ვარსებობდი",
+        "2sg": "არსებობდი",
+        "3sg": "არსებობდა",
+        "1pl": "ვარსებობდით",
+        "2pl": "არსებობდით",
+        "3pl": "არსებობდნენ"
+      },
+      "examples": []
+    },
+    "future": {
+      "raw_gloss": "V MedAct Fut <S> <S:Nom>",
+      "forms": {
+        "1sg": "ვიარსებებ",
+        "2sg": "იარსებებ",
+        "3sg": "იარსებებს",
+        "1pl": "ვიარსებებთ",
+        "2pl": "იარსებებთ",
+        "3pl": "იარსებებენ"
+      },
+      "examples": []
+    },
+    "aorist": {
+      "raw_gloss": "V MedAct Aor <S> <S:Erg>",
+      "forms": {
+        "1sg": "ვიარსებე",
+        "2sg": "იარსებე",
+        "3sg": "იარსება",
+        "1pl": "ვიარსებეთ",
+        "2pl": "იარსებეთ",
+        "3pl": "იარსებეს"
+      },
+      "examples": []
+    },
+    "optative": {
+      "raw_gloss": "V MedAct Opt <S> <S:Erg>",
+      "forms": {
+        "1sg": "ვიარსებო",
+        "2sg": "იარსებო",
+        "3sg": "იარსებოს",
+        "1pl": "ვიარსებოთ",
+        "2pl": "იარსებოთ",
+        "3pl": "იარსებონ"
+      },
+      "examples": []
+    },
+    "imperative": {
+      "raw_gloss": "V MedAct Impf <S:Nom>",
+      "forms": {
+        "1sg": "-",
+        "2sg": "იარსებე",
+        "3sg": "-",
+        "1pl": "-",
+        "2pl": "იარსებეთ",
+        "3pl": "-"
+      },
+      "examples": []
+    }
+  },
+  "preverb_config": {
+    "has_multiple_preverbs": false,
+    "default_preverb": "",
+    "available_preverbs": []
+  },
+  "preverb_rules": {
+    "default": "",
+    "replacements": {},
+    "tense_specific_fallbacks": {},
+    "english_fallbacks": {}
+  },
+  "examples": {
+    "null": {
+      "present": [
+        {
+          "georgian": "ვარსებობ",
+          "english": "<strong data-role=\"subject\" data-person=\"1sg\">I</strong> <strong data-role=\"verb\">exist</strong>",
+          "english_plain": "I exist",
+          "html": " <span data-role=\"verb\">ვარსებობ</span>",
+          "case_marking": {},
+          "georgian_verb_form": "ვარსებობ"
+        },
+        {
+          "georgian": "დიდი პრობლემა არსებობს",
+          "english": "<strong data-role=\"subject\">The big problem</strong> <strong data-role=\"verb\">exists</strong>",
+          "english_plain": "The big problem exists",
+          "html": "<span data-case=\"nom\" data-role=\"subject\">დიდი პრობლემა</span> <span data-role=\"verb\">არსებობს</span>",
+          "case_marking": {
+            "subject": {
+              "case": "nom",
+              "word": "პრობლემა"
+            }
+          },
+          "georgian_verb_form": "არსებობს"
+        },
+        {
+          "georgian": "საინტერესო კითხვები არსებობენ",
+          "english": "<strong data-role=\"subject\">The interesting questions</strong> <strong data-role=\"verb\">exist</strong>",
+          "english_plain": "The interesting questions exist",
+          "html": "<span data-case=\"nom\" data-role=\"subject\">საინტერესო კითხვები</span> <span data-role=\"verb\">არსებობენ</span>",
+          "case_marking": {
+            "subject": {
+              "case": "nom",
+              "word": "კითხვები"
+            }
+          },
+          "georgian_verb_form": "არსებობენ"
+        }
+      ],
+      "imperfect": [
+        {
+          "georgian": "ვარსებობდი",
+          "english": "<strong data-role=\"subject\" data-person=\"1sg\">I</strong> <strong data-role=\"verb\">was existing</strong>",
+          "english_plain": "I was existing",
+          "html": " <span data-role=\"verb\">ვარსებობდი</span>",
+          "case_marking": {},
+          "georgian_verb_form": "ვარსებობდი"
+        },
+        {
+          "georgian": "დიდი პრობლემა არსებობდა",
+          "english": "<strong data-role=\"subject\">The big problem</strong> <strong data-role=\"verb\">was existing</strong>",
+          "english_plain": "The big problem was existing",
+          "html": "<span data-case=\"nom\" data-role=\"subject\">დიდი პრობლემა</span> <span data-role=\"verb\">არსებობდა</span>",
+          "case_marking": {
+            "subject": {
+              "case": "nom",
+              "word": "პრობლემა"
+            }
+          },
+          "georgian_verb_form": "არსებობდა"
+        },
+        {
+          "georgian": "საინტერესო კითხვები არსებობდნენ",
+          "english": "<strong data-role=\"subject\">The interesting questions</strong> <strong data-role=\"verb\">were existing</strong>",
+          "english_plain": "The interesting questions were existing",
+          "html": "<span data-case=\"nom\" data-role=\"subject\">საინტერესო კითხვები</span> <span data-role=\"verb\">არსებობდნენ</span>",
+          "case_marking": {
+            "subject": {
+              "case": "nom",
+              "word": "კითხვები"
+            }
+          },
+          "georgian_verb_form": "არსებობდნენ"
+        }
+      ],
+      "future": [
+        {
+          "georgian": "ვიარსებებ",
+          "english": "<strong data-role=\"subject\" data-person=\"1sg\">I</strong> <strong data-role=\"verb\">will exist</strong>",
+          "english_plain": "I will exist",
+          "html": " <span data-role=\"verb\">ვიარსებებ</span>",
+          "case_marking": {},
+          "georgian_verb_form": "ვიარსებებ"
+        },
+        {
+          "georgian": "დიდი პრობლემა იარსებებს",
+          "english": "<strong data-role=\"subject\">The big problem</strong> <strong data-role=\"verb\">will exist</strong>",
+          "english_plain": "The big problem will exist",
+          "html": "<span data-case=\"nom\" data-role=\"subject\">დიდი პრობლემა</span> <span data-role=\"verb\">იარსებებს</span>",
+          "case_marking": {
+            "subject": {
+              "case": "nom",
+              "word": "პრობლემა"
+            }
+          },
+          "georgian_verb_form": "იარსებებს"
+        },
+        {
+          "georgian": "საინტერესო კითხვები იარსებებენ",
+          "english": "<strong data-role=\"subject\">The interesting questions</strong> <strong data-role=\"verb\">will exist</strong>",
+          "english_plain": "The interesting questions will exist",
+          "html": "<span data-case=\"nom\" data-role=\"subject\">საინტერესო კითხვები</span> <span data-role=\"verb\">იარსებებენ</span>",
+          "case_marking": {
+            "subject": {
+              "case": "nom",
+              "word": "კითხვები"
+            }
+          },
+          "georgian_verb_form": "იარსებებენ"
+        }
+      ],
+      "aorist": [
+        {
+          "georgian": "ვიარსებე",
+          "english": "<strong data-role=\"subject\" data-person=\"1sg\">I</strong> <strong data-role=\"verb\">existed</strong>",
+          "english_plain": "I existed",
+          "html": " <span data-role=\"verb\">ვიარსებე</span>",
+          "case_marking": {},
+          "georgian_verb_form": "ვიარსებე"
+        },
+        {
+          "georgian": "დიდმა პრობლემამ იარსება",
+          "english": "<strong data-role=\"subject\">The big problem</strong> <strong data-role=\"verb\">existed</strong>",
+          "english_plain": "The big problem existed",
+          "html": "<span data-case=\"erg\" data-role=\"subject\">დიდმა პრობლემამ</span> <span data-role=\"verb\">იარსება</span>",
+          "case_marking": {
+            "subject": {
+              "case": "erg",
+              "word": "პრობლემამ"
+            }
+          },
+          "georgian_verb_form": "იარსება"
+        },
+        {
+          "georgian": "საინტერესო კითხვებმა იარსებეს",
+          "english": "<strong data-role=\"subject\">The interesting questions</strong> <strong data-role=\"verb\">existed</strong>",
+          "english_plain": "The interesting questions existed",
+          "html": "<span data-case=\"erg\" data-role=\"subject\">საინტერესო კითხვებმა</span> <span data-role=\"verb\">იარსებეს</span>",
+          "case_marking": {
+            "subject": {
+              "case": "erg",
+              "word": "კითხვებმა"
+            }
+          },
+          "georgian_verb_form": "იარსებეს"
+        }
+      ],
+      "optative": [
+        {
+          "georgian": "უნდა ვიარსებო",
+          "english": "<strong data-role=\"subject\" data-person=\"1sg\">I</strong> <strong data-role=\"verb\">should</strong> <strong data-role=\"verb\">exist</strong>",
+          "english_plain": "I should exist",
+          "html": " <span data-role=\"verb\">უნდა ვიარსებო</span>",
+          "case_marking": {},
+          "georgian_verb_form": "ვიარსებო"
+        },
+        {
+          "georgian": "დიდმა პრობლემამ უნდა იარსებოს",
+          "english": "<strong data-role=\"subject\">The big problem</strong> <strong data-role=\"verb\">should</strong> <strong data-role=\"verb\">exist</strong>",
+          "english_plain": "The big problem should exist",
+          "html": "<span data-case=\"erg\" data-role=\"subject\">დიდმა პრობლემამ</span> <span data-role=\"verb\">უნდა იარსებოს</span>",
+          "case_marking": {
+            "subject": {
+              "case": "erg",
+              "word": "პრობლემამ"
+            }
+          },
+          "georgian_verb_form": "იარსებოს"
+        },
+        {
+          "georgian": "საინტერესო კითხვებმა უნდა იარსებონ",
+          "english": "<strong data-role=\"subject\">The interesting questions</strong> <strong data-role=\"verb\">should</strong> <strong data-role=\"verb\">exist</strong>",
+          "english_plain": "The interesting questions should exist",
+          "html": "<span data-case=\"erg\" data-role=\"subject\">საინტერესო კითხვებმა</span> <span data-role=\"verb\">უნდა იარსებონ</span>",
+          "case_marking": {
+            "subject": {
+              "case": "erg",
+              "word": "კითხვებმა"
+            }
+          },
+          "georgian_verb_form": "იარსებონ"
+        }
+      ],
+      "imperative": [
+        {
+          "georgian": "იარსებე",
+          "english": "<strong data-role=\"verb\">exist</strong>",
+          "english_plain": "exist",
+          "html": " <span data-role=\"verb\">იარსებე</span>",
+          "case_marking": {},
+          "georgian_verb_form": "იარსებე"
+        },
+        {
+          "georgian": "იარსებეთ",
+          "english": "<strong data-role=\"verb\">exist</strong>",
+          "english_plain": "exist",
+          "html": " <span data-role=\"verb\">იარსებეთ</span>",
+          "case_marking": {},
+          "georgian_verb_form": "იარსებეთ"
+        }
+      ]
+    }
+  },
+  "gloss_analysis": {
+    "present": {
+      "raw_gloss": "V MedAct Pres <S> <S:Nom>",
+      "structured_gloss": {
+        "raw_components": [
+          {
+            "text": "V",
+            "component_type": "verb",
+            "color_class": "gloss-verb",
+            "description": "Verb"
+          },
+          {
+            "text": "MedAct",
+            "component_type": "voice",
+            "color_class": "gloss-voice",
+            "description": "Medioactive"
+          },
+          {
+            "text": "Pres",
+            "component_type": "tense",
+            "color_class": "gloss-tense",
+            "description": "Present"
+          },
+          {
+            "text": "<S>",
+            "component_type": "argument_pattern",
+            "color_class": "gloss-argument",
+            "description": "Intransitive absolute"
+          },
+          {
+            "text": "<S:Nom>",
+            "component_type": "case_spec",
+            "color_class": "gloss-case",
+            "description": "Nominative subject"
+          }
+        ],
+        "expanded_components": [
+          {
+            "text": "V",
+            "component_type": "verb",
+            "color_class": "gloss-verb",
+            "description": "Verb"
+          },
+          {
+            "text": "MedAct",
+            "component_type": "voice",
+            "color_class": "gloss-voice",
+            "description": "Medioactive"
+          },
+          {
+            "text": "Pres",
+            "component_type": "tense",
+            "color_class": "gloss-tense",
+            "description": "Present"
+          },
+          {
+            "text": "<S>",
+            "component_type": "argument_pattern",
+            "color_class": "gloss-argument",
+            "description": "Intransitive absolute"
+          },
+          {
+            "text": "<S:Nom>",
+            "component_type": "case_spec",
+            "color_class": "gloss-subject",
+            "description": "Nominative subject"
+          }
+        ],
+        "argument_pattern": "<S>",
+        "case_specifications": [
+          "<S:Nom>"
+        ]
+      }
+    },
+    "imperfect": {
+      "raw_gloss": "V MedAct Impf <S:Nom>",
+      "structured_gloss": {
+        "raw_components": [
+          {
+            "text": "V",
+            "component_type": "verb",
+            "color_class": "gloss-verb",
+            "description": "Verb"
+          },
+          {
+            "text": "MedAct",
+            "component_type": "voice",
+            "color_class": "gloss-voice",
+            "description": "Medioactive"
+          },
+          {
+            "text": "Impf",
+            "component_type": "tense",
+            "color_class": "gloss-tense",
+            "description": "Imperfect"
+          },
+          {
+            "text": "<S:Nom>",
+            "component_type": "case_spec",
+            "color_class": "gloss-case",
+            "description": "Nominative subject"
+          }
+        ],
+        "expanded_components": [
+          {
+            "text": "V",
+            "component_type": "verb",
+            "color_class": "gloss-verb",
+            "description": "Verb"
+          },
+          {
+            "text": "MedAct",
+            "component_type": "voice",
+            "color_class": "gloss-voice",
+            "description": "Medioactive"
+          },
+          {
+            "text": "Impf",
+            "component_type": "tense",
+            "color_class": "gloss-tense",
+            "description": "Imperfect"
+          },
+          {
+            "text": "<S:Nom>",
+            "component_type": "case_spec",
+            "color_class": "gloss-subject",
+            "description": "Nominative subject"
+          }
+        ],
+        "argument_pattern": null,
+        "case_specifications": [
+          "<S:Nom>"
+        ]
+      }
+    },
+    "future": {
+      "raw_gloss": "V MedAct Fut <S> <S:Nom>",
+      "structured_gloss": {
+        "raw_components": [
+          {
+            "text": "V",
+            "component_type": "verb",
+            "color_class": "gloss-verb",
+            "description": "Verb"
+          },
+          {
+            "text": "MedAct",
+            "component_type": "voice",
+            "color_class": "gloss-voice",
+            "description": "Medioactive"
+          },
+          {
+            "text": "Fut",
+            "component_type": "tense",
+            "color_class": "gloss-tense",
+            "description": "Future"
+          },
+          {
+            "text": "<S>",
+            "component_type": "argument_pattern",
+            "color_class": "gloss-argument",
+            "description": "Intransitive absolute"
+          },
+          {
+            "text": "<S:Nom>",
+            "component_type": "case_spec",
+            "color_class": "gloss-case",
+            "description": "Nominative subject"
+          }
+        ],
+        "expanded_components": [
+          {
+            "text": "V",
+            "component_type": "verb",
+            "color_class": "gloss-verb",
+            "description": "Verb"
+          },
+          {
+            "text": "MedAct",
+            "component_type": "voice",
+            "color_class": "gloss-voice",
+            "description": "Medioactive"
+          },
+          {
+            "text": "Fut",
+            "component_type": "tense",
+            "color_class": "gloss-tense",
+            "description": "Future"
+          },
+          {
+            "text": "<S>",
+            "component_type": "argument_pattern",
+            "color_class": "gloss-argument",
+            "description": "Intransitive absolute"
+          },
+          {
+            "text": "<S:Nom>",
+            "component_type": "case_spec",
+            "color_class": "gloss-subject",
+            "description": "Nominative subject"
+          }
+        ],
+        "argument_pattern": "<S>",
+        "case_specifications": [
+          "<S:Nom>"
+        ]
+      }
+    },
+    "aorist": {
+      "raw_gloss": "V MedAct Aor <S> <S:Erg>",
+      "structured_gloss": {
+        "raw_components": [
+          {
+            "text": "V",
+            "component_type": "verb",
+            "color_class": "gloss-verb",
+            "description": "Verb"
+          },
+          {
+            "text": "MedAct",
+            "component_type": "voice",
+            "color_class": "gloss-voice",
+            "description": "Medioactive"
+          },
+          {
+            "text": "Aor",
+            "component_type": "tense",
+            "color_class": "gloss-tense",
+            "description": "Aorist"
+          },
+          {
+            "text": "<S>",
+            "component_type": "argument_pattern",
+            "color_class": "gloss-argument",
+            "description": "Intransitive absolute"
+          },
+          {
+            "text": "<S:Erg>",
+            "component_type": "case_spec",
+            "color_class": "gloss-case",
+            "description": "Ergative subject"
+          }
+        ],
+        "expanded_components": [
+          {
+            "text": "V",
+            "component_type": "verb",
+            "color_class": "gloss-verb",
+            "description": "Verb"
+          },
+          {
+            "text": "MedAct",
+            "component_type": "voice",
+            "color_class": "gloss-voice",
+            "description": "Medioactive"
+          },
+          {
+            "text": "Aor",
+            "component_type": "tense",
+            "color_class": "gloss-tense",
+            "description": "Aorist"
+          },
+          {
+            "text": "<S>",
+            "component_type": "argument_pattern",
+            "color_class": "gloss-argument",
+            "description": "Intransitive absolute"
+          },
+          {
+            "text": "<S:Erg>",
+            "component_type": "case_spec",
+            "color_class": "gloss-subject",
+            "description": "Ergative subject"
+          }
+        ],
+        "argument_pattern": "<S>",
+        "case_specifications": [
+          "<S:Erg>"
+        ]
+      }
+    },
+    "optative": {
+      "raw_gloss": "V MedAct Opt <S> <S:Erg>",
+      "structured_gloss": {
+        "raw_components": [
+          {
+            "text": "V",
+            "component_type": "verb",
+            "color_class": "gloss-verb",
+            "description": "Verb"
+          },
+          {
+            "text": "MedAct",
+            "component_type": "voice",
+            "color_class": "gloss-voice",
+            "description": "Medioactive"
+          },
+          {
+            "text": "Opt",
+            "component_type": "tense",
+            "color_class": "gloss-tense",
+            "description": "Optative"
+          },
+          {
+            "text": "<S>",
+            "component_type": "argument_pattern",
+            "color_class": "gloss-argument",
+            "description": "Intransitive absolute"
+          },
+          {
+            "text": "<S:Erg>",
+            "component_type": "case_spec",
+            "color_class": "gloss-case",
+            "description": "Ergative subject"
+          }
+        ],
+        "expanded_components": [
+          {
+            "text": "V",
+            "component_type": "verb",
+            "color_class": "gloss-verb",
+            "description": "Verb"
+          },
+          {
+            "text": "MedAct",
+            "component_type": "voice",
+            "color_class": "gloss-voice",
+            "description": "Medioactive"
+          },
+          {
+            "text": "Opt",
+            "component_type": "tense",
+            "color_class": "gloss-tense",
+            "description": "Optative"
+          },
+          {
+            "text": "<S>",
+            "component_type": "argument_pattern",
+            "color_class": "gloss-argument",
+            "description": "Intransitive absolute"
+          },
+          {
+            "text": "<S:Erg>",
+            "component_type": "case_spec",
+            "color_class": "gloss-subject",
+            "description": "Ergative subject"
+          }
+        ],
+        "argument_pattern": "<S>",
+        "case_specifications": [
+          "<S:Erg>"
+        ]
+      }
+    },
+    "imperative": {
+      "raw_gloss": "V MedAct Impf <S:Nom>",
+      "structured_gloss": {
+        "raw_components": [
+          {
+            "text": "V",
+            "component_type": "verb",
+            "color_class": "gloss-verb",
+            "description": "Verb"
+          },
+          {
+            "text": "MedAct",
+            "component_type": "voice",
+            "color_class": "gloss-voice",
+            "description": "Medioactive"
+          },
+          {
+            "text": "Impf",
+            "component_type": "tense",
+            "color_class": "gloss-tense",
+            "description": "Imperfect"
+          },
+          {
+            "text": "<S:Nom>",
+            "component_type": "case_spec",
+            "color_class": "gloss-case",
+            "description": "Nominative subject"
+          }
+        ],
+        "expanded_components": [
+          {
+            "text": "V",
+            "component_type": "verb",
+            "color_class": "gloss-verb",
+            "description": "Verb"
+          },
+          {
+            "text": "MedAct",
+            "component_type": "voice",
+            "color_class": "gloss-voice",
+            "description": "Medioactive"
+          },
+          {
+            "text": "Impf",
+            "component_type": "tense",
+            "color_class": "gloss-tense",
+            "description": "Imperfect"
+          },
+          {
+            "text": "<S:Nom>",
+            "component_type": "case_spec",
+            "color_class": "gloss-subject",
+            "description": "Nominative subject"
+          }
+        ],
+        "argument_pattern": null,
+        "case_specifications": [
+          "<S:Nom>"
+        ]
+      }
+    }
+  },
+  "preverb_forms": {}
+}

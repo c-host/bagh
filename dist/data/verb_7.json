@@ -1,0 +1,1002 @@
+{
+  "id": 7,
+  "georgian": "დამთავრება",
+  "description": "To Finish/Complete",
+  "category": "Actions & Control",
+  "class": "Class-I",
+  "semantic_key": "finish",
+  "notes": "",
+  "url": "https://lingua.ge/verbs/%e1%83%93%e1%83%90%e1%83%a1%e1%83%a0%e1%83%a3%e1%83%9a%e1%83%94%e1%83%91%e1%83%90-%e1%83%93%e1%83%90%e1%83%9b%e1%83%97%e1%83%90%e1%83%95%e1%83%a0%e1%83%94%e1%83%91%e1%83%90/",
+  "global_argument_pattern": "<S-DO>",
+  "valency": {
+    "default": "<S-DO>",
+    "alternatives": []
+  },
+  "syntax": {
+    "arguments": {
+      "subject": {
+        "3sg": {
+          "noun": "student",
+          "adjective": "clever"
+        },
+        "3pl": {
+          "noun": "worker",
+          "adjective": "good"
+        }
+      },
+      "direct_object": {
+        "1sg": {
+          "noun": "homework",
+          "adjective": "difficult"
+        },
+        "2sg": {
+          "noun": "project",
+          "adjective": "big"
+        },
+        "3sg": {
+          "noun": "work",
+          "adjective": "important"
+        },
+        "1pl": {
+          "noun": "task",
+          "adjective": "easy"
+        },
+        "2pl": {
+          "noun": "job",
+          "adjective": "new"
+        },
+        "3pl": {
+          "noun": "book",
+          "adjective": "thick"
+        }
+      }
+    },
+    "prepositions": {
+      "subject": "the",
+      "direct_object": "the",
+      "indirect_object": ""
+    },
+    "preverb_overrides": {}
+  },
+  "english_translations": {
+    "default": {
+      "present": "finish",
+      "imperfect": "was finishing",
+      "future": "will finish",
+      "aorist": "finished",
+      "optative": "finish",
+      "imperative": "finish"
+    }
+  },
+  "conjugations": {
+    "present": {
+      "raw_gloss": "V Act Pres <S-DO> <S:Nom> <DO:Dat>",
+      "forms": {
+        "1sg": "ვამთავრებ",
+        "2sg": "ამთავრებ",
+        "3sg": "ამთავრებს",
+        "1pl": "ვამთავრებთ",
+        "2pl": "ამთავრებთ",
+        "3pl": "ამთავრებენ"
+      },
+      "examples": []
+    },
+    "imperfect": {
+      "raw_gloss": "V Act Impf <S-DO> <S:Nom> <DO:Dat>",
+      "forms": {
+        "1sg": "ვამთავრებდი",
+        "2sg": "ამთავრებდი",
+        "3sg": "ამთავრებდა",
+        "1pl": "ვამთავრებდით",
+        "2pl": "ამთავრებდით",
+        "3pl": "ამთავრებდნენ"
+      },
+      "examples": []
+    },
+    "future": {
+      "raw_gloss": "V Act Fut Pv <S-DO> <S:Nom> <DO:Dat>",
+      "forms": {
+        "1sg": "დავამთავრებ",
+        "2sg": "დაამთავრებ",
+        "3sg": "დაამთავრებს",
+        "1pl": "დავამთავრებთ",
+        "2pl": "დაამთავრებთ",
+        "3pl": "დაამთავრებენ"
+      },
+      "examples": []
+    },
+    "aorist": {
+      "raw_gloss": "V Act Aor Pv <S-DO> <S:Erg> <DO:Nom>",
+      "forms": {
+        "1sg": "დავამთავრე",
+        "2sg": "დაამთავრე",
+        "3sg": "დაამთავრა",
+        "1pl": "დავამთავრეთ",
+        "2pl": "დაამთავრეთ",
+        "3pl": "დაამთავრეს"
+      },
+      "examples": []
+    },
+    "optative": {
+      "raw_gloss": "V Act Opt Pv <S-DO> <S:Erg> <DO:Nom>",
+      "forms": {
+        "1sg": "დავამთავრო",
+        "2sg": "დაამთავრო",
+        "3sg": "დაამთავროს",
+        "1pl": "დავამთავროთ",
+        "2pl": "დაამთავროთ",
+        "3pl": "დაამთავრონ"
+      },
+      "examples": []
+    },
+    "imperative": {
+      "raw_gloss": "V Act Impv Pv <S-DO> <S:Erg> <DO:Nom>",
+      "forms": {
+        "1sg": "-",
+        "2sg": "დაამთავრე",
+        "3sg": "-",
+        "1pl": "-",
+        "2pl": "დაამთავრეთ",
+        "3pl": "-"
+      },
+      "examples": []
+    }
+  },
+  "preverb_config": {
+    "has_multiple_preverbs": false,
+    "default_preverb": "და",
+    "available_preverbs": [
+      "და"
+    ]
+  },
+  "preverb_rules": {
+    "default": "",
+    "replacements": {},
+    "tense_specific_fallbacks": {},
+    "english_fallbacks": {}
+  },
+  "examples": {
+    "null": {
+      "present": [
+        {
+          "georgian": "რთულ საშინაო დავალებას ვამთავრებ",
+          "english": "<strong data-role=\"subject\" data-person=\"1sg\">I</strong> <strong data-role=\"verb\">finish</strong> <strong data-role=\"direct-object\">the difficult homework</strong>",
+          "english_plain": "I finish the difficult homework",
+          "html": "<span data-case=\"dat\" data-role=\"direct-object\">რთულ საშინაო დავალებას</span> <span data-role=\"verb\">ვამთავრებ</span>",
+          "case_marking": {
+            "direct_object": {
+              "case": "dat",
+              "word": "საშინაო დავალებას"
+            }
+          },
+          "georgian_verb_form": "ვამთავრებ"
+        },
+        {
+          "georgian": "ჭკვიანი სტუდენტი მნიშვნელოვან სამუშაოს ამთავრებს",
+          "english": "<strong data-role=\"subject\">The clever student</strong> <strong data-role=\"verb\">finishes</strong> <strong data-role=\"direct-object\">the important work</strong>",
+          "english_plain": "The clever student finishes the important work",
+          "html": "<span data-case=\"nom\" data-role=\"subject\">ჭკვიანი სტუდენტი</span> <span data-case=\"dat\" data-role=\"direct-object\">მნიშვნელოვან სამუშაოს</span> <span data-role=\"verb\">ამთავრებს</span>",
+          "case_marking": {
+            "subject": {
+              "case": "nom",
+              "word": "სტუდენტი"
+            },
+            "direct_object": {
+              "case": "dat",
+              "word": "სამუშაოს"
+            }
+          },
+          "georgian_verb_form": "ამთავრებს"
+        },
+        {
+          "georgian": "კარგი მუშები სქელ წიგნს ამთავრებენ",
+          "english": "<strong data-role=\"subject\">The good workers</strong> <strong data-role=\"verb\">finish</strong> <strong data-role=\"direct-object\">the thick book</strong>",
+          "english_plain": "The good workers finish the thick book",
+          "html": "<span data-case=\"nom\" data-role=\"subject\">კარგი მუშები</span> <span data-case=\"dat\" data-role=\"direct-object\">სქელ წიგნს</span> <span data-role=\"verb\">ამთავრებენ</span>",
+          "case_marking": {
+            "subject": {
+              "case": "nom",
+              "word": "მუშები"
+            },
+            "direct_object": {
+              "case": "dat",
+              "word": "წიგნს"
+            }
+          },
+          "georgian_verb_form": "ამთავრებენ"
+        }
+      ],
+      "imperfect": [
+        {
+          "georgian": "რთულ საშინაო დავალებას ვამთავრებდი",
+          "english": "<strong data-role=\"subject\" data-person=\"1sg\">I</strong> <strong data-role=\"verb\">was finishing</strong> <strong data-role=\"direct-object\">the difficult homework</strong>",
+          "english_plain": "I was finishing the difficult homework",
+          "html": "<span data-case=\"dat\" data-role=\"direct-object\">რთულ საშინაო დავალებას</span> <span data-role=\"verb\">ვამთავრებდი</span>",
+          "case_marking": {
+            "direct_object": {
+              "case": "dat",
+              "word": "საშინაო დავალებას"
+            }
+          },
+          "georgian_verb_form": "ვამთავრებდი"
+        },
+        {
+          "georgian": "ჭკვიანი სტუდენტი მნიშვნელოვან სამუშაოს ამთავრებდა",
+          "english": "<strong data-role=\"subject\">The clever student</strong> <strong data-role=\"verb\">was finishing</strong> <strong data-role=\"direct-object\">the important work</strong>",
+          "english_plain": "The clever student was finishing the important work",
+          "html": "<span data-case=\"nom\" data-role=\"subject\">ჭკვიანი სტუდენტი</span> <span data-case=\"dat\" data-role=\"direct-object\">მნიშვნელოვან სამუშაოს</span> <span data-role=\"verb\">ამთავრებდა</span>",
+          "case_marking": {
+            "subject": {
+              "case": "nom",
+              "word": "სტუდენტი"
+            },
+            "direct_object": {
+              "case": "dat",
+              "word": "სამუშაოს"
+            }
+          },
+          "georgian_verb_form": "ამთავრებდა"
+        },
+        {
+          "georgian": "კარგი მუშები სქელ წიგნს ამთავრებდნენ",
+          "english": "<strong data-role=\"subject\">The good workers</strong> <strong data-role=\"verb\">were finishing</strong> <strong data-role=\"direct-object\">the thick book</strong>",
+          "english_plain": "The good workers were finishing the thick book",
+          "html": "<span data-case=\"nom\" data-role=\"subject\">კარგი მუშები</span> <span data-case=\"dat\" data-role=\"direct-object\">სქელ წიგნს</span> <span data-role=\"verb\">ამთავრებდნენ</span>",
+          "case_marking": {
+            "subject": {
+              "case": "nom",
+              "word": "მუშები"
+            },
+            "direct_object": {
+              "case": "dat",
+              "word": "წიგნს"
+            }
+          },
+          "georgian_verb_form": "ამთავრებდნენ"
+        }
+      ],
+      "future": [
+        {
+          "georgian": "რთულ საშინაო დავალებას დავამთავრებ",
+          "english": "<strong data-role=\"subject\" data-person=\"1sg\">I</strong> <strong data-role=\"verb\">will finish</strong> <strong data-role=\"direct-object\">the difficult homework</strong>",
+          "english_plain": "I will finish the difficult homework",
+          "html": "<span data-case=\"dat\" data-role=\"direct-object\">რთულ საშინაო დავალებას</span> <span data-role=\"verb\">დავამთავრებ</span>",
+          "case_marking": {
+            "direct_object": {
+              "case": "dat",
+              "word": "საშინაო დავალებას"
+            }
+          },
+          "georgian_verb_form": "დავამთავრებ"
+        },
+        {
+          "georgian": "ჭკვიანი სტუდენტი მნიშვნელოვან სამუშაოს დაამთავრებს",
+          "english": "<strong data-role=\"subject\">The clever student</strong> <strong data-role=\"verb\">will finish</strong> <strong data-role=\"direct-object\">the important work</strong>",
+          "english_plain": "The clever student will finish the important work",
+          "html": "<span data-case=\"nom\" data-role=\"subject\">ჭკვიანი სტუდენტი</span> <span data-case=\"dat\" data-role=\"direct-object\">მნიშვნელოვან სამუშაოს</span> <span data-role=\"verb\">დაამთავრებს</span>",
+          "case_marking": {
+            "subject": {
+              "case": "nom",
+              "word": "სტუდენტი"
+            },
+            "direct_object": {
+              "case": "dat",
+              "word": "სამუშაოს"
+            }
+          },
+          "georgian_verb_form": "დაამთავრებს"
+        },
+        {
+          "georgian": "კარგი მუშები სქელ წიგნს დაამთავრებენ",
+          "english": "<strong data-role=\"subject\">The good workers</strong> <strong data-role=\"verb\">will finish</strong> <strong data-role=\"direct-object\">the thick book</strong>",
+          "english_plain": "The good workers will finish the thick book",
+          "html": "<span data-case=\"nom\" data-role=\"subject\">კარგი მუშები</span> <span data-case=\"dat\" data-role=\"direct-object\">სქელ წიგნს</span> <span data-role=\"verb\">დაამთავრებენ</span>",
+          "case_marking": {
+            "subject": {
+              "case": "nom",
+              "word": "მუშები"
+            },
+            "direct_object": {
+              "case": "dat",
+              "word": "წიგნს"
+            }
+          },
+          "georgian_verb_form": "დაამთავრებენ"
+        }
+      ],
+      "aorist": [
+        {
+          "georgian": "რთული საშინაო დავალება დავამთავრე",
+          "english": "<strong data-role=\"subject\" data-person=\"1sg\">I</strong> <strong data-role=\"verb\">finished</strong> <strong data-role=\"direct-object\">the difficult homework</strong>",
+          "english_plain": "I finished the difficult homework",
+          "html": "<span data-case=\"nom\" data-role=\"direct-object\">რთული საშინაო დავალება</span> <span data-role=\"verb\">დავამთავრე</span>",
+          "case_marking": {
+            "direct_object": {
+              "case": "nom",
+              "word": "საშინაო დავალება"
+            }
+          },
+          "georgian_verb_form": "დავამთავრე"
+        },
+        {
+          "georgian": "ჭკვიანმა სტუდენტმა მნიშვნელოვანი სამუშაო დაამთავრა",
+          "english": "<strong data-role=\"subject\">The clever student</strong> <strong data-role=\"verb\">finished</strong> <strong data-role=\"direct-object\">the important work</strong>",
+          "english_plain": "The clever student finished the important work",
+          "html": "<span data-case=\"erg\" data-role=\"subject\">ჭკვიანმა სტუდენტმა</span> <span data-case=\"nom\" data-role=\"direct-object\">მნიშვნელოვანი სამუშაო</span> <span data-role=\"verb\">დაამთავრა</span>",
+          "case_marking": {
+            "subject": {
+              "case": "erg",
+              "word": "სტუდენტმა"
+            },
+            "direct_object": {
+              "case": "nom",
+              "word": "სამუშაო"
+            }
+          },
+          "georgian_verb_form": "დაამთავრა"
+        },
+        {
+          "georgian": "კარგმა მუშებმა სქელი წიგნი დაამთავრეს",
+          "english": "<strong data-role=\"subject\">The good workers</strong> <strong data-role=\"verb\">finished</strong> <strong data-role=\"direct-object\">the thick book</strong>",
+          "english_plain": "The good workers finished the thick book",
+          "html": "<span data-case=\"erg\" data-role=\"subject\">კარგმა მუშებმა</span> <span data-case=\"nom\" data-role=\"direct-object\">სქელი წიგნი</span> <span data-role=\"verb\">დაამთავრეს</span>",
+          "case_marking": {
+            "subject": {
+              "case": "erg",
+              "word": "მუშებმა"
+            },
+            "direct_object": {
+              "case": "nom",
+              "word": "წიგნი"
+            }
+          },
+          "georgian_verb_form": "დაამთავრეს"
+        }
+      ],
+      "optative": [
+        {
+          "georgian": "რთული საშინაო დავალება უნდა დავამთავრო",
+          "english": "<strong data-role=\"subject\" data-person=\"1sg\">I</strong> <strong data-role=\"verb\">should</strong> <strong data-role=\"verb\">finish</strong> <strong data-role=\"direct-object\">the difficult homework</strong>",
+          "english_plain": "I should finish the difficult homework",
+          "html": "<span data-case=\"nom\" data-role=\"direct-object\">რთული საშინაო დავალება</span> <span data-role=\"verb\">უნდა დავამთავრო</span>",
+          "case_marking": {
+            "direct_object": {
+              "case": "nom",
+              "word": "საშინაო დავალება"
+            }
+          },
+          "georgian_verb_form": "დავამთავრო"
+        },
+        {
+          "georgian": "ჭკვიანმა სტუდენტმა მნიშვნელოვანი სამუშაო უნდა დაამთავროს",
+          "english": "<strong data-role=\"subject\">The clever student</strong> <strong data-role=\"verb\">should</strong> <strong data-role=\"verb\">finish</strong> <strong data-role=\"direct-object\">the important work</strong>",
+          "english_plain": "The clever student should finish the important work",
+          "html": "<span data-case=\"erg\" data-role=\"subject\">ჭკვიანმა სტუდენტმა</span> <span data-case=\"nom\" data-role=\"direct-object\">მნიშვნელოვანი სამუშაო</span> <span data-role=\"verb\">უნდა დაამთავროს</span>",
+          "case_marking": {
+            "subject": {
+              "case": "erg",
+              "word": "სტუდენტმა"
+            },
+            "direct_object": {
+              "case": "nom",
+              "word": "სამუშაო"
+            }
+          },
+          "georgian_verb_form": "დაამთავროს"
+        },
+        {
+          "georgian": "კარგმა მუშებმა სქელი წიგნი უნდა დაამთავრონ",
+          "english": "<strong data-role=\"subject\">The good workers</strong> <strong data-role=\"verb\">should</strong> <strong data-role=\"verb\">finish</strong> <strong data-role=\"direct-object\">the thick book</strong>",
+          "english_plain": "The good workers should finish the thick book",
+          "html": "<span data-case=\"erg\" data-role=\"subject\">კარგმა მუშებმა</span> <span data-case=\"nom\" data-role=\"direct-object\">სქელი წიგნი</span> <span data-role=\"verb\">უნდა დაამთავრონ</span>",
+          "case_marking": {
+            "subject": {
+              "case": "erg",
+              "word": "მუშებმა"
+            },
+            "direct_object": {
+              "case": "nom",
+              "word": "წიგნი"
+            }
+          },
+          "georgian_verb_form": "დაამთავრონ"
+        }
+      ],
+      "imperative": [
+        {
+          "georgian": "დიდი პროექტი დაამთავრე",
+          "english": "<strong data-role=\"verb\">finish</strong> <strong data-role=\"direct-object\">the big project</strong>",
+          "english_plain": "finish the big project",
+          "html": "<span data-case=\"nom\" data-role=\"direct-object\">დიდი პროექტი</span> <span data-role=\"verb\">დაამთავრე</span>",
+          "case_marking": {
+            "direct_object": {
+              "case": "nom",
+              "word": "პროექტი"
+            }
+          },
+          "georgian_verb_form": "დაამთავრე"
+        },
+        {
+          "georgian": "ახალი სამუშაო დაამთავრეთ",
+          "english": "<strong data-role=\"verb\">finish</strong> <strong data-role=\"direct-object\">the new job</strong>",
+          "english_plain": "finish the new job",
+          "html": "<span data-case=\"nom\" data-role=\"direct-object\">ახალი სამუშაო</span> <span data-role=\"verb\">დაამთავრეთ</span>",
+          "case_marking": {
+            "direct_object": {
+              "case": "nom",
+              "word": "სამუშაო"
+            }
+          },
+          "georgian_verb_form": "დაამთავრეთ"
+        }
+      ]
+    }
+  },
+  "gloss_analysis": {
+    "present": {
+      "raw_gloss": "V Act Pres <S-DO> <S:Nom> <DO:Dat>",
+      "structured_gloss": {
+        "raw_components": [
+          {
+            "text": "V",
+            "component_type": "verb",
+            "color_class": "gloss-verb",
+            "description": "Verb"
+          },
+          {
+            "text": "Act",
+            "component_type": "voice",
+            "color_class": "gloss-voice",
+            "description": "Active"
+          },
+          {
+            "text": "Pres",
+            "component_type": "tense",
+            "color_class": "gloss-tense",
+            "description": "Present"
+          },
+          {
+            "text": "<S-DO>",
+            "component_type": "argument_pattern",
+            "color_class": "gloss-argument",
+            "description": "Transitive absolute"
+          },
+          {
+            "text": "<S:Nom>",
+            "component_type": "case_spec",
+            "color_class": "gloss-case",
+            "description": "Nominative subject"
+          },
+          {
+            "text": "<DO:Dat>",
+            "component_type": "case_spec",
+            "color_class": "gloss-case",
+            "description": "Dative direct object"
+          }
+        ],
+        "expanded_components": [
+          {
+            "text": "V",
+            "component_type": "verb",
+            "color_class": "gloss-verb",
+            "description": "Verb"
+          },
+          {
+            "text": "Act",
+            "component_type": "voice",
+            "color_class": "gloss-voice",
+            "description": "Active"
+          },
+          {
+            "text": "Pres",
+            "component_type": "tense",
+            "color_class": "gloss-tense",
+            "description": "Present"
+          },
+          {
+            "text": "<S-DO>",
+            "component_type": "argument_pattern",
+            "color_class": "gloss-argument",
+            "description": "Transitive absolute"
+          },
+          {
+            "text": "<S:Nom>",
+            "component_type": "case_spec",
+            "color_class": "gloss-subject",
+            "description": "Nominative subject"
+          },
+          {
+            "text": "<DO:Dat>",
+            "component_type": "case_spec",
+            "color_class": "gloss-direct-object",
+            "description": "Dative direct object"
+          }
+        ],
+        "argument_pattern": "<S-DO>",
+        "case_specifications": [
+          "<S:Nom>",
+          "<DO:Dat>"
+        ]
+      }
+    },
+    "imperfect": {
+      "raw_gloss": "V Act Impf <S-DO> <S:Nom> <DO:Dat>",
+      "structured_gloss": {
+        "raw_components": [
+          {
+            "text": "V",
+            "component_type": "verb",
+            "color_class": "gloss-verb",
+            "description": "Verb"
+          },
+          {
+            "text": "Act",
+            "component_type": "voice",
+            "color_class": "gloss-voice",
+            "description": "Active"
+          },
+          {
+            "text": "Impf",
+            "component_type": "tense",
+            "color_class": "gloss-tense",
+            "description": "Imperfect"
+          },
+          {
+            "text": "<S-DO>",
+            "component_type": "argument_pattern",
+            "color_class": "gloss-argument",
+            "description": "Transitive absolute"
+          },
+          {
+            "text": "<S:Nom>",
+            "component_type": "case_spec",
+            "color_class": "gloss-case",
+            "description": "Nominative subject"
+          },
+          {
+            "text": "<DO:Dat>",
+            "component_type": "case_spec",
+            "color_class": "gloss-case",
+            "description": "Dative direct object"
+          }
+        ],
+        "expanded_components": [
+          {
+            "text": "V",
+            "component_type": "verb",
+            "color_class": "gloss-verb",
+            "description": "Verb"
+          },
+          {
+            "text": "Act",
+            "component_type": "voice",
+            "color_class": "gloss-voice",
+            "description": "Active"
+          },
+          {
+            "text": "Impf",
+            "component_type": "tense",
+            "color_class": "gloss-tense",
+            "description": "Imperfect"
+          },
+          {
+            "text": "<S-DO>",
+            "component_type": "argument_pattern",
+            "color_class": "gloss-argument",
+            "description": "Transitive absolute"
+          },
+          {
+            "text": "<S:Nom>",
+            "component_type": "case_spec",
+            "color_class": "gloss-subject",
+            "description": "Nominative subject"
+          },
+          {
+            "text": "<DO:Dat>",
+            "component_type": "case_spec",
+            "color_class": "gloss-direct-object",
+            "description": "Dative direct object"
+          }
+        ],
+        "argument_pattern": "<S-DO>",
+        "case_specifications": [
+          "<S:Nom>",
+          "<DO:Dat>"
+        ]
+      }
+    },
+    "future": {
+      "raw_gloss": "V Act Fut Pv <S-DO> <S:Nom> <DO:Dat>",
+      "structured_gloss": {
+        "raw_components": [
+          {
+            "text": "V",
+            "component_type": "verb",
+            "color_class": "gloss-verb",
+            "description": "Verb"
+          },
+          {
+            "text": "Act",
+            "component_type": "voice",
+            "color_class": "gloss-voice",
+            "description": "Active"
+          },
+          {
+            "text": "Fut",
+            "component_type": "tense",
+            "color_class": "gloss-tense",
+            "description": "Future"
+          },
+          {
+            "text": "Pv",
+            "component_type": "preverb",
+            "color_class": "gloss-preverb",
+            "description": "Preverb"
+          },
+          {
+            "text": "<S-DO>",
+            "component_type": "argument_pattern",
+            "color_class": "gloss-argument",
+            "description": "Transitive absolute"
+          },
+          {
+            "text": "<S:Nom>",
+            "component_type": "case_spec",
+            "color_class": "gloss-case",
+            "description": "Nominative subject"
+          },
+          {
+            "text": "<DO:Dat>",
+            "component_type": "case_spec",
+            "color_class": "gloss-case",
+            "description": "Dative direct object"
+          }
+        ],
+        "expanded_components": [
+          {
+            "text": "V",
+            "component_type": "verb",
+            "color_class": "gloss-verb",
+            "description": "Verb"
+          },
+          {
+            "text": "Act",
+            "component_type": "voice",
+            "color_class": "gloss-voice",
+            "description": "Active"
+          },
+          {
+            "text": "Fut",
+            "component_type": "tense",
+            "color_class": "gloss-tense",
+            "description": "Future"
+          },
+          {
+            "text": "Pv",
+            "component_type": "preverb",
+            "color_class": "gloss-preverb",
+            "description": "Preverb"
+          },
+          {
+            "text": "<S-DO>",
+            "component_type": "argument_pattern",
+            "color_class": "gloss-argument",
+            "description": "Transitive absolute"
+          },
+          {
+            "text": "<S:Nom>",
+            "component_type": "case_spec",
+            "color_class": "gloss-subject",
+            "description": "Nominative subject"
+          },
+          {
+            "text": "<DO:Dat>",
+            "component_type": "case_spec",
+            "color_class": "gloss-direct-object",
+            "description": "Dative direct object"
+          }
+        ],
+        "argument_pattern": "<S-DO>",
+        "case_specifications": [
+          "<S:Nom>",
+          "<DO:Dat>"
+        ]
+      }
+    },
+    "aorist": {
+      "raw_gloss": "V Act Aor Pv <S-DO> <S:Erg> <DO:Nom>",
+      "structured_gloss": {
+        "raw_components": [
+          {
+            "text": "V",
+            "component_type": "verb",
+            "color_class": "gloss-verb",
+            "description": "Verb"
+          },
+          {
+            "text": "Act",
+            "component_type": "voice",
+            "color_class": "gloss-voice",
+            "description": "Active"
+          },
+          {
+            "text": "Aor",
+            "component_type": "tense",
+            "color_class": "gloss-tense",
+            "description": "Aorist"
+          },
+          {
+            "text": "Pv",
+            "component_type": "preverb",
+            "color_class": "gloss-preverb",
+            "description": "Preverb"
+          },
+          {
+            "text": "<S-DO>",
+            "component_type": "argument_pattern",
+            "color_class": "gloss-argument",
+            "description": "Transitive absolute"
+          },
+          {
+            "text": "<S:Erg>",
+            "component_type": "case_spec",
+            "color_class": "gloss-case",
+            "description": "Ergative subject"
+          },
+          {
+            "text": "<DO:Nom>",
+            "component_type": "case_spec",
+            "color_class": "gloss-case",
+            "description": "Nominative direct object"
+          }
+        ],
+        "expanded_components": [
+          {
+            "text": "V",
+            "component_type": "verb",
+            "color_class": "gloss-verb",
+            "description": "Verb"
+          },
+          {
+            "text": "Act",
+            "component_type": "voice",
+            "color_class": "gloss-voice",
+            "description": "Active"
+          },
+          {
+            "text": "Aor",
+            "component_type": "tense",
+            "color_class": "gloss-tense",
+            "description": "Aorist"
+          },
+          {
+            "text": "Pv",
+            "component_type": "preverb",
+            "color_class": "gloss-preverb",
+            "description": "Preverb"
+          },
+          {
+            "text": "<S-DO>",
+            "component_type": "argument_pattern",
+            "color_class": "gloss-argument",
+            "description": "Transitive absolute"
+          },
+          {
+            "text": "<S:Erg>",
+            "component_type": "case_spec",
+            "color_class": "gloss-subject",
+            "description": "Ergative subject"
+          },
+          {
+            "text": "<DO:Nom>",
+            "component_type": "case_spec",
+            "color_class": "gloss-direct-object",
+            "description": "Nominative direct object"
+          }
+        ],
+        "argument_pattern": "<S-DO>",
+        "case_specifications": [
+          "<S:Erg>",
+          "<DO:Nom>"
+        ]
+      }
+    },
+    "optative": {
+      "raw_gloss": "V Act Opt Pv <S-DO> <S:Erg> <DO:Nom>",
+      "structured_gloss": {
+        "raw_components": [
+          {
+            "text": "V",
+            "component_type": "verb",
+            "color_class": "gloss-verb",
+            "description": "Verb"
+          },
+          {
+            "text": "Act",
+            "component_type": "voice",
+            "color_class": "gloss-voice",
+            "description": "Active"
+          },
+          {
+            "text": "Opt",
+            "component_type": "tense",
+            "color_class": "gloss-tense",
+            "description": "Optative"
+          },
+          {
+            "text": "Pv",
+            "component_type": "preverb",
+            "color_class": "gloss-preverb",
+            "description": "Preverb"
+          },
+          {
+            "text": "<S-DO>",
+            "component_type": "argument_pattern",
+            "color_class": "gloss-argument",
+            "description": "Transitive absolute"
+          },
+          {
+            "text": "<S:Erg>",
+            "component_type": "case_spec",
+            "color_class": "gloss-case",
+            "description": "Ergative subject"
+          },
+          {
+            "text": "<DO:Nom>",
+            "component_type": "case_spec",
+            "color_class": "gloss-case",
+            "description": "Nominative direct object"
+          }
+        ],
+        "expanded_components": [
+          {
+            "text": "V",
+            "component_type": "verb",
+            "color_class": "gloss-verb",
+            "description": "Verb"
+          },
+          {
+            "text": "Act",
+            "component_type": "voice",
+            "color_class": "gloss-voice",
+            "description": "Active"
+          },
+          {
+            "text": "Opt",
+            "component_type": "tense",
+            "color_class": "gloss-tense",
+            "description": "Optative"
+          },
+          {
+            "text": "Pv",
+            "component_type": "preverb",
+            "color_class": "gloss-preverb",
+            "description": "Preverb"
+          },
+          {
+            "text": "<S-DO>",
+            "component_type": "argument_pattern",
+            "color_class": "gloss-argument",
+            "description": "Transitive absolute"
+          },
+          {
+            "text": "<S:Erg>",
+            "component_type": "case_spec",
+            "color_class": "gloss-subject",
+            "description": "Ergative subject"
+          },
+          {
+            "text": "<DO:Nom>",
+            "component_type": "case_spec",
+            "color_class": "gloss-direct-object",
+            "description": "Nominative direct object"
+          }
+        ],
+        "argument_pattern": "<S-DO>",
+        "case_specifications": [
+          "<S:Erg>",
+          "<DO:Nom>"
+        ]
+      }
+    },
+    "imperative": {
+      "raw_gloss": "V Act Impv Pv <S-DO> <S:Erg> <DO:Nom>",
+      "structured_gloss": {
+        "raw_components": [
+          {
+            "text": "V",
+            "component_type": "verb",
+            "color_class": "gloss-verb",
+            "description": "Verb"
+          },
+          {
+            "text": "Act",
+            "component_type": "voice",
+            "color_class": "gloss-voice",
+            "description": "Active"
+          },
+          {
+            "text": "Impv",
+            "component_type": "tense",
+            "color_class": "gloss-tense",
+            "description": "Imperative"
+          },
+          {
+            "text": "Pv",
+            "component_type": "preverb",
+            "color_class": "gloss-preverb",
+            "description": "Preverb"
+          },
+          {
+            "text": "<S-DO>",
+            "component_type": "argument_pattern",
+            "color_class": "gloss-argument",
+            "description": "Transitive absolute"
+          },
+          {
+            "text": "<S:Erg>",
+            "component_type": "case_spec",
+            "color_class": "gloss-case",
+            "description": "Ergative subject"
+          },
+          {
+            "text": "<DO:Nom>",
+            "component_type": "case_spec",
+            "color_class": "gloss-case",
+            "description": "Nominative direct object"
+          }
+        ],
+        "expanded_components": [
+          {
+            "text": "V",
+            "component_type": "verb",
+            "color_class": "gloss-verb",
+            "description": "Verb"
+          },
+          {
+            "text": "Act",
+            "component_type": "voice",
+            "color_class": "gloss-voice",
+            "description": "Active"
+          },
+          {
+            "text": "Impv",
+            "component_type": "tense",
+            "color_class": "gloss-tense",
+            "description": "Imperative"
+          },
+          {
+            "text": "Pv",
+            "component_type": "preverb",
+            "color_class": "gloss-preverb",
+            "description": "Preverb"
+          },
+          {
+            "text": "<S-DO>",
+            "component_type": "argument_pattern",
+            "color_class": "gloss-argument",
+            "description": "Transitive absolute"
+          },
+          {
+            "text": "<S:Erg>",
+            "component_type": "case_spec",
+            "color_class": "gloss-subject",
+            "description": "Ergative subject"
+          },
+          {
+            "text": "<DO:Nom>",
+            "component_type": "case_spec",
+            "color_class": "gloss-direct-object",
+            "description": "Nominative direct object"
+          }
+        ],
+        "argument_pattern": "<S-DO>",
+        "case_specifications": [
+          "<S:Erg>",
+          "<DO:Nom>"
+        ]
+      }
+    }
+  },
+  "preverb_forms": {}
+}

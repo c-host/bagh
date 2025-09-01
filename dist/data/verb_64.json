@@ -1,0 +1,952 @@
+{
+  "id": 64,
+  "georgian": "პოვნა",
+  "description": "To find",
+  "category": "Actions & Control",
+  "class": "",
+  "semantic_key": "find",
+  "notes": "",
+  "url": "https://lingua.ge/verbs/%e1%83%9e%e1%83%9d%e1%83%95%e1%83%9c%e1%83%90/",
+  "global_argument_pattern": "<S-DO>",
+  "valency": {
+    "default": "<S-DO>",
+    "alternatives": []
+  },
+  "syntax": {
+    "arguments": {
+      "subject": {
+        "3sg": {
+          "noun": "detective",
+          "adjective": "clever"
+        },
+        "3pl": {
+          "noun": "woman",
+          "adjective": "happy"
+        }
+      },
+      "direct_object": {
+        "1sg": {
+          "noun": "key",
+          "adjective": "lost"
+        },
+        "2sg": {
+          "noun": "book",
+          "adjective": "old"
+        },
+        "3sg": {
+          "noun": "treasure",
+          "adjective": "hidden"
+        },
+        "1pl": {
+          "noun": "coin",
+          "adjective": "golden"
+        },
+        "2pl": {
+          "noun": "phone",
+          "adjective": "missing"
+        },
+        "3pl": {
+          "noun": "ring",
+          "adjective": "precious"
+        }
+      }
+    },
+    "prepositions": {
+      "subject": "the",
+      "direct_object": "the",
+      "indirect_object": "to"
+    },
+    "preverb_overrides": {}
+  },
+  "english_translations": {
+    "default": {
+      "present": "find",
+      "imperfect": "was finding",
+      "future": "will find",
+      "aorist": "found",
+      "optative": "find",
+      "imperative": "find"
+    }
+  },
+  "conjugations": {
+    "present": {
+      "raw_gloss": "V MedAct Pres <S-DO> <S:Nom> <DO:Dat>",
+      "forms": {
+        "1sg": "ვპოულობ",
+        "2sg": "პოულობ",
+        "3sg": "პოულობს",
+        "1pl": "ვპოულობთ",
+        "2pl": "პოულობთ",
+        "3pl": "პოულობენ"
+      },
+      "examples": []
+    },
+    "imperfect": {
+      "raw_gloss": "V MedAct Impf <S-DO> <S:Nom> <DO:Dat>",
+      "forms": {
+        "1sg": "ვპოულობდი",
+        "2sg": "პოულობდი",
+        "3sg": "პოულობდა",
+        "1pl": "ვპოულობდით",
+        "2pl": "პოულობდით",
+        "3pl": "პოულობდნენ"
+      },
+      "examples": []
+    },
+    "future": {
+      "raw_gloss": "V MedAct Fut <S-DO> <S:Nom> <DO:Dat>",
+      "forms": {
+        "1sg": "ვიპოვი",
+        "2sg": "იპოვი",
+        "3sg": "იპოვის",
+        "1pl": "ვიპოვით",
+        "2pl": "იპოვით",
+        "3pl": "იპოვიან"
+      },
+      "examples": []
+    },
+    "aorist": {
+      "raw_gloss": "V MedAct Impv <S-DO> <S:Erg> <DO:Nom>",
+      "forms": {
+        "1sg": "ვიპოვე",
+        "2sg": "იპოვე",
+        "3sg": "იპოვა",
+        "1pl": "ვიპოვეთ",
+        "2pl": "იპოვეთ",
+        "3pl": "იპოვეს"
+      },
+      "examples": []
+    },
+    "optative": {
+      "raw_gloss": "V MedAct Opt <S-DO> <S:Erg> <DO:Nom>",
+      "forms": {
+        "1sg": "ვიპოვო",
+        "2sg": "იპოვო",
+        "3sg": "იპოვოს",
+        "1pl": "ვიპოვოთ",
+        "2pl": "იპოვოთ",
+        "3pl": "იპოვონ"
+      },
+      "examples": []
+    },
+    "imperative": {
+      "raw_gloss": "V MedAct Impv <S-DO> <S:Erg> <DO:Nom>",
+      "forms": {
+        "1sg": "-",
+        "2sg": "იპოვე",
+        "3sg": "იპოვოს",
+        "1pl": "ვიპოვოთ",
+        "2pl": "იპოვეთ",
+        "3pl": "იპოვონ"
+      },
+      "examples": []
+    }
+  },
+  "preverb_config": {
+    "has_multiple_preverbs": false,
+    "default_preverb": "",
+    "available_preverbs": []
+  },
+  "preverb_rules": {
+    "default": "",
+    "replacements": {},
+    "tense_specific_fallbacks": {},
+    "english_fallbacks": {}
+  },
+  "examples": {
+    "null": {
+      "present": [
+        {
+          "georgian": "დაკარგულ გასაღებს ვპოულობ",
+          "english": "<strong data-role=\"subject\" data-person=\"1sg\">I</strong> <strong data-role=\"verb\">find</strong> <strong data-role=\"direct-object\">the lost key</strong>",
+          "english_plain": "I find the lost key",
+          "html": "<span data-case=\"dat\" data-role=\"direct-object\">დაკარგულ გასაღებს</span> <span data-role=\"verb\">ვპოულობ</span>",
+          "case_marking": {
+            "direct_object": {
+              "case": "dat",
+              "word": "გასაღებს"
+            }
+          },
+          "georgian_verb_form": "ვპოულობ"
+        },
+        {
+          "georgian": "ჭკვიანი დეტექტივი დამალულ საგანძურს პოულობს",
+          "english": "<strong data-role=\"subject\">The clever detective</strong> <strong data-role=\"verb\">finds</strong> <strong data-role=\"direct-object\">the hidden treasure</strong>",
+          "english_plain": "The clever detective finds the hidden treasure",
+          "html": "<span data-case=\"nom\" data-role=\"subject\">ჭკვიანი დეტექტივი</span> <span data-case=\"dat\" data-role=\"direct-object\">დამალულ საგანძურს</span> <span data-role=\"verb\">პოულობს</span>",
+          "case_marking": {
+            "subject": {
+              "case": "nom",
+              "word": "დეტექტივი"
+            },
+            "direct_object": {
+              "case": "dat",
+              "word": "საგანძურს"
+            }
+          },
+          "georgian_verb_form": "პოულობს"
+        },
+        {
+          "georgian": "ბედნიერი ქალები ძვირფას ბეჭედს პოულობენ",
+          "english": "<strong data-role=\"subject\">The happy women</strong> <strong data-role=\"verb\">find</strong> <strong data-role=\"direct-object\">the precious ring</strong>",
+          "english_plain": "The happy women find the precious ring",
+          "html": "<span data-case=\"nom\" data-role=\"subject\">ბედნიერი ქალები</span> <span data-case=\"dat\" data-role=\"direct-object\">ძვირფას ბეჭედს</span> <span data-role=\"verb\">პოულობენ</span>",
+          "case_marking": {
+            "subject": {
+              "case": "nom",
+              "word": "ქალები"
+            },
+            "direct_object": {
+              "case": "dat",
+              "word": "ბეჭედს"
+            }
+          },
+          "georgian_verb_form": "პოულობენ"
+        }
+      ],
+      "imperfect": [
+        {
+          "georgian": "დაკარგულ გასაღებს ვპოულობდი",
+          "english": "<strong data-role=\"subject\" data-person=\"1sg\">I</strong> <strong data-role=\"verb\">was finding</strong> <strong data-role=\"direct-object\">the lost key</strong>",
+          "english_plain": "I was finding the lost key",
+          "html": "<span data-case=\"dat\" data-role=\"direct-object\">დაკარგულ გასაღებს</span> <span data-role=\"verb\">ვპოულობდი</span>",
+          "case_marking": {
+            "direct_object": {
+              "case": "dat",
+              "word": "გასაღებს"
+            }
+          },
+          "georgian_verb_form": "ვპოულობდი"
+        },
+        {
+          "georgian": "ჭკვიანი დეტექტივი დამალულ საგანძურს პოულობდა",
+          "english": "<strong data-role=\"subject\">The clever detective</strong> <strong data-role=\"verb\">was finding</strong> <strong data-role=\"direct-object\">the hidden treasure</strong>",
+          "english_plain": "The clever detective was finding the hidden treasure",
+          "html": "<span data-case=\"nom\" data-role=\"subject\">ჭკვიანი დეტექტივი</span> <span data-case=\"dat\" data-role=\"direct-object\">დამალულ საგანძურს</span> <span data-role=\"verb\">პოულობდა</span>",
+          "case_marking": {
+            "subject": {
+              "case": "nom",
+              "word": "დეტექტივი"
+            },
+            "direct_object": {
+              "case": "dat",
+              "word": "საგანძურს"
+            }
+          },
+          "georgian_verb_form": "პოულობდა"
+        },
+        {
+          "georgian": "ბედნიერი ქალები ძვირფას ბეჭედს პოულობდნენ",
+          "english": "<strong data-role=\"subject\">The happy women</strong> <strong data-role=\"verb\">were finding</strong> <strong data-role=\"direct-object\">the precious ring</strong>",
+          "english_plain": "The happy women were finding the precious ring",
+          "html": "<span data-case=\"nom\" data-role=\"subject\">ბედნიერი ქალები</span> <span data-case=\"dat\" data-role=\"direct-object\">ძვირფას ბეჭედს</span> <span data-role=\"verb\">პოულობდნენ</span>",
+          "case_marking": {
+            "subject": {
+              "case": "nom",
+              "word": "ქალები"
+            },
+            "direct_object": {
+              "case": "dat",
+              "word": "ბეჭედს"
+            }
+          },
+          "georgian_verb_form": "პოულობდნენ"
+        }
+      ],
+      "future": [
+        {
+          "georgian": "დაკარგულ გასაღებს ვიპოვი",
+          "english": "<strong data-role=\"subject\" data-person=\"1sg\">I</strong> <strong data-role=\"verb\">will find</strong> <strong data-role=\"direct-object\">the lost key</strong>",
+          "english_plain": "I will find the lost key",
+          "html": "<span data-case=\"dat\" data-role=\"direct-object\">დაკარგულ გასაღებს</span> <span data-role=\"verb\">ვიპოვი</span>",
+          "case_marking": {
+            "direct_object": {
+              "case": "dat",
+              "word": "გასაღებს"
+            }
+          },
+          "georgian_verb_form": "ვიპოვი"
+        },
+        {
+          "georgian": "ჭკვიანი დეტექტივი დამალულ საგანძურს იპოვის",
+          "english": "<strong data-role=\"subject\">The clever detective</strong> <strong data-role=\"verb\">will find</strong> <strong data-role=\"direct-object\">the hidden treasure</strong>",
+          "english_plain": "The clever detective will find the hidden treasure",
+          "html": "<span data-case=\"nom\" data-role=\"subject\">ჭკვიანი დეტექტივი</span> <span data-case=\"dat\" data-role=\"direct-object\">დამალულ საგანძურს</span> <span data-role=\"verb\">იპოვის</span>",
+          "case_marking": {
+            "subject": {
+              "case": "nom",
+              "word": "დეტექტივი"
+            },
+            "direct_object": {
+              "case": "dat",
+              "word": "საგანძურს"
+            }
+          },
+          "georgian_verb_form": "იპოვის"
+        },
+        {
+          "georgian": "ბედნიერი ქალები ძვირფას ბეჭედს იპოვიან",
+          "english": "<strong data-role=\"subject\">The happy women</strong> <strong data-role=\"verb\">will find</strong> <strong data-role=\"direct-object\">the precious ring</strong>",
+          "english_plain": "The happy women will find the precious ring",
+          "html": "<span data-case=\"nom\" data-role=\"subject\">ბედნიერი ქალები</span> <span data-case=\"dat\" data-role=\"direct-object\">ძვირფას ბეჭედს</span> <span data-role=\"verb\">იპოვიან</span>",
+          "case_marking": {
+            "subject": {
+              "case": "nom",
+              "word": "ქალები"
+            },
+            "direct_object": {
+              "case": "dat",
+              "word": "ბეჭედს"
+            }
+          },
+          "georgian_verb_form": "იპოვიან"
+        }
+      ],
+      "aorist": [
+        {
+          "georgian": "დაკარგული გასაღები ვიპოვე",
+          "english": "<strong data-role=\"subject\" data-person=\"1sg\">I</strong> <strong data-role=\"verb\">found</strong> <strong data-role=\"direct-object\">the lost key</strong>",
+          "english_plain": "I found the lost key",
+          "html": "<span data-case=\"nom\" data-role=\"direct-object\">დაკარგული გასაღები</span> <span data-role=\"verb\">ვიპოვე</span>",
+          "case_marking": {
+            "direct_object": {
+              "case": "nom",
+              "word": "გასაღები"
+            }
+          },
+          "georgian_verb_form": "ვიპოვე"
+        },
+        {
+          "georgian": "ჭკვიანმა დეტექტივმა დამალული საგანძური იპოვა",
+          "english": "<strong data-role=\"subject\">The clever detective</strong> <strong data-role=\"verb\">found</strong> <strong data-role=\"direct-object\">the hidden treasure</strong>",
+          "english_plain": "The clever detective found the hidden treasure",
+          "html": "<span data-case=\"erg\" data-role=\"subject\">ჭკვიანმა დეტექტივმა</span> <span data-case=\"nom\" data-role=\"direct-object\">დამალული საგანძური</span> <span data-role=\"verb\">იპოვა</span>",
+          "case_marking": {
+            "subject": {
+              "case": "erg",
+              "word": "დეტექტივმა"
+            },
+            "direct_object": {
+              "case": "nom",
+              "word": "საგანძური"
+            }
+          },
+          "georgian_verb_form": "იპოვა"
+        },
+        {
+          "georgian": "ბედნიერმა ქალებმა ძვირფასი ბეჭედი იპოვეს",
+          "english": "<strong data-role=\"subject\">The happy women</strong> <strong data-role=\"verb\">found</strong> <strong data-role=\"direct-object\">the precious ring</strong>",
+          "english_plain": "The happy women found the precious ring",
+          "html": "<span data-case=\"erg\" data-role=\"subject\">ბედნიერმა ქალებმა</span> <span data-case=\"nom\" data-role=\"direct-object\">ძვირფასი ბეჭედი</span> <span data-role=\"verb\">იპოვეს</span>",
+          "case_marking": {
+            "subject": {
+              "case": "erg",
+              "word": "ქალებმა"
+            },
+            "direct_object": {
+              "case": "nom",
+              "word": "ბეჭედი"
+            }
+          },
+          "georgian_verb_form": "იპოვეს"
+        }
+      ],
+      "optative": [
+        {
+          "georgian": "დაკარგული გასაღები უნდა ვიპოვო",
+          "english": "<strong data-role=\"subject\" data-person=\"1sg\">I</strong> <strong data-role=\"verb\">should</strong> <strong data-role=\"verb\">find</strong> <strong data-role=\"direct-object\">the lost key</strong>",
+          "english_plain": "I should find the lost key",
+          "html": "<span data-case=\"nom\" data-role=\"direct-object\">დაკარგული გასაღები</span> <span data-role=\"verb\">უნდა ვიპოვო</span>",
+          "case_marking": {
+            "direct_object": {
+              "case": "nom",
+              "word": "გასაღები"
+            }
+          },
+          "georgian_verb_form": "ვიპოვო"
+        },
+        {
+          "georgian": "ჭკვიანმა დეტექტივმა დამალული საგანძური უნდა იპოვოს",
+          "english": "<strong data-role=\"subject\">The clever detective</strong> <strong data-role=\"verb\">should</strong> <strong data-role=\"verb\">find</strong> <strong data-role=\"direct-object\">the hidden treasure</strong>",
+          "english_plain": "The clever detective should find the hidden treasure",
+          "html": "<span data-case=\"erg\" data-role=\"subject\">ჭკვიანმა დეტექტივმა</span> <span data-case=\"nom\" data-role=\"direct-object\">დამალული საგანძური</span> <span data-role=\"verb\">უნდა იპოვოს</span>",
+          "case_marking": {
+            "subject": {
+              "case": "erg",
+              "word": "დეტექტივმა"
+            },
+            "direct_object": {
+              "case": "nom",
+              "word": "საგანძური"
+            }
+          },
+          "georgian_verb_form": "იპოვოს"
+        },
+        {
+          "georgian": "ბედნიერმა ქალებმა ძვირფასი ბეჭედი უნდა იპოვონ",
+          "english": "<strong data-role=\"subject\">The happy women</strong> <strong data-role=\"verb\">should</strong> <strong data-role=\"verb\">find</strong> <strong data-role=\"direct-object\">the precious ring</strong>",
+          "english_plain": "The happy women should find the precious ring",
+          "html": "<span data-case=\"erg\" data-role=\"subject\">ბედნიერმა ქალებმა</span> <span data-case=\"nom\" data-role=\"direct-object\">ძვირფასი ბეჭედი</span> <span data-role=\"verb\">უნდა იპოვონ</span>",
+          "case_marking": {
+            "subject": {
+              "case": "erg",
+              "word": "ქალებმა"
+            },
+            "direct_object": {
+              "case": "nom",
+              "word": "ბეჭედი"
+            }
+          },
+          "georgian_verb_form": "იპოვონ"
+        }
+      ],
+      "imperative": [
+        {
+          "georgian": "ძველი წიგნი იპოვე",
+          "english": "<strong data-role=\"verb\">find</strong> <strong data-role=\"direct-object\">the old book</strong>",
+          "english_plain": "find the old book",
+          "html": "<span data-case=\"nom\" data-role=\"direct-object\">ძველი წიგნი</span> <span data-role=\"verb\">იპოვე</span>",
+          "case_marking": {
+            "direct_object": {
+              "case": "nom",
+              "word": "წიგნი"
+            }
+          },
+          "georgian_verb_form": "იპოვე"
+        },
+        {
+          "georgian": "დაკარგული ტელეფონი იპოვეთ",
+          "english": "<strong data-role=\"verb\">find</strong> <strong data-role=\"direct-object\">the missing phone</strong>",
+          "english_plain": "find the missing phone",
+          "html": "<span data-case=\"nom\" data-role=\"direct-object\">დაკარგული ტელეფონი</span> <span data-role=\"verb\">იპოვეთ</span>",
+          "case_marking": {
+            "direct_object": {
+              "case": "nom",
+              "word": "ტელეფონი"
+            }
+          },
+          "georgian_verb_form": "იპოვეთ"
+        }
+      ]
+    }
+  },
+  "gloss_analysis": {
+    "present": {
+      "raw_gloss": "V MedAct Pres <S-DO> <S:Nom> <DO:Dat>",
+      "structured_gloss": {
+        "raw_components": [
+          {
+            "text": "V",
+            "component_type": "verb",
+            "color_class": "gloss-verb",
+            "description": "Verb"
+          },
+          {
+            "text": "MedAct",
+            "component_type": "voice",
+            "color_class": "gloss-voice",
+            "description": "Medioactive"
+          },
+          {
+            "text": "Pres",
+            "component_type": "tense",
+            "color_class": "gloss-tense",
+            "description": "Present"
+          },
+          {
+            "text": "<S-DO>",
+            "component_type": "argument_pattern",
+            "color_class": "gloss-argument",
+            "description": "Transitive absolute"
+          },
+          {
+            "text": "<S:Nom>",
+            "component_type": "case_spec",
+            "color_class": "gloss-case",
+            "description": "Nominative subject"
+          },
+          {
+            "text": "<DO:Dat>",
+            "component_type": "case_spec",
+            "color_class": "gloss-case",
+            "description": "Dative direct object"
+          }
+        ],
+        "expanded_components": [
+          {
+            "text": "V",
+            "component_type": "verb",
+            "color_class": "gloss-verb",
+            "description": "Verb"
+          },
+          {
+            "text": "MedAct",
+            "component_type": "voice",
+            "color_class": "gloss-voice",
+            "description": "Medioactive"
+          },
+          {
+            "text": "Pres",
+            "component_type": "tense",
+            "color_class": "gloss-tense",
+            "description": "Present"
+          },
+          {
+            "text": "<S-DO>",
+            "component_type": "argument_pattern",
+            "color_class": "gloss-argument",
+            "description": "Transitive absolute"
+          },
+          {
+            "text": "<S:Nom>",
+            "component_type": "case_spec",
+            "color_class": "gloss-subject",
+            "description": "Nominative subject"
+          },
+          {
+            "text": "<DO:Dat>",
+            "component_type": "case_spec",
+            "color_class": "gloss-direct-object",
+            "description": "Dative direct object"
+          }
+        ],
+        "argument_pattern": "<S-DO>",
+        "case_specifications": [
+          "<S:Nom>",
+          "<DO:Dat>"
+        ]
+      }
+    },
+    "imperfect": {
+      "raw_gloss": "V MedAct Impf <S-DO> <S:Nom> <DO:Dat>",
+      "structured_gloss": {
+        "raw_components": [
+          {
+            "text": "V",
+            "component_type": "verb",
+            "color_class": "gloss-verb",
+            "description": "Verb"
+          },
+          {
+            "text": "MedAct",
+            "component_type": "voice",
+            "color_class": "gloss-voice",
+            "description": "Medioactive"
+          },
+          {
+            "text": "Impf",
+            "component_type": "tense",
+            "color_class": "gloss-tense",
+            "description": "Imperfect"
+          },
+          {
+            "text": "<S-DO>",
+            "component_type": "argument_pattern",
+            "color_class": "gloss-argument",
+            "description": "Transitive absolute"
+          },
+          {
+            "text": "<S:Nom>",
+            "component_type": "case_spec",
+            "color_class": "gloss-case",
+            "description": "Nominative subject"
+          },
+          {
+            "text": "<DO:Dat>",
+            "component_type": "case_spec",
+            "color_class": "gloss-case",
+            "description": "Dative direct object"
+          }
+        ],
+        "expanded_components": [
+          {
+            "text": "V",
+            "component_type": "verb",
+            "color_class": "gloss-verb",
+            "description": "Verb"
+          },
+          {
+            "text": "MedAct",
+            "component_type": "voice",
+            "color_class": "gloss-voice",
+            "description": "Medioactive"
+          },
+          {
+            "text": "Impf",
+            "component_type": "tense",
+            "color_class": "gloss-tense",
+            "description": "Imperfect"
+          },
+          {
+            "text": "<S-DO>",
+            "component_type": "argument_pattern",
+            "color_class": "gloss-argument",
+            "description": "Transitive absolute"
+          },
+          {
+            "text": "<S:Nom>",
+            "component_type": "case_spec",
+            "color_class": "gloss-subject",
+            "description": "Nominative subject"
+          },
+          {
+            "text": "<DO:Dat>",
+            "component_type": "case_spec",
+            "color_class": "gloss-direct-object",
+            "description": "Dative direct object"
+          }
+        ],
+        "argument_pattern": "<S-DO>",
+        "case_specifications": [
+          "<S:Nom>",
+          "<DO:Dat>"
+        ]
+      }
+    },
+    "future": {
+      "raw_gloss": "V MedAct Fut <S-DO> <S:Nom> <DO:Dat>",
+      "structured_gloss": {
+        "raw_components": [
+          {
+            "text": "V",
+            "component_type": "verb",
+            "color_class": "gloss-verb",
+            "description": "Verb"
+          },
+          {
+            "text": "MedAct",
+            "component_type": "voice",
+            "color_class": "gloss-voice",
+            "description": "Medioactive"
+          },
+          {
+            "text": "Fut",
+            "component_type": "tense",
+            "color_class": "gloss-tense",
+            "description": "Future"
+          },
+          {
+            "text": "<S-DO>",
+            "component_type": "argument_pattern",
+            "color_class": "gloss-argument",
+            "description": "Transitive absolute"
+          },
+          {
+            "text": "<S:Nom>",
+            "component_type": "case_spec",
+            "color_class": "gloss-case",
+            "description": "Nominative subject"
+          },
+          {
+            "text": "<DO:Dat>",
+            "component_type": "case_spec",
+            "color_class": "gloss-case",
+            "description": "Dative direct object"
+          }
+        ],
+        "expanded_components": [
+          {
+            "text": "V",
+            "component_type": "verb",
+            "color_class": "gloss-verb",
+            "description": "Verb"
+          },
+          {
+            "text": "MedAct",
+            "component_type": "voice",
+            "color_class": "gloss-voice",
+            "description": "Medioactive"
+          },
+          {
+            "text": "Fut",
+            "component_type": "tense",
+            "color_class": "gloss-tense",
+            "description": "Future"
+          },
+          {
+            "text": "<S-DO>",
+            "component_type": "argument_pattern",
+            "color_class": "gloss-argument",
+            "description": "Transitive absolute"
+          },
+          {
+            "text": "<S:Nom>",
+            "component_type": "case_spec",
+            "color_class": "gloss-subject",
+            "description": "Nominative subject"
+          },
+          {
+            "text": "<DO:Dat>",
+            "component_type": "case_spec",
+            "color_class": "gloss-direct-object",
+            "description": "Dative direct object"
+          }
+        ],
+        "argument_pattern": "<S-DO>",
+        "case_specifications": [
+          "<S:Nom>",
+          "<DO:Dat>"
+        ]
+      }
+    },
+    "aorist": {
+      "raw_gloss": "V MedAct Impv <S-DO> <S:Erg> <DO:Nom>",
+      "structured_gloss": {
+        "raw_components": [
+          {
+            "text": "V",
+            "component_type": "verb",
+            "color_class": "gloss-verb",
+            "description": "Verb"
+          },
+          {
+            "text": "MedAct",
+            "component_type": "voice",
+            "color_class": "gloss-voice",
+            "description": "Medioactive"
+          },
+          {
+            "text": "Impv",
+            "component_type": "tense",
+            "color_class": "gloss-tense",
+            "description": "Imperative"
+          },
+          {
+            "text": "<S-DO>",
+            "component_type": "argument_pattern",
+            "color_class": "gloss-argument",
+            "description": "Transitive absolute"
+          },
+          {
+            "text": "<S:Erg>",
+            "component_type": "case_spec",
+            "color_class": "gloss-case",
+            "description": "Ergative subject"
+          },
+          {
+            "text": "<DO:Nom>",
+            "component_type": "case_spec",
+            "color_class": "gloss-case",
+            "description": "Nominative direct object"
+          }
+        ],
+        "expanded_components": [
+          {
+            "text": "V",
+            "component_type": "verb",
+            "color_class": "gloss-verb",
+            "description": "Verb"
+          },
+          {
+            "text": "MedAct",
+            "component_type": "voice",
+            "color_class": "gloss-voice",
+            "description": "Medioactive"
+          },
+          {
+            "text": "Impv",
+            "component_type": "tense",
+            "color_class": "gloss-tense",
+            "description": "Imperative"
+          },
+          {
+            "text": "<S-DO>",
+            "component_type": "argument_pattern",
+            "color_class": "gloss-argument",
+            "description": "Transitive absolute"
+          },
+          {
+            "text": "<S:Erg>",
+            "component_type": "case_spec",
+            "color_class": "gloss-subject",
+            "description": "Ergative subject"
+          },
+          {
+            "text": "<DO:Nom>",
+            "component_type": "case_spec",
+            "color_class": "gloss-direct-object",
+            "description": "Nominative direct object"
+          }
+        ],
+        "argument_pattern": "<S-DO>",
+        "case_specifications": [
+          "<S:Erg>",
+          "<DO:Nom>"
+        ]
+      }
+    },
+    "optative": {
+      "raw_gloss": "V MedAct Opt <S-DO> <S:Erg> <DO:Nom>",
+      "structured_gloss": {
+        "raw_components": [
+          {
+            "text": "V",
+            "component_type": "verb",
+            "color_class": "gloss-verb",
+            "description": "Verb"
+          },
+          {
+            "text": "MedAct",
+            "component_type": "voice",
+            "color_class": "gloss-voice",
+            "description": "Medioactive"
+          },
+          {
+            "text": "Opt",
+            "component_type": "tense",
+            "color_class": "gloss-tense",
+            "description": "Optative"
+          },
+          {
+            "text": "<S-DO>",
+            "component_type": "argument_pattern",
+            "color_class": "gloss-argument",
+            "description": "Transitive absolute"
+          },
+          {
+            "text": "<S:Erg>",
+            "component_type": "case_spec",
+            "color_class": "gloss-case",
+            "description": "Ergative subject"
+          },
+          {
+            "text": "<DO:Nom>",
+            "component_type": "case_spec",
+            "color_class": "gloss-case",
+            "description": "Nominative direct object"
+          }
+        ],
+        "expanded_components": [
+          {
+            "text": "V",
+            "component_type": "verb",
+            "color_class": "gloss-verb",
+            "description": "Verb"
+          },
+          {
+            "text": "MedAct",
+            "component_type": "voice",
+            "color_class": "gloss-voice",
+            "description": "Medioactive"
+          },
+          {
+            "text": "Opt",
+            "component_type": "tense",
+            "color_class": "gloss-tense",
+            "description": "Optative"
+          },
+          {
+            "text": "<S-DO>",
+            "component_type": "argument_pattern",
+            "color_class": "gloss-argument",
+            "description": "Transitive absolute"
+          },
+          {
+            "text": "<S:Erg>",
+            "component_type": "case_spec",
+            "color_class": "gloss-subject",
+            "description": "Ergative subject"
+          },
+          {
+            "text": "<DO:Nom>",
+            "component_type": "case_spec",
+            "color_class": "gloss-direct-object",
+            "description": "Nominative direct object"
+          }
+        ],
+        "argument_pattern": "<S-DO>",
+        "case_specifications": [
+          "<S:Erg>",
+          "<DO:Nom>"
+        ]
+      }
+    },
+    "imperative": {
+      "raw_gloss": "V MedAct Impv <S-DO> <S:Erg> <DO:Nom>",
+      "structured_gloss": {
+        "raw_components": [
+          {
+            "text": "V",
+            "component_type": "verb",
+            "color_class": "gloss-verb",
+            "description": "Verb"
+          },
+          {
+            "text": "MedAct",
+            "component_type": "voice",
+            "color_class": "gloss-voice",
+            "description": "Medioactive"
+          },
+          {
+            "text": "Impv",
+            "component_type": "tense",
+            "color_class": "gloss-tense",
+            "description": "Imperative"
+          },
+          {
+            "text": "<S-DO>",
+            "component_type": "argument_pattern",
+            "color_class": "gloss-argument",
+            "description": "Transitive absolute"
+          },
+          {
+            "text": "<S:Erg>",
+            "component_type": "case_spec",
+            "color_class": "gloss-case",
+            "description": "Ergative subject"
+          },
+          {
+            "text": "<DO:Nom>",
+            "component_type": "case_spec",
+            "color_class": "gloss-case",
+            "description": "Nominative direct object"
+          }
+        ],
+        "expanded_components": [
+          {
+            "text": "V",
+            "component_type": "verb",
+            "color_class": "gloss-verb",
+            "description": "Verb"
+          },
+          {
+            "text": "MedAct",
+            "component_type": "voice",
+            "color_class": "gloss-voice",
+            "description": "Medioactive"
+          },
+          {
+            "text": "Impv",
+            "component_type": "tense",
+            "color_class": "gloss-tense",
+            "description": "Imperative"
+          },
+          {
+            "text": "<S-DO>",
+            "component_type": "argument_pattern",
+            "color_class": "gloss-argument",
+            "description": "Transitive absolute"
+          },
+          {
+            "text": "<S:Erg>",
+            "component_type": "case_spec",
+            "color_class": "gloss-subject",
+            "description": "Ergative subject"
+          },
+          {
+            "text": "<DO:Nom>",
+            "component_type": "case_spec",
+            "color_class": "gloss-direct-object",
+            "description": "Nominative direct object"
+          }
+        ],
+        "argument_pattern": "<S-DO>",
+        "case_specifications": [
+          "<S:Erg>",
+          "<DO:Nom>"
+        ]
+      }
+    }
+  },
+  "preverb_forms": {}
+}

@@ -1,0 +1,1074 @@
+{
+  "id": 11,
+  "georgian": "აღება",
+  "description": "To Take",
+  "category": "Movement & Transport",
+  "class": "Class-I",
+  "semantic_key": "take",
+  "notes": "",
+  "url": "https://lingua.ge/verbs/%e1%83%90%e1%83%a6%e1%83%94%e1%83%91%e1%83%90/",
+  "global_argument_pattern": "<S-DO>",
+  "valency": {
+    "default": "<S-DO>",
+    "alternatives": []
+  },
+  "syntax": {
+    "arguments": {
+      "subject": {
+        "3sg": {
+          "noun": "mother",
+          "adjective": "careful"
+        },
+        "3pl": {
+          "noun": "tourist",
+          "adjective": "foreign"
+        }
+      },
+      "direct_object": {
+        "1sg": {
+          "noun": "apple",
+          "adjective": "red"
+        },
+        "2sg": {
+          "noun": "bag",
+          "adjective": "heavy"
+        },
+        "3sg": {
+          "noun": "book",
+          "adjective": "precious"
+        },
+        "1pl": {
+          "noun": "picture",
+          "adjective": "old"
+        },
+        "2pl": {
+          "noun": "key",
+          "adjective": "important"
+        },
+        "3pl": {
+          "noun": "map",
+          "adjective": "new"
+        }
+      }
+    },
+    "prepositions": {
+      "subject": "the",
+      "direct_object": "the",
+      "indirect_object": ""
+    },
+    "preverb_overrides": {}
+  },
+  "english_translations": {
+    "default": {
+      "present": "take",
+      "imperfect": "was taking",
+      "future": "will take",
+      "aorist": "took",
+      "optative": "take",
+      "imperative": "take"
+    }
+  },
+  "conjugations": {
+    "present": {
+      "raw_gloss": "V Act Pres SV <S-DO> <S:Nom> <DO:Dat>",
+      "forms": {
+        "1sg": "ვიღებ",
+        "2sg": "იღებ",
+        "3sg": "იღებს",
+        "1pl": "ვიღებთ",
+        "2pl": "იღებთ",
+        "3pl": "იღებენ"
+      },
+      "examples": []
+    },
+    "imperfect": {
+      "raw_gloss": "V Act Impf SV <S-DO> <S:Nom> <DO:Dat>",
+      "forms": {
+        "1sg": "ვიღებდი",
+        "2sg": "იღებდი",
+        "3sg": "იღებდა",
+        "1pl": "ვიღებდით",
+        "2pl": "იღებდით",
+        "3pl": "იღებდნენ"
+      },
+      "examples": []
+    },
+    "future": {
+      "raw_gloss": "V Act Fut Pv SV <S-DO> <S:Nom> <DO:Dat>",
+      "forms": {
+        "1sg": "ავიღებ",
+        "2sg": "აიღებ",
+        "3sg": "აიღებს",
+        "1pl": "ავიღებთ",
+        "2pl": "აიღებთ",
+        "3pl": "აიღებენ"
+      },
+      "examples": []
+    },
+    "aorist": {
+      "raw_gloss": "V Act Aor Pv SV <S-DO> <S:Erg> <DO:Nom>",
+      "forms": {
+        "1sg": "ავიღე",
+        "2sg": "აიღე",
+        "3sg": "აიღო",
+        "1pl": "ავიღეთ",
+        "2pl": "აიღეთ",
+        "3pl": "აიღეს"
+      },
+      "examples": []
+    },
+    "optative": {
+      "raw_gloss": "V Act Opt Pv SV <S-DO> <S:Erg> <DO:Nom>",
+      "forms": {
+        "1sg": "ავიღო",
+        "2sg": "აიღო",
+        "3sg": "აიღოს",
+        "1pl": "ავიღოთ",
+        "2pl": "აიღოთ",
+        "3pl": "აიღონ"
+      },
+      "examples": []
+    },
+    "imperative": {
+      "raw_gloss": "V Act Impv Pv SV <S-DO> <S:Erg> <DO:Nom>",
+      "forms": {
+        "1sg": "-",
+        "2sg": "აიღე",
+        "3sg": "-",
+        "1pl": "-",
+        "2pl": "აიღეთ",
+        "3pl": "-"
+      },
+      "examples": []
+    }
+  },
+  "preverb_config": {
+    "has_multiple_preverbs": false,
+    "default_preverb": "ა",
+    "available_preverbs": [
+      "ა"
+    ]
+  },
+  "preverb_rules": {
+    "default": "",
+    "replacements": {},
+    "tense_specific_fallbacks": {},
+    "english_fallbacks": {}
+  },
+  "examples": {
+    "null": {
+      "present": [
+        {
+          "georgian": "წითელ ვაშლს ვიღებ",
+          "english": "<strong data-role=\"subject\" data-person=\"1sg\">I</strong> <strong data-role=\"verb\">take</strong> <strong data-role=\"direct-object\">the red apple</strong>",
+          "english_plain": "I take the red apple",
+          "html": "<span data-case=\"dat\" data-role=\"direct-object\">წითელ ვაშლს</span> <span data-role=\"verb\">ვიღებ</span>",
+          "case_marking": {
+            "direct_object": {
+              "case": "dat",
+              "word": "ვაშლს"
+            }
+          },
+          "georgian_verb_form": "ვიღებ"
+        },
+        {
+          "georgian": "ფრთხილი დედა ძვირფას წიგნს იღებს",
+          "english": "<strong data-role=\"subject\">The careful mother</strong> <strong data-role=\"verb\">takes</strong> <strong data-role=\"direct-object\">the precious book</strong>",
+          "english_plain": "The careful mother takes the precious book",
+          "html": "<span data-case=\"nom\" data-role=\"subject\">ფრთხილი დედა</span> <span data-case=\"dat\" data-role=\"direct-object\">ძვირფას წიგნს</span> <span data-role=\"verb\">იღებს</span>",
+          "case_marking": {
+            "subject": {
+              "case": "nom",
+              "word": "დედა"
+            },
+            "direct_object": {
+              "case": "dat",
+              "word": "წიგნს"
+            }
+          },
+          "georgian_verb_form": "იღებს"
+        },
+        {
+          "georgian": "უცხო ტურისტები ახალ რუკას იღებენ",
+          "english": "<strong data-role=\"subject\">The foreign tourists</strong> <strong data-role=\"verb\">take</strong> <strong data-role=\"direct-object\">the new map</strong>",
+          "english_plain": "The foreign tourists take the new map",
+          "html": "<span data-case=\"nom\" data-role=\"subject\">უცხო ტურისტები</span> <span data-case=\"dat\" data-role=\"direct-object\">ახალ რუკას</span> <span data-role=\"verb\">იღებენ</span>",
+          "case_marking": {
+            "subject": {
+              "case": "nom",
+              "word": "ტურისტები"
+            },
+            "direct_object": {
+              "case": "dat",
+              "word": "რუკას"
+            }
+          },
+          "georgian_verb_form": "იღებენ"
+        }
+      ],
+      "imperfect": [
+        {
+          "georgian": "წითელ ვაშლს ვიღებდი",
+          "english": "<strong data-role=\"subject\" data-person=\"1sg\">I</strong> <strong data-role=\"verb\">was taking</strong> <strong data-role=\"direct-object\">the red apple</strong>",
+          "english_plain": "I was taking the red apple",
+          "html": "<span data-case=\"dat\" data-role=\"direct-object\">წითელ ვაშლს</span> <span data-role=\"verb\">ვიღებდი</span>",
+          "case_marking": {
+            "direct_object": {
+              "case": "dat",
+              "word": "ვაშლს"
+            }
+          },
+          "georgian_verb_form": "ვიღებდი"
+        },
+        {
+          "georgian": "ფრთხილი დედა ძვირფას წიგნს იღებდა",
+          "english": "<strong data-role=\"subject\">The careful mother</strong> <strong data-role=\"verb\">was taking</strong> <strong data-role=\"direct-object\">the precious book</strong>",
+          "english_plain": "The careful mother was taking the precious book",
+          "html": "<span data-case=\"nom\" data-role=\"subject\">ფრთხილი დედა</span> <span data-case=\"dat\" data-role=\"direct-object\">ძვირფას წიგნს</span> <span data-role=\"verb\">იღებდა</span>",
+          "case_marking": {
+            "subject": {
+              "case": "nom",
+              "word": "დედა"
+            },
+            "direct_object": {
+              "case": "dat",
+              "word": "წიგნს"
+            }
+          },
+          "georgian_verb_form": "იღებდა"
+        },
+        {
+          "georgian": "უცხო ტურისტები ახალ რუკას იღებდნენ",
+          "english": "<strong data-role=\"subject\">The foreign tourists</strong> <strong data-role=\"verb\">were taking</strong> <strong data-role=\"direct-object\">the new map</strong>",
+          "english_plain": "The foreign tourists were taking the new map",
+          "html": "<span data-case=\"nom\" data-role=\"subject\">უცხო ტურისტები</span> <span data-case=\"dat\" data-role=\"direct-object\">ახალ რუკას</span> <span data-role=\"verb\">იღებდნენ</span>",
+          "case_marking": {
+            "subject": {
+              "case": "nom",
+              "word": "ტურისტები"
+            },
+            "direct_object": {
+              "case": "dat",
+              "word": "რუკას"
+            }
+          },
+          "georgian_verb_form": "იღებდნენ"
+        }
+      ],
+      "future": [
+        {
+          "georgian": "წითელ ვაშლს ავიღებ",
+          "english": "<strong data-role=\"subject\" data-person=\"1sg\">I</strong> <strong data-role=\"verb\">will take</strong> <strong data-role=\"direct-object\">the red apple</strong>",
+          "english_plain": "I will take the red apple",
+          "html": "<span data-case=\"dat\" data-role=\"direct-object\">წითელ ვაშლს</span> <span data-role=\"verb\">ავიღებ</span>",
+          "case_marking": {
+            "direct_object": {
+              "case": "dat",
+              "word": "ვაშლს"
+            }
+          },
+          "georgian_verb_form": "ავიღებ"
+        },
+        {
+          "georgian": "ფრთხილი დედა ძვირფას წიგნს აიღებს",
+          "english": "<strong data-role=\"subject\">The careful mother</strong> <strong data-role=\"verb\">will take</strong> <strong data-role=\"direct-object\">the precious book</strong>",
+          "english_plain": "The careful mother will take the precious book",
+          "html": "<span data-case=\"nom\" data-role=\"subject\">ფრთხილი დედა</span> <span data-case=\"dat\" data-role=\"direct-object\">ძვირფას წიგნს</span> <span data-role=\"verb\">აიღებს</span>",
+          "case_marking": {
+            "subject": {
+              "case": "nom",
+              "word": "დედა"
+            },
+            "direct_object": {
+              "case": "dat",
+              "word": "წიგნს"
+            }
+          },
+          "georgian_verb_form": "აიღებს"
+        },
+        {
+          "georgian": "უცხო ტურისტები ახალ რუკას აიღებენ",
+          "english": "<strong data-role=\"subject\">The foreign tourists</strong> <strong data-role=\"verb\">will take</strong> <strong data-role=\"direct-object\">the new map</strong>",
+          "english_plain": "The foreign tourists will take the new map",
+          "html": "<span data-case=\"nom\" data-role=\"subject\">უცხო ტურისტები</span> <span data-case=\"dat\" data-role=\"direct-object\">ახალ რუკას</span> <span data-role=\"verb\">აიღებენ</span>",
+          "case_marking": {
+            "subject": {
+              "case": "nom",
+              "word": "ტურისტები"
+            },
+            "direct_object": {
+              "case": "dat",
+              "word": "რუკას"
+            }
+          },
+          "georgian_verb_form": "აიღებენ"
+        }
+      ],
+      "aorist": [
+        {
+          "georgian": "წითელი ვაშლი ავიღე",
+          "english": "<strong data-role=\"subject\" data-person=\"1sg\">I</strong> <strong data-role=\"verb\">took</strong> <strong data-role=\"direct-object\">the red apple</strong>",
+          "english_plain": "I took the red apple",
+          "html": "<span data-case=\"nom\" data-role=\"direct-object\">წითელი ვაშლი</span> <span data-role=\"verb\">ავიღე</span>",
+          "case_marking": {
+            "direct_object": {
+              "case": "nom",
+              "word": "ვაშლი"
+            }
+          },
+          "georgian_verb_form": "ავიღე"
+        },
+        {
+          "georgian": "ფრთხილმა დედამ ძვირფასი წიგნი აიღო",
+          "english": "<strong data-role=\"subject\">The careful mother</strong> <strong data-role=\"verb\">took</strong> <strong data-role=\"direct-object\">the precious book</strong>",
+          "english_plain": "The careful mother took the precious book",
+          "html": "<span data-case=\"erg\" data-role=\"subject\">ფრთხილმა დედამ</span> <span data-case=\"nom\" data-role=\"direct-object\">ძვირფასი წიგნი</span> <span data-role=\"verb\">აიღო</span>",
+          "case_marking": {
+            "subject": {
+              "case": "erg",
+              "word": "დედამ"
+            },
+            "direct_object": {
+              "case": "nom",
+              "word": "წიგნი"
+            }
+          },
+          "georgian_verb_form": "აიღო"
+        },
+        {
+          "georgian": "უცხო ტურისტებმა ახალი რუკა აიღეს",
+          "english": "<strong data-role=\"subject\">The foreign tourists</strong> <strong data-role=\"verb\">took</strong> <strong data-role=\"direct-object\">the new map</strong>",
+          "english_plain": "The foreign tourists took the new map",
+          "html": "<span data-case=\"erg\" data-role=\"subject\">უცხო ტურისტებმა</span> <span data-case=\"nom\" data-role=\"direct-object\">ახალი რუკა</span> <span data-role=\"verb\">აიღეს</span>",
+          "case_marking": {
+            "subject": {
+              "case": "erg",
+              "word": "ტურისტებმა"
+            },
+            "direct_object": {
+              "case": "nom",
+              "word": "რუკა"
+            }
+          },
+          "georgian_verb_form": "აიღეს"
+        }
+      ],
+      "optative": [
+        {
+          "georgian": "წითელი ვაშლი უნდა ავიღო",
+          "english": "<strong data-role=\"subject\" data-person=\"1sg\">I</strong> <strong data-role=\"verb\">should</strong> <strong data-role=\"verb\">take</strong> <strong data-role=\"direct-object\">the red apple</strong>",
+          "english_plain": "I should take the red apple",
+          "html": "<span data-case=\"nom\" data-role=\"direct-object\">წითელი ვაშლი</span> <span data-role=\"verb\">უნდა ავიღო</span>",
+          "case_marking": {
+            "direct_object": {
+              "case": "nom",
+              "word": "ვაშლი"
+            }
+          },
+          "georgian_verb_form": "ავიღო"
+        },
+        {
+          "georgian": "ფრთხილმა დედამ ძვირფასი წიგნი უნდა აიღოს",
+          "english": "<strong data-role=\"subject\">The careful mother</strong> <strong data-role=\"verb\">should</strong> <strong data-role=\"verb\">take</strong> <strong data-role=\"direct-object\">the precious book</strong>",
+          "english_plain": "The careful mother should take the precious book",
+          "html": "<span data-case=\"erg\" data-role=\"subject\">ფრთხილმა დედამ</span> <span data-case=\"nom\" data-role=\"direct-object\">ძვირფასი წიგნი</span> <span data-role=\"verb\">უნდა აიღოს</span>",
+          "case_marking": {
+            "subject": {
+              "case": "erg",
+              "word": "დედამ"
+            },
+            "direct_object": {
+              "case": "nom",
+              "word": "წიგნი"
+            }
+          },
+          "georgian_verb_form": "აიღოს"
+        },
+        {
+          "georgian": "უცხო ტურისტებმა ახალი რუკა უნდა აიღონ",
+          "english": "<strong data-role=\"subject\">The foreign tourists</strong> <strong data-role=\"verb\">should</strong> <strong data-role=\"verb\">take</strong> <strong data-role=\"direct-object\">the new map</strong>",
+          "english_plain": "The foreign tourists should take the new map",
+          "html": "<span data-case=\"erg\" data-role=\"subject\">უცხო ტურისტებმა</span> <span data-case=\"nom\" data-role=\"direct-object\">ახალი რუკა</span> <span data-role=\"verb\">უნდა აიღონ</span>",
+          "case_marking": {
+            "subject": {
+              "case": "erg",
+              "word": "ტურისტებმა"
+            },
+            "direct_object": {
+              "case": "nom",
+              "word": "რუკა"
+            }
+          },
+          "georgian_verb_form": "აიღონ"
+        }
+      ],
+      "imperative": [
+        {
+          "georgian": "მძიმე ჩანთა აიღე",
+          "english": "<strong data-role=\"verb\">take</strong> <strong data-role=\"direct-object\">the heavy bag</strong>",
+          "english_plain": "take the heavy bag",
+          "html": "<span data-case=\"nom\" data-role=\"direct-object\">მძიმე ჩანთა</span> <span data-role=\"verb\">აიღე</span>",
+          "case_marking": {
+            "direct_object": {
+              "case": "nom",
+              "word": "ჩანთა"
+            }
+          },
+          "georgian_verb_form": "აიღე"
+        },
+        {
+          "georgian": "მნიშვნელოვანი გასაღები აიღეთ",
+          "english": "<strong data-role=\"verb\">take</strong> <strong data-role=\"direct-object\">the important key</strong>",
+          "english_plain": "take the important key",
+          "html": "<span data-case=\"nom\" data-role=\"direct-object\">მნიშვნელოვანი გასაღები</span> <span data-role=\"verb\">აიღეთ</span>",
+          "case_marking": {
+            "direct_object": {
+              "case": "nom",
+              "word": "გასაღები"
+            }
+          },
+          "georgian_verb_form": "აიღეთ"
+        }
+      ]
+    }
+  },
+  "gloss_analysis": {
+    "present": {
+      "raw_gloss": "V Act Pres SV <S-DO> <S:Nom> <DO:Dat>",
+      "structured_gloss": {
+        "raw_components": [
+          {
+            "text": "V",
+            "component_type": "verb",
+            "color_class": "gloss-verb",
+            "description": "Verb"
+          },
+          {
+            "text": "Act",
+            "component_type": "voice",
+            "color_class": "gloss-voice",
+            "description": "Active"
+          },
+          {
+            "text": "Pres",
+            "component_type": "tense",
+            "color_class": "gloss-tense",
+            "description": "Present"
+          },
+          {
+            "text": "SV",
+            "component_type": "unknown",
+            "color_class": "gloss-default",
+            "description": "Subjective Version"
+          },
+          {
+            "text": "<S-DO>",
+            "component_type": "argument_pattern",
+            "color_class": "gloss-argument",
+            "description": "Transitive absolute"
+          },
+          {
+            "text": "<S:Nom>",
+            "component_type": "case_spec",
+            "color_class": "gloss-case",
+            "description": "Nominative subject"
+          },
+          {
+            "text": "<DO:Dat>",
+            "component_type": "case_spec",
+            "color_class": "gloss-case",
+            "description": "Dative direct object"
+          }
+        ],
+        "expanded_components": [
+          {
+            "text": "V",
+            "component_type": "verb",
+            "color_class": "gloss-verb",
+            "description": "Verb"
+          },
+          {
+            "text": "Act",
+            "component_type": "voice",
+            "color_class": "gloss-voice",
+            "description": "Active"
+          },
+          {
+            "text": "Pres",
+            "component_type": "tense",
+            "color_class": "gloss-tense",
+            "description": "Present"
+          },
+          {
+            "text": "SV",
+            "component_type": "unknown",
+            "color_class": "gloss-default",
+            "description": "Subjective Version"
+          },
+          {
+            "text": "<S-DO>",
+            "component_type": "argument_pattern",
+            "color_class": "gloss-argument",
+            "description": "Transitive absolute"
+          },
+          {
+            "text": "<S:Nom>",
+            "component_type": "case_spec",
+            "color_class": "gloss-subject",
+            "description": "Nominative subject"
+          },
+          {
+            "text": "<DO:Dat>",
+            "component_type": "case_spec",
+            "color_class": "gloss-direct-object",
+            "description": "Dative direct object"
+          }
+        ],
+        "argument_pattern": "<S-DO>",
+        "case_specifications": [
+          "<S:Nom>",
+          "<DO:Dat>"
+        ]
+      }
+    },
+    "imperfect": {
+      "raw_gloss": "V Act Impf SV <S-DO> <S:Nom> <DO:Dat>",
+      "structured_gloss": {
+        "raw_components": [
+          {
+            "text": "V",
+            "component_type": "verb",
+            "color_class": "gloss-verb",
+            "description": "Verb"
+          },
+          {
+            "text": "Act",
+            "component_type": "voice",
+            "color_class": "gloss-voice",
+            "description": "Active"
+          },
+          {
+            "text": "Impf",
+            "component_type": "tense",
+            "color_class": "gloss-tense",
+            "description": "Imperfect"
+          },
+          {
+            "text": "SV",
+            "component_type": "unknown",
+            "color_class": "gloss-default",
+            "description": "Subjective Version"
+          },
+          {
+            "text": "<S-DO>",
+            "component_type": "argument_pattern",
+            "color_class": "gloss-argument",
+            "description": "Transitive absolute"
+          },
+          {
+            "text": "<S:Nom>",
+            "component_type": "case_spec",
+            "color_class": "gloss-case",
+            "description": "Nominative subject"
+          },
+          {
+            "text": "<DO:Dat>",
+            "component_type": "case_spec",
+            "color_class": "gloss-case",
+            "description": "Dative direct object"
+          }
+        ],
+        "expanded_components": [
+          {
+            "text": "V",
+            "component_type": "verb",
+            "color_class": "gloss-verb",
+            "description": "Verb"
+          },
+          {
+            "text": "Act",
+            "component_type": "voice",
+            "color_class": "gloss-voice",
+            "description": "Active"
+          },
+          {
+            "text": "Impf",
+            "component_type": "tense",
+            "color_class": "gloss-tense",
+            "description": "Imperfect"
+          },
+          {
+            "text": "SV",
+            "component_type": "unknown",
+            "color_class": "gloss-default",
+            "description": "Subjective Version"
+          },
+          {
+            "text": "<S-DO>",
+            "component_type": "argument_pattern",
+            "color_class": "gloss-argument",
+            "description": "Transitive absolute"
+          },
+          {
+            "text": "<S:Nom>",
+            "component_type": "case_spec",
+            "color_class": "gloss-subject",
+            "description": "Nominative subject"
+          },
+          {
+            "text": "<DO:Dat>",
+            "component_type": "case_spec",
+            "color_class": "gloss-direct-object",
+            "description": "Dative direct object"
+          }
+        ],
+        "argument_pattern": "<S-DO>",
+        "case_specifications": [
+          "<S:Nom>",
+          "<DO:Dat>"
+        ]
+      }
+    },
+    "future": {
+      "raw_gloss": "V Act Fut Pv SV <S-DO> <S:Nom> <DO:Dat>",
+      "structured_gloss": {
+        "raw_components": [
+          {
+            "text": "V",
+            "component_type": "verb",
+            "color_class": "gloss-verb",
+            "description": "Verb"
+          },
+          {
+            "text": "Act",
+            "component_type": "voice",
+            "color_class": "gloss-voice",
+            "description": "Active"
+          },
+          {
+            "text": "Fut",
+            "component_type": "tense",
+            "color_class": "gloss-tense",
+            "description": "Future"
+          },
+          {
+            "text": "Pv",
+            "component_type": "preverb",
+            "color_class": "gloss-preverb",
+            "description": "Preverb"
+          },
+          {
+            "text": "SV",
+            "component_type": "unknown",
+            "color_class": "gloss-default",
+            "description": "Subjective Version"
+          },
+          {
+            "text": "<S-DO>",
+            "component_type": "argument_pattern",
+            "color_class": "gloss-argument",
+            "description": "Transitive absolute"
+          },
+          {
+            "text": "<S:Nom>",
+            "component_type": "case_spec",
+            "color_class": "gloss-case",
+            "description": "Nominative subject"
+          },
+          {
+            "text": "<DO:Dat>",
+            "component_type": "case_spec",
+            "color_class": "gloss-case",
+            "description": "Dative direct object"
+          }
+        ],
+        "expanded_components": [
+          {
+            "text": "V",
+            "component_type": "verb",
+            "color_class": "gloss-verb",
+            "description": "Verb"
+          },
+          {
+            "text": "Act",
+            "component_type": "voice",
+            "color_class": "gloss-voice",
+            "description": "Active"
+          },
+          {
+            "text": "Fut",
+            "component_type": "tense",
+            "color_class": "gloss-tense",
+            "description": "Future"
+          },
+          {
+            "text": "Pv",
+            "component_type": "preverb",
+            "color_class": "gloss-preverb",
+            "description": "Preverb"
+          },
+          {
+            "text": "SV",
+            "component_type": "unknown",
+            "color_class": "gloss-default",
+            "description": "Subjective Version"
+          },
+          {
+            "text": "<S-DO>",
+            "component_type": "argument_pattern",
+            "color_class": "gloss-argument",
+            "description": "Transitive absolute"
+          },
+          {
+            "text": "<S:Nom>",
+            "component_type": "case_spec",
+            "color_class": "gloss-subject",
+            "description": "Nominative subject"
+          },
+          {
+            "text": "<DO:Dat>",
+            "component_type": "case_spec",
+            "color_class": "gloss-direct-object",
+            "description": "Dative direct object"
+          }
+        ],
+        "argument_pattern": "<S-DO>",
+        "case_specifications": [
+          "<S:Nom>",
+          "<DO:Dat>"
+        ]
+      }
+    },
+    "aorist": {
+      "raw_gloss": "V Act Aor Pv SV <S-DO> <S:Erg> <DO:Nom>",
+      "structured_gloss": {
+        "raw_components": [
+          {
+            "text": "V",
+            "component_type": "verb",
+            "color_class": "gloss-verb",
+            "description": "Verb"
+          },
+          {
+            "text": "Act",
+            "component_type": "voice",
+            "color_class": "gloss-voice",
+            "description": "Active"
+          },
+          {
+            "text": "Aor",
+            "component_type": "tense",
+            "color_class": "gloss-tense",
+            "description": "Aorist"
+          },
+          {
+            "text": "Pv",
+            "component_type": "preverb",
+            "color_class": "gloss-preverb",
+            "description": "Preverb"
+          },
+          {
+            "text": "SV",
+            "component_type": "unknown",
+            "color_class": "gloss-default",
+            "description": "Subjective Version"
+          },
+          {
+            "text": "<S-DO>",
+            "component_type": "argument_pattern",
+            "color_class": "gloss-argument",
+            "description": "Transitive absolute"
+          },
+          {
+            "text": "<S:Erg>",
+            "component_type": "case_spec",
+            "color_class": "gloss-case",
+            "description": "Ergative subject"
+          },
+          {
+            "text": "<DO:Nom>",
+            "component_type": "case_spec",
+            "color_class": "gloss-case",
+            "description": "Nominative direct object"
+          }
+        ],
+        "expanded_components": [
+          {
+            "text": "V",
+            "component_type": "verb",
+            "color_class": "gloss-verb",
+            "description": "Verb"
+          },
+          {
+            "text": "Act",
+            "component_type": "voice",
+            "color_class": "gloss-voice",
+            "description": "Active"
+          },
+          {
+            "text": "Aor",
+            "component_type": "tense",
+            "color_class": "gloss-tense",
+            "description": "Aorist"
+          },
+          {
+            "text": "Pv",
+            "component_type": "preverb",
+            "color_class": "gloss-preverb",
+            "description": "Preverb"
+          },
+          {
+            "text": "SV",
+            "component_type": "unknown",
+            "color_class": "gloss-default",
+            "description": "Subjective Version"
+          },
+          {
+            "text": "<S-DO>",
+            "component_type": "argument_pattern",
+            "color_class": "gloss-argument",
+            "description": "Transitive absolute"
+          },
+          {
+            "text": "<S:Erg>",
+            "component_type": "case_spec",
+            "color_class": "gloss-subject",
+            "description": "Ergative subject"
+          },
+          {
+            "text": "<DO:Nom>",
+            "component_type": "case_spec",
+            "color_class": "gloss-direct-object",
+            "description": "Nominative direct object"
+          }
+        ],
+        "argument_pattern": "<S-DO>",
+        "case_specifications": [
+          "<S:Erg>",
+          "<DO:Nom>"
+        ]
+      }
+    },
+    "optative": {
+      "raw_gloss": "V Act Opt Pv SV <S-DO> <S:Erg> <DO:Nom>",
+      "structured_gloss": {
+        "raw_components": [
+          {
+            "text": "V",
+            "component_type": "verb",
+            "color_class": "gloss-verb",
+            "description": "Verb"
+          },
+          {
+            "text": "Act",
+            "component_type": "voice",
+            "color_class": "gloss-voice",
+            "description": "Active"
+          },
+          {
+            "text": "Opt",
+            "component_type": "tense",
+            "color_class": "gloss-tense",
+            "description": "Optative"
+          },
+          {
+            "text": "Pv",
+            "component_type": "preverb",
+            "color_class": "gloss-preverb",
+            "description": "Preverb"
+          },
+          {
+            "text": "SV",
+            "component_type": "unknown",
+            "color_class": "gloss-default",
+            "description": "Subjective Version"
+          },
+          {
+            "text": "<S-DO>",
+            "component_type": "argument_pattern",
+            "color_class": "gloss-argument",
+            "description": "Transitive absolute"
+          },
+          {
+            "text": "<S:Erg>",
+            "component_type": "case_spec",
+            "color_class": "gloss-case",
+            "description": "Ergative subject"
+          },
+          {
+            "text": "<DO:Nom>",
+            "component_type": "case_spec",
+            "color_class": "gloss-case",
+            "description": "Nominative direct object"
+          }
+        ],
+        "expanded_components": [
+          {
+            "text": "V",
+            "component_type": "verb",
+            "color_class": "gloss-verb",
+            "description": "Verb"
+          },
+          {
+            "text": "Act",
+            "component_type": "voice",
+            "color_class": "gloss-voice",
+            "description": "Active"
+          },
+          {
+            "text": "Opt",
+            "component_type": "tense",
+            "color_class": "gloss-tense",
+            "description": "Optative"
+          },
+          {
+            "text": "Pv",
+            "component_type": "preverb",
+            "color_class": "gloss-preverb",
+            "description": "Preverb"
+          },
+          {
+            "text": "SV",
+            "component_type": "unknown",
+            "color_class": "gloss-default",
+            "description": "Subjective Version"
+          },
+          {
+            "text": "<S-DO>",
+            "component_type": "argument_pattern",
+            "color_class": "gloss-argument",
+            "description": "Transitive absolute"
+          },
+          {
+            "text": "<S:Erg>",
+            "component_type": "case_spec",
+            "color_class": "gloss-subject",
+            "description": "Ergative subject"
+          },
+          {
+            "text": "<DO:Nom>",
+            "component_type": "case_spec",
+            "color_class": "gloss-direct-object",
+            "description": "Nominative direct object"
+          }
+        ],
+        "argument_pattern": "<S-DO>",
+        "case_specifications": [
+          "<S:Erg>",
+          "<DO:Nom>"
+        ]
+      }
+    },
+    "imperative": {
+      "raw_gloss": "V Act Impv Pv SV <S-DO> <S:Erg> <DO:Nom>",
+      "structured_gloss": {
+        "raw_components": [
+          {
+            "text": "V",
+            "component_type": "verb",
+            "color_class": "gloss-verb",
+            "description": "Verb"
+          },
+          {
+            "text": "Act",
+            "component_type": "voice",
+            "color_class": "gloss-voice",
+            "description": "Active"
+          },
+          {
+            "text": "Impv",
+            "component_type": "tense",
+            "color_class": "gloss-tense",
+            "description": "Imperative"
+          },
+          {
+            "text": "Pv",
+            "component_type": "preverb",
+            "color_class": "gloss-preverb",
+            "description": "Preverb"
+          },
+          {
+            "text": "SV",
+            "component_type": "unknown",
+            "color_class": "gloss-default",
+            "description": "Subjective Version"
+          },
+          {
+            "text": "<S-DO>",
+            "component_type": "argument_pattern",
+            "color_class": "gloss-argument",
+            "description": "Transitive absolute"
+          },
+          {
+            "text": "<S:Erg>",
+            "component_type": "case_spec",
+            "color_class": "gloss-case",
+            "description": "Ergative subject"
+          },
+          {
+            "text": "<DO:Nom>",
+            "component_type": "case_spec",
+            "color_class": "gloss-case",
+            "description": "Nominative direct object"
+          }
+        ],
+        "expanded_components": [
+          {
+            "text": "V",
+            "component_type": "verb",
+            "color_class": "gloss-verb",
+            "description": "Verb"
+          },
+          {
+            "text": "Act",
+            "component_type": "voice",
+            "color_class": "gloss-voice",
+            "description": "Active"
+          },
+          {
+            "text": "Impv",
+            "component_type": "tense",
+            "color_class": "gloss-tense",
+            "description": "Imperative"
+          },
+          {
+            "text": "Pv",
+            "component_type": "preverb",
+            "color_class": "gloss-preverb",
+            "description": "Preverb"
+          },
+          {
+            "text": "SV",
+            "component_type": "unknown",
+            "color_class": "gloss-default",
+            "description": "Subjective Version"
+          },
+          {
+            "text": "<S-DO>",
+            "component_type": "argument_pattern",
+            "color_class": "gloss-argument",
+            "description": "Transitive absolute"
+          },
+          {
+            "text": "<S:Erg>",
+            "component_type": "case_spec",
+            "color_class": "gloss-subject",
+            "description": "Ergative subject"
+          },
+          {
+            "text": "<DO:Nom>",
+            "component_type": "case_spec",
+            "color_class": "gloss-direct-object",
+            "description": "Nominative direct object"
+          }
+        ],
+        "argument_pattern": "<S-DO>",
+        "case_specifications": [
+          "<S:Erg>",
+          "<DO:Nom>"
+        ]
+      }
+    }
+  },
+  "preverb_forms": {}
+}

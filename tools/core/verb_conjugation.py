@@ -1,21 +1,15 @@
 #!/usr/bin/env python3
 """
-Verb Conjugation Management Module
-
-This module handles all verb conjugation logic, preverb management, and form generation.
-It replaces the confusing verb_form_generator.py with a clean, focused implementation.
-
-Features:
-- Get verb forms with preverb handling
-- Calculate preverb variations
-- Generate preverb mappings
-- Check for multiple preverbs
-- Get English translations
-- Get appropriate prepositions
-- Data structure detection for preverb handling approach
+Verb Conjugation Module - Handles verb conjugation and preverb form calculations
 """
 
+import logging
 from typing import Dict, List, Optional, Any
+
+# Import Unicode-safe logging utilities
+from tools.utils.unicode_console import safe_log
+
+logger = logging.getLogger(__name__)
 
 
 def get_conjugation_form(
@@ -37,38 +31,44 @@ def get_conjugation_form(
 
     logger = logging.getLogger(__name__)
 
-    logger.info(
-        f"[CONJUGATION] Getting form for verb: {verb.get('georgian', 'unknown')}, tense: {tense}, person: {person}, preverb: {preverb}"
+    safe_log(
+        logger,
+        "info",
+        f"[CONJUGATION] Getting form for verb: {verb.get('georgian', 'unknown')}, tense: {tense}, person: {person}, preverb: {preverb}",
     )
 
     preverb_config = verb.get("preverb_config", {})
     has_multiple_preverbs = preverb_config.get("has_multiple_preverbs", False)
 
-    logger.info(f"[CONJUGATION] Has multiple preverbs: {has_multiple_preverbs}")
+    safe_log(
+        logger, "info", f"[CONJUGATION] Has multiple preverbs: {has_multiple_preverbs}"
+    )
 
     # Get the base verb form
     base_form = ""
 
     # Single preverb verb (old format)
     if not has_multiple_preverbs:
-        logger.info("[CONJUGATION] Single preverb verb")
+        safe_log(logger, "info", "[CONJUGATION] Single preverb verb")
         conjugations = verb.get("conjugations", {})
         tense_data = conjugations.get(tense, {})
 
         # New structure with forms
         if isinstance(tense_data, dict) and "forms" in tense_data:
             base_form = tense_data["forms"].get(person, "-")
-            logger.info(f"[CONJUGATION] Using new structure, form: {base_form}")
+            safe_log(
+                logger, "info", f"[CONJUGATION] Using new structure, form: {base_form}"
+            )
         else:
             base_form = "-"
-            logger.warning(f"[CONJUGATION] No forms found in tense data")
+            safe_log(logger, "warning", f"[CONJUGATION] No forms found in tense data")
 
     else:
         # Multi-preverb verb
-        logger.info("[CONJUGATION] Multi-preverb verb")
+        safe_log(logger, "info", "[CONJUGATION] Multi-preverb verb")
         if preverb is None:
             preverb = preverb_config.get("default_preverb", "")
-            logger.info(f"[CONJUGATION] Using default preverb: {preverb}")
+            safe_log(logger, "info", f"[CONJUGATION] Using default preverb: {preverb}")
 
         conjugations = verb.get("conjugations", {})
         tense_data = conjugations.get(tense, {})
@@ -76,24 +76,30 @@ def get_conjugation_form(
         if "forms" in tense_data:
             # Get the base forms (which already have the default preverb)
             base_forms = tense_data["forms"]
-            logger.info(f"[CONJUGATION] Base forms: {base_forms}")
+            safe_log(logger, "info", f"[CONJUGATION] Base forms: {base_forms}")
 
             # Get preverb rules for replacement
             preverb_rules = verb.get("preverb_rules", {})
-            logger.info(f"[CONJUGATION] Preverb rules: {preverb_rules}")
+            safe_log(logger, "info", f"[CONJUGATION] Preverb rules: {preverb_rules}")
 
             # Calculate the forms with the target preverb
             preverb_forms = calculate_preverb_forms(base_forms, preverb_rules, preverb)
-            logger.info(f"[CONJUGATION] Calculated preverb forms: {preverb_forms}")
+            safe_log(
+                logger,
+                "info",
+                f"[CONJUGATION] Calculated preverb forms: {preverb_forms}",
+            )
 
             # Get the specific person form
             base_form = preverb_forms.get(person, "-")
-            logger.info(f"[CONJUGATION] Final form for {person}: {base_form}")
+            safe_log(
+                logger, "info", f"[CONJUGATION] Final form for {person}: {base_form}"
+            )
         else:
             base_form = "-"
-            logger.warning(f"[CONJUGATION] No forms found in tense data")
+            safe_log(logger, "warning", f"[CONJUGATION] No forms found in tense data")
 
-    logger.info(f"[CONJUGATION] Returning form: {base_form}")
+    safe_log(logger, "info", f"[CONJUGATION] Returning form: {base_form}")
     return base_form
 
 
@@ -130,33 +136,43 @@ def calculate_preverb_forms(
 
     logger = logging.getLogger(__name__)
 
-    logger.info(
-        f"[PREVERB_CALC] Calculating preverb forms for target: {target_preverb}"
+    safe_log(
+        logger,
+        "info",
+        f"[PREVERB_CALC] Calculating preverb forms for target: {target_preverb}",
     )
-    logger.info(f"[PREVERB_CALC] Input forms: {forms}")
-    logger.info(f"[PREVERB_CALC] Preverb rules: {preverb_rules}")
+    safe_log(logger, "info", f"[PREVERB_CALC] Input forms: {forms}")
+    safe_log(logger, "info", f"[PREVERB_CALC] Preverb rules: {preverb_rules}")
 
     if not preverb_rules:
-        logger.info("[PREVERB_CALC] No preverb rules, returning original forms")
+        safe_log(
+            logger, "info", "[PREVERB_CALC] No preverb rules, returning original forms"
+        )
         return forms
 
     default_preverb = preverb_rules.get("default", "")
     replacements = preverb_rules.get("replacements", {})
     tense_specific_fallbacks = preverb_rules.get("tense_specific_fallbacks", {})
 
-    logger.info(f"[PREVERB_CALC] Default preverb: {default_preverb}")
-    logger.info(f"[PREVERB_CALC] Replacements: {replacements}")
+    safe_log(logger, "info", f"[PREVERB_CALC] Default preverb: {default_preverb}")
+    safe_log(logger, "info", f"[PREVERB_CALC] Replacements: {replacements}")
 
     # Get the actual replacement for this preverb
     replacement = replacements.get(target_preverb, target_preverb)
-    logger.info(f"[PREVERB_CALC] Replacement for {target_preverb}: {replacement}")
+    safe_log(
+        logger,
+        "info",
+        f"[PREVERB_CALC] Replacement for {target_preverb}: {replacement}",
+    )
 
     # Check for tense-specific fallbacks
     if target_preverb in tense_specific_fallbacks:
         # Handle this in the calling function
         # This is a placeholder for future tense-specific logic
-        logger.info(
-            f"[PREVERB_CALC] Found tense-specific fallback for {target_preverb}"
+        safe_log(
+            logger,
+            "info",
+            f"[PREVERB_CALC] Found tense-specific fallback for {target_preverb}",
         )
         pass
 
@@ -164,34 +180,44 @@ def calculate_preverb_forms(
     normalized_target = target_preverb.replace("-", "")
     normalized_default = default_preverb.replace("-", "")
 
-    logger.info(
-        f"[PREVERB_CALC] Normalized target: {normalized_target}, normalized default: {normalized_default}"
+    safe_log(
+        logger,
+        "info",
+        f"[PREVERB_CALC] Normalized target: {normalized_target}, normalized default: {normalized_default}",
     )
 
     # If the target preverb is the same as the default preverb, return the original forms
     if normalized_target == normalized_default:
-        logger.info("[PREVERB_CALC] Target same as default, returning original forms")
+        safe_log(
+            logger,
+            "info",
+            "[PREVERB_CALC] Target same as default, returning original forms",
+        )
         return forms
 
     result = {}
     for person, form in forms.items():
-        logger.info(f"[PREVERB_CALC] Processing {person}: {form}")
+        safe_log(logger, "info", f"[PREVERB_CALC] Processing {person}: {form}")
         if form == "-" or form == "":
             result[person] = form
-            logger.info(f"[PREVERB_CALC] Empty form for {person}: {form}")
+            safe_log(logger, "info", f"[PREVERB_CALC] Empty form for {person}: {form}")
         elif form.startswith(normalized_default):
             # Extract the stem (remove the default preverb) and apply the new preverb
             stem = form[len(normalized_default) :]
             result[person] = replacement + stem
-            logger.info(
-                f"[PREVERB_CALC] Replaced preverb for {person}: {form} -> {result[person]} (stem: {stem})"
+            safe_log(
+                logger,
+                "info",
+                f"[PREVERB_CALC] Replaced preverb for {person}: {form} -> {result[person]} (stem: {stem})",
             )
         else:
             # Handle irregular forms that don't follow prefix pattern
             result[person] = form
-            logger.info(f"[PREVERB_CALC] Irregular form for {person}: {form}")
+            safe_log(
+                logger, "info", f"[PREVERB_CALC] Irregular form for {person}: {form}"
+            )
 
-    logger.info(f"[PREVERB_CALC] Final result: {result}")
+    safe_log(logger, "info", f"[PREVERB_CALC] Final result: {result}")
     return result
 
 
@@ -303,35 +329,43 @@ def get_english_translation(
     # Get English translations from the new structure
     english_translations = verb.get("english_translations", {})
 
-    logger.info(f"Looking up English translation: preverb='{preverb}', tense='{tense}'")
-    logger.info(
-        f"Available preverbs in english_translations: {list(english_translations.keys())}"
+    safe_log(
+        logger,
+        "info",
+        f"Looking up English translation: preverb='{preverb}', tense='{tense}'",
+    )
+    safe_log(
+        logger,
+        "info",
+        f"Available preverbs in english_translations: {list(english_translations.keys())}",
     )
 
     # Check for preverb-specific translations first
     if preverb and preverb in english_translations:
-        logger.info(
-            f"Found preverb translations for '{preverb}': {english_translations[preverb]}"
+        safe_log(
+            logger,
+            "info",
+            f"Found preverb translations for '{preverb}': {english_translations[preverb]}",
         )
         if (
             isinstance(english_translations[preverb], dict)
             and tense in english_translations[preverb]
         ):
             result = english_translations[preverb][tense]
-            logger.info(f"Using preverb-specific translation: '{result}'")
+            safe_log(logger, "info", f"Using preverb-specific translation: '{result}'")
             return result
 
     # Check for default translations
     default_translations = english_translations.get("default", {})
-    logger.info(f"Default translations: {default_translations}")
+    safe_log(logger, "info", f"Default translations: {default_translations}")
     if isinstance(default_translations, dict) and tense in default_translations:
         result = default_translations[tense]
-        logger.info(f"Using default translation: '{result}'")
+        safe_log(logger, "info", f"Using default translation: '{result}'")
         return result
 
     # Fall back to semantic key
     fallback = verb.get("semantic_key", "to do")
-    logger.info(f"Using fallback translation: '{fallback}'")
+    safe_log(logger, "info", f"Using fallback translation: '{fallback}'")
     return fallback
 
 

@@ -1,0 +1,943 @@
+{
+  "id": 32,
+  "georgian": "პასუხი",
+  "description": "to answer",
+  "category": "Communication & Language",
+  "class": "Class-I",
+  "semantic_key": "answer",
+  "notes": "",
+  "url": "https://lingua.ge/verbs/%e1%83%9e%e1%83%90%e1%83%a1%e1%83%a3%e1%83%ae%e1%83%98/",
+  "global_argument_pattern": "<S-IO>",
+  "valency": {
+    "default": "<S-IO>",
+    "alternatives": []
+  },
+  "syntax": {
+    "arguments": {
+      "subject": {
+        "3sg": {
+          "noun": "child",
+          "adjective": "young"
+        },
+        "3pl": {
+          "noun": "employee",
+          "adjective": "new"
+        }
+      },
+      "indirect_object": {
+        "1sg": {
+          "noun": "mother",
+          "adjective": "worried"
+        },
+        "2sg": {
+          "noun": "boss",
+          "adjective": "strict"
+        },
+        "3sg": {
+          "noun": "parent",
+          "adjective": "concerned"
+        },
+        "1pl": {
+          "noun": "manager",
+          "adjective": "busy"
+        },
+        "2pl": {
+          "noun": "supervisor",
+          "adjective": "demanding"
+        },
+        "3pl": {
+          "noun": "manager",
+          "adjective": "main"
+        }
+      }
+    },
+    "prepositions": {
+      "subject": "the",
+      "direct_object": "",
+      "indirect_object": "the"
+    },
+    "preverb_overrides": {}
+  },
+  "english_translations": {
+    "default": {
+      "present": "answer",
+      "imperfect": "was answering",
+      "future": "will answer",
+      "aorist": "answered",
+      "optative": "answer",
+      "imperative": "answer"
+    }
+  },
+  "conjugations": {
+    "present": {
+      "raw_gloss": "V MedAct Pres <S-IO> <S:Nom> <IO:Dat>",
+      "forms": {
+        "1sg": "ვპასუხობ",
+        "1pl": "ვპასუხობთ",
+        "2sg": "პასუხობ",
+        "2pl": "პასუხობთ",
+        "3sg": "პასუხობს",
+        "3pl": "პასუხობენ"
+      },
+      "examples": []
+    },
+    "imperfect": {
+      "raw_gloss": "V MedAct Impf <S-IO> <S:Nom> <IO:Dat>",
+      "forms": {
+        "1sg": "ვპასუხობდი",
+        "1pl": "ვპასუხობდით",
+        "2sg": "პასუხობდი",
+        "2pl": "პასუხობდით",
+        "3sg": "პასუხობდა",
+        "3pl": "პასუხობდნენ"
+      },
+      "examples": []
+    },
+    "future": {
+      "raw_gloss": "V MedAct Fut <S-IO> <S:Nom> <IO:Dat>",
+      "forms": {
+        "1sg": "ვუპასუხებ",
+        "1pl": "ვუპასუხებთ",
+        "2sg": "უპასუხებ",
+        "2pl": "უპასუხებთ",
+        "3sg": "უპასუხებს",
+        "3pl": "უპასუხებენ"
+      },
+      "examples": []
+    },
+    "aorist": {
+      "raw_gloss": "V MedAct Aor <S-IO> <S:Erg> <IO:Dat>",
+      "forms": {
+        "1sg": "ვუპასუხე",
+        "1pl": "ვუპასუხეთ",
+        "2sg": "უპასუხე",
+        "2pl": "უპასუხეთ",
+        "3sg": "უპასუხა",
+        "3pl": "უპასუხეს"
+      },
+      "examples": []
+    },
+    "optative": {
+      "raw_gloss": "V MedAct Opt <S-IO> <S:Erg> <IO:Dat>",
+      "forms": {
+        "1sg": "ვუპასუხო",
+        "1pl": "ვუპასუხოთ",
+        "2sg": "უპასუხო",
+        "2pl": "უპასუხოთ",
+        "3sg": "უპასუხოს",
+        "3pl": "უპასუხონ"
+      },
+      "examples": []
+    },
+    "imperative": {
+      "raw_gloss": "V MedAct Impv <S-IO> <S:Erg> <IO:Dat>",
+      "forms": {
+        "2sg": "უპასუხე",
+        "2pl": "უპასუხეთ"
+      },
+      "examples": []
+    }
+  },
+  "preverb_config": {
+    "has_multiple_preverbs": false,
+    "default_preverb": "",
+    "available_preverbs": []
+  },
+  "preverb_rules": {},
+  "examples": {
+    "null": {
+      "present": [
+        {
+          "georgian": "შეშფოთებულ დედას ვპასუხობ",
+          "english": "<strong data-role=\"subject\" data-person=\"1sg\">I</strong> <strong data-role=\"verb\">answer</strong> <strong data-role=\"indirect-object\">the worried mother</strong>",
+          "english_plain": "I answer the worried mother",
+          "html": "<span data-case=\"dat\" data-role=\"indirect-object\">შეშფოთებულ დედას</span> <span data-role=\"verb\">ვპასუხობ</span>",
+          "case_marking": {
+            "indirect_object": {
+              "case": "dat",
+              "word": "დედას"
+            }
+          },
+          "georgian_verb_form": "ვპასუხობ"
+        },
+        {
+          "georgian": "ახალგაზრდა ბავშვი მწუხარე მშობელს პასუხობს",
+          "english": "<strong data-role=\"subject\">The young child</strong> <strong data-role=\"verb\">answers</strong> <strong data-role=\"indirect-object\">the concerned parent</strong>",
+          "english_plain": "The young child answers the concerned parent",
+          "html": "<span data-case=\"nom\" data-role=\"subject\">ახალგაზრდა ბავშვი</span> <span data-case=\"dat\" data-role=\"indirect-object\">მწუხარე მშობელს</span> <span data-role=\"verb\">პასუხობს</span>",
+          "case_marking": {
+            "subject": {
+              "case": "nom",
+              "word": "ბავშვი"
+            },
+            "indirect_object": {
+              "case": "dat",
+              "word": "მშობელს"
+            }
+          },
+          "georgian_verb_form": "პასუხობს"
+        },
+        {
+          "georgian": "ახალი თანამშრომლები მთავარ მენეჯერს პასუხობენ",
+          "english": "<strong data-role=\"subject\">The new employees</strong> <strong data-role=\"verb\">answer</strong> <strong data-role=\"indirect-object\">the main manager</strong>",
+          "english_plain": "The new employees answer the main manager",
+          "html": "<span data-case=\"nom\" data-role=\"subject\">ახალი თანამშრომლები</span> <span data-case=\"dat\" data-role=\"indirect-object\">მთავარ მენეჯერს</span> <span data-role=\"verb\">პასუხობენ</span>",
+          "case_marking": {
+            "subject": {
+              "case": "nom",
+              "word": "თანამშრომლები"
+            },
+            "indirect_object": {
+              "case": "dat",
+              "word": "მენეჯერს"
+            }
+          },
+          "georgian_verb_form": "პასუხობენ"
+        }
+      ],
+      "imperfect": [
+        {
+          "georgian": "შეშფოთებულ დედას ვპასუხობდი",
+          "english": "<strong data-role=\"subject\" data-person=\"1sg\">I</strong> <strong data-role=\"verb\">was answering</strong> <strong data-role=\"indirect-object\">the worried mother</strong>",
+          "english_plain": "I was answering the worried mother",
+          "html": "<span data-case=\"dat\" data-role=\"indirect-object\">შეშფოთებულ დედას</span> <span data-role=\"verb\">ვპასუხობდი</span>",
+          "case_marking": {
+            "indirect_object": {
+              "case": "dat",
+              "word": "დედას"
+            }
+          },
+          "georgian_verb_form": "ვპასუხობდი"
+        },
+        {
+          "georgian": "ახალგაზრდა ბავშვი მწუხარე მშობელს პასუხობდა",
+          "english": "<strong data-role=\"subject\">The young child</strong> <strong data-role=\"verb\">was answering</strong> <strong data-role=\"indirect-object\">the concerned parent</strong>",
+          "english_plain": "The young child was answering the concerned parent",
+          "html": "<span data-case=\"nom\" data-role=\"subject\">ახალგაზრდა ბავშვი</span> <span data-case=\"dat\" data-role=\"indirect-object\">მწუხარე მშობელს</span> <span data-role=\"verb\">პასუხობდა</span>",
+          "case_marking": {
+            "subject": {
+              "case": "nom",
+              "word": "ბავშვი"
+            },
+            "indirect_object": {
+              "case": "dat",
+              "word": "მშობელს"
+            }
+          },
+          "georgian_verb_form": "პასუხობდა"
+        },
+        {
+          "georgian": "ახალი თანამშრომლები მთავარ მენეჯერს პასუხობდნენ",
+          "english": "<strong data-role=\"subject\">The new employees</strong> <strong data-role=\"verb\">were answering</strong> <strong data-role=\"indirect-object\">the main manager</strong>",
+          "english_plain": "The new employees were answering the main manager",
+          "html": "<span data-case=\"nom\" data-role=\"subject\">ახალი თანამშრომლები</span> <span data-case=\"dat\" data-role=\"indirect-object\">მთავარ მენეჯერს</span> <span data-role=\"verb\">პასუხობდნენ</span>",
+          "case_marking": {
+            "subject": {
+              "case": "nom",
+              "word": "თანამშრომლები"
+            },
+            "indirect_object": {
+              "case": "dat",
+              "word": "მენეჯერს"
+            }
+          },
+          "georgian_verb_form": "პასუხობდნენ"
+        }
+      ],
+      "future": [
+        {
+          "georgian": "შეშფოთებულ დედას ვუპასუხებ",
+          "english": "<strong data-role=\"subject\" data-person=\"1sg\">I</strong> <strong data-role=\"verb\">will answer</strong> <strong data-role=\"indirect-object\">the worried mother</strong>",
+          "english_plain": "I will answer the worried mother",
+          "html": "<span data-case=\"dat\" data-role=\"indirect-object\">შეშფოთებულ დედას</span> <span data-role=\"verb\">ვუპასუხებ</span>",
+          "case_marking": {
+            "indirect_object": {
+              "case": "dat",
+              "word": "დედას"
+            }
+          },
+          "georgian_verb_form": "ვუპასუხებ"
+        },
+        {
+          "georgian": "ახალგაზრდა ბავშვი მწუხარე მშობელს უპასუხებს",
+          "english": "<strong data-role=\"subject\">The young child</strong> <strong data-role=\"verb\">will answer</strong> <strong data-role=\"indirect-object\">the concerned parent</strong>",
+          "english_plain": "The young child will answer the concerned parent",
+          "html": "<span data-case=\"nom\" data-role=\"subject\">ახალგაზრდა ბავშვი</span> <span data-case=\"dat\" data-role=\"indirect-object\">მწუხარე მშობელს</span> <span data-role=\"verb\">უპასუხებს</span>",
+          "case_marking": {
+            "subject": {
+              "case": "nom",
+              "word": "ბავშვი"
+            },
+            "indirect_object": {
+              "case": "dat",
+              "word": "მშობელს"
+            }
+          },
+          "georgian_verb_form": "უპასუხებს"
+        },
+        {
+          "georgian": "ახალი თანამშრომლები მთავარ მენეჯერს უპასუხებენ",
+          "english": "<strong data-role=\"subject\">The new employees</strong> <strong data-role=\"verb\">will answer</strong> <strong data-role=\"indirect-object\">the main manager</strong>",
+          "english_plain": "The new employees will answer the main manager",
+          "html": "<span data-case=\"nom\" data-role=\"subject\">ახალი თანამშრომლები</span> <span data-case=\"dat\" data-role=\"indirect-object\">მთავარ მენეჯერს</span> <span data-role=\"verb\">უპასუხებენ</span>",
+          "case_marking": {
+            "subject": {
+              "case": "nom",
+              "word": "თანამშრომლები"
+            },
+            "indirect_object": {
+              "case": "dat",
+              "word": "მენეჯერს"
+            }
+          },
+          "georgian_verb_form": "უპასუხებენ"
+        }
+      ],
+      "aorist": [
+        {
+          "georgian": "შეშფოთებულ დედას ვუპასუხე",
+          "english": "<strong data-role=\"subject\" data-person=\"1sg\">I</strong> <strong data-role=\"verb\">answered</strong> <strong data-role=\"indirect-object\">the worried mother</strong>",
+          "english_plain": "I answered the worried mother",
+          "html": "<span data-case=\"dat\" data-role=\"indirect-object\">შეშფოთებულ დედას</span> <span data-role=\"verb\">ვუპასუხე</span>",
+          "case_marking": {
+            "indirect_object": {
+              "case": "dat",
+              "word": "დედას"
+            }
+          },
+          "georgian_verb_form": "ვუპასუხე"
+        },
+        {
+          "georgian": "ახალგაზრდა ბავშვმა მწუხარე მშობელს უპასუხა",
+          "english": "<strong data-role=\"subject\">The young child</strong> <strong data-role=\"verb\">answered</strong> <strong data-role=\"indirect-object\">the concerned parent</strong>",
+          "english_plain": "The young child answered the concerned parent",
+          "html": "<span data-case=\"erg\" data-role=\"subject\">ახალგაზრდა ბავშვმა</span> <span data-case=\"dat\" data-role=\"indirect-object\">მწუხარე მშობელს</span> <span data-role=\"verb\">უპასუხა</span>",
+          "case_marking": {
+            "subject": {
+              "case": "erg",
+              "word": "ბავშვმა"
+            },
+            "indirect_object": {
+              "case": "dat",
+              "word": "მშობელს"
+            }
+          },
+          "georgian_verb_form": "უპასუხა"
+        },
+        {
+          "georgian": "ახალმა თანამშრომლებმა მთავარ მენეჯერს უპასუხეს",
+          "english": "<strong data-role=\"subject\">The new employees</strong> <strong data-role=\"verb\">answered</strong> <strong data-role=\"indirect-object\">the main manager</strong>",
+          "english_plain": "The new employees answered the main manager",
+          "html": "<span data-case=\"erg\" data-role=\"subject\">ახალმა თანამშრომლებმა</span> <span data-case=\"dat\" data-role=\"indirect-object\">მთავარ მენეჯერს</span> <span data-role=\"verb\">უპასუხეს</span>",
+          "case_marking": {
+            "subject": {
+              "case": "erg",
+              "word": "თანამშრომლებმა"
+            },
+            "indirect_object": {
+              "case": "dat",
+              "word": "მენეჯერს"
+            }
+          },
+          "georgian_verb_form": "უპასუხეს"
+        }
+      ],
+      "optative": [
+        {
+          "georgian": "შეშფოთებულ დედას უნდა ვუპასუხო",
+          "english": "<strong data-role=\"subject\" data-person=\"1sg\">I</strong> <strong data-role=\"verb\">should</strong> <strong data-role=\"verb\">answer</strong> <strong data-role=\"indirect-object\">the worried mother</strong>",
+          "english_plain": "I should answer the worried mother",
+          "html": "<span data-case=\"dat\" data-role=\"indirect-object\">შეშფოთებულ დედას</span> <span data-role=\"verb\">უნდა ვუპასუხო</span>",
+          "case_marking": {
+            "indirect_object": {
+              "case": "dat",
+              "word": "დედას"
+            }
+          },
+          "georgian_verb_form": "ვუპასუხო"
+        },
+        {
+          "georgian": "ახალგაზრდა ბავშვმა მწუხარე მშობელს უნდა უპასუხოს",
+          "english": "<strong data-role=\"subject\">The young child</strong> <strong data-role=\"verb\">should</strong> <strong data-role=\"verb\">answer</strong> <strong data-role=\"indirect-object\">the concerned parent</strong>",
+          "english_plain": "The young child should answer the concerned parent",
+          "html": "<span data-case=\"erg\" data-role=\"subject\">ახალგაზრდა ბავშვმა</span> <span data-case=\"dat\" data-role=\"indirect-object\">მწუხარე მშობელს</span> <span data-role=\"verb\">უნდა უპასუხოს</span>",
+          "case_marking": {
+            "subject": {
+              "case": "erg",
+              "word": "ბავშვმა"
+            },
+            "indirect_object": {
+              "case": "dat",
+              "word": "მშობელს"
+            }
+          },
+          "georgian_verb_form": "უპასუხოს"
+        },
+        {
+          "georgian": "ახალმა თანამშრომლებმა მთავარ მენეჯერს უნდა უპასუხონ",
+          "english": "<strong data-role=\"subject\">The new employees</strong> <strong data-role=\"verb\">should</strong> <strong data-role=\"verb\">answer</strong> <strong data-role=\"indirect-object\">the main manager</strong>",
+          "english_plain": "The new employees should answer the main manager",
+          "html": "<span data-case=\"erg\" data-role=\"subject\">ახალმა თანამშრომლებმა</span> <span data-case=\"dat\" data-role=\"indirect-object\">მთავარ მენეჯერს</span> <span data-role=\"verb\">უნდა უპასუხონ</span>",
+          "case_marking": {
+            "subject": {
+              "case": "erg",
+              "word": "თანამშრომლებმა"
+            },
+            "indirect_object": {
+              "case": "dat",
+              "word": "მენეჯერს"
+            }
+          },
+          "georgian_verb_form": "უპასუხონ"
+        }
+      ],
+      "imperative": [
+        {
+          "georgian": "მკაცრ უფროსს უპასუხე",
+          "english": "<strong data-role=\"verb\">answer</strong> <strong data-role=\"indirect-object\">the strict boss</strong>",
+          "english_plain": "answer the strict boss",
+          "html": "<span data-case=\"dat\" data-role=\"indirect-object\">მკაცრ უფროსს</span> <span data-role=\"verb\">უპასუხე</span>",
+          "case_marking": {
+            "indirect_object": {
+              "case": "dat",
+              "word": "უფროსს"
+            }
+          },
+          "georgian_verb_form": "უპასუხე"
+        },
+        {
+          "georgian": "მომთხოვნ ზედამხედველს უპასუხეთ",
+          "english": "<strong data-role=\"verb\">answer</strong> <strong data-role=\"indirect-object\">the demanding supervisor</strong>",
+          "english_plain": "answer the demanding supervisor",
+          "html": "<span data-case=\"dat\" data-role=\"indirect-object\">მომთხოვნ ზედამხედველს</span> <span data-role=\"verb\">უპასუხეთ</span>",
+          "case_marking": {
+            "indirect_object": {
+              "case": "dat",
+              "word": "ზედამხედველს"
+            }
+          },
+          "georgian_verb_form": "უპასუხეთ"
+        }
+      ]
+    }
+  },
+  "gloss_analysis": {
+    "present": {
+      "raw_gloss": "V MedAct Pres <S-IO> <S:Nom> <IO:Dat>",
+      "structured_gloss": {
+        "raw_components": [
+          {
+            "text": "V",
+            "component_type": "verb",
+            "color_class": "gloss-verb",
+            "description": "Verb"
+          },
+          {
+            "text": "MedAct",
+            "component_type": "voice",
+            "color_class": "gloss-voice",
+            "description": "Medioactive"
+          },
+          {
+            "text": "Pres",
+            "component_type": "tense",
+            "color_class": "gloss-tense",
+            "description": "Present"
+          },
+          {
+            "text": "<S-IO>",
+            "component_type": "argument_pattern",
+            "color_class": "gloss-argument",
+            "description": "Intransitive relative"
+          },
+          {
+            "text": "<S:Nom>",
+            "component_type": "case_spec",
+            "color_class": "gloss-case",
+            "description": "Nominative subject"
+          },
+          {
+            "text": "<IO:Dat>",
+            "component_type": "case_spec",
+            "color_class": "gloss-case",
+            "description": "Dative indirect object"
+          }
+        ],
+        "expanded_components": [
+          {
+            "text": "V",
+            "component_type": "verb",
+            "color_class": "gloss-verb",
+            "description": "Verb"
+          },
+          {
+            "text": "MedAct",
+            "component_type": "voice",
+            "color_class": "gloss-voice",
+            "description": "Medioactive"
+          },
+          {
+            "text": "Pres",
+            "component_type": "tense",
+            "color_class": "gloss-tense",
+            "description": "Present"
+          },
+          {
+            "text": "<S-IO>",
+            "component_type": "argument_pattern",
+            "color_class": "gloss-argument",
+            "description": "Intransitive relative"
+          },
+          {
+            "text": "<S:Nom>",
+            "component_type": "case_spec",
+            "color_class": "gloss-subject",
+            "description": "Nominative subject"
+          },
+          {
+            "text": "<IO:Dat>",
+            "component_type": "case_spec",
+            "color_class": "gloss-indirect-object",
+            "description": "Dative indirect object"
+          }
+        ],
+        "argument_pattern": "<S-IO>",
+        "case_specifications": [
+          "<S:Nom>",
+          "<IO:Dat>"
+        ]
+      }
+    },
+    "imperfect": {
+      "raw_gloss": "V MedAct Impf <S-IO> <S:Nom> <IO:Dat>",
+      "structured_gloss": {
+        "raw_components": [
+          {
+            "text": "V",
+            "component_type": "verb",
+            "color_class": "gloss-verb",
+            "description": "Verb"
+          },
+          {
+            "text": "MedAct",
+            "component_type": "voice",
+            "color_class": "gloss-voice",
+            "description": "Medioactive"
+          },
+          {
+            "text": "Impf",
+            "component_type": "tense",
+            "color_class": "gloss-tense",
+            "description": "Imperfect"
+          },
+          {
+            "text": "<S-IO>",
+            "component_type": "argument_pattern",
+            "color_class": "gloss-argument",
+            "description": "Intransitive relative"
+          },
+          {
+            "text": "<S:Nom>",
+            "component_type": "case_spec",
+            "color_class": "gloss-case",
+            "description": "Nominative subject"
+          },
+          {
+            "text": "<IO:Dat>",
+            "component_type": "case_spec",
+            "color_class": "gloss-case",
+            "description": "Dative indirect object"
+          }
+        ],
+        "expanded_components": [
+          {
+            "text": "V",
+            "component_type": "verb",
+            "color_class": "gloss-verb",
+            "description": "Verb"
+          },
+          {
+            "text": "MedAct",
+            "component_type": "voice",
+            "color_class": "gloss-voice",
+            "description": "Medioactive"
+          },
+          {
+            "text": "Impf",
+            "component_type": "tense",
+            "color_class": "gloss-tense",
+            "description": "Imperfect"
+          },
+          {
+            "text": "<S-IO>",
+            "component_type": "argument_pattern",
+            "color_class": "gloss-argument",
+            "description": "Intransitive relative"
+          },
+          {
+            "text": "<S:Nom>",
+            "component_type": "case_spec",
+            "color_class": "gloss-subject",
+            "description": "Nominative subject"
+          },
+          {
+            "text": "<IO:Dat>",
+            "component_type": "case_spec",
+            "color_class": "gloss-indirect-object",
+            "description": "Dative indirect object"
+          }
+        ],
+        "argument_pattern": "<S-IO>",
+        "case_specifications": [
+          "<S:Nom>",
+          "<IO:Dat>"
+        ]
+      }
+    },
+    "future": {
+      "raw_gloss": "V MedAct Fut <S-IO> <S:Nom> <IO:Dat>",
+      "structured_gloss": {
+        "raw_components": [
+          {
+            "text": "V",
+            "component_type": "verb",
+            "color_class": "gloss-verb",
+            "description": "Verb"
+          },
+          {
+            "text": "MedAct",
+            "component_type": "voice",
+            "color_class": "gloss-voice",
+            "description": "Medioactive"
+          },
+          {
+            "text": "Fut",
+            "component_type": "tense",
+            "color_class": "gloss-tense",
+            "description": "Future"
+          },
+          {
+            "text": "<S-IO>",
+            "component_type": "argument_pattern",
+            "color_class": "gloss-argument",
+            "description": "Intransitive relative"
+          },
+          {
+            "text": "<S:Nom>",
+            "component_type": "case_spec",
+            "color_class": "gloss-case",
+            "description": "Nominative subject"
+          },
+          {
+            "text": "<IO:Dat>",
+            "component_type": "case_spec",
+            "color_class": "gloss-case",
+            "description": "Dative indirect object"
+          }
+        ],
+        "expanded_components": [
+          {
+            "text": "V",
+            "component_type": "verb",
+            "color_class": "gloss-verb",
+            "description": "Verb"
+          },
+          {
+            "text": "MedAct",
+            "component_type": "voice",
+            "color_class": "gloss-voice",
+            "description": "Medioactive"
+          },
+          {
+            "text": "Fut",
+            "component_type": "tense",
+            "color_class": "gloss-tense",
+            "description": "Future"
+          },
+          {
+            "text": "<S-IO>",
+            "component_type": "argument_pattern",
+            "color_class": "gloss-argument",
+            "description": "Intransitive relative"
+          },
+          {
+            "text": "<S:Nom>",
+            "component_type": "case_spec",
+            "color_class": "gloss-subject",
+            "description": "Nominative subject"
+          },
+          {
+            "text": "<IO:Dat>",
+            "component_type": "case_spec",
+            "color_class": "gloss-indirect-object",
+            "description": "Dative indirect object"
+          }
+        ],
+        "argument_pattern": "<S-IO>",
+        "case_specifications": [
+          "<S:Nom>",
+          "<IO:Dat>"
+        ]
+      }
+    },
+    "aorist": {
+      "raw_gloss": "V MedAct Aor <S-IO> <S:Erg> <IO:Dat>",
+      "structured_gloss": {
+        "raw_components": [
+          {
+            "text": "V",
+            "component_type": "verb",
+            "color_class": "gloss-verb",
+            "description": "Verb"
+          },
+          {
+            "text": "MedAct",
+            "component_type": "voice",
+            "color_class": "gloss-voice",
+            "description": "Medioactive"
+          },
+          {
+            "text": "Aor",
+            "component_type": "tense",
+            "color_class": "gloss-tense",
+            "description": "Aorist"
+          },
+          {
+            "text": "<S-IO>",
+            "component_type": "argument_pattern",
+            "color_class": "gloss-argument",
+            "description": "Intransitive relative"
+          },
+          {
+            "text": "<S:Erg>",
+            "component_type": "case_spec",
+            "color_class": "gloss-case",
+            "description": "Ergative subject"
+          },
+          {
+            "text": "<IO:Dat>",
+            "component_type": "case_spec",
+            "color_class": "gloss-case",
+            "description": "Dative indirect object"
+          }
+        ],
+        "expanded_components": [
+          {
+            "text": "V",
+            "component_type": "verb",
+            "color_class": "gloss-verb",
+            "description": "Verb"
+          },
+          {
+            "text": "MedAct",
+            "component_type": "voice",
+            "color_class": "gloss-voice",
+            "description": "Medioactive"
+          },
+          {
+            "text": "Aor",
+            "component_type": "tense",
+            "color_class": "gloss-tense",
+            "description": "Aorist"
+          },
+          {
+            "text": "<S-IO>",
+            "component_type": "argument_pattern",
+            "color_class": "gloss-argument",
+            "description": "Intransitive relative"
+          },
+          {
+            "text": "<S:Erg>",
+            "component_type": "case_spec",
+            "color_class": "gloss-subject",
+            "description": "Ergative subject"
+          },
+          {
+            "text": "<IO:Dat>",
+            "component_type": "case_spec",
+            "color_class": "gloss-indirect-object",
+            "description": "Dative indirect object"
+          }
+        ],
+        "argument_pattern": "<S-IO>",
+        "case_specifications": [
+          "<S:Erg>",
+          "<IO:Dat>"
+        ]
+      }
+    },
+    "optative": {
+      "raw_gloss": "V MedAct Opt <S-IO> <S:Erg> <IO:Dat>",
+      "structured_gloss": {
+        "raw_components": [
+          {
+            "text": "V",
+            "component_type": "verb",
+            "color_class": "gloss-verb",
+            "description": "Verb"
+          },
+          {
+            "text": "MedAct",
+            "component_type": "voice",
+            "color_class": "gloss-voice",
+            "description": "Medioactive"
+          },
+          {
+            "text": "Opt",
+            "component_type": "tense",
+            "color_class": "gloss-tense",
+            "description": "Optative"
+          },
+          {
+            "text": "<S-IO>",
+            "component_type": "argument_pattern",
+            "color_class": "gloss-argument",
+            "description": "Intransitive relative"
+          },
+          {
+            "text": "<S:Erg>",
+            "component_type": "case_spec",
+            "color_class": "gloss-case",
+            "description": "Ergative subject"
+          },
+          {
+            "text": "<IO:Dat>",
+            "component_type": "case_spec",
+            "color_class": "gloss-case",
+            "description": "Dative indirect object"
+          }
+        ],
+        "expanded_components": [
+          {
+            "text": "V",
+            "component_type": "verb",
+            "color_class": "gloss-verb",
+            "description": "Verb"
+          },
+          {
+            "text": "MedAct",
+            "component_type": "voice",
+            "color_class": "gloss-voice",
+            "description": "Medioactive"
+          },
+          {
+            "text": "Opt",
+            "component_type": "tense",
+            "color_class": "gloss-tense",
+            "description": "Optative"
+          },
+          {
+            "text": "<S-IO>",
+            "component_type": "argument_pattern",
+            "color_class": "gloss-argument",
+            "description": "Intransitive relative"
+          },
+          {
+            "text": "<S:Erg>",
+            "component_type": "case_spec",
+            "color_class": "gloss-subject",
+            "description": "Ergative subject"
+          },
+          {
+            "text": "<IO:Dat>",
+            "component_type": "case_spec",
+            "color_class": "gloss-indirect-object",
+            "description": "Dative indirect object"
+          }
+        ],
+        "argument_pattern": "<S-IO>",
+        "case_specifications": [
+          "<S:Erg>",
+          "<IO:Dat>"
+        ]
+      }
+    },
+    "imperative": {
+      "raw_gloss": "V MedAct Impv <S-IO> <S:Erg> <IO:Dat>",
+      "structured_gloss": {
+        "raw_components": [
+          {
+            "text": "V",
+            "component_type": "verb",
+            "color_class": "gloss-verb",
+            "description": "Verb"
+          },
+          {
+            "text": "MedAct",
+            "component_type": "voice",
+            "color_class": "gloss-voice",
+            "description": "Medioactive"
+          },
+          {
+            "text": "Impv",
+            "component_type": "tense",
+            "color_class": "gloss-tense",
+            "description": "Imperative"
+          },
+          {
+            "text": "<S-IO>",
+            "component_type": "argument_pattern",
+            "color_class": "gloss-argument",
+            "description": "Intransitive relative"
+          },
+          {
+            "text": "<S:Erg>",
+            "component_type": "case_spec",
+            "color_class": "gloss-case",
+            "description": "Ergative subject"
+          },
+          {
+            "text": "<IO:Dat>",
+            "component_type": "case_spec",
+            "color_class": "gloss-case",
+            "description": "Dative indirect object"
+          }
+        ],
+        "expanded_components": [
+          {
+            "text": "V",
+            "component_type": "verb",
+            "color_class": "gloss-verb",
+            "description": "Verb"
+          },
+          {
+            "text": "MedAct",
+            "component_type": "voice",
+            "color_class": "gloss-voice",
+            "description": "Medioactive"
+          },
+          {
+            "text": "Impv",
+            "component_type": "tense",
+            "color_class": "gloss-tense",
+            "description": "Imperative"
+          },
+          {
+            "text": "<S-IO>",
+            "component_type": "argument_pattern",
+            "color_class": "gloss-argument",
+            "description": "Intransitive relative"
+          },
+          {
+            "text": "<S:Erg>",
+            "component_type": "case_spec",
+            "color_class": "gloss-subject",
+            "description": "Ergative subject"
+          },
+          {
+            "text": "<IO:Dat>",
+            "component_type": "case_spec",
+            "color_class": "gloss-indirect-object",
+            "description": "Dative indirect object"
+          }
+        ],
+        "argument_pattern": "<S-IO>",
+        "case_specifications": [
+          "<S:Erg>",
+          "<IO:Dat>"
+        ]
+      }
+    }
+  },
+  "preverb_forms": {}
+}

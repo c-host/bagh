@@ -1,0 +1,643 @@
+{
+  "id": 55,
+  "georgian": "სიყვარული",
+  "description": "To Love",
+  "category": "Mental Activities & Cognition",
+  "class": "Class-I",
+  "semantic_key": "love",
+  "notes": "",
+  "url": "https://lingua.ge/verbs/%e1%83%a1%e1%83%98%e1%83%a7%e1%83%95%e1%83%90%e1%83%a0%e1%83%a3%e1%83%9a%e1%83%98/",
+  "global_argument_pattern": "<S-DO>",
+  "valency": {
+    "default": "<S-DO>",
+    "alternatives": []
+  },
+  "syntax": {
+    "arguments": {
+      "subject": {
+        "3sg": {
+          "noun": "mother",
+          "adjective": "kind"
+        },
+        "3pl": {
+          "noun": "grandfather",
+          "adjective": "old"
+        }
+      },
+      "direct_object": {
+        "1sg": {
+          "noun": "music",
+          "adjective": "beautiful"
+        },
+        "2sg": {
+          "noun": "book",
+          "adjective": "interesting"
+        },
+        "3sg": {
+          "noun": "child",
+          "adjective": "small"
+        },
+        "1pl": {
+          "noun": "family",
+          "adjective": "happy"
+        },
+        "2pl": {
+          "noun": "food",
+          "adjective": "delicious"
+        },
+        "3pl": {
+          "noun": "home",
+          "adjective": "warm"
+        }
+      }
+    },
+    "prepositions": {
+      "subject": "the",
+      "direct_object": "the",
+      "indirect_object": ""
+    },
+    "preverb_overrides": {}
+  },
+  "english_translations": {
+    "default": {
+      "present": "love",
+      "imperfect": "was loving",
+      "future": "will love",
+      "aorist": "loved",
+      "optative": "love",
+      "imperative": "love"
+    }
+  },
+  "conjugations": {
+    "present": {
+      "raw_gloss": "V MedPass Inv Pres OV <S-DO> <S:Dat> <DO:Nom>",
+      "forms": {
+        "1sg": "მიყვარს",
+        "2sg": "გიყვარს",
+        "3sg": "უყვარს",
+        "1pl": "გვიყვარს",
+        "2pl": "გიყვართ",
+        "3pl": "უყვართ"
+      },
+      "examples": []
+    },
+    "imperfect": {
+      "raw_gloss": "V MedPass Inv Impf OV <S-DO> <S:Dat> <DO:Nom>",
+      "forms": {
+        "1sg": "მიყვარდა",
+        "2sg": "გიყვარდა",
+        "3sg": "უყვარდა",
+        "1pl": "გვიყვარდა",
+        "2pl": "გიყვარდათ",
+        "3pl": "უყვარდათ"
+      },
+      "examples": []
+    },
+    "future": {
+      "raw_gloss": "V MedPass Inv Fut <S-DO> <S:Dat> <DO:Nom>",
+      "forms": {
+        "1sg": "მეყვარება",
+        "2sg": "გეყვარება",
+        "3sg": "ეყვარება",
+        "1pl": "გვეყვარება",
+        "2pl": "გეყვარებათ",
+        "3pl": "ეყვარებათ"
+      },
+      "examples": []
+    },
+    "aorist": {
+      "raw_gloss": "",
+      "forms": {
+        "1sg": "-",
+        "2sg": "-",
+        "3sg": "-",
+        "1pl": "-",
+        "2pl": "-",
+        "3pl": "-"
+      },
+      "examples": []
+    },
+    "optative": {
+      "raw_gloss": "",
+      "forms": {
+        "1sg": "-",
+        "2sg": "-",
+        "3sg": "-",
+        "1pl": "-",
+        "2pl": "-",
+        "3pl": "-"
+      },
+      "examples": []
+    },
+    "imperative": {
+      "raw_gloss": "",
+      "forms": {
+        "1sg": "-",
+        "2sg": "-",
+        "3sg": "-",
+        "1pl": "-",
+        "2pl": "-",
+        "3pl": "-"
+      },
+      "examples": []
+    }
+  },
+  "preverb_config": {
+    "has_multiple_preverbs": false,
+    "default_preverb": "",
+    "available_preverbs": []
+  },
+  "preverb_rules": {
+    "default": "",
+    "replacements": {},
+    "tense_specific_fallbacks": {},
+    "english_fallbacks": {}
+  },
+  "examples": {
+    "null": {
+      "present": [
+        {
+          "georgian": "ლამაზი მუსიკა მიყვარს",
+          "english": "<strong data-role=\"subject\" data-person=\"1sg\">I</strong> <strong data-role=\"verb\">love</strong> <strong data-role=\"direct-object\">the beautiful music</strong>",
+          "english_plain": "I love the beautiful music",
+          "html": "<span data-case=\"nom\" data-role=\"direct-object\">ლამაზი მუსიკა</span> <span data-role=\"verb\">მიყვარს</span>",
+          "case_marking": {
+            "direct_object": {
+              "case": "nom",
+              "word": "მუსიკა"
+            }
+          },
+          "georgian_verb_form": "მიყვარს"
+        },
+        {
+          "georgian": "კეთილ დედას პატარა ბავშვი უყვარს",
+          "english": "<strong data-role=\"subject\">The kind mother</strong> <strong data-role=\"verb\">loves</strong> <strong data-role=\"direct-object\">the small child</strong>",
+          "english_plain": "The kind mother loves the small child",
+          "html": "<span data-case=\"dat\" data-role=\"subject\">კეთილ დედას</span> <span data-case=\"nom\" data-role=\"direct-object\">პატარა ბავშვი</span> <span data-role=\"verb\">უყვარს</span>",
+          "case_marking": {
+            "subject": {
+              "case": "dat",
+              "word": "დედას"
+            },
+            "direct_object": {
+              "case": "nom",
+              "word": "ბავშვი"
+            }
+          },
+          "georgian_verb_form": "უყვარს"
+        },
+        {
+          "georgian": "ძველ ბაბუებს თბილი სახლი უყვართ",
+          "english": "<strong data-role=\"subject\">The old grandfathers</strong> <strong data-role=\"verb\">love</strong> <strong data-role=\"direct-object\">the warm home</strong>",
+          "english_plain": "The old grandfathers love the warm home",
+          "html": "<span data-case=\"dat\" data-role=\"subject\">ძველ ბაბუებს</span> <span data-case=\"nom\" data-role=\"direct-object\">თბილი სახლი</span> <span data-role=\"verb\">უყვართ</span>",
+          "case_marking": {
+            "subject": {
+              "case": "dat",
+              "word": "ბაბუებს"
+            },
+            "direct_object": {
+              "case": "nom",
+              "word": "სახლი"
+            }
+          },
+          "georgian_verb_form": "უყვართ"
+        }
+      ],
+      "imperfect": [
+        {
+          "georgian": "ლამაზი მუსიკა მიყვარდა",
+          "english": "<strong data-role=\"subject\" data-person=\"1sg\">I</strong> <strong data-role=\"verb\">was loving</strong> <strong data-role=\"direct-object\">the beautiful music</strong>",
+          "english_plain": "I was loving the beautiful music",
+          "html": "<span data-case=\"nom\" data-role=\"direct-object\">ლამაზი მუსიკა</span> <span data-role=\"verb\">მიყვარდა</span>",
+          "case_marking": {
+            "direct_object": {
+              "case": "nom",
+              "word": "მუსიკა"
+            }
+          },
+          "georgian_verb_form": "მიყვარდა"
+        },
+        {
+          "georgian": "კეთილ დედას პატარა ბავშვი უყვარდა",
+          "english": "<strong data-role=\"subject\">The kind mother</strong> <strong data-role=\"verb\">was loving</strong> <strong data-role=\"direct-object\">the small child</strong>",
+          "english_plain": "The kind mother was loving the small child",
+          "html": "<span data-case=\"dat\" data-role=\"subject\">კეთილ დედას</span> <span data-case=\"nom\" data-role=\"direct-object\">პატარა ბავშვი</span> <span data-role=\"verb\">უყვარდა</span>",
+          "case_marking": {
+            "subject": {
+              "case": "dat",
+              "word": "დედას"
+            },
+            "direct_object": {
+              "case": "nom",
+              "word": "ბავშვი"
+            }
+          },
+          "georgian_verb_form": "უყვარდა"
+        },
+        {
+          "georgian": "ძველ ბაბუებს თბილი სახლი უყვარდათ",
+          "english": "<strong data-role=\"subject\">The old grandfathers</strong> <strong data-role=\"verb\">were loving</strong> <strong data-role=\"direct-object\">the warm home</strong>",
+          "english_plain": "The old grandfathers were loving the warm home",
+          "html": "<span data-case=\"dat\" data-role=\"subject\">ძველ ბაბუებს</span> <span data-case=\"nom\" data-role=\"direct-object\">თბილი სახლი</span> <span data-role=\"verb\">უყვარდათ</span>",
+          "case_marking": {
+            "subject": {
+              "case": "dat",
+              "word": "ბაბუებს"
+            },
+            "direct_object": {
+              "case": "nom",
+              "word": "სახლი"
+            }
+          },
+          "georgian_verb_form": "უყვარდათ"
+        }
+      ],
+      "future": [
+        {
+          "georgian": "ლამაზი მუსიკა მეყვარება",
+          "english": "<strong data-role=\"subject\" data-person=\"1sg\">I</strong> <strong data-role=\"verb\">will love</strong> <strong data-role=\"direct-object\">the beautiful music</strong>",
+          "english_plain": "I will love the beautiful music",
+          "html": "<span data-case=\"nom\" data-role=\"direct-object\">ლამაზი მუსიკა</span> <span data-role=\"verb\">მეყვარება</span>",
+          "case_marking": {
+            "direct_object": {
+              "case": "nom",
+              "word": "მუსიკა"
+            }
+          },
+          "georgian_verb_form": "მეყვარება"
+        },
+        {
+          "georgian": "კეთილ დედას პატარა ბავშვი ეყვარება",
+          "english": "<strong data-role=\"subject\">The kind mother</strong> <strong data-role=\"verb\">will love</strong> <strong data-role=\"direct-object\">the small child</strong>",
+          "english_plain": "The kind mother will love the small child",
+          "html": "<span data-case=\"dat\" data-role=\"subject\">კეთილ დედას</span> <span data-case=\"nom\" data-role=\"direct-object\">პატარა ბავშვი</span> <span data-role=\"verb\">ეყვარება</span>",
+          "case_marking": {
+            "subject": {
+              "case": "dat",
+              "word": "დედას"
+            },
+            "direct_object": {
+              "case": "nom",
+              "word": "ბავშვი"
+            }
+          },
+          "georgian_verb_form": "ეყვარება"
+        },
+        {
+          "georgian": "ძველ ბაბუებს თბილი სახლი ეყვარებათ",
+          "english": "<strong data-role=\"subject\">The old grandfathers</strong> <strong data-role=\"verb\">will love</strong> <strong data-role=\"direct-object\">the warm home</strong>",
+          "english_plain": "The old grandfathers will love the warm home",
+          "html": "<span data-case=\"dat\" data-role=\"subject\">ძველ ბაბუებს</span> <span data-case=\"nom\" data-role=\"direct-object\">თბილი სახლი</span> <span data-role=\"verb\">ეყვარებათ</span>",
+          "case_marking": {
+            "subject": {
+              "case": "dat",
+              "word": "ბაბუებს"
+            },
+            "direct_object": {
+              "case": "nom",
+              "word": "სახლი"
+            }
+          },
+          "georgian_verb_form": "ეყვარებათ"
+        }
+      ],
+      "aorist": [],
+      "optative": [],
+      "imperative": []
+    }
+  },
+  "gloss_analysis": {
+    "present": {
+      "raw_gloss": "V MedPass Inv Pres OV <S-DO> <S:Dat> <DO:Nom>",
+      "structured_gloss": {
+        "raw_components": [
+          {
+            "text": "V",
+            "component_type": "verb",
+            "color_class": "gloss-verb",
+            "description": "Verb"
+          },
+          {
+            "text": "MedPass",
+            "component_type": "voice",
+            "color_class": "gloss-voice",
+            "description": "Mediopassive"
+          },
+          {
+            "text": "Inv",
+            "component_type": "tense",
+            "color_class": "gloss-tense",
+            "description": "Inverted"
+          },
+          {
+            "text": "Pres",
+            "component_type": "tense",
+            "color_class": "gloss-tense",
+            "description": "Present"
+          },
+          {
+            "text": "OV",
+            "component_type": "unknown",
+            "color_class": "gloss-default",
+            "description": "Objective Version"
+          },
+          {
+            "text": "<S-DO>",
+            "component_type": "argument_pattern",
+            "color_class": "gloss-argument",
+            "description": "Transitive absolute"
+          },
+          {
+            "text": "<S:Dat>",
+            "component_type": "case_spec",
+            "color_class": "gloss-case",
+            "description": "Dative subject"
+          },
+          {
+            "text": "<DO:Nom>",
+            "component_type": "case_spec",
+            "color_class": "gloss-case",
+            "description": "Nominative direct object"
+          }
+        ],
+        "expanded_components": [
+          {
+            "text": "V",
+            "component_type": "verb",
+            "color_class": "gloss-verb",
+            "description": "Verb"
+          },
+          {
+            "text": "MedPass",
+            "component_type": "voice",
+            "color_class": "gloss-voice",
+            "description": "Mediopassive"
+          },
+          {
+            "text": "Inv",
+            "component_type": "tense",
+            "color_class": "gloss-tense",
+            "description": "Inverted"
+          },
+          {
+            "text": "Pres",
+            "component_type": "tense",
+            "color_class": "gloss-tense",
+            "description": "Present"
+          },
+          {
+            "text": "OV",
+            "component_type": "unknown",
+            "color_class": "gloss-default",
+            "description": "Objective Version"
+          },
+          {
+            "text": "<S-DO>",
+            "component_type": "argument_pattern",
+            "color_class": "gloss-argument",
+            "description": "Transitive absolute"
+          },
+          {
+            "text": "<S:Dat>",
+            "component_type": "case_spec",
+            "color_class": "gloss-subject",
+            "description": "Dative subject"
+          },
+          {
+            "text": "<DO:Nom>",
+            "component_type": "case_spec",
+            "color_class": "gloss-direct-object",
+            "description": "Nominative direct object"
+          }
+        ],
+        "argument_pattern": "<S-DO>",
+        "case_specifications": [
+          "<S:Dat>",
+          "<DO:Nom>"
+        ]
+      }
+    },
+    "imperfect": {
+      "raw_gloss": "V MedPass Inv Impf OV <S-DO> <S:Dat> <DO:Nom>",
+      "structured_gloss": {
+        "raw_components": [
+          {
+            "text": "V",
+            "component_type": "verb",
+            "color_class": "gloss-verb",
+            "description": "Verb"
+          },
+          {
+            "text": "MedPass",
+            "component_type": "voice",
+            "color_class": "gloss-voice",
+            "description": "Mediopassive"
+          },
+          {
+            "text": "Inv",
+            "component_type": "tense",
+            "color_class": "gloss-tense",
+            "description": "Inverted"
+          },
+          {
+            "text": "Impf",
+            "component_type": "tense",
+            "color_class": "gloss-tense",
+            "description": "Imperfect"
+          },
+          {
+            "text": "OV",
+            "component_type": "unknown",
+            "color_class": "gloss-default",
+            "description": "Objective Version"
+          },
+          {
+            "text": "<S-DO>",
+            "component_type": "argument_pattern",
+            "color_class": "gloss-argument",
+            "description": "Transitive absolute"
+          },
+          {
+            "text": "<S:Dat>",
+            "component_type": "case_spec",
+            "color_class": "gloss-case",
+            "description": "Dative subject"
+          },
+          {
+            "text": "<DO:Nom>",
+            "component_type": "case_spec",
+            "color_class": "gloss-case",
+            "description": "Nominative direct object"
+          }
+        ],
+        "expanded_components": [
+          {
+            "text": "V",
+            "component_type": "verb",
+            "color_class": "gloss-verb",
+            "description": "Verb"
+          },
+          {
+            "text": "MedPass",
+            "component_type": "voice",
+            "color_class": "gloss-voice",
+            "description": "Mediopassive"
+          },
+          {
+            "text": "Inv",
+            "component_type": "tense",
+            "color_class": "gloss-tense",
+            "description": "Inverted"
+          },
+          {
+            "text": "Impf",
+            "component_type": "tense",
+            "color_class": "gloss-tense",
+            "description": "Imperfect"
+          },
+          {
+            "text": "OV",
+            "component_type": "unknown",
+            "color_class": "gloss-default",
+            "description": "Objective Version"
+          },
+          {
+            "text": "<S-DO>",
+            "component_type": "argument_pattern",
+            "color_class": "gloss-argument",
+            "description": "Transitive absolute"
+          },
+          {
+            "text": "<S:Dat>",
+            "component_type": "case_spec",
+            "color_class": "gloss-subject",
+            "description": "Dative subject"
+          },
+          {
+            "text": "<DO:Nom>",
+            "component_type": "case_spec",
+            "color_class": "gloss-direct-object",
+            "description": "Nominative direct object"
+          }
+        ],
+        "argument_pattern": "<S-DO>",
+        "case_specifications": [
+          "<S:Dat>",
+          "<DO:Nom>"
+        ]
+      }
+    },
+    "future": {
+      "raw_gloss": "V MedPass Inv Fut <S-DO> <S:Dat> <DO:Nom>",
+      "structured_gloss": {
+        "raw_components": [
+          {
+            "text": "V",
+            "component_type": "verb",
+            "color_class": "gloss-verb",
+            "description": "Verb"
+          },
+          {
+            "text": "MedPass",
+            "component_type": "voice",
+            "color_class": "gloss-voice",
+            "description": "Mediopassive"
+          },
+          {
+            "text": "Inv",
+            "component_type": "tense",
+            "color_class": "gloss-tense",
+            "description": "Inverted"
+          },
+          {
+            "text": "Fut",
+            "component_type": "tense",
+            "color_class": "gloss-tense",
+            "description": "Future"
+          },
+          {
+            "text": "<S-DO>",
+            "component_type": "argument_pattern",
+            "color_class": "gloss-argument",
+            "description": "Transitive absolute"
+          },
+          {
+            "text": "<S:Dat>",
+            "component_type": "case_spec",
+            "color_class": "gloss-case",
+            "description": "Dative subject"
+          },
+          {
+            "text": "<DO:Nom>",
+            "component_type": "case_spec",
+            "color_class": "gloss-case",
+            "description": "Nominative direct object"
+          }
+        ],
+        "expanded_components": [
+          {
+            "text": "V",
+            "component_type": "verb",
+            "color_class": "gloss-verb",
+            "description": "Verb"
+          },
+          {
+            "text": "MedPass",
+            "component_type": "voice",
+            "color_class": "gloss-voice",
+            "description": "Mediopassive"
+          },
+          {
+            "text": "Inv",
+            "component_type": "tense",
+            "color_class": "gloss-tense",
+            "description": "Inverted"
+          },
+          {
+            "text": "Fut",
+            "component_type": "tense",
+            "color_class": "gloss-tense",
+            "description": "Future"
+          },
+          {
+            "text": "<S-DO>",
+            "component_type": "argument_pattern",
+            "color_class": "gloss-argument",
+            "description": "Transitive absolute"
+          },
+          {
+            "text": "<S:Dat>",
+            "component_type": "case_spec",
+            "color_class": "gloss-subject",
+            "description": "Dative subject"
+          },
+          {
+            "text": "<DO:Nom>",
+            "component_type": "case_spec",
+            "color_class": "gloss-direct-object",
+            "description": "Nominative direct object"
+          }
+        ],
+        "argument_pattern": "<S-DO>",
+        "case_specifications": [
+          "<S:Dat>",
+          "<DO:Nom>"
+        ]
+      }
+    },
+    "aorist": {
+      "raw_gloss": "",
+      "structured_gloss": {}
+    },
+    "optative": {
+      "raw_gloss": "",
+      "structured_gloss": {}
+    },
+    "imperative": {
+      "raw_gloss": "",
+      "structured_gloss": {}
+    }
+  },
+  "preverb_forms": {}
+}

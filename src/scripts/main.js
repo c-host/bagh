@@ -1752,48 +1752,31 @@ class VerbDataManager {
             return null;
         }
 
-        console.log(`[DATA_LOAD] Starting to load all data for verb ${verbId}`);
-        const [coreData, conjugations, examples, glossData, preverbConfigs] = await Promise.all([
-            this.loadCoreData(),
-            this.loadConjugations(),
-            this.loadExamples(),
-            this.loadGlossData(),
-            this.loadPreverbConfigs()
-        ]);
+        console.log(`[DATA_LOAD] Starting to load data for verb ${verbId} from new consolidated structure`);
 
-        console.log(`[DATA_LOAD] All data loaded for verb ${verbId}:`, {
-            hasCoreData: !!coreData,
-            hasConjugations: !!conjugations,
-            hasExamples: !!examples,
-            hasGlossData: !!glossData,
-            hasPreverbConfigs: !!preverbConfigs,
-            coreVerbsCount: coreData ? Object.keys(coreData).length : 0,
-            conjugationsCount: conjugations ? Object.keys(conjugations).length : 0,
-            examplesCount: examples ? Object.keys(examples).length : 0,
-            glossCount: glossData ? Object.keys(glossData).length : 0,
-            preverbConfigCount: preverbConfigs ? Object.keys(preverbConfigs).length : 0
-        });
+        try {
+            // Load the consolidated verb data file directly
+            const response = await fetch(`data/verb_${verbId}.json`);
 
-        const verbData = {
-            core: coreData[verbId],
-            conjugations: conjugations[verbId],
-            examples: examples[verbId],
-            glossAnalyses: glossData[verbId],
-            preverbConfig: preverbConfigs[verbId]
-        };
+            if (!response.ok) {
+                console.log(`[DATA_LOAD] Verb ${verbId} data not found (${response.status})`);
+                return null;
+            }
 
-        console.log(`[DATA_LOAD] Verb data constructed for ${verbId}:`, {
-            hasCore: !!verbData.core,
-            hasConjugations: !!verbData.conjugations,
-            hasExamples: !!verbData.examples,
-            hasGlossAnalyses: !!verbData.glossAnalyses,
-            hasPreverbConfig: !!verbData.preverbConfig
-        });
+            const verbData = await response.json();
+            console.log(`[DATA_LOAD] Verb ${verbId} data loaded successfully`);
 
-        // Cache the result
-        this.verbCache.set(verbId, verbData);
-        console.log(`[CACHE] Verb ${verbId} cached successfully. Cache size: ${this.verbCache.size}`);
-        return verbData;
+            // Cache the result
+            this.verbCache.set(verbId, verbData);
+            console.log(`[CACHE] Verb ${verbId} cached successfully. Cache size: ${this.verbCache.size}`);
+            return verbData;
+
+        } catch (error) {
+            console.error(`[DATA_LOAD] Error loading verb ${verbId} data:`, error);
+            return null;
+        }
+
+
     }
 
     async loadCoreData() {
@@ -2055,16 +2038,17 @@ class VerbDataManager {
                 return;
             }
 
-            // Generate initial conjugation tables
-            const defaultPreverb = verbData.core.default_preverb || 'მი';
+            // Generate initial conjugation tables - updated for new structure
+            const defaultPreverb = verbData.preverb_config?.default_preverb || 'მი';
             console.log(`[POPULATE_SECTION] Default preverb: ${defaultPreverb}`);
-            console.log(`[POPULATE_SECTION] Core data:`, verbData.core);
+            console.log(`[POPULATE_SECTION] Preverb config:`, verbData.preverb_config);
+            console.log(`[POPULATE_SECTION] Preverb rules:`, verbData.preverb_rules);
             console.log(`[POPULATE_SECTION] Conjugations data:`, verbData.conjugations);
-            console.log(`[POPULATE_SECTION] Preverb config:`, verbData.preverbConfig);
 
+            // Get conjugations for the default preverb using the new structure
             const conjugations = this.getConjugationsForPreverb(
-                verbData.conjugations.conjugations,
-                verbData.conjugations.preverb_rules,
+                verbData.conjugations,
+                verbData.preverb_rules,
                 defaultPreverb
             );
 
@@ -2128,14 +2112,16 @@ class VerbDataManager {
         const normalizedDefault = defaultPreverb.replace("-", "");
 
         // Check if this is a multi-preverb verb by looking at the replacements
-        const isMultiPreverb = preverbRules && preverbRules.replacements && Object.keys(preverbRules.replacements).length > 1;
+        const isMultiPreverb = preverbConfig &&
+            preverbConfig.replacements &&
+            Object.keys(preverbConfig.replacements).length > 1;
 
         console.log(`[PREVERB_SWITCH] Multi-preverb check:`, {
             normalizedTarget,
             normalizedDefault,
             isMultiPreverb,
-            replacementsCount: preverbRules.replacements ? Object.keys(preverbRules.replacements).length : 0,
-            replacements: preverbRules.replacements ? Object.keys(preverbRules.replacements) : []
+            replacementsCount: preverbConfig.replacements ? Object.keys(preverbConfig.replacements).length : 0,
+            replacements: preverbConfig.replacements ? Object.keys(preverbConfig.replacements) : []
         });
 
         if (isMultiPreverb) {
@@ -2266,10 +2252,9 @@ class VerbDataManager {
         let glossHtml = '';
 
         // Check if this is a multi-preverb verb by looking at the replacements
-        const isMultiPreverb = verbData.conjugations &&
-            verbData.conjugations.preverb_rules &&
-            verbData.conjugations.preverb_rules.replacements &&
-            Object.keys(verbData.conjugations.preverb_rules.replacements).length > 1;
+        const isMultiPreverb = verbData.preverb_rules &&
+            verbData.preverb_rules.replacements &&
+            Object.keys(verbData.preverb_rules.replacements).length > 1;
 
         console.log(`[JS] isMultiPreverb: ${isMultiPreverb}`);
 
@@ -2277,7 +2262,7 @@ class VerbDataManager {
             // Multi-preverb verb: get examples for the specific preverb from external data
             const normalizedPreverb = selectedPreverb.replace('-', '');
             const preverbExamples = verbData.examples[normalizedPreverb] || {};
-            const preverbGloss = verbData.glossAnalyses[normalizedPreverb] || {};
+            const preverbGloss = verbData.gloss_analysis[normalizedPreverb] || {};
 
             console.log(`[JS] Multi-preverb data: examples=${!!preverbExamples[tense]}, gloss=${!!preverbGloss[tense]}`);
             console.log(`[JS] Preverb examples keys: ${Object.keys(preverbExamples)}`);
@@ -2288,7 +2273,7 @@ class VerbDataManager {
         } else {
             // Single-preverb verb: examples are organized by tense
             const examples = verbData.examples || {};
-            const glossAnalyses = verbData.glossAnalyses || {};
+            const glossAnalyses = verbData.gloss_analysis || {};
 
             console.log(`[JS] Single-preverb data: examples=${!!examples[tense]}, gloss=${!!glossAnalyses[tense]}`);
 
@@ -2675,19 +2660,30 @@ class PreverbManager {
             console.log(`[PREVERB_SWITCH] Verb data structure:`, {
                 hasConjugations: !!verbData.conjugations,
                 hasExamples: !!verbData.examples,
-                hasGlossAnalyses: !!verbData.glossAnalyses,
-                hasPreverbConfig: !!verbData.preverbConfig,
+                hasGlossAnalyses: !!verbData.gloss_analysis,
+                hasPreverbConfig: !!verbData.preverb_config,
+                hasPreverbForms: !!verbData.preverb_forms,
                 examplesKeys: verbData.examples ? Object.keys(verbData.examples) : 'none',
-                glossKeys: verbData.glossAnalyses ? Object.keys(verbData.glossAnalyses) : 'none'
+                glossKeys: verbData.gloss_analysis ? Object.keys(verbData.gloss_analysis) : 'none',
+                preverbFormsKeys: verbData.preverb_forms ? Object.keys(verbData.preverb_forms) : 'none'
             });
 
-            // Get conjugations for selected preverb (with caching)
-            const conjugations = this.getCachedPreverbForms(
-                verbId,
-                preverb,
-                verbData.conjugations.conjugations,
-                verbData.conjugations.preverb_rules
-            );
+            // Get conjugations for selected preverb from preverb_forms
+            let conjugations;
+            if (verbData.preverb_forms && verbData.preverb_forms[preverb]) {
+                // Use the actual preverb forms from the data
+                conjugations = verbData.preverb_forms[preverb];
+                console.log(`[PREVERB_SWITCH] Using preverb forms for ${preverb}:`, conjugations);
+            } else {
+                // Fallback to calculated forms if preverb_forms not available
+                conjugations = this.getCachedPreverbForms(
+                    verbId,
+                    preverb,
+                    verbData.conjugations,
+                    verbData.preverb_rules
+                );
+                console.log(`[PREVERB_SWITCH] Using calculated forms for ${preverb}:`, conjugations);
+            }
 
             // Update overview table
             const overviewContainer = verbSection.querySelector('.table-container');

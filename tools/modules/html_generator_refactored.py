@@ -1,6 +1,6 @@
 """
-HTML generation module for verb-website build process.
-Handles generation of HTML content for verb sections, TOC, and examples.
+Refactored HTML Generator - Combines rich HTML structure with pipeline data reading.
+Keeps the sophisticated UI from html_generator.py but reads from processed data instead of calling generation functions.
 """
 
 import html
@@ -11,16 +11,15 @@ import logging
 
 from .data_loader import VerbDataLoader
 
-# Import core modules for static content generation
-from tools.core.example_generator import generate_pedagogical_examples
-from tools.core.gloss_parser import GlossParser
-from tools.core.verb_conjugation import get_conjugation_form, has_preverb_in_tense
-
 logger = logging.getLogger(__name__)
 
 
-class HTMLGenerator:
-    """Handles generation of HTML content for the verb website."""
+class HTMLGeneratorRefactored:
+    """
+    Refactored HTML Generator that combines:
+    - Rich HTML structure and UI features from html_generator.py
+    - Data reading from processed pipeline data instead of calling generation functions
+    """
 
     def __init__(self, project_root: Path, data_loader: VerbDataLoader):
         self.project_root = project_root
@@ -35,15 +34,7 @@ class HTMLGenerator:
     ) -> str:
         """
         Create a safe anchor ID with smart disambiguation.
-
-        Args:
-            georgian_text: Georgian verb text
-            semantic_key: Semantic key for disambiguation
-            verb_id: Verb ID for disambiguation
-            duplicate_primary_verbs: Dictionary of duplicate primary verbs
-
-        Returns:
-            Safe anchor ID string
+        [KEPT FROM ORIGINAL - No changes needed]
         """
         from tools.utils import safe_anchor_id, create_deterministic_hash
 
@@ -71,12 +62,7 @@ class HTMLGenerator:
     def create_preverb_selector(self, verb_data: Dict) -> str:
         """
         Create preverb toggle selector for verb section.
-
-        Args:
-            verb_data: Verb data dictionary
-
-        Returns:
-            HTML string for preverb selector
+        [KEPT FROM ORIGINAL - No changes needed]
         """
         preverb_config = verb_data.get("preverb_config", {})
 
@@ -108,38 +94,14 @@ class HTMLGenerator:
 
             return selector_html
 
-    def create_verb_section(
-        self,
-        verb: Dict,
-        index: Optional[int] = None,
-        duplicate_primary_verbs: Optional[Dict] = None,
-    ) -> str:
-        """
-        Create a verb section with static content generation.
-
-        Args:
-            verb: Verb data dictionary
-            index: Page number index
-            duplicate_primary_verbs: Dictionary of duplicate primary verbs
-
-        Returns:
-            HTML string for verb section
-        """
-        # Use the new static content generation approach
-        return self.create_static_verb_section(verb, index, duplicate_primary_verbs)
+        return ""
 
     def create_toc(
         self, verbs: List[Dict], duplicate_primary_verbs: Optional[Dict] = None
     ) -> str:
         """
         Create a table of contents with clickable links.
-
-        Args:
-            verbs: List of verb dictionaries
-            duplicate_primary_verbs: Dictionary of duplicate primary verbs
-
-        Returns:
-            HTML string for table of contents
+        [KEPT FROM ORIGINAL - No changes needed]
         """
         toc_html = """
             <div class="toc-container" id="toc">
@@ -176,24 +138,45 @@ class HTMLGenerator:
         return toc_html
 
     def generate_html(
-        self, verbs: List[Dict], duplicate_primary_verbs: Optional[Dict] = None
+        self, processed_verbs: Dict, duplicate_primary_verbs: Optional[Dict] = None
     ) -> str:
         """
-        Generate the complete HTML file.
+        Generate the complete HTML file using processed data.
+        [REFACTORED - Now reads from processed data instead of calling generation functions]
 
         Args:
-            verbs: List of verb dictionaries
+            processed_verbs: Dictionary of processed verb data from the pipeline
             duplicate_primary_verbs: Dictionary of duplicate primary verbs
 
         Returns:
             Complete HTML content string
         """
+        # Debug: Check what data we're receiving
+        # Debug info without printing Georgian text that causes encoding issues
+        print(
+            f"[DEBUG] generate_html called with {len(processed_verbs)} processed verbs"
+        )
+        if processed_verbs:
+            first_verb_id = list(processed_verbs.keys())[0]
+            first_verb = processed_verbs[first_verb_id]
+            examples = first_verb.get("generated_data", {}).get("examples", {})
+            # Don't print examples keys to avoid Unicode encoding issues
+            print(
+                f"[DEBUG] First verb {first_verb_id} has examples: {'YES' if examples else 'NO'}"
+            )
+
+        # Convert processed verbs to list for TOC generation
+        verbs_list = []
+        for verb_id, processed_verb in processed_verbs.items():
+            base_data = processed_verb["base_data"]
+            verbs_list.append(base_data)
+
         # Generate table of contents first
-        toc_section = self.create_toc(verbs, duplicate_primary_verbs)
+        toc_section = self.create_toc(verbs_list, duplicate_primary_verbs)
 
         # Group verbs by category and generate verb sections with category headers
         verbs_by_category = {}
-        for verb in verbs:
+        for verb in verbs_list:
             category = verb.get("category", "Unknown")
             if category not in verbs_by_category:
                 verbs_by_category[category] = []
@@ -240,8 +223,14 @@ class HTMLGenerator:
                     + 1
                 )
 
-                verb_html = self.create_verb_section(
-                    verb, global_index, duplicate_primary_verbs
+                # Find the corresponding processed verb data
+                verb_id = str(
+                    verb.get("id", "")
+                )  # Convert to string to match processed_verbs keys
+                processed_verb = processed_verbs.get(verb_id, {})
+
+                verb_html = self.create_static_verb_section_from_processed_data(
+                    verb, processed_verb, global_index, duplicate_primary_verbs
                 )
                 verb_sections += verb_html
 
@@ -251,7 +240,7 @@ class HTMLGenerator:
             </div>
             """
 
-        # Create the complete HTML
+        # Create the complete HTML - KEEPING THE RICH STRUCTURE FROM ORIGINAL
         html_content = f"""<!DOCTYPE html>
 <html lang="en-ka">
 
@@ -553,181 +542,24 @@ class HTMLGenerator:
 
         return html_content
 
-    def generate_html_optimized(
-        self, verbs: List[Dict], duplicate_primary_verbs: Optional[Dict] = None
-    ) -> str:
-        """
-        Generate the complete HTML file with optimized performance.
-
-        Args:
-            verbs: List of verb dictionaries
-            duplicate_primary_verbs: Dictionary of duplicate primary verbs
-
-        Returns:
-            Complete HTML content string
-        """
-        # Generate table of contents first
-        toc_section = self.create_toc(verbs, duplicate_primary_verbs)
-
-        # Group verbs by category more efficiently
-        verbs_by_category = {}
-        for verb in verbs:
-            category = verb.get("category", "Unknown")
-            if category not in verbs_by_category:
-                verbs_by_category[category] = []
-            verbs_by_category[category].append(verb)
-
-        # Get all unique categories for dynamic generation
-        all_categories = sorted(verbs_by_category.keys())
-
-        # Generate category options more efficiently using list comprehension
-        category_options = [
-            f'<option value="{category}">{category}</option>'
-            for category in all_categories
-        ]
-        sidebar_category_options = "".join(category_options)
-        filter_category_options = "".join(category_options)
-
-        # Generate verb sections organized by category using list comprehension
-        verb_sections_parts = []
-
-        for i, (category, category_verbs) in enumerate(
-            sorted(verbs_by_category.items())
-        ):
-            # Add category header with collapsible functionality
-            category_header = f"""
-            <div class="category-container" data-category="{category}">
-                <h1 class="main-category-header collapsible-header" data-category="{category}">
-                    <span class="collapse-icon">▼</span>
-                    <span class="category-title">{category}</span>
-                </h1>
-                <div class="category-content" data-category="{category}">
-            """
-
-            # Calculate starting index for this category
-            category_start_index = sum(
-                len(verbs_by_category[cat])
-                for cat in sorted(verbs_by_category.keys())
-                if cat < category
-            )
-
-            # Generate verb sections for this category
-            verb_parts = []
-            for j, verb in enumerate(category_verbs):
-                global_index = category_start_index + j + 1
-                verb_html = self.create_verb_section(
-                    verb, global_index, duplicate_primary_verbs
-                )
-                verb_parts.append(verb_html)
-
-            # Combine category content
-            category_content = "".join(verb_parts)
-            category_footer = """
-                </div>
-            </div>
-            """
-
-            verb_sections_parts.append(
-                category_header + category_content + category_footer
-            )
-
-        # Join all verb sections
-        verb_sections = "".join(verb_sections_parts)
-
-        # Create the complete HTML using f-string for better performance
-        html_content = f"""<!DOCTYPE html>
-<html lang="en-ka">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ბაღ</title>
-    
-    <!-- Favicon -->
-    <link rel="icon" type="image/svg+xml" href="assets/favicon.svg">
-    <link rel="alternate icon" href="assets/favicon.svg">
-    
-    <script>
-        (function() {{
-            const savedTheme = localStorage.getItem('theme') || 'light';
-            const savedFont = localStorage.getItem('font') || 'default';
-            document.documentElement.setAttribute('data-theme', savedTheme);
-            document.documentElement.setAttribute('data-font', savedFont);
-        }})();
-    </script>
-    
-    <link rel="stylesheet" href="styles/main.css">
-</head>
-
-<body>
-    <div class="container">
-        <header class="main-header">
-            <h1 class="site-title">ბაღ</h1>
-            <p class="site-subtitle">Georgian Verb Conjugations</p>
-        </header>
-
-        <div class="main-content">
-            <aside class="sidebar">
-                <div class="sidebar-section">
-                    <h3>Categories</h3>
-                    <select id="category-filter" class="category-filter">
-                        <option value="">All Categories</option>
-                        {sidebar_category_options}
-                    </select>
-                </div>
-                
-                <div class="sidebar-section">
-                    <h3>Table of Contents</h3>
-                    {toc_section}
-                </div>
-            </aside>
-
-            <main class="content-area">
-                {verb_sections}
-            </main>
-        </div>
-
-        <div class="filter-modal" id="filterModal">
-            <div class="modal-content">
-                <span class="close">&times;</span>
-                <h2>Filter Verbs</h2>
-                <div class="filter-section">
-                    <label for="filter-category">Category:</label>
-                    <select id="filter-category" class="filter-select">
-                        <option value="">All Categories</option>
-                        {filter_category_options}
-                    </select>
-                </div>
-                <div class="filter-section">
-                    <label for="filter-text">Search:</label>
-                    <input type="text" id="filter-text" class="filter-input" placeholder="Search verbs...">
-                </div>
-                <button id="apply-filters" class="filter-button">Apply Filters</button>
-            </div>
-        </div>
-    </div>
-
-    <script src="scripts/main.js"></script>
-</body>
-</html>"""
-
-        return html_content
-
     # ============================================================================
-    # STATIC CONTENT GENERATION METHODS
+    # REFACTORED METHODS - READ FROM PROCESSED DATA INSTEAD OF CALLING GENERATION FUNCTIONS
     # ============================================================================
 
-    def create_static_verb_section(
+    def create_static_verb_section_from_processed_data(
         self,
         verb: Dict,
+        processed_verb: Dict,
         index: Optional[int] = None,
         duplicate_primary_verbs: Optional[Dict] = None,
     ) -> str:
         """
-        Create a complete static verb section with embedded content.
+        Create a complete static verb section using processed data instead of calling generation functions.
+        [REFACTORED - Now reads from processed data instead of calling example generation methods]
 
         Args:
-            verb: Verb data dictionary
+            verb: Base verb data dictionary
+            processed_verb: Processed verb data from the pipeline
             index: Page number index
             duplicate_primary_verbs: Dictionary of duplicate primary verbs
 
@@ -740,27 +572,30 @@ class HTMLGenerator:
         )
 
         if has_multiple_preverbs:
-            # Generate static content with default preverb
-            return self._create_multi_preverb_static_section(
-                verb, index, duplicate_primary_verbs
+            # Generate static content with default preverb using processed data
+            return self._create_multi_preverb_static_section_from_processed_data(
+                verb, processed_verb, index, duplicate_primary_verbs
             )
         else:
-            # Generate complete static content
-            return self._create_single_preverb_static_section(
-                verb, index, duplicate_primary_verbs
+            # Generate complete static content using processed data
+            return self._create_single_preverb_static_section_from_processed_data(
+                verb, processed_verb, index, duplicate_primary_verbs
             )
 
-    def _create_single_preverb_static_section(
+    def _create_single_preverb_static_section_from_processed_data(
         self,
         verb: Dict,
+        processed_verb: Dict,
         index: Optional[int] = None,
         duplicate_primary_verbs: Optional[Dict] = None,
     ) -> str:
         """
-        Create complete static content for single-preverb verbs.
+        Create complete static content for single-preverb verbs using processed data.
+        [REFACTORED - Now reads from processed data instead of calling generation functions]
 
         Args:
-            verb: Verb data dictionary
+            verb: Base verb data dictionary
+            processed_verb: Processed verb data from the pipeline
             index: Page number index
             duplicate_primary_verbs: Dictionary of duplicate primary verbs
 
@@ -791,9 +626,14 @@ class HTMLGenerator:
         preverb_config = verb.get("preverb_config", {})
         default_preverb = preverb_config.get("default_preverb", "")
 
-        # Generate static content with default preverb
-        overview_table = self._generate_overview_table(verb, default_preverb)
-        tense_tables = self._generate_tense_tables(verb, default_preverb)
+        # Generate static content using processed data instead of calling generation functions
+        # For single-preverb verbs, don't pass a preverb parameter so examples/glosses are retrieved from base data
+        overview_table = self._generate_overview_table_from_processed_data(
+            verb, processed_verb, None
+        )
+        tense_tables = self._generate_tense_tables_from_processed_data(
+            verb, processed_verb, None
+        )
 
         # Get category for the verb
         category = verb.get("category", "Unknown")
@@ -821,17 +661,20 @@ class HTMLGenerator:
 
         return section_html
 
-    def _create_multi_preverb_static_section(
+    def _create_multi_preverb_static_section_from_processed_data(
         self,
         verb: Dict,
+        processed_verb: Dict,
         index: Optional[int] = None,
         duplicate_primary_verbs: Optional[Dict] = None,
     ) -> str:
         """
-        Create static content for multi-preverb verbs with default preverb.
+        Create static content for multi-preverb verbs with default preverb using processed data.
+        [REFACTORED - Now reads from processed data instead of calling generation functions]
 
         Args:
-            verb: Verb data dictionary
+            verb: Base verb data dictionary
+            processed_verb: Processed verb data from the pipeline
             index: Page number index
             duplicate_primary_verbs: Dictionary of duplicate primary verbs
 
@@ -868,9 +711,13 @@ class HTMLGenerator:
         # Get category for the verb
         category = verb.get("category", "Unknown")
 
-        # Generate static content with default preverb
-        overview_table = self._generate_overview_table(verb, default_preverb)
-        tense_tables = self._generate_tense_tables(verb, default_preverb)
+        # Generate static content using processed data instead of calling generation functions
+        overview_table = self._generate_overview_table_from_processed_data(
+            verb, processed_verb, default_preverb
+        )
+        tense_tables = self._generate_tense_tables_from_processed_data(
+            verb, processed_verb, default_preverb
+        )
 
         # Create multi-preverb static verb section
         section_html = f"""
@@ -897,14 +744,16 @@ class HTMLGenerator:
 
         return section_html
 
-    def _generate_overview_table(
-        self, verb: Dict, preverb: Optional[str] = None
+    def _generate_overview_table_from_processed_data(
+        self, verb: Dict, processed_verb: Dict, preverb: Optional[str] = None
     ) -> str:
         """
-        Generate overview table HTML with all tenses.
+        Generate overview table HTML using processed data instead of calling generation functions.
+        [REFACTORED - Now reads from processed data instead of calling get_conjugation_form]
 
         Args:
-            verb: Verb data dictionary
+            verb: Base verb data dictionary
+            processed_verb: Processed verb data from the pipeline
             preverb: Optional preverb to use (for multi-preverb verbs)
 
         Returns:
@@ -924,14 +773,27 @@ class HTMLGenerator:
             # Define persons
             persons = ["1sg", "2sg", "3sg", "1pl", "2pl", "3pl"]
 
-            # Generate table rows
+            # Check if verb has multiple preverbs
+            has_multiple_preverbs = verb.get("preverb_config", {}).get(
+                "has_multiple_preverbs", False
+            )
+
+            # Generate table rows using processed data
             table_rows = ""
             for tense_name, tense_display in tenses:
                 row_class = f"tense-{tense_name}"
                 cells = f"<td>{tense_display}</td>"
 
                 for person in persons:
-                    form = get_conjugation_form(verb, tense_name, person, preverb)
+                    if has_multiple_preverbs and preverb:
+                        # Use processed preverb forms for multi-preverb verbs
+                        form = self._get_processed_conjugation_form(
+                            processed_verb, tense_name, person, preverb
+                        )
+                    else:
+                        # Use base conjugations for single-preverb verbs
+                        form = self._get_base_conjugation_form(verb, tense_name, person)
+
                     cells += f'<td class="georgian-text">{form}</td>'
 
                 table_rows += f'<tr class="{row_class}">{cells}</tr>'
@@ -966,13 +828,17 @@ class HTMLGenerator:
             )
             return ""
 
-    def _generate_tense_tables(self, verb: Dict, preverb: Optional[str] = None) -> str:
+    def _generate_tense_tables_from_processed_data(
+        self, verb: Dict, processed_verb: Dict, preverb: Optional[str] = None
+    ) -> str:
         """
-        Generate individual tense tables HTML.
+        Generate individual tense tables HTML using processed data.
+        [REFACTORED - Now reads from processed data instead of calling generation functions]
 
         Args:
-            verb: Verb data dictionary
-            preverb: Optional preverb to use (for multi-preverb verbs)
+            verb: Base verb data dictionary
+            processed_verb: Processed verb data from the pipeline
+            preverb: Optional preverb to use
 
         Returns:
             HTML string for all tense tables
@@ -987,11 +853,11 @@ class HTMLGenerator:
 
             tense_tables_html = ""
             for pair_index, (tense1, tense2) in enumerate(tense_pairs, 1):
-                table1 = self._generate_single_tense_table(
-                    verb, tense1[0], tense1[1], preverb
+                table1 = self._generate_single_tense_table_from_processed_data(
+                    verb, processed_verb, tense1[0], tense1[1], preverb
                 )
-                table2 = self._generate_single_tense_table(
-                    verb, tense2[0], tense2[1], preverb
+                table2 = self._generate_single_tense_table_from_processed_data(
+                    verb, processed_verb, tense2[0], tense2[1], preverb
                 )
 
                 tense_tables_html += f"""
@@ -1013,14 +879,21 @@ class HTMLGenerator:
             )
             return ""
 
-    def _generate_single_tense_table(
-        self, verb: Dict, tense: str, tense_display: str, preverb: Optional[str] = None
+    def _generate_single_tense_table_from_processed_data(
+        self,
+        verb: Dict,
+        processed_verb: Dict,
+        tense: str,
+        tense_display: str,
+        preverb: Optional[str] = None,
     ) -> str:
         """
-        Generate a single tense table with examples and gloss analysis.
+        Generate a single tense table with examples and gloss analysis using processed data.
+        [REFACTORED - Now reads from processed data instead of calling generation functions]
 
         Args:
-            verb: Verb data dictionary
+            verb: Base verb data dictionary
+            processed_verb: Processed verb data from the pipeline
             tense: Tense name
             tense_display: Display name for the tense
             preverb: Optional preverb to use
@@ -1029,14 +902,20 @@ class HTMLGenerator:
             HTML string for single tense table
         """
         try:
-            # Generate conjugation table
-            conjugation_table = self._generate_conjugation_table(verb, tense, preverb)
+            # Generate conjugation table using processed data
+            conjugation_table = self._generate_conjugation_table_from_processed_data(
+                verb, processed_verb, tense, preverb
+            )
 
-            # Generate examples
-            examples_section = self._generate_examples_section(verb, tense, preverb)
+            # Generate examples using processed data
+            examples_section = self._generate_examples_section_from_processed_data(
+                verb, processed_verb, tense, preverb
+            )
 
-            # Generate gloss analysis
-            gloss_analysis = self._generate_gloss_analysis(verb, tense, preverb)
+            # Generate gloss analysis using processed data
+            gloss_analysis = self._generate_gloss_analysis_from_processed_data(
+                verb, processed_verb, tense, preverb
+            )
 
             return f"""
                 <h3>{tense_display}</h3>
@@ -1051,14 +930,20 @@ class HTMLGenerator:
             )
             return ""
 
-    def _generate_conjugation_table(
-        self, verb: Dict, tense: str, preverb: Optional[str] = None
+    def _generate_conjugation_table_from_processed_data(
+        self,
+        verb: Dict,
+        processed_verb: Dict,
+        tense: str,
+        preverb: Optional[str] = None,
     ) -> str:
         """
-        Generate conjugation table HTML for a specific tense.
+        Generate conjugation table HTML for a specific tense using processed data.
+        [REFACTORED - Now reads from processed data instead of calling get_conjugation_form]
 
         Args:
-            verb: Verb data dictionary
+            verb: Base verb data dictionary
+            processed_verb: Processed verb data from the pipeline
             tense: Tense name
             preverb: Optional preverb to use
 
@@ -1073,11 +958,26 @@ class HTMLGenerator:
                 ("3rd", "3sg", "3pl"),
             ]
 
-            # Generate table rows
+            # Check if verb has multiple preverbs
+            has_multiple_preverbs = verb.get("preverb_config", {}).get(
+                "has_multiple_preverbs", False
+            )
+
+            # Generate table rows using processed data
             table_rows = ""
             for person_display, sg_person, pl_person in persons:
-                sg_form = get_conjugation_form(verb, tense, sg_person, preverb)
-                pl_form = get_conjugation_form(verb, tense, pl_person, preverb)
+                if has_multiple_preverbs and preverb:
+                    # Use processed preverb forms for multi-preverb verbs
+                    sg_form = self._get_processed_conjugation_form(
+                        processed_verb, tense, sg_person, preverb
+                    )
+                    pl_form = self._get_processed_conjugation_form(
+                        processed_verb, tense, pl_person, preverb
+                    )
+                else:
+                    # Use base conjugations for single-preverb verbs
+                    sg_form = self._get_base_conjugation_form(verb, tense, sg_person)
+                    pl_form = self._get_base_conjugation_form(verb, tense, pl_person)
 
                 table_rows += f"""
                     <tr>
@@ -1110,14 +1010,20 @@ class HTMLGenerator:
             )
             return ""
 
-    def _generate_examples_section(
-        self, verb: Dict, tense: str, preverb: Optional[str] = None
+    def _generate_examples_section_from_processed_data(
+        self,
+        verb: Dict,
+        processed_verb: Dict,
+        tense: str,
+        preverb: Optional[str] = None,
     ) -> str:
         """
-        Generate examples section HTML using example generator with multi-preverb support.
+        Generate examples section HTML using processed data instead of calling example generation methods.
+        [REFACTORED - Now reads from processed data instead of calling generate_pedagogical_examples]
 
         Args:
-            verb: Verb data dictionary
+            verb: Base verb data dictionary
+            processed_verb: Processed verb data from the pipeline
             tense: Tense name
             preverb: Optional preverb to use
 
@@ -1126,7 +1032,7 @@ class HTMLGenerator:
         """
         try:
             logger.info(
-                f"Generating examples for verb {verb.get('id', 'unknown')}, tense {tense}, preverb {preverb}"
+                f"Generating examples from processed data for verb {verb.get('id', 'unknown')}, tense {tense}, preverb {preverb}"
             )
 
             # Check if verb has multiple preverbs
@@ -1134,7 +1040,6 @@ class HTMLGenerator:
             has_multiple_preverbs = preverb_config.get("has_multiple_preverbs", False)
 
             logger.info(f"Verb has multiple preverbs: {has_multiple_preverbs}")
-            logger.info(f"Preverb config: {preverb_config}")
 
             if has_multiple_preverbs:
                 # Generate examples for the default preverb only (static)
@@ -1145,250 +1050,57 @@ class HTMLGenerator:
                     f"Multi-preverb verb, generating examples for default preverb: {default_preverb}"
                 )
 
-                # Generate examples for the default preverb only
-                enhanced_examples = generate_pedagogical_examples(
-                    verb, tense, [default_preverb]
+                # Get examples from processed data for the default preverb
+                examples = self._get_processed_examples(
+                    processed_verb, tense, default_preverb
                 )
-                logger.info(
-                    f"Enhanced examples result for default preverb: {enhanced_examples}"
-                )
-
-                if enhanced_examples.get("enhanced", False) and enhanced_examples.get(
-                    "examples"
-                ):
-                    # Handle the new nested structure
-                    examples_data = enhanced_examples["examples"]
-                    if isinstance(examples_data, list) and examples_data:
-                        # Check if this is the new nested structure
-                        first_item = examples_data[0]
-                        if isinstance(first_item, dict) and "examples" in first_item:
-                            # New nested structure: examples grouped by preverb
-                            for item in examples_data:
-                                if item.get("preverb") == default_preverb:
-                                    examples_html = self._format_multi_preverb_examples(
-                                        item.get("examples", []), default_preverb
-                                    )
-                                    logger.info(
-                                        f"Added examples for default preverb {default_preverb}"
-                                    )
-                                    break
-                        # New nested structure only - no old structure handling needed
+                if examples:
+                    examples_html = self._format_examples_from_processed_data(
+                        examples, default_preverb
+                    )
 
                 logger.info(f"Final examples HTML length: {len(examples_html)}")
                 return examples_html
             else:
-                # Single preverb - use existing logic
-                logger.info(f"Single preverb verb, generating examples")
-                enhanced_examples = generate_pedagogical_examples(verb, tense, preverb)
-                logger.info(f"Enhanced examples result: {enhanced_examples}")
-
-                if enhanced_examples.get("enhanced", False) and enhanced_examples.get(
-                    "examples"
-                ):
-                    # Handle the new nested structure where examples are grouped by preverb
-                    examples_data = enhanced_examples["examples"]
-                    if isinstance(examples_data, list) and examples_data:
-                        # Check if this is the new nested structure
-                        first_item = examples_data[0]
-                        if isinstance(first_item, dict) and "examples" in first_item:
-                            # New nested structure: examples grouped by preverb
-                            # For single preverb, extract examples from the first (and only) preverb group
-                            if examples_data:
-                                first_preverb_group = examples_data[0]
-                                examples_list = first_preverb_group.get("examples", [])
-                                result = self._format_pedagogical_examples(
-                                    examples_list
-                                )
-                            else:
-                                result = ""
-                        # New nested structure only - no old structure handling needed
-                    else:
-                        result = ""
-
+                # Single preverb - get examples from processed data
+                logger.info(
+                    f"Single preverb verb, getting examples from processed data"
+                )
+                examples = self._get_processed_examples(processed_verb, tense, preverb)
+                logger.info(
+                    f"Retrieved examples: {len(examples) if examples else 0} examples"
+                )
+                if examples:
+                    result = self._format_examples_from_processed_data(examples)
                     logger.info(f"Formatted examples HTML length: {len(result)}")
+                    logger.info(f"Formatted examples HTML preview: {result[:200]}...")
                     return result
                 else:
                     logger.warning(
-                        f"No examples generated for verb {verb.get('id', 'unknown')}, tense {tense}"
+                        f"No examples found in processed data for verb {verb.get('id', 'unknown')}, tense {tense}"
                     )
-                return ""
+                    return ""
 
         except Exception as e:
             logger.warning(
-                f"Failed to generate examples for verb {verb.get('id', 'unknown')}, tense {tense}: {e}"
+                f"Failed to generate examples from processed data for verb {verb.get('id', 'unknown')}, tense {tense}: {e}"
             )
             return ""
 
-    def _format_pedagogical_examples(self, examples: List[Dict]) -> str:
-        """
-        Format pedagogical examples into HTML.
-
-        Args:
-            examples: List of example dictionaries
-
-        Returns:
-            HTML string for formatted examples
-        """
-        try:
-            if not examples:
-                return ""
-
-            examples_html = ""
-            for example in examples:
-                georgian_html = example.get("html", example.get("georgian", ""))
-                english_text = example.get("english", "")
-                copy_text = example.get("copy_text", english_text)
-
-                # Ensure copy_text is plain text (remove HTML tags if present)
-                import re
-
-                plain_copy_text = re.sub(r"<[^>]+>", "", copy_text)
-
-                examples_html += f"""
-                    <li class="example-item">
-                        <div class="georgian georgian-text">
-                            {georgian_html}
-                        </div>
-                        <div class="translation english-text" data-copy-text="{plain_copy_text}">
-                            {english_text}
-                        </div>
-                    </li>
-                """
-
-            return f"""
-                <div class="examples">
-                    <h4>Examples:</h4>
-                    <ul>
-                        {examples_html}
-                    </ul>
-                </div>
-            """
-
-        except Exception as e:
-            logger.warning(f"Failed to format pedagogical examples: {e}")
-            return ""
-
-    def _format_multi_preverb_examples(self, examples: List[Dict], preverb: str) -> str:
-        """
-        Format multi-preverb examples into HTML with preverb-specific sections.
-
-        Args:
-            examples: List of example dictionaries for a specific preverb
-            preverb: The preverb being formatted
-
-        Returns:
-            HTML string for formatted multi-preverb examples
-        """
-        try:
-            if not examples:
-                return ""
-
-            examples_html = ""
-            for example in examples:
-                georgian_html = example.get("html", example.get("georgian", ""))
-                english_text = example.get("english", "")
-                copy_text = example.get("copy_text", english_text)
-
-                # Ensure copy_text is plain text (remove HTML tags if present)
-                import re
-
-                plain_copy_text = re.sub(r"<[^>]+>", "", copy_text)
-
-                examples_html += f"""
-                    <li class="example-item">
-                        <div class="georgian georgian-text">
-                            {georgian_html}
-                        </div>
-                        <div class="translation english-text" data-copy-text="{plain_copy_text}">
-                            {english_text}
-                        </div>
-                    </li>
-                """
-
-            return f"""
-                <div class="examples" data-preverb="{preverb}">
-                    <h4>Examples ({preverb}):</h4>
-                    <ul>
-                        {examples_html}
-                    </ul>
-                </div>
-            """
-
-        except Exception as e:
-            logger.warning(
-                f"Failed to format multi-preverb examples for preverb {preverb}: {e}"
-            )
-            return ""
-
-    def _format_nested_examples(self, examples_data: List[Dict]) -> str:
-        """
-        Format nested examples (where examples are grouped by preverb) into HTML.
-
-        Args:
-            examples_data: List of dictionaries, where each dictionary contains a 'preverb' key
-            and a 'examples' key (which is a list of example dictionaries).
-
-        Returns:
-            HTML string for formatted nested examples.
-        """
-        try:
-            if not examples_data:
-                return ""
-
-            nested_examples_html = ""
-            for item in examples_data:
-                preverb = item.get("preverb", "N/A")
-                examples_list = item.get("examples", [])
-
-                if not examples_list:
-                    continue
-
-                # Format the individual examples for this preverb
-                examples_html = ""
-                for example in examples_list:
-                    georgian_html = example.get("html", example.get("georgian", ""))
-                    english_text = example.get("english", "")
-                    copy_text = example.get("copy_text", english_text)
-
-                    # Ensure copy_text is plain text (remove HTML tags if present)
-                    import re
-
-                    plain_copy_text = re.sub(r"<[^>]+>", "", copy_text)
-
-                    examples_html += f"""
-                        <li class="example-item">
-                            <div class="georgian georgian-text">
-                                {georgian_html}
-                            </div>
-                            <div class="translation english-text" data-copy-text="{plain_copy_text}">
-                                {english_text}
-                            </div>
-                        </li>
-                    """
-
-                nested_examples_html += f"""
-                    <div class="examples" data-preverb="{preverb}">
-                        <h4>Examples ({preverb}):</h4>
-                        <ul>
-                            {examples_html}
-                        </ul>
-                    </div>
-                """
-
-            return nested_examples_html
-
-        except Exception as e:
-            logger.warning(f"Failed to format nested examples: {e}")
-            return ""
-
-    def _generate_gloss_analysis(
-        self, verb: Dict, tense: str, preverb: Optional[str] = None
+    def _generate_gloss_analysis_from_processed_data(
+        self,
+        verb: Dict,
+        processed_verb: Dict,
+        tense: str,
+        preverb: Optional[str] = None,
     ) -> str:
         """
-        Generate gloss analysis HTML using gloss parser.
+        Generate gloss analysis HTML using processed data instead of calling gloss parser functions.
+        [REFACTORED - Now reads from processed data instead of calling gloss parser functions]
 
         Args:
-            verb: Verb data dictionary
+            verb: Base verb data dictionary
+            processed_verb: Processed verb data from the pipeline
             tense: Tense name
             preverb: Optional preverb to use
 
@@ -1402,87 +1114,273 @@ class HTMLGenerator:
             )
 
             logger.info(
-                f"[GLOSS] Generating static gloss for verb {verb_id}, tense {tense}, preverb {preverb}, multi-preverb: {has_multiple_preverbs}"
+                f"[GLOSS] Generating gloss from processed data for verb {verb_id}, tense {tense}, preverb {preverb}, multi-preverb: {has_multiple_preverbs}"
             )
 
-            gloss_parser = GlossParser()
+            # Get gloss data from processed data
+            gloss_data = self._get_processed_gloss_data(processed_verb, tense, preverb)
 
-            # Get raw gloss from verb data
-            conjugations = verb.get("conjugations", {})
-            tense_data = conjugations.get(tense, {})
-
-            # Handle different data structures
-            raw_gloss = ""
-            gloss_preverb = preverb
-
-            if isinstance(tense_data, dict):
-                if "raw_gloss" in tense_data:
-                    # New structure: raw_gloss is directly in tense_data
-                    raw_gloss = tense_data.get("raw_gloss", "")
-                # New structure: raw_gloss is directly in tense_data
-
-            logger.info(
-                f"[GLOSS] Raw gloss for verb {verb_id}, tense {tense}: '{raw_gloss}'"
-            )
-
-            if not raw_gloss:
+            if not gloss_data:
                 logger.info(
-                    f"[GLOSS] No raw gloss found for verb {verb_id}, tense {tense}"
+                    f"[GLOSS] No gloss data found in processed data for verb {verb_id}, tense {tense}"
                 )
                 return ""
 
-            # Keep the raw gloss unchanged - the preverb will be handled in the expanded gloss
-            logger.info(f"[GLOSS] Using raw gloss as-is: '{raw_gloss}'")
-
-            # Process raw gloss to get full expanded format using the same method as external data
-            from tools.core.gloss_parser import (
-                format_raw_gloss_with_colors,
-                format_gloss_for_html,
-                process_raw_gloss_simple,
+                # Format the gloss analysis using processed data
+            gloss_html = self._format_gloss_analysis_from_processed_data(
+                gloss_data, verb_id, tense, preverb
             )
 
-            expanded_gloss = process_raw_gloss_simple(raw_gloss, gloss_preverb)
-            if not expanded_gloss:
-                logger.warning(
-                    f"[GLOSS] No expanded gloss generated for verb {verb_id}, tense {tense}"
-                )
-                return ""
-
             logger.info(
-                f"[GLOSS] Expanded gloss for verb {verb_id}, tense {tense}: '{expanded_gloss[:100]}...'"
-            )
-
-            # Format the gloss analysis with color coding
-            color_coded_raw = format_raw_gloss_with_colors(raw_gloss)
-            color_coded_expanded = format_gloss_for_html(expanded_gloss)
-
-            gloss_html = f"""
-                <div class="case-gloss" data-verb-id="{verb_id}" data-tense="{tense}" data-preverb="{preverb or ''}">
-                    <div class="gloss-header">
-                        <strong>Verb Gloss Analysis</strong>
-                    </div>
-                    <div class="gloss-content">
-                        <div class="raw-gloss">
-                            <strong>Raw:</strong>
-                            <code>{color_coded_raw}</code>
-                        </div>
-                        <div class="expanded-gloss">
-                            <strong>Expanded:</strong>
-                            <div class="gloss-definitions">
-                                {color_coded_expanded}
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            """
-
-            logger.info(
-                f"[GLOSS] Generated static gloss HTML for verb {verb_id}, tense {tense}, length: {len(gloss_html)}"
+                f"[GLOSS] Generated gloss HTML from processed data for verb {verb_id}, tense {tense}, length: {len(gloss_html)}"
             )
             return gloss_html
 
         except Exception as e:
             logger.warning(
-                f"Failed to generate gloss analysis for verb {verb.get('id', 'unknown')}, tense {tense}: {e}"
+                f"Failed to generate gloss analysis from processed data for verb {verb.get('id', 'unknown')}, tense {tense}: {e}"
             )
             return ""
+
+    # ============================================================================
+    # HELPER METHODS FOR READING FROM PROCESSED DATA
+    # ============================================================================
+
+    def _get_processed_conjugation_form(
+        self, processed_verb: Dict, tense: str, person: str, preverb: str
+    ) -> str:
+        """Get conjugation form from processed data for multi-preverb verbs."""
+        try:
+            preverb_forms = processed_verb.get("generated_data", {}).get(
+                "preverb_forms", {}
+            )
+            tense_forms = preverb_forms.get(preverb, {}).get(tense, {})
+            return tense_forms.get(person, "-")
+        except Exception:
+            return "-"
+
+    def _get_base_conjugation_form(self, verb: Dict, tense: str, person: str) -> str:
+        """Get conjugation form from base verb data for single-preverb verbs."""
+        try:
+            conjugations = verb.get("conjugations", {})
+            tense_data = conjugations.get(tense, {})
+            forms = tense_data.get("forms", {})
+            return forms.get(person, "-")
+        except Exception:
+            return "-"
+
+    def _get_processed_examples(
+        self, processed_verb: Dict, tense: str, preverb: Optional[str] = None
+    ) -> List[Dict]:
+        """Get examples from processed data."""
+        try:
+            examples = processed_verb.get("generated_data", {}).get("examples", {})
+            print(f"[EXAMPLES] Looking for examples: tense={tense}, preverb={preverb}")
+            # Don't print examples keys to avoid Unicode encoding issues
+            print(f"[EXAMPLES] Available keys in examples: {len(examples)} keys")
+
+            if preverb:
+                # Multi-preverb verb - get examples for specific preverb
+                result = examples.get(preverb, {}).get(tense, [])
+                print(f"[EXAMPLES] Multi-preverb result: {len(result)} examples")
+                return result
+            else:
+                # Single-preverb verb - examples might be stored directly under tense
+                # or under a default preverb key
+                if tense in examples:
+                    # Direct tense access
+                    result = examples.get(tense, [])
+                    print(
+                        f"[EXAMPLES] Direct tense access result: {len(result)} examples"
+                    )
+                    return result
+                else:
+                    # Check if there's a default preverb
+                    # Look for any preverb that has examples for this tense
+                    for preverb_key, preverb_data in examples.items():
+                        if isinstance(preverb_data, dict) and tense in preverb_data:
+                            result = preverb_data.get(tense, [])
+                            print(
+                                f"[EXAMPLES] Found under preverb {preverb_key}: {len(result)} examples"
+                            )
+                            return result
+                    print(f"[EXAMPLES] No examples found for tense {tense}")
+                    return []
+        except Exception as e:
+            # Don't print exception details to avoid Unicode encoding issues
+            print(
+                f"[EXAMPLES] Exception in _get_processed_examples: {type(e).__name__}"
+            )
+            return []
+
+    def _get_processed_gloss_data(
+        self, processed_verb: Dict, tense: str, preverb: Optional[str] = None
+    ) -> Dict:
+        """Get gloss data from processed data."""
+        try:
+            gloss_analysis = processed_verb.get("generated_data", {}).get(
+                "gloss_analysis", {}
+            )
+            if preverb:
+                # Multi-preverb verb - get gloss for specific preverb
+                gloss_data = gloss_analysis.get(preverb, {}).get(tense, {})
+            else:
+                # Single-preverb verb - gloss might be stored directly under tense
+                # or under a default preverb key
+                if tense in gloss_analysis:
+                    # Direct tense access
+                    gloss_data = gloss_analysis.get(tense, {})
+                else:
+                    # Check if there's a default preverb
+                    # Look for any preverb that has gloss for this tense
+                    for preverb_key, preverb_data in gloss_analysis.items():
+                        if isinstance(preverb_data, dict) and tense in preverb_data:
+                            gloss_data = preverb_data.get(tense, {})
+                            break
+                    else:
+                        return {}
+
+            # Extract the structured gloss data if it exists
+            if gloss_data and "structured_gloss" in gloss_data:
+                return gloss_data["structured_gloss"]
+            else:
+                return gloss_data
+        except Exception:
+            return {}
+
+    def _format_examples_from_processed_data(
+        self, examples: List[Dict], preverb: Optional[str] = None
+    ) -> str:
+        """Format examples from processed data into HTML."""
+        try:
+            if not examples:
+                return ""
+
+            examples_html = ""
+            for example in examples:
+                georgian_html = example.get("html", example.get("georgian", ""))
+                english_text = example.get("english", "")
+                copy_text = example.get("copy_text", english_text)
+
+                # Ensure copy_text is plain text (remove HTML tags if present)
+                plain_copy_text = re.sub(r"<[^>]+>", "", copy_text)
+
+                examples_html += f"""
+                    <li class="example-item">
+                        <div class="georgian georgian-text">
+                            {georgian_html}
+                        </div>
+                        <div class="translation english-text" data-copy-text="{plain_copy_text}">
+                            {english_text}
+                        </div>
+                    </li>
+                """
+
+            preverb_suffix = f" ({preverb})" if preverb else ""
+            return f"""
+                <div class="examples">
+                    <h4>Examples{preverb_suffix}:</h4>
+                    <ul>
+                        {examples_html}
+                    </ul>
+                </div>
+            """
+
+        except Exception as e:
+            logger.warning(f"Failed to format examples from processed data: {e}")
+            return ""
+
+    def _format_gloss_analysis_from_processed_data(
+        self, gloss_data: Dict, verb_id: str, tense: str, preverb: Optional[str] = None
+    ) -> str:
+        """Format gloss analysis from processed data into HTML using the new structured format."""
+        try:
+            # Check if we have structured gloss data (either direct or nested)
+            if "raw_components" in gloss_data:
+                # Direct structure from robust gloss processor
+                raw_components = gloss_data.get("raw_components", [])
+                expanded_components = gloss_data.get("expanded_components", [])
+            else:
+                # Legacy nested structure
+                structured_gloss = gloss_data.get("structured_gloss", {})
+                if not structured_gloss:
+                    return ""
+                raw_components = structured_gloss.get("raw_components", [])
+                expanded_components = structured_gloss.get("expanded_components", [])
+
+            # Generate raw gloss section with monospaced font
+            raw_html = self._generate_raw_gloss_section(raw_components)
+
+            # Generate expanded gloss section
+            expanded_html = self._generate_expanded_gloss_section(expanded_components)
+
+            # Wrap in case-gloss div
+            preverb_attr = f' data-preverb="{preverb}"' if preverb else ""
+            result = f"""
+            <div class="case-gloss" data-verb-id="{verb_id}" data-tense="{tense}"{preverb_attr}>
+                <div class="gloss-header">
+                    <strong>Verb Gloss Analysis</strong>
+                </div>
+                <div class="gloss-content">
+                    {raw_html}
+                    {expanded_html}
+                </div>
+            </div>
+            """
+
+            return result
+
+        except Exception as e:
+            logger.warning(f"Failed to format gloss analysis from processed data: {e}")
+            return ""
+
+    def _generate_raw_gloss_section(self, raw_components: List[Dict]) -> str:
+        """Generate the raw gloss section with monospaced font and color coding."""
+        if not raw_components:
+            return ""
+
+        # Build color-coded raw gloss
+        colored_parts = []
+        for component in raw_components:
+            text = component.get("text", "")
+            color_class = component.get("color_class", "gloss-default")
+
+            # Escape angle brackets so they display as literal text
+            escaped_text = text.replace("<", "&lt;").replace(">", "&gt;")
+            colored_parts.append(f'<span class="{color_class}">{escaped_text}</span>')
+
+        colored_raw_gloss = " ".join(colored_parts)
+
+        return f"""
+        <div class="raw-gloss">
+            <strong>Raw:</strong> 
+            <span class="gloss-text" style="font-family: 'Courier New', monospace;">{colored_raw_gloss}</span>
+        </div>
+        """
+
+    def _generate_expanded_gloss_section(self, expanded_components: List[Dict]) -> str:
+        """Generate the expanded gloss section with proper formatting."""
+        if not expanded_components:
+            return ""
+
+        # Build expanded gloss
+        expanded_parts = []
+        for component in expanded_components:
+            text = component.get("text", "")
+            color_class = component.get("color_class", "gloss-default")
+            description = component.get("description", "")
+
+            # Escape angle brackets so they display as literal text
+            escaped_text = text.replace("<", "&lt;").replace(">", "&gt;")
+            colored_text = f'<span class="{color_class}">{escaped_text}</span>'
+
+            expanded_parts.append(f"{colored_text}: {description}")
+
+        expanded_gloss = "<br>".join(expanded_parts)
+
+        return f"""
+        <div class="expanded-gloss">
+            <strong>Expanded:</strong> 
+            <div class="gloss-text">{expanded_gloss}</div>
+        </div>
+        """

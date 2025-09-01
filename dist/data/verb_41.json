@@ -1,0 +1,773 @@
+{
+  "id": 41,
+  "georgian": "ჯდომა",
+  "description": "To Sit",
+  "category": "Daily Activities",
+  "class": "Class-I",
+  "semantic_key": "sit",
+  "notes": "",
+  "url": "https://lingua.ge/verbs/%e1%83%af%e1%83%93%e1%83%9d%e1%83%9b%e1%83%90/",
+  "global_argument_pattern": "<S>",
+  "valency": {
+    "default": "<S>",
+    "alternatives": []
+  },
+  "syntax": {
+    "arguments": {
+      "subject": {
+        "3sg": {
+          "noun": "grandfather",
+          "adjective": "old"
+        },
+        "3pl": {
+          "noun": "child",
+          "adjective": "tired"
+        }
+      }
+    },
+    "prepositions": {
+      "subject": "the",
+      "direct_object": "",
+      "indirect_object": ""
+    },
+    "preverb_overrides": {}
+  },
+  "english_translations": {
+    "default": {
+      "present": "sit",
+      "imperfect": "was sitting",
+      "future": "will sit",
+      "aorist": "sat",
+      "optative": "sit",
+      "imperative": "sit"
+    }
+  },
+  "conjugations": {
+    "present": {
+      "raw_gloss": "V Pass Pres <S> <S:Nom>",
+      "forms": {
+        "1sg": "ვჯდები",
+        "2sg": "ჯდები",
+        "3sg": "ჯდება",
+        "1pl": "ვსხდებით",
+        "2pl": "სხდებით",
+        "3pl": "სხდებიან"
+      },
+      "examples": []
+    },
+    "imperfect": {
+      "raw_gloss": "V Pass Impf <S> <S:Nom>",
+      "forms": {
+        "1sg": "ვჯდებოდი",
+        "2sg": "ჯდებოდი",
+        "3sg": "ჯდებოდა",
+        "1pl": "ვსხდებოდით",
+        "2pl": "სხდებოდით",
+        "3pl": "სხდებოდნენ"
+      },
+      "examples": []
+    },
+    "future": {
+      "raw_gloss": "V Pass Fut <S> <S:Nom>",
+      "forms": {
+        "1sg": "დავჯდები",
+        "2sg": "დაჯდები",
+        "3sg": "დაჯდება",
+        "1pl": "დავსხდებით",
+        "2pl": "დასხდებით",
+        "3pl": "დასხდებიან"
+      },
+      "examples": []
+    },
+    "aorist": {
+      "raw_gloss": "V Pass Aor <S> <S:Erg>",
+      "forms": {
+        "1sg": "დავჯექი",
+        "2sg": "დაჯექი",
+        "3sg": "დაჯდა",
+        "1pl": "დავსხედით",
+        "2pl": "დასხედით",
+        "3pl": "დასხდნენ"
+      },
+      "examples": []
+    },
+    "optative": {
+      "raw_gloss": "V Pass Opt <S> <S:Erg>",
+      "forms": {
+        "1sg": "დავჯდე",
+        "2sg": "დაჯდე",
+        "3sg": "დაჯდეს",
+        "1pl": "დავსხდეთ",
+        "2pl": "დასხდეთ",
+        "3pl": "დასხდნენ"
+      },
+      "examples": []
+    },
+    "imperative": {
+      "raw_gloss": "V Pass Impv <S> <S:Erg>",
+      "forms": {
+        "1sg": "-",
+        "2sg": "დაჯექი",
+        "3sg": "-",
+        "1pl": "-",
+        "2pl": "დასხედით",
+        "3pl": "-"
+      },
+      "examples": []
+    }
+  },
+  "preverb_config": {
+    "has_multiple_preverbs": false,
+    "default_preverb": "",
+    "available_preverbs": []
+  },
+  "preverb_rules": {
+    "default": "",
+    "replacements": {},
+    "tense_specific_fallbacks": {},
+    "english_fallbacks": {}
+  },
+  "examples": {
+    "null": {
+      "present": [
+        {
+          "georgian": "ვჯდები",
+          "english": "<strong data-role=\"subject\" data-person=\"1sg\">I</strong> <strong data-role=\"verb\">sit</strong>",
+          "english_plain": "I sit",
+          "html": " <span data-role=\"verb\">ვჯდები</span>",
+          "case_marking": {},
+          "georgian_verb_form": "ვჯდები"
+        },
+        {
+          "georgian": "ძველი ბაბუა ჯდება",
+          "english": "<strong data-role=\"subject\">The old grandfather</strong> <strong data-role=\"verb\">sits</strong>",
+          "english_plain": "The old grandfather sits",
+          "html": "<span data-case=\"nom\" data-role=\"subject\">ძველი ბაბუა</span> <span data-role=\"verb\">ჯდება</span>",
+          "case_marking": {
+            "subject": {
+              "case": "nom",
+              "word": "ბაბუა"
+            }
+          },
+          "georgian_verb_form": "ჯდება"
+        },
+        {
+          "georgian": "დაღლილი ბავშვები სხდებიან",
+          "english": "<strong data-role=\"subject\">The tired children</strong> <strong data-role=\"verb\">sit</strong>",
+          "english_plain": "The tired children sit",
+          "html": "<span data-case=\"nom\" data-role=\"subject\">დაღლილი ბავშვები</span> <span data-role=\"verb\">სხდებიან</span>",
+          "case_marking": {
+            "subject": {
+              "case": "nom",
+              "word": "ბავშვები"
+            }
+          },
+          "georgian_verb_form": "სხდებიან"
+        }
+      ],
+      "imperfect": [
+        {
+          "georgian": "ვჯდებოდი",
+          "english": "<strong data-role=\"subject\" data-person=\"1sg\">I</strong> <strong data-role=\"verb\">was sitting</strong>",
+          "english_plain": "I was sitting",
+          "html": " <span data-role=\"verb\">ვჯდებოდი</span>",
+          "case_marking": {},
+          "georgian_verb_form": "ვჯდებოდი"
+        },
+        {
+          "georgian": "ძველი ბაბუა ჯდებოდა",
+          "english": "<strong data-role=\"subject\">The old grandfather</strong> <strong data-role=\"verb\">was sitting</strong>",
+          "english_plain": "The old grandfather was sitting",
+          "html": "<span data-case=\"nom\" data-role=\"subject\">ძველი ბაბუა</span> <span data-role=\"verb\">ჯდებოდა</span>",
+          "case_marking": {
+            "subject": {
+              "case": "nom",
+              "word": "ბაბუა"
+            }
+          },
+          "georgian_verb_form": "ჯდებოდა"
+        },
+        {
+          "georgian": "დაღლილი ბავშვები სხდებოდნენ",
+          "english": "<strong data-role=\"subject\">The tired children</strong> <strong data-role=\"verb\">were sitting</strong>",
+          "english_plain": "The tired children were sitting",
+          "html": "<span data-case=\"nom\" data-role=\"subject\">დაღლილი ბავშვები</span> <span data-role=\"verb\">სხდებოდნენ</span>",
+          "case_marking": {
+            "subject": {
+              "case": "nom",
+              "word": "ბავშვები"
+            }
+          },
+          "georgian_verb_form": "სხდებოდნენ"
+        }
+      ],
+      "future": [
+        {
+          "georgian": "დავჯდები",
+          "english": "<strong data-role=\"subject\" data-person=\"1sg\">I</strong> <strong data-role=\"verb\">will sit</strong>",
+          "english_plain": "I will sit",
+          "html": " <span data-role=\"verb\">დავჯდები</span>",
+          "case_marking": {},
+          "georgian_verb_form": "დავჯდები"
+        },
+        {
+          "georgian": "ძველი ბაბუა დაჯდება",
+          "english": "<strong data-role=\"subject\">The old grandfather</strong> <strong data-role=\"verb\">will sit</strong>",
+          "english_plain": "The old grandfather will sit",
+          "html": "<span data-case=\"nom\" data-role=\"subject\">ძველი ბაბუა</span> <span data-role=\"verb\">დაჯდება</span>",
+          "case_marking": {
+            "subject": {
+              "case": "nom",
+              "word": "ბაბუა"
+            }
+          },
+          "georgian_verb_form": "დაჯდება"
+        },
+        {
+          "georgian": "დაღლილი ბავშვები დასხდებიან",
+          "english": "<strong data-role=\"subject\">The tired children</strong> <strong data-role=\"verb\">will sit</strong>",
+          "english_plain": "The tired children will sit",
+          "html": "<span data-case=\"nom\" data-role=\"subject\">დაღლილი ბავშვები</span> <span data-role=\"verb\">დასხდებიან</span>",
+          "case_marking": {
+            "subject": {
+              "case": "nom",
+              "word": "ბავშვები"
+            }
+          },
+          "georgian_verb_form": "დასხდებიან"
+        }
+      ],
+      "aorist": [
+        {
+          "georgian": "დავჯექი",
+          "english": "<strong data-role=\"subject\" data-person=\"1sg\">I</strong> <strong data-role=\"verb\">sat</strong>",
+          "english_plain": "I sat",
+          "html": " <span data-role=\"verb\">დავჯექი</span>",
+          "case_marking": {},
+          "georgian_verb_form": "დავჯექი"
+        },
+        {
+          "georgian": "ძველმა ბაბუამ დაჯდა",
+          "english": "<strong data-role=\"subject\">The old grandfather</strong> <strong data-role=\"verb\">sat</strong>",
+          "english_plain": "The old grandfather sat",
+          "html": "<span data-case=\"erg\" data-role=\"subject\">ძველმა ბაბუამ</span> <span data-role=\"verb\">დაჯდა</span>",
+          "case_marking": {
+            "subject": {
+              "case": "erg",
+              "word": "ბაბუამ"
+            }
+          },
+          "georgian_verb_form": "დაჯდა"
+        },
+        {
+          "georgian": "დაღლილმა ბავშვებმა დასხდნენ",
+          "english": "<strong data-role=\"subject\">The tired children</strong> <strong data-role=\"verb\">sat</strong>",
+          "english_plain": "The tired children sat",
+          "html": "<span data-case=\"erg\" data-role=\"subject\">დაღლილმა ბავშვებმა</span> <span data-role=\"verb\">დასხდნენ</span>",
+          "case_marking": {
+            "subject": {
+              "case": "erg",
+              "word": "ბავშვებმა"
+            }
+          },
+          "georgian_verb_form": "დასხდნენ"
+        }
+      ],
+      "optative": [
+        {
+          "georgian": "უნდა დავჯდე",
+          "english": "<strong data-role=\"subject\" data-person=\"1sg\">I</strong> <strong data-role=\"verb\">should</strong> <strong data-role=\"verb\">sit</strong>",
+          "english_plain": "I should sit",
+          "html": " <span data-role=\"verb\">უნდა დავჯდე</span>",
+          "case_marking": {},
+          "georgian_verb_form": "დავჯდე"
+        },
+        {
+          "georgian": "ძველმა ბაბუამ უნდა დაჯდეს",
+          "english": "<strong data-role=\"subject\">The old grandfather</strong> <strong data-role=\"verb\">should</strong> <strong data-role=\"verb\">sit</strong>",
+          "english_plain": "The old grandfather should sit",
+          "html": "<span data-case=\"erg\" data-role=\"subject\">ძველმა ბაბუამ</span> <span data-role=\"verb\">უნდა დაჯდეს</span>",
+          "case_marking": {
+            "subject": {
+              "case": "erg",
+              "word": "ბაბუამ"
+            }
+          },
+          "georgian_verb_form": "დაჯდეს"
+        },
+        {
+          "georgian": "დაღლილმა ბავშვებმა უნდა დასხდნენ",
+          "english": "<strong data-role=\"subject\">The tired children</strong> <strong data-role=\"verb\">should</strong> <strong data-role=\"verb\">sit</strong>",
+          "english_plain": "The tired children should sit",
+          "html": "<span data-case=\"erg\" data-role=\"subject\">დაღლილმა ბავშვებმა</span> <span data-role=\"verb\">უნდა დასხდნენ</span>",
+          "case_marking": {
+            "subject": {
+              "case": "erg",
+              "word": "ბავშვებმა"
+            }
+          },
+          "georgian_verb_form": "დასხდნენ"
+        }
+      ],
+      "imperative": [
+        {
+          "georgian": "დაჯექი",
+          "english": "<strong data-role=\"verb\">sit</strong>",
+          "english_plain": "sit",
+          "html": " <span data-role=\"verb\">დაჯექი</span>",
+          "case_marking": {},
+          "georgian_verb_form": "დაჯექი"
+        },
+        {
+          "georgian": "დასხედით",
+          "english": "<strong data-role=\"verb\">sit</strong>",
+          "english_plain": "sit",
+          "html": " <span data-role=\"verb\">დასხედით</span>",
+          "case_marking": {},
+          "georgian_verb_form": "დასხედით"
+        }
+      ]
+    }
+  },
+  "gloss_analysis": {
+    "present": {
+      "raw_gloss": "V Pass Pres <S> <S:Nom>",
+      "structured_gloss": {
+        "raw_components": [
+          {
+            "text": "V",
+            "component_type": "verb",
+            "color_class": "gloss-verb",
+            "description": "Verb"
+          },
+          {
+            "text": "Pass",
+            "component_type": "voice",
+            "color_class": "gloss-voice",
+            "description": "Passive"
+          },
+          {
+            "text": "Pres",
+            "component_type": "tense",
+            "color_class": "gloss-tense",
+            "description": "Present"
+          },
+          {
+            "text": "<S>",
+            "component_type": "argument_pattern",
+            "color_class": "gloss-argument",
+            "description": "Intransitive absolute"
+          },
+          {
+            "text": "<S:Nom>",
+            "component_type": "case_spec",
+            "color_class": "gloss-case",
+            "description": "Nominative subject"
+          }
+        ],
+        "expanded_components": [
+          {
+            "text": "V",
+            "component_type": "verb",
+            "color_class": "gloss-verb",
+            "description": "Verb"
+          },
+          {
+            "text": "Pass",
+            "component_type": "voice",
+            "color_class": "gloss-voice",
+            "description": "Passive"
+          },
+          {
+            "text": "Pres",
+            "component_type": "tense",
+            "color_class": "gloss-tense",
+            "description": "Present"
+          },
+          {
+            "text": "<S>",
+            "component_type": "argument_pattern",
+            "color_class": "gloss-argument",
+            "description": "Intransitive absolute"
+          },
+          {
+            "text": "<S:Nom>",
+            "component_type": "case_spec",
+            "color_class": "gloss-subject",
+            "description": "Nominative subject"
+          }
+        ],
+        "argument_pattern": "<S>",
+        "case_specifications": [
+          "<S:Nom>"
+        ]
+      }
+    },
+    "imperfect": {
+      "raw_gloss": "V Pass Impf <S> <S:Nom>",
+      "structured_gloss": {
+        "raw_components": [
+          {
+            "text": "V",
+            "component_type": "verb",
+            "color_class": "gloss-verb",
+            "description": "Verb"
+          },
+          {
+            "text": "Pass",
+            "component_type": "voice",
+            "color_class": "gloss-voice",
+            "description": "Passive"
+          },
+          {
+            "text": "Impf",
+            "component_type": "tense",
+            "color_class": "gloss-tense",
+            "description": "Imperfect"
+          },
+          {
+            "text": "<S>",
+            "component_type": "argument_pattern",
+            "color_class": "gloss-argument",
+            "description": "Intransitive absolute"
+          },
+          {
+            "text": "<S:Nom>",
+            "component_type": "case_spec",
+            "color_class": "gloss-case",
+            "description": "Nominative subject"
+          }
+        ],
+        "expanded_components": [
+          {
+            "text": "V",
+            "component_type": "verb",
+            "color_class": "gloss-verb",
+            "description": "Verb"
+          },
+          {
+            "text": "Pass",
+            "component_type": "voice",
+            "color_class": "gloss-voice",
+            "description": "Passive"
+          },
+          {
+            "text": "Impf",
+            "component_type": "tense",
+            "color_class": "gloss-tense",
+            "description": "Imperfect"
+          },
+          {
+            "text": "<S>",
+            "component_type": "argument_pattern",
+            "color_class": "gloss-argument",
+            "description": "Intransitive absolute"
+          },
+          {
+            "text": "<S:Nom>",
+            "component_type": "case_spec",
+            "color_class": "gloss-subject",
+            "description": "Nominative subject"
+          }
+        ],
+        "argument_pattern": "<S>",
+        "case_specifications": [
+          "<S:Nom>"
+        ]
+      }
+    },
+    "future": {
+      "raw_gloss": "V Pass Fut <S> <S:Nom>",
+      "structured_gloss": {
+        "raw_components": [
+          {
+            "text": "V",
+            "component_type": "verb",
+            "color_class": "gloss-verb",
+            "description": "Verb"
+          },
+          {
+            "text": "Pass",
+            "component_type": "voice",
+            "color_class": "gloss-voice",
+            "description": "Passive"
+          },
+          {
+            "text": "Fut",
+            "component_type": "tense",
+            "color_class": "gloss-tense",
+            "description": "Future"
+          },
+          {
+            "text": "<S>",
+            "component_type": "argument_pattern",
+            "color_class": "gloss-argument",
+            "description": "Intransitive absolute"
+          },
+          {
+            "text": "<S:Nom>",
+            "component_type": "case_spec",
+            "color_class": "gloss-case",
+            "description": "Nominative subject"
+          }
+        ],
+        "expanded_components": [
+          {
+            "text": "V",
+            "component_type": "verb",
+            "color_class": "gloss-verb",
+            "description": "Verb"
+          },
+          {
+            "text": "Pass",
+            "component_type": "voice",
+            "color_class": "gloss-voice",
+            "description": "Passive"
+          },
+          {
+            "text": "Fut",
+            "component_type": "tense",
+            "color_class": "gloss-tense",
+            "description": "Future"
+          },
+          {
+            "text": "<S>",
+            "component_type": "argument_pattern",
+            "color_class": "gloss-argument",
+            "description": "Intransitive absolute"
+          },
+          {
+            "text": "<S:Nom>",
+            "component_type": "case_spec",
+            "color_class": "gloss-subject",
+            "description": "Nominative subject"
+          }
+        ],
+        "argument_pattern": "<S>",
+        "case_specifications": [
+          "<S:Nom>"
+        ]
+      }
+    },
+    "aorist": {
+      "raw_gloss": "V Pass Aor <S> <S:Erg>",
+      "structured_gloss": {
+        "raw_components": [
+          {
+            "text": "V",
+            "component_type": "verb",
+            "color_class": "gloss-verb",
+            "description": "Verb"
+          },
+          {
+            "text": "Pass",
+            "component_type": "voice",
+            "color_class": "gloss-voice",
+            "description": "Passive"
+          },
+          {
+            "text": "Aor",
+            "component_type": "tense",
+            "color_class": "gloss-tense",
+            "description": "Aorist"
+          },
+          {
+            "text": "<S>",
+            "component_type": "argument_pattern",
+            "color_class": "gloss-argument",
+            "description": "Intransitive absolute"
+          },
+          {
+            "text": "<S:Erg>",
+            "component_type": "case_spec",
+            "color_class": "gloss-case",
+            "description": "Ergative subject"
+          }
+        ],
+        "expanded_components": [
+          {
+            "text": "V",
+            "component_type": "verb",
+            "color_class": "gloss-verb",
+            "description": "Verb"
+          },
+          {
+            "text": "Pass",
+            "component_type": "voice",
+            "color_class": "gloss-voice",
+            "description": "Passive"
+          },
+          {
+            "text": "Aor",
+            "component_type": "tense",
+            "color_class": "gloss-tense",
+            "description": "Aorist"
+          },
+          {
+            "text": "<S>",
+            "component_type": "argument_pattern",
+            "color_class": "gloss-argument",
+            "description": "Intransitive absolute"
+          },
+          {
+            "text": "<S:Erg>",
+            "component_type": "case_spec",
+            "color_class": "gloss-subject",
+            "description": "Ergative subject"
+          }
+        ],
+        "argument_pattern": "<S>",
+        "case_specifications": [
+          "<S:Erg>"
+        ]
+      }
+    },
+    "optative": {
+      "raw_gloss": "V Pass Opt <S> <S:Erg>",
+      "structured_gloss": {
+        "raw_components": [
+          {
+            "text": "V",
+            "component_type": "verb",
+            "color_class": "gloss-verb",
+            "description": "Verb"
+          },
+          {
+            "text": "Pass",
+            "component_type": "voice",
+            "color_class": "gloss-voice",
+            "description": "Passive"
+          },
+          {
+            "text": "Opt",
+            "component_type": "tense",
+            "color_class": "gloss-tense",
+            "description": "Optative"
+          },
+          {
+            "text": "<S>",
+            "component_type": "argument_pattern",
+            "color_class": "gloss-argument",
+            "description": "Intransitive absolute"
+          },
+          {
+            "text": "<S:Erg>",
+            "component_type": "case_spec",
+            "color_class": "gloss-case",
+            "description": "Ergative subject"
+          }
+        ],
+        "expanded_components": [
+          {
+            "text": "V",
+            "component_type": "verb",
+            "color_class": "gloss-verb",
+            "description": "Verb"
+          },
+          {
+            "text": "Pass",
+            "component_type": "voice",
+            "color_class": "gloss-voice",
+            "description": "Passive"
+          },
+          {
+            "text": "Opt",
+            "component_type": "tense",
+            "color_class": "gloss-tense",
+            "description": "Optative"
+          },
+          {
+            "text": "<S>",
+            "component_type": "argument_pattern",
+            "color_class": "gloss-argument",
+            "description": "Intransitive absolute"
+          },
+          {
+            "text": "<S:Erg>",
+            "component_type": "case_spec",
+            "color_class": "gloss-subject",
+            "description": "Ergative subject"
+          }
+        ],
+        "argument_pattern": "<S>",
+        "case_specifications": [
+          "<S:Erg>"
+        ]
+      }
+    },
+    "imperative": {
+      "raw_gloss": "V Pass Impv <S> <S:Erg>",
+      "structured_gloss": {
+        "raw_components": [
+          {
+            "text": "V",
+            "component_type": "verb",
+            "color_class": "gloss-verb",
+            "description": "Verb"
+          },
+          {
+            "text": "Pass",
+            "component_type": "voice",
+            "color_class": "gloss-voice",
+            "description": "Passive"
+          },
+          {
+            "text": "Impv",
+            "component_type": "tense",
+            "color_class": "gloss-tense",
+            "description": "Imperative"
+          },
+          {
+            "text": "<S>",
+            "component_type": "argument_pattern",
+            "color_class": "gloss-argument",
+            "description": "Intransitive absolute"
+          },
+          {
+            "text": "<S:Erg>",
+            "component_type": "case_spec",
+            "color_class": "gloss-case",
+            "description": "Ergative subject"
+          }
+        ],
+        "expanded_components": [
+          {
+            "text": "V",
+            "component_type": "verb",
+            "color_class": "gloss-verb",
+            "description": "Verb"
+          },
+          {
+            "text": "Pass",
+            "component_type": "voice",
+            "color_class": "gloss-voice",
+            "description": "Passive"
+          },
+          {
+            "text": "Impv",
+            "component_type": "tense",
+            "color_class": "gloss-tense",
+            "description": "Imperative"
+          },
+          {
+            "text": "<S>",
+            "component_type": "argument_pattern",
+            "color_class": "gloss-argument",
+            "description": "Intransitive absolute"
+          },
+          {
+            "text": "<S:Erg>",
+            "component_type": "case_spec",
+            "color_class": "gloss-subject",
+            "description": "Ergative subject"
+          }
+        ],
+        "argument_pattern": "<S>",
+        "case_specifications": [
+          "<S:Erg>"
+        ]
+      }
+    }
+  },
+  "preverb_forms": {}
+}

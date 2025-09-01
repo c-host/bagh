@@ -1,0 +1,952 @@
+{
+  "id": 60,
+  "georgian": "თამაში",
+  "description": "To play",
+  "category": "Physical Activities & Sports",
+  "class": "",
+  "semantic_key": "play",
+  "notes": "",
+  "url": "https://lingua.ge/verbs/%e1%83%97%e1%83%90%e1%83%9b%e1%83%90%e1%83%a8%e1%83%98/",
+  "global_argument_pattern": "<S-DO>",
+  "valency": {
+    "default": "<S-DO>",
+    "alternatives": []
+  },
+  "syntax": {
+    "arguments": {
+      "subject": {
+        "3sg": {
+          "noun": "child",
+          "adjective": "happy"
+        },
+        "3pl": {
+          "noun": "boy",
+          "adjective": "young"
+        }
+      },
+      "direct_object": {
+        "1sg": {
+          "noun": "sport",
+          "adjective": "fun"
+        },
+        "2sg": {
+          "noun": "game",
+          "adjective": "new"
+        },
+        "3sg": {
+          "noun": "game",
+          "adjective": "new"
+        },
+        "1pl": {
+          "noun": "sport",
+          "adjective": "difficult"
+        },
+        "2pl": {
+          "noun": "sport",
+          "adjective": "exciting"
+        },
+        "3pl": {
+          "noun": "sport",
+          "adjective": "popular"
+        }
+      }
+    },
+    "prepositions": {
+      "subject": "the",
+      "direct_object": "the",
+      "indirect_object": ""
+    },
+    "preverb_overrides": {}
+  },
+  "english_translations": {
+    "default": {
+      "present": "play",
+      "imperfect": "was playing",
+      "future": "will play",
+      "aorist": "played",
+      "optative": "play",
+      "imperative": "play"
+    }
+  },
+  "conjugations": {
+    "present": {
+      "raw_gloss": "V MedAct Pres <S-DO> <S:Nom> <DO:Dat>",
+      "forms": {
+        "1sg": "ვთამაშობ",
+        "2sg": "თამაშობ",
+        "3sg": "თამაშობს",
+        "1pl": "ვთამაშობთ",
+        "2pl": "თამაშობთ",
+        "3pl": "თამაშობენ"
+      },
+      "examples": []
+    },
+    "imperfect": {
+      "raw_gloss": "V MedAct Impf <S-DO> <S:Nom> <DO:Dat>",
+      "forms": {
+        "1sg": "ვთამაშობდი",
+        "2sg": "თამაშობდი",
+        "3sg": "თამაშობდა",
+        "1pl": "ვთამაშობდით",
+        "2pl": "თამაშობდით",
+        "3pl": "თამაშობდნენ"
+      },
+      "examples": []
+    },
+    "future": {
+      "raw_gloss": "V MedAct Fut <S-DO> <S:Nom> <DO:Dat>",
+      "forms": {
+        "1sg": "ვითამაშებ",
+        "2sg": "ითამაშებ",
+        "3sg": "ითამაშებს",
+        "1pl": "ვითამაშებთ",
+        "2pl": "ითამაშებთ",
+        "3pl": "ითამაშებენ"
+      },
+      "examples": []
+    },
+    "aorist": {
+      "raw_gloss": "V MedAct Aor <S-DO> <S:Erg> <DO:Nom>",
+      "forms": {
+        "1sg": "ვითამაშე",
+        "2sg": "ითამაშე",
+        "3sg": "ითამაშა",
+        "1pl": "ვითამაშეთ",
+        "2pl": "ითამაშეთ",
+        "3pl": "ითამაშეს"
+      },
+      "examples": []
+    },
+    "optative": {
+      "raw_gloss": "V MedAct Opt <S-DO> <S:Erg> <DO:Nom>",
+      "forms": {
+        "1sg": "ვითამაშო",
+        "2sg": "ითამაშო",
+        "3sg": "ითამაშოს",
+        "1pl": "ვითამაშოთ",
+        "2pl": "ითამაშოთ",
+        "3pl": "ითამაშონ"
+      },
+      "examples": []
+    },
+    "imperative": {
+      "raw_gloss": "V MedAct Impv <S-DO> <S:Erg> <DO:Nom>",
+      "forms": {
+        "1sg": "-",
+        "2sg": "ითამაშე",
+        "3sg": "ითამაშოს",
+        "1pl": "ვითამაშოთ",
+        "2pl": "ითამაშეთ",
+        "3pl": "ითამაშონ"
+      },
+      "examples": []
+    }
+  },
+  "preverb_config": {
+    "has_multiple_preverbs": false,
+    "default_preverb": "",
+    "available_preverbs": []
+  },
+  "preverb_rules": {
+    "default": "",
+    "replacements": {},
+    "tense_specific_fallbacks": {},
+    "english_fallbacks": {}
+  },
+  "examples": {
+    "null": {
+      "present": [
+        {
+          "georgian": "სახალისო სპორტს ვთამაშობ",
+          "english": "<strong data-role=\"subject\" data-person=\"1sg\">I</strong> <strong data-role=\"verb\">play</strong> <strong data-role=\"direct-object\">the fun sport</strong>",
+          "english_plain": "I play the fun sport",
+          "html": "<span data-case=\"dat\" data-role=\"direct-object\">სახალისო სპორტს</span> <span data-role=\"verb\">ვთამაშობ</span>",
+          "case_marking": {
+            "direct_object": {
+              "case": "dat",
+              "word": "სპორტს"
+            }
+          },
+          "georgian_verb_form": "ვთამაშობ"
+        },
+        {
+          "georgian": "ბედნიერი ბავშვი ახალ თამაშს თამაშობს",
+          "english": "<strong data-role=\"subject\">The happy child</strong> <strong data-role=\"verb\">plays</strong> <strong data-role=\"direct-object\">the new game</strong>",
+          "english_plain": "The happy child plays the new game",
+          "html": "<span data-case=\"nom\" data-role=\"subject\">ბედნიერი ბავშვი</span> <span data-case=\"dat\" data-role=\"direct-object\">ახალ თამაშს</span> <span data-role=\"verb\">თამაშობს</span>",
+          "case_marking": {
+            "subject": {
+              "case": "nom",
+              "word": "ბავშვი"
+            },
+            "direct_object": {
+              "case": "dat",
+              "word": "თამაშს"
+            }
+          },
+          "georgian_verb_form": "თამაშობს"
+        },
+        {
+          "georgian": "ახალგაზრდა ბიჭები პოპულარულ სპორტს თამაშობენ",
+          "english": "<strong data-role=\"subject\">The young boys</strong> <strong data-role=\"verb\">play</strong> <strong data-role=\"direct-object\">the popular sport</strong>",
+          "english_plain": "The young boys play the popular sport",
+          "html": "<span data-case=\"nom\" data-role=\"subject\">ახალგაზრდა ბიჭები</span> <span data-case=\"dat\" data-role=\"direct-object\">პოპულარულ სპორტს</span> <span data-role=\"verb\">თამაშობენ</span>",
+          "case_marking": {
+            "subject": {
+              "case": "nom",
+              "word": "ბიჭები"
+            },
+            "direct_object": {
+              "case": "dat",
+              "word": "სპორტს"
+            }
+          },
+          "georgian_verb_form": "თამაშობენ"
+        }
+      ],
+      "imperfect": [
+        {
+          "georgian": "სახალისო სპორტს ვთამაშობდი",
+          "english": "<strong data-role=\"subject\" data-person=\"1sg\">I</strong> <strong data-role=\"verb\">was playing</strong> <strong data-role=\"direct-object\">the fun sport</strong>",
+          "english_plain": "I was playing the fun sport",
+          "html": "<span data-case=\"dat\" data-role=\"direct-object\">სახალისო სპორტს</span> <span data-role=\"verb\">ვთამაშობდი</span>",
+          "case_marking": {
+            "direct_object": {
+              "case": "dat",
+              "word": "სპორტს"
+            }
+          },
+          "georgian_verb_form": "ვთამაშობდი"
+        },
+        {
+          "georgian": "ბედნიერი ბავშვი ახალ თამაშს თამაშობდა",
+          "english": "<strong data-role=\"subject\">The happy child</strong> <strong data-role=\"verb\">was playing</strong> <strong data-role=\"direct-object\">the new game</strong>",
+          "english_plain": "The happy child was playing the new game",
+          "html": "<span data-case=\"nom\" data-role=\"subject\">ბედნიერი ბავშვი</span> <span data-case=\"dat\" data-role=\"direct-object\">ახალ თამაშს</span> <span data-role=\"verb\">თამაშობდა</span>",
+          "case_marking": {
+            "subject": {
+              "case": "nom",
+              "word": "ბავშვი"
+            },
+            "direct_object": {
+              "case": "dat",
+              "word": "თამაშს"
+            }
+          },
+          "georgian_verb_form": "თამაშობდა"
+        },
+        {
+          "georgian": "ახალგაზრდა ბიჭები პოპულარულ სპორტს თამაშობდნენ",
+          "english": "<strong data-role=\"subject\">The young boys</strong> <strong data-role=\"verb\">were playing</strong> <strong data-role=\"direct-object\">the popular sport</strong>",
+          "english_plain": "The young boys were playing the popular sport",
+          "html": "<span data-case=\"nom\" data-role=\"subject\">ახალგაზრდა ბიჭები</span> <span data-case=\"dat\" data-role=\"direct-object\">პოპულარულ სპორტს</span> <span data-role=\"verb\">თამაშობდნენ</span>",
+          "case_marking": {
+            "subject": {
+              "case": "nom",
+              "word": "ბიჭები"
+            },
+            "direct_object": {
+              "case": "dat",
+              "word": "სპორტს"
+            }
+          },
+          "georgian_verb_form": "თამაშობდნენ"
+        }
+      ],
+      "future": [
+        {
+          "georgian": "სახალისო სპორტს ვითამაშებ",
+          "english": "<strong data-role=\"subject\" data-person=\"1sg\">I</strong> <strong data-role=\"verb\">will play</strong> <strong data-role=\"direct-object\">the fun sport</strong>",
+          "english_plain": "I will play the fun sport",
+          "html": "<span data-case=\"dat\" data-role=\"direct-object\">სახალისო სპორტს</span> <span data-role=\"verb\">ვითამაშებ</span>",
+          "case_marking": {
+            "direct_object": {
+              "case": "dat",
+              "word": "სპორტს"
+            }
+          },
+          "georgian_verb_form": "ვითამაშებ"
+        },
+        {
+          "georgian": "ბედნიერი ბავშვი ახალ თამაშს ითამაშებს",
+          "english": "<strong data-role=\"subject\">The happy child</strong> <strong data-role=\"verb\">will play</strong> <strong data-role=\"direct-object\">the new game</strong>",
+          "english_plain": "The happy child will play the new game",
+          "html": "<span data-case=\"nom\" data-role=\"subject\">ბედნიერი ბავშვი</span> <span data-case=\"dat\" data-role=\"direct-object\">ახალ თამაშს</span> <span data-role=\"verb\">ითამაშებს</span>",
+          "case_marking": {
+            "subject": {
+              "case": "nom",
+              "word": "ბავშვი"
+            },
+            "direct_object": {
+              "case": "dat",
+              "word": "თამაშს"
+            }
+          },
+          "georgian_verb_form": "ითამაშებს"
+        },
+        {
+          "georgian": "ახალგაზრდა ბიჭები პოპულარულ სპორტს ითამაშებენ",
+          "english": "<strong data-role=\"subject\">The young boys</strong> <strong data-role=\"verb\">will play</strong> <strong data-role=\"direct-object\">the popular sport</strong>",
+          "english_plain": "The young boys will play the popular sport",
+          "html": "<span data-case=\"nom\" data-role=\"subject\">ახალგაზრდა ბიჭები</span> <span data-case=\"dat\" data-role=\"direct-object\">პოპულარულ სპორტს</span> <span data-role=\"verb\">ითამაშებენ</span>",
+          "case_marking": {
+            "subject": {
+              "case": "nom",
+              "word": "ბიჭები"
+            },
+            "direct_object": {
+              "case": "dat",
+              "word": "სპორტს"
+            }
+          },
+          "georgian_verb_form": "ითამაშებენ"
+        }
+      ],
+      "aorist": [
+        {
+          "georgian": "სახალისო სპორტი ვითამაშე",
+          "english": "<strong data-role=\"subject\" data-person=\"1sg\">I</strong> <strong data-role=\"verb\">played</strong> <strong data-role=\"direct-object\">the fun sport</strong>",
+          "english_plain": "I played the fun sport",
+          "html": "<span data-case=\"nom\" data-role=\"direct-object\">სახალისო სპორტი</span> <span data-role=\"verb\">ვითამაშე</span>",
+          "case_marking": {
+            "direct_object": {
+              "case": "nom",
+              "word": "სპორტი"
+            }
+          },
+          "georgian_verb_form": "ვითამაშე"
+        },
+        {
+          "georgian": "ბედნიერმა ბავშვმა ახალი თამაში ითამაშა",
+          "english": "<strong data-role=\"subject\">The happy child</strong> <strong data-role=\"verb\">played</strong> <strong data-role=\"direct-object\">the new game</strong>",
+          "english_plain": "The happy child played the new game",
+          "html": "<span data-case=\"erg\" data-role=\"subject\">ბედნიერმა ბავშვმა</span> <span data-case=\"nom\" data-role=\"direct-object\">ახალი თამაში</span> <span data-role=\"verb\">ითამაშა</span>",
+          "case_marking": {
+            "subject": {
+              "case": "erg",
+              "word": "ბავშვმა"
+            },
+            "direct_object": {
+              "case": "nom",
+              "word": "თამაში"
+            }
+          },
+          "georgian_verb_form": "ითამაშა"
+        },
+        {
+          "georgian": "ახალგაზრდა ბიჭებმა პოპულარული სპორტი ითამაშეს",
+          "english": "<strong data-role=\"subject\">The young boys</strong> <strong data-role=\"verb\">played</strong> <strong data-role=\"direct-object\">the popular sport</strong>",
+          "english_plain": "The young boys played the popular sport",
+          "html": "<span data-case=\"erg\" data-role=\"subject\">ახალგაზრდა ბიჭებმა</span> <span data-case=\"nom\" data-role=\"direct-object\">პოპულარული სპორტი</span> <span data-role=\"verb\">ითამაშეს</span>",
+          "case_marking": {
+            "subject": {
+              "case": "erg",
+              "word": "ბიჭებმა"
+            },
+            "direct_object": {
+              "case": "nom",
+              "word": "სპორტი"
+            }
+          },
+          "georgian_verb_form": "ითამაშეს"
+        }
+      ],
+      "optative": [
+        {
+          "georgian": "სახალისო სპორტი უნდა ვითამაშო",
+          "english": "<strong data-role=\"subject\" data-person=\"1sg\">I</strong> <strong data-role=\"verb\">should</strong> <strong data-role=\"verb\">play</strong> <strong data-role=\"direct-object\">the fun sport</strong>",
+          "english_plain": "I should play the fun sport",
+          "html": "<span data-case=\"nom\" data-role=\"direct-object\">სახალისო სპორტი</span> <span data-role=\"verb\">უნდა ვითამაშო</span>",
+          "case_marking": {
+            "direct_object": {
+              "case": "nom",
+              "word": "სპორტი"
+            }
+          },
+          "georgian_verb_form": "ვითამაშო"
+        },
+        {
+          "georgian": "ბედნიერმა ბავშვმა ახალი თამაში უნდა ითამაშოს",
+          "english": "<strong data-role=\"subject\">The happy child</strong> <strong data-role=\"verb\">should</strong> <strong data-role=\"verb\">play</strong> <strong data-role=\"direct-object\">the new game</strong>",
+          "english_plain": "The happy child should play the new game",
+          "html": "<span data-case=\"erg\" data-role=\"subject\">ბედნიერმა ბავშვმა</span> <span data-case=\"nom\" data-role=\"direct-object\">ახალი თამაში</span> <span data-role=\"verb\">უნდა ითამაშოს</span>",
+          "case_marking": {
+            "subject": {
+              "case": "erg",
+              "word": "ბავშვმა"
+            },
+            "direct_object": {
+              "case": "nom",
+              "word": "თამაში"
+            }
+          },
+          "georgian_verb_form": "ითამაშოს"
+        },
+        {
+          "georgian": "ახალგაზრდა ბიჭებმა პოპულარული სპორტი უნდა ითამაშონ",
+          "english": "<strong data-role=\"subject\">The young boys</strong> <strong data-role=\"verb\">should</strong> <strong data-role=\"verb\">play</strong> <strong data-role=\"direct-object\">the popular sport</strong>",
+          "english_plain": "The young boys should play the popular sport",
+          "html": "<span data-case=\"erg\" data-role=\"subject\">ახალგაზრდა ბიჭებმა</span> <span data-case=\"nom\" data-role=\"direct-object\">პოპულარული სპორტი</span> <span data-role=\"verb\">უნდა ითამაშონ</span>",
+          "case_marking": {
+            "subject": {
+              "case": "erg",
+              "word": "ბიჭებმა"
+            },
+            "direct_object": {
+              "case": "nom",
+              "word": "სპორტი"
+            }
+          },
+          "georgian_verb_form": "ითამაშონ"
+        }
+      ],
+      "imperative": [
+        {
+          "georgian": "ახალი თამაში ითამაშე",
+          "english": "<strong data-role=\"verb\">play</strong> <strong data-role=\"direct-object\">the new game</strong>",
+          "english_plain": "play the new game",
+          "html": "<span data-case=\"nom\" data-role=\"direct-object\">ახალი თამაში</span> <span data-role=\"verb\">ითამაშე</span>",
+          "case_marking": {
+            "direct_object": {
+              "case": "nom",
+              "word": "თამაში"
+            }
+          },
+          "georgian_verb_form": "ითამაშე"
+        },
+        {
+          "georgian": "ამაღელვებელი სპორტი ითამაშეთ",
+          "english": "<strong data-role=\"verb\">play</strong> <strong data-role=\"direct-object\">the exciting sport</strong>",
+          "english_plain": "play the exciting sport",
+          "html": "<span data-case=\"nom\" data-role=\"direct-object\">ამაღელვებელი სპორტი</span> <span data-role=\"verb\">ითამაშეთ</span>",
+          "case_marking": {
+            "direct_object": {
+              "case": "nom",
+              "word": "სპორტი"
+            }
+          },
+          "georgian_verb_form": "ითამაშეთ"
+        }
+      ]
+    }
+  },
+  "gloss_analysis": {
+    "present": {
+      "raw_gloss": "V MedAct Pres <S-DO> <S:Nom> <DO:Dat>",
+      "structured_gloss": {
+        "raw_components": [
+          {
+            "text": "V",
+            "component_type": "verb",
+            "color_class": "gloss-verb",
+            "description": "Verb"
+          },
+          {
+            "text": "MedAct",
+            "component_type": "voice",
+            "color_class": "gloss-voice",
+            "description": "Medioactive"
+          },
+          {
+            "text": "Pres",
+            "component_type": "tense",
+            "color_class": "gloss-tense",
+            "description": "Present"
+          },
+          {
+            "text": "<S-DO>",
+            "component_type": "argument_pattern",
+            "color_class": "gloss-argument",
+            "description": "Transitive absolute"
+          },
+          {
+            "text": "<S:Nom>",
+            "component_type": "case_spec",
+            "color_class": "gloss-case",
+            "description": "Nominative subject"
+          },
+          {
+            "text": "<DO:Dat>",
+            "component_type": "case_spec",
+            "color_class": "gloss-case",
+            "description": "Dative direct object"
+          }
+        ],
+        "expanded_components": [
+          {
+            "text": "V",
+            "component_type": "verb",
+            "color_class": "gloss-verb",
+            "description": "Verb"
+          },
+          {
+            "text": "MedAct",
+            "component_type": "voice",
+            "color_class": "gloss-voice",
+            "description": "Medioactive"
+          },
+          {
+            "text": "Pres",
+            "component_type": "tense",
+            "color_class": "gloss-tense",
+            "description": "Present"
+          },
+          {
+            "text": "<S-DO>",
+            "component_type": "argument_pattern",
+            "color_class": "gloss-argument",
+            "description": "Transitive absolute"
+          },
+          {
+            "text": "<S:Nom>",
+            "component_type": "case_spec",
+            "color_class": "gloss-subject",
+            "description": "Nominative subject"
+          },
+          {
+            "text": "<DO:Dat>",
+            "component_type": "case_spec",
+            "color_class": "gloss-direct-object",
+            "description": "Dative direct object"
+          }
+        ],
+        "argument_pattern": "<S-DO>",
+        "case_specifications": [
+          "<S:Nom>",
+          "<DO:Dat>"
+        ]
+      }
+    },
+    "imperfect": {
+      "raw_gloss": "V MedAct Impf <S-DO> <S:Nom> <DO:Dat>",
+      "structured_gloss": {
+        "raw_components": [
+          {
+            "text": "V",
+            "component_type": "verb",
+            "color_class": "gloss-verb",
+            "description": "Verb"
+          },
+          {
+            "text": "MedAct",
+            "component_type": "voice",
+            "color_class": "gloss-voice",
+            "description": "Medioactive"
+          },
+          {
+            "text": "Impf",
+            "component_type": "tense",
+            "color_class": "gloss-tense",
+            "description": "Imperfect"
+          },
+          {
+            "text": "<S-DO>",
+            "component_type": "argument_pattern",
+            "color_class": "gloss-argument",
+            "description": "Transitive absolute"
+          },
+          {
+            "text": "<S:Nom>",
+            "component_type": "case_spec",
+            "color_class": "gloss-case",
+            "description": "Nominative subject"
+          },
+          {
+            "text": "<DO:Dat>",
+            "component_type": "case_spec",
+            "color_class": "gloss-case",
+            "description": "Dative direct object"
+          }
+        ],
+        "expanded_components": [
+          {
+            "text": "V",
+            "component_type": "verb",
+            "color_class": "gloss-verb",
+            "description": "Verb"
+          },
+          {
+            "text": "MedAct",
+            "component_type": "voice",
+            "color_class": "gloss-voice",
+            "description": "Medioactive"
+          },
+          {
+            "text": "Impf",
+            "component_type": "tense",
+            "color_class": "gloss-tense",
+            "description": "Imperfect"
+          },
+          {
+            "text": "<S-DO>",
+            "component_type": "argument_pattern",
+            "color_class": "gloss-argument",
+            "description": "Transitive absolute"
+          },
+          {
+            "text": "<S:Nom>",
+            "component_type": "case_spec",
+            "color_class": "gloss-subject",
+            "description": "Nominative subject"
+          },
+          {
+            "text": "<DO:Dat>",
+            "component_type": "case_spec",
+            "color_class": "gloss-direct-object",
+            "description": "Dative direct object"
+          }
+        ],
+        "argument_pattern": "<S-DO>",
+        "case_specifications": [
+          "<S:Nom>",
+          "<DO:Dat>"
+        ]
+      }
+    },
+    "future": {
+      "raw_gloss": "V MedAct Fut <S-DO> <S:Nom> <DO:Dat>",
+      "structured_gloss": {
+        "raw_components": [
+          {
+            "text": "V",
+            "component_type": "verb",
+            "color_class": "gloss-verb",
+            "description": "Verb"
+          },
+          {
+            "text": "MedAct",
+            "component_type": "voice",
+            "color_class": "gloss-voice",
+            "description": "Medioactive"
+          },
+          {
+            "text": "Fut",
+            "component_type": "tense",
+            "color_class": "gloss-tense",
+            "description": "Future"
+          },
+          {
+            "text": "<S-DO>",
+            "component_type": "argument_pattern",
+            "color_class": "gloss-argument",
+            "description": "Transitive absolute"
+          },
+          {
+            "text": "<S:Nom>",
+            "component_type": "case_spec",
+            "color_class": "gloss-case",
+            "description": "Nominative subject"
+          },
+          {
+            "text": "<DO:Dat>",
+            "component_type": "case_spec",
+            "color_class": "gloss-case",
+            "description": "Dative direct object"
+          }
+        ],
+        "expanded_components": [
+          {
+            "text": "V",
+            "component_type": "verb",
+            "color_class": "gloss-verb",
+            "description": "Verb"
+          },
+          {
+            "text": "MedAct",
+            "component_type": "voice",
+            "color_class": "gloss-voice",
+            "description": "Medioactive"
+          },
+          {
+            "text": "Fut",
+            "component_type": "tense",
+            "color_class": "gloss-tense",
+            "description": "Future"
+          },
+          {
+            "text": "<S-DO>",
+            "component_type": "argument_pattern",
+            "color_class": "gloss-argument",
+            "description": "Transitive absolute"
+          },
+          {
+            "text": "<S:Nom>",
+            "component_type": "case_spec",
+            "color_class": "gloss-subject",
+            "description": "Nominative subject"
+          },
+          {
+            "text": "<DO:Dat>",
+            "component_type": "case_spec",
+            "color_class": "gloss-direct-object",
+            "description": "Dative direct object"
+          }
+        ],
+        "argument_pattern": "<S-DO>",
+        "case_specifications": [
+          "<S:Nom>",
+          "<DO:Dat>"
+        ]
+      }
+    },
+    "aorist": {
+      "raw_gloss": "V MedAct Aor <S-DO> <S:Erg> <DO:Nom>",
+      "structured_gloss": {
+        "raw_components": [
+          {
+            "text": "V",
+            "component_type": "verb",
+            "color_class": "gloss-verb",
+            "description": "Verb"
+          },
+          {
+            "text": "MedAct",
+            "component_type": "voice",
+            "color_class": "gloss-voice",
+            "description": "Medioactive"
+          },
+          {
+            "text": "Aor",
+            "component_type": "tense",
+            "color_class": "gloss-tense",
+            "description": "Aorist"
+          },
+          {
+            "text": "<S-DO>",
+            "component_type": "argument_pattern",
+            "color_class": "gloss-argument",
+            "description": "Transitive absolute"
+          },
+          {
+            "text": "<S:Erg>",
+            "component_type": "case_spec",
+            "color_class": "gloss-case",
+            "description": "Ergative subject"
+          },
+          {
+            "text": "<DO:Nom>",
+            "component_type": "case_spec",
+            "color_class": "gloss-case",
+            "description": "Nominative direct object"
+          }
+        ],
+        "expanded_components": [
+          {
+            "text": "V",
+            "component_type": "verb",
+            "color_class": "gloss-verb",
+            "description": "Verb"
+          },
+          {
+            "text": "MedAct",
+            "component_type": "voice",
+            "color_class": "gloss-voice",
+            "description": "Medioactive"
+          },
+          {
+            "text": "Aor",
+            "component_type": "tense",
+            "color_class": "gloss-tense",
+            "description": "Aorist"
+          },
+          {
+            "text": "<S-DO>",
+            "component_type": "argument_pattern",
+            "color_class": "gloss-argument",
+            "description": "Transitive absolute"
+          },
+          {
+            "text": "<S:Erg>",
+            "component_type": "case_spec",
+            "color_class": "gloss-subject",
+            "description": "Ergative subject"
+          },
+          {
+            "text": "<DO:Nom>",
+            "component_type": "case_spec",
+            "color_class": "gloss-direct-object",
+            "description": "Nominative direct object"
+          }
+        ],
+        "argument_pattern": "<S-DO>",
+        "case_specifications": [
+          "<S:Erg>",
+          "<DO:Nom>"
+        ]
+      }
+    },
+    "optative": {
+      "raw_gloss": "V MedAct Opt <S-DO> <S:Erg> <DO:Nom>",
+      "structured_gloss": {
+        "raw_components": [
+          {
+            "text": "V",
+            "component_type": "verb",
+            "color_class": "gloss-verb",
+            "description": "Verb"
+          },
+          {
+            "text": "MedAct",
+            "component_type": "voice",
+            "color_class": "gloss-voice",
+            "description": "Medioactive"
+          },
+          {
+            "text": "Opt",
+            "component_type": "tense",
+            "color_class": "gloss-tense",
+            "description": "Optative"
+          },
+          {
+            "text": "<S-DO>",
+            "component_type": "argument_pattern",
+            "color_class": "gloss-argument",
+            "description": "Transitive absolute"
+          },
+          {
+            "text": "<S:Erg>",
+            "component_type": "case_spec",
+            "color_class": "gloss-case",
+            "description": "Ergative subject"
+          },
+          {
+            "text": "<DO:Nom>",
+            "component_type": "case_spec",
+            "color_class": "gloss-case",
+            "description": "Nominative direct object"
+          }
+        ],
+        "expanded_components": [
+          {
+            "text": "V",
+            "component_type": "verb",
+            "color_class": "gloss-verb",
+            "description": "Verb"
+          },
+          {
+            "text": "MedAct",
+            "component_type": "voice",
+            "color_class": "gloss-voice",
+            "description": "Medioactive"
+          },
+          {
+            "text": "Opt",
+            "component_type": "tense",
+            "color_class": "gloss-tense",
+            "description": "Optative"
+          },
+          {
+            "text": "<S-DO>",
+            "component_type": "argument_pattern",
+            "color_class": "gloss-argument",
+            "description": "Transitive absolute"
+          },
+          {
+            "text": "<S:Erg>",
+            "component_type": "case_spec",
+            "color_class": "gloss-subject",
+            "description": "Ergative subject"
+          },
+          {
+            "text": "<DO:Nom>",
+            "component_type": "case_spec",
+            "color_class": "gloss-direct-object",
+            "description": "Nominative direct object"
+          }
+        ],
+        "argument_pattern": "<S-DO>",
+        "case_specifications": [
+          "<S:Erg>",
+          "<DO:Nom>"
+        ]
+      }
+    },
+    "imperative": {
+      "raw_gloss": "V MedAct Impv <S-DO> <S:Erg> <DO:Nom>",
+      "structured_gloss": {
+        "raw_components": [
+          {
+            "text": "V",
+            "component_type": "verb",
+            "color_class": "gloss-verb",
+            "description": "Verb"
+          },
+          {
+            "text": "MedAct",
+            "component_type": "voice",
+            "color_class": "gloss-voice",
+            "description": "Medioactive"
+          },
+          {
+            "text": "Impv",
+            "component_type": "tense",
+            "color_class": "gloss-tense",
+            "description": "Imperative"
+          },
+          {
+            "text": "<S-DO>",
+            "component_type": "argument_pattern",
+            "color_class": "gloss-argument",
+            "description": "Transitive absolute"
+          },
+          {
+            "text": "<S:Erg>",
+            "component_type": "case_spec",
+            "color_class": "gloss-case",
+            "description": "Ergative subject"
+          },
+          {
+            "text": "<DO:Nom>",
+            "component_type": "case_spec",
+            "color_class": "gloss-case",
+            "description": "Nominative direct object"
+          }
+        ],
+        "expanded_components": [
+          {
+            "text": "V",
+            "component_type": "verb",
+            "color_class": "gloss-verb",
+            "description": "Verb"
+          },
+          {
+            "text": "MedAct",
+            "component_type": "voice",
+            "color_class": "gloss-voice",
+            "description": "Medioactive"
+          },
+          {
+            "text": "Impv",
+            "component_type": "tense",
+            "color_class": "gloss-tense",
+            "description": "Imperative"
+          },
+          {
+            "text": "<S-DO>",
+            "component_type": "argument_pattern",
+            "color_class": "gloss-argument",
+            "description": "Transitive absolute"
+          },
+          {
+            "text": "<S:Erg>",
+            "component_type": "case_spec",
+            "color_class": "gloss-subject",
+            "description": "Ergative subject"
+          },
+          {
+            "text": "<DO:Nom>",
+            "component_type": "case_spec",
+            "color_class": "gloss-direct-object",
+            "description": "Nominative direct object"
+          }
+        ],
+        "argument_pattern": "<S-DO>",
+        "case_specifications": [
+          "<S:Erg>",
+          "<DO:Nom>"
+        ]
+      }
+    }
+  },
+  "preverb_forms": {}
+}

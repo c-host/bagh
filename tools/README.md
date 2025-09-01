@@ -18,7 +18,7 @@ tools/
 │   └── file_writer.py           # File writing operations
 ├── core/                        # Core data processing modules
 │   ├── __init__.py
-│   ├── gloss_parser.py          # Gloss parsing and analysis
+│   ├── robust_gloss_processor.py # Gloss parsing and analysis (consolidated)
 │   ├── verb_conjugation.py      # Verb conjugation management
 │   ├── example_generator.py     # Pedagogical example generation
 │   └── noun_adjective_engine.py # Noun/adjective selection
