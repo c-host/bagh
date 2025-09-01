@@ -188,7 +188,7 @@ class RobustGlossProcessor:
         self, component: str, component_type: str, preverb: str = None
     ) -> str:
         """Get human-readable description for a component."""
-        # First check if we have a direct match in the gloss reference
+        # Check if there is a direct match in the gloss reference
         if component in self.gloss_reference:
             return self.gloss_reference[component]
 

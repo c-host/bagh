@@ -16,7 +16,7 @@ class ProcessedDataStore:
 
     def __init__(self, project_root: Path):
         self.project_root = project_root
-        self.processed_data_dir = project_root / "dist" / "processed_data"
+        self.processed_data_dir = project_root / "src" / "data" / "processed_data"
         self.processed_data_dir.mkdir(parents=True, exist_ok=True)
         self.processed_verbs_file = self.processed_data_dir / "processed_verbs.json"
 

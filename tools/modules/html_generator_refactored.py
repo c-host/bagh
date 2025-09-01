@@ -152,7 +152,6 @@ class HTMLGeneratorRefactored:
             Complete HTML content string
         """
         # Debug: Check what data we're receiving
-        # Debug info without printing Georgian text that causes encoding issues
         print(
             f"[DEBUG] generate_html called with {len(processed_verbs)} processed verbs"
         )
@@ -184,15 +183,6 @@ class HTMLGeneratorRefactored:
 
         # Get all unique categories for dynamic generation
         all_categories = sorted(verbs_by_category.keys())
-
-        # Generate category options for sidebar and filter modal
-        sidebar_category_options = ""
-        filter_category_options = ""
-        for category in all_categories:
-            sidebar_category_options += (
-                f'<option value="{category}">{category}</option>'
-            )
-            filter_category_options += f'<option value="{category}">{category}</option>'
 
         # Generate verb sections organized by category
         verb_sections = ""
@@ -263,7 +253,7 @@ class HTMLGeneratorRefactored:
     </script>
     
     <link rel="stylesheet" href="styles/main.css">
-    <script src="scripts/main.js" defer></script>
+    <script type="module" src="scripts/main.js"></script>
 
     <!-- Google Fonts for Georgian and English -->
     <link
@@ -298,12 +288,8 @@ class HTMLGeneratorRefactored:
         <button id="theme-toggle" class="theme-toggle" title="Toggle Dark/Light Mode">
             <i class="fas fa-moon"></i>
         </button>
-        <button id="filter-toggle" class="filter-toggle" title="Toggle Filter Controls">
-            <i class="fas fa-filter"></i>
-        </button>
-        <button id="reset-toggle" class="reset-toggle" title="Reset to Default State">
-            <i class="fas fa-undo"></i>
-        </button>
+
+
     </div>
 
     <!-- Font Selector - Bottom Right -->
@@ -364,15 +350,6 @@ class HTMLGeneratorRefactored:
                 </button>
             </div>
             <div class="sidebar-sticky-header">
-                <div class="sidebar-filter-controls">
-                    <div class="sidebar-filter-group">
-                        <label for="sidebar-category-filter">Filter by Category:</label>
-                        <select id="sidebar-category-filter" class="sidebar-filter-select">
-                            <option value="all">All Categories</option>
-                            {sidebar_category_options}
-                        </select>
-                    </div>
-                </div>
                 <div class="search-container">
                     <input type="text" id="search-input" class="search-input" placeholder="Search verbs (↑↓ to navigate, Enter to select)" title="Search by Georgian or English name. Use ↑↓ arrows to navigate, Enter to select">
                     <div class="search-icon">
@@ -388,44 +365,7 @@ class HTMLGeneratorRefactored:
         </div>
     </div>
 
-    <!-- Filter Modal -->
-    <div id="filter-modal" class="filter-modal">
-        <div class="filter-overlay" id="filter-overlay"></div>
-        <div class="filter-content">
-            <div class="filter-header">
-                <h3>Filter Options</h3>
-                <button id="filter-close" class="filter-close">
-                    <i class="fas fa-times"></i>
-                </button>
-            </div>
-            <div class="filter-body">
-                <div class="filter-group">
-                    <label for="group-by-select">Group by:</label>
-                    <select id="group-by-select" class="filter-select">
-                        <option value="none">No Grouping</option>
-                        <option value="category">Category</option>
-                        <option value="class">Class</option>
-                    </select>
-                </div>
-                <div class="filter-group" id="category-filter-group" style="display: none;">
-                    <label for="category-select">Category:</label>
-                    <select id="category-select" class="filter-select">
-                        <option value="all">All Categories</option>
-                        {filter_category_options}
-                    </select>
-                </div>
-                <div class="filter-group" id="class-filter-group" style="display: none;">
-                    <label for="class-select">Class:</label>
-                    <select id="class-select" class="filter-select">
-                        <option value="all">All Classes</option>
-                        <option value="Class-I">Class I</option>
-                        <option value="Class-II">Class II</option>
-                        <option value="Class-III">Class III</option>
-                    </select>
-                </div>
-            </div>
-        </div>
-    </div>
+
 
     <!-- Notepad Modal -->
     <div id="notepad-modal" class="notepad-modal">
@@ -497,7 +437,7 @@ class HTMLGeneratorRefactored:
                     <ul>
                         <li><strong>Browse Verbs:</strong> Use the table of contents (top-left button) to navigate between verbs</li>
                         <li><strong>Search:</strong> Click the search icon or press Ctrl+K to find specific verbs</li>
-                        <li><strong>Filter:</strong> Use the filter button (top-right) to group verbs by category or class</li>
+
                         <li><strong>Take Notes:</strong> Click the notepad button (bottom-left) to open a writing area</li>
                         <li><strong>Change Appearance:</strong> Use the theme toggle and font selector to customize your experience</li>
                     </ul>

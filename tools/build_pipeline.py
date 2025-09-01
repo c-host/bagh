@@ -130,7 +130,7 @@ def run_data_processing_pipeline(project_root: Path, build_mode: str):
         data_loader = VerbDataLoader(project_root)
 
         if build_mode == "reference":
-            # For reference mode, we'll use a simple approach - load only first 2 verbs
+            # For reference mode - load only first 2 verbs
             all_verbs, duplicate_primary_verbs = data_loader.load_json_data()
             # Take only first 2 verbs for reference build
             verbs = all_verbs[:2] if len(all_verbs) >= 2 else all_verbs

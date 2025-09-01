@@ -102,7 +102,7 @@ class ArgumentResolver:
             return noun.strip(), adjective.strip()
 
         except ArgumentResolutionError:
-            # Re-raise our specific errors
+            # Re-raise specific errors
             raise
         except Exception as e:
             logger.error(f"Failed to get argument pair: {e}")

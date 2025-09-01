@@ -271,7 +271,65 @@ class VerbDataProcessor:
                 )
                 raise
 
+        # Apply preverb fallback rules after calculating all forms
+        preverb_forms = self._process_preverb_fallbacks(verb, preverb_forms)
+
+        # Validate that all preverb forms are complete after fallback processing
+        self._validate_preverb_forms_complete(verb, preverb_forms)
+
         return preverb_forms
+
+    def _validate_preverb_forms_complete(self, verb: Dict, preverb_forms: Dict):
+        """Validate that all preverb forms are complete after fallback processing"""
+        if not preverb_forms:
+            return
+
+        # Define person requirements per tense for Georgian verbs
+        tense_person_requirements = {
+            "present": ["1sg", "2sg", "3sg", "1pl", "2pl", "3pl"],
+            "imperfect": ["1sg", "2sg", "3sg", "1pl", "2pl", "3pl"],
+            "future": ["1sg", "2sg", "3sg", "1pl", "2pl", "3pl"],
+            "aorist": ["1sg", "2sg", "3sg", "1pl", "2pl", "3pl"],
+            "optative": ["1sg", "2sg", "3sg", "1pl", "2pl", "3pl"],
+            "imperative": ["2sg", "2pl"],  # Imperative only has 2nd person forms
+        }
+
+        validation_errors = []
+
+        for preverb, tense_data in preverb_forms.items():
+            for tense in self.TENSES:
+                if tense not in tense_data:
+                    validation_errors.append(
+                        f"Missing tense '{tense}' for preverb '{preverb}' in verb {verb.get('id')}"
+                    )
+                    continue
+
+                forms = tense_data[tense]
+                if not isinstance(forms, dict):
+                    validation_errors.append(
+                        f"Forms for {preverb} {tense} is not a dictionary in verb {verb.get('id')}"
+                    )
+                    continue
+
+                # Get required persons for this specific tense
+                required_persons = tense_person_requirements.get(
+                    tense, ["1sg", "2sg", "3sg", "1pl", "2pl", "3pl"]
+                )
+
+                for person in required_persons:
+                    if person not in forms or not forms[person]:
+                        validation_errors.append(
+                            f"Missing form for {person} in {preverb} {tense} for verb {verb.get('id')}"
+                        )
+
+        if validation_errors:
+            error_msg = f"Preverb forms validation failed for verb {verb.get('id')}: {'; '.join(validation_errors)}"
+            safe_log(logger, "error", error_msg)
+            raise ValueError(error_msg)
+
+        safe_log(
+            logger, "info", f"Preverb forms validation passed for verb {verb.get('id')}"
+        )
 
     def _calculate_forms_for_preverb(self, verb: Dict, preverb: str) -> Dict:
         """Calculate conjugation forms for a specific preverb."""
@@ -294,6 +352,87 @@ class VerbDataProcessor:
                 f"Failed to calculate forms for {verb['id']}/{preverb}: {e}",
             )
             raise
+
+    def _process_preverb_fallbacks(self, verb: Dict, preverb_forms: Dict) -> Dict:
+        """
+        Apply linguistic rules for preverb fallbacks during build processing.
+
+        This function handles complex Georgian verb conjugation patterns where
+        certain preverbs use different forms for specific tenses.
+
+        Example: წა preverb uses მი forms for present/imperfect tenses
+        """
+        if not preverb_forms or "preverb_rules" not in verb:
+            return preverb_forms
+
+        preverb_rules = verb["preverb_rules"]
+        tense_specific_fallbacks = preverb_rules.get("tense_specific_fallbacks", {})
+        english_fallbacks = preverb_rules.get("english_fallbacks", {})
+
+        # Process tense-specific fallbacks
+        for preverb, tense_fallbacks in tense_specific_fallbacks.items():
+            if preverb in preverb_forms:
+                for tense, fallback_preverb in tense_fallbacks.items():
+                    if (
+                        tense in preverb_forms[preverb]
+                        and fallback_preverb in preverb_forms
+                        and tense in preverb_forms[fallback_preverb]
+                    ):
+
+                        # Apply the fallback: use forms from fallback preverb
+                        preverb_forms[preverb][tense] = preverb_forms[fallback_preverb][
+                            tense
+                        ].copy()
+
+                        # Mark this as a fallback for debugging
+                        if "fallback_info" not in verb:
+                            verb["fallback_info"] = {}
+                        if preverb not in verb["fallback_info"]:
+                            verb["fallback_info"][preverb] = {}
+
+                        verb["fallback_info"][preverb][tense] = {
+                            "original_preverb": preverb,
+                            "fallback_preverb": fallback_preverb,
+                            "reason": f"Linguistic rule: {preverb} uses {fallback_preverb} forms for {tense}",
+                            "fallback_type": "tense_specific",
+                        }
+
+        # Process English fallbacks (if different from tense-specific)
+        for preverb, tense_fallbacks in english_fallbacks.items():
+            if preverb in preverb_forms:
+                for tense, fallback_preverb in tense_fallbacks.items():
+                    if (
+                        tense in preverb_forms[preverb]
+                        and fallback_preverb in preverb_forms
+                        and tense in preverb_forms[fallback_preverb]
+                    ):
+
+                        # Only apply if not already handled by tense-specific fallback
+                        if preverb not in verb.get(
+                            "fallback_info", {}
+                        ) or tense not in verb.get("fallback_info", {}).get(
+                            preverb, {}
+                        ):
+
+                            # Apply the fallback: use forms from fallback preverb
+                            preverb_forms[preverb][tense] = preverb_forms[
+                                fallback_preverb
+                            ][tense].copy()
+
+                            # Mark this as a fallback for debugging
+                            if "fallback_info" not in verb:
+                                verb["fallback_info"] = {}
+                            if preverb not in verb["fallback_info"]:
+                                verb["fallback_info"][preverb] = {}
+
+                            verb["fallback_info"][preverb][tense] = {
+                                "original_preverb": preverb,
+                                "fallback_preverb": fallback_preverb,
+                                "reason": f"English fallback rule: {preverb} uses {fallback_preverb} forms for {tense}",
+                                "fallback_type": "english",
+                            }
+
+        return preverb_forms
 
     def _get_cached_gloss(self, raw_gloss: str, preverb: str) -> Dict:
         """Get cached gloss data or generate new."""
