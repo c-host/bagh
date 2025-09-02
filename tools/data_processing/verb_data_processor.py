@@ -4,13 +4,16 @@ Verb Data Processor - Core pipeline stage for processing raw verb data.
 
 import logging
 from typing import Dict, List, Optional
-from tools.core.example_generator import (
+from tools.data_processing.example_generation.example_generator import (
     generate_pedagogical_examples,
     get_effective_preverb,
     get_conjugation_form_for_preverb,
 )
-from tools.core.gloss_processor import create_gloss_data_structure
-from tools.core.verb_conjugation import calculate_preverb_forms, get_conjugation_form
+from tools.data_processing.gloss_processor import create_gloss_data_structure
+from tools.data_processing.verb_conjugation import (
+    calculate_preverb_forms,
+    get_conjugation_form,
+)
 from tools.utils.unicode_console import safe_log
 
 logger = logging.getLogger(__name__)

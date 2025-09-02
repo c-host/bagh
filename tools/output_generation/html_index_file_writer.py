@@ -23,7 +23,7 @@ class HTMLIndexFileWriter:
         self.project_root = project_root
         if config_manager is None:
             # Import here to avoid circular imports
-            from tools.modules.config_manager import ConfigManager
+            from tools.utils.config_manager import ConfigManager
 
             self.config_manager = ConfigManager(project_root)
         else:

@@ -24,7 +24,7 @@ class AssetManager:
     def __init__(self, project_root: Path, config_manager=None):
         if config_manager is None:
             # Import here to avoid circular imports
-            from tools.modules.config_manager import ConfigManager
+            from tools.utils.config_manager import ConfigManager
 
             self.config_manager = ConfigManager(project_root)
         else:

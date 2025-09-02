@@ -8,12 +8,15 @@ from pathlib import Path
 from typing import Dict, List, Optional
 import logging
 
-from .verb_data_loader import VerbDataLoader
+from tools.data_extraction.verb_data_loader import VerbDataLoader
+
+# TODO: Check if needed:
+from tools.utils.config_manager import ConfigManager
 
 logger = logging.getLogger(__name__)
 
 
-class HTMLGeneratorRefactored:
+class HTMLGenerator:
     """
     Refactored HTML Generator that combines:
     - Rich HTML structure and UI features from html_generator.py

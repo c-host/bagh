@@ -18,7 +18,7 @@ class ProcessedDataManager:
     def __init__(self, project_root: Path):
         self.project_root = project_root
         # Use ConfigManager for path management
-        from tools.modules.config_manager import ConfigManager
+        from tools.utils.config_manager import ConfigManager
 
         self.config = ConfigManager(project_root)
         self.processed_data_dir = self.config.get_path("processed_data_dir")

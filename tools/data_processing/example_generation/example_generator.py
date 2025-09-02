@@ -15,19 +15,13 @@ from typing import Dict, List, Optional, Tuple, Any
 from pathlib import Path
 import json
 
-from tools.core.argument_parser import (
-    StandardizedRawGlossParser,
-    RawGlossParseError,
+from tools.data_processing.example_generation.argument_processor import (
+    ArgumentProcessor,
 )
-from tools.core.argument_resolver import (
-    ArgumentResolver,
-    ArgumentResolutionError,
-    CaseFormMissingError,
-)
-from tools.core.verb_conjugation import (
+from tools.data_processing.verb_conjugation import (
     get_conjugation_form,
 )
-from tools.core.shared_gloss_utils import (
+from tools.utils.shared_gloss_utils import (
     TENSE_MAPPING,
     REVERSE_TENSE_MAPPING,
     CASE_NAMES,
@@ -49,9 +43,8 @@ class ExampleGenerationError(Exception):
 
 class PedagogicalExampleGenerator:
     def __init__(self):
-        """Initialize the example generator with argument resolver and parser"""
-        self.argument_resolver = ArgumentResolver()
-        self.raw_gloss_parser = StandardizedRawGlossParser()
+        """Initialize the example generator with unified argument processor"""
+        self.argument_processor = ArgumentProcessor()
 
         # Use shared constants from shared_gloss_utils
         self.case_names = CASE_NAMES
@@ -107,7 +100,7 @@ class PedagogicalExampleGenerator:
                 arguments = {"subject": {"type": "S", "case": "Nom"}}
             else:
                 try:
-                    parsed_gloss = self.raw_gloss_parser.parse_raw_gloss(raw_gloss)
+                    parsed_gloss = self.argument_processor.parse_raw_gloss(raw_gloss)
                     arguments = parsed_gloss.get("arguments", {})
                 except Exception as e:
                     logger.warning(
@@ -222,8 +215,8 @@ class PedagogicalExampleGenerator:
     ) -> str:
         """Get English base form from database"""
         try:
-            return self.argument_resolver.get_english_base_form(
-                key, database_type, number
+            return self.argument_processor.get_english_translation(
+                key, self.argument_processor.databases, database_type
             )
         except Exception:
             return key
@@ -354,12 +347,14 @@ class PedagogicalExampleGenerator:
             number = "plural" if person == "3pl" else "singular"
 
             # Get case form from selected subject
-            case_form = self.argument_resolver.get_case_form(noun_key, case, number)
+            case_form = self.argument_processor.get_case_form(
+                noun_key, case, self.argument_processor.databases
+            )
 
             # Get adjective form if present
             if adjective_key:
-                adj_case_form = self.argument_resolver.get_adjective_form(
-                    adjective_key, case, number
+                adj_case_form = self.argument_processor.get_adjective_form(
+                    adjective_key, case, self.argument_processor.databases
                 )
                 georgian_text = f"{adj_case_form} {case_form}"
             else:
@@ -422,12 +417,14 @@ class PedagogicalExampleGenerator:
             case = do_arg.get("case", "dat").lower()
 
             # Get case form from selected object
-            case_form = self.argument_resolver.get_case_form(noun_key, case)
+            case_form = self.argument_processor.get_case_form(
+                noun_key, case, self.argument_processor.databases
+            )
 
             # Get adjective form if present
             if adjective_key:
-                adj_case_form = self.argument_resolver.get_adjective_form(
-                    adjective_key, case
+                adj_case_form = self.argument_processor.get_adjective_form(
+                    adjective_key, case, self.argument_processor.databases
                 )
                 georgian_text = f"{adj_case_form} {case_form}"
             else:
@@ -490,12 +487,14 @@ class PedagogicalExampleGenerator:
             case = io_arg.get("case", "dat").lower()
 
             # Get case form from selected object
-            case_form = self.argument_resolver.get_case_form(noun_key, case)
+            case_form = self.argument_processor.get_case_form(
+                noun_key, case, self.argument_processor.databases
+            )
 
             # Get adjective form if present
             if adjective_key:
-                adj_case_form = self.argument_resolver.get_adjective_form(
-                    adjective_key, case
+                adj_case_form = self.argument_processor.get_adjective_form(
+                    adjective_key, case, self.argument_processor.databases
                 )
                 georgian_text = f"{adj_case_form} {case_form}"
             else:
@@ -1045,7 +1044,7 @@ def get_conjugation_form_for_preverb(
     )
 
     # Use the verb_conjugation module to get the proper form with preverb handling
-    from tools.core.verb_conjugation import get_conjugation_form
+    from tools.data_processing.verb_conjugation import get_conjugation_form
 
     form = get_conjugation_form(verb_data, tense, person, preverb)
     logger.info(f"[CONJUGATION] Retrieved form: {form}")

@@ -12,8 +12,8 @@ import logging
 import json
 from typing import Dict, List, Optional
 
-from .shared_gloss_utils import BaseGlossParser, GlossComponent, GlossData
-from tools.modules.config_manager import ConfigManager
+from tools.utils.shared_gloss_utils import BaseGlossParser, GlossComponent, GlossData
+from tools.utils.config_manager import ConfigManager
 
 logger = logging.getLogger(__name__)
 

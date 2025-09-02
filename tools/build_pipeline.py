@@ -24,14 +24,16 @@ from tools.utils.unicode_console import (
 setup_unicode_console()
 force_utf8_environment()
 
-from tools.modules.verb_data_processor import VerbDataProcessor
-from tools.modules.processed_data_manager import ProcessedDataManager
-from tools.modules.html_generator_refactored import HTMLGeneratorRefactored
-from tools.modules.external_data_generator_pipeline import ExternalDataGeneratorPipeline
-from tools.modules.verb_data_loader import VerbDataLoader
-from tools.modules.asset_manager import AssetManager
-from tools.modules.html_index_file_writer import HTMLIndexFileWriter
-from tools.modules.config_manager import ConfigManager
+from tools.data_processing.verb_data_processor import VerbDataProcessor
+from tools.data_processing.processed_data_manager import ProcessedDataManager
+from tools.output_generation.html_generator import HTMLGenerator
+from tools.output_generation.external_data_generator_pipeline import (
+    ExternalDataGeneratorPipeline,
+)
+from tools.data_extraction.verb_data_loader import VerbDataLoader
+from tools.output_generation.asset_manager import AssetManager
+from tools.output_generation.html_index_file_writer import HTMLIndexFileWriter
+from tools.utils.config_manager import ConfigManager
 
 logger = logging.getLogger(__name__)
 
@@ -247,9 +249,9 @@ def run_output_generation_pipeline(config_manager: ConfigManager, build_mode: st
             data_loader = VerbDataLoader(project_root)
             print("🔧 VerbDataLoader initialized successfully")
 
-            print("🔧 About to initialize HTMLGeneratorRefactored...")
-            html_generator = HTMLGeneratorRefactored(project_root, data_loader)
-            print("🔧 HTMLGeneratorRefactored initialized successfully")
+            print("🔧 About to initialize HTMLGenerator...")
+            html_generator = HTMLGenerator(project_root, data_loader)
+            print("🔧 HTMLGenerator initialized successfully")
 
             print("🔧 About to generate HTML content...")
             html_content = html_generator.generate_html(processed_verbs)

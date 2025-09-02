@@ -9,7 +9,7 @@ import json
 import logging
 from pathlib import Path
 from typing import Dict, Optional
-from tools.modules.config_manager import ConfigManager
+from tools.utils.config_manager import ConfigManager
 
 logger = logging.getLogger(__name__)
 
@@ -22,14 +22,14 @@ class DatabaseLoader:
             # Auto-detect data directory using ConfigManager
             current_file = Path(__file__)
             project_root = current_file.parent.parent.parent
-            from tools.modules.config_manager import ConfigManager
+            from tools.utils.config_manager import ConfigManager
 
             self.config = ConfigManager(project_root)
             self.data_dir = self.config.get_path("src_dir") / "data"
         else:
             self.data_dir = data_dir
             # Still need config for database paths, so create it from the data_dir
-            from tools.modules.config_manager import ConfigManager
+            from tools.utils.config_manager import ConfigManager
 
             # Try to find project root from data_dir
             if "src" in data_dir.parts:

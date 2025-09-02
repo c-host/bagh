@@ -7,7 +7,7 @@ import json
 from pathlib import Path
 from typing import Dict, List, Tuple, Optional
 import logging
-from .config_manager import ConfigManager
+from tools.utils.config_manager import ConfigManager
 
 logger = logging.getLogger(__name__)
 
