@@ -1,5 +1,6 @@
 """
-Processed Data Store - Manages the processed verb data between pipeline stages.
+Processed Data Manager - Manages the processed verb data between pipeline stages.
+Handles storing, loading, retrieving, and managing processed verb data.
 """
 
 import json
@@ -11,14 +12,18 @@ from tools.utils.unicode_console import safe_log
 logger = logging.getLogger(__name__)
 
 
-class ProcessedDataStore:
+class ProcessedDataManager:
     """Manages processed verb data between pipeline stages."""
 
     def __init__(self, project_root: Path):
         self.project_root = project_root
-        self.processed_data_dir = project_root / "src" / "data" / "processed_data"
+        # Use ConfigManager for path management
+        from tools.modules.config_manager import ConfigManager
+
+        self.config = ConfigManager(project_root)
+        self.processed_data_dir = self.config.get_path("processed_data_dir")
         self.processed_data_dir.mkdir(parents=True, exist_ok=True)
-        self.processed_verbs_file = self.processed_data_dir / "processed_verbs.json"
+        self.processed_verbs_file = self.config.get_path("processed_verbs_file")
 
     def store_processed_verbs(self, processed_verbs: Dict):
         """Store processed verbs to disk as human-readable JSON."""
@@ -26,29 +31,33 @@ class ProcessedDataStore:
             with open(self.processed_verbs_file, "w", encoding="utf-8") as f:
                 json.dump(processed_verbs, f, ensure_ascii=False, indent=2)
 
-            safe_log(logger, 'info',
-                f"Stored {len(processed_verbs)} processed verbs to {self.processed_verbs_file}"
+            safe_log(
+                logger,
+                "info",
+                f"Stored {len(processed_verbs)} processed verbs to {self.processed_verbs_file}",
             )
         except Exception as e:
-            safe_log(logger, 'error', f"Failed to store processed verbs: {e}")
+            safe_log(logger, "error", f"Failed to store processed verbs: {e}")
             raise
 
     def load_processed_verbs(self) -> Dict:
         """Load processed verbs from disk."""
         if not self.processed_verbs_file.exists():
-            safe_log(logger, 'warning', "No processed verbs file found")
+            safe_log(logger, "warning", "No processed verbs file found")
             return {}
 
         try:
             with open(self.processed_verbs_file, "r", encoding="utf-8") as f:
                 data = json.load(f)
 
-            safe_log(logger, 'info',
-                f"Loaded {len(data)} processed verbs from {self.processed_verbs_file}"
+            safe_log(
+                logger,
+                "info",
+                f"Loaded {len(data)} processed verbs from {self.processed_verbs_file}",
             )
             return data
         except Exception as e:
-            safe_log(logger, 'error', f"Failed to load processed verbs: {e}")
+            safe_log(logger, "error", f"Failed to load processed verbs: {e}")
             raise
 
     def get_verb_data(self, verb_id: str) -> Optional[Dict]:
@@ -60,7 +69,7 @@ class ProcessedDataStore:
         """Clear all processed data (useful for testing)."""
         if self.processed_verbs_file.exists():
             self.processed_verbs_file.unlink()
-            safe_log(logger, 'info', "Cleared processed verbs data")
+            safe_log(logger, "info", "Cleared processed verbs data")
 
     def get_processed_data_info(self) -> Dict:
         """Get information about the processed data."""

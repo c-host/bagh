@@ -22,7 +22,6 @@ class AssetManager:
     """Handles copying and management of static assets for the website."""
 
     def __init__(self, project_root: Path, config_manager=None):
-        self.project_root = project_root
         if config_manager is None:
             # Import here to avoid circular imports
             from tools.modules.config_manager import ConfigManager
@@ -30,6 +29,8 @@ class AssetManager:
             self.config_manager = ConfigManager(project_root)
         else:
             self.config_manager = config_manager
+
+        # Get all paths from config manager
         self.dist_dir = self.config_manager.get_path("dist_dir")
         self.src_dir = self.config_manager.get_path("src_dir")
 
@@ -80,11 +81,12 @@ class AssetManager:
             bool: True if successful, False otherwise
         """
         try:
-            styles_dir = self.dist_dir / "styles"
-            styles_dir.mkdir(exist_ok=True)
+            # Use config manager paths instead of manual construction
+            css_source = self.config_manager.get_path("css_file")
+            css_dest = self.config_manager.get_path("css_output")
 
-            css_source = self.src_dir / "styles" / "main.css"
-            css_dest = styles_dir / "main.css"
+            # Create directory if needed
+            css_dest.parent.mkdir(parents=True, exist_ok=True)
 
             if css_source.exists():
                 shutil.copy2(css_source, css_dest)
@@ -107,12 +109,13 @@ class AssetManager:
             bool: True if successful, False otherwise
         """
         try:
-            scripts_dir = self.dist_dir / "scripts"
+            # Use config manager paths
+            scripts_dir = self.config_manager.get_path("dist_scripts_dir")
             scripts_dir.mkdir(exist_ok=True)
 
             # Copy main orchestrator file
-            main_source = self.src_dir / "scripts" / "main.js"
-            main_dest = scripts_dir / "main.js"  # Deploy as main.js
+            main_source = self.config_manager.get_path("js_file")
+            main_dest = self.config_manager.get_path("js_output")
 
             if main_source.exists():
                 shutil.copy2(main_source, main_dest)
@@ -166,8 +169,9 @@ class AssetManager:
             bool: True if successful, False otherwise
         """
         try:
-            assets_source = self.src_dir / "assets"
-            assets_dest = self.dist_dir / "assets"
+            # Use config manager paths
+            assets_source = self.config_manager.get_path("assets_dir")
+            assets_dest = self.config_manager.get_path("dist_assets_dir")
 
             if assets_source.exists():
                 # Remove existing assets directory if it exists
@@ -194,8 +198,9 @@ class AssetManager:
             bool: True if successful, False otherwise
         """
         try:
-            error_page_source = self.src_dir / "404.html"
-            error_page_dest = self.dist_dir / "404.html"
+            # Use config manager paths
+            error_page_source = self.config_manager.get_path("error_page")
+            error_page_dest = self.config_manager.get_path("error_page_output")
 
             if error_page_source.exists():
                 shutil.copy2(error_page_source, error_page_dest)
@@ -218,17 +223,19 @@ class AssetManager:
         """
         return {
             "dist_dir": self.dist_dir,
-            "styles_dir": self.dist_dir / "styles",
-            "scripts_dir": self.dist_dir / "scripts",
-            "assets_dir": self.dist_dir / "assets",
-            "css_file": self.dist_dir / "styles" / "main.css",
-            "js_file": self.dist_dir / "scripts" / "main.js",
-            "error_page": self.dist_dir / "404.html",
+            "styles_dir": self.config_manager.get_path("dist_styles_dir"),
+            "scripts_dir": self.config_manager.get_path("dist_scripts_dir"),
+            "assets_dir": self.config_manager.get_path("dist_assets_dir"),
+            "css_file": self.config_manager.get_path("css_output"),
+            "js_file": self.config_manager.get_path("js_output"),
+            "error_page": self.config_manager.get_path("error_page_output"),
             # New modular structure paths
-            "shared_dir": self.dist_dir / "scripts" / "shared",
-            "modules_dir": self.dist_dir / "scripts" / "modules",
-            "test_config": self.dist_dir / "scripts" / "test-config.js",
-            "build_production": self.dist_dir / "scripts" / "build-production.js",
+            "shared_dir": self.config_manager.get_path("dist_scripts_dir") / "shared",
+            "modules_dir": self.config_manager.get_path("dist_scripts_dir") / "modules",
+            "test_config": self.config_manager.get_path("dist_scripts_dir")
+            / "test-config.js",
+            "build_production": self.config_manager.get_path("dist_scripts_dir")
+            / "build-production.js",
         }
 
     def validate_assets(self) -> Tuple[bool, List[str]]:
@@ -254,26 +261,19 @@ class AssetManager:
             if not path.exists():
                 missing_files.append(f"{name}: {path}")
 
-        # Check required shared utility files
-        shared_files = ["utils.js", "constants.js", "types.js", "dom-manager.js"]
-
+        # Check required shared utility files using config
+        shared_files = self.config_manager.get_setting(
+            "asset_config", "required_shared_files"
+        )
         for shared_file in shared_files:
             shared_path = paths["shared_dir"] / shared_file
             if not shared_path.exists():
                 missing_files.append(f"Shared utility {shared_file}: {shared_path}")
 
-        # Check required feature module files
-        feature_modules = [
-            "theme-manager.js",
-            "font-manager.js",
-            "notepad-manager.js",
-            "filter-manager.js",
-            "sidebar-manager.js",
-            "verb-data-manager.js",
-            "preverb-manager.js",
-            "event-manager.js",
-        ]
-
+        # Check required feature module files using config
+        feature_modules = self.config_manager.get_setting(
+            "asset_config", "required_feature_modules"
+        )
         for module_file in feature_modules:
             module_path = paths["modules_dir"] / module_file
             if not module_path.exists():
@@ -303,51 +303,10 @@ class AssetManager:
     def validate_modular_structure(self) -> Tuple[bool, List[str]]:
         """
         Validate the modular JavaScript structure specifically.
+        This method now delegates to validate_assets() to avoid duplication.
 
         Returns:
             Tuple[bool, List[str]]: (success, list of validation issues)
         """
-        issues = []
-        paths = self.get_asset_paths()
-
-        # Check main orchestrator
-        if not paths["js_file"].exists():
-            issues.append("Main JavaScript orchestrator missing")
-
-        # Check shared utilities
-        if not paths["shared_dir"].exists():
-            issues.append("Shared utilities directory missing")
-        else:
-            shared_files = ["utils.js", "constants.js", "types.js", "dom-manager.js"]
-            for shared_file in shared_files:
-                shared_path = paths["shared_dir"] / shared_file
-                if not shared_path.exists():
-                    issues.append(f"Shared utility missing: {shared_file}")
-
-        # Check feature modules
-        if not paths["modules_dir"].exists():
-            issues.append("Feature modules directory missing")
-        else:
-            module_files = [
-                "theme-manager.js",
-                "font-manager.js",
-                "notepad-manager.js",
-                "filter-manager.js",
-                "sidebar-manager.js",
-                "verb-data-manager.js",
-                "preverb-manager.js",
-                "event-manager.js",
-            ]
-            for module_file in module_files:
-                module_path = paths["modules_dir"] / module_file
-                if not module_path.exists():
-                    issues.append(f"Feature module missing: {module_file}")
-
-        success = len(issues) == 0
-
-        if success:
-            logger.info("  ✅ Modular JavaScript structure validated")
-        else:
-            logger.warning(f"  ⚠️ Modular structure issues: {issues}")
-
-        return success, issues
+        # Delegate to the main validation method to avoid duplication
+        return self.validate_assets()

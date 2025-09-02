@@ -2,11 +2,11 @@
 Modules package for verb-website build process.
 """
 
-from .data_loader import VerbDataLoader
+from .verb_data_loader import VerbDataLoader
 from .html_generator_refactored import HTMLGeneratorRefactored
 from .external_data_generator_pipeline import ExternalDataGeneratorPipeline
 from .asset_manager import AssetManager
-from .file_writer import FileWriter
+from .html_index_file_writer import HTMLIndexFileWriter
 from .config_manager import ConfigManager
 
 __all__ = [
@@ -14,6 +14,6 @@ __all__ = [
     "HTMLGeneratorRefactored",
     "ExternalDataGeneratorPipeline",
     "AssetManager",
-    "FileWriter",
+    "HTMLIndexFileWriter",
     "ConfigManager",
 ]

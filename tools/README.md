@@ -11,16 +11,18 @@ tools/
 ├── modules/                     # Build system modules
 │   ├── __init__.py
 │   ├── config_manager.py        # Configuration management
-│   ├── data_loader.py           # Data loading and validation
+│   ├── verb_data_loader.py      # Verb data loading and validation
 │   ├── html_generator.py        # HTML generation
 │   ├── external_data_generator.py # External data file generation
 │   ├── asset_manager.py         # Asset copying and management
-│   └── file_writer.py           # File writing operations
+│   └── html_index_file_writer.py # HTML index file writing operations
 ├── core/                        # Core data processing modules
 │   ├── __init__.py
-│   ├── robust_gloss_processor.py # Gloss parsing and analysis (consolidated)
-│   ├── verb_conjugation.py      # Verb conjugation management
-│   ├── example_generator.py     # Pedagogical example generation
+│   ├── shared_gloss_utils.py   # Shared gloss processing foundation
+│   ├── gloss_processor.py      # Website display gloss processing
+│   ├── argument_parser.py      # Example generation argument parsing
+│   ├── verb_conjugation.py     # Verb conjugation management
+│   ├── example_generator.py    # Pedagogical example generation
 │   └── noun_adjective_engine.py # Noun/adjective selection
 ├── validation/                  # Validation modules
 │   ├── __init__.py

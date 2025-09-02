@@ -1,9 +1,8 @@
 """
 Shared database loading utility for Georgian verb tools.
 
-This module provides centralized database loading functionality to eliminate
-code duplication across different tools that need access to the four main
-databases: subjects, direct_objects, indirect_objects, and adjectives.
+This module provides centralized database loading functionality for the
+four main databases: subjects, direct_objects, indirect_objects, and adjectives.
 """
 
 import json
@@ -19,25 +18,27 @@ class DatabaseLoader:
     """Centralized database loading utility."""
 
     def __init__(self, data_dir: Optional[Path] = None):
-        """
-        Initialize the database loader.
-
-        Args:
-            data_dir: Path to data directory. If None, auto-detects from project structure.
-        """
         if data_dir is None:
-            # Auto-detect data directory from current file location
+            # Auto-detect data directory using ConfigManager
             current_file = Path(__file__)
             project_root = current_file.parent.parent.parent
+            from tools.modules.config_manager import ConfigManager
+
             self.config = ConfigManager(project_root)
-            self.data_dir = project_root / "src" / "data"
+            self.data_dir = self.config.get_path("src_dir") / "data"
         else:
-            self.config = ConfigManager(
-                data_dir.parent
-                if data_dir.parent.name == "src"
-                else data_dir.parent.parent
-            )
             self.data_dir = data_dir
+            # Still need config for database paths, so create it from the data_dir
+            from tools.modules.config_manager import ConfigManager
+
+            # Try to find project root from data_dir
+            if "src" in data_dir.parts:
+                src_index = data_dir.parts.index("src")
+                project_root = Path(*data_dir.parts[:src_index])
+            else:
+                # Fallback to current directory
+                project_root = Path.cwd()
+            self.config = ConfigManager(project_root)
 
         self._databases = {}
         self._loaded = False

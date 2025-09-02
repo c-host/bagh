@@ -94,6 +94,12 @@ class ConfigManager:
             / "data"
             / "references"
             / "gloss_reference.json",
+            # Processed data paths
+            "processed_data_dir": self.paths["src_dir"] / "data" / "processed_data",
+            "processed_verbs_file": self.paths["src_dir"]
+            / "data"
+            / "processed_data"
+            / "processed_verbs.json",
         }
 
         # Source asset paths
@@ -150,6 +156,24 @@ class ConfigManager:
             "copy_assets": True,
             "copy_error_page": True,
             "clean_existing_assets": True,
+            # Required file lists for validation
+            "required_shared_files": [
+                "utils.js",
+                "constants.js",
+                "types.js",
+                "dom-manager.js",
+            ],
+            "required_feature_modules": [
+                "theme-manager.js",
+                "font-manager.js",
+                "notepad-manager.js",
+                "filter-manager.js",
+                "sidebar-manager.js",
+                "verb-data-manager.js",
+                "preverb-manager.js",
+                "event-manager.js",
+            ],
+            "optional_files": ["test-config.js", "build-production.js"],
         }
 
         # Reference build configuration

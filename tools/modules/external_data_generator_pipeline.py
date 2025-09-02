@@ -15,7 +15,11 @@ class ExternalDataGeneratorPipeline:
 
     def __init__(self, project_root: Path):
         self.project_root = project_root
-        self.dist_data_dir = project_root / "dist" / "data"
+        # Use ConfigManager for path management
+        from tools.modules.config_manager import ConfigManager
+
+        self.config = ConfigManager(project_root)
+        self.dist_data_dir = self.config.get_path("dist_data_dir")
         self.dist_data_dir.mkdir(parents=True, exist_ok=True)
 
     def generate_external_data_from_processed_data(self, processed_verbs: Dict) -> bool:
@@ -32,7 +36,9 @@ class ExternalDataGeneratorPipeline:
             logger.warning("No processed verbs provided for external data generation")
             return False
 
-        logger.info(f"Generating external data from {len(processed_verbs)} processed verbs")
+        logger.info(
+            f"Generating external data from {len(processed_verbs)} processed verbs"
+        )
 
         try:
             # Generate data for each verb
@@ -41,7 +47,9 @@ class ExternalDataGeneratorPipeline:
                     self._generate_verb_external_data(verb_id, processed_verb)
                     logger.debug(f"Generated external data for verb {verb_id}")
                 except Exception as e:
-                    logger.error(f"Failed to generate external data for verb {verb_id}: {e}")
+                    logger.error(
+                        f"Failed to generate external data for verb {verb_id}: {e}"
+                    )
                     # Continue with other verbs instead of failing completely
                     continue
 
@@ -64,12 +72,18 @@ class ExternalDataGeneratorPipeline:
 
         if has_multiple_preverbs:
             # Multi-preverb verb - generate data for each preverb
-            self._generate_multi_preverb_external_data(verb_id, base_data, generated_data)
+            self._generate_multi_preverb_external_data(
+                verb_id, base_data, generated_data
+            )
         else:
             # Single-preverb verb - generate simple data
-            self._generate_single_preverb_external_data(verb_id, base_data, generated_data)
+            self._generate_single_preverb_external_data(
+                verb_id, base_data, generated_data
+            )
 
-    def _generate_single_preverb_external_data(self, verb_id: str, base_data: Dict, generated_data: Dict):
+    def _generate_single_preverb_external_data(
+        self, verb_id: str, base_data: Dict, generated_data: Dict
+    ):
         """Generate external data for single-preverb verbs."""
         # Create the external data structure
         external_data = {
@@ -90,7 +104,7 @@ class ExternalDataGeneratorPipeline:
             "preverb_rules": base_data.get("preverb_rules", {}),
             "examples": generated_data.get("examples", {}),
             "gloss_analysis": generated_data.get("gloss_analysis", {}),
-            "preverb_forms": generated_data.get("preverb_forms", {})
+            "preverb_forms": generated_data.get("preverb_forms", {}),
         }
 
         # Write to file
@@ -98,9 +112,13 @@ class ExternalDataGeneratorPipeline:
         with open(output_file, "w", encoding="utf-8") as f:
             json.dump(external_data, f, ensure_ascii=False, indent=2)
 
-        logger.debug(f"Generated external data for single-preverb verb {verb_id}: {output_file}")
+        logger.debug(
+            f"Generated external data for single-preverb verb {verb_id}: {output_file}"
+        )
 
-    def _generate_multi_preverb_external_data(self, verb_id: str, base_data: Dict, generated_data: Dict):
+    def _generate_multi_preverb_external_data(
+        self, verb_id: str, base_data: Dict, generated_data: Dict
+    ):
         """Generate external data for multi-preverb verbs."""
         # Create the external data structure
         external_data = {
@@ -121,7 +139,7 @@ class ExternalDataGeneratorPipeline:
             "preverb_rules": base_data.get("preverb_rules", {}),
             "examples": generated_data.get("examples", {}),
             "gloss_analysis": generated_data.get("gloss_analysis", {}),
-            "preverb_forms": generated_data.get("preverb_forms", {})
+            "preverb_forms": generated_data.get("preverb_forms", {}),
         }
 
         # Write to file
@@ -129,14 +147,13 @@ class ExternalDataGeneratorPipeline:
         with open(output_file, "w", encoding="utf-8") as f:
             json.dump(external_data, f, ensure_ascii=False, indent=2)
 
-        logger.debug(f"Generated external data for multi-preverb verb {verb_id}: {output_file}")
+        logger.debug(
+            f"Generated external data for multi-preverb verb {verb_id}: {output_file}"
+        )
 
     def _generate_verbs_index(self, processed_verbs: Dict):
         """Generate the main verbs index file."""
-        index_data = {
-            "total_verbs": len(processed_verbs),
-            "verbs": {}
-        }
+        index_data = {"total_verbs": len(processed_verbs), "verbs": {}}
 
         for verb_id, processed_verb in processed_verbs.items():
             base_data = processed_verb["base_data"]
@@ -156,7 +173,7 @@ class ExternalDataGeneratorPipeline:
                 "default_preverb": preverb_config.get("default_preverb", ""),
                 "global_argument_pattern": base_data.get("global_argument_pattern", ""),
                 "url": base_data.get("url", ""),
-                "data_file": f"verb_{verb_id}.json"
+                "data_file": f"verb_{verb_id}.json",
             }
 
             index_data["verbs"][verb_id] = index_entry
@@ -176,15 +193,17 @@ class ExternalDataGeneratorPipeline:
         try:
             json_files = list(self.dist_data_dir.glob("*.json"))
             files_info = []
-            
+
             for json_file in json_files:
                 try:
                     size = json_file.stat().st_size
-                    files_info.append({
-                        "filename": json_file.name,
-                        "size": size,
-                        "path": str(json_file)
-                    })
+                    files_info.append(
+                        {
+                            "filename": json_file.name,
+                            "size": size,
+                            "path": str(json_file),
+                        }
+                    )
                 except Exception as e:
                     logger.warning(f"Could not get info for {json_file}: {e}")
 
@@ -192,7 +211,7 @@ class ExternalDataGeneratorPipeline:
                 "exists": True,
                 "count": len(files_info),
                 "files": files_info,
-                "directory": str(self.dist_data_dir)
+                "directory": str(self.dist_data_dir),
             }
 
         except Exception as e:

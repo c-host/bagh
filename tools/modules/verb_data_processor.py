@@ -9,7 +9,7 @@ from tools.core.example_generator import (
     get_effective_preverb,
     get_conjugation_form_for_preverb,
 )
-from tools.core.robust_gloss_processor import create_gloss_data_structure
+from tools.core.gloss_processor import create_gloss_data_structure
 from tools.core.verb_conjugation import calculate_preverb_forms, get_conjugation_form
 from tools.utils.unicode_console import safe_log
 

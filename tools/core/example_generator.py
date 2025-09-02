@@ -15,17 +15,23 @@ from typing import Dict, List, Optional, Tuple, Any
 from pathlib import Path
 import json
 
+from tools.core.argument_parser import (
+    StandardizedRawGlossParser,
+    RawGlossParseError,
+)
 from tools.core.argument_resolver import (
     ArgumentResolver,
     ArgumentResolutionError,
     CaseFormMissingError,
 )
-from tools.core.robust_gloss_processor import (
-    StandardizedRawGlossParser,
-    RawGlossParseError,
-)
 from tools.core.verb_conjugation import (
     get_conjugation_form,
+)
+from tools.core.shared_gloss_utils import (
+    TENSE_MAPPING,
+    REVERSE_TENSE_MAPPING,
+    CASE_NAMES,
+    ROLE_DESCRIPTIONS,
 )
 
 # Import Unicode-safe logging utilities
@@ -47,35 +53,11 @@ class PedagogicalExampleGenerator:
         self.argument_resolver = ArgumentResolver()
         self.raw_gloss_parser = StandardizedRawGlossParser()
 
-        # Case name mappings for English translations
-        self.case_names = {
-            "nom": "Nominative",
-            "erg": "Ergative",
-            "dat": "Dative",
-            "gen": "Genitive",
-            "inst": "Instrumental",
-            "adv": "Adverbial",
-        }
-
-        # Role descriptions for English translations
-        self.role_descriptions = {
-            "subject": "Subject",
-            "direct_object": "Direct Object",
-            "indirect_object": "Indirect Object",
-        }
-
-        # Tense mapping for English translations
-        self.tense_mapping = {
-            "present": "Pres",
-            "imperfect": "Impf",
-            "future": "Fut",
-            "aorist": "Aor",
-            "optative": "Opt",
-            "imperative": "Impv",
-        }
-
-        # Reverse mapping for English translations
-        self.reverse_tense_mapping = {v: k for k, v in self.tense_mapping.items()}
+        # Use shared constants from shared_gloss_utils
+        self.case_names = CASE_NAMES
+        self.role_descriptions = ROLE_DESCRIPTIONS
+        self.tense_mapping = TENSE_MAPPING
+        self.reverse_tense_mapping = REVERSE_TENSE_MAPPING
 
     def _should_include_subject(self, person: str) -> bool:
         """

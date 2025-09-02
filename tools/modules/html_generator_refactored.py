@@ -1,6 +1,5 @@
 """
-Refactored HTML Generator - Combines rich HTML structure with pipeline data reading.
-Keeps the sophisticated UI from html_generator.py but reads from processed data instead of calling generation functions.
+HTML Generator - Generates HTML structure with processed data
 """
 
 import html
@@ -9,7 +8,7 @@ from pathlib import Path
 from typing import Dict, List, Optional
 import logging
 
-from .data_loader import VerbDataLoader
+from .verb_data_loader import VerbDataLoader
 
 logger = logging.getLogger(__name__)
 
@@ -32,32 +31,16 @@ class HTMLGeneratorRefactored:
         verb_id: str = "",
         duplicate_primary_verbs: Optional[Dict] = None,
     ) -> str:
-        """
-        Create a safe anchor ID with smart disambiguation.
-        [KEPT FROM ORIGINAL - No changes needed]
-        """
-        from tools.utils import safe_anchor_id, create_deterministic_hash
+        """Create a safe anchor ID with smart disambiguation."""
+        from tools.utils import create_safe_anchor_id as utils_create_safe_anchor_id
 
-        primary_verb = self.data_loader.get_primary_verb(georgian_text)
-
-        # Basic validation - ensure it's not empty
-        if not primary_verb or primary_verb == "unknown":
-            return f"verb-{create_deterministic_hash(georgian_text) % 10000}"
-
-        # Check if this primary verb has duplicates
-        if duplicate_primary_verbs and primary_verb in duplicate_primary_verbs:
-            # This is a duplicate, so disambiguation is needed
-            if semantic_key:
-                return f"{primary_verb}-{semantic_key}"
-            elif verb_id:
-                return f"{primary_verb}-{verb_id}"
-            else:
-                return (
-                    f"{primary_verb}-{create_deterministic_hash(georgian_text) % 1000}"
-                )
-        else:
-            # This is unique, use clean URL
-            return primary_verb
+        return utils_create_safe_anchor_id(
+            georgian_text,
+            semantic_key,
+            verb_id,
+            duplicate_primary_verbs,
+            self.data_loader,
+        )
 
     def create_preverb_selector(self, verb_data: Dict) -> str:
         """

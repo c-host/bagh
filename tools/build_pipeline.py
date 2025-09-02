@@ -1,7 +1,6 @@
 #!/usr/bin/env python3
 """
 Two-Stage Pipeline Build Process for Georgian Verb Website
-Implements the pipeline architecture with clear separation of data processing and output generation.
 """
 
 import argparse
@@ -26,12 +25,12 @@ setup_unicode_console()
 force_utf8_environment()
 
 from tools.modules.verb_data_processor import VerbDataProcessor
-from tools.modules.processed_data_store import ProcessedDataStore
+from tools.modules.processed_data_manager import ProcessedDataManager
 from tools.modules.html_generator_refactored import HTMLGeneratorRefactored
 from tools.modules.external_data_generator_pipeline import ExternalDataGeneratorPipeline
-from tools.modules.data_loader import VerbDataLoader
+from tools.modules.verb_data_loader import VerbDataLoader
 from tools.modules.asset_manager import AssetManager
-from tools.modules.file_writer import FileWriter
+from tools.modules.html_index_file_writer import HTMLIndexFileWriter
 from tools.modules.config_manager import ConfigManager
 
 logger = logging.getLogger(__name__)
@@ -95,20 +94,21 @@ def main():
     # Determine build mode
     build_mode = "reference" if args.reference else "production"
 
-    # Get project root
-    project_root = Path(__file__).parent.parent
+    # Initialize configuration manager first
+    config_manager = ConfigManager(build_mode=build_mode)
+    project_root = config_manager.get_path("project_root")
 
     try:
         print(f"🔧 About to route to stage: {args.stage}")
         if args.stage == "data-processing":
             print("🔧 Routing to data-processing pipeline...")
-            run_data_processing_pipeline(project_root, build_mode)
+            run_data_processing_pipeline(config_manager, build_mode)
         elif args.stage == "output-generation":
             print("🔧 Routing to output-generation pipeline...")
-            run_output_generation_pipeline(project_root, build_mode)
+            run_output_generation_pipeline(config_manager, build_mode)
         elif args.stage == "full":
             print("🔧 Routing to full pipeline...")
-            run_full_pipeline(project_root, build_mode)
+            run_full_pipeline(config_manager, build_mode)
         else:
             print(f"⚠️ Unknown stage: {args.stage}")
 
@@ -117,14 +117,14 @@ def main():
         sys.exit(1)
 
 
-def run_data_processing_pipeline(project_root: Path, build_mode: str):
+def run_data_processing_pipeline(config_manager: ConfigManager, build_mode: str):
     """Stage 1: Process raw verb data into structured format"""
     logger.info("🔄 Starting Data Processing Pipeline...")
     start_time = time.time()
 
     try:
-        # Initialize configuration manager
-        config_manager = ConfigManager(build_mode=build_mode)
+        # Get project root from config manager
+        project_root = config_manager.get_path("project_root")
 
         # Load and validate raw data
         data_loader = VerbDataLoader(project_root)
@@ -167,7 +167,7 @@ def run_data_processing_pipeline(project_root: Path, build_mode: str):
                 raise
 
         # Store processed data
-        store = ProcessedDataStore(project_root)
+        store = ProcessedDataManager(project_root)
         store.store_processed_verbs(processed_verbs)
 
         # Validate processed data
@@ -182,10 +182,10 @@ def run_data_processing_pipeline(project_root: Path, build_mode: str):
         raise
 
 
-def run_output_generation_pipeline(project_root: Path, build_mode: str):
+def run_output_generation_pipeline(config_manager: ConfigManager, build_mode: str):
     """Stage 2: Generate HTML and external data from processed data"""
     print("🔧 Inside run_output_generation_pipeline function")
-    print(f"🔧 Project root: {project_root}")
+    print(f"🔧 Project root: {config_manager.get_path('project_root')}")
     print(f"🔧 Build mode: {build_mode}")
 
     logger.info("🔄 Starting Output Generation Pipeline...")
@@ -193,18 +193,17 @@ def run_output_generation_pipeline(project_root: Path, build_mode: str):
 
     try:
         print("🔧 Entering try block...")
-        # Initialize configuration manager
-        print("🔧 About to initialize ConfigManager...")
-        config_manager = ConfigManager(build_mode=build_mode)
-        print("🔧 ConfigManager initialized successfully")
+        # Get project root from config manager
+        project_root = config_manager.get_path("project_root")
+        print("🔧 Project root obtained from config manager")
 
         # Load processed data
-        print("🔧 About to initialize ProcessedDataStore...")
+        print("🔧 About to initialize ProcessedDataManager...")
         try:
-            store = ProcessedDataStore(project_root)
-            print("🔧 ProcessedDataStore initialized successfully")
+            store = ProcessedDataManager(project_root)
+            print("🔧 ProcessedDataManager initialized successfully")
         except Exception as e:
-            print(f"💥 Failed to initialize ProcessedDataStore: {e}")
+            print(f"💥 Failed to initialize ProcessedDataManager: {e}")
             import traceback
 
             traceback.print_exc()
@@ -257,7 +256,7 @@ def run_output_generation_pipeline(project_root: Path, build_mode: str):
             print(f"🔧 HTML content generated: {len(html_content)} characters")
 
             print("🔧 About to write HTML output...")
-            write_html_output(project_root, html_content, config_manager)
+            write_html_output(config_manager, html_content)
             print("🔧 HTML output written successfully")
         except Exception as e:
             print(f"💥 HTML generation failed: {e}")
@@ -318,16 +317,16 @@ def run_output_generation_pipeline(project_root: Path, build_mode: str):
         raise
 
 
-def run_full_pipeline(project_root: Path, build_mode: str):
+def run_full_pipeline(config_manager: ConfigManager, build_mode: str):
     """Run both stages in sequence"""
     logger.info("🚀 Starting Full Pipeline...")
 
     try:
         # Stage 1
-        run_data_processing_pipeline(project_root, build_mode)
+        run_data_processing_pipeline(config_manager, build_mode)
 
         # Stage 2
-        run_output_generation_pipeline(project_root, build_mode)
+        run_output_generation_pipeline(config_manager, build_mode)
 
         logger.info("🎉 Full Pipeline completed successfully!")
 
@@ -380,11 +379,11 @@ def validate_processed_data_exists(processed_verbs: dict):
         raise ValueError("No examples found in processed data")
 
 
-def write_html_output(
-    project_root: Path, html_content: str, config_manager: ConfigManager
-):
+def write_html_output(config_manager: ConfigManager, html_content: str):
     """Write HTML content to dist/index.html"""
-    file_writer = FileWriter(project_root, config_manager)
+    file_writer = HTMLIndexFileWriter(
+        config_manager.get_path("project_root"), config_manager
+    )
     write_success = file_writer.write_html_file(html_content)
 
     if write_success:
