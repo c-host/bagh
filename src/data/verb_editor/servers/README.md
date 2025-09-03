@@ -15,7 +15,7 @@ The verb editor uses multiple specialized servers to provide different functiona
    - **Startup**: `start_gnc_server.py`
 
 2. **Example Generator Server** (Port 5000)
-   - **Purpose**: Generates pedagogical examples for verbs
+   - **Purpose**: Generates examples for verbs
    - **Features**: Multi-preverb support, case marking
    - **File**: `example_generator_server.py`
    - **Startup**: `start_example_server.py`

@@ -152,282 +152,631 @@
   "preverb_rules": {
     "default": "",
     "replacements": {},
-    "tense_specific_fallbacks": {},
-    "english_fallbacks": {}
+    "tense_specific_fallbacks": {}
   },
   "examples": {
-    "null": {
+    "default": {
       "present": [
         {
-          "georgian": "ახალ პროექტს ვიწყებ",
-          "english": "<strong data-role=\"subject\" data-person=\"1sg\">I</strong> <strong data-role=\"verb\">start</strong> <strong data-role=\"direct-object\">the new project</strong>",
-          "english_plain": "I start the new project",
-          "html": "<span data-case=\"dat\" data-role=\"direct-object\">ახალ პროექტს</span> <span data-role=\"verb\">ვიწყებ</span>",
-          "case_marking": {
-            "direct_object": {
-              "case": "dat",
-              "word": "პროექტს"
-            }
-          },
-          "georgian_verb_form": "ვიწყებ"
-        },
-        {
-          "georgian": "ცნობისმოყვარე მუშა ახალ სამუშაოს იწყებს",
-          "english": "<strong data-role=\"subject\">The curious worker</strong> <strong data-role=\"verb\">starts</strong> <strong data-role=\"direct-object\">the new job</strong>",
-          "english_plain": "The curious worker starts the new job",
-          "html": "<span data-case=\"nom\" data-role=\"subject\">ცნობისმოყვარე მუშა</span> <span data-case=\"dat\" data-role=\"direct-object\">ახალ სამუშაოს</span> <span data-role=\"verb\">იწყებს</span>",
-          "case_marking": {
-            "subject": {
-              "case": "nom",
-              "word": "მუშა"
+          "georgian": "ვიწყებ ახალ პროექტს",
+          "georgian_components": {
+            "verb": {
+              "text": "ვიწყებ",
+              "role": "verb"
             },
             "direct_object": {
+              "text": "ახალ პროექტს",
               "case": "dat",
-              "word": "სამუშაოს"
+              "role": "direct_object"
             }
           },
-          "georgian_verb_form": "იწყებს"
-        },
-        {
-          "georgian": "შემოქმედებითი გუნდი სასარგებლო ვორქშოფს იწყებენ",
-          "english": "<strong data-role=\"subject\">The creative team</strong> <strong data-role=\"verb\">start</strong> <strong data-role=\"direct-object\">the useful workshop</strong>",
-          "english_plain": "The creative team start the useful workshop",
-          "html": "<span data-case=\"nom\" data-role=\"subject\">შემოქმედებითი გუნდი</span> <span data-case=\"dat\" data-role=\"direct-object\">სასარგებლო ვორქშოფს</span> <span data-role=\"verb\">იწყებენ</span>",
-          "case_marking": {
+          "english": "I start the new project",
+          "english_components": {
             "subject": {
-              "case": "nom",
-              "word": "გუნდი"
+              "text": "I",
+              "role": "subject",
+              "person": "1sg"
+            },
+            "verb": {
+              "text": "start",
+              "role": "verb"
             },
             "direct_object": {
-              "case": "dat",
-              "word": "ვორქშოფს"
+              "text": "the new project",
+              "role": "direct_object"
             }
           },
-          "georgian_verb_form": "იწყებენ"
+          "georgian_verb_form": "ვიწყებ",
+          "person": "1sg",
+          "effective_preverb": "და"
+        },
+        {
+          "georgian": "ცნობისმოყვარე მუშა იწყებს ახალ სამუშაოს",
+          "georgian_components": {
+            "subject": {
+              "text": "ცნობისმოყვარე მუშა",
+              "case": "nom",
+              "role": "subject"
+            },
+            "verb": {
+              "text": "იწყებს",
+              "role": "verb"
+            },
+            "direct_object": {
+              "text": "ახალ სამუშაოს",
+              "case": "dat",
+              "role": "direct_object"
+            }
+          },
+          "english": "The curious worker starts the new job",
+          "english_components": {
+            "subject": {
+              "text": "The curious worker",
+              "role": "subject",
+              "person": "3sg"
+            },
+            "verb": {
+              "text": "starts",
+              "role": "verb"
+            },
+            "direct_object": {
+              "text": "the new job",
+              "role": "direct_object"
+            }
+          },
+          "georgian_verb_form": "იწყებს",
+          "person": "3sg",
+          "effective_preverb": "და"
+        },
+        {
+          "georgian": "შემოქმედებითი გუნდები იწყებენ სასარგებლო ვორქშოფს",
+          "georgian_components": {
+            "subject": {
+              "text": "შემოქმედებითი გუნდები",
+              "case": "nom",
+              "role": "subject"
+            },
+            "verb": {
+              "text": "იწყებენ",
+              "role": "verb"
+            },
+            "direct_object": {
+              "text": "სასარგებლო ვორქშოფს",
+              "case": "dat",
+              "role": "direct_object"
+            }
+          },
+          "english": "The creative teams start the useful workshop",
+          "english_components": {
+            "subject": {
+              "text": "The creative teams",
+              "role": "subject",
+              "person": "3pl"
+            },
+            "verb": {
+              "text": "start",
+              "role": "verb"
+            },
+            "direct_object": {
+              "text": "the useful workshop",
+              "role": "direct_object"
+            }
+          },
+          "georgian_verb_form": "იწყებენ",
+          "person": "3pl",
+          "effective_preverb": "და"
         }
       ],
       "imperfect": [
         {
-          "georgian": "ახალ პროექტს ვიწყებდი",
-          "english": "<strong data-role=\"subject\" data-person=\"1sg\">I</strong> <strong data-role=\"verb\">was starting</strong> <strong data-role=\"direct-object\">the new project</strong>",
-          "english_plain": "I was starting the new project",
-          "html": "<span data-case=\"dat\" data-role=\"direct-object\">ახალ პროექტს</span> <span data-role=\"verb\">ვიწყებდი</span>",
-          "case_marking": {
-            "direct_object": {
-              "case": "dat",
-              "word": "პროექტს"
-            }
-          },
-          "georgian_verb_form": "ვიწყებდი"
-        },
-        {
-          "georgian": "ცნობისმოყვარე მუშა ახალ სამუშაოს იწყებდა",
-          "english": "<strong data-role=\"subject\">The curious worker</strong> <strong data-role=\"verb\">was starting</strong> <strong data-role=\"direct-object\">the new job</strong>",
-          "english_plain": "The curious worker was starting the new job",
-          "html": "<span data-case=\"nom\" data-role=\"subject\">ცნობისმოყვარე მუშა</span> <span data-case=\"dat\" data-role=\"direct-object\">ახალ სამუშაოს</span> <span data-role=\"verb\">იწყებდა</span>",
-          "case_marking": {
-            "subject": {
-              "case": "nom",
-              "word": "მუშა"
+          "georgian": "ვიწყებდი ახალ პროექტს",
+          "georgian_components": {
+            "verb": {
+              "text": "ვიწყებდი",
+              "role": "verb"
             },
             "direct_object": {
+              "text": "ახალ პროექტს",
               "case": "dat",
-              "word": "სამუშაოს"
+              "role": "direct_object"
             }
           },
-          "georgian_verb_form": "იწყებდა"
-        },
-        {
-          "georgian": "შემოქმედებითი გუნდი სასარგებლო ვორქშოფს იწყებდნენ",
-          "english": "<strong data-role=\"subject\">The creative team</strong> <strong data-role=\"verb\">were starting</strong> <strong data-role=\"direct-object\">the useful workshop</strong>",
-          "english_plain": "The creative team were starting the useful workshop",
-          "html": "<span data-case=\"nom\" data-role=\"subject\">შემოქმედებითი გუნდი</span> <span data-case=\"dat\" data-role=\"direct-object\">სასარგებლო ვორქშოფს</span> <span data-role=\"verb\">იწყებდნენ</span>",
-          "case_marking": {
+          "english": "I was starting the new project",
+          "english_components": {
             "subject": {
-              "case": "nom",
-              "word": "გუნდი"
+              "text": "I",
+              "role": "subject",
+              "person": "1sg"
+            },
+            "verb": {
+              "text": "was starting",
+              "role": "verb"
             },
             "direct_object": {
-              "case": "dat",
-              "word": "ვორქშოფს"
+              "text": "the new project",
+              "role": "direct_object"
             }
           },
-          "georgian_verb_form": "იწყებდნენ"
+          "georgian_verb_form": "ვიწყებდი",
+          "person": "1sg",
+          "effective_preverb": "და"
+        },
+        {
+          "georgian": "ცნობისმოყვარე მუშა იწყებდა ახალ სამუშაოს",
+          "georgian_components": {
+            "subject": {
+              "text": "ცნობისმოყვარე მუშა",
+              "case": "nom",
+              "role": "subject"
+            },
+            "verb": {
+              "text": "იწყებდა",
+              "role": "verb"
+            },
+            "direct_object": {
+              "text": "ახალ სამუშაოს",
+              "case": "dat",
+              "role": "direct_object"
+            }
+          },
+          "english": "The curious worker was starting the new job",
+          "english_components": {
+            "subject": {
+              "text": "The curious worker",
+              "role": "subject",
+              "person": "3sg"
+            },
+            "verb": {
+              "text": "was starting",
+              "role": "verb"
+            },
+            "direct_object": {
+              "text": "the new job",
+              "role": "direct_object"
+            }
+          },
+          "georgian_verb_form": "იწყებდა",
+          "person": "3sg",
+          "effective_preverb": "და"
+        },
+        {
+          "georgian": "შემოქმედებითი გუნდები იწყებდნენ სასარგებლო ვორქშოფს",
+          "georgian_components": {
+            "subject": {
+              "text": "შემოქმედებითი გუნდები",
+              "case": "nom",
+              "role": "subject"
+            },
+            "verb": {
+              "text": "იწყებდნენ",
+              "role": "verb"
+            },
+            "direct_object": {
+              "text": "სასარგებლო ვორქშოფს",
+              "case": "dat",
+              "role": "direct_object"
+            }
+          },
+          "english": "The creative teams were starting the useful workshop",
+          "english_components": {
+            "subject": {
+              "text": "The creative teams",
+              "role": "subject",
+              "person": "3pl"
+            },
+            "verb": {
+              "text": "were starting",
+              "role": "verb"
+            },
+            "direct_object": {
+              "text": "the useful workshop",
+              "role": "direct_object"
+            }
+          },
+          "georgian_verb_form": "იწყებდნენ",
+          "person": "3pl",
+          "effective_preverb": "და"
         }
       ],
       "future": [
         {
-          "georgian": "ახალ პროექტს დავიწყებ",
-          "english": "<strong data-role=\"subject\" data-person=\"1sg\">I</strong> <strong data-role=\"verb\">will start</strong> <strong data-role=\"direct-object\">the new project</strong>",
-          "english_plain": "I will start the new project",
-          "html": "<span data-case=\"dat\" data-role=\"direct-object\">ახალ პროექტს</span> <span data-role=\"verb\">დავიწყებ</span>",
-          "case_marking": {
-            "direct_object": {
-              "case": "dat",
-              "word": "პროექტს"
-            }
-          },
-          "georgian_verb_form": "დავიწყებ"
-        },
-        {
-          "georgian": "ცნობისმოყვარე მუშა ახალ სამუშაოს დაიწყებს",
-          "english": "<strong data-role=\"subject\">The curious worker</strong> <strong data-role=\"verb\">will start</strong> <strong data-role=\"direct-object\">the new job</strong>",
-          "english_plain": "The curious worker will start the new job",
-          "html": "<span data-case=\"nom\" data-role=\"subject\">ცნობისმოყვარე მუშა</span> <span data-case=\"dat\" data-role=\"direct-object\">ახალ სამუშაოს</span> <span data-role=\"verb\">დაიწყებს</span>",
-          "case_marking": {
-            "subject": {
-              "case": "nom",
-              "word": "მუშა"
+          "georgian": "დავიწყებ ახალ პროექტს",
+          "georgian_components": {
+            "verb": {
+              "text": "დავიწყებ",
+              "role": "verb"
             },
             "direct_object": {
+              "text": "ახალ პროექტს",
               "case": "dat",
-              "word": "სამუშაოს"
+              "role": "direct_object"
             }
           },
-          "georgian_verb_form": "დაიწყებს"
-        },
-        {
-          "georgian": "შემოქმედებითი გუნდი სასარგებლო ვორქშოფს დაიწყებენ",
-          "english": "<strong data-role=\"subject\">The creative team</strong> <strong data-role=\"verb\">will start</strong> <strong data-role=\"direct-object\">the useful workshop</strong>",
-          "english_plain": "The creative team will start the useful workshop",
-          "html": "<span data-case=\"nom\" data-role=\"subject\">შემოქმედებითი გუნდი</span> <span data-case=\"dat\" data-role=\"direct-object\">სასარგებლო ვორქშოფს</span> <span data-role=\"verb\">დაიწყებენ</span>",
-          "case_marking": {
+          "english": "I will start the new project",
+          "english_components": {
             "subject": {
-              "case": "nom",
-              "word": "გუნდი"
+              "text": "I",
+              "role": "subject",
+              "person": "1sg"
+            },
+            "verb": {
+              "text": "will start",
+              "role": "verb"
             },
             "direct_object": {
-              "case": "dat",
-              "word": "ვორქშოფს"
+              "text": "the new project",
+              "role": "direct_object"
             }
           },
-          "georgian_verb_form": "დაიწყებენ"
+          "georgian_verb_form": "დავიწყებ",
+          "person": "1sg",
+          "effective_preverb": "და"
+        },
+        {
+          "georgian": "ცნობისმოყვარე მუშა დაიწყებს ახალ სამუშაოს",
+          "georgian_components": {
+            "subject": {
+              "text": "ცნობისმოყვარე მუშა",
+              "case": "nom",
+              "role": "subject"
+            },
+            "verb": {
+              "text": "დაიწყებს",
+              "role": "verb"
+            },
+            "direct_object": {
+              "text": "ახალ სამუშაოს",
+              "case": "dat",
+              "role": "direct_object"
+            }
+          },
+          "english": "The curious worker will start the new job",
+          "english_components": {
+            "subject": {
+              "text": "The curious worker",
+              "role": "subject",
+              "person": "3sg"
+            },
+            "verb": {
+              "text": "will start",
+              "role": "verb"
+            },
+            "direct_object": {
+              "text": "the new job",
+              "role": "direct_object"
+            }
+          },
+          "georgian_verb_form": "დაიწყებს",
+          "person": "3sg",
+          "effective_preverb": "და"
+        },
+        {
+          "georgian": "შემოქმედებითი გუნდები დაიწყებენ სასარგებლო ვორქშოფს",
+          "georgian_components": {
+            "subject": {
+              "text": "შემოქმედებითი გუნდები",
+              "case": "nom",
+              "role": "subject"
+            },
+            "verb": {
+              "text": "დაიწყებენ",
+              "role": "verb"
+            },
+            "direct_object": {
+              "text": "სასარგებლო ვორქშოფს",
+              "case": "dat",
+              "role": "direct_object"
+            }
+          },
+          "english": "The creative teams will start the useful workshop",
+          "english_components": {
+            "subject": {
+              "text": "The creative teams",
+              "role": "subject",
+              "person": "3pl"
+            },
+            "verb": {
+              "text": "will start",
+              "role": "verb"
+            },
+            "direct_object": {
+              "text": "the useful workshop",
+              "role": "direct_object"
+            }
+          },
+          "georgian_verb_form": "დაიწყებენ",
+          "person": "3pl",
+          "effective_preverb": "და"
         }
       ],
       "aorist": [
         {
-          "georgian": "ახალი პროექტი დავიწყე",
-          "english": "<strong data-role=\"subject\" data-person=\"1sg\">I</strong> <strong data-role=\"verb\">started</strong> <strong data-role=\"direct-object\">the new project</strong>",
-          "english_plain": "I started the new project",
-          "html": "<span data-case=\"nom\" data-role=\"direct-object\">ახალი პროექტი</span> <span data-role=\"verb\">დავიწყე</span>",
-          "case_marking": {
-            "direct_object": {
-              "case": "nom",
-              "word": "პროექტი"
-            }
-          },
-          "georgian_verb_form": "დავიწყე"
-        },
-        {
-          "georgian": "ცნობისმოყვარე მუშამ ახალი სამუშაო დაიწყო",
-          "english": "<strong data-role=\"subject\">The curious worker</strong> <strong data-role=\"verb\">started</strong> <strong data-role=\"direct-object\">the new job</strong>",
-          "english_plain": "The curious worker started the new job",
-          "html": "<span data-case=\"erg\" data-role=\"subject\">ცნობისმოყვარე მუშამ</span> <span data-case=\"nom\" data-role=\"direct-object\">ახალი სამუშაო</span> <span data-role=\"verb\">დაიწყო</span>",
-          "case_marking": {
-            "subject": {
-              "case": "erg",
-              "word": "მუშამ"
+          "georgian": "დავიწყე ახალი პროექტი",
+          "georgian_components": {
+            "verb": {
+              "text": "დავიწყე",
+              "role": "verb"
             },
             "direct_object": {
+              "text": "ახალი პროექტი",
               "case": "nom",
-              "word": "სამუშაო"
+              "role": "direct_object"
             }
           },
-          "georgian_verb_form": "დაიწყო"
-        },
-        {
-          "georgian": "შემოქმედებითმა გუნდმა სასარგებლო ვორქშოფი დაიწყეს",
-          "english": "<strong data-role=\"subject\">The creative team</strong> <strong data-role=\"verb\">started</strong> <strong data-role=\"direct-object\">the useful workshop</strong>",
-          "english_plain": "The creative team started the useful workshop",
-          "html": "<span data-case=\"erg\" data-role=\"subject\">შემოქმედებითმა გუნდმა</span> <span data-case=\"nom\" data-role=\"direct-object\">სასარგებლო ვორქშოფი</span> <span data-role=\"verb\">დაიწყეს</span>",
-          "case_marking": {
+          "english": "I started the new project",
+          "english_components": {
             "subject": {
-              "case": "erg",
-              "word": "გუნდმა"
+              "text": "I",
+              "role": "subject",
+              "person": "1sg"
+            },
+            "verb": {
+              "text": "started",
+              "role": "verb"
             },
             "direct_object": {
-              "case": "nom",
-              "word": "ვორქშოფი"
+              "text": "the new project",
+              "role": "direct_object"
             }
           },
-          "georgian_verb_form": "დაიწყეს"
+          "georgian_verb_form": "დავიწყე",
+          "person": "1sg",
+          "effective_preverb": "და"
+        },
+        {
+          "georgian": "ცნობისმოყვარე მუშამ დაიწყო ახალი სამუშაო",
+          "georgian_components": {
+            "subject": {
+              "text": "ცნობისმოყვარე მუშამ",
+              "case": "erg",
+              "role": "subject"
+            },
+            "verb": {
+              "text": "დაიწყო",
+              "role": "verb"
+            },
+            "direct_object": {
+              "text": "ახალი სამუშაო",
+              "case": "nom",
+              "role": "direct_object"
+            }
+          },
+          "english": "The curious worker started the new job",
+          "english_components": {
+            "subject": {
+              "text": "The curious worker",
+              "role": "subject",
+              "person": "3sg"
+            },
+            "verb": {
+              "text": "started",
+              "role": "verb"
+            },
+            "direct_object": {
+              "text": "the new job",
+              "role": "direct_object"
+            }
+          },
+          "georgian_verb_form": "დაიწყო",
+          "person": "3sg",
+          "effective_preverb": "და"
+        },
+        {
+          "georgian": "შემოქმედებითმა გუნდებმა დაიწყეს სასარგებლო ვორქშოფი",
+          "georgian_components": {
+            "subject": {
+              "text": "შემოქმედებითმა გუნდებმა",
+              "case": "erg",
+              "role": "subject"
+            },
+            "verb": {
+              "text": "დაიწყეს",
+              "role": "verb"
+            },
+            "direct_object": {
+              "text": "სასარგებლო ვორქშოფი",
+              "case": "nom",
+              "role": "direct_object"
+            }
+          },
+          "english": "The creative teams started the useful workshop",
+          "english_components": {
+            "subject": {
+              "text": "The creative teams",
+              "role": "subject",
+              "person": "3pl"
+            },
+            "verb": {
+              "text": "started",
+              "role": "verb"
+            },
+            "direct_object": {
+              "text": "the useful workshop",
+              "role": "direct_object"
+            }
+          },
+          "georgian_verb_form": "დაიწყეს",
+          "person": "3pl",
+          "effective_preverb": "და"
         }
       ],
       "optative": [
         {
-          "georgian": "ახალი პროექტი უნდა დავიწყო",
-          "english": "<strong data-role=\"subject\" data-person=\"1sg\">I</strong> <strong data-role=\"verb\">should</strong> <strong data-role=\"verb\">start</strong> <strong data-role=\"direct-object\">the new project</strong>",
-          "english_plain": "I should start the new project",
-          "html": "<span data-case=\"nom\" data-role=\"direct-object\">ახალი პროექტი</span> <span data-role=\"verb\">უნდა დავიწყო</span>",
-          "case_marking": {
-            "direct_object": {
-              "case": "nom",
-              "word": "პროექტი"
-            }
-          },
-          "georgian_verb_form": "დავიწყო"
-        },
-        {
-          "georgian": "ცნობისმოყვარე მუშამ ახალი სამუშაო უნდა დაიწყოს",
-          "english": "<strong data-role=\"subject\">The curious worker</strong> <strong data-role=\"verb\">should</strong> <strong data-role=\"verb\">start</strong> <strong data-role=\"direct-object\">the new job</strong>",
-          "english_plain": "The curious worker should start the new job",
-          "html": "<span data-case=\"erg\" data-role=\"subject\">ცნობისმოყვარე მუშამ</span> <span data-case=\"nom\" data-role=\"direct-object\">ახალი სამუშაო</span> <span data-role=\"verb\">უნდა დაიწყოს</span>",
-          "case_marking": {
-            "subject": {
-              "case": "erg",
-              "word": "მუშამ"
+          "georgian": "უნდა დავიწყო ახალი პროექტი",
+          "georgian_components": {
+            "verb": {
+              "text": "უნდა დავიწყო",
+              "role": "verb"
             },
             "direct_object": {
+              "text": "ახალი პროექტი",
               "case": "nom",
-              "word": "სამუშაო"
+              "role": "direct_object"
             }
           },
-          "georgian_verb_form": "დაიწყოს"
-        },
-        {
-          "georgian": "შემოქმედებითმა გუნდმა სასარგებლო ვორქშოფი უნდა დაიწყონ",
-          "english": "<strong data-role=\"subject\">The creative team</strong> <strong data-role=\"verb\">should</strong> <strong data-role=\"verb\">start</strong> <strong data-role=\"direct-object\">the useful workshop</strong>",
-          "english_plain": "The creative team should start the useful workshop",
-          "html": "<span data-case=\"erg\" data-role=\"subject\">შემოქმედებითმა გუნდმა</span> <span data-case=\"nom\" data-role=\"direct-object\">სასარგებლო ვორქშოფი</span> <span data-role=\"verb\">უნდა დაიწყონ</span>",
-          "case_marking": {
+          "english": "I should start the new project",
+          "english_components": {
             "subject": {
-              "case": "erg",
-              "word": "გუნდმა"
+              "text": "I",
+              "role": "subject",
+              "person": "1sg"
+            },
+            "verb": {
+              "text": "should start",
+              "role": "verb"
             },
             "direct_object": {
-              "case": "nom",
-              "word": "ვორქშოფი"
+              "text": "the new project",
+              "role": "direct_object"
             }
           },
-          "georgian_verb_form": "დაიწყონ"
+          "georgian_verb_form": "დავიწყო",
+          "person": "1sg",
+          "effective_preverb": "და"
+        },
+        {
+          "georgian": "ცნობისმოყვარე მუშამ უნდა დაიწყოს ახალი სამუშაო",
+          "georgian_components": {
+            "subject": {
+              "text": "ცნობისმოყვარე მუშამ",
+              "case": "erg",
+              "role": "subject"
+            },
+            "verb": {
+              "text": "უნდა დაიწყოს",
+              "role": "verb"
+            },
+            "direct_object": {
+              "text": "ახალი სამუშაო",
+              "case": "nom",
+              "role": "direct_object"
+            }
+          },
+          "english": "The curious worker should start the new job",
+          "english_components": {
+            "subject": {
+              "text": "The curious worker",
+              "role": "subject",
+              "person": "3sg"
+            },
+            "verb": {
+              "text": "should start",
+              "role": "verb"
+            },
+            "direct_object": {
+              "text": "the new job",
+              "role": "direct_object"
+            }
+          },
+          "georgian_verb_form": "დაიწყოს",
+          "person": "3sg",
+          "effective_preverb": "და"
+        },
+        {
+          "georgian": "შემოქმედებითმა გუნდებმა უნდა დაიწყონ სასარგებლო ვორქშოფი",
+          "georgian_components": {
+            "subject": {
+              "text": "შემოქმედებითმა გუნდებმა",
+              "case": "erg",
+              "role": "subject"
+            },
+            "verb": {
+              "text": "უნდა დაიწყონ",
+              "role": "verb"
+            },
+            "direct_object": {
+              "text": "სასარგებლო ვორქშოფი",
+              "case": "nom",
+              "role": "direct_object"
+            }
+          },
+          "english": "The creative teams should start the useful workshop",
+          "english_components": {
+            "subject": {
+              "text": "The creative teams",
+              "role": "subject",
+              "person": "3pl"
+            },
+            "verb": {
+              "text": "should start",
+              "role": "verb"
+            },
+            "direct_object": {
+              "text": "the useful workshop",
+              "role": "direct_object"
+            }
+          },
+          "georgian_verb_form": "დაიწყონ",
+          "person": "3pl",
+          "effective_preverb": "და"
         }
       ],
       "imperative": [
         {
-          "georgian": "მნიშვნელოვანი შეხვედრა დაიწყე",
-          "english": "<strong data-role=\"verb\">start</strong> <strong data-role=\"direct-object\">the important meeting</strong>",
-          "english_plain": "start the important meeting",
-          "html": "<span data-case=\"nom\" data-role=\"direct-object\">მნიშვნელოვანი შეხვედრა</span> <span data-role=\"verb\">დაიწყე</span>",
-          "case_marking": {
+          "georgian": "დაიწყე მნიშვნელოვანი შეხვედრა",
+          "georgian_components": {
+            "verb": {
+              "text": "დაიწყე",
+              "role": "verb"
+            },
             "direct_object": {
+              "text": "მნიშვნელოვანი შეხვედრა",
               "case": "nom",
-              "word": "შეხვედრა"
+              "role": "direct_object"
             }
           },
-          "georgian_verb_form": "დაიწყე"
+          "english": "You, start the important meeting",
+          "english_components": {
+            "subject": {
+              "text": "You,",
+              "role": "subject",
+              "person": "2sg"
+            },
+            "verb": {
+              "text": "start",
+              "role": "verb"
+            },
+            "direct_object": {
+              "text": "the important meeting",
+              "role": "direct_object"
+            }
+          },
+          "georgian_verb_form": "დაიწყე",
+          "person": "2sg",
+          "effective_preverb": "და"
         },
         {
-          "georgian": "სერიოზული დისკუსია დაიწყეთ",
-          "english": "<strong data-role=\"verb\">start</strong> <strong data-role=\"direct-object\">the serious discussion</strong>",
-          "english_plain": "start the serious discussion",
-          "html": "<span data-case=\"nom\" data-role=\"direct-object\">სერიოზული დისკუსია</span> <span data-role=\"verb\">დაიწყეთ</span>",
-          "case_marking": {
+          "georgian": "დაიწყეთ სერიოზული დისკუსია",
+          "georgian_components": {
+            "verb": {
+              "text": "დაიწყეთ",
+              "role": "verb"
+            },
             "direct_object": {
+              "text": "სერიოზული დისკუსია",
               "case": "nom",
-              "word": "დისკუსია"
+              "role": "direct_object"
             }
           },
-          "georgian_verb_form": "დაიწყეთ"
+          "english": "You all (you formal), start the serious discussion",
+          "english_components": {
+            "subject": {
+              "text": "You all (you formal),",
+              "role": "subject",
+              "person": "2pl"
+            },
+            "verb": {
+              "text": "start",
+              "role": "verb"
+            },
+            "direct_object": {
+              "text": "the serious discussion",
+              "role": "direct_object"
+            }
+          },
+          "georgian_verb_form": "დაიწყეთ",
+          "person": "2pl",
+          "effective_preverb": "და"
         }
       ]
     }

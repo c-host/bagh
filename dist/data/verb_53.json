@@ -104,7 +104,7 @@
       "examples": []
     },
     "imperative": {
-      "raw_gloss": "V MedAct Impv <S:Erg>",
+      "raw_gloss": "V MedAct Impv <S> <S:Erg>",
       "forms": {
         "1sg": "-",
         "2sg": "იოცნებე",
@@ -124,207 +124,478 @@
   "preverb_rules": {
     "default": "",
     "replacements": {},
-    "tense_specific_fallbacks": {},
-    "english_fallbacks": {}
+    "tense_specific_fallbacks": {}
   },
   "examples": {
-    "null": {
+    "default": {
       "present": [
         {
           "georgian": "ვოცნებობ",
-          "english": "<strong data-role=\"subject\" data-person=\"1sg\">I</strong> <strong data-role=\"verb\">dream</strong>",
-          "english_plain": "I dream",
-          "html": " <span data-role=\"verb\">ვოცნებობ</span>",
-          "case_marking": {},
-          "georgian_verb_form": "ვოცნებობ"
+          "georgian_components": {
+            "verb": {
+              "text": "ვოცნებობ",
+              "role": "verb"
+            }
+          },
+          "english": "I dream",
+          "english_components": {
+            "subject": {
+              "text": "I",
+              "role": "subject",
+              "person": "1sg"
+            },
+            "verb": {
+              "text": "dream",
+              "role": "verb"
+            }
+          },
+          "georgian_verb_form": "ვოცნებობ",
+          "person": "1sg",
+          "effective_preverb": ""
         },
         {
           "georgian": "მძინარე ბავშვი ოცნებობს",
-          "english": "<strong data-role=\"subject\">The sleepy child</strong> <strong data-role=\"verb\">dream</strong>",
-          "english_plain": "The sleepy child dream",
-          "html": "<span data-case=\"nom\" data-role=\"subject\">მძინარე ბავშვი</span> <span data-role=\"verb\">ოცნებობს</span>",
-          "case_marking": {
+          "georgian_components": {
             "subject": {
+              "text": "მძინარე ბავშვი",
               "case": "nom",
-              "word": "ბავშვი"
+              "role": "subject"
+            },
+            "verb": {
+              "text": "ოცნებობს",
+              "role": "verb"
             }
           },
-          "georgian_verb_form": "ოცნებობს"
+          "english": "The sleepy child dream",
+          "english_components": {
+            "subject": {
+              "text": "The sleepy child",
+              "role": "subject",
+              "person": "3sg"
+            },
+            "verb": {
+              "text": "dream",
+              "role": "verb"
+            }
+          },
+          "georgian_verb_form": "ოცნებობს",
+          "person": "3sg",
+          "effective_preverb": ""
         },
         {
-          "georgian": "ახალგაზრდა ბიჭი ოცნებობენ",
-          "english": "<strong data-role=\"subject\">The young boy</strong> <strong data-role=\"verb\">dream</strong>",
-          "english_plain": "The young boy dream",
-          "html": "<span data-case=\"nom\" data-role=\"subject\">ახალგაზრდა ბიჭი</span> <span data-role=\"verb\">ოცნებობენ</span>",
-          "case_marking": {
+          "georgian": "ახალგაზრდა ბიჭები ოცნებობენ",
+          "georgian_components": {
             "subject": {
+              "text": "ახალგაზრდა ბიჭები",
               "case": "nom",
-              "word": "ბიჭი"
+              "role": "subject"
+            },
+            "verb": {
+              "text": "ოცნებობენ",
+              "role": "verb"
             }
           },
-          "georgian_verb_form": "ოცნებობენ"
+          "english": "The young boys dream",
+          "english_components": {
+            "subject": {
+              "text": "The young boys",
+              "role": "subject",
+              "person": "3pl"
+            },
+            "verb": {
+              "text": "dream",
+              "role": "verb"
+            }
+          },
+          "georgian_verb_form": "ოცნებობენ",
+          "person": "3pl",
+          "effective_preverb": ""
         }
       ],
       "imperfect": [
         {
           "georgian": "ვოცნებობდი",
-          "english": "<strong data-role=\"subject\" data-person=\"1sg\">I</strong> <strong data-role=\"verb\">was dreaming</strong>",
-          "english_plain": "I was dreaming",
-          "html": " <span data-role=\"verb\">ვოცნებობდი</span>",
-          "case_marking": {},
-          "georgian_verb_form": "ვოცნებობდი"
+          "georgian_components": {
+            "verb": {
+              "text": "ვოცნებობდი",
+              "role": "verb"
+            }
+          },
+          "english": "I was dreaming",
+          "english_components": {
+            "subject": {
+              "text": "I",
+              "role": "subject",
+              "person": "1sg"
+            },
+            "verb": {
+              "text": "was dreaming",
+              "role": "verb"
+            }
+          },
+          "georgian_verb_form": "ვოცნებობდი",
+          "person": "1sg",
+          "effective_preverb": ""
         },
         {
           "georgian": "მძინარე ბავშვი ოცნებობდა",
-          "english": "<strong data-role=\"subject\">The sleepy child</strong> <strong data-role=\"verb\">was dreaming</strong>",
-          "english_plain": "The sleepy child was dreaming",
-          "html": "<span data-case=\"nom\" data-role=\"subject\">მძინარე ბავშვი</span> <span data-role=\"verb\">ოცნებობდა</span>",
-          "case_marking": {
+          "georgian_components": {
             "subject": {
+              "text": "მძინარე ბავშვი",
               "case": "nom",
-              "word": "ბავშვი"
+              "role": "subject"
+            },
+            "verb": {
+              "text": "ოცნებობდა",
+              "role": "verb"
             }
           },
-          "georgian_verb_form": "ოცნებობდა"
+          "english": "The sleepy child was dreaming",
+          "english_components": {
+            "subject": {
+              "text": "The sleepy child",
+              "role": "subject",
+              "person": "3sg"
+            },
+            "verb": {
+              "text": "was dreaming",
+              "role": "verb"
+            }
+          },
+          "georgian_verb_form": "ოცნებობდა",
+          "person": "3sg",
+          "effective_preverb": ""
         },
         {
-          "georgian": "ახალგაზრდა ბიჭი ოცნებობდნენ",
-          "english": "<strong data-role=\"subject\">The young boy</strong> <strong data-role=\"verb\">were dreaming</strong>",
-          "english_plain": "The young boy were dreaming",
-          "html": "<span data-case=\"nom\" data-role=\"subject\">ახალგაზრდა ბიჭი</span> <span data-role=\"verb\">ოცნებობდნენ</span>",
-          "case_marking": {
+          "georgian": "ახალგაზრდა ბიჭები ოცნებობდნენ",
+          "georgian_components": {
             "subject": {
+              "text": "ახალგაზრდა ბიჭები",
               "case": "nom",
-              "word": "ბიჭი"
+              "role": "subject"
+            },
+            "verb": {
+              "text": "ოცნებობდნენ",
+              "role": "verb"
             }
           },
-          "georgian_verb_form": "ოცნებობდნენ"
+          "english": "The young boys were dreaming",
+          "english_components": {
+            "subject": {
+              "text": "The young boys",
+              "role": "subject",
+              "person": "3pl"
+            },
+            "verb": {
+              "text": "were dreaming",
+              "role": "verb"
+            }
+          },
+          "georgian_verb_form": "ოცნებობდნენ",
+          "person": "3pl",
+          "effective_preverb": ""
         }
       ],
       "future": [
         {
           "georgian": "ვიოცნებებ",
-          "english": "<strong data-role=\"subject\" data-person=\"1sg\">I</strong> <strong data-role=\"verb\">will dream</strong>",
-          "english_plain": "I will dream",
-          "html": " <span data-role=\"verb\">ვიოცნებებ</span>",
-          "case_marking": {},
-          "georgian_verb_form": "ვიოცნებებ"
+          "georgian_components": {
+            "verb": {
+              "text": "ვიოცნებებ",
+              "role": "verb"
+            }
+          },
+          "english": "I will dream",
+          "english_components": {
+            "subject": {
+              "text": "I",
+              "role": "subject",
+              "person": "1sg"
+            },
+            "verb": {
+              "text": "will dream",
+              "role": "verb"
+            }
+          },
+          "georgian_verb_form": "ვიოცნებებ",
+          "person": "1sg",
+          "effective_preverb": ""
         },
         {
           "georgian": "მძინარე ბავშვი იოცნებებს",
-          "english": "<strong data-role=\"subject\">The sleepy child</strong> <strong data-role=\"verb\">will dream</strong>",
-          "english_plain": "The sleepy child will dream",
-          "html": "<span data-case=\"nom\" data-role=\"subject\">მძინარე ბავშვი</span> <span data-role=\"verb\">იოცნებებს</span>",
-          "case_marking": {
+          "georgian_components": {
             "subject": {
+              "text": "მძინარე ბავშვი",
               "case": "nom",
-              "word": "ბავშვი"
+              "role": "subject"
+            },
+            "verb": {
+              "text": "იოცნებებს",
+              "role": "verb"
             }
           },
-          "georgian_verb_form": "იოცნებებს"
+          "english": "The sleepy child will dream",
+          "english_components": {
+            "subject": {
+              "text": "The sleepy child",
+              "role": "subject",
+              "person": "3sg"
+            },
+            "verb": {
+              "text": "will dream",
+              "role": "verb"
+            }
+          },
+          "georgian_verb_form": "იოცნებებს",
+          "person": "3sg",
+          "effective_preverb": ""
         },
         {
-          "georgian": "ახალგაზრდა ბიჭი იოცნებებენ",
-          "english": "<strong data-role=\"subject\">The young boy</strong> <strong data-role=\"verb\">will dream</strong>",
-          "english_plain": "The young boy will dream",
-          "html": "<span data-case=\"nom\" data-role=\"subject\">ახალგაზრდა ბიჭი</span> <span data-role=\"verb\">იოცნებებენ</span>",
-          "case_marking": {
+          "georgian": "ახალგაზრდა ბიჭები იოცნებებენ",
+          "georgian_components": {
             "subject": {
+              "text": "ახალგაზრდა ბიჭები",
               "case": "nom",
-              "word": "ბიჭი"
+              "role": "subject"
+            },
+            "verb": {
+              "text": "იოცნებებენ",
+              "role": "verb"
             }
           },
-          "georgian_verb_form": "იოცნებებენ"
+          "english": "The young boys will dream",
+          "english_components": {
+            "subject": {
+              "text": "The young boys",
+              "role": "subject",
+              "person": "3pl"
+            },
+            "verb": {
+              "text": "will dream",
+              "role": "verb"
+            }
+          },
+          "georgian_verb_form": "იოცნებებენ",
+          "person": "3pl",
+          "effective_preverb": ""
         }
       ],
       "aorist": [
         {
           "georgian": "ვიოცნებე",
-          "english": "<strong data-role=\"subject\" data-person=\"1sg\">I</strong> <strong data-role=\"verb\">dreamed</strong>",
-          "english_plain": "I dreamed",
-          "html": " <span data-role=\"verb\">ვიოცნებე</span>",
-          "case_marking": {},
-          "georgian_verb_form": "ვიოცნებე"
+          "georgian_components": {
+            "verb": {
+              "text": "ვიოცნებე",
+              "role": "verb"
+            }
+          },
+          "english": "I dreamed",
+          "english_components": {
+            "subject": {
+              "text": "I",
+              "role": "subject",
+              "person": "1sg"
+            },
+            "verb": {
+              "text": "dreamed",
+              "role": "verb"
+            }
+          },
+          "georgian_verb_form": "ვიოცნებე",
+          "person": "1sg",
+          "effective_preverb": ""
         },
         {
           "georgian": "მძინარე ბავშვმა იოცნება",
-          "english": "<strong data-role=\"subject\">The sleepy child</strong> <strong data-role=\"verb\">dreamed</strong>",
-          "english_plain": "The sleepy child dreamed",
-          "html": "<span data-case=\"erg\" data-role=\"subject\">მძინარე ბავშვმა</span> <span data-role=\"verb\">იოცნება</span>",
-          "case_marking": {
+          "georgian_components": {
             "subject": {
+              "text": "მძინარე ბავშვმა",
               "case": "erg",
-              "word": "ბავშვმა"
+              "role": "subject"
+            },
+            "verb": {
+              "text": "იოცნება",
+              "role": "verb"
             }
           },
-          "georgian_verb_form": "იოცნება"
+          "english": "The sleepy child dreamed",
+          "english_components": {
+            "subject": {
+              "text": "The sleepy child",
+              "role": "subject",
+              "person": "3sg"
+            },
+            "verb": {
+              "text": "dreamed",
+              "role": "verb"
+            }
+          },
+          "georgian_verb_form": "იოცნება",
+          "person": "3sg",
+          "effective_preverb": ""
         },
         {
-          "georgian": "ახალგაზრდა ბიჭმა იოცნებეს",
-          "english": "<strong data-role=\"subject\">The young boy</strong> <strong data-role=\"verb\">dreamed</strong>",
-          "english_plain": "The young boy dreamed",
-          "html": "<span data-case=\"erg\" data-role=\"subject\">ახალგაზრდა ბიჭმა</span> <span data-role=\"verb\">იოცნებეს</span>",
-          "case_marking": {
+          "georgian": "ახალგაზრდა ბიჭებმა იოცნებეს",
+          "georgian_components": {
             "subject": {
+              "text": "ახალგაზრდა ბიჭებმა",
               "case": "erg",
-              "word": "ბიჭმა"
+              "role": "subject"
+            },
+            "verb": {
+              "text": "იოცნებეს",
+              "role": "verb"
             }
           },
-          "georgian_verb_form": "იოცნებეს"
+          "english": "The young boys dreamed",
+          "english_components": {
+            "subject": {
+              "text": "The young boys",
+              "role": "subject",
+              "person": "3pl"
+            },
+            "verb": {
+              "text": "dreamed",
+              "role": "verb"
+            }
+          },
+          "georgian_verb_form": "იოცნებეს",
+          "person": "3pl",
+          "effective_preverb": ""
         }
       ],
       "optative": [
         {
           "georgian": "უნდა ვიოცნებო",
-          "english": "<strong data-role=\"subject\" data-person=\"1sg\">I</strong> <strong data-role=\"verb\">should</strong> <strong data-role=\"verb\">dream</strong>",
-          "english_plain": "I should dream",
-          "html": " <span data-role=\"verb\">უნდა ვიოცნებო</span>",
-          "case_marking": {},
-          "georgian_verb_form": "ვიოცნებო"
+          "georgian_components": {
+            "verb": {
+              "text": "უნდა ვიოცნებო",
+              "role": "verb"
+            }
+          },
+          "english": "I should dream",
+          "english_components": {
+            "subject": {
+              "text": "I",
+              "role": "subject",
+              "person": "1sg"
+            },
+            "verb": {
+              "text": "should dream",
+              "role": "verb"
+            }
+          },
+          "georgian_verb_form": "ვიოცნებო",
+          "person": "1sg",
+          "effective_preverb": ""
         },
         {
           "georgian": "მძინარე ბავშვმა უნდა იოცნებოს",
-          "english": "<strong data-role=\"subject\">The sleepy child</strong> <strong data-role=\"verb\">should</strong> <strong data-role=\"verb\">dream</strong>",
-          "english_plain": "The sleepy child should dream",
-          "html": "<span data-case=\"erg\" data-role=\"subject\">მძინარე ბავშვმა</span> <span data-role=\"verb\">უნდა იოცნებოს</span>",
-          "case_marking": {
+          "georgian_components": {
             "subject": {
+              "text": "მძინარე ბავშვმა",
               "case": "erg",
-              "word": "ბავშვმა"
+              "role": "subject"
+            },
+            "verb": {
+              "text": "უნდა იოცნებოს",
+              "role": "verb"
             }
           },
-          "georgian_verb_form": "იოცნებოს"
+          "english": "The sleepy child should dream",
+          "english_components": {
+            "subject": {
+              "text": "The sleepy child",
+              "role": "subject",
+              "person": "3sg"
+            },
+            "verb": {
+              "text": "should dream",
+              "role": "verb"
+            }
+          },
+          "georgian_verb_form": "იოცნებოს",
+          "person": "3sg",
+          "effective_preverb": ""
         },
         {
-          "georgian": "ახალგაზრდა ბიჭმა უნდა იოცნებონ",
-          "english": "<strong data-role=\"subject\">The young boy</strong> <strong data-role=\"verb\">should</strong> <strong data-role=\"verb\">dream</strong>",
-          "english_plain": "The young boy should dream",
-          "html": "<span data-case=\"erg\" data-role=\"subject\">ახალგაზრდა ბიჭმა</span> <span data-role=\"verb\">უნდა იოცნებონ</span>",
-          "case_marking": {
+          "georgian": "ახალგაზრდა ბიჭებმა უნდა იოცნებონ",
+          "georgian_components": {
             "subject": {
+              "text": "ახალგაზრდა ბიჭებმა",
               "case": "erg",
-              "word": "ბიჭმა"
+              "role": "subject"
+            },
+            "verb": {
+              "text": "უნდა იოცნებონ",
+              "role": "verb"
             }
           },
-          "georgian_verb_form": "იოცნებონ"
+          "english": "The young boys should dream",
+          "english_components": {
+            "subject": {
+              "text": "The young boys",
+              "role": "subject",
+              "person": "3pl"
+            },
+            "verb": {
+              "text": "should dream",
+              "role": "verb"
+            }
+          },
+          "georgian_verb_form": "იოცნებონ",
+          "person": "3pl",
+          "effective_preverb": ""
         }
       ],
       "imperative": [
         {
           "georgian": "იოცნებე",
-          "english": "<strong data-role=\"verb\">dream</strong>",
-          "english_plain": "dream",
-          "html": " <span data-role=\"verb\">იოცნებე</span>",
-          "case_marking": {},
-          "georgian_verb_form": "იოცნებე"
+          "georgian_components": {
+            "verb": {
+              "text": "იოცნებე",
+              "role": "verb"
+            }
+          },
+          "english": "You, dream",
+          "english_components": {
+            "subject": {
+              "text": "You,",
+              "role": "subject",
+              "person": "2sg"
+            },
+            "verb": {
+              "text": "dream",
+              "role": "verb"
+            }
+          },
+          "georgian_verb_form": "იოცნებე",
+          "person": "2sg",
+          "effective_preverb": ""
         },
         {
           "georgian": "იოცნებეთ",
-          "english": "<strong data-role=\"verb\">dream</strong>",
-          "english_plain": "dream",
-          "html": " <span data-role=\"verb\">იოცნებეთ</span>",
-          "case_marking": {},
-          "georgian_verb_form": "იოცნებეთ"
+          "georgian_components": {
+            "verb": {
+              "text": "იოცნებეთ",
+              "role": "verb"
+            }
+          },
+          "english": "You all (you formal), dream",
+          "english_components": {
+            "subject": {
+              "text": "You all (you formal),",
+              "role": "subject",
+              "person": "2pl"
+            },
+            "verb": {
+              "text": "dream",
+              "role": "verb"
+            }
+          },
+          "georgian_verb_form": "იოცნებეთ",
+          "person": "2pl",
+          "effective_preverb": ""
         }
       ]
     }
@@ -696,7 +967,7 @@
       }
     },
     "imperative": {
-      "raw_gloss": "V MedAct Impv <S:Erg>",
+      "raw_gloss": "V MedAct Impv <S> <S:Erg>",
       "structured_gloss": {
         "raw_components": [
           {
@@ -716,6 +987,12 @@
             "component_type": "tense",
             "color_class": "gloss-tense",
             "description": "Imperative"
+          },
+          {
+            "text": "<S>",
+            "component_type": "argument_pattern",
+            "color_class": "gloss-argument",
+            "description": "Intransitive absolute"
           },
           {
             "text": "<S:Erg>",
@@ -744,13 +1021,19 @@
             "description": "Imperative"
           },
           {
+            "text": "<S>",
+            "component_type": "argument_pattern",
+            "color_class": "gloss-argument",
+            "description": "Intransitive absolute"
+          },
+          {
             "text": "<S:Erg>",
             "component_type": "case_spec",
             "color_class": "gloss-subject",
             "description": "Ergative subject"
           }
         ],
-        "argument_pattern": null,
+        "argument_pattern": "<S>",
         "case_specifications": [
           "<S:Erg>"
         ]

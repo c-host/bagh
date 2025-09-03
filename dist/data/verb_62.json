@@ -178,350 +178,784 @@
   "preverb_rules": {
     "default": "",
     "replacements": {},
-    "tense_specific_fallbacks": {},
-    "english_fallbacks": {}
+    "tense_specific_fallbacks": {}
   },
   "examples": {
-    "null": {
+    "default": {
       "present": [
         {
-          "georgian": "რთულ კითხვას მცოდნე მასწავლებელს ვთხოვ",
-          "english": "<strong data-role=\"subject\" data-person=\"1sg\">I</strong> <strong data-role=\"verb\">ask</strong> <strong data-role=\"direct-object\">the difficult question</strong> <strong data-role=\"indirect-object\">to knowledgeable teacher</strong>",
-          "english_plain": "I ask the difficult question to knowledgeable teacher",
-          "html": "<span data-case=\"dat\" data-role=\"direct-object\">რთულ კითხვას</span> <span data-case=\"dat\" data-role=\"indirect-object\">მცოდნე მასწავლებელს</span> <span data-role=\"verb\">ვთხოვ</span>",
-          "case_marking": {
+          "georgian": "ვთხოვ რთულ კითხვას მცოდნე მასწავლებელს",
+          "georgian_components": {
+            "verb": {
+              "text": "ვთხოვ",
+              "role": "verb"
+            },
             "direct_object": {
+              "text": "რთულ კითხვას",
               "case": "dat",
-              "word": "კითხვას"
+              "role": "direct_object"
             },
             "indirect_object": {
+              "text": "მცოდნე მასწავლებელს",
               "case": "dat",
-              "word": "მასწავლებელს"
+              "role": "indirect_object"
             }
           },
-          "georgian_verb_form": "ვთხოვ"
+          "english": "I ask the difficult question to knowledgeable teacher",
+          "english_components": {
+            "subject": {
+              "text": "I",
+              "role": "subject",
+              "person": "1sg"
+            },
+            "verb": {
+              "text": "ask",
+              "role": "verb"
+            },
+            "direct_object": {
+              "text": "the difficult question",
+              "role": "direct_object"
+            },
+            "indirect_object": {
+              "text": "to knowledgeable teacher",
+              "role": "indirect_object"
+            }
+          },
+          "georgian_verb_form": "ვთხოვ",
+          "person": "1sg",
+          "effective_preverb": "მო"
         },
         {
-          "georgian": "ცნობისმოყვარე სტუდენტი მნიშვნელოვან კითხვას ბრძენ მშობელს სთხოვს",
-          "english": "<strong data-role=\"subject\">The curious student</strong> <strong data-role=\"verb\">asks</strong> <strong data-role=\"direct-object\">the important question</strong> <strong data-role=\"indirect-object\">to wise parent</strong>",
-          "english_plain": "The curious student asks the important question to wise parent",
-          "html": "<span data-case=\"nom\" data-role=\"subject\">ცნობისმოყვარე სტუდენტი</span> <span data-case=\"dat\" data-role=\"direct-object\">მნიშვნელოვან კითხვას</span> <span data-case=\"dat\" data-role=\"indirect-object\">ბრძენ მშობელს</span> <span data-role=\"verb\">სთხოვს</span>",
-          "case_marking": {
+          "georgian": "ცნობისმოყვარე სტუდენტი სთხოვს მნიშვნელოვან კითხვას ბრძენ მშობელს",
+          "georgian_components": {
             "subject": {
+              "text": "ცნობისმოყვარე სტუდენტი",
               "case": "nom",
-              "word": "სტუდენტი"
+              "role": "subject"
+            },
+            "verb": {
+              "text": "სთხოვს",
+              "role": "verb"
             },
             "direct_object": {
+              "text": "მნიშვნელოვან კითხვას",
               "case": "dat",
-              "word": "კითხვას"
+              "role": "direct_object"
             },
             "indirect_object": {
+              "text": "ბრძენ მშობელს",
               "case": "dat",
-              "word": "მშობელს"
+              "role": "indirect_object"
             }
           },
-          "georgian_verb_form": "სთხოვს"
+          "english": "The curious student asks the important question to wise parent",
+          "english_components": {
+            "subject": {
+              "text": "The curious student",
+              "role": "subject",
+              "person": "3sg"
+            },
+            "verb": {
+              "text": "asks",
+              "role": "verb"
+            },
+            "direct_object": {
+              "text": "the important question",
+              "role": "direct_object"
+            },
+            "indirect_object": {
+              "text": "to wise parent",
+              "role": "indirect_object"
+            }
+          },
+          "georgian_verb_form": "სთხოვს",
+          "person": "3sg",
+          "effective_preverb": "მო"
         },
         {
-          "georgian": "ახალგაზრდა ბავშვი რთულ კითხვას მცოდნე ექსპერტს სთხოვენ",
-          "english": "<strong data-role=\"subject\">The young child</strong> <strong data-role=\"verb\">ask</strong> <strong data-role=\"direct-object\">the difficult question</strong> <strong data-role=\"indirect-object\">to knowledgeable expert</strong>",
-          "english_plain": "The young child ask the difficult question to knowledgeable expert",
-          "html": "<span data-case=\"nom\" data-role=\"subject\">ახალგაზრდა ბავშვი</span> <span data-case=\"dat\" data-role=\"direct-object\">რთულ კითხვას</span> <span data-case=\"dat\" data-role=\"indirect-object\">მცოდნე ექსპერტს</span> <span data-role=\"verb\">სთხოვენ</span>",
-          "case_marking": {
+          "georgian": "ახალგაზრდა ბავშვები სთხოვენ რთულ კითხვას მცოდნე ექსპერტს",
+          "georgian_components": {
             "subject": {
+              "text": "ახალგაზრდა ბავშვები",
               "case": "nom",
-              "word": "ბავშვი"
+              "role": "subject"
+            },
+            "verb": {
+              "text": "სთხოვენ",
+              "role": "verb"
             },
             "direct_object": {
+              "text": "რთულ კითხვას",
               "case": "dat",
-              "word": "კითხვას"
+              "role": "direct_object"
             },
             "indirect_object": {
+              "text": "მცოდნე ექსპერტს",
               "case": "dat",
-              "word": "ექსპერტს"
+              "role": "indirect_object"
             }
           },
-          "georgian_verb_form": "სთხოვენ"
+          "english": "The young children ask the difficult question to knowledgeable expert",
+          "english_components": {
+            "subject": {
+              "text": "The young children",
+              "role": "subject",
+              "person": "3pl"
+            },
+            "verb": {
+              "text": "ask",
+              "role": "verb"
+            },
+            "direct_object": {
+              "text": "the difficult question",
+              "role": "direct_object"
+            },
+            "indirect_object": {
+              "text": "to knowledgeable expert",
+              "role": "indirect_object"
+            }
+          },
+          "georgian_verb_form": "სთხოვენ",
+          "person": "3pl",
+          "effective_preverb": "მო"
         }
       ],
       "imperfect": [
         {
-          "georgian": "რთულ კითხვას მცოდნე მასწავლებელს ვთხოვდი",
-          "english": "<strong data-role=\"subject\" data-person=\"1sg\">I</strong> <strong data-role=\"verb\">was asking</strong> <strong data-role=\"direct-object\">the difficult question</strong> <strong data-role=\"indirect-object\">to knowledgeable teacher</strong>",
-          "english_plain": "I was asking the difficult question to knowledgeable teacher",
-          "html": "<span data-case=\"dat\" data-role=\"direct-object\">რთულ კითხვას</span> <span data-case=\"dat\" data-role=\"indirect-object\">მცოდნე მასწავლებელს</span> <span data-role=\"verb\">ვთხოვდი</span>",
-          "case_marking": {
+          "georgian": "ვთხოვდი რთულ კითხვას მცოდნე მასწავლებელს",
+          "georgian_components": {
+            "verb": {
+              "text": "ვთხოვდი",
+              "role": "verb"
+            },
             "direct_object": {
+              "text": "რთულ კითხვას",
               "case": "dat",
-              "word": "კითხვას"
+              "role": "direct_object"
             },
             "indirect_object": {
+              "text": "მცოდნე მასწავლებელს",
               "case": "dat",
-              "word": "მასწავლებელს"
+              "role": "indirect_object"
             }
           },
-          "georgian_verb_form": "ვთხოვდი"
+          "english": "I was asking the difficult question to knowledgeable teacher",
+          "english_components": {
+            "subject": {
+              "text": "I",
+              "role": "subject",
+              "person": "1sg"
+            },
+            "verb": {
+              "text": "was asking",
+              "role": "verb"
+            },
+            "direct_object": {
+              "text": "the difficult question",
+              "role": "direct_object"
+            },
+            "indirect_object": {
+              "text": "to knowledgeable teacher",
+              "role": "indirect_object"
+            }
+          },
+          "georgian_verb_form": "ვთხოვდი",
+          "person": "1sg",
+          "effective_preverb": "მო"
         },
         {
-          "georgian": "ცნობისმოყვარე სტუდენტი მნიშვნელოვან კითხვას ბრძენ მშობელს სთხოვდა",
-          "english": "<strong data-role=\"subject\">The curious student</strong> <strong data-role=\"verb\">was asking</strong> <strong data-role=\"direct-object\">the important question</strong> <strong data-role=\"indirect-object\">to wise parent</strong>",
-          "english_plain": "The curious student was asking the important question to wise parent",
-          "html": "<span data-case=\"nom\" data-role=\"subject\">ცნობისმოყვარე სტუდენტი</span> <span data-case=\"dat\" data-role=\"direct-object\">მნიშვნელოვან კითხვას</span> <span data-case=\"dat\" data-role=\"indirect-object\">ბრძენ მშობელს</span> <span data-role=\"verb\">სთხოვდა</span>",
-          "case_marking": {
+          "georgian": "ცნობისმოყვარე სტუდენტი სთხოვდა მნიშვნელოვან კითხვას ბრძენ მშობელს",
+          "georgian_components": {
             "subject": {
+              "text": "ცნობისმოყვარე სტუდენტი",
               "case": "nom",
-              "word": "სტუდენტი"
+              "role": "subject"
+            },
+            "verb": {
+              "text": "სთხოვდა",
+              "role": "verb"
             },
             "direct_object": {
+              "text": "მნიშვნელოვან კითხვას",
               "case": "dat",
-              "word": "კითხვას"
+              "role": "direct_object"
             },
             "indirect_object": {
+              "text": "ბრძენ მშობელს",
               "case": "dat",
-              "word": "მშობელს"
+              "role": "indirect_object"
             }
           },
-          "georgian_verb_form": "სთხოვდა"
+          "english": "The curious student was asking the important question to wise parent",
+          "english_components": {
+            "subject": {
+              "text": "The curious student",
+              "role": "subject",
+              "person": "3sg"
+            },
+            "verb": {
+              "text": "was asking",
+              "role": "verb"
+            },
+            "direct_object": {
+              "text": "the important question",
+              "role": "direct_object"
+            },
+            "indirect_object": {
+              "text": "to wise parent",
+              "role": "indirect_object"
+            }
+          },
+          "georgian_verb_form": "სთხოვდა",
+          "person": "3sg",
+          "effective_preverb": "მო"
         },
         {
-          "georgian": "ახალგაზრდა ბავშვი რთულ კითხვას მცოდნე ექსპერტს სთხოვდნენ",
-          "english": "<strong data-role=\"subject\">The young child</strong> <strong data-role=\"verb\">were asking</strong> <strong data-role=\"direct-object\">the difficult question</strong> <strong data-role=\"indirect-object\">to knowledgeable expert</strong>",
-          "english_plain": "The young child were asking the difficult question to knowledgeable expert",
-          "html": "<span data-case=\"nom\" data-role=\"subject\">ახალგაზრდა ბავშვი</span> <span data-case=\"dat\" data-role=\"direct-object\">რთულ კითხვას</span> <span data-case=\"dat\" data-role=\"indirect-object\">მცოდნე ექსპერტს</span> <span data-role=\"verb\">სთხოვდნენ</span>",
-          "case_marking": {
+          "georgian": "ახალგაზრდა ბავშვები სთხოვდნენ რთულ კითხვას მცოდნე ექსპერტს",
+          "georgian_components": {
             "subject": {
+              "text": "ახალგაზრდა ბავშვები",
               "case": "nom",
-              "word": "ბავშვი"
+              "role": "subject"
+            },
+            "verb": {
+              "text": "სთხოვდნენ",
+              "role": "verb"
             },
             "direct_object": {
+              "text": "რთულ კითხვას",
               "case": "dat",
-              "word": "კითხვას"
+              "role": "direct_object"
             },
             "indirect_object": {
+              "text": "მცოდნე ექსპერტს",
               "case": "dat",
-              "word": "ექსპერტს"
+              "role": "indirect_object"
             }
           },
-          "georgian_verb_form": "სთხოვდნენ"
+          "english": "The young children were asking the difficult question to knowledgeable expert",
+          "english_components": {
+            "subject": {
+              "text": "The young children",
+              "role": "subject",
+              "person": "3pl"
+            },
+            "verb": {
+              "text": "were asking",
+              "role": "verb"
+            },
+            "direct_object": {
+              "text": "the difficult question",
+              "role": "direct_object"
+            },
+            "indirect_object": {
+              "text": "to knowledgeable expert",
+              "role": "indirect_object"
+            }
+          },
+          "georgian_verb_form": "სთხოვდნენ",
+          "person": "3pl",
+          "effective_preverb": "მო"
         }
       ],
       "future": [
         {
-          "georgian": "რთულ კითხვას მცოდნე მასწავლებელს მოვთხოვ",
-          "english": "<strong data-role=\"subject\" data-person=\"1sg\">I</strong> <strong data-role=\"verb\">will ask</strong> <strong data-role=\"direct-object\">the difficult question</strong> <strong data-role=\"indirect-object\">to knowledgeable teacher</strong>",
-          "english_plain": "I will ask the difficult question to knowledgeable teacher",
-          "html": "<span data-case=\"dat\" data-role=\"direct-object\">რთულ კითხვას</span> <span data-case=\"dat\" data-role=\"indirect-object\">მცოდნე მასწავლებელს</span> <span data-role=\"verb\">მოვთხოვ</span>",
-          "case_marking": {
+          "georgian": "მოვთხოვ რთულ კითხვას მცოდნე მასწავლებელს",
+          "georgian_components": {
+            "verb": {
+              "text": "მოვთხოვ",
+              "role": "verb"
+            },
             "direct_object": {
+              "text": "რთულ კითხვას",
               "case": "dat",
-              "word": "კითხვას"
+              "role": "direct_object"
             },
             "indirect_object": {
+              "text": "მცოდნე მასწავლებელს",
               "case": "dat",
-              "word": "მასწავლებელს"
+              "role": "indirect_object"
             }
           },
-          "georgian_verb_form": "მოვთხოვ"
+          "english": "I will ask the difficult question to knowledgeable teacher",
+          "english_components": {
+            "subject": {
+              "text": "I",
+              "role": "subject",
+              "person": "1sg"
+            },
+            "verb": {
+              "text": "will ask",
+              "role": "verb"
+            },
+            "direct_object": {
+              "text": "the difficult question",
+              "role": "direct_object"
+            },
+            "indirect_object": {
+              "text": "to knowledgeable teacher",
+              "role": "indirect_object"
+            }
+          },
+          "georgian_verb_form": "მოვთხოვ",
+          "person": "1sg",
+          "effective_preverb": "მო"
         },
         {
-          "georgian": "ცნობისმოყვარე სტუდენტი მნიშვნელოვან კითხვას ბრძენ მშობელს მოსთხოვს",
-          "english": "<strong data-role=\"subject\">The curious student</strong> <strong data-role=\"verb\">will ask</strong> <strong data-role=\"direct-object\">the important question</strong> <strong data-role=\"indirect-object\">to wise parent</strong>",
-          "english_plain": "The curious student will ask the important question to wise parent",
-          "html": "<span data-case=\"nom\" data-role=\"subject\">ცნობისმოყვარე სტუდენტი</span> <span data-case=\"dat\" data-role=\"direct-object\">მნიშვნელოვან კითხვას</span> <span data-case=\"dat\" data-role=\"indirect-object\">ბრძენ მშობელს</span> <span data-role=\"verb\">მოსთხოვს</span>",
-          "case_marking": {
+          "georgian": "ცნობისმოყვარე სტუდენტი მოსთხოვს მნიშვნელოვან კითხვას ბრძენ მშობელს",
+          "georgian_components": {
             "subject": {
+              "text": "ცნობისმოყვარე სტუდენტი",
               "case": "nom",
-              "word": "სტუდენტი"
+              "role": "subject"
+            },
+            "verb": {
+              "text": "მოსთხოვს",
+              "role": "verb"
             },
             "direct_object": {
+              "text": "მნიშვნელოვან კითხვას",
               "case": "dat",
-              "word": "კითხვას"
+              "role": "direct_object"
             },
             "indirect_object": {
+              "text": "ბრძენ მშობელს",
               "case": "dat",
-              "word": "მშობელს"
+              "role": "indirect_object"
             }
           },
-          "georgian_verb_form": "მოსთხოვს"
+          "english": "The curious student will ask the important question to wise parent",
+          "english_components": {
+            "subject": {
+              "text": "The curious student",
+              "role": "subject",
+              "person": "3sg"
+            },
+            "verb": {
+              "text": "will ask",
+              "role": "verb"
+            },
+            "direct_object": {
+              "text": "the important question",
+              "role": "direct_object"
+            },
+            "indirect_object": {
+              "text": "to wise parent",
+              "role": "indirect_object"
+            }
+          },
+          "georgian_verb_form": "მოსთხოვს",
+          "person": "3sg",
+          "effective_preverb": "მო"
         },
         {
-          "georgian": "ახალგაზრდა ბავშვი რთულ კითხვას მცოდნე ექსპერტს მოსთხოვენ",
-          "english": "<strong data-role=\"subject\">The young child</strong> <strong data-role=\"verb\">will ask</strong> <strong data-role=\"direct-object\">the difficult question</strong> <strong data-role=\"indirect-object\">to knowledgeable expert</strong>",
-          "english_plain": "The young child will ask the difficult question to knowledgeable expert",
-          "html": "<span data-case=\"nom\" data-role=\"subject\">ახალგაზრდა ბავშვი</span> <span data-case=\"dat\" data-role=\"direct-object\">რთულ კითხვას</span> <span data-case=\"dat\" data-role=\"indirect-object\">მცოდნე ექსპერტს</span> <span data-role=\"verb\">მოსთხოვენ</span>",
-          "case_marking": {
+          "georgian": "ახალგაზრდა ბავშვები მოსთხოვენ რთულ კითხვას მცოდნე ექსპერტს",
+          "georgian_components": {
             "subject": {
+              "text": "ახალგაზრდა ბავშვები",
               "case": "nom",
-              "word": "ბავშვი"
+              "role": "subject"
+            },
+            "verb": {
+              "text": "მოსთხოვენ",
+              "role": "verb"
             },
             "direct_object": {
+              "text": "რთულ კითხვას",
               "case": "dat",
-              "word": "კითხვას"
+              "role": "direct_object"
             },
             "indirect_object": {
+              "text": "მცოდნე ექსპერტს",
               "case": "dat",
-              "word": "ექსპერტს"
+              "role": "indirect_object"
             }
           },
-          "georgian_verb_form": "მოსთხოვენ"
+          "english": "The young children will ask the difficult question to knowledgeable expert",
+          "english_components": {
+            "subject": {
+              "text": "The young children",
+              "role": "subject",
+              "person": "3pl"
+            },
+            "verb": {
+              "text": "will ask",
+              "role": "verb"
+            },
+            "direct_object": {
+              "text": "the difficult question",
+              "role": "direct_object"
+            },
+            "indirect_object": {
+              "text": "to knowledgeable expert",
+              "role": "indirect_object"
+            }
+          },
+          "georgian_verb_form": "მოსთხოვენ",
+          "person": "3pl",
+          "effective_preverb": "მო"
         }
       ],
       "aorist": [
         {
-          "georgian": "რთული კითხვა მცოდნე მასწავლებელს მოვთხოვე",
-          "english": "<strong data-role=\"subject\" data-person=\"1sg\">I</strong> <strong data-role=\"verb\">asked</strong> <strong data-role=\"direct-object\">the difficult question</strong> <strong data-role=\"indirect-object\">to knowledgeable teacher</strong>",
-          "english_plain": "I asked the difficult question to knowledgeable teacher",
-          "html": "<span data-case=\"nom\" data-role=\"direct-object\">რთული კითხვა</span> <span data-case=\"dat\" data-role=\"indirect-object\">მცოდნე მასწავლებელს</span> <span data-role=\"verb\">მოვთხოვე</span>",
-          "case_marking": {
+          "georgian": "მოვთხოვე რთული კითხვა მცოდნე მასწავლებელს",
+          "georgian_components": {
+            "verb": {
+              "text": "მოვთხოვე",
+              "role": "verb"
+            },
             "direct_object": {
+              "text": "რთული კითხვა",
               "case": "nom",
-              "word": "კითხვა"
+              "role": "direct_object"
             },
             "indirect_object": {
+              "text": "მცოდნე მასწავლებელს",
               "case": "dat",
-              "word": "მასწავლებელს"
+              "role": "indirect_object"
             }
           },
-          "georgian_verb_form": "მოვთხოვე"
+          "english": "I asked the difficult question to knowledgeable teacher",
+          "english_components": {
+            "subject": {
+              "text": "I",
+              "role": "subject",
+              "person": "1sg"
+            },
+            "verb": {
+              "text": "asked",
+              "role": "verb"
+            },
+            "direct_object": {
+              "text": "the difficult question",
+              "role": "direct_object"
+            },
+            "indirect_object": {
+              "text": "to knowledgeable teacher",
+              "role": "indirect_object"
+            }
+          },
+          "georgian_verb_form": "მოვთხოვე",
+          "person": "1sg",
+          "effective_preverb": "მო"
         },
         {
-          "georgian": "ცნობისმოყვარე სტუდენტმა მნიშვნელოვანი კითხვა ბრძენ მშობელს მოსთხოვა",
-          "english": "<strong data-role=\"subject\">The curious student</strong> <strong data-role=\"verb\">asked</strong> <strong data-role=\"direct-object\">the important question</strong> <strong data-role=\"indirect-object\">to wise parent</strong>",
-          "english_plain": "The curious student asked the important question to wise parent",
-          "html": "<span data-case=\"erg\" data-role=\"subject\">ცნობისმოყვარე სტუდენტმა</span> <span data-case=\"nom\" data-role=\"direct-object\">მნიშვნელოვანი კითხვა</span> <span data-case=\"dat\" data-role=\"indirect-object\">ბრძენ მშობელს</span> <span data-role=\"verb\">მოსთხოვა</span>",
-          "case_marking": {
+          "georgian": "ცნობისმოყვარე სტუდენტმა მოსთხოვა მნიშვნელოვანი კითხვა ბრძენ მშობელს",
+          "georgian_components": {
             "subject": {
+              "text": "ცნობისმოყვარე სტუდენტმა",
               "case": "erg",
-              "word": "სტუდენტმა"
+              "role": "subject"
+            },
+            "verb": {
+              "text": "მოსთხოვა",
+              "role": "verb"
             },
             "direct_object": {
+              "text": "მნიშვნელოვანი კითხვა",
               "case": "nom",
-              "word": "კითხვა"
+              "role": "direct_object"
             },
             "indirect_object": {
+              "text": "ბრძენ მშობელს",
               "case": "dat",
-              "word": "მშობელს"
+              "role": "indirect_object"
             }
           },
-          "georgian_verb_form": "მოსთხოვა"
+          "english": "The curious student asked the important question to wise parent",
+          "english_components": {
+            "subject": {
+              "text": "The curious student",
+              "role": "subject",
+              "person": "3sg"
+            },
+            "verb": {
+              "text": "asked",
+              "role": "verb"
+            },
+            "direct_object": {
+              "text": "the important question",
+              "role": "direct_object"
+            },
+            "indirect_object": {
+              "text": "to wise parent",
+              "role": "indirect_object"
+            }
+          },
+          "georgian_verb_form": "მოსთხოვა",
+          "person": "3sg",
+          "effective_preverb": "მო"
         },
         {
-          "georgian": "ახალგაზრდა ბავშვმა რთული კითხვა მცოდნე ექსპერტს მოსთხოვეს",
-          "english": "<strong data-role=\"subject\">The young child</strong> <strong data-role=\"verb\">asked</strong> <strong data-role=\"direct-object\">the difficult question</strong> <strong data-role=\"indirect-object\">to knowledgeable expert</strong>",
-          "english_plain": "The young child asked the difficult question to knowledgeable expert",
-          "html": "<span data-case=\"erg\" data-role=\"subject\">ახალგაზრდა ბავშვმა</span> <span data-case=\"nom\" data-role=\"direct-object\">რთული კითხვა</span> <span data-case=\"dat\" data-role=\"indirect-object\">მცოდნე ექსპერტს</span> <span data-role=\"verb\">მოსთხოვეს</span>",
-          "case_marking": {
+          "georgian": "ახალგაზრდა ბავშვებმა მოსთხოვეს რთული კითხვა მცოდნე ექსპერტს",
+          "georgian_components": {
             "subject": {
+              "text": "ახალგაზრდა ბავშვებმა",
               "case": "erg",
-              "word": "ბავშვმა"
+              "role": "subject"
+            },
+            "verb": {
+              "text": "მოსთხოვეს",
+              "role": "verb"
             },
             "direct_object": {
+              "text": "რთული კითხვა",
               "case": "nom",
-              "word": "კითხვა"
+              "role": "direct_object"
             },
             "indirect_object": {
+              "text": "მცოდნე ექსპერტს",
               "case": "dat",
-              "word": "ექსპერტს"
+              "role": "indirect_object"
             }
           },
-          "georgian_verb_form": "მოსთხოვეს"
+          "english": "The young children asked the difficult question to knowledgeable expert",
+          "english_components": {
+            "subject": {
+              "text": "The young children",
+              "role": "subject",
+              "person": "3pl"
+            },
+            "verb": {
+              "text": "asked",
+              "role": "verb"
+            },
+            "direct_object": {
+              "text": "the difficult question",
+              "role": "direct_object"
+            },
+            "indirect_object": {
+              "text": "to knowledgeable expert",
+              "role": "indirect_object"
+            }
+          },
+          "georgian_verb_form": "მოსთხოვეს",
+          "person": "3pl",
+          "effective_preverb": "მო"
         }
       ],
       "optative": [
         {
-          "georgian": "რთული კითხვა მცოდნე მასწავლებელს უნდა მოვთხოვო",
-          "english": "<strong data-role=\"subject\" data-person=\"1sg\">I</strong> <strong data-role=\"verb\">should</strong> <strong data-role=\"verb\">ask</strong> <strong data-role=\"direct-object\">the difficult question</strong> <strong data-role=\"indirect-object\">to knowledgeable teacher</strong>",
-          "english_plain": "I should ask the difficult question to knowledgeable teacher",
-          "html": "<span data-case=\"nom\" data-role=\"direct-object\">რთული კითხვა</span> <span data-case=\"dat\" data-role=\"indirect-object\">მცოდნე მასწავლებელს</span> <span data-role=\"verb\">უნდა მოვთხოვო</span>",
-          "case_marking": {
+          "georgian": "უნდა მოვთხოვო რთული კითხვა მცოდნე მასწავლებელს",
+          "georgian_components": {
+            "verb": {
+              "text": "უნდა მოვთხოვო",
+              "role": "verb"
+            },
             "direct_object": {
+              "text": "რთული კითხვა",
               "case": "nom",
-              "word": "კითხვა"
+              "role": "direct_object"
             },
             "indirect_object": {
+              "text": "მცოდნე მასწავლებელს",
               "case": "dat",
-              "word": "მასწავლებელს"
+              "role": "indirect_object"
             }
           },
-          "georgian_verb_form": "მოვთხოვო"
+          "english": "I should ask the difficult question to knowledgeable teacher",
+          "english_components": {
+            "subject": {
+              "text": "I",
+              "role": "subject",
+              "person": "1sg"
+            },
+            "verb": {
+              "text": "should ask",
+              "role": "verb"
+            },
+            "direct_object": {
+              "text": "the difficult question",
+              "role": "direct_object"
+            },
+            "indirect_object": {
+              "text": "to knowledgeable teacher",
+              "role": "indirect_object"
+            }
+          },
+          "georgian_verb_form": "მოვთხოვო",
+          "person": "1sg",
+          "effective_preverb": "მო"
         },
         {
-          "georgian": "ცნობისმოყვარე სტუდენტმა მნიშვნელოვანი კითხვა ბრძენ მშობელს უნდა მოსთხოვოს",
-          "english": "<strong data-role=\"subject\">The curious student</strong> <strong data-role=\"verb\">should</strong> <strong data-role=\"verb\">ask</strong> <strong data-role=\"direct-object\">the important question</strong> <strong data-role=\"indirect-object\">to wise parent</strong>",
-          "english_plain": "The curious student should ask the important question to wise parent",
-          "html": "<span data-case=\"erg\" data-role=\"subject\">ცნობისმოყვარე სტუდენტმა</span> <span data-case=\"nom\" data-role=\"direct-object\">მნიშვნელოვანი კითხვა</span> <span data-case=\"dat\" data-role=\"indirect-object\">ბრძენ მშობელს</span> <span data-role=\"verb\">უნდა მოსთხოვოს</span>",
-          "case_marking": {
+          "georgian": "ცნობისმოყვარე სტუდენტმა უნდა მოსთხოვოს მნიშვნელოვანი კითხვა ბრძენ მშობელს",
+          "georgian_components": {
             "subject": {
+              "text": "ცნობისმოყვარე სტუდენტმა",
               "case": "erg",
-              "word": "სტუდენტმა"
+              "role": "subject"
+            },
+            "verb": {
+              "text": "უნდა მოსთხოვოს",
+              "role": "verb"
             },
             "direct_object": {
+              "text": "მნიშვნელოვანი კითხვა",
               "case": "nom",
-              "word": "კითხვა"
+              "role": "direct_object"
             },
             "indirect_object": {
+              "text": "ბრძენ მშობელს",
               "case": "dat",
-              "word": "მშობელს"
+              "role": "indirect_object"
             }
           },
-          "georgian_verb_form": "მოსთხოვოს"
+          "english": "The curious student should ask the important question to wise parent",
+          "english_components": {
+            "subject": {
+              "text": "The curious student",
+              "role": "subject",
+              "person": "3sg"
+            },
+            "verb": {
+              "text": "should ask",
+              "role": "verb"
+            },
+            "direct_object": {
+              "text": "the important question",
+              "role": "direct_object"
+            },
+            "indirect_object": {
+              "text": "to wise parent",
+              "role": "indirect_object"
+            }
+          },
+          "georgian_verb_form": "მოსთხოვოს",
+          "person": "3sg",
+          "effective_preverb": "მო"
         },
         {
-          "georgian": "ახალგაზრდა ბავშვმა რთული კითხვა მცოდნე ექსპერტს უნდა მოსთხოვონ",
-          "english": "<strong data-role=\"subject\">The young child</strong> <strong data-role=\"verb\">should</strong> <strong data-role=\"verb\">ask</strong> <strong data-role=\"direct-object\">the difficult question</strong> <strong data-role=\"indirect-object\">to knowledgeable expert</strong>",
-          "english_plain": "The young child should ask the difficult question to knowledgeable expert",
-          "html": "<span data-case=\"erg\" data-role=\"subject\">ახალგაზრდა ბავშვმა</span> <span data-case=\"nom\" data-role=\"direct-object\">რთული კითხვა</span> <span data-case=\"dat\" data-role=\"indirect-object\">მცოდნე ექსპერტს</span> <span data-role=\"verb\">უნდა მოსთხოვონ</span>",
-          "case_marking": {
+          "georgian": "ახალგაზრდა ბავშვებმა უნდა მოსთხოვონ რთული კითხვა მცოდნე ექსპერტს",
+          "georgian_components": {
             "subject": {
+              "text": "ახალგაზრდა ბავშვებმა",
               "case": "erg",
-              "word": "ბავშვმა"
+              "role": "subject"
+            },
+            "verb": {
+              "text": "უნდა მოსთხოვონ",
+              "role": "verb"
             },
             "direct_object": {
+              "text": "რთული კითხვა",
               "case": "nom",
-              "word": "კითხვა"
+              "role": "direct_object"
             },
             "indirect_object": {
+              "text": "მცოდნე ექსპერტს",
               "case": "dat",
-              "word": "ექსპერტს"
+              "role": "indirect_object"
             }
           },
-          "georgian_verb_form": "მოსთხოვონ"
+          "english": "The young children should ask the difficult question to knowledgeable expert",
+          "english_components": {
+            "subject": {
+              "text": "The young children",
+              "role": "subject",
+              "person": "3pl"
+            },
+            "verb": {
+              "text": "should ask",
+              "role": "verb"
+            },
+            "direct_object": {
+              "text": "the difficult question",
+              "role": "direct_object"
+            },
+            "indirect_object": {
+              "text": "to knowledgeable expert",
+              "role": "indirect_object"
+            }
+          },
+          "georgian_verb_form": "მოსთხოვონ",
+          "person": "3pl",
+          "effective_preverb": "მო"
         }
       ],
       "imperative": [
         {
-          "georgian": "მარტივი კითხვა დამხმარე მეგობარს მოსთხოვე",
-          "english": "<strong data-role=\"verb\">ask</strong> <strong data-role=\"direct-object\">the simple question</strong> <strong data-role=\"indirect-object\">to helpful friend</strong>",
-          "english_plain": "ask the simple question to helpful friend",
-          "html": "<span data-case=\"nom\" data-role=\"direct-object\">მარტივი კითხვა</span> <span data-case=\"dat\" data-role=\"indirect-object\">დამხმარე მეგობარს</span> <span data-role=\"verb\">მოსთხოვე</span>",
-          "case_marking": {
+          "georgian": "მოსთხოვე მარტივი კითხვა დამხმარე მეგობარს",
+          "georgian_components": {
+            "verb": {
+              "text": "მოსთხოვე",
+              "role": "verb"
+            },
             "direct_object": {
+              "text": "მარტივი კითხვა",
               "case": "nom",
-              "word": "კითხვა"
+              "role": "direct_object"
             },
             "indirect_object": {
+              "text": "დამხმარე მეგობარს",
               "case": "dat",
-              "word": "მეგობარს"
+              "role": "indirect_object"
             }
           },
-          "georgian_verb_form": "მოსთხოვე"
+          "english": "You, ask the simple question to helpful friend",
+          "english_components": {
+            "subject": {
+              "text": "You,",
+              "role": "subject",
+              "person": "2sg"
+            },
+            "verb": {
+              "text": "ask",
+              "role": "verb"
+            },
+            "direct_object": {
+              "text": "the simple question",
+              "role": "direct_object"
+            },
+            "indirect_object": {
+              "text": "to helpful friend",
+              "role": "indirect_object"
+            }
+          },
+          "georgian_verb_form": "მოსთხოვე",
+          "person": "2sg",
+          "effective_preverb": "მო"
         },
         {
-          "georgian": "მნიშვნელოვანი კითხვა გამოცდილ ექიმს მოსთხოვეთ",
-          "english": "<strong data-role=\"verb\">ask</strong> <strong data-role=\"direct-object\">the important question</strong> <strong data-role=\"indirect-object\">to experienced doctor</strong>",
-          "english_plain": "ask the important question to experienced doctor",
-          "html": "<span data-case=\"nom\" data-role=\"direct-object\">მნიშვნელოვანი კითხვა</span> <span data-case=\"dat\" data-role=\"indirect-object\">გამოცდილ ექიმს</span> <span data-role=\"verb\">მოსთხოვეთ</span>",
-          "case_marking": {
+          "georgian": "მოსთხოვეთ მნიშვნელოვანი კითხვა გამოცდილ ექიმს",
+          "georgian_components": {
+            "verb": {
+              "text": "მოსთხოვეთ",
+              "role": "verb"
+            },
             "direct_object": {
+              "text": "მნიშვნელოვანი კითხვა",
               "case": "nom",
-              "word": "კითხვა"
+              "role": "direct_object"
             },
             "indirect_object": {
+              "text": "გამოცდილ ექიმს",
               "case": "dat",
-              "word": "ექიმს"
+              "role": "indirect_object"
             }
           },
-          "georgian_verb_form": "მოსთხოვეთ"
+          "english": "You all (you formal), ask the important question to experienced doctor",
+          "english_components": {
+            "subject": {
+              "text": "You all (you formal),",
+              "role": "subject",
+              "person": "2pl"
+            },
+            "verb": {
+              "text": "ask",
+              "role": "verb"
+            },
+            "direct_object": {
+              "text": "the important question",
+              "role": "direct_object"
+            },
+            "indirect_object": {
+              "text": "to experienced doctor",
+              "role": "indirect_object"
+            }
+          },
+          "georgian_verb_form": "მოსთხოვეთ",
+          "person": "2pl",
+          "effective_preverb": "მო"
         }
       ]
     }

@@ -150,282 +150,631 @@
   "preverb_rules": {
     "default": "",
     "replacements": {},
-    "tense_specific_fallbacks": {},
-    "english_fallbacks": {}
+    "tense_specific_fallbacks": {}
   },
   "examples": {
-    "null": {
+    "default": {
       "present": [
         {
-          "georgian": "რთულ პრობლემას ვფიქრობ",
-          "english": "<strong data-role=\"subject\" data-person=\"1sg\">I</strong> <strong data-role=\"verb\">think</strong> <strong data-role=\"direct-object\">about the difficult problem</strong>",
-          "english_plain": "I think about the difficult problem",
-          "html": "<span data-case=\"dat\" data-role=\"direct-object\">რთულ პრობლემას</span> <span data-role=\"verb\">ვფიქრობ</span>",
-          "case_marking": {
-            "direct_object": {
-              "case": "dat",
-              "word": "პრობლემას"
-            }
-          },
-          "georgian_verb_form": "ვფიქრობ"
-        },
-        {
-          "georgian": "ახალგაზრდა სტუდენტი ახალ გაკვეთილს ფიქრობს",
-          "english": "<strong data-role=\"subject\">The young student</strong> <strong data-role=\"verb\">thinks</strong> <strong data-role=\"direct-object\">about the new lesson</strong>",
-          "english_plain": "The young student thinks about the new lesson",
-          "html": "<span data-case=\"nom\" data-role=\"subject\">ახალგაზრდა სტუდენტი</span> <span data-case=\"dat\" data-role=\"direct-object\">ახალ გაკვეთილს</span> <span data-role=\"verb\">ფიქრობს</span>",
-          "case_marking": {
-            "subject": {
-              "case": "nom",
-              "word": "სტუდენტი"
+          "georgian": "ვფიქრობ რთულ პრობლემას",
+          "georgian_components": {
+            "verb": {
+              "text": "ვფიქრობ",
+              "role": "verb"
             },
             "direct_object": {
+              "text": "რთულ პრობლემას",
               "case": "dat",
-              "word": "გაკვეთილს"
+              "role": "direct_object"
             }
           },
-          "georgian_verb_form": "ფიქრობს"
-        },
-        {
-          "georgian": "გამოცდილი მუშა იდეალურ გადაწყვეტას ფიქრობენ",
-          "english": "<strong data-role=\"subject\">The experienced worker</strong> <strong data-role=\"verb\">think</strong> <strong data-role=\"direct-object\">about the ideal solution</strong>",
-          "english_plain": "The experienced worker think about the ideal solution",
-          "html": "<span data-case=\"nom\" data-role=\"subject\">გამოცდილი მუშა</span> <span data-case=\"dat\" data-role=\"direct-object\">იდეალურ გადაწყვეტას</span> <span data-role=\"verb\">ფიქრობენ</span>",
-          "case_marking": {
+          "english": "I think about the difficult problem",
+          "english_components": {
             "subject": {
-              "case": "nom",
-              "word": "მუშა"
+              "text": "I",
+              "role": "subject",
+              "person": "1sg"
+            },
+            "verb": {
+              "text": "think",
+              "role": "verb"
             },
             "direct_object": {
-              "case": "dat",
-              "word": "გადაწყვეტას"
+              "text": "about the difficult problem",
+              "role": "direct_object"
             }
           },
-          "georgian_verb_form": "ფიქრობენ"
+          "georgian_verb_form": "ვფიქრობ",
+          "person": "1sg",
+          "effective_preverb": ""
+        },
+        {
+          "georgian": "ახალგაზრდა სტუდენტი ფიქრობს ახალ გაკვეთილს",
+          "georgian_components": {
+            "subject": {
+              "text": "ახალგაზრდა სტუდენტი",
+              "case": "nom",
+              "role": "subject"
+            },
+            "verb": {
+              "text": "ფიქრობს",
+              "role": "verb"
+            },
+            "direct_object": {
+              "text": "ახალ გაკვეთილს",
+              "case": "dat",
+              "role": "direct_object"
+            }
+          },
+          "english": "The young student thinks about the new lesson",
+          "english_components": {
+            "subject": {
+              "text": "The young student",
+              "role": "subject",
+              "person": "3sg"
+            },
+            "verb": {
+              "text": "thinks",
+              "role": "verb"
+            },
+            "direct_object": {
+              "text": "about the new lesson",
+              "role": "direct_object"
+            }
+          },
+          "georgian_verb_form": "ფიქრობს",
+          "person": "3sg",
+          "effective_preverb": ""
+        },
+        {
+          "georgian": "გამოცდილი მუშები ფიქრობენ იდეალურ გადაწყვეტას",
+          "georgian_components": {
+            "subject": {
+              "text": "გამოცდილი მუშები",
+              "case": "nom",
+              "role": "subject"
+            },
+            "verb": {
+              "text": "ფიქრობენ",
+              "role": "verb"
+            },
+            "direct_object": {
+              "text": "იდეალურ გადაწყვეტას",
+              "case": "dat",
+              "role": "direct_object"
+            }
+          },
+          "english": "The experienced workers think about the ideal solution",
+          "english_components": {
+            "subject": {
+              "text": "The experienced workers",
+              "role": "subject",
+              "person": "3pl"
+            },
+            "verb": {
+              "text": "think",
+              "role": "verb"
+            },
+            "direct_object": {
+              "text": "about the ideal solution",
+              "role": "direct_object"
+            }
+          },
+          "georgian_verb_form": "ფიქრობენ",
+          "person": "3pl",
+          "effective_preverb": ""
         }
       ],
       "imperfect": [
         {
-          "georgian": "რთულ პრობლემას ვფიქრობდი",
-          "english": "<strong data-role=\"subject\" data-person=\"1sg\">I</strong> <strong data-role=\"verb\">was thinking</strong> <strong data-role=\"direct-object\">about the difficult problem</strong>",
-          "english_plain": "I was thinking about the difficult problem",
-          "html": "<span data-case=\"dat\" data-role=\"direct-object\">რთულ პრობლემას</span> <span data-role=\"verb\">ვფიქრობდი</span>",
-          "case_marking": {
-            "direct_object": {
-              "case": "dat",
-              "word": "პრობლემას"
-            }
-          },
-          "georgian_verb_form": "ვფიქრობდი"
-        },
-        {
-          "georgian": "ახალგაზრდა სტუდენტი ახალ გაკვეთილს ფიქრობდა",
-          "english": "<strong data-role=\"subject\">The young student</strong> <strong data-role=\"verb\">was thinking</strong> <strong data-role=\"direct-object\">about the new lesson</strong>",
-          "english_plain": "The young student was thinking about the new lesson",
-          "html": "<span data-case=\"nom\" data-role=\"subject\">ახალგაზრდა სტუდენტი</span> <span data-case=\"dat\" data-role=\"direct-object\">ახალ გაკვეთილს</span> <span data-role=\"verb\">ფიქრობდა</span>",
-          "case_marking": {
-            "subject": {
-              "case": "nom",
-              "word": "სტუდენტი"
+          "georgian": "ვფიქრობდი რთულ პრობლემას",
+          "georgian_components": {
+            "verb": {
+              "text": "ვფიქრობდი",
+              "role": "verb"
             },
             "direct_object": {
+              "text": "რთულ პრობლემას",
               "case": "dat",
-              "word": "გაკვეთილს"
+              "role": "direct_object"
             }
           },
-          "georgian_verb_form": "ფიქრობდა"
-        },
-        {
-          "georgian": "გამოცდილი მუშა იდეალურ გადაწყვეტას ფიქრობდნენ",
-          "english": "<strong data-role=\"subject\">The experienced worker</strong> <strong data-role=\"verb\">were thinking</strong> <strong data-role=\"direct-object\">about the ideal solution</strong>",
-          "english_plain": "The experienced worker were thinking about the ideal solution",
-          "html": "<span data-case=\"nom\" data-role=\"subject\">გამოცდილი მუშა</span> <span data-case=\"dat\" data-role=\"direct-object\">იდეალურ გადაწყვეტას</span> <span data-role=\"verb\">ფიქრობდნენ</span>",
-          "case_marking": {
+          "english": "I was thinking about the difficult problem",
+          "english_components": {
             "subject": {
-              "case": "nom",
-              "word": "მუშა"
+              "text": "I",
+              "role": "subject",
+              "person": "1sg"
+            },
+            "verb": {
+              "text": "was thinking",
+              "role": "verb"
             },
             "direct_object": {
-              "case": "dat",
-              "word": "გადაწყვეტას"
+              "text": "about the difficult problem",
+              "role": "direct_object"
             }
           },
-          "georgian_verb_form": "ფიქრობდნენ"
+          "georgian_verb_form": "ვფიქრობდი",
+          "person": "1sg",
+          "effective_preverb": ""
+        },
+        {
+          "georgian": "ახალგაზრდა სტუდენტი ფიქრობდა ახალ გაკვეთილს",
+          "georgian_components": {
+            "subject": {
+              "text": "ახალგაზრდა სტუდენტი",
+              "case": "nom",
+              "role": "subject"
+            },
+            "verb": {
+              "text": "ფიქრობდა",
+              "role": "verb"
+            },
+            "direct_object": {
+              "text": "ახალ გაკვეთილს",
+              "case": "dat",
+              "role": "direct_object"
+            }
+          },
+          "english": "The young student was thinking about the new lesson",
+          "english_components": {
+            "subject": {
+              "text": "The young student",
+              "role": "subject",
+              "person": "3sg"
+            },
+            "verb": {
+              "text": "was thinking",
+              "role": "verb"
+            },
+            "direct_object": {
+              "text": "about the new lesson",
+              "role": "direct_object"
+            }
+          },
+          "georgian_verb_form": "ფიქრობდა",
+          "person": "3sg",
+          "effective_preverb": ""
+        },
+        {
+          "georgian": "გამოცდილი მუშები ფიქრობდნენ იდეალურ გადაწყვეტას",
+          "georgian_components": {
+            "subject": {
+              "text": "გამოცდილი მუშები",
+              "case": "nom",
+              "role": "subject"
+            },
+            "verb": {
+              "text": "ფიქრობდნენ",
+              "role": "verb"
+            },
+            "direct_object": {
+              "text": "იდეალურ გადაწყვეტას",
+              "case": "dat",
+              "role": "direct_object"
+            }
+          },
+          "english": "The experienced workers were thinking about the ideal solution",
+          "english_components": {
+            "subject": {
+              "text": "The experienced workers",
+              "role": "subject",
+              "person": "3pl"
+            },
+            "verb": {
+              "text": "were thinking",
+              "role": "verb"
+            },
+            "direct_object": {
+              "text": "about the ideal solution",
+              "role": "direct_object"
+            }
+          },
+          "georgian_verb_form": "ფიქრობდნენ",
+          "person": "3pl",
+          "effective_preverb": ""
         }
       ],
       "future": [
         {
-          "georgian": "რთულ პრობლემას ვიფიქრებ",
-          "english": "<strong data-role=\"subject\" data-person=\"1sg\">I</strong> <strong data-role=\"verb\">will think</strong> <strong data-role=\"direct-object\">about the difficult problem</strong>",
-          "english_plain": "I will think about the difficult problem",
-          "html": "<span data-case=\"dat\" data-role=\"direct-object\">რთულ პრობლემას</span> <span data-role=\"verb\">ვიფიქრებ</span>",
-          "case_marking": {
-            "direct_object": {
-              "case": "dat",
-              "word": "პრობლემას"
-            }
-          },
-          "georgian_verb_form": "ვიფიქრებ"
-        },
-        {
-          "georgian": "ახალგაზრდა სტუდენტი ახალ გაკვეთილს იფიქრებს",
-          "english": "<strong data-role=\"subject\">The young student</strong> <strong data-role=\"verb\">will think</strong> <strong data-role=\"direct-object\">about the new lesson</strong>",
-          "english_plain": "The young student will think about the new lesson",
-          "html": "<span data-case=\"nom\" data-role=\"subject\">ახალგაზრდა სტუდენტი</span> <span data-case=\"dat\" data-role=\"direct-object\">ახალ გაკვეთილს</span> <span data-role=\"verb\">იფიქრებს</span>",
-          "case_marking": {
-            "subject": {
-              "case": "nom",
-              "word": "სტუდენტი"
+          "georgian": "ვიფიქრებ რთულ პრობლემას",
+          "georgian_components": {
+            "verb": {
+              "text": "ვიფიქრებ",
+              "role": "verb"
             },
             "direct_object": {
+              "text": "რთულ პრობლემას",
               "case": "dat",
-              "word": "გაკვეთილს"
+              "role": "direct_object"
             }
           },
-          "georgian_verb_form": "იფიქრებს"
-        },
-        {
-          "georgian": "გამოცდილი მუშა იდეალურ გადაწყვეტას იფიქრებენ",
-          "english": "<strong data-role=\"subject\">The experienced worker</strong> <strong data-role=\"verb\">will think</strong> <strong data-role=\"direct-object\">about the ideal solution</strong>",
-          "english_plain": "The experienced worker will think about the ideal solution",
-          "html": "<span data-case=\"nom\" data-role=\"subject\">გამოცდილი მუშა</span> <span data-case=\"dat\" data-role=\"direct-object\">იდეალურ გადაწყვეტას</span> <span data-role=\"verb\">იფიქრებენ</span>",
-          "case_marking": {
+          "english": "I will think about the difficult problem",
+          "english_components": {
             "subject": {
-              "case": "nom",
-              "word": "მუშა"
+              "text": "I",
+              "role": "subject",
+              "person": "1sg"
+            },
+            "verb": {
+              "text": "will think",
+              "role": "verb"
             },
             "direct_object": {
-              "case": "dat",
-              "word": "გადაწყვეტას"
+              "text": "about the difficult problem",
+              "role": "direct_object"
             }
           },
-          "georgian_verb_form": "იფიქრებენ"
+          "georgian_verb_form": "ვიფიქრებ",
+          "person": "1sg",
+          "effective_preverb": ""
+        },
+        {
+          "georgian": "ახალგაზრდა სტუდენტი იფიქრებს ახალ გაკვეთილს",
+          "georgian_components": {
+            "subject": {
+              "text": "ახალგაზრდა სტუდენტი",
+              "case": "nom",
+              "role": "subject"
+            },
+            "verb": {
+              "text": "იფიქრებს",
+              "role": "verb"
+            },
+            "direct_object": {
+              "text": "ახალ გაკვეთილს",
+              "case": "dat",
+              "role": "direct_object"
+            }
+          },
+          "english": "The young student will think about the new lesson",
+          "english_components": {
+            "subject": {
+              "text": "The young student",
+              "role": "subject",
+              "person": "3sg"
+            },
+            "verb": {
+              "text": "will think",
+              "role": "verb"
+            },
+            "direct_object": {
+              "text": "about the new lesson",
+              "role": "direct_object"
+            }
+          },
+          "georgian_verb_form": "იფიქრებს",
+          "person": "3sg",
+          "effective_preverb": ""
+        },
+        {
+          "georgian": "გამოცდილი მუშები იფიქრებენ იდეალურ გადაწყვეტას",
+          "georgian_components": {
+            "subject": {
+              "text": "გამოცდილი მუშები",
+              "case": "nom",
+              "role": "subject"
+            },
+            "verb": {
+              "text": "იფიქრებენ",
+              "role": "verb"
+            },
+            "direct_object": {
+              "text": "იდეალურ გადაწყვეტას",
+              "case": "dat",
+              "role": "direct_object"
+            }
+          },
+          "english": "The experienced workers will think about the ideal solution",
+          "english_components": {
+            "subject": {
+              "text": "The experienced workers",
+              "role": "subject",
+              "person": "3pl"
+            },
+            "verb": {
+              "text": "will think",
+              "role": "verb"
+            },
+            "direct_object": {
+              "text": "about the ideal solution",
+              "role": "direct_object"
+            }
+          },
+          "georgian_verb_form": "იფიქრებენ",
+          "person": "3pl",
+          "effective_preverb": ""
         }
       ],
       "aorist": [
         {
-          "georgian": "რთული პრობლემა ვიფიქრე",
-          "english": "<strong data-role=\"subject\" data-person=\"1sg\">I</strong> <strong data-role=\"verb\">thought</strong> <strong data-role=\"direct-object\">about the difficult problem</strong>",
-          "english_plain": "I thought about the difficult problem",
-          "html": "<span data-case=\"nom\" data-role=\"direct-object\">რთული პრობლემა</span> <span data-role=\"verb\">ვიფიქრე</span>",
-          "case_marking": {
-            "direct_object": {
-              "case": "nom",
-              "word": "პრობლემა"
-            }
-          },
-          "georgian_verb_form": "ვიფიქრე"
-        },
-        {
-          "georgian": "ახალგაზრდა სტუდენტმა ახალი გაკვეთილი იფიქრა",
-          "english": "<strong data-role=\"subject\">The young student</strong> <strong data-role=\"verb\">thought</strong> <strong data-role=\"direct-object\">about the new lesson</strong>",
-          "english_plain": "The young student thought about the new lesson",
-          "html": "<span data-case=\"erg\" data-role=\"subject\">ახალგაზრდა სტუდენტმა</span> <span data-case=\"nom\" data-role=\"direct-object\">ახალი გაკვეთილი</span> <span data-role=\"verb\">იფიქრა</span>",
-          "case_marking": {
-            "subject": {
-              "case": "erg",
-              "word": "სტუდენტმა"
+          "georgian": "ვიფიქრე რთული პრობლემა",
+          "georgian_components": {
+            "verb": {
+              "text": "ვიფიქრე",
+              "role": "verb"
             },
             "direct_object": {
+              "text": "რთული პრობლემა",
               "case": "nom",
-              "word": "გაკვეთილი"
+              "role": "direct_object"
             }
           },
-          "georgian_verb_form": "იფიქრა"
-        },
-        {
-          "georgian": "გამოცდილმა მუშამ იდეალური გადაწყვეტა იფიქრეს",
-          "english": "<strong data-role=\"subject\">The experienced worker</strong> <strong data-role=\"verb\">thought</strong> <strong data-role=\"direct-object\">about the ideal solution</strong>",
-          "english_plain": "The experienced worker thought about the ideal solution",
-          "html": "<span data-case=\"erg\" data-role=\"subject\">გამოცდილმა მუშამ</span> <span data-case=\"nom\" data-role=\"direct-object\">იდეალური გადაწყვეტა</span> <span data-role=\"verb\">იფიქრეს</span>",
-          "case_marking": {
+          "english": "I thought about the difficult problem",
+          "english_components": {
             "subject": {
-              "case": "erg",
-              "word": "მუშამ"
+              "text": "I",
+              "role": "subject",
+              "person": "1sg"
+            },
+            "verb": {
+              "text": "thought",
+              "role": "verb"
             },
             "direct_object": {
-              "case": "nom",
-              "word": "გადაწყვეტა"
+              "text": "about the difficult problem",
+              "role": "direct_object"
             }
           },
-          "georgian_verb_form": "იფიქრეს"
+          "georgian_verb_form": "ვიფიქრე",
+          "person": "1sg",
+          "effective_preverb": ""
+        },
+        {
+          "georgian": "ახალგაზრდა სტუდენტმა იფიქრა ახალი გაკვეთილი",
+          "georgian_components": {
+            "subject": {
+              "text": "ახალგაზრდა სტუდენტმა",
+              "case": "erg",
+              "role": "subject"
+            },
+            "verb": {
+              "text": "იფიქრა",
+              "role": "verb"
+            },
+            "direct_object": {
+              "text": "ახალი გაკვეთილი",
+              "case": "nom",
+              "role": "direct_object"
+            }
+          },
+          "english": "The young student thought about the new lesson",
+          "english_components": {
+            "subject": {
+              "text": "The young student",
+              "role": "subject",
+              "person": "3sg"
+            },
+            "verb": {
+              "text": "thought",
+              "role": "verb"
+            },
+            "direct_object": {
+              "text": "about the new lesson",
+              "role": "direct_object"
+            }
+          },
+          "georgian_verb_form": "იფიქრა",
+          "person": "3sg",
+          "effective_preverb": ""
+        },
+        {
+          "georgian": "გამოცდილმა მუშებმა იფიქრეს იდეალური გადაწყვეტა",
+          "georgian_components": {
+            "subject": {
+              "text": "გამოცდილმა მუშებმა",
+              "case": "erg",
+              "role": "subject"
+            },
+            "verb": {
+              "text": "იფიქრეს",
+              "role": "verb"
+            },
+            "direct_object": {
+              "text": "იდეალური გადაწყვეტა",
+              "case": "nom",
+              "role": "direct_object"
+            }
+          },
+          "english": "The experienced workers thought about the ideal solution",
+          "english_components": {
+            "subject": {
+              "text": "The experienced workers",
+              "role": "subject",
+              "person": "3pl"
+            },
+            "verb": {
+              "text": "thought",
+              "role": "verb"
+            },
+            "direct_object": {
+              "text": "about the ideal solution",
+              "role": "direct_object"
+            }
+          },
+          "georgian_verb_form": "იფიქრეს",
+          "person": "3pl",
+          "effective_preverb": ""
         }
       ],
       "optative": [
         {
-          "georgian": "რთული პრობლემა უნდა ვიფიქრო",
-          "english": "<strong data-role=\"subject\" data-person=\"1sg\">I</strong> <strong data-role=\"verb\">should</strong> <strong data-role=\"verb\">think</strong> <strong data-role=\"direct-object\">about the difficult problem</strong>",
-          "english_plain": "I should think about the difficult problem",
-          "html": "<span data-case=\"nom\" data-role=\"direct-object\">რთული პრობლემა</span> <span data-role=\"verb\">უნდა ვიფიქრო</span>",
-          "case_marking": {
-            "direct_object": {
-              "case": "nom",
-              "word": "პრობლემა"
-            }
-          },
-          "georgian_verb_form": "ვიფიქრო"
-        },
-        {
-          "georgian": "ახალგაზრდა სტუდენტმა ახალი გაკვეთილი უნდა იფიქროს",
-          "english": "<strong data-role=\"subject\">The young student</strong> <strong data-role=\"verb\">should</strong> <strong data-role=\"verb\">think</strong> <strong data-role=\"direct-object\">about the new lesson</strong>",
-          "english_plain": "The young student should think about the new lesson",
-          "html": "<span data-case=\"erg\" data-role=\"subject\">ახალგაზრდა სტუდენტმა</span> <span data-case=\"nom\" data-role=\"direct-object\">ახალი გაკვეთილი</span> <span data-role=\"verb\">უნდა იფიქროს</span>",
-          "case_marking": {
-            "subject": {
-              "case": "erg",
-              "word": "სტუდენტმა"
+          "georgian": "უნდა ვიფიქრო რთული პრობლემა",
+          "georgian_components": {
+            "verb": {
+              "text": "უნდა ვიფიქრო",
+              "role": "verb"
             },
             "direct_object": {
+              "text": "რთული პრობლემა",
               "case": "nom",
-              "word": "გაკვეთილი"
+              "role": "direct_object"
             }
           },
-          "georgian_verb_form": "იფიქროს"
-        },
-        {
-          "georgian": "გამოცდილმა მუშამ იდეალური გადაწყვეტა უნდა იფიქრონ",
-          "english": "<strong data-role=\"subject\">The experienced worker</strong> <strong data-role=\"verb\">should</strong> <strong data-role=\"verb\">think</strong> <strong data-role=\"direct-object\">about the ideal solution</strong>",
-          "english_plain": "The experienced worker should think about the ideal solution",
-          "html": "<span data-case=\"erg\" data-role=\"subject\">გამოცდილმა მუშამ</span> <span data-case=\"nom\" data-role=\"direct-object\">იდეალური გადაწყვეტა</span> <span data-role=\"verb\">უნდა იფიქრონ</span>",
-          "case_marking": {
+          "english": "I should think about the difficult problem",
+          "english_components": {
             "subject": {
-              "case": "erg",
-              "word": "მუშამ"
+              "text": "I",
+              "role": "subject",
+              "person": "1sg"
+            },
+            "verb": {
+              "text": "should think",
+              "role": "verb"
             },
             "direct_object": {
-              "case": "nom",
-              "word": "გადაწყვეტა"
+              "text": "about the difficult problem",
+              "role": "direct_object"
             }
           },
-          "georgian_verb_form": "იფიქრონ"
+          "georgian_verb_form": "ვიფიქრო",
+          "person": "1sg",
+          "effective_preverb": ""
+        },
+        {
+          "georgian": "ახალგაზრდა სტუდენტმა უნდა იფიქროს ახალი გაკვეთილი",
+          "georgian_components": {
+            "subject": {
+              "text": "ახალგაზრდა სტუდენტმა",
+              "case": "erg",
+              "role": "subject"
+            },
+            "verb": {
+              "text": "უნდა იფიქროს",
+              "role": "verb"
+            },
+            "direct_object": {
+              "text": "ახალი გაკვეთილი",
+              "case": "nom",
+              "role": "direct_object"
+            }
+          },
+          "english": "The young student should think about the new lesson",
+          "english_components": {
+            "subject": {
+              "text": "The young student",
+              "role": "subject",
+              "person": "3sg"
+            },
+            "verb": {
+              "text": "should think",
+              "role": "verb"
+            },
+            "direct_object": {
+              "text": "about the new lesson",
+              "role": "direct_object"
+            }
+          },
+          "georgian_verb_form": "იფიქროს",
+          "person": "3sg",
+          "effective_preverb": ""
+        },
+        {
+          "georgian": "გამოცდილმა მუშებმა უნდა იფიქრონ იდეალური გადაწყვეტა",
+          "georgian_components": {
+            "subject": {
+              "text": "გამოცდილმა მუშებმა",
+              "case": "erg",
+              "role": "subject"
+            },
+            "verb": {
+              "text": "უნდა იფიქრონ",
+              "role": "verb"
+            },
+            "direct_object": {
+              "text": "იდეალური გადაწყვეტა",
+              "case": "nom",
+              "role": "direct_object"
+            }
+          },
+          "english": "The experienced workers should think about the ideal solution",
+          "english_components": {
+            "subject": {
+              "text": "The experienced workers",
+              "role": "subject",
+              "person": "3pl"
+            },
+            "verb": {
+              "text": "should think",
+              "role": "verb"
+            },
+            "direct_object": {
+              "text": "about the ideal solution",
+              "role": "direct_object"
+            }
+          },
+          "georgian_verb_form": "იფიქრონ",
+          "person": "3pl",
+          "effective_preverb": ""
         }
       ],
       "imperative": [
         {
-          "georgian": "მნიშვნელოვანი კითხვა იფიქრე",
-          "english": "<strong data-role=\"verb\">think</strong> <strong data-role=\"direct-object\">about the important question</strong>",
-          "english_plain": "think about the important question",
-          "html": "<span data-case=\"nom\" data-role=\"direct-object\">მნიშვნელოვანი კითხვა</span> <span data-role=\"verb\">იფიქრე</span>",
-          "case_marking": {
+          "georgian": "იფიქრე მნიშვნელოვანი კითხვა",
+          "georgian_components": {
+            "verb": {
+              "text": "იფიქრე",
+              "role": "verb"
+            },
             "direct_object": {
+              "text": "მნიშვნელოვანი კითხვა",
               "case": "nom",
-              "word": "კითხვა"
+              "role": "direct_object"
             }
           },
-          "georgian_verb_form": "იფიქრე"
+          "english": "You, think about the important question",
+          "english_components": {
+            "subject": {
+              "text": "You,",
+              "role": "subject",
+              "person": "2sg"
+            },
+            "verb": {
+              "text": "think",
+              "role": "verb"
+            },
+            "direct_object": {
+              "text": "about the important question",
+              "role": "direct_object"
+            }
+          },
+          "georgian_verb_form": "იფიქრე",
+          "person": "2sg",
+          "effective_preverb": ""
         },
         {
-          "georgian": "მარტივი გეგმა იფიქრეთ",
-          "english": "<strong data-role=\"verb\">think</strong> <strong data-role=\"direct-object\">about the simple plan</strong>",
-          "english_plain": "think about the simple plan",
-          "html": "<span data-case=\"nom\" data-role=\"direct-object\">მარტივი გეგმა</span> <span data-role=\"verb\">იფიქრეთ</span>",
-          "case_marking": {
+          "georgian": "იფიქრეთ მარტივი გეგმა",
+          "georgian_components": {
+            "verb": {
+              "text": "იფიქრეთ",
+              "role": "verb"
+            },
             "direct_object": {
+              "text": "მარტივი გეგმა",
               "case": "nom",
-              "word": "გეგმა"
+              "role": "direct_object"
             }
           },
-          "georgian_verb_form": "იფიქრეთ"
+          "english": "You all (you formal), think about the simple plan",
+          "english_components": {
+            "subject": {
+              "text": "You all (you formal),",
+              "role": "subject",
+              "person": "2pl"
+            },
+            "verb": {
+              "text": "think",
+              "role": "verb"
+            },
+            "direct_object": {
+              "text": "about the simple plan",
+              "role": "direct_object"
+            }
+          },
+          "georgian_verb_form": "იფიქრეთ",
+          "person": "2pl",
+          "effective_preverb": ""
         }
       ]
     }

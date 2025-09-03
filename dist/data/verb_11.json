@@ -152,282 +152,631 @@
   "preverb_rules": {
     "default": "",
     "replacements": {},
-    "tense_specific_fallbacks": {},
-    "english_fallbacks": {}
+    "tense_specific_fallbacks": {}
   },
   "examples": {
-    "null": {
+    "default": {
       "present": [
         {
-          "georgian": "წითელ ვაშლს ვიღებ",
-          "english": "<strong data-role=\"subject\" data-person=\"1sg\">I</strong> <strong data-role=\"verb\">take</strong> <strong data-role=\"direct-object\">the red apple</strong>",
-          "english_plain": "I take the red apple",
-          "html": "<span data-case=\"dat\" data-role=\"direct-object\">წითელ ვაშლს</span> <span data-role=\"verb\">ვიღებ</span>",
-          "case_marking": {
-            "direct_object": {
-              "case": "dat",
-              "word": "ვაშლს"
-            }
-          },
-          "georgian_verb_form": "ვიღებ"
-        },
-        {
-          "georgian": "ფრთხილი დედა ძვირფას წიგნს იღებს",
-          "english": "<strong data-role=\"subject\">The careful mother</strong> <strong data-role=\"verb\">takes</strong> <strong data-role=\"direct-object\">the precious book</strong>",
-          "english_plain": "The careful mother takes the precious book",
-          "html": "<span data-case=\"nom\" data-role=\"subject\">ფრთხილი დედა</span> <span data-case=\"dat\" data-role=\"direct-object\">ძვირფას წიგნს</span> <span data-role=\"verb\">იღებს</span>",
-          "case_marking": {
-            "subject": {
-              "case": "nom",
-              "word": "დედა"
+          "georgian": "ვიღებ წითელ ვაშლს",
+          "georgian_components": {
+            "verb": {
+              "text": "ვიღებ",
+              "role": "verb"
             },
             "direct_object": {
+              "text": "წითელ ვაშლს",
               "case": "dat",
-              "word": "წიგნს"
+              "role": "direct_object"
             }
           },
-          "georgian_verb_form": "იღებს"
-        },
-        {
-          "georgian": "უცხო ტურისტი ახალ რუკას იღებენ",
-          "english": "<strong data-role=\"subject\">The foreign tourist</strong> <strong data-role=\"verb\">take</strong> <strong data-role=\"direct-object\">the new map</strong>",
-          "english_plain": "The foreign tourist take the new map",
-          "html": "<span data-case=\"nom\" data-role=\"subject\">უცხო ტურისტი</span> <span data-case=\"dat\" data-role=\"direct-object\">ახალ რუკას</span> <span data-role=\"verb\">იღებენ</span>",
-          "case_marking": {
+          "english": "I take the red apple",
+          "english_components": {
             "subject": {
-              "case": "nom",
-              "word": "ტურისტი"
+              "text": "I",
+              "role": "subject",
+              "person": "1sg"
+            },
+            "verb": {
+              "text": "take",
+              "role": "verb"
             },
             "direct_object": {
-              "case": "dat",
-              "word": "რუკას"
+              "text": "the red apple",
+              "role": "direct_object"
             }
           },
-          "georgian_verb_form": "იღებენ"
+          "georgian_verb_form": "ვიღებ",
+          "person": "1sg",
+          "effective_preverb": "ა"
+        },
+        {
+          "georgian": "ფრთხილი დედა იღებს ძვირფას წიგნს",
+          "georgian_components": {
+            "subject": {
+              "text": "ფრთხილი დედა",
+              "case": "nom",
+              "role": "subject"
+            },
+            "verb": {
+              "text": "იღებს",
+              "role": "verb"
+            },
+            "direct_object": {
+              "text": "ძვირფას წიგნს",
+              "case": "dat",
+              "role": "direct_object"
+            }
+          },
+          "english": "The careful mother takes the precious book",
+          "english_components": {
+            "subject": {
+              "text": "The careful mother",
+              "role": "subject",
+              "person": "3sg"
+            },
+            "verb": {
+              "text": "takes",
+              "role": "verb"
+            },
+            "direct_object": {
+              "text": "the precious book",
+              "role": "direct_object"
+            }
+          },
+          "georgian_verb_form": "იღებს",
+          "person": "3sg",
+          "effective_preverb": "ა"
+        },
+        {
+          "georgian": "უცხო ტურისტები იღებენ ახალ რუკას",
+          "georgian_components": {
+            "subject": {
+              "text": "უცხო ტურისტები",
+              "case": "nom",
+              "role": "subject"
+            },
+            "verb": {
+              "text": "იღებენ",
+              "role": "verb"
+            },
+            "direct_object": {
+              "text": "ახალ რუკას",
+              "case": "dat",
+              "role": "direct_object"
+            }
+          },
+          "english": "The foreign tourists take the new map",
+          "english_components": {
+            "subject": {
+              "text": "The foreign tourists",
+              "role": "subject",
+              "person": "3pl"
+            },
+            "verb": {
+              "text": "take",
+              "role": "verb"
+            },
+            "direct_object": {
+              "text": "the new map",
+              "role": "direct_object"
+            }
+          },
+          "georgian_verb_form": "იღებენ",
+          "person": "3pl",
+          "effective_preverb": "ა"
         }
       ],
       "imperfect": [
         {
-          "georgian": "წითელ ვაშლს ვიღებდი",
-          "english": "<strong data-role=\"subject\" data-person=\"1sg\">I</strong> <strong data-role=\"verb\">was taking</strong> <strong data-role=\"direct-object\">the red apple</strong>",
-          "english_plain": "I was taking the red apple",
-          "html": "<span data-case=\"dat\" data-role=\"direct-object\">წითელ ვაშლს</span> <span data-role=\"verb\">ვიღებდი</span>",
-          "case_marking": {
-            "direct_object": {
-              "case": "dat",
-              "word": "ვაშლს"
-            }
-          },
-          "georgian_verb_form": "ვიღებდი"
-        },
-        {
-          "georgian": "ფრთხილი დედა ძვირფას წიგნს იღებდა",
-          "english": "<strong data-role=\"subject\">The careful mother</strong> <strong data-role=\"verb\">was taking</strong> <strong data-role=\"direct-object\">the precious book</strong>",
-          "english_plain": "The careful mother was taking the precious book",
-          "html": "<span data-case=\"nom\" data-role=\"subject\">ფრთხილი დედა</span> <span data-case=\"dat\" data-role=\"direct-object\">ძვირფას წიგნს</span> <span data-role=\"verb\">იღებდა</span>",
-          "case_marking": {
-            "subject": {
-              "case": "nom",
-              "word": "დედა"
+          "georgian": "ვიღებდი წითელ ვაშლს",
+          "georgian_components": {
+            "verb": {
+              "text": "ვიღებდი",
+              "role": "verb"
             },
             "direct_object": {
+              "text": "წითელ ვაშლს",
               "case": "dat",
-              "word": "წიგნს"
+              "role": "direct_object"
             }
           },
-          "georgian_verb_form": "იღებდა"
-        },
-        {
-          "georgian": "უცხო ტურისტი ახალ რუკას იღებდნენ",
-          "english": "<strong data-role=\"subject\">The foreign tourist</strong> <strong data-role=\"verb\">were taking</strong> <strong data-role=\"direct-object\">the new map</strong>",
-          "english_plain": "The foreign tourist were taking the new map",
-          "html": "<span data-case=\"nom\" data-role=\"subject\">უცხო ტურისტი</span> <span data-case=\"dat\" data-role=\"direct-object\">ახალ რუკას</span> <span data-role=\"verb\">იღებდნენ</span>",
-          "case_marking": {
+          "english": "I was taking the red apple",
+          "english_components": {
             "subject": {
-              "case": "nom",
-              "word": "ტურისტი"
+              "text": "I",
+              "role": "subject",
+              "person": "1sg"
+            },
+            "verb": {
+              "text": "was taking",
+              "role": "verb"
             },
             "direct_object": {
-              "case": "dat",
-              "word": "რუკას"
+              "text": "the red apple",
+              "role": "direct_object"
             }
           },
-          "georgian_verb_form": "იღებდნენ"
+          "georgian_verb_form": "ვიღებდი",
+          "person": "1sg",
+          "effective_preverb": "ა"
+        },
+        {
+          "georgian": "ფრთხილი დედა იღებდა ძვირფას წიგნს",
+          "georgian_components": {
+            "subject": {
+              "text": "ფრთხილი დედა",
+              "case": "nom",
+              "role": "subject"
+            },
+            "verb": {
+              "text": "იღებდა",
+              "role": "verb"
+            },
+            "direct_object": {
+              "text": "ძვირფას წიგნს",
+              "case": "dat",
+              "role": "direct_object"
+            }
+          },
+          "english": "The careful mother was taking the precious book",
+          "english_components": {
+            "subject": {
+              "text": "The careful mother",
+              "role": "subject",
+              "person": "3sg"
+            },
+            "verb": {
+              "text": "was taking",
+              "role": "verb"
+            },
+            "direct_object": {
+              "text": "the precious book",
+              "role": "direct_object"
+            }
+          },
+          "georgian_verb_form": "იღებდა",
+          "person": "3sg",
+          "effective_preverb": "ა"
+        },
+        {
+          "georgian": "უცხო ტურისტები იღებდნენ ახალ რუკას",
+          "georgian_components": {
+            "subject": {
+              "text": "უცხო ტურისტები",
+              "case": "nom",
+              "role": "subject"
+            },
+            "verb": {
+              "text": "იღებდნენ",
+              "role": "verb"
+            },
+            "direct_object": {
+              "text": "ახალ რუკას",
+              "case": "dat",
+              "role": "direct_object"
+            }
+          },
+          "english": "The foreign tourists were taking the new map",
+          "english_components": {
+            "subject": {
+              "text": "The foreign tourists",
+              "role": "subject",
+              "person": "3pl"
+            },
+            "verb": {
+              "text": "were taking",
+              "role": "verb"
+            },
+            "direct_object": {
+              "text": "the new map",
+              "role": "direct_object"
+            }
+          },
+          "georgian_verb_form": "იღებდნენ",
+          "person": "3pl",
+          "effective_preverb": "ა"
         }
       ],
       "future": [
         {
-          "georgian": "წითელ ვაშლს ავიღებ",
-          "english": "<strong data-role=\"subject\" data-person=\"1sg\">I</strong> <strong data-role=\"verb\">will take</strong> <strong data-role=\"direct-object\">the red apple</strong>",
-          "english_plain": "I will take the red apple",
-          "html": "<span data-case=\"dat\" data-role=\"direct-object\">წითელ ვაშლს</span> <span data-role=\"verb\">ავიღებ</span>",
-          "case_marking": {
-            "direct_object": {
-              "case": "dat",
-              "word": "ვაშლს"
-            }
-          },
-          "georgian_verb_form": "ავიღებ"
-        },
-        {
-          "georgian": "ფრთხილი დედა ძვირფას წიგნს აიღებს",
-          "english": "<strong data-role=\"subject\">The careful mother</strong> <strong data-role=\"verb\">will take</strong> <strong data-role=\"direct-object\">the precious book</strong>",
-          "english_plain": "The careful mother will take the precious book",
-          "html": "<span data-case=\"nom\" data-role=\"subject\">ფრთხილი დედა</span> <span data-case=\"dat\" data-role=\"direct-object\">ძვირფას წიგნს</span> <span data-role=\"verb\">აიღებს</span>",
-          "case_marking": {
-            "subject": {
-              "case": "nom",
-              "word": "დედა"
+          "georgian": "ავიღებ წითელ ვაშლს",
+          "georgian_components": {
+            "verb": {
+              "text": "ავიღებ",
+              "role": "verb"
             },
             "direct_object": {
+              "text": "წითელ ვაშლს",
               "case": "dat",
-              "word": "წიგნს"
+              "role": "direct_object"
             }
           },
-          "georgian_verb_form": "აიღებს"
-        },
-        {
-          "georgian": "უცხო ტურისტი ახალ რუკას აიღებენ",
-          "english": "<strong data-role=\"subject\">The foreign tourist</strong> <strong data-role=\"verb\">will take</strong> <strong data-role=\"direct-object\">the new map</strong>",
-          "english_plain": "The foreign tourist will take the new map",
-          "html": "<span data-case=\"nom\" data-role=\"subject\">უცხო ტურისტი</span> <span data-case=\"dat\" data-role=\"direct-object\">ახალ რუკას</span> <span data-role=\"verb\">აიღებენ</span>",
-          "case_marking": {
+          "english": "I will take the red apple",
+          "english_components": {
             "subject": {
-              "case": "nom",
-              "word": "ტურისტი"
+              "text": "I",
+              "role": "subject",
+              "person": "1sg"
+            },
+            "verb": {
+              "text": "will take",
+              "role": "verb"
             },
             "direct_object": {
-              "case": "dat",
-              "word": "რუკას"
+              "text": "the red apple",
+              "role": "direct_object"
             }
           },
-          "georgian_verb_form": "აიღებენ"
+          "georgian_verb_form": "ავიღებ",
+          "person": "1sg",
+          "effective_preverb": "ა"
+        },
+        {
+          "georgian": "ფრთხილი დედა აიღებს ძვირფას წიგნს",
+          "georgian_components": {
+            "subject": {
+              "text": "ფრთხილი დედა",
+              "case": "nom",
+              "role": "subject"
+            },
+            "verb": {
+              "text": "აიღებს",
+              "role": "verb"
+            },
+            "direct_object": {
+              "text": "ძვირფას წიგნს",
+              "case": "dat",
+              "role": "direct_object"
+            }
+          },
+          "english": "The careful mother will take the precious book",
+          "english_components": {
+            "subject": {
+              "text": "The careful mother",
+              "role": "subject",
+              "person": "3sg"
+            },
+            "verb": {
+              "text": "will take",
+              "role": "verb"
+            },
+            "direct_object": {
+              "text": "the precious book",
+              "role": "direct_object"
+            }
+          },
+          "georgian_verb_form": "აიღებს",
+          "person": "3sg",
+          "effective_preverb": "ა"
+        },
+        {
+          "georgian": "უცხო ტურისტები აიღებენ ახალ რუკას",
+          "georgian_components": {
+            "subject": {
+              "text": "უცხო ტურისტები",
+              "case": "nom",
+              "role": "subject"
+            },
+            "verb": {
+              "text": "აიღებენ",
+              "role": "verb"
+            },
+            "direct_object": {
+              "text": "ახალ რუკას",
+              "case": "dat",
+              "role": "direct_object"
+            }
+          },
+          "english": "The foreign tourists will take the new map",
+          "english_components": {
+            "subject": {
+              "text": "The foreign tourists",
+              "role": "subject",
+              "person": "3pl"
+            },
+            "verb": {
+              "text": "will take",
+              "role": "verb"
+            },
+            "direct_object": {
+              "text": "the new map",
+              "role": "direct_object"
+            }
+          },
+          "georgian_verb_form": "აიღებენ",
+          "person": "3pl",
+          "effective_preverb": "ა"
         }
       ],
       "aorist": [
         {
-          "georgian": "წითელი ვაშლი ავიღე",
-          "english": "<strong data-role=\"subject\" data-person=\"1sg\">I</strong> <strong data-role=\"verb\">took</strong> <strong data-role=\"direct-object\">the red apple</strong>",
-          "english_plain": "I took the red apple",
-          "html": "<span data-case=\"nom\" data-role=\"direct-object\">წითელი ვაშლი</span> <span data-role=\"verb\">ავიღე</span>",
-          "case_marking": {
-            "direct_object": {
-              "case": "nom",
-              "word": "ვაშლი"
-            }
-          },
-          "georgian_verb_form": "ავიღე"
-        },
-        {
-          "georgian": "ფრთხილმა დედამ ძვირფასი წიგნი აიღო",
-          "english": "<strong data-role=\"subject\">The careful mother</strong> <strong data-role=\"verb\">took</strong> <strong data-role=\"direct-object\">the precious book</strong>",
-          "english_plain": "The careful mother took the precious book",
-          "html": "<span data-case=\"erg\" data-role=\"subject\">ფრთხილმა დედამ</span> <span data-case=\"nom\" data-role=\"direct-object\">ძვირფასი წიგნი</span> <span data-role=\"verb\">აიღო</span>",
-          "case_marking": {
-            "subject": {
-              "case": "erg",
-              "word": "დედამ"
+          "georgian": "ავიღე წითელი ვაშლი",
+          "georgian_components": {
+            "verb": {
+              "text": "ავიღე",
+              "role": "verb"
             },
             "direct_object": {
+              "text": "წითელი ვაშლი",
               "case": "nom",
-              "word": "წიგნი"
+              "role": "direct_object"
             }
           },
-          "georgian_verb_form": "აიღო"
-        },
-        {
-          "georgian": "უცხო ტურისტმა ახალი რუკა აიღეს",
-          "english": "<strong data-role=\"subject\">The foreign tourist</strong> <strong data-role=\"verb\">took</strong> <strong data-role=\"direct-object\">the new map</strong>",
-          "english_plain": "The foreign tourist took the new map",
-          "html": "<span data-case=\"erg\" data-role=\"subject\">უცხო ტურისტმა</span> <span data-case=\"nom\" data-role=\"direct-object\">ახალი რუკა</span> <span data-role=\"verb\">აიღეს</span>",
-          "case_marking": {
+          "english": "I took the red apple",
+          "english_components": {
             "subject": {
-              "case": "erg",
-              "word": "ტურისტმა"
+              "text": "I",
+              "role": "subject",
+              "person": "1sg"
+            },
+            "verb": {
+              "text": "took",
+              "role": "verb"
             },
             "direct_object": {
-              "case": "nom",
-              "word": "რუკა"
+              "text": "the red apple",
+              "role": "direct_object"
             }
           },
-          "georgian_verb_form": "აიღეს"
+          "georgian_verb_form": "ავიღე",
+          "person": "1sg",
+          "effective_preverb": "ა"
+        },
+        {
+          "georgian": "ფრთხილმა დედამ აიღო ძვირფასი წიგნი",
+          "georgian_components": {
+            "subject": {
+              "text": "ფრთხილმა დედამ",
+              "case": "erg",
+              "role": "subject"
+            },
+            "verb": {
+              "text": "აიღო",
+              "role": "verb"
+            },
+            "direct_object": {
+              "text": "ძვირფასი წიგნი",
+              "case": "nom",
+              "role": "direct_object"
+            }
+          },
+          "english": "The careful mother took the precious book",
+          "english_components": {
+            "subject": {
+              "text": "The careful mother",
+              "role": "subject",
+              "person": "3sg"
+            },
+            "verb": {
+              "text": "took",
+              "role": "verb"
+            },
+            "direct_object": {
+              "text": "the precious book",
+              "role": "direct_object"
+            }
+          },
+          "georgian_verb_form": "აიღო",
+          "person": "3sg",
+          "effective_preverb": "ა"
+        },
+        {
+          "georgian": "უცხო ტურისტებმა აიღეს ახალი რუკა",
+          "georgian_components": {
+            "subject": {
+              "text": "უცხო ტურისტებმა",
+              "case": "erg",
+              "role": "subject"
+            },
+            "verb": {
+              "text": "აიღეს",
+              "role": "verb"
+            },
+            "direct_object": {
+              "text": "ახალი რუკა",
+              "case": "nom",
+              "role": "direct_object"
+            }
+          },
+          "english": "The foreign tourists took the new map",
+          "english_components": {
+            "subject": {
+              "text": "The foreign tourists",
+              "role": "subject",
+              "person": "3pl"
+            },
+            "verb": {
+              "text": "took",
+              "role": "verb"
+            },
+            "direct_object": {
+              "text": "the new map",
+              "role": "direct_object"
+            }
+          },
+          "georgian_verb_form": "აიღეს",
+          "person": "3pl",
+          "effective_preverb": "ა"
         }
       ],
       "optative": [
         {
-          "georgian": "წითელი ვაშლი უნდა ავიღო",
-          "english": "<strong data-role=\"subject\" data-person=\"1sg\">I</strong> <strong data-role=\"verb\">should</strong> <strong data-role=\"verb\">take</strong> <strong data-role=\"direct-object\">the red apple</strong>",
-          "english_plain": "I should take the red apple",
-          "html": "<span data-case=\"nom\" data-role=\"direct-object\">წითელი ვაშლი</span> <span data-role=\"verb\">უნდა ავიღო</span>",
-          "case_marking": {
-            "direct_object": {
-              "case": "nom",
-              "word": "ვაშლი"
-            }
-          },
-          "georgian_verb_form": "ავიღო"
-        },
-        {
-          "georgian": "ფრთხილმა დედამ ძვირფასი წიგნი უნდა აიღოს",
-          "english": "<strong data-role=\"subject\">The careful mother</strong> <strong data-role=\"verb\">should</strong> <strong data-role=\"verb\">take</strong> <strong data-role=\"direct-object\">the precious book</strong>",
-          "english_plain": "The careful mother should take the precious book",
-          "html": "<span data-case=\"erg\" data-role=\"subject\">ფრთხილმა დედამ</span> <span data-case=\"nom\" data-role=\"direct-object\">ძვირფასი წიგნი</span> <span data-role=\"verb\">უნდა აიღოს</span>",
-          "case_marking": {
-            "subject": {
-              "case": "erg",
-              "word": "დედამ"
+          "georgian": "უნდა ავიღო წითელი ვაშლი",
+          "georgian_components": {
+            "verb": {
+              "text": "უნდა ავიღო",
+              "role": "verb"
             },
             "direct_object": {
+              "text": "წითელი ვაშლი",
               "case": "nom",
-              "word": "წიგნი"
+              "role": "direct_object"
             }
           },
-          "georgian_verb_form": "აიღოს"
-        },
-        {
-          "georgian": "უცხო ტურისტმა ახალი რუკა უნდა აიღონ",
-          "english": "<strong data-role=\"subject\">The foreign tourist</strong> <strong data-role=\"verb\">should</strong> <strong data-role=\"verb\">take</strong> <strong data-role=\"direct-object\">the new map</strong>",
-          "english_plain": "The foreign tourist should take the new map",
-          "html": "<span data-case=\"erg\" data-role=\"subject\">უცხო ტურისტმა</span> <span data-case=\"nom\" data-role=\"direct-object\">ახალი რუკა</span> <span data-role=\"verb\">უნდა აიღონ</span>",
-          "case_marking": {
+          "english": "I should take the red apple",
+          "english_components": {
             "subject": {
-              "case": "erg",
-              "word": "ტურისტმა"
+              "text": "I",
+              "role": "subject",
+              "person": "1sg"
+            },
+            "verb": {
+              "text": "should take",
+              "role": "verb"
             },
             "direct_object": {
-              "case": "nom",
-              "word": "რუკა"
+              "text": "the red apple",
+              "role": "direct_object"
             }
           },
-          "georgian_verb_form": "აიღონ"
+          "georgian_verb_form": "ავიღო",
+          "person": "1sg",
+          "effective_preverb": "ა"
+        },
+        {
+          "georgian": "ფრთხილმა დედამ უნდა აიღოს ძვირფასი წიგნი",
+          "georgian_components": {
+            "subject": {
+              "text": "ფრთხილმა დედამ",
+              "case": "erg",
+              "role": "subject"
+            },
+            "verb": {
+              "text": "უნდა აიღოს",
+              "role": "verb"
+            },
+            "direct_object": {
+              "text": "ძვირფასი წიგნი",
+              "case": "nom",
+              "role": "direct_object"
+            }
+          },
+          "english": "The careful mother should take the precious book",
+          "english_components": {
+            "subject": {
+              "text": "The careful mother",
+              "role": "subject",
+              "person": "3sg"
+            },
+            "verb": {
+              "text": "should take",
+              "role": "verb"
+            },
+            "direct_object": {
+              "text": "the precious book",
+              "role": "direct_object"
+            }
+          },
+          "georgian_verb_form": "აიღოს",
+          "person": "3sg",
+          "effective_preverb": "ა"
+        },
+        {
+          "georgian": "უცხო ტურისტებმა უნდა აიღონ ახალი რუკა",
+          "georgian_components": {
+            "subject": {
+              "text": "უცხო ტურისტებმა",
+              "case": "erg",
+              "role": "subject"
+            },
+            "verb": {
+              "text": "უნდა აიღონ",
+              "role": "verb"
+            },
+            "direct_object": {
+              "text": "ახალი რუკა",
+              "case": "nom",
+              "role": "direct_object"
+            }
+          },
+          "english": "The foreign tourists should take the new map",
+          "english_components": {
+            "subject": {
+              "text": "The foreign tourists",
+              "role": "subject",
+              "person": "3pl"
+            },
+            "verb": {
+              "text": "should take",
+              "role": "verb"
+            },
+            "direct_object": {
+              "text": "the new map",
+              "role": "direct_object"
+            }
+          },
+          "georgian_verb_form": "აიღონ",
+          "person": "3pl",
+          "effective_preverb": "ა"
         }
       ],
       "imperative": [
         {
-          "georgian": "მძიმე ჩანთა აიღე",
-          "english": "<strong data-role=\"verb\">take</strong> <strong data-role=\"direct-object\">the heavy bag</strong>",
-          "english_plain": "take the heavy bag",
-          "html": "<span data-case=\"nom\" data-role=\"direct-object\">მძიმე ჩანთა</span> <span data-role=\"verb\">აიღე</span>",
-          "case_marking": {
+          "georgian": "აიღე მძიმე ჩანთა",
+          "georgian_components": {
+            "verb": {
+              "text": "აიღე",
+              "role": "verb"
+            },
             "direct_object": {
+              "text": "მძიმე ჩანთა",
               "case": "nom",
-              "word": "ჩანთა"
+              "role": "direct_object"
             }
           },
-          "georgian_verb_form": "აიღე"
+          "english": "You, take the heavy bag",
+          "english_components": {
+            "subject": {
+              "text": "You,",
+              "role": "subject",
+              "person": "2sg"
+            },
+            "verb": {
+              "text": "take",
+              "role": "verb"
+            },
+            "direct_object": {
+              "text": "the heavy bag",
+              "role": "direct_object"
+            }
+          },
+          "georgian_verb_form": "აიღე",
+          "person": "2sg",
+          "effective_preverb": "ა"
         },
         {
-          "georgian": "მნიშვნელოვანი გასაღები აიღეთ",
-          "english": "<strong data-role=\"verb\">take</strong> <strong data-role=\"direct-object\">the important key</strong>",
-          "english_plain": "take the important key",
-          "html": "<span data-case=\"nom\" data-role=\"direct-object\">მნიშვნელოვანი გასაღები</span> <span data-role=\"verb\">აიღეთ</span>",
-          "case_marking": {
+          "georgian": "აიღეთ მნიშვნელოვანი გასაღები",
+          "georgian_components": {
+            "verb": {
+              "text": "აიღეთ",
+              "role": "verb"
+            },
             "direct_object": {
+              "text": "მნიშვნელოვანი გასაღები",
               "case": "nom",
-              "word": "გასაღები"
+              "role": "direct_object"
             }
           },
-          "georgian_verb_form": "აიღეთ"
+          "english": "You all (you formal), take the important key",
+          "english_components": {
+            "subject": {
+              "text": "You all (you formal),",
+              "role": "subject",
+              "person": "2pl"
+            },
+            "verb": {
+              "text": "take",
+              "role": "verb"
+            },
+            "direct_object": {
+              "text": "the important key",
+              "role": "direct_object"
+            }
+          },
+          "georgian_verb_form": "აიღეთ",
+          "person": "2pl",
+          "effective_preverb": "ა"
         }
       ]
     }

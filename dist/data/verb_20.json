@@ -152,282 +152,631 @@
   "preverb_rules": {
     "default": "",
     "replacements": {},
-    "tense_specific_fallbacks": {},
-    "english_fallbacks": {}
+    "tense_specific_fallbacks": {}
   },
   "examples": {
-    "null": {
+    "default": {
       "present": [
         {
-          "georgian": "რთულ პრობლემას ვიგებ",
-          "english": "<strong data-role=\"subject\" data-person=\"1sg\">I</strong> <strong data-role=\"verb\">understand</strong> <strong data-role=\"direct-object\">the difficult problem</strong>",
-          "english_plain": "I understand the difficult problem",
-          "html": "<span data-case=\"dat\" data-role=\"direct-object\">რთულ პრობლემას</span> <span data-role=\"verb\">ვიგებ</span>",
-          "case_marking": {
-            "direct_object": {
-              "case": "dat",
-              "word": "პრობლემას"
-            }
-          },
-          "georgian_verb_form": "ვიგებ"
-        },
-        {
-          "georgian": "ბრწყინვალე სტუდენტი მნიშვნელოვან გაკვეთილს იგებს",
-          "english": "<strong data-role=\"subject\">The brilliant student</strong> <strong data-role=\"verb\">understands</strong> <strong data-role=\"direct-object\">the important lesson</strong>",
-          "english_plain": "The brilliant student understands the important lesson",
-          "html": "<span data-case=\"nom\" data-role=\"subject\">ბრწყინვალე სტუდენტი</span> <span data-case=\"dat\" data-role=\"direct-object\">მნიშვნელოვან გაკვეთილს</span> <span data-role=\"verb\">იგებს</span>",
-          "case_marking": {
-            "subject": {
-              "case": "nom",
-              "word": "სტუდენტი"
+          "georgian": "ვიგებ რთულ პრობლემას",
+          "georgian_components": {
+            "verb": {
+              "text": "ვიგებ",
+              "role": "verb"
             },
             "direct_object": {
+              "text": "რთულ პრობლემას",
               "case": "dat",
-              "word": "გაკვეთილს"
+              "role": "direct_object"
             }
           },
-          "georgian_verb_form": "იგებს"
-        },
-        {
-          "georgian": "გამოცდილი ინჟინერი თანამედროვე ტექნოლოგიას იგებენ",
-          "english": "<strong data-role=\"subject\">The experienced engineer</strong> <strong data-role=\"verb\">understand</strong> <strong data-role=\"direct-object\">the modern technology</strong>",
-          "english_plain": "The experienced engineer understand the modern technology",
-          "html": "<span data-case=\"nom\" data-role=\"subject\">გამოცდილი ინჟინერი</span> <span data-case=\"dat\" data-role=\"direct-object\">თანამედროვე ტექნოლოგიას</span> <span data-role=\"verb\">იგებენ</span>",
-          "case_marking": {
+          "english": "I understand the difficult problem",
+          "english_components": {
             "subject": {
-              "case": "nom",
-              "word": "ინჟინერი"
+              "text": "I",
+              "role": "subject",
+              "person": "1sg"
+            },
+            "verb": {
+              "text": "understand",
+              "role": "verb"
             },
             "direct_object": {
-              "case": "dat",
-              "word": "ტექნოლოგიას"
+              "text": "the difficult problem",
+              "role": "direct_object"
             }
           },
-          "georgian_verb_form": "იგებენ"
+          "georgian_verb_form": "ვიგებ",
+          "person": "1sg",
+          "effective_preverb": "გა"
+        },
+        {
+          "georgian": "ბრწყინვალე სტუდენტი იგებს მნიშვნელოვან გაკვეთილს",
+          "georgian_components": {
+            "subject": {
+              "text": "ბრწყინვალე სტუდენტი",
+              "case": "nom",
+              "role": "subject"
+            },
+            "verb": {
+              "text": "იგებს",
+              "role": "verb"
+            },
+            "direct_object": {
+              "text": "მნიშვნელოვან გაკვეთილს",
+              "case": "dat",
+              "role": "direct_object"
+            }
+          },
+          "english": "The brilliant student understands the important lesson",
+          "english_components": {
+            "subject": {
+              "text": "The brilliant student",
+              "role": "subject",
+              "person": "3sg"
+            },
+            "verb": {
+              "text": "understands",
+              "role": "verb"
+            },
+            "direct_object": {
+              "text": "the important lesson",
+              "role": "direct_object"
+            }
+          },
+          "georgian_verb_form": "იგებს",
+          "person": "3sg",
+          "effective_preverb": "გა"
+        },
+        {
+          "georgian": "გამოცდილი ინჟინერები იგებენ თანამედროვე ტექნოლოგიას",
+          "georgian_components": {
+            "subject": {
+              "text": "გამოცდილი ინჟინერები",
+              "case": "nom",
+              "role": "subject"
+            },
+            "verb": {
+              "text": "იგებენ",
+              "role": "verb"
+            },
+            "direct_object": {
+              "text": "თანამედროვე ტექნოლოგიას",
+              "case": "dat",
+              "role": "direct_object"
+            }
+          },
+          "english": "The experienced engineers understand the modern technology",
+          "english_components": {
+            "subject": {
+              "text": "The experienced engineers",
+              "role": "subject",
+              "person": "3pl"
+            },
+            "verb": {
+              "text": "understand",
+              "role": "verb"
+            },
+            "direct_object": {
+              "text": "the modern technology",
+              "role": "direct_object"
+            }
+          },
+          "georgian_verb_form": "იგებენ",
+          "person": "3pl",
+          "effective_preverb": "გა"
         }
       ],
       "imperfect": [
         {
-          "georgian": "რთულ პრობლემას ვიგებდი",
-          "english": "<strong data-role=\"subject\" data-person=\"1sg\">I</strong> <strong data-role=\"verb\">was understanding</strong> <strong data-role=\"direct-object\">the difficult problem</strong>",
-          "english_plain": "I was understanding the difficult problem",
-          "html": "<span data-case=\"dat\" data-role=\"direct-object\">რთულ პრობლემას</span> <span data-role=\"verb\">ვიგებდი</span>",
-          "case_marking": {
-            "direct_object": {
-              "case": "dat",
-              "word": "პრობლემას"
-            }
-          },
-          "georgian_verb_form": "ვიგებდი"
-        },
-        {
-          "georgian": "ბრწყინვალე სტუდენტი მნიშვნელოვან გაკვეთილს იგებდა",
-          "english": "<strong data-role=\"subject\">The brilliant student</strong> <strong data-role=\"verb\">was understanding</strong> <strong data-role=\"direct-object\">the important lesson</strong>",
-          "english_plain": "The brilliant student was understanding the important lesson",
-          "html": "<span data-case=\"nom\" data-role=\"subject\">ბრწყინვალე სტუდენტი</span> <span data-case=\"dat\" data-role=\"direct-object\">მნიშვნელოვან გაკვეთილს</span> <span data-role=\"verb\">იგებდა</span>",
-          "case_marking": {
-            "subject": {
-              "case": "nom",
-              "word": "სტუდენტი"
+          "georgian": "ვიგებდი რთულ პრობლემას",
+          "georgian_components": {
+            "verb": {
+              "text": "ვიგებდი",
+              "role": "verb"
             },
             "direct_object": {
+              "text": "რთულ პრობლემას",
               "case": "dat",
-              "word": "გაკვეთილს"
+              "role": "direct_object"
             }
           },
-          "georgian_verb_form": "იგებდა"
-        },
-        {
-          "georgian": "გამოცდილი ინჟინერი თანამედროვე ტექნოლოგიას იგებდნენ",
-          "english": "<strong data-role=\"subject\">The experienced engineer</strong> <strong data-role=\"verb\">were understanding</strong> <strong data-role=\"direct-object\">the modern technology</strong>",
-          "english_plain": "The experienced engineer were understanding the modern technology",
-          "html": "<span data-case=\"nom\" data-role=\"subject\">გამოცდილი ინჟინერი</span> <span data-case=\"dat\" data-role=\"direct-object\">თანამედროვე ტექნოლოგიას</span> <span data-role=\"verb\">იგებდნენ</span>",
-          "case_marking": {
+          "english": "I was understanding the difficult problem",
+          "english_components": {
             "subject": {
-              "case": "nom",
-              "word": "ინჟინერი"
+              "text": "I",
+              "role": "subject",
+              "person": "1sg"
+            },
+            "verb": {
+              "text": "was understanding",
+              "role": "verb"
             },
             "direct_object": {
-              "case": "dat",
-              "word": "ტექნოლოგიას"
+              "text": "the difficult problem",
+              "role": "direct_object"
             }
           },
-          "georgian_verb_form": "იგებდნენ"
+          "georgian_verb_form": "ვიგებდი",
+          "person": "1sg",
+          "effective_preverb": "გა"
+        },
+        {
+          "georgian": "ბრწყინვალე სტუდენტი იგებდა მნიშვნელოვან გაკვეთილს",
+          "georgian_components": {
+            "subject": {
+              "text": "ბრწყინვალე სტუდენტი",
+              "case": "nom",
+              "role": "subject"
+            },
+            "verb": {
+              "text": "იგებდა",
+              "role": "verb"
+            },
+            "direct_object": {
+              "text": "მნიშვნელოვან გაკვეთილს",
+              "case": "dat",
+              "role": "direct_object"
+            }
+          },
+          "english": "The brilliant student was understanding the important lesson",
+          "english_components": {
+            "subject": {
+              "text": "The brilliant student",
+              "role": "subject",
+              "person": "3sg"
+            },
+            "verb": {
+              "text": "was understanding",
+              "role": "verb"
+            },
+            "direct_object": {
+              "text": "the important lesson",
+              "role": "direct_object"
+            }
+          },
+          "georgian_verb_form": "იგებდა",
+          "person": "3sg",
+          "effective_preverb": "გა"
+        },
+        {
+          "georgian": "გამოცდილი ინჟინერები იგებდნენ თანამედროვე ტექნოლოგიას",
+          "georgian_components": {
+            "subject": {
+              "text": "გამოცდილი ინჟინერები",
+              "case": "nom",
+              "role": "subject"
+            },
+            "verb": {
+              "text": "იგებდნენ",
+              "role": "verb"
+            },
+            "direct_object": {
+              "text": "თანამედროვე ტექნოლოგიას",
+              "case": "dat",
+              "role": "direct_object"
+            }
+          },
+          "english": "The experienced engineers were understanding the modern technology",
+          "english_components": {
+            "subject": {
+              "text": "The experienced engineers",
+              "role": "subject",
+              "person": "3pl"
+            },
+            "verb": {
+              "text": "were understanding",
+              "role": "verb"
+            },
+            "direct_object": {
+              "text": "the modern technology",
+              "role": "direct_object"
+            }
+          },
+          "georgian_verb_form": "იგებდნენ",
+          "person": "3pl",
+          "effective_preverb": "გა"
         }
       ],
       "future": [
         {
-          "georgian": "რთულ პრობლემას გავიგებ",
-          "english": "<strong data-role=\"subject\" data-person=\"1sg\">I</strong> <strong data-role=\"verb\">will understand</strong> <strong data-role=\"direct-object\">the difficult problem</strong>",
-          "english_plain": "I will understand the difficult problem",
-          "html": "<span data-case=\"dat\" data-role=\"direct-object\">რთულ პრობლემას</span> <span data-role=\"verb\">გავიგებ</span>",
-          "case_marking": {
-            "direct_object": {
-              "case": "dat",
-              "word": "პრობლემას"
-            }
-          },
-          "georgian_verb_form": "გავიგებ"
-        },
-        {
-          "georgian": "ბრწყინვალე სტუდენტი მნიშვნელოვან გაკვეთილს გაიგებს",
-          "english": "<strong data-role=\"subject\">The brilliant student</strong> <strong data-role=\"verb\">will understand</strong> <strong data-role=\"direct-object\">the important lesson</strong>",
-          "english_plain": "The brilliant student will understand the important lesson",
-          "html": "<span data-case=\"nom\" data-role=\"subject\">ბრწყინვალე სტუდენტი</span> <span data-case=\"dat\" data-role=\"direct-object\">მნიშვნელოვან გაკვეთილს</span> <span data-role=\"verb\">გაიგებს</span>",
-          "case_marking": {
-            "subject": {
-              "case": "nom",
-              "word": "სტუდენტი"
+          "georgian": "გავიგებ რთულ პრობლემას",
+          "georgian_components": {
+            "verb": {
+              "text": "გავიგებ",
+              "role": "verb"
             },
             "direct_object": {
+              "text": "რთულ პრობლემას",
               "case": "dat",
-              "word": "გაკვეთილს"
+              "role": "direct_object"
             }
           },
-          "georgian_verb_form": "გაიგებს"
-        },
-        {
-          "georgian": "გამოცდილი ინჟინერი თანამედროვე ტექნოლოგიას გაიგებენ",
-          "english": "<strong data-role=\"subject\">The experienced engineer</strong> <strong data-role=\"verb\">will understand</strong> <strong data-role=\"direct-object\">the modern technology</strong>",
-          "english_plain": "The experienced engineer will understand the modern technology",
-          "html": "<span data-case=\"nom\" data-role=\"subject\">გამოცდილი ინჟინერი</span> <span data-case=\"dat\" data-role=\"direct-object\">თანამედროვე ტექნოლოგიას</span> <span data-role=\"verb\">გაიგებენ</span>",
-          "case_marking": {
+          "english": "I will understand the difficult problem",
+          "english_components": {
             "subject": {
-              "case": "nom",
-              "word": "ინჟინერი"
+              "text": "I",
+              "role": "subject",
+              "person": "1sg"
+            },
+            "verb": {
+              "text": "will understand",
+              "role": "verb"
             },
             "direct_object": {
-              "case": "dat",
-              "word": "ტექნოლოგიას"
+              "text": "the difficult problem",
+              "role": "direct_object"
             }
           },
-          "georgian_verb_form": "გაიგებენ"
+          "georgian_verb_form": "გავიგებ",
+          "person": "1sg",
+          "effective_preverb": "გა"
+        },
+        {
+          "georgian": "ბრწყინვალე სტუდენტი გაიგებს მნიშვნელოვან გაკვეთილს",
+          "georgian_components": {
+            "subject": {
+              "text": "ბრწყინვალე სტუდენტი",
+              "case": "nom",
+              "role": "subject"
+            },
+            "verb": {
+              "text": "გაიგებს",
+              "role": "verb"
+            },
+            "direct_object": {
+              "text": "მნიშვნელოვან გაკვეთილს",
+              "case": "dat",
+              "role": "direct_object"
+            }
+          },
+          "english": "The brilliant student will understand the important lesson",
+          "english_components": {
+            "subject": {
+              "text": "The brilliant student",
+              "role": "subject",
+              "person": "3sg"
+            },
+            "verb": {
+              "text": "will understand",
+              "role": "verb"
+            },
+            "direct_object": {
+              "text": "the important lesson",
+              "role": "direct_object"
+            }
+          },
+          "georgian_verb_form": "გაიგებს",
+          "person": "3sg",
+          "effective_preverb": "გა"
+        },
+        {
+          "georgian": "გამოცდილი ინჟინერები გაიგებენ თანამედროვე ტექნოლოგიას",
+          "georgian_components": {
+            "subject": {
+              "text": "გამოცდილი ინჟინერები",
+              "case": "nom",
+              "role": "subject"
+            },
+            "verb": {
+              "text": "გაიგებენ",
+              "role": "verb"
+            },
+            "direct_object": {
+              "text": "თანამედროვე ტექნოლოგიას",
+              "case": "dat",
+              "role": "direct_object"
+            }
+          },
+          "english": "The experienced engineers will understand the modern technology",
+          "english_components": {
+            "subject": {
+              "text": "The experienced engineers",
+              "role": "subject",
+              "person": "3pl"
+            },
+            "verb": {
+              "text": "will understand",
+              "role": "verb"
+            },
+            "direct_object": {
+              "text": "the modern technology",
+              "role": "direct_object"
+            }
+          },
+          "georgian_verb_form": "გაიგებენ",
+          "person": "3pl",
+          "effective_preverb": "გა"
         }
       ],
       "aorist": [
         {
-          "georgian": "რთული პრობლემა გავიგე",
-          "english": "<strong data-role=\"subject\" data-person=\"1sg\">I</strong> <strong data-role=\"verb\">understood</strong> <strong data-role=\"direct-object\">the difficult problem</strong>",
-          "english_plain": "I understood the difficult problem",
-          "html": "<span data-case=\"nom\" data-role=\"direct-object\">რთული პრობლემა</span> <span data-role=\"verb\">გავიგე</span>",
-          "case_marking": {
-            "direct_object": {
-              "case": "nom",
-              "word": "პრობლემა"
-            }
-          },
-          "georgian_verb_form": "გავიგე"
-        },
-        {
-          "georgian": "ბრწყინვალე სტუდენტმა მნიშვნელოვანი გაკვეთილი გაიგო",
-          "english": "<strong data-role=\"subject\">The brilliant student</strong> <strong data-role=\"verb\">understood</strong> <strong data-role=\"direct-object\">the important lesson</strong>",
-          "english_plain": "The brilliant student understood the important lesson",
-          "html": "<span data-case=\"erg\" data-role=\"subject\">ბრწყინვალე სტუდენტმა</span> <span data-case=\"nom\" data-role=\"direct-object\">მნიშვნელოვანი გაკვეთილი</span> <span data-role=\"verb\">გაიგო</span>",
-          "case_marking": {
-            "subject": {
-              "case": "erg",
-              "word": "სტუდენტმა"
+          "georgian": "გავიგე რთული პრობლემა",
+          "georgian_components": {
+            "verb": {
+              "text": "გავიგე",
+              "role": "verb"
             },
             "direct_object": {
+              "text": "რთული პრობლემა",
               "case": "nom",
-              "word": "გაკვეთილი"
+              "role": "direct_object"
             }
           },
-          "georgian_verb_form": "გაიგო"
-        },
-        {
-          "georgian": "გამოცდილმა ინჟინერმა თანამედროვე ტექნოლოგია გაიგეს",
-          "english": "<strong data-role=\"subject\">The experienced engineer</strong> <strong data-role=\"verb\">understood</strong> <strong data-role=\"direct-object\">the modern technology</strong>",
-          "english_plain": "The experienced engineer understood the modern technology",
-          "html": "<span data-case=\"erg\" data-role=\"subject\">გამოცდილმა ინჟინერმა</span> <span data-case=\"nom\" data-role=\"direct-object\">თანამედროვე ტექნოლოგია</span> <span data-role=\"verb\">გაიგეს</span>",
-          "case_marking": {
+          "english": "I understood the difficult problem",
+          "english_components": {
             "subject": {
-              "case": "erg",
-              "word": "ინჟინერმა"
+              "text": "I",
+              "role": "subject",
+              "person": "1sg"
+            },
+            "verb": {
+              "text": "understood",
+              "role": "verb"
             },
             "direct_object": {
-              "case": "nom",
-              "word": "ტექნოლოგია"
+              "text": "the difficult problem",
+              "role": "direct_object"
             }
           },
-          "georgian_verb_form": "გაიგეს"
+          "georgian_verb_form": "გავიგე",
+          "person": "1sg",
+          "effective_preverb": "გა"
+        },
+        {
+          "georgian": "ბრწყინვალე სტუდენტმა გაიგო მნიშვნელოვანი გაკვეთილი",
+          "georgian_components": {
+            "subject": {
+              "text": "ბრწყინვალე სტუდენტმა",
+              "case": "erg",
+              "role": "subject"
+            },
+            "verb": {
+              "text": "გაიგო",
+              "role": "verb"
+            },
+            "direct_object": {
+              "text": "მნიშვნელოვანი გაკვეთილი",
+              "case": "nom",
+              "role": "direct_object"
+            }
+          },
+          "english": "The brilliant student understood the important lesson",
+          "english_components": {
+            "subject": {
+              "text": "The brilliant student",
+              "role": "subject",
+              "person": "3sg"
+            },
+            "verb": {
+              "text": "understood",
+              "role": "verb"
+            },
+            "direct_object": {
+              "text": "the important lesson",
+              "role": "direct_object"
+            }
+          },
+          "georgian_verb_form": "გაიგო",
+          "person": "3sg",
+          "effective_preverb": "გა"
+        },
+        {
+          "georgian": "გამოცდილმა ინჟინერებმა გაიგეს თანამედროვე ტექნოლოგია",
+          "georgian_components": {
+            "subject": {
+              "text": "გამოცდილმა ინჟინერებმა",
+              "case": "erg",
+              "role": "subject"
+            },
+            "verb": {
+              "text": "გაიგეს",
+              "role": "verb"
+            },
+            "direct_object": {
+              "text": "თანამედროვე ტექნოლოგია",
+              "case": "nom",
+              "role": "direct_object"
+            }
+          },
+          "english": "The experienced engineers understood the modern technology",
+          "english_components": {
+            "subject": {
+              "text": "The experienced engineers",
+              "role": "subject",
+              "person": "3pl"
+            },
+            "verb": {
+              "text": "understood",
+              "role": "verb"
+            },
+            "direct_object": {
+              "text": "the modern technology",
+              "role": "direct_object"
+            }
+          },
+          "georgian_verb_form": "გაიგეს",
+          "person": "3pl",
+          "effective_preverb": "გა"
         }
       ],
       "optative": [
         {
-          "georgian": "რთული პრობლემა უნდა გავიგო",
-          "english": "<strong data-role=\"subject\" data-person=\"1sg\">I</strong> <strong data-role=\"verb\">should</strong> <strong data-role=\"verb\">understand</strong> <strong data-role=\"direct-object\">the difficult problem</strong>",
-          "english_plain": "I should understand the difficult problem",
-          "html": "<span data-case=\"nom\" data-role=\"direct-object\">რთული პრობლემა</span> <span data-role=\"verb\">უნდა გავიგო</span>",
-          "case_marking": {
-            "direct_object": {
-              "case": "nom",
-              "word": "პრობლემა"
-            }
-          },
-          "georgian_verb_form": "გავიგო"
-        },
-        {
-          "georgian": "ბრწყინვალე სტუდენტმა მნიშვნელოვანი გაკვეთილი უნდა გაიგოს",
-          "english": "<strong data-role=\"subject\">The brilliant student</strong> <strong data-role=\"verb\">should</strong> <strong data-role=\"verb\">understand</strong> <strong data-role=\"direct-object\">the important lesson</strong>",
-          "english_plain": "The brilliant student should understand the important lesson",
-          "html": "<span data-case=\"erg\" data-role=\"subject\">ბრწყინვალე სტუდენტმა</span> <span data-case=\"nom\" data-role=\"direct-object\">მნიშვნელოვანი გაკვეთილი</span> <span data-role=\"verb\">უნდა გაიგოს</span>",
-          "case_marking": {
-            "subject": {
-              "case": "erg",
-              "word": "სტუდენტმა"
+          "georgian": "უნდა გავიგო რთული პრობლემა",
+          "georgian_components": {
+            "verb": {
+              "text": "უნდა გავიგო",
+              "role": "verb"
             },
             "direct_object": {
+              "text": "რთული პრობლემა",
               "case": "nom",
-              "word": "გაკვეთილი"
+              "role": "direct_object"
             }
           },
-          "georgian_verb_form": "გაიგოს"
-        },
-        {
-          "georgian": "გამოცდილმა ინჟინერმა თანამედროვე ტექნოლოგია უნდა გაიგონ",
-          "english": "<strong data-role=\"subject\">The experienced engineer</strong> <strong data-role=\"verb\">should</strong> <strong data-role=\"verb\">understand</strong> <strong data-role=\"direct-object\">the modern technology</strong>",
-          "english_plain": "The experienced engineer should understand the modern technology",
-          "html": "<span data-case=\"erg\" data-role=\"subject\">გამოცდილმა ინჟინერმა</span> <span data-case=\"nom\" data-role=\"direct-object\">თანამედროვე ტექნოლოგია</span> <span data-role=\"verb\">უნდა გაიგონ</span>",
-          "case_marking": {
+          "english": "I should understand the difficult problem",
+          "english_components": {
             "subject": {
-              "case": "erg",
-              "word": "ინჟინერმა"
+              "text": "I",
+              "role": "subject",
+              "person": "1sg"
+            },
+            "verb": {
+              "text": "should understand",
+              "role": "verb"
             },
             "direct_object": {
-              "case": "nom",
-              "word": "ტექნოლოგია"
+              "text": "the difficult problem",
+              "role": "direct_object"
             }
           },
-          "georgian_verb_form": "გაიგონ"
+          "georgian_verb_form": "გავიგო",
+          "person": "1sg",
+          "effective_preverb": "გა"
+        },
+        {
+          "georgian": "ბრწყინვალე სტუდენტმა უნდა გაიგოს მნიშვნელოვანი გაკვეთილი",
+          "georgian_components": {
+            "subject": {
+              "text": "ბრწყინვალე სტუდენტმა",
+              "case": "erg",
+              "role": "subject"
+            },
+            "verb": {
+              "text": "უნდა გაიგოს",
+              "role": "verb"
+            },
+            "direct_object": {
+              "text": "მნიშვნელოვანი გაკვეთილი",
+              "case": "nom",
+              "role": "direct_object"
+            }
+          },
+          "english": "The brilliant student should understand the important lesson",
+          "english_components": {
+            "subject": {
+              "text": "The brilliant student",
+              "role": "subject",
+              "person": "3sg"
+            },
+            "verb": {
+              "text": "should understand",
+              "role": "verb"
+            },
+            "direct_object": {
+              "text": "the important lesson",
+              "role": "direct_object"
+            }
+          },
+          "georgian_verb_form": "გაიგოს",
+          "person": "3sg",
+          "effective_preverb": "გა"
+        },
+        {
+          "georgian": "გამოცდილმა ინჟინერებმა უნდა გაიგონ თანამედროვე ტექნოლოგია",
+          "georgian_components": {
+            "subject": {
+              "text": "გამოცდილმა ინჟინერებმა",
+              "case": "erg",
+              "role": "subject"
+            },
+            "verb": {
+              "text": "უნდა გაიგონ",
+              "role": "verb"
+            },
+            "direct_object": {
+              "text": "თანამედროვე ტექნოლოგია",
+              "case": "nom",
+              "role": "direct_object"
+            }
+          },
+          "english": "The experienced engineers should understand the modern technology",
+          "english_components": {
+            "subject": {
+              "text": "The experienced engineers",
+              "role": "subject",
+              "person": "3pl"
+            },
+            "verb": {
+              "text": "should understand",
+              "role": "verb"
+            },
+            "direct_object": {
+              "text": "the modern technology",
+              "role": "direct_object"
+            }
+          },
+          "georgian_verb_form": "გაიგონ",
+          "person": "3pl",
+          "effective_preverb": "გა"
         }
       ],
       "imperative": [
         {
-          "georgian": "უცხო ენა გაიგე",
-          "english": "<strong data-role=\"verb\">understand</strong> <strong data-role=\"direct-object\">the foreign language</strong>",
-          "english_plain": "understand the foreign language",
-          "html": "<span data-case=\"nom\" data-role=\"direct-object\">უცხო ენა</span> <span data-role=\"verb\">გაიგე</span>",
-          "case_marking": {
+          "georgian": "გაიგე უცხო ენა",
+          "georgian_components": {
+            "verb": {
+              "text": "გაიგე",
+              "role": "verb"
+            },
             "direct_object": {
+              "text": "უცხო ენა",
               "case": "nom",
-              "word": "ენა"
+              "role": "direct_object"
             }
           },
-          "georgian_verb_form": "გაიგე"
+          "english": "You, understand the foreign language",
+          "english_components": {
+            "subject": {
+              "text": "You,",
+              "role": "subject",
+              "person": "2sg"
+            },
+            "verb": {
+              "text": "understand",
+              "role": "verb"
+            },
+            "direct_object": {
+              "text": "the foreign language",
+              "role": "direct_object"
+            }
+          },
+          "georgian_verb_form": "გაიგე",
+          "person": "2sg",
+          "effective_preverb": "გა"
         },
         {
-          "georgian": "რთული სისტემა გაიგეთ",
-          "english": "<strong data-role=\"verb\">understand</strong> <strong data-role=\"direct-object\">the complex system</strong>",
-          "english_plain": "understand the complex system",
-          "html": "<span data-case=\"nom\" data-role=\"direct-object\">რთული სისტემა</span> <span data-role=\"verb\">გაიგეთ</span>",
-          "case_marking": {
+          "georgian": "გაიგეთ რთული სისტემა",
+          "georgian_components": {
+            "verb": {
+              "text": "გაიგეთ",
+              "role": "verb"
+            },
             "direct_object": {
+              "text": "რთული სისტემა",
               "case": "nom",
-              "word": "სისტემა"
+              "role": "direct_object"
             }
           },
-          "georgian_verb_form": "გაიგეთ"
+          "english": "You all (you formal), understand the complex system",
+          "english_components": {
+            "subject": {
+              "text": "You all (you formal),",
+              "role": "subject",
+              "person": "2pl"
+            },
+            "verb": {
+              "text": "understand",
+              "role": "verb"
+            },
+            "direct_object": {
+              "text": "the complex system",
+              "role": "direct_object"
+            }
+          },
+          "georgian_verb_form": "გაიგეთ",
+          "person": "2pl",
+          "effective_preverb": "გა"
         }
       ]
     }

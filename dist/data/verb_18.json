@@ -150,186 +150,411 @@
   "preverb_rules": {
     "default": "",
     "replacements": {},
-    "tense_specific_fallbacks": {},
-    "english_fallbacks": {}
+    "tense_specific_fallbacks": {}
   },
   "examples": {
-    "null": {
+    "default": {
       "present": [
         {
-          "georgian": "სასაცილო ამბავი მახსოვს",
-          "english": "<strong data-role=\"subject\" data-person=\"1sg\">I</strong> <strong data-role=\"verb\">remember</strong> <strong data-role=\"direct-object\">the funny story</strong>",
-          "english_plain": "I remember the funny story",
-          "html": "<span data-case=\"nom\" data-role=\"direct-object\">სასაცილო ამბავი</span> <span data-role=\"verb\">მახსოვს</span>",
-          "case_marking": {
-            "direct_object": {
-              "case": "nom",
-              "word": "ამბავი"
-            }
-          },
-          "georgian_verb_form": "მახსოვს"
-        },
-        {
-          "georgian": "ჭკვიან ექიმს მნიშვნელოვანი ოპერაცია ახსოვს",
-          "english": "<strong data-role=\"subject\">The smart doctor</strong> <strong data-role=\"verb\">remembers</strong> <strong data-role=\"direct-object\">the important operation</strong>",
-          "english_plain": "The smart doctor remembers the important operation",
-          "html": "<span data-case=\"dat\" data-role=\"subject\">ჭკვიან ექიმს</span> <span data-case=\"nom\" data-role=\"direct-object\">მნიშვნელოვანი ოპერაცია</span> <span data-role=\"verb\">ახსოვს</span>",
-          "case_marking": {
-            "subject": {
-              "case": "dat",
-              "word": "ექიმს"
+          "georgian": "მახსოვს სასაცილო ამბავი",
+          "georgian_components": {
+            "verb": {
+              "text": "მახსოვს",
+              "role": "verb"
             },
             "direct_object": {
+              "text": "სასაცილო ამბავი",
               "case": "nom",
-              "word": "ოპერაცია"
+              "role": "direct_object"
             }
           },
-          "georgian_verb_form": "ახსოვს"
-        },
-        {
-          "georgian": "ცნობილ ხელოვანს ლურჯი საღებავი ახსოვთ",
-          "english": "<strong data-role=\"subject\">The famous artist</strong> <strong data-role=\"verb\">remember</strong> <strong data-role=\"direct-object\">the blue paint</strong>",
-          "english_plain": "The famous artist remember the blue paint",
-          "html": "<span data-case=\"dat\" data-role=\"subject\">ცნობილ ხელოვანს</span> <span data-case=\"nom\" data-role=\"direct-object\">ლურჯი საღებავი</span> <span data-role=\"verb\">ახსოვთ</span>",
-          "case_marking": {
+          "english": "I remember the funny story",
+          "english_components": {
             "subject": {
-              "case": "dat",
-              "word": "ხელოვანს"
+              "text": "I",
+              "role": "subject",
+              "person": "1sg"
+            },
+            "verb": {
+              "text": "remember",
+              "role": "verb"
             },
             "direct_object": {
-              "case": "nom",
-              "word": "საღებავი"
+              "text": "the funny story",
+              "role": "direct_object"
             }
           },
-          "georgian_verb_form": "ახსოვთ"
+          "georgian_verb_form": "მახსოვს",
+          "person": "1sg",
+          "effective_preverb": ""
+        },
+        {
+          "georgian": "ჭკვიან ექიმს ახსოვს მნიშვნელოვანი ოპერაცია",
+          "georgian_components": {
+            "subject": {
+              "text": "ჭკვიან ექიმს",
+              "case": "dat",
+              "role": "subject"
+            },
+            "verb": {
+              "text": "ახსოვს",
+              "role": "verb"
+            },
+            "direct_object": {
+              "text": "მნიშვნელოვანი ოპერაცია",
+              "case": "nom",
+              "role": "direct_object"
+            }
+          },
+          "english": "The smart doctor remembers the important operation",
+          "english_components": {
+            "subject": {
+              "text": "The smart doctor",
+              "role": "subject",
+              "person": "3sg"
+            },
+            "verb": {
+              "text": "remembers",
+              "role": "verb"
+            },
+            "direct_object": {
+              "text": "the important operation",
+              "role": "direct_object"
+            }
+          },
+          "georgian_verb_form": "ახსოვს",
+          "person": "3sg",
+          "effective_preverb": ""
+        },
+        {
+          "georgian": "ცნობილ ხელოვანებს ახსოვთ ლურჯი საღებავი",
+          "georgian_components": {
+            "subject": {
+              "text": "ცნობილ ხელოვანებს",
+              "case": "dat",
+              "role": "subject"
+            },
+            "verb": {
+              "text": "ახსოვთ",
+              "role": "verb"
+            },
+            "direct_object": {
+              "text": "ლურჯი საღებავი",
+              "case": "nom",
+              "role": "direct_object"
+            }
+          },
+          "english": "The famous artists remember the blue paint",
+          "english_components": {
+            "subject": {
+              "text": "The famous artists",
+              "role": "subject",
+              "person": "3pl"
+            },
+            "verb": {
+              "text": "remember",
+              "role": "verb"
+            },
+            "direct_object": {
+              "text": "the blue paint",
+              "role": "direct_object"
+            }
+          },
+          "georgian_verb_form": "ახსოვთ",
+          "person": "3pl",
+          "effective_preverb": ""
         }
       ],
       "imperfect": [
         {
-          "georgian": "სასაცილო ამბავი მახსოვდა",
-          "english": "<strong data-role=\"subject\" data-person=\"1sg\">I</strong> <strong data-role=\"verb\">was remembering</strong> <strong data-role=\"direct-object\">the funny story</strong>",
-          "english_plain": "I was remembering the funny story",
-          "html": "<span data-case=\"nom\" data-role=\"direct-object\">სასაცილო ამბავი</span> <span data-role=\"verb\">მახსოვდა</span>",
-          "case_marking": {
-            "direct_object": {
-              "case": "nom",
-              "word": "ამბავი"
-            }
-          },
-          "georgian_verb_form": "მახსოვდა"
-        },
-        {
-          "georgian": "ჭკვიან ექიმს მნიშვნელოვანი ოპერაცია ახსოვდა",
-          "english": "<strong data-role=\"subject\">The smart doctor</strong> <strong data-role=\"verb\">was remembering</strong> <strong data-role=\"direct-object\">the important operation</strong>",
-          "english_plain": "The smart doctor was remembering the important operation",
-          "html": "<span data-case=\"dat\" data-role=\"subject\">ჭკვიან ექიმს</span> <span data-case=\"nom\" data-role=\"direct-object\">მნიშვნელოვანი ოპერაცია</span> <span data-role=\"verb\">ახსოვდა</span>",
-          "case_marking": {
-            "subject": {
-              "case": "dat",
-              "word": "ექიმს"
+          "georgian": "მახსოვდა სასაცილო ამბავი",
+          "georgian_components": {
+            "verb": {
+              "text": "მახსოვდა",
+              "role": "verb"
             },
             "direct_object": {
+              "text": "სასაცილო ამბავი",
               "case": "nom",
-              "word": "ოპერაცია"
+              "role": "direct_object"
             }
           },
-          "georgian_verb_form": "ახსოვდა"
-        },
-        {
-          "georgian": "ცნობილ ხელოვანს ლურჯი საღებავი ახსოვდათ",
-          "english": "<strong data-role=\"subject\">The famous artist</strong> <strong data-role=\"verb\">were remembering</strong> <strong data-role=\"direct-object\">the blue paint</strong>",
-          "english_plain": "The famous artist were remembering the blue paint",
-          "html": "<span data-case=\"dat\" data-role=\"subject\">ცნობილ ხელოვანს</span> <span data-case=\"nom\" data-role=\"direct-object\">ლურჯი საღებავი</span> <span data-role=\"verb\">ახსოვდათ</span>",
-          "case_marking": {
+          "english": "I was remembering the funny story",
+          "english_components": {
             "subject": {
-              "case": "dat",
-              "word": "ხელოვანს"
+              "text": "I",
+              "role": "subject",
+              "person": "1sg"
+            },
+            "verb": {
+              "text": "was remembering",
+              "role": "verb"
             },
             "direct_object": {
-              "case": "nom",
-              "word": "საღებავი"
+              "text": "the funny story",
+              "role": "direct_object"
             }
           },
-          "georgian_verb_form": "ახსოვდათ"
+          "georgian_verb_form": "მახსოვდა",
+          "person": "1sg",
+          "effective_preverb": ""
+        },
+        {
+          "georgian": "ჭკვიან ექიმს ახსოვდა მნიშვნელოვანი ოპერაცია",
+          "georgian_components": {
+            "subject": {
+              "text": "ჭკვიან ექიმს",
+              "case": "dat",
+              "role": "subject"
+            },
+            "verb": {
+              "text": "ახსოვდა",
+              "role": "verb"
+            },
+            "direct_object": {
+              "text": "მნიშვნელოვანი ოპერაცია",
+              "case": "nom",
+              "role": "direct_object"
+            }
+          },
+          "english": "The smart doctor was remembering the important operation",
+          "english_components": {
+            "subject": {
+              "text": "The smart doctor",
+              "role": "subject",
+              "person": "3sg"
+            },
+            "verb": {
+              "text": "was remembering",
+              "role": "verb"
+            },
+            "direct_object": {
+              "text": "the important operation",
+              "role": "direct_object"
+            }
+          },
+          "georgian_verb_form": "ახსოვდა",
+          "person": "3sg",
+          "effective_preverb": ""
+        },
+        {
+          "georgian": "ცნობილ ხელოვანებს ახსოვდათ ლურჯი საღებავი",
+          "georgian_components": {
+            "subject": {
+              "text": "ცნობილ ხელოვანებს",
+              "case": "dat",
+              "role": "subject"
+            },
+            "verb": {
+              "text": "ახსოვდათ",
+              "role": "verb"
+            },
+            "direct_object": {
+              "text": "ლურჯი საღებავი",
+              "case": "nom",
+              "role": "direct_object"
+            }
+          },
+          "english": "The famous artists were remembering the blue paint",
+          "english_components": {
+            "subject": {
+              "text": "The famous artists",
+              "role": "subject",
+              "person": "3pl"
+            },
+            "verb": {
+              "text": "were remembering",
+              "role": "verb"
+            },
+            "direct_object": {
+              "text": "the blue paint",
+              "role": "direct_object"
+            }
+          },
+          "georgian_verb_form": "ახსოვდათ",
+          "person": "3pl",
+          "effective_preverb": ""
         }
       ],
       "future": [
         {
-          "georgian": "სასაცილო ამბავი მემახსოვრება",
-          "english": "<strong data-role=\"subject\" data-person=\"1sg\">I</strong> <strong data-role=\"verb\">will remember</strong> <strong data-role=\"direct-object\">the funny story</strong>",
-          "english_plain": "I will remember the funny story",
-          "html": "<span data-case=\"nom\" data-role=\"direct-object\">სასაცილო ამბავი</span> <span data-role=\"verb\">მემახსოვრება</span>",
-          "case_marking": {
-            "direct_object": {
-              "case": "nom",
-              "word": "ამბავი"
-            }
-          },
-          "georgian_verb_form": "მემახსოვრება"
-        },
-        {
-          "georgian": "ჭკვიან ექიმს მნიშვნელოვანი ოპერაცია ემახსოვრება",
-          "english": "<strong data-role=\"subject\">The smart doctor</strong> <strong data-role=\"verb\">will remember</strong> <strong data-role=\"direct-object\">the important operation</strong>",
-          "english_plain": "The smart doctor will remember the important operation",
-          "html": "<span data-case=\"dat\" data-role=\"subject\">ჭკვიან ექიმს</span> <span data-case=\"nom\" data-role=\"direct-object\">მნიშვნელოვანი ოპერაცია</span> <span data-role=\"verb\">ემახსოვრება</span>",
-          "case_marking": {
-            "subject": {
-              "case": "dat",
-              "word": "ექიმს"
+          "georgian": "მემახსოვრება სასაცილო ამბავი",
+          "georgian_components": {
+            "verb": {
+              "text": "მემახსოვრება",
+              "role": "verb"
             },
             "direct_object": {
+              "text": "სასაცილო ამბავი",
               "case": "nom",
-              "word": "ოპერაცია"
+              "role": "direct_object"
             }
           },
-          "georgian_verb_form": "ემახსოვრება"
-        },
-        {
-          "georgian": "ცნობილ ხელოვანს ლურჯი საღებავი ემახსოვრებათ",
-          "english": "<strong data-role=\"subject\">The famous artist</strong> <strong data-role=\"verb\">will remember</strong> <strong data-role=\"direct-object\">the blue paint</strong>",
-          "english_plain": "The famous artist will remember the blue paint",
-          "html": "<span data-case=\"dat\" data-role=\"subject\">ცნობილ ხელოვანს</span> <span data-case=\"nom\" data-role=\"direct-object\">ლურჯი საღებავი</span> <span data-role=\"verb\">ემახსოვრებათ</span>",
-          "case_marking": {
+          "english": "I will remember the funny story",
+          "english_components": {
             "subject": {
-              "case": "dat",
-              "word": "ხელოვანს"
+              "text": "I",
+              "role": "subject",
+              "person": "1sg"
+            },
+            "verb": {
+              "text": "will remember",
+              "role": "verb"
             },
             "direct_object": {
-              "case": "nom",
-              "word": "საღებავი"
+              "text": "the funny story",
+              "role": "direct_object"
             }
           },
-          "georgian_verb_form": "ემახსოვრებათ"
+          "georgian_verb_form": "მემახსოვრება",
+          "person": "1sg",
+          "effective_preverb": ""
+        },
+        {
+          "georgian": "ჭკვიან ექიმს ემახსოვრება მნიშვნელოვანი ოპერაცია",
+          "georgian_components": {
+            "subject": {
+              "text": "ჭკვიან ექიმს",
+              "case": "dat",
+              "role": "subject"
+            },
+            "verb": {
+              "text": "ემახსოვრება",
+              "role": "verb"
+            },
+            "direct_object": {
+              "text": "მნიშვნელოვანი ოპერაცია",
+              "case": "nom",
+              "role": "direct_object"
+            }
+          },
+          "english": "The smart doctor will remember the important operation",
+          "english_components": {
+            "subject": {
+              "text": "The smart doctor",
+              "role": "subject",
+              "person": "3sg"
+            },
+            "verb": {
+              "text": "will remember",
+              "role": "verb"
+            },
+            "direct_object": {
+              "text": "the important operation",
+              "role": "direct_object"
+            }
+          },
+          "georgian_verb_form": "ემახსოვრება",
+          "person": "3sg",
+          "effective_preverb": ""
+        },
+        {
+          "georgian": "ცნობილ ხელოვანებს ემახსოვრებათ ლურჯი საღებავი",
+          "georgian_components": {
+            "subject": {
+              "text": "ცნობილ ხელოვანებს",
+              "case": "dat",
+              "role": "subject"
+            },
+            "verb": {
+              "text": "ემახსოვრებათ",
+              "role": "verb"
+            },
+            "direct_object": {
+              "text": "ლურჯი საღებავი",
+              "case": "nom",
+              "role": "direct_object"
+            }
+          },
+          "english": "The famous artists will remember the blue paint",
+          "english_components": {
+            "subject": {
+              "text": "The famous artists",
+              "role": "subject",
+              "person": "3pl"
+            },
+            "verb": {
+              "text": "will remember",
+              "role": "verb"
+            },
+            "direct_object": {
+              "text": "the blue paint",
+              "role": "direct_object"
+            }
+          },
+          "georgian_verb_form": "ემახსოვრებათ",
+          "person": "3pl",
+          "effective_preverb": ""
         }
       ],
       "aorist": [],
       "optative": [],
       "imperative": [
         {
-          "georgian": "მნიშვნელოვანი წესი გახსოვდეს",
-          "english": "<strong data-role=\"verb\">remember</strong> <strong data-role=\"direct-object\">the important rule</strong>",
-          "english_plain": "remember the important rule",
-          "html": "<span data-case=\"nom\" data-role=\"direct-object\">მნიშვნელოვანი წესი</span> <span data-role=\"verb\">გახსოვდეს</span>",
-          "case_marking": {
+          "georgian": "გახსოვდეს მნიშვნელოვანი წესი",
+          "georgian_components": {
+            "verb": {
+              "text": "გახსოვდეს",
+              "role": "verb"
+            },
             "direct_object": {
+              "text": "მნიშვნელოვანი წესი",
               "case": "nom",
-              "word": "წესი"
+              "role": "direct_object"
             }
           },
-          "georgian_verb_form": "გახსოვდეს"
+          "english": "You, remember the important rule",
+          "english_components": {
+            "subject": {
+              "text": "You,",
+              "role": "subject",
+              "person": "2sg"
+            },
+            "verb": {
+              "text": "remember",
+              "role": "verb"
+            },
+            "direct_object": {
+              "text": "the important rule",
+              "role": "direct_object"
+            }
+          },
+          "georgian_verb_form": "გახსოვდეს",
+          "person": "2sg",
+          "effective_preverb": ""
         },
         {
-          "georgian": "მნიშვნელოვანი თარიღი გახსოვდეთ",
-          "english": "<strong data-role=\"verb\">remember</strong> <strong data-role=\"direct-object\">the important date</strong>",
-          "english_plain": "remember the important date",
-          "html": "<span data-case=\"nom\" data-role=\"direct-object\">მნიშვნელოვანი თარიღი</span> <span data-role=\"verb\">გახსოვდეთ</span>",
-          "case_marking": {
+          "georgian": "გახსოვდეთ მნიშვნელოვანი თარიღი",
+          "georgian_components": {
+            "verb": {
+              "text": "გახსოვდეთ",
+              "role": "verb"
+            },
             "direct_object": {
+              "text": "მნიშვნელოვანი თარიღი",
               "case": "nom",
-              "word": "თარიღი"
+              "role": "direct_object"
             }
           },
-          "georgian_verb_form": "გახსოვდეთ"
+          "english": "You all (you formal), remember the important date",
+          "english_components": {
+            "subject": {
+              "text": "You all (you formal),",
+              "role": "subject",
+              "person": "2pl"
+            },
+            "verb": {
+              "text": "remember",
+              "role": "verb"
+            },
+            "direct_object": {
+              "text": "the important date",
+              "role": "direct_object"
+            }
+          },
+          "georgian_verb_form": "გახსოვდეთ",
+          "person": "2pl",
+          "effective_preverb": ""
         }
       ]
     }

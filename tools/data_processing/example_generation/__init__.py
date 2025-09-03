@@ -1,25 +1,16 @@
 """
 Example Generation Sub-module
 
-This package contains modules for generating pedagogical examples:
-- Pedagogical example generation
+This package contains modules for generating example sentence data including:
 - Argument processing and resolution
 - Example validation and formatting
 """
 
-from .example_generator import PedagogicalExampleGenerator, ExampleGenerationError
-from .argument_processor import (
-    ArgumentProcessor,
-    ArgumentResolutionError,
-    RawGlossParseError,
-    CaseFormMissingError,
-)
+from .example_generator import ExampleGenerator, ExampleGenerationError
+from .argument_processor import ArgumentProcessor
 
 __all__ = [
-    "PedagogicalExampleGenerator",
+    "ExampleGenerator",
     "ExampleGenerationError",
     "ArgumentProcessor",
-    "ArgumentResolutionError",
-    "RawGlossParseError",
-    "CaseFormMissingError",
 ]

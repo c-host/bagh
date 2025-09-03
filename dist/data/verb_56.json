@@ -152,282 +152,631 @@
   "preverb_rules": {
     "default": "",
     "replacements": {},
-    "tense_specific_fallbacks": {},
-    "english_fallbacks": {}
+    "tense_specific_fallbacks": {}
   },
   "examples": {
-    "null": {
+    "default": {
       "present": [
         {
-          "georgian": "ლამაზ სურათს ვხედავ",
-          "english": "<strong data-role=\"subject\" data-person=\"1sg\">I</strong> <strong data-role=\"verb\">see</strong> <strong data-role=\"indirect-object\">the beautiful picture</strong>",
-          "english_plain": "I see the beautiful picture",
-          "html": "<span data-case=\"dat\" data-role=\"indirect-object\">ლამაზ სურათს</span> <span data-role=\"verb\">ვხედავ</span>",
-          "case_marking": {
-            "indirect_object": {
-              "case": "dat",
-              "word": "სურათს"
-            }
-          },
-          "georgian_verb_form": "ვხედავ"
-        },
-        {
-          "georgian": "ცნობისმოყვარე სტუდენტი უცნაურ სურათს ხედავს",
-          "english": "<strong data-role=\"subject\">The curious student</strong> <strong data-role=\"verb\">sees</strong> <strong data-role=\"indirect-object\">the strange picture</strong>",
-          "english_plain": "The curious student sees the strange picture",
-          "html": "<span data-case=\"nom\" data-role=\"subject\">ცნობისმოყვარე სტუდენტი</span> <span data-case=\"dat\" data-role=\"indirect-object\">უცნაურ სურათს</span> <span data-role=\"verb\">ხედავს</span>",
-          "case_marking": {
-            "subject": {
-              "case": "nom",
-              "word": "სტუდენტი"
+          "georgian": "ვხედავ ლამაზ სურათს",
+          "georgian_components": {
+            "verb": {
+              "text": "ვხედავ",
+              "role": "verb"
             },
             "indirect_object": {
+              "text": "ლამაზ სურათს",
               "case": "dat",
-              "word": "სურათს"
+              "role": "indirect_object"
             }
           },
-          "georgian_verb_form": "ხედავს"
-        },
-        {
-          "georgian": "გამოცდილი მასწავლებელი ახალგაზრდა სტუდენტს ხედავენ",
-          "english": "<strong data-role=\"subject\">The experienced teacher</strong> <strong data-role=\"verb\">see</strong> <strong data-role=\"indirect-object\">the young student</strong>",
-          "english_plain": "The experienced teacher see the young student",
-          "html": "<span data-case=\"nom\" data-role=\"subject\">გამოცდილი მასწავლებელი</span> <span data-case=\"dat\" data-role=\"indirect-object\">ახალგაზრდა სტუდენტს</span> <span data-role=\"verb\">ხედავენ</span>",
-          "case_marking": {
+          "english": "I see the beautiful picture",
+          "english_components": {
             "subject": {
-              "case": "nom",
-              "word": "მასწავლებელი"
+              "text": "I",
+              "role": "subject",
+              "person": "1sg"
+            },
+            "verb": {
+              "text": "see",
+              "role": "verb"
             },
             "indirect_object": {
-              "case": "dat",
-              "word": "სტუდენტს"
+              "text": "the beautiful picture",
+              "role": "indirect_object"
             }
           },
-          "georgian_verb_form": "ხედავენ"
+          "georgian_verb_form": "ვხედავ",
+          "person": "1sg",
+          "effective_preverb": "და"
+        },
+        {
+          "georgian": "ცნობისმოყვარე სტუდენტი ხედავს უცნაურ სურათს",
+          "georgian_components": {
+            "subject": {
+              "text": "ცნობისმოყვარე სტუდენტი",
+              "case": "nom",
+              "role": "subject"
+            },
+            "verb": {
+              "text": "ხედავს",
+              "role": "verb"
+            },
+            "indirect_object": {
+              "text": "უცნაურ სურათს",
+              "case": "dat",
+              "role": "indirect_object"
+            }
+          },
+          "english": "The curious student sees the strange picture",
+          "english_components": {
+            "subject": {
+              "text": "The curious student",
+              "role": "subject",
+              "person": "3sg"
+            },
+            "verb": {
+              "text": "sees",
+              "role": "verb"
+            },
+            "indirect_object": {
+              "text": "the strange picture",
+              "role": "indirect_object"
+            }
+          },
+          "georgian_verb_form": "ხედავს",
+          "person": "3sg",
+          "effective_preverb": "და"
+        },
+        {
+          "georgian": "გამოცდილი მასწავლებლები ხედავენ ახალგაზრდა სტუდენტს",
+          "georgian_components": {
+            "subject": {
+              "text": "გამოცდილი მასწავლებლები",
+              "case": "nom",
+              "role": "subject"
+            },
+            "verb": {
+              "text": "ხედავენ",
+              "role": "verb"
+            },
+            "indirect_object": {
+              "text": "ახალგაზრდა სტუდენტს",
+              "case": "dat",
+              "role": "indirect_object"
+            }
+          },
+          "english": "The experienced teachers see the young student",
+          "english_components": {
+            "subject": {
+              "text": "The experienced teachers",
+              "role": "subject",
+              "person": "3pl"
+            },
+            "verb": {
+              "text": "see",
+              "role": "verb"
+            },
+            "indirect_object": {
+              "text": "the young student",
+              "role": "indirect_object"
+            }
+          },
+          "georgian_verb_form": "ხედავენ",
+          "person": "3pl",
+          "effective_preverb": "და"
         }
       ],
       "imperfect": [
         {
-          "georgian": "ლამაზ სურათს ვხედავდი",
-          "english": "<strong data-role=\"subject\" data-person=\"1sg\">I</strong> <strong data-role=\"verb\">was seeing</strong> <strong data-role=\"indirect-object\">the beautiful picture</strong>",
-          "english_plain": "I was seeing the beautiful picture",
-          "html": "<span data-case=\"dat\" data-role=\"indirect-object\">ლამაზ სურათს</span> <span data-role=\"verb\">ვხედავდი</span>",
-          "case_marking": {
-            "indirect_object": {
-              "case": "dat",
-              "word": "სურათს"
-            }
-          },
-          "georgian_verb_form": "ვხედავდი"
-        },
-        {
-          "georgian": "ცნობისმოყვარე სტუდენტი უცნაურ სურათს ხედავდა",
-          "english": "<strong data-role=\"subject\">The curious student</strong> <strong data-role=\"verb\">was seeing</strong> <strong data-role=\"indirect-object\">the strange picture</strong>",
-          "english_plain": "The curious student was seeing the strange picture",
-          "html": "<span data-case=\"nom\" data-role=\"subject\">ცნობისმოყვარე სტუდენტი</span> <span data-case=\"dat\" data-role=\"indirect-object\">უცნაურ სურათს</span> <span data-role=\"verb\">ხედავდა</span>",
-          "case_marking": {
-            "subject": {
-              "case": "nom",
-              "word": "სტუდენტი"
+          "georgian": "ვხედავდი ლამაზ სურათს",
+          "georgian_components": {
+            "verb": {
+              "text": "ვხედავდი",
+              "role": "verb"
             },
             "indirect_object": {
+              "text": "ლამაზ სურათს",
               "case": "dat",
-              "word": "სურათს"
+              "role": "indirect_object"
             }
           },
-          "georgian_verb_form": "ხედავდა"
-        },
-        {
-          "georgian": "გამოცდილი მასწავლებელი ახალგაზრდა სტუდენტს ხედავდნენ",
-          "english": "<strong data-role=\"subject\">The experienced teacher</strong> <strong data-role=\"verb\">were seeing</strong> <strong data-role=\"indirect-object\">the young student</strong>",
-          "english_plain": "The experienced teacher were seeing the young student",
-          "html": "<span data-case=\"nom\" data-role=\"subject\">გამოცდილი მასწავლებელი</span> <span data-case=\"dat\" data-role=\"indirect-object\">ახალგაზრდა სტუდენტს</span> <span data-role=\"verb\">ხედავდნენ</span>",
-          "case_marking": {
+          "english": "I was seeing the beautiful picture",
+          "english_components": {
             "subject": {
-              "case": "nom",
-              "word": "მასწავლებელი"
+              "text": "I",
+              "role": "subject",
+              "person": "1sg"
+            },
+            "verb": {
+              "text": "was seeing",
+              "role": "verb"
             },
             "indirect_object": {
-              "case": "dat",
-              "word": "სტუდენტს"
+              "text": "the beautiful picture",
+              "role": "indirect_object"
             }
           },
-          "georgian_verb_form": "ხედავდნენ"
+          "georgian_verb_form": "ვხედავდი",
+          "person": "1sg",
+          "effective_preverb": "და"
+        },
+        {
+          "georgian": "ცნობისმოყვარე სტუდენტი ხედავდა უცნაურ სურათს",
+          "georgian_components": {
+            "subject": {
+              "text": "ცნობისმოყვარე სტუდენტი",
+              "case": "nom",
+              "role": "subject"
+            },
+            "verb": {
+              "text": "ხედავდა",
+              "role": "verb"
+            },
+            "indirect_object": {
+              "text": "უცნაურ სურათს",
+              "case": "dat",
+              "role": "indirect_object"
+            }
+          },
+          "english": "The curious student was seeing the strange picture",
+          "english_components": {
+            "subject": {
+              "text": "The curious student",
+              "role": "subject",
+              "person": "3sg"
+            },
+            "verb": {
+              "text": "was seeing",
+              "role": "verb"
+            },
+            "indirect_object": {
+              "text": "the strange picture",
+              "role": "indirect_object"
+            }
+          },
+          "georgian_verb_form": "ხედავდა",
+          "person": "3sg",
+          "effective_preverb": "და"
+        },
+        {
+          "georgian": "გამოცდილი მასწავლებლები ხედავდნენ ახალგაზრდა სტუდენტს",
+          "georgian_components": {
+            "subject": {
+              "text": "გამოცდილი მასწავლებლები",
+              "case": "nom",
+              "role": "subject"
+            },
+            "verb": {
+              "text": "ხედავდნენ",
+              "role": "verb"
+            },
+            "indirect_object": {
+              "text": "ახალგაზრდა სტუდენტს",
+              "case": "dat",
+              "role": "indirect_object"
+            }
+          },
+          "english": "The experienced teachers were seeing the young student",
+          "english_components": {
+            "subject": {
+              "text": "The experienced teachers",
+              "role": "subject",
+              "person": "3pl"
+            },
+            "verb": {
+              "text": "were seeing",
+              "role": "verb"
+            },
+            "indirect_object": {
+              "text": "the young student",
+              "role": "indirect_object"
+            }
+          },
+          "georgian_verb_form": "ხედავდნენ",
+          "person": "3pl",
+          "effective_preverb": "და"
         }
       ],
       "future": [
         {
-          "georgian": "ლამაზ სურათს დავინახავ",
-          "english": "<strong data-role=\"subject\" data-person=\"1sg\">I</strong> <strong data-role=\"verb\">will see</strong> <strong data-role=\"indirect-object\">the beautiful picture</strong>",
-          "english_plain": "I will see the beautiful picture",
-          "html": "<span data-case=\"dat\" data-role=\"indirect-object\">ლამაზ სურათს</span> <span data-role=\"verb\">დავინახავ</span>",
-          "case_marking": {
-            "indirect_object": {
-              "case": "dat",
-              "word": "სურათს"
-            }
-          },
-          "georgian_verb_form": "დავინახავ"
-        },
-        {
-          "georgian": "ცნობისმოყვარე სტუდენტი უცნაურ სურათს დაინახავს",
-          "english": "<strong data-role=\"subject\">The curious student</strong> <strong data-role=\"verb\">will see</strong> <strong data-role=\"indirect-object\">the strange picture</strong>",
-          "english_plain": "The curious student will see the strange picture",
-          "html": "<span data-case=\"nom\" data-role=\"subject\">ცნობისმოყვარე სტუდენტი</span> <span data-case=\"dat\" data-role=\"indirect-object\">უცნაურ სურათს</span> <span data-role=\"verb\">დაინახავს</span>",
-          "case_marking": {
-            "subject": {
-              "case": "nom",
-              "word": "სტუდენტი"
+          "georgian": "დავინახავ ლამაზ სურათს",
+          "georgian_components": {
+            "verb": {
+              "text": "დავინახავ",
+              "role": "verb"
             },
             "indirect_object": {
+              "text": "ლამაზ სურათს",
               "case": "dat",
-              "word": "სურათს"
+              "role": "indirect_object"
             }
           },
-          "georgian_verb_form": "დაინახავს"
-        },
-        {
-          "georgian": "გამოცდილი მასწავლებელი ახალგაზრდა სტუდენტს დაინახავენ",
-          "english": "<strong data-role=\"subject\">The experienced teacher</strong> <strong data-role=\"verb\">will see</strong> <strong data-role=\"indirect-object\">the young student</strong>",
-          "english_plain": "The experienced teacher will see the young student",
-          "html": "<span data-case=\"nom\" data-role=\"subject\">გამოცდილი მასწავლებელი</span> <span data-case=\"dat\" data-role=\"indirect-object\">ახალგაზრდა სტუდენტს</span> <span data-role=\"verb\">დაინახავენ</span>",
-          "case_marking": {
+          "english": "I will see the beautiful picture",
+          "english_components": {
             "subject": {
-              "case": "nom",
-              "word": "მასწავლებელი"
+              "text": "I",
+              "role": "subject",
+              "person": "1sg"
+            },
+            "verb": {
+              "text": "will see",
+              "role": "verb"
             },
             "indirect_object": {
-              "case": "dat",
-              "word": "სტუდენტს"
+              "text": "the beautiful picture",
+              "role": "indirect_object"
             }
           },
-          "georgian_verb_form": "დაინახავენ"
+          "georgian_verb_form": "დავინახავ",
+          "person": "1sg",
+          "effective_preverb": "და"
+        },
+        {
+          "georgian": "ცნობისმოყვარე სტუდენტი დაინახავს უცნაურ სურათს",
+          "georgian_components": {
+            "subject": {
+              "text": "ცნობისმოყვარე სტუდენტი",
+              "case": "nom",
+              "role": "subject"
+            },
+            "verb": {
+              "text": "დაინახავს",
+              "role": "verb"
+            },
+            "indirect_object": {
+              "text": "უცნაურ სურათს",
+              "case": "dat",
+              "role": "indirect_object"
+            }
+          },
+          "english": "The curious student will see the strange picture",
+          "english_components": {
+            "subject": {
+              "text": "The curious student",
+              "role": "subject",
+              "person": "3sg"
+            },
+            "verb": {
+              "text": "will see",
+              "role": "verb"
+            },
+            "indirect_object": {
+              "text": "the strange picture",
+              "role": "indirect_object"
+            }
+          },
+          "georgian_verb_form": "დაინახავს",
+          "person": "3sg",
+          "effective_preverb": "და"
+        },
+        {
+          "georgian": "გამოცდილი მასწავლებლები დაინახავენ ახალგაზრდა სტუდენტს",
+          "georgian_components": {
+            "subject": {
+              "text": "გამოცდილი მასწავლებლები",
+              "case": "nom",
+              "role": "subject"
+            },
+            "verb": {
+              "text": "დაინახავენ",
+              "role": "verb"
+            },
+            "indirect_object": {
+              "text": "ახალგაზრდა სტუდენტს",
+              "case": "dat",
+              "role": "indirect_object"
+            }
+          },
+          "english": "The experienced teachers will see the young student",
+          "english_components": {
+            "subject": {
+              "text": "The experienced teachers",
+              "role": "subject",
+              "person": "3pl"
+            },
+            "verb": {
+              "text": "will see",
+              "role": "verb"
+            },
+            "indirect_object": {
+              "text": "the young student",
+              "role": "indirect_object"
+            }
+          },
+          "georgian_verb_form": "დაინახავენ",
+          "person": "3pl",
+          "effective_preverb": "და"
         }
       ],
       "aorist": [
         {
-          "georgian": "ლამაზი სურათი დავინახე",
-          "english": "<strong data-role=\"subject\" data-person=\"1sg\">I</strong> <strong data-role=\"verb\">saw</strong> <strong data-role=\"indirect-object\">the beautiful picture</strong>",
-          "english_plain": "I saw the beautiful picture",
-          "html": "<span data-case=\"nom\" data-role=\"indirect-object\">ლამაზი სურათი</span> <span data-role=\"verb\">დავინახე</span>",
-          "case_marking": {
-            "indirect_object": {
-              "case": "nom",
-              "word": "სურათი"
-            }
-          },
-          "georgian_verb_form": "დავინახე"
-        },
-        {
-          "georgian": "ცნობისმოყვარე სტუდენტმა უცნაური სურათი დაინახა",
-          "english": "<strong data-role=\"subject\">The curious student</strong> <strong data-role=\"verb\">saw</strong> <strong data-role=\"indirect-object\">the strange picture</strong>",
-          "english_plain": "The curious student saw the strange picture",
-          "html": "<span data-case=\"erg\" data-role=\"subject\">ცნობისმოყვარე სტუდენტმა</span> <span data-case=\"nom\" data-role=\"indirect-object\">უცნაური სურათი</span> <span data-role=\"verb\">დაინახა</span>",
-          "case_marking": {
-            "subject": {
-              "case": "erg",
-              "word": "სტუდენტმა"
+          "georgian": "დავინახე ლამაზი სურათი",
+          "georgian_components": {
+            "verb": {
+              "text": "დავინახე",
+              "role": "verb"
             },
             "indirect_object": {
+              "text": "ლამაზი სურათი",
               "case": "nom",
-              "word": "სურათი"
+              "role": "indirect_object"
             }
           },
-          "georgian_verb_form": "დაინახა"
-        },
-        {
-          "georgian": "გამოცდილმა მასწავლებელმა ახალგაზრდა სტუდენტი დაინახეს",
-          "english": "<strong data-role=\"subject\">The experienced teacher</strong> <strong data-role=\"verb\">saw</strong> <strong data-role=\"indirect-object\">the young student</strong>",
-          "english_plain": "The experienced teacher saw the young student",
-          "html": "<span data-case=\"erg\" data-role=\"subject\">გამოცდილმა მასწავლებელმა</span> <span data-case=\"nom\" data-role=\"indirect-object\">ახალგაზრდა სტუდენტი</span> <span data-role=\"verb\">დაინახეს</span>",
-          "case_marking": {
+          "english": "I saw the beautiful picture",
+          "english_components": {
             "subject": {
-              "case": "erg",
-              "word": "მასწავლებელმა"
+              "text": "I",
+              "role": "subject",
+              "person": "1sg"
+            },
+            "verb": {
+              "text": "saw",
+              "role": "verb"
             },
             "indirect_object": {
-              "case": "nom",
-              "word": "სტუდენტი"
+              "text": "the beautiful picture",
+              "role": "indirect_object"
             }
           },
-          "georgian_verb_form": "დაინახეს"
+          "georgian_verb_form": "დავინახე",
+          "person": "1sg",
+          "effective_preverb": "და"
+        },
+        {
+          "georgian": "ცნობისმოყვარე სტუდენტმა დაინახა უცნაური სურათი",
+          "georgian_components": {
+            "subject": {
+              "text": "ცნობისმოყვარე სტუდენტმა",
+              "case": "erg",
+              "role": "subject"
+            },
+            "verb": {
+              "text": "დაინახა",
+              "role": "verb"
+            },
+            "indirect_object": {
+              "text": "უცნაური სურათი",
+              "case": "nom",
+              "role": "indirect_object"
+            }
+          },
+          "english": "The curious student saw the strange picture",
+          "english_components": {
+            "subject": {
+              "text": "The curious student",
+              "role": "subject",
+              "person": "3sg"
+            },
+            "verb": {
+              "text": "saw",
+              "role": "verb"
+            },
+            "indirect_object": {
+              "text": "the strange picture",
+              "role": "indirect_object"
+            }
+          },
+          "georgian_verb_form": "დაინახა",
+          "person": "3sg",
+          "effective_preverb": "და"
+        },
+        {
+          "georgian": "გამოცდილმა მასწავლებლებმა დაინახეს ახალგაზრდა სტუდენტი",
+          "georgian_components": {
+            "subject": {
+              "text": "გამოცდილმა მასწავლებლებმა",
+              "case": "erg",
+              "role": "subject"
+            },
+            "verb": {
+              "text": "დაინახეს",
+              "role": "verb"
+            },
+            "indirect_object": {
+              "text": "ახალგაზრდა სტუდენტი",
+              "case": "nom",
+              "role": "indirect_object"
+            }
+          },
+          "english": "The experienced teachers saw the young student",
+          "english_components": {
+            "subject": {
+              "text": "The experienced teachers",
+              "role": "subject",
+              "person": "3pl"
+            },
+            "verb": {
+              "text": "saw",
+              "role": "verb"
+            },
+            "indirect_object": {
+              "text": "the young student",
+              "role": "indirect_object"
+            }
+          },
+          "georgian_verb_form": "დაინახეს",
+          "person": "3pl",
+          "effective_preverb": "და"
         }
       ],
       "optative": [
         {
-          "georgian": "ლამაზი სურათი უნდა დავინახო",
-          "english": "<strong data-role=\"subject\" data-person=\"1sg\">I</strong> <strong data-role=\"verb\">should</strong> <strong data-role=\"verb\">see</strong> <strong data-role=\"indirect-object\">the beautiful picture</strong>",
-          "english_plain": "I should see the beautiful picture",
-          "html": "<span data-case=\"nom\" data-role=\"indirect-object\">ლამაზი სურათი</span> <span data-role=\"verb\">უნდა დავინახო</span>",
-          "case_marking": {
-            "indirect_object": {
-              "case": "nom",
-              "word": "სურათი"
-            }
-          },
-          "georgian_verb_form": "დავინახო"
-        },
-        {
-          "georgian": "ცნობისმოყვარე სტუდენტმა უცნაური სურათი უნდა დაინახოს",
-          "english": "<strong data-role=\"subject\">The curious student</strong> <strong data-role=\"verb\">should</strong> <strong data-role=\"verb\">see</strong> <strong data-role=\"indirect-object\">the strange picture</strong>",
-          "english_plain": "The curious student should see the strange picture",
-          "html": "<span data-case=\"erg\" data-role=\"subject\">ცნობისმოყვარე სტუდენტმა</span> <span data-case=\"nom\" data-role=\"indirect-object\">უცნაური სურათი</span> <span data-role=\"verb\">უნდა დაინახოს</span>",
-          "case_marking": {
-            "subject": {
-              "case": "erg",
-              "word": "სტუდენტმა"
+          "georgian": "უნდა დავინახო ლამაზი სურათი",
+          "georgian_components": {
+            "verb": {
+              "text": "უნდა დავინახო",
+              "role": "verb"
             },
             "indirect_object": {
+              "text": "ლამაზი სურათი",
               "case": "nom",
-              "word": "სურათი"
+              "role": "indirect_object"
             }
           },
-          "georgian_verb_form": "დაინახოს"
-        },
-        {
-          "georgian": "გამოცდილმა მასწავლებელმა ახალგაზრდა სტუდენტი უნდა დაინახონ",
-          "english": "<strong data-role=\"subject\">The experienced teacher</strong> <strong data-role=\"verb\">should</strong> <strong data-role=\"verb\">see</strong> <strong data-role=\"indirect-object\">the young student</strong>",
-          "english_plain": "The experienced teacher should see the young student",
-          "html": "<span data-case=\"erg\" data-role=\"subject\">გამოცდილმა მასწავლებელმა</span> <span data-case=\"nom\" data-role=\"indirect-object\">ახალგაზრდა სტუდენტი</span> <span data-role=\"verb\">უნდა დაინახონ</span>",
-          "case_marking": {
+          "english": "I should see the beautiful picture",
+          "english_components": {
             "subject": {
-              "case": "erg",
-              "word": "მასწავლებელმა"
+              "text": "I",
+              "role": "subject",
+              "person": "1sg"
+            },
+            "verb": {
+              "text": "should see",
+              "role": "verb"
             },
             "indirect_object": {
-              "case": "nom",
-              "word": "სტუდენტი"
+              "text": "the beautiful picture",
+              "role": "indirect_object"
             }
           },
-          "georgian_verb_form": "დაინახონ"
+          "georgian_verb_form": "დავინახო",
+          "person": "1sg",
+          "effective_preverb": "და"
+        },
+        {
+          "georgian": "ცნობისმოყვარე სტუდენტმა უნდა დაინახოს უცნაური სურათი",
+          "georgian_components": {
+            "subject": {
+              "text": "ცნობისმოყვარე სტუდენტმა",
+              "case": "erg",
+              "role": "subject"
+            },
+            "verb": {
+              "text": "უნდა დაინახოს",
+              "role": "verb"
+            },
+            "indirect_object": {
+              "text": "უცნაური სურათი",
+              "case": "nom",
+              "role": "indirect_object"
+            }
+          },
+          "english": "The curious student should see the strange picture",
+          "english_components": {
+            "subject": {
+              "text": "The curious student",
+              "role": "subject",
+              "person": "3sg"
+            },
+            "verb": {
+              "text": "should see",
+              "role": "verb"
+            },
+            "indirect_object": {
+              "text": "the strange picture",
+              "role": "indirect_object"
+            }
+          },
+          "georgian_verb_form": "დაინახოს",
+          "person": "3sg",
+          "effective_preverb": "და"
+        },
+        {
+          "georgian": "გამოცდილმა მასწავლებლებმა უნდა დაინახონ ახალგაზრდა სტუდენტი",
+          "georgian_components": {
+            "subject": {
+              "text": "გამოცდილმა მასწავლებლებმა",
+              "case": "erg",
+              "role": "subject"
+            },
+            "verb": {
+              "text": "უნდა დაინახონ",
+              "role": "verb"
+            },
+            "indirect_object": {
+              "text": "ახალგაზრდა სტუდენტი",
+              "case": "nom",
+              "role": "indirect_object"
+            }
+          },
+          "english": "The experienced teachers should see the young student",
+          "english_components": {
+            "subject": {
+              "text": "The experienced teachers",
+              "role": "subject",
+              "person": "3pl"
+            },
+            "verb": {
+              "text": "should see",
+              "role": "verb"
+            },
+            "indirect_object": {
+              "text": "the young student",
+              "role": "indirect_object"
+            }
+          },
+          "georgian_verb_form": "დაინახონ",
+          "person": "3pl",
+          "effective_preverb": "და"
         }
       ],
       "imperative": [
         {
-          "georgian": "საინტერესო ფილმი დაინახე",
-          "english": "<strong data-role=\"verb\">see</strong> <strong data-role=\"indirect-object\">the interesting movie</strong>",
-          "english_plain": "see the interesting movie",
-          "html": "<span data-case=\"nom\" data-role=\"indirect-object\">საინტერესო ფილმი</span> <span data-role=\"verb\">დაინახე</span>",
-          "case_marking": {
+          "georgian": "დაინახე საინტერესო ფილმი",
+          "georgian_components": {
+            "verb": {
+              "text": "დაინახე",
+              "role": "verb"
+            },
             "indirect_object": {
+              "text": "საინტერესო ფილმი",
               "case": "nom",
-              "word": "ფილმი"
+              "role": "indirect_object"
             }
           },
-          "georgian_verb_form": "დაინახე"
+          "english": "You, see the interesting movie",
+          "english_components": {
+            "subject": {
+              "text": "You,",
+              "role": "subject",
+              "person": "2sg"
+            },
+            "verb": {
+              "text": "see",
+              "role": "verb"
+            },
+            "indirect_object": {
+              "text": "the interesting movie",
+              "role": "indirect_object"
+            }
+          },
+          "georgian_verb_form": "დაინახე",
+          "person": "2sg",
+          "effective_preverb": "და"
         },
         {
-          "georgian": "ამაღელვებელი თამაში დაინახეთ",
-          "english": "<strong data-role=\"verb\">see</strong> <strong data-role=\"indirect-object\">the exciting game</strong>",
-          "english_plain": "see the exciting game",
-          "html": "<span data-case=\"nom\" data-role=\"indirect-object\">ამაღელვებელი თამაში</span> <span data-role=\"verb\">დაინახეთ</span>",
-          "case_marking": {
+          "georgian": "დაინახეთ ამაღელვებელი თამაში",
+          "georgian_components": {
+            "verb": {
+              "text": "დაინახეთ",
+              "role": "verb"
+            },
             "indirect_object": {
+              "text": "ამაღელვებელი თამაში",
               "case": "nom",
-              "word": "თამაში"
+              "role": "indirect_object"
             }
           },
-          "georgian_verb_form": "დაინახეთ"
+          "english": "You all (you formal), see the exciting game",
+          "english_components": {
+            "subject": {
+              "text": "You all (you formal),",
+              "role": "subject",
+              "person": "2pl"
+            },
+            "verb": {
+              "text": "see",
+              "role": "verb"
+            },
+            "indirect_object": {
+              "text": "the exciting game",
+              "role": "indirect_object"
+            }
+          },
+          "georgian_verb_form": "დაინახეთ",
+          "person": "2pl",
+          "effective_preverb": "და"
         }
       ]
     }

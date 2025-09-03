@@ -152,282 +152,631 @@
   "preverb_rules": {
     "default": "",
     "replacements": {},
-    "tense_specific_fallbacks": {},
-    "english_fallbacks": {}
+    "tense_specific_fallbacks": {}
   },
   "examples": {
-    "null": {
+    "default": {
       "present": [
         {
-          "georgian": "ტკბილი ყინულის ნაყინი მომწონს",
-          "english": "<strong data-role=\"subject\" data-person=\"1sg\">I</strong> <strong data-role=\"verb\">like</strong> <strong data-role=\"direct-object\">the sweet ice cream</strong>",
-          "english_plain": "I like the sweet ice cream",
-          "html": "<span data-case=\"nom\" data-role=\"direct-object\">ტკბილი ყინულის ნაყინი</span> <span data-role=\"verb\">მომწონს</span>",
-          "case_marking": {
-            "direct_object": {
-              "case": "nom",
-              "word": "ყინულის ნაყინი"
-            }
-          },
-          "georgian_verb_form": "მომწონს"
-        },
-        {
-          "georgian": "ახალგაზრდა ბავშვს ახალი თამაში მოსწონს",
-          "english": "<strong data-role=\"subject\">The young child</strong> <strong data-role=\"verb\">likes</strong> <strong data-role=\"direct-object\">the new game</strong>",
-          "english_plain": "The young child likes the new game",
-          "html": "<span data-case=\"dat\" data-role=\"subject\">ახალგაზრდა ბავშვს</span> <span data-case=\"nom\" data-role=\"direct-object\">ახალი თამაში</span> <span data-role=\"verb\">მოსწონს</span>",
-          "case_marking": {
-            "subject": {
-              "case": "dat",
-              "word": "ბავშვს"
+          "georgian": "მომწონს ტკბილი ყინულის ნაყინი",
+          "georgian_components": {
+            "verb": {
+              "text": "მომწონს",
+              "role": "verb"
             },
             "direct_object": {
+              "text": "ტკბილი ყინულის ნაყინი",
               "case": "nom",
-              "word": "თამაში"
+              "role": "direct_object"
             }
           },
-          "georgian_verb_form": "მოსწონს"
-        },
-        {
-          "georgian": "ბედნიერ ბავშვს ახალი სათამაშო მოსწონთ",
-          "english": "<strong data-role=\"subject\">The happy child</strong> <strong data-role=\"verb\">like</strong> <strong data-role=\"direct-object\">the new toy</strong>",
-          "english_plain": "The happy child like the new toy",
-          "html": "<span data-case=\"dat\" data-role=\"subject\">ბედნიერ ბავშვს</span> <span data-case=\"nom\" data-role=\"direct-object\">ახალი სათამაშო</span> <span data-role=\"verb\">მოსწონთ</span>",
-          "case_marking": {
+          "english": "I like the sweet ice cream",
+          "english_components": {
             "subject": {
-              "case": "dat",
-              "word": "ბავშვს"
+              "text": "I",
+              "role": "subject",
+              "person": "1sg"
+            },
+            "verb": {
+              "text": "like",
+              "role": "verb"
             },
             "direct_object": {
-              "case": "nom",
-              "word": "სათამაშო"
+              "text": "the sweet ice cream",
+              "role": "direct_object"
             }
           },
-          "georgian_verb_form": "მოსწონთ"
+          "georgian_verb_form": "მომწონს",
+          "person": "1sg",
+          "effective_preverb": "მო"
+        },
+        {
+          "georgian": "ახალგაზრდა ბავშვს მოსწონს ახალი თამაში",
+          "georgian_components": {
+            "subject": {
+              "text": "ახალგაზრდა ბავშვს",
+              "case": "dat",
+              "role": "subject"
+            },
+            "verb": {
+              "text": "მოსწონს",
+              "role": "verb"
+            },
+            "direct_object": {
+              "text": "ახალი თამაში",
+              "case": "nom",
+              "role": "direct_object"
+            }
+          },
+          "english": "The young child likes the new game",
+          "english_components": {
+            "subject": {
+              "text": "The young child",
+              "role": "subject",
+              "person": "3sg"
+            },
+            "verb": {
+              "text": "likes",
+              "role": "verb"
+            },
+            "direct_object": {
+              "text": "the new game",
+              "role": "direct_object"
+            }
+          },
+          "georgian_verb_form": "მოსწონს",
+          "person": "3sg",
+          "effective_preverb": "მო"
+        },
+        {
+          "georgian": "ბედნიერ ბავშვებს მოსწონთ ახალი სათამაშო",
+          "georgian_components": {
+            "subject": {
+              "text": "ბედნიერ ბავშვებს",
+              "case": "dat",
+              "role": "subject"
+            },
+            "verb": {
+              "text": "მოსწონთ",
+              "role": "verb"
+            },
+            "direct_object": {
+              "text": "ახალი სათამაშო",
+              "case": "nom",
+              "role": "direct_object"
+            }
+          },
+          "english": "The happy children like the new toy",
+          "english_components": {
+            "subject": {
+              "text": "The happy children",
+              "role": "subject",
+              "person": "3pl"
+            },
+            "verb": {
+              "text": "like",
+              "role": "verb"
+            },
+            "direct_object": {
+              "text": "the new toy",
+              "role": "direct_object"
+            }
+          },
+          "georgian_verb_form": "მოსწონთ",
+          "person": "3pl",
+          "effective_preverb": "მო"
         }
       ],
       "imperfect": [
         {
-          "georgian": "ტკბილი ყინულის ნაყინი მომწონდა",
-          "english": "<strong data-role=\"subject\" data-person=\"1sg\">I</strong> <strong data-role=\"verb\">was liking</strong> <strong data-role=\"direct-object\">the sweet ice cream</strong>",
-          "english_plain": "I was liking the sweet ice cream",
-          "html": "<span data-case=\"nom\" data-role=\"direct-object\">ტკბილი ყინულის ნაყინი</span> <span data-role=\"verb\">მომწონდა</span>",
-          "case_marking": {
-            "direct_object": {
-              "case": "nom",
-              "word": "ყინულის ნაყინი"
-            }
-          },
-          "georgian_verb_form": "მომწონდა"
-        },
-        {
-          "georgian": "ახალგაზრდა ბავშვს ახალი თამაში მოსწონდა",
-          "english": "<strong data-role=\"subject\">The young child</strong> <strong data-role=\"verb\">was liking</strong> <strong data-role=\"direct-object\">the new game</strong>",
-          "english_plain": "The young child was liking the new game",
-          "html": "<span data-case=\"dat\" data-role=\"subject\">ახალგაზრდა ბავშვს</span> <span data-case=\"nom\" data-role=\"direct-object\">ახალი თამაში</span> <span data-role=\"verb\">მოსწონდა</span>",
-          "case_marking": {
-            "subject": {
-              "case": "dat",
-              "word": "ბავშვს"
+          "georgian": "მომწონდა ტკბილი ყინულის ნაყინი",
+          "georgian_components": {
+            "verb": {
+              "text": "მომწონდა",
+              "role": "verb"
             },
             "direct_object": {
+              "text": "ტკბილი ყინულის ნაყინი",
               "case": "nom",
-              "word": "თამაში"
+              "role": "direct_object"
             }
           },
-          "georgian_verb_form": "მოსწონდა"
-        },
-        {
-          "georgian": "ბედნიერ ბავშვს ახალი სათამაშო მოსწონდათ",
-          "english": "<strong data-role=\"subject\">The happy child</strong> <strong data-role=\"verb\">were liking</strong> <strong data-role=\"direct-object\">the new toy</strong>",
-          "english_plain": "The happy child were liking the new toy",
-          "html": "<span data-case=\"dat\" data-role=\"subject\">ბედნიერ ბავშვს</span> <span data-case=\"nom\" data-role=\"direct-object\">ახალი სათამაშო</span> <span data-role=\"verb\">მოსწონდათ</span>",
-          "case_marking": {
+          "english": "I was liking the sweet ice cream",
+          "english_components": {
             "subject": {
-              "case": "dat",
-              "word": "ბავშვს"
+              "text": "I",
+              "role": "subject",
+              "person": "1sg"
+            },
+            "verb": {
+              "text": "was liking",
+              "role": "verb"
             },
             "direct_object": {
-              "case": "nom",
-              "word": "სათამაშო"
+              "text": "the sweet ice cream",
+              "role": "direct_object"
             }
           },
-          "georgian_verb_form": "მოსწონდათ"
+          "georgian_verb_form": "მომწონდა",
+          "person": "1sg",
+          "effective_preverb": "მო"
+        },
+        {
+          "georgian": "ახალგაზრდა ბავშვს მოსწონდა ახალი თამაში",
+          "georgian_components": {
+            "subject": {
+              "text": "ახალგაზრდა ბავშვს",
+              "case": "dat",
+              "role": "subject"
+            },
+            "verb": {
+              "text": "მოსწონდა",
+              "role": "verb"
+            },
+            "direct_object": {
+              "text": "ახალი თამაში",
+              "case": "nom",
+              "role": "direct_object"
+            }
+          },
+          "english": "The young child was liking the new game",
+          "english_components": {
+            "subject": {
+              "text": "The young child",
+              "role": "subject",
+              "person": "3sg"
+            },
+            "verb": {
+              "text": "was liking",
+              "role": "verb"
+            },
+            "direct_object": {
+              "text": "the new game",
+              "role": "direct_object"
+            }
+          },
+          "georgian_verb_form": "მოსწონდა",
+          "person": "3sg",
+          "effective_preverb": "მო"
+        },
+        {
+          "georgian": "ბედნიერ ბავშვებს მოსწონდათ ახალი სათამაშო",
+          "georgian_components": {
+            "subject": {
+              "text": "ბედნიერ ბავშვებს",
+              "case": "dat",
+              "role": "subject"
+            },
+            "verb": {
+              "text": "მოსწონდათ",
+              "role": "verb"
+            },
+            "direct_object": {
+              "text": "ახალი სათამაშო",
+              "case": "nom",
+              "role": "direct_object"
+            }
+          },
+          "english": "The happy children were liking the new toy",
+          "english_components": {
+            "subject": {
+              "text": "The happy children",
+              "role": "subject",
+              "person": "3pl"
+            },
+            "verb": {
+              "text": "were liking",
+              "role": "verb"
+            },
+            "direct_object": {
+              "text": "the new toy",
+              "role": "direct_object"
+            }
+          },
+          "georgian_verb_form": "მოსწონდათ",
+          "person": "3pl",
+          "effective_preverb": "მო"
         }
       ],
       "future": [
         {
-          "georgian": "ტკბილი ყინულის ნაყინი მომეწონება",
-          "english": "<strong data-role=\"subject\" data-person=\"1sg\">I</strong> <strong data-role=\"verb\">will like</strong> <strong data-role=\"direct-object\">the sweet ice cream</strong>",
-          "english_plain": "I will like the sweet ice cream",
-          "html": "<span data-case=\"nom\" data-role=\"direct-object\">ტკბილი ყინულის ნაყინი</span> <span data-role=\"verb\">მომეწონება</span>",
-          "case_marking": {
-            "direct_object": {
-              "case": "nom",
-              "word": "ყინულის ნაყინი"
-            }
-          },
-          "georgian_verb_form": "მომეწონება"
-        },
-        {
-          "georgian": "ახალგაზრდა ბავშვს ახალი თამაში მოეწონება",
-          "english": "<strong data-role=\"subject\">The young child</strong> <strong data-role=\"verb\">will like</strong> <strong data-role=\"direct-object\">the new game</strong>",
-          "english_plain": "The young child will like the new game",
-          "html": "<span data-case=\"dat\" data-role=\"subject\">ახალგაზრდა ბავშვს</span> <span data-case=\"nom\" data-role=\"direct-object\">ახალი თამაში</span> <span data-role=\"verb\">მოეწონება</span>",
-          "case_marking": {
-            "subject": {
-              "case": "dat",
-              "word": "ბავშვს"
+          "georgian": "მომეწონება ტკბილი ყინულის ნაყინი",
+          "georgian_components": {
+            "verb": {
+              "text": "მომეწონება",
+              "role": "verb"
             },
             "direct_object": {
+              "text": "ტკბილი ყინულის ნაყინი",
               "case": "nom",
-              "word": "თამაში"
+              "role": "direct_object"
             }
           },
-          "georgian_verb_form": "მოეწონება"
-        },
-        {
-          "georgian": "ბედნიერ ბავშვს ახალი სათამაშო მოეწონებათ",
-          "english": "<strong data-role=\"subject\">The happy child</strong> <strong data-role=\"verb\">will like</strong> <strong data-role=\"direct-object\">the new toy</strong>",
-          "english_plain": "The happy child will like the new toy",
-          "html": "<span data-case=\"dat\" data-role=\"subject\">ბედნიერ ბავშვს</span> <span data-case=\"nom\" data-role=\"direct-object\">ახალი სათამაშო</span> <span data-role=\"verb\">მოეწონებათ</span>",
-          "case_marking": {
+          "english": "I will like the sweet ice cream",
+          "english_components": {
             "subject": {
-              "case": "dat",
-              "word": "ბავშვს"
+              "text": "I",
+              "role": "subject",
+              "person": "1sg"
+            },
+            "verb": {
+              "text": "will like",
+              "role": "verb"
             },
             "direct_object": {
-              "case": "nom",
-              "word": "სათამაშო"
+              "text": "the sweet ice cream",
+              "role": "direct_object"
             }
           },
-          "georgian_verb_form": "მოეწონებათ"
+          "georgian_verb_form": "მომეწონება",
+          "person": "1sg",
+          "effective_preverb": "მო"
+        },
+        {
+          "georgian": "ახალგაზრდა ბავშვს მოეწონება ახალი თამაში",
+          "georgian_components": {
+            "subject": {
+              "text": "ახალგაზრდა ბავშვს",
+              "case": "dat",
+              "role": "subject"
+            },
+            "verb": {
+              "text": "მოეწონება",
+              "role": "verb"
+            },
+            "direct_object": {
+              "text": "ახალი თამაში",
+              "case": "nom",
+              "role": "direct_object"
+            }
+          },
+          "english": "The young child will like the new game",
+          "english_components": {
+            "subject": {
+              "text": "The young child",
+              "role": "subject",
+              "person": "3sg"
+            },
+            "verb": {
+              "text": "will like",
+              "role": "verb"
+            },
+            "direct_object": {
+              "text": "the new game",
+              "role": "direct_object"
+            }
+          },
+          "georgian_verb_form": "მოეწონება",
+          "person": "3sg",
+          "effective_preverb": "მო"
+        },
+        {
+          "georgian": "ბედნიერ ბავშვებს მოეწონებათ ახალი სათამაშო",
+          "georgian_components": {
+            "subject": {
+              "text": "ბედნიერ ბავშვებს",
+              "case": "dat",
+              "role": "subject"
+            },
+            "verb": {
+              "text": "მოეწონებათ",
+              "role": "verb"
+            },
+            "direct_object": {
+              "text": "ახალი სათამაშო",
+              "case": "nom",
+              "role": "direct_object"
+            }
+          },
+          "english": "The happy children will like the new toy",
+          "english_components": {
+            "subject": {
+              "text": "The happy children",
+              "role": "subject",
+              "person": "3pl"
+            },
+            "verb": {
+              "text": "will like",
+              "role": "verb"
+            },
+            "direct_object": {
+              "text": "the new toy",
+              "role": "direct_object"
+            }
+          },
+          "georgian_verb_form": "მოეწონებათ",
+          "person": "3pl",
+          "effective_preverb": "მო"
         }
       ],
       "aorist": [
         {
-          "georgian": "ტკბილი ყინულის ნაყინი მომეწონა",
-          "english": "<strong data-role=\"subject\" data-person=\"1sg\">I</strong> <strong data-role=\"verb\">liked</strong> <strong data-role=\"direct-object\">the sweet ice cream</strong>",
-          "english_plain": "I liked the sweet ice cream",
-          "html": "<span data-case=\"nom\" data-role=\"direct-object\">ტკბილი ყინულის ნაყინი</span> <span data-role=\"verb\">მომეწონა</span>",
-          "case_marking": {
-            "direct_object": {
-              "case": "nom",
-              "word": "ყინულის ნაყინი"
-            }
-          },
-          "georgian_verb_form": "მომეწონა"
-        },
-        {
-          "georgian": "ახალგაზრდა ბავშვს ახალი თამაში მოეწონა",
-          "english": "<strong data-role=\"subject\">The young child</strong> <strong data-role=\"verb\">liked</strong> <strong data-role=\"direct-object\">the new game</strong>",
-          "english_plain": "The young child liked the new game",
-          "html": "<span data-case=\"dat\" data-role=\"subject\">ახალგაზრდა ბავშვს</span> <span data-case=\"nom\" data-role=\"direct-object\">ახალი თამაში</span> <span data-role=\"verb\">მოეწონა</span>",
-          "case_marking": {
-            "subject": {
-              "case": "dat",
-              "word": "ბავშვს"
+          "georgian": "მომეწონა ტკბილი ყინულის ნაყინი",
+          "georgian_components": {
+            "verb": {
+              "text": "მომეწონა",
+              "role": "verb"
             },
             "direct_object": {
+              "text": "ტკბილი ყინულის ნაყინი",
               "case": "nom",
-              "word": "თამაში"
+              "role": "direct_object"
             }
           },
-          "georgian_verb_form": "მოეწონა"
-        },
-        {
-          "georgian": "ბედნიერ ბავშვს ახალი სათამაშო მოეწონათ",
-          "english": "<strong data-role=\"subject\">The happy child</strong> <strong data-role=\"verb\">liked</strong> <strong data-role=\"direct-object\">the new toy</strong>",
-          "english_plain": "The happy child liked the new toy",
-          "html": "<span data-case=\"dat\" data-role=\"subject\">ბედნიერ ბავშვს</span> <span data-case=\"nom\" data-role=\"direct-object\">ახალი სათამაშო</span> <span data-role=\"verb\">მოეწონათ</span>",
-          "case_marking": {
+          "english": "I liked the sweet ice cream",
+          "english_components": {
             "subject": {
-              "case": "dat",
-              "word": "ბავშვს"
+              "text": "I",
+              "role": "subject",
+              "person": "1sg"
+            },
+            "verb": {
+              "text": "liked",
+              "role": "verb"
             },
             "direct_object": {
-              "case": "nom",
-              "word": "სათამაშო"
+              "text": "the sweet ice cream",
+              "role": "direct_object"
             }
           },
-          "georgian_verb_form": "მოეწონათ"
+          "georgian_verb_form": "მომეწონა",
+          "person": "1sg",
+          "effective_preverb": "მო"
+        },
+        {
+          "georgian": "ახალგაზრდა ბავშვს მოეწონა ახალი თამაში",
+          "georgian_components": {
+            "subject": {
+              "text": "ახალგაზრდა ბავშვს",
+              "case": "dat",
+              "role": "subject"
+            },
+            "verb": {
+              "text": "მოეწონა",
+              "role": "verb"
+            },
+            "direct_object": {
+              "text": "ახალი თამაში",
+              "case": "nom",
+              "role": "direct_object"
+            }
+          },
+          "english": "The young child liked the new game",
+          "english_components": {
+            "subject": {
+              "text": "The young child",
+              "role": "subject",
+              "person": "3sg"
+            },
+            "verb": {
+              "text": "liked",
+              "role": "verb"
+            },
+            "direct_object": {
+              "text": "the new game",
+              "role": "direct_object"
+            }
+          },
+          "georgian_verb_form": "მოეწონა",
+          "person": "3sg",
+          "effective_preverb": "მო"
+        },
+        {
+          "georgian": "ბედნიერ ბავშვებს მოეწონათ ახალი სათამაშო",
+          "georgian_components": {
+            "subject": {
+              "text": "ბედნიერ ბავშვებს",
+              "case": "dat",
+              "role": "subject"
+            },
+            "verb": {
+              "text": "მოეწონათ",
+              "role": "verb"
+            },
+            "direct_object": {
+              "text": "ახალი სათამაშო",
+              "case": "nom",
+              "role": "direct_object"
+            }
+          },
+          "english": "The happy children liked the new toy",
+          "english_components": {
+            "subject": {
+              "text": "The happy children",
+              "role": "subject",
+              "person": "3pl"
+            },
+            "verb": {
+              "text": "liked",
+              "role": "verb"
+            },
+            "direct_object": {
+              "text": "the new toy",
+              "role": "direct_object"
+            }
+          },
+          "georgian_verb_form": "მოეწონათ",
+          "person": "3pl",
+          "effective_preverb": "მო"
         }
       ],
       "optative": [
         {
-          "georgian": "ტკბილი ყინულის ნაყინი უნდა მომეწონოს",
-          "english": "<strong data-role=\"subject\" data-person=\"1sg\">I</strong> <strong data-role=\"verb\">should</strong> <strong data-role=\"verb\">like</strong> <strong data-role=\"direct-object\">the sweet ice cream</strong>",
-          "english_plain": "I should like the sweet ice cream",
-          "html": "<span data-case=\"nom\" data-role=\"direct-object\">ტკბილი ყინულის ნაყინი</span> <span data-role=\"verb\">უნდა მომეწონოს</span>",
-          "case_marking": {
-            "direct_object": {
-              "case": "nom",
-              "word": "ყინულის ნაყინი"
-            }
-          },
-          "georgian_verb_form": "მომეწონოს"
-        },
-        {
-          "georgian": "ახალგაზრდა ბავშვს ახალი თამაში უნდა მოეწონოს",
-          "english": "<strong data-role=\"subject\">The young child</strong> <strong data-role=\"verb\">should</strong> <strong data-role=\"verb\">like</strong> <strong data-role=\"direct-object\">the new game</strong>",
-          "english_plain": "The young child should like the new game",
-          "html": "<span data-case=\"dat\" data-role=\"subject\">ახალგაზრდა ბავშვს</span> <span data-case=\"nom\" data-role=\"direct-object\">ახალი თამაში</span> <span data-role=\"verb\">უნდა მოეწონოს</span>",
-          "case_marking": {
-            "subject": {
-              "case": "dat",
-              "word": "ბავშვს"
+          "georgian": "უნდა მომეწონოს ტკბილი ყინულის ნაყინი",
+          "georgian_components": {
+            "verb": {
+              "text": "უნდა მომეწონოს",
+              "role": "verb"
             },
             "direct_object": {
+              "text": "ტკბილი ყინულის ნაყინი",
               "case": "nom",
-              "word": "თამაში"
+              "role": "direct_object"
             }
           },
-          "georgian_verb_form": "მოეწონოს"
-        },
-        {
-          "georgian": "ბედნიერ ბავშვს ახალი სათამაშო უნდა მოეწონოთ",
-          "english": "<strong data-role=\"subject\">The happy child</strong> <strong data-role=\"verb\">should</strong> <strong data-role=\"verb\">like</strong> <strong data-role=\"direct-object\">the new toy</strong>",
-          "english_plain": "The happy child should like the new toy",
-          "html": "<span data-case=\"dat\" data-role=\"subject\">ბედნიერ ბავშვს</span> <span data-case=\"nom\" data-role=\"direct-object\">ახალი სათამაშო</span> <span data-role=\"verb\">უნდა მოეწონოთ</span>",
-          "case_marking": {
+          "english": "I should like the sweet ice cream",
+          "english_components": {
             "subject": {
-              "case": "dat",
-              "word": "ბავშვს"
+              "text": "I",
+              "role": "subject",
+              "person": "1sg"
+            },
+            "verb": {
+              "text": "should like",
+              "role": "verb"
             },
             "direct_object": {
-              "case": "nom",
-              "word": "სათამაშო"
+              "text": "the sweet ice cream",
+              "role": "direct_object"
             }
           },
-          "georgian_verb_form": "მოეწონოთ"
+          "georgian_verb_form": "მომეწონოს",
+          "person": "1sg",
+          "effective_preverb": "მო"
+        },
+        {
+          "georgian": "ახალგაზრდა ბავშვს უნდა მოეწონოს ახალი თამაში",
+          "georgian_components": {
+            "subject": {
+              "text": "ახალგაზრდა ბავშვს",
+              "case": "dat",
+              "role": "subject"
+            },
+            "verb": {
+              "text": "უნდა მოეწონოს",
+              "role": "verb"
+            },
+            "direct_object": {
+              "text": "ახალი თამაში",
+              "case": "nom",
+              "role": "direct_object"
+            }
+          },
+          "english": "The young child should like the new game",
+          "english_components": {
+            "subject": {
+              "text": "The young child",
+              "role": "subject",
+              "person": "3sg"
+            },
+            "verb": {
+              "text": "should like",
+              "role": "verb"
+            },
+            "direct_object": {
+              "text": "the new game",
+              "role": "direct_object"
+            }
+          },
+          "georgian_verb_form": "მოეწონოს",
+          "person": "3sg",
+          "effective_preverb": "მო"
+        },
+        {
+          "georgian": "ბედნიერ ბავშვებს უნდა მოეწონოთ ახალი სათამაშო",
+          "georgian_components": {
+            "subject": {
+              "text": "ბედნიერ ბავშვებს",
+              "case": "dat",
+              "role": "subject"
+            },
+            "verb": {
+              "text": "უნდა მოეწონოთ",
+              "role": "verb"
+            },
+            "direct_object": {
+              "text": "ახალი სათამაშო",
+              "case": "nom",
+              "role": "direct_object"
+            }
+          },
+          "english": "The happy children should like the new toy",
+          "english_components": {
+            "subject": {
+              "text": "The happy children",
+              "role": "subject",
+              "person": "3pl"
+            },
+            "verb": {
+              "text": "should like",
+              "role": "verb"
+            },
+            "direct_object": {
+              "text": "the new toy",
+              "role": "direct_object"
+            }
+          },
+          "georgian_verb_form": "მოეწონოთ",
+          "person": "3pl",
+          "effective_preverb": "მო"
         }
       ],
       "imperative": [
         {
-          "georgian": "სასაცილო ფილმი მოგეწონოს",
-          "english": "<strong data-role=\"verb\">like</strong> <strong data-role=\"direct-object\">the funny movie</strong>",
-          "english_plain": "like the funny movie",
-          "html": "<span data-case=\"nom\" data-role=\"direct-object\">სასაცილო ფილმი</span> <span data-role=\"verb\">მოგეწონოს</span>",
-          "case_marking": {
+          "georgian": "მოგეწონოს სასაცილო ფილმი",
+          "georgian_components": {
+            "verb": {
+              "text": "მოგეწონოს",
+              "role": "verb"
+            },
             "direct_object": {
+              "text": "სასაცილო ფილმი",
               "case": "nom",
-              "word": "ფილმი"
+              "role": "direct_object"
             }
           },
-          "georgian_verb_form": "მოგეწონოს"
+          "english": "You, like the funny movie",
+          "english_components": {
+            "subject": {
+              "text": "You,",
+              "role": "subject",
+              "person": "2sg"
+            },
+            "verb": {
+              "text": "like",
+              "role": "verb"
+            },
+            "direct_object": {
+              "text": "the funny movie",
+              "role": "direct_object"
+            }
+          },
+          "georgian_verb_form": "მოგეწონოს",
+          "person": "2sg",
+          "effective_preverb": "მო"
         },
         {
-          "georgian": "საინტერესო წიგნი მოგეწონოთ",
-          "english": "<strong data-role=\"verb\">like</strong> <strong data-role=\"direct-object\">the interesting book</strong>",
-          "english_plain": "like the interesting book",
-          "html": "<span data-case=\"nom\" data-role=\"direct-object\">საინტერესო წიგნი</span> <span data-role=\"verb\">მოგეწონოთ</span>",
-          "case_marking": {
+          "georgian": "მოგეწონოთ საინტერესო წიგნი",
+          "georgian_components": {
+            "verb": {
+              "text": "მოგეწონოთ",
+              "role": "verb"
+            },
             "direct_object": {
+              "text": "საინტერესო წიგნი",
               "case": "nom",
-              "word": "წიგნი"
+              "role": "direct_object"
             }
           },
-          "georgian_verb_form": "მოგეწონოთ"
+          "english": "You all (you formal), like the interesting book",
+          "english_components": {
+            "subject": {
+              "text": "You all (you formal),",
+              "role": "subject",
+              "person": "2pl"
+            },
+            "verb": {
+              "text": "like",
+              "role": "verb"
+            },
+            "direct_object": {
+              "text": "the interesting book",
+              "role": "direct_object"
+            }
+          },
+          "georgian_verb_form": "მოგეწონოთ",
+          "person": "2pl",
+          "effective_preverb": "მო"
         }
       ]
     }

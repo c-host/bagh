@@ -124,207 +124,478 @@
   "preverb_rules": {
     "default": "",
     "replacements": {},
-    "tense_specific_fallbacks": {},
-    "english_fallbacks": {}
+    "tense_specific_fallbacks": {}
   },
   "examples": {
-    "null": {
+    "default": {
       "present": [
         {
           "georgian": "ვჯდები",
-          "english": "<strong data-role=\"subject\" data-person=\"1sg\">I</strong> <strong data-role=\"verb\">sit</strong>",
-          "english_plain": "I sit",
-          "html": " <span data-role=\"verb\">ვჯდები</span>",
-          "case_marking": {},
-          "georgian_verb_form": "ვჯდები"
+          "georgian_components": {
+            "verb": {
+              "text": "ვჯდები",
+              "role": "verb"
+            }
+          },
+          "english": "I sit",
+          "english_components": {
+            "subject": {
+              "text": "I",
+              "role": "subject",
+              "person": "1sg"
+            },
+            "verb": {
+              "text": "sit",
+              "role": "verb"
+            }
+          },
+          "georgian_verb_form": "ვჯდები",
+          "person": "1sg",
+          "effective_preverb": ""
         },
         {
           "georgian": "ძველი ბაბუა ჯდება",
-          "english": "<strong data-role=\"subject\">The old grandfather</strong> <strong data-role=\"verb\">sits</strong>",
-          "english_plain": "The old grandfather sits",
-          "html": "<span data-case=\"nom\" data-role=\"subject\">ძველი ბაბუა</span> <span data-role=\"verb\">ჯდება</span>",
-          "case_marking": {
+          "georgian_components": {
             "subject": {
+              "text": "ძველი ბაბუა",
               "case": "nom",
-              "word": "ბაბუა"
+              "role": "subject"
+            },
+            "verb": {
+              "text": "ჯდება",
+              "role": "verb"
             }
           },
-          "georgian_verb_form": "ჯდება"
+          "english": "The old grandfather sits",
+          "english_components": {
+            "subject": {
+              "text": "The old grandfather",
+              "role": "subject",
+              "person": "3sg"
+            },
+            "verb": {
+              "text": "sits",
+              "role": "verb"
+            }
+          },
+          "georgian_verb_form": "ჯდება",
+          "person": "3sg",
+          "effective_preverb": ""
         },
         {
-          "georgian": "დაღლილი ბავშვი სხდებიან",
-          "english": "<strong data-role=\"subject\">The tired child</strong> <strong data-role=\"verb\">sit</strong>",
-          "english_plain": "The tired child sit",
-          "html": "<span data-case=\"nom\" data-role=\"subject\">დაღლილი ბავშვი</span> <span data-role=\"verb\">სხდებიან</span>",
-          "case_marking": {
+          "georgian": "დაღლილი ბავშვები სხდებიან",
+          "georgian_components": {
             "subject": {
+              "text": "დაღლილი ბავშვები",
               "case": "nom",
-              "word": "ბავშვი"
+              "role": "subject"
+            },
+            "verb": {
+              "text": "სხდებიან",
+              "role": "verb"
             }
           },
-          "georgian_verb_form": "სხდებიან"
+          "english": "The tired children sit",
+          "english_components": {
+            "subject": {
+              "text": "The tired children",
+              "role": "subject",
+              "person": "3pl"
+            },
+            "verb": {
+              "text": "sit",
+              "role": "verb"
+            }
+          },
+          "georgian_verb_form": "სხდებიან",
+          "person": "3pl",
+          "effective_preverb": ""
         }
       ],
       "imperfect": [
         {
           "georgian": "ვჯდებოდი",
-          "english": "<strong data-role=\"subject\" data-person=\"1sg\">I</strong> <strong data-role=\"verb\">was sitting</strong>",
-          "english_plain": "I was sitting",
-          "html": " <span data-role=\"verb\">ვჯდებოდი</span>",
-          "case_marking": {},
-          "georgian_verb_form": "ვჯდებოდი"
+          "georgian_components": {
+            "verb": {
+              "text": "ვჯდებოდი",
+              "role": "verb"
+            }
+          },
+          "english": "I was sitting",
+          "english_components": {
+            "subject": {
+              "text": "I",
+              "role": "subject",
+              "person": "1sg"
+            },
+            "verb": {
+              "text": "was sitting",
+              "role": "verb"
+            }
+          },
+          "georgian_verb_form": "ვჯდებოდი",
+          "person": "1sg",
+          "effective_preverb": ""
         },
         {
           "georgian": "ძველი ბაბუა ჯდებოდა",
-          "english": "<strong data-role=\"subject\">The old grandfather</strong> <strong data-role=\"verb\">was sitting</strong>",
-          "english_plain": "The old grandfather was sitting",
-          "html": "<span data-case=\"nom\" data-role=\"subject\">ძველი ბაბუა</span> <span data-role=\"verb\">ჯდებოდა</span>",
-          "case_marking": {
+          "georgian_components": {
             "subject": {
+              "text": "ძველი ბაბუა",
               "case": "nom",
-              "word": "ბაბუა"
+              "role": "subject"
+            },
+            "verb": {
+              "text": "ჯდებოდა",
+              "role": "verb"
             }
           },
-          "georgian_verb_form": "ჯდებოდა"
+          "english": "The old grandfather was sitting",
+          "english_components": {
+            "subject": {
+              "text": "The old grandfather",
+              "role": "subject",
+              "person": "3sg"
+            },
+            "verb": {
+              "text": "was sitting",
+              "role": "verb"
+            }
+          },
+          "georgian_verb_form": "ჯდებოდა",
+          "person": "3sg",
+          "effective_preverb": ""
         },
         {
-          "georgian": "დაღლილი ბავშვი სხდებოდნენ",
-          "english": "<strong data-role=\"subject\">The tired child</strong> <strong data-role=\"verb\">were sitting</strong>",
-          "english_plain": "The tired child were sitting",
-          "html": "<span data-case=\"nom\" data-role=\"subject\">დაღლილი ბავშვი</span> <span data-role=\"verb\">სხდებოდნენ</span>",
-          "case_marking": {
+          "georgian": "დაღლილი ბავშვები სხდებოდნენ",
+          "georgian_components": {
             "subject": {
+              "text": "დაღლილი ბავშვები",
               "case": "nom",
-              "word": "ბავშვი"
+              "role": "subject"
+            },
+            "verb": {
+              "text": "სხდებოდნენ",
+              "role": "verb"
             }
           },
-          "georgian_verb_form": "სხდებოდნენ"
+          "english": "The tired children were sitting",
+          "english_components": {
+            "subject": {
+              "text": "The tired children",
+              "role": "subject",
+              "person": "3pl"
+            },
+            "verb": {
+              "text": "were sitting",
+              "role": "verb"
+            }
+          },
+          "georgian_verb_form": "სხდებოდნენ",
+          "person": "3pl",
+          "effective_preverb": ""
         }
       ],
       "future": [
         {
           "georgian": "დავჯდები",
-          "english": "<strong data-role=\"subject\" data-person=\"1sg\">I</strong> <strong data-role=\"verb\">will sit</strong>",
-          "english_plain": "I will sit",
-          "html": " <span data-role=\"verb\">დავჯდები</span>",
-          "case_marking": {},
-          "georgian_verb_form": "დავჯდები"
+          "georgian_components": {
+            "verb": {
+              "text": "დავჯდები",
+              "role": "verb"
+            }
+          },
+          "english": "I will sit",
+          "english_components": {
+            "subject": {
+              "text": "I",
+              "role": "subject",
+              "person": "1sg"
+            },
+            "verb": {
+              "text": "will sit",
+              "role": "verb"
+            }
+          },
+          "georgian_verb_form": "დავჯდები",
+          "person": "1sg",
+          "effective_preverb": ""
         },
         {
           "georgian": "ძველი ბაბუა დაჯდება",
-          "english": "<strong data-role=\"subject\">The old grandfather</strong> <strong data-role=\"verb\">will sit</strong>",
-          "english_plain": "The old grandfather will sit",
-          "html": "<span data-case=\"nom\" data-role=\"subject\">ძველი ბაბუა</span> <span data-role=\"verb\">დაჯდება</span>",
-          "case_marking": {
+          "georgian_components": {
             "subject": {
+              "text": "ძველი ბაბუა",
               "case": "nom",
-              "word": "ბაბუა"
+              "role": "subject"
+            },
+            "verb": {
+              "text": "დაჯდება",
+              "role": "verb"
             }
           },
-          "georgian_verb_form": "დაჯდება"
+          "english": "The old grandfather will sit",
+          "english_components": {
+            "subject": {
+              "text": "The old grandfather",
+              "role": "subject",
+              "person": "3sg"
+            },
+            "verb": {
+              "text": "will sit",
+              "role": "verb"
+            }
+          },
+          "georgian_verb_form": "დაჯდება",
+          "person": "3sg",
+          "effective_preverb": ""
         },
         {
-          "georgian": "დაღლილი ბავშვი დასხდებიან",
-          "english": "<strong data-role=\"subject\">The tired child</strong> <strong data-role=\"verb\">will sit</strong>",
-          "english_plain": "The tired child will sit",
-          "html": "<span data-case=\"nom\" data-role=\"subject\">დაღლილი ბავშვი</span> <span data-role=\"verb\">დასხდებიან</span>",
-          "case_marking": {
+          "georgian": "დაღლილი ბავშვები დასხდებიან",
+          "georgian_components": {
             "subject": {
+              "text": "დაღლილი ბავშვები",
               "case": "nom",
-              "word": "ბავშვი"
+              "role": "subject"
+            },
+            "verb": {
+              "text": "დასხდებიან",
+              "role": "verb"
             }
           },
-          "georgian_verb_form": "დასხდებიან"
+          "english": "The tired children will sit",
+          "english_components": {
+            "subject": {
+              "text": "The tired children",
+              "role": "subject",
+              "person": "3pl"
+            },
+            "verb": {
+              "text": "will sit",
+              "role": "verb"
+            }
+          },
+          "georgian_verb_form": "დასხდებიან",
+          "person": "3pl",
+          "effective_preverb": ""
         }
       ],
       "aorist": [
         {
           "georgian": "დავჯექი",
-          "english": "<strong data-role=\"subject\" data-person=\"1sg\">I</strong> <strong data-role=\"verb\">sat</strong>",
-          "english_plain": "I sat",
-          "html": " <span data-role=\"verb\">დავჯექი</span>",
-          "case_marking": {},
-          "georgian_verb_form": "დავჯექი"
+          "georgian_components": {
+            "verb": {
+              "text": "დავჯექი",
+              "role": "verb"
+            }
+          },
+          "english": "I sat",
+          "english_components": {
+            "subject": {
+              "text": "I",
+              "role": "subject",
+              "person": "1sg"
+            },
+            "verb": {
+              "text": "sat",
+              "role": "verb"
+            }
+          },
+          "georgian_verb_form": "დავჯექი",
+          "person": "1sg",
+          "effective_preverb": ""
         },
         {
           "georgian": "ძველმა ბაბუამ დაჯდა",
-          "english": "<strong data-role=\"subject\">The old grandfather</strong> <strong data-role=\"verb\">sat</strong>",
-          "english_plain": "The old grandfather sat",
-          "html": "<span data-case=\"erg\" data-role=\"subject\">ძველმა ბაბუამ</span> <span data-role=\"verb\">დაჯდა</span>",
-          "case_marking": {
+          "georgian_components": {
             "subject": {
+              "text": "ძველმა ბაბუამ",
               "case": "erg",
-              "word": "ბაბუამ"
+              "role": "subject"
+            },
+            "verb": {
+              "text": "დაჯდა",
+              "role": "verb"
             }
           },
-          "georgian_verb_form": "დაჯდა"
+          "english": "The old grandfather sat",
+          "english_components": {
+            "subject": {
+              "text": "The old grandfather",
+              "role": "subject",
+              "person": "3sg"
+            },
+            "verb": {
+              "text": "sat",
+              "role": "verb"
+            }
+          },
+          "georgian_verb_form": "დაჯდა",
+          "person": "3sg",
+          "effective_preverb": ""
         },
         {
-          "georgian": "დაღლილმა ბავშვმა დასხდნენ",
-          "english": "<strong data-role=\"subject\">The tired child</strong> <strong data-role=\"verb\">sat</strong>",
-          "english_plain": "The tired child sat",
-          "html": "<span data-case=\"erg\" data-role=\"subject\">დაღლილმა ბავშვმა</span> <span data-role=\"verb\">დასხდნენ</span>",
-          "case_marking": {
+          "georgian": "დაღლილმა ბავშვებმა დასხდნენ",
+          "georgian_components": {
             "subject": {
+              "text": "დაღლილმა ბავშვებმა",
               "case": "erg",
-              "word": "ბავშვმა"
+              "role": "subject"
+            },
+            "verb": {
+              "text": "დასხდნენ",
+              "role": "verb"
             }
           },
-          "georgian_verb_form": "დასხდნენ"
+          "english": "The tired children sat",
+          "english_components": {
+            "subject": {
+              "text": "The tired children",
+              "role": "subject",
+              "person": "3pl"
+            },
+            "verb": {
+              "text": "sat",
+              "role": "verb"
+            }
+          },
+          "georgian_verb_form": "დასხდნენ",
+          "person": "3pl",
+          "effective_preverb": ""
         }
       ],
       "optative": [
         {
           "georgian": "უნდა დავჯდე",
-          "english": "<strong data-role=\"subject\" data-person=\"1sg\">I</strong> <strong data-role=\"verb\">should</strong> <strong data-role=\"verb\">sit</strong>",
-          "english_plain": "I should sit",
-          "html": " <span data-role=\"verb\">უნდა დავჯდე</span>",
-          "case_marking": {},
-          "georgian_verb_form": "დავჯდე"
+          "georgian_components": {
+            "verb": {
+              "text": "უნდა დავჯდე",
+              "role": "verb"
+            }
+          },
+          "english": "I should sit",
+          "english_components": {
+            "subject": {
+              "text": "I",
+              "role": "subject",
+              "person": "1sg"
+            },
+            "verb": {
+              "text": "should sit",
+              "role": "verb"
+            }
+          },
+          "georgian_verb_form": "დავჯდე",
+          "person": "1sg",
+          "effective_preverb": ""
         },
         {
           "georgian": "ძველმა ბაბუამ უნდა დაჯდეს",
-          "english": "<strong data-role=\"subject\">The old grandfather</strong> <strong data-role=\"verb\">should</strong> <strong data-role=\"verb\">sit</strong>",
-          "english_plain": "The old grandfather should sit",
-          "html": "<span data-case=\"erg\" data-role=\"subject\">ძველმა ბაბუამ</span> <span data-role=\"verb\">უნდა დაჯდეს</span>",
-          "case_marking": {
+          "georgian_components": {
             "subject": {
+              "text": "ძველმა ბაბუამ",
               "case": "erg",
-              "word": "ბაბუამ"
+              "role": "subject"
+            },
+            "verb": {
+              "text": "უნდა დაჯდეს",
+              "role": "verb"
             }
           },
-          "georgian_verb_form": "დაჯდეს"
+          "english": "The old grandfather should sit",
+          "english_components": {
+            "subject": {
+              "text": "The old grandfather",
+              "role": "subject",
+              "person": "3sg"
+            },
+            "verb": {
+              "text": "should sit",
+              "role": "verb"
+            }
+          },
+          "georgian_verb_form": "დაჯდეს",
+          "person": "3sg",
+          "effective_preverb": ""
         },
         {
-          "georgian": "დაღლილმა ბავშვმა უნდა დასხდნენ",
-          "english": "<strong data-role=\"subject\">The tired child</strong> <strong data-role=\"verb\">should</strong> <strong data-role=\"verb\">sit</strong>",
-          "english_plain": "The tired child should sit",
-          "html": "<span data-case=\"erg\" data-role=\"subject\">დაღლილმა ბავშვმა</span> <span data-role=\"verb\">უნდა დასხდნენ</span>",
-          "case_marking": {
+          "georgian": "დაღლილმა ბავშვებმა უნდა დასხდნენ",
+          "georgian_components": {
             "subject": {
+              "text": "დაღლილმა ბავშვებმა",
               "case": "erg",
-              "word": "ბავშვმა"
+              "role": "subject"
+            },
+            "verb": {
+              "text": "უნდა დასხდნენ",
+              "role": "verb"
             }
           },
-          "georgian_verb_form": "დასხდნენ"
+          "english": "The tired children should sit",
+          "english_components": {
+            "subject": {
+              "text": "The tired children",
+              "role": "subject",
+              "person": "3pl"
+            },
+            "verb": {
+              "text": "should sit",
+              "role": "verb"
+            }
+          },
+          "georgian_verb_form": "დასხდნენ",
+          "person": "3pl",
+          "effective_preverb": ""
         }
       ],
       "imperative": [
         {
           "georgian": "დაჯექი",
-          "english": "<strong data-role=\"verb\">sit</strong>",
-          "english_plain": "sit",
-          "html": " <span data-role=\"verb\">დაჯექი</span>",
-          "case_marking": {},
-          "georgian_verb_form": "დაჯექი"
+          "georgian_components": {
+            "verb": {
+              "text": "დაჯექი",
+              "role": "verb"
+            }
+          },
+          "english": "You, sit",
+          "english_components": {
+            "subject": {
+              "text": "You,",
+              "role": "subject",
+              "person": "2sg"
+            },
+            "verb": {
+              "text": "sit",
+              "role": "verb"
+            }
+          },
+          "georgian_verb_form": "დაჯექი",
+          "person": "2sg",
+          "effective_preverb": ""
         },
         {
           "georgian": "დასხედით",
-          "english": "<strong data-role=\"verb\">sit</strong>",
-          "english_plain": "sit",
-          "html": " <span data-role=\"verb\">დასხედით</span>",
-          "case_marking": {},
-          "georgian_verb_form": "დასხედით"
+          "georgian_components": {
+            "verb": {
+              "text": "დასხედით",
+              "role": "verb"
+            }
+          },
+          "english": "You all (you formal), sit",
+          "english_components": {
+            "subject": {
+              "text": "You all (you formal),",
+              "role": "subject",
+              "person": "2pl"
+            },
+            "verb": {
+              "text": "sit",
+              "role": "verb"
+            }
+          },
+          "georgian_verb_form": "დასხედით",
+          "person": "2pl",
+          "effective_preverb": ""
         }
       ]
     }

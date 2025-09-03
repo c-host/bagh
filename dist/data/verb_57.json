@@ -124,207 +124,478 @@
   "preverb_rules": {
     "default": "",
     "replacements": {},
-    "tense_specific_fallbacks": {},
-    "english_fallbacks": {}
+    "tense_specific_fallbacks": {}
   },
   "examples": {
-    "null": {
+    "default": {
       "present": [
         {
           "georgian": "ვცეკვავ",
-          "english": "<strong data-role=\"subject\" data-person=\"1sg\">I</strong> <strong data-role=\"verb\">dance</strong>",
-          "english_plain": "I dance",
-          "html": " <span data-role=\"verb\">ვცეკვავ</span>",
-          "case_marking": {},
-          "georgian_verb_form": "ვცეკვავ"
+          "georgian_components": {
+            "verb": {
+              "text": "ვცეკვავ",
+              "role": "verb"
+            }
+          },
+          "english": "I dance",
+          "english_components": {
+            "subject": {
+              "text": "I",
+              "role": "subject",
+              "person": "1sg"
+            },
+            "verb": {
+              "text": "dance",
+              "role": "verb"
+            }
+          },
+          "georgian_verb_form": "ვცეკვავ",
+          "person": "1sg",
+          "effective_preverb": ""
         },
         {
           "georgian": "ახალგაზრდა გოგო ცეკვავს",
-          "english": "<strong data-role=\"subject\">The young girl</strong> <strong data-role=\"verb\">dances</strong>",
-          "english_plain": "The young girl dances",
-          "html": "<span data-case=\"nom\" data-role=\"subject\">ახალგაზრდა გოგო</span> <span data-role=\"verb\">ცეკვავს</span>",
-          "case_marking": {
+          "georgian_components": {
             "subject": {
+              "text": "ახალგაზრდა გოგო",
               "case": "nom",
-              "word": "გოგო"
+              "role": "subject"
+            },
+            "verb": {
+              "text": "ცეკვავს",
+              "role": "verb"
             }
           },
-          "georgian_verb_form": "ცეკვავს"
+          "english": "The young girl dances",
+          "english_components": {
+            "subject": {
+              "text": "The young girl",
+              "role": "subject",
+              "person": "3sg"
+            },
+            "verb": {
+              "text": "dances",
+              "role": "verb"
+            }
+          },
+          "georgian_verb_form": "ცეკვავს",
+          "person": "3sg",
+          "effective_preverb": ""
         },
         {
-          "georgian": "ნიჭიერი მოცეკვავე ცეკვავენ",
-          "english": "<strong data-role=\"subject\">The talented dancer</strong> <strong data-role=\"verb\">dance</strong>",
-          "english_plain": "The talented dancer dance",
-          "html": "<span data-case=\"nom\" data-role=\"subject\">ნიჭიერი მოცეკვავე</span> <span data-role=\"verb\">ცეკვავენ</span>",
-          "case_marking": {
+          "georgian": "ნიჭიერი მოცეკვავეები ცეკვავენ",
+          "georgian_components": {
             "subject": {
+              "text": "ნიჭიერი მოცეკვავეები",
               "case": "nom",
-              "word": "მოცეკვავე"
+              "role": "subject"
+            },
+            "verb": {
+              "text": "ცეკვავენ",
+              "role": "verb"
             }
           },
-          "georgian_verb_form": "ცეკვავენ"
+          "english": "The talented dancers dance",
+          "english_components": {
+            "subject": {
+              "text": "The talented dancers",
+              "role": "subject",
+              "person": "3pl"
+            },
+            "verb": {
+              "text": "dance",
+              "role": "verb"
+            }
+          },
+          "georgian_verb_form": "ცეკვავენ",
+          "person": "3pl",
+          "effective_preverb": ""
         }
       ],
       "imperfect": [
         {
           "georgian": "ვცეკვავდი",
-          "english": "<strong data-role=\"subject\" data-person=\"1sg\">I</strong> <strong data-role=\"verb\">was dancing</strong>",
-          "english_plain": "I was dancing",
-          "html": " <span data-role=\"verb\">ვცეკვავდი</span>",
-          "case_marking": {},
-          "georgian_verb_form": "ვცეკვავდი"
+          "georgian_components": {
+            "verb": {
+              "text": "ვცეკვავდი",
+              "role": "verb"
+            }
+          },
+          "english": "I was dancing",
+          "english_components": {
+            "subject": {
+              "text": "I",
+              "role": "subject",
+              "person": "1sg"
+            },
+            "verb": {
+              "text": "was dancing",
+              "role": "verb"
+            }
+          },
+          "georgian_verb_form": "ვცეკვავდი",
+          "person": "1sg",
+          "effective_preverb": ""
         },
         {
           "georgian": "ახალგაზრდა გოგო ცეკვავდა",
-          "english": "<strong data-role=\"subject\">The young girl</strong> <strong data-role=\"verb\">was dancing</strong>",
-          "english_plain": "The young girl was dancing",
-          "html": "<span data-case=\"nom\" data-role=\"subject\">ახალგაზრდა გოგო</span> <span data-role=\"verb\">ცეკვავდა</span>",
-          "case_marking": {
+          "georgian_components": {
             "subject": {
+              "text": "ახალგაზრდა გოგო",
               "case": "nom",
-              "word": "გოგო"
+              "role": "subject"
+            },
+            "verb": {
+              "text": "ცეკვავდა",
+              "role": "verb"
             }
           },
-          "georgian_verb_form": "ცეკვავდა"
+          "english": "The young girl was dancing",
+          "english_components": {
+            "subject": {
+              "text": "The young girl",
+              "role": "subject",
+              "person": "3sg"
+            },
+            "verb": {
+              "text": "was dancing",
+              "role": "verb"
+            }
+          },
+          "georgian_verb_form": "ცეკვავდა",
+          "person": "3sg",
+          "effective_preverb": ""
         },
         {
-          "georgian": "ნიჭიერი მოცეკვავე ცეკვავდნენ",
-          "english": "<strong data-role=\"subject\">The talented dancer</strong> <strong data-role=\"verb\">were dancing</strong>",
-          "english_plain": "The talented dancer were dancing",
-          "html": "<span data-case=\"nom\" data-role=\"subject\">ნიჭიერი მოცეკვავე</span> <span data-role=\"verb\">ცეკვავდნენ</span>",
-          "case_marking": {
+          "georgian": "ნიჭიერი მოცეკვავეები ცეკვავდნენ",
+          "georgian_components": {
             "subject": {
+              "text": "ნიჭიერი მოცეკვავეები",
               "case": "nom",
-              "word": "მოცეკვავე"
+              "role": "subject"
+            },
+            "verb": {
+              "text": "ცეკვავდნენ",
+              "role": "verb"
             }
           },
-          "georgian_verb_form": "ცეკვავდნენ"
+          "english": "The talented dancers were dancing",
+          "english_components": {
+            "subject": {
+              "text": "The talented dancers",
+              "role": "subject",
+              "person": "3pl"
+            },
+            "verb": {
+              "text": "were dancing",
+              "role": "verb"
+            }
+          },
+          "georgian_verb_form": "ცეკვავდნენ",
+          "person": "3pl",
+          "effective_preverb": ""
         }
       ],
       "future": [
         {
           "georgian": "ვიცეკვებ",
-          "english": "<strong data-role=\"subject\" data-person=\"1sg\">I</strong> <strong data-role=\"verb\">will dance</strong>",
-          "english_plain": "I will dance",
-          "html": " <span data-role=\"verb\">ვიცეკვებ</span>",
-          "case_marking": {},
-          "georgian_verb_form": "ვიცეკვებ"
+          "georgian_components": {
+            "verb": {
+              "text": "ვიცეკვებ",
+              "role": "verb"
+            }
+          },
+          "english": "I will dance",
+          "english_components": {
+            "subject": {
+              "text": "I",
+              "role": "subject",
+              "person": "1sg"
+            },
+            "verb": {
+              "text": "will dance",
+              "role": "verb"
+            }
+          },
+          "georgian_verb_form": "ვიცეკვებ",
+          "person": "1sg",
+          "effective_preverb": ""
         },
         {
           "georgian": "ახალგაზრდა გოგო იცეკვებს",
-          "english": "<strong data-role=\"subject\">The young girl</strong> <strong data-role=\"verb\">will dance</strong>",
-          "english_plain": "The young girl will dance",
-          "html": "<span data-case=\"nom\" data-role=\"subject\">ახალგაზრდა გოგო</span> <span data-role=\"verb\">იცეკვებს</span>",
-          "case_marking": {
+          "georgian_components": {
             "subject": {
+              "text": "ახალგაზრდა გოგო",
               "case": "nom",
-              "word": "გოგო"
+              "role": "subject"
+            },
+            "verb": {
+              "text": "იცეკვებს",
+              "role": "verb"
             }
           },
-          "georgian_verb_form": "იცეკვებს"
+          "english": "The young girl will dance",
+          "english_components": {
+            "subject": {
+              "text": "The young girl",
+              "role": "subject",
+              "person": "3sg"
+            },
+            "verb": {
+              "text": "will dance",
+              "role": "verb"
+            }
+          },
+          "georgian_verb_form": "იცეკვებს",
+          "person": "3sg",
+          "effective_preverb": ""
         },
         {
-          "georgian": "ნიჭიერი მოცეკვავე იცეკვებენ",
-          "english": "<strong data-role=\"subject\">The talented dancer</strong> <strong data-role=\"verb\">will dance</strong>",
-          "english_plain": "The talented dancer will dance",
-          "html": "<span data-case=\"nom\" data-role=\"subject\">ნიჭიერი მოცეკვავე</span> <span data-role=\"verb\">იცეკვებენ</span>",
-          "case_marking": {
+          "georgian": "ნიჭიერი მოცეკვავეები იცეკვებენ",
+          "georgian_components": {
             "subject": {
+              "text": "ნიჭიერი მოცეკვავეები",
               "case": "nom",
-              "word": "მოცეკვავე"
+              "role": "subject"
+            },
+            "verb": {
+              "text": "იცეკვებენ",
+              "role": "verb"
             }
           },
-          "georgian_verb_form": "იცეკვებენ"
+          "english": "The talented dancers will dance",
+          "english_components": {
+            "subject": {
+              "text": "The talented dancers",
+              "role": "subject",
+              "person": "3pl"
+            },
+            "verb": {
+              "text": "will dance",
+              "role": "verb"
+            }
+          },
+          "georgian_verb_form": "იცეკვებენ",
+          "person": "3pl",
+          "effective_preverb": ""
         }
       ],
       "aorist": [
         {
           "georgian": "ვიცეკვე",
-          "english": "<strong data-role=\"subject\" data-person=\"1sg\">I</strong> <strong data-role=\"verb\">danced</strong>",
-          "english_plain": "I danced",
-          "html": " <span data-role=\"verb\">ვიცეკვე</span>",
-          "case_marking": {},
-          "georgian_verb_form": "ვიცეკვე"
+          "georgian_components": {
+            "verb": {
+              "text": "ვიცეკვე",
+              "role": "verb"
+            }
+          },
+          "english": "I danced",
+          "english_components": {
+            "subject": {
+              "text": "I",
+              "role": "subject",
+              "person": "1sg"
+            },
+            "verb": {
+              "text": "danced",
+              "role": "verb"
+            }
+          },
+          "georgian_verb_form": "ვიცეკვე",
+          "person": "1sg",
+          "effective_preverb": ""
         },
         {
           "georgian": "ახალგაზრდა გოგომ იცეკვა",
-          "english": "<strong data-role=\"subject\">The young girl</strong> <strong data-role=\"verb\">danced</strong>",
-          "english_plain": "The young girl danced",
-          "html": "<span data-case=\"erg\" data-role=\"subject\">ახალგაზრდა გოგომ</span> <span data-role=\"verb\">იცეკვა</span>",
-          "case_marking": {
+          "georgian_components": {
             "subject": {
+              "text": "ახალგაზრდა გოგომ",
               "case": "erg",
-              "word": "გოგომ"
+              "role": "subject"
+            },
+            "verb": {
+              "text": "იცეკვა",
+              "role": "verb"
             }
           },
-          "georgian_verb_form": "იცეკვა"
+          "english": "The young girl danced",
+          "english_components": {
+            "subject": {
+              "text": "The young girl",
+              "role": "subject",
+              "person": "3sg"
+            },
+            "verb": {
+              "text": "danced",
+              "role": "verb"
+            }
+          },
+          "georgian_verb_form": "იცეკვა",
+          "person": "3sg",
+          "effective_preverb": ""
         },
         {
-          "georgian": "ნიჭიერმა მოცეკვავემ იცეკვეს",
-          "english": "<strong data-role=\"subject\">The talented dancer</strong> <strong data-role=\"verb\">danced</strong>",
-          "english_plain": "The talented dancer danced",
-          "html": "<span data-case=\"erg\" data-role=\"subject\">ნიჭიერმა მოცეკვავემ</span> <span data-role=\"verb\">იცეკვეს</span>",
-          "case_marking": {
+          "georgian": "ნიჭიერმა მოცეკვავეებმა იცეკვეს",
+          "georgian_components": {
             "subject": {
+              "text": "ნიჭიერმა მოცეკვავეებმა",
               "case": "erg",
-              "word": "მოცეკვავემ"
+              "role": "subject"
+            },
+            "verb": {
+              "text": "იცეკვეს",
+              "role": "verb"
             }
           },
-          "georgian_verb_form": "იცეკვეს"
+          "english": "The talented dancers danced",
+          "english_components": {
+            "subject": {
+              "text": "The talented dancers",
+              "role": "subject",
+              "person": "3pl"
+            },
+            "verb": {
+              "text": "danced",
+              "role": "verb"
+            }
+          },
+          "georgian_verb_form": "იცეკვეს",
+          "person": "3pl",
+          "effective_preverb": ""
         }
       ],
       "optative": [
         {
           "georgian": "უნდა ვიცეკვო",
-          "english": "<strong data-role=\"subject\" data-person=\"1sg\">I</strong> <strong data-role=\"verb\">should</strong> <strong data-role=\"verb\">dance</strong>",
-          "english_plain": "I should dance",
-          "html": " <span data-role=\"verb\">უნდა ვიცეკვო</span>",
-          "case_marking": {},
-          "georgian_verb_form": "ვიცეკვო"
+          "georgian_components": {
+            "verb": {
+              "text": "უნდა ვიცეკვო",
+              "role": "verb"
+            }
+          },
+          "english": "I should dance",
+          "english_components": {
+            "subject": {
+              "text": "I",
+              "role": "subject",
+              "person": "1sg"
+            },
+            "verb": {
+              "text": "should dance",
+              "role": "verb"
+            }
+          },
+          "georgian_verb_form": "ვიცეკვო",
+          "person": "1sg",
+          "effective_preverb": ""
         },
         {
           "georgian": "ახალგაზრდა გოგომ უნდა იცეკვოს",
-          "english": "<strong data-role=\"subject\">The young girl</strong> <strong data-role=\"verb\">should</strong> <strong data-role=\"verb\">dance</strong>",
-          "english_plain": "The young girl should dance",
-          "html": "<span data-case=\"erg\" data-role=\"subject\">ახალგაზრდა გოგომ</span> <span data-role=\"verb\">უნდა იცეკვოს</span>",
-          "case_marking": {
+          "georgian_components": {
             "subject": {
+              "text": "ახალგაზრდა გოგომ",
               "case": "erg",
-              "word": "გოგომ"
+              "role": "subject"
+            },
+            "verb": {
+              "text": "უნდა იცეკვოს",
+              "role": "verb"
             }
           },
-          "georgian_verb_form": "იცეკვოს"
+          "english": "The young girl should dance",
+          "english_components": {
+            "subject": {
+              "text": "The young girl",
+              "role": "subject",
+              "person": "3sg"
+            },
+            "verb": {
+              "text": "should dance",
+              "role": "verb"
+            }
+          },
+          "georgian_verb_form": "იცეკვოს",
+          "person": "3sg",
+          "effective_preverb": ""
         },
         {
-          "georgian": "ნიჭიერმა მოცეკვავემ უნდა იცეკვონ",
-          "english": "<strong data-role=\"subject\">The talented dancer</strong> <strong data-role=\"verb\">should</strong> <strong data-role=\"verb\">dance</strong>",
-          "english_plain": "The talented dancer should dance",
-          "html": "<span data-case=\"erg\" data-role=\"subject\">ნიჭიერმა მოცეკვავემ</span> <span data-role=\"verb\">უნდა იცეკვონ</span>",
-          "case_marking": {
+          "georgian": "ნიჭიერმა მოცეკვავეებმა უნდა იცეკვონ",
+          "georgian_components": {
             "subject": {
+              "text": "ნიჭიერმა მოცეკვავეებმა",
               "case": "erg",
-              "word": "მოცეკვავემ"
+              "role": "subject"
+            },
+            "verb": {
+              "text": "უნდა იცეკვონ",
+              "role": "verb"
             }
           },
-          "georgian_verb_form": "იცეკვონ"
+          "english": "The talented dancers should dance",
+          "english_components": {
+            "subject": {
+              "text": "The talented dancers",
+              "role": "subject",
+              "person": "3pl"
+            },
+            "verb": {
+              "text": "should dance",
+              "role": "verb"
+            }
+          },
+          "georgian_verb_form": "იცეკვონ",
+          "person": "3pl",
+          "effective_preverb": ""
         }
       ],
       "imperative": [
         {
           "georgian": "იცეკვე",
-          "english": "<strong data-role=\"verb\">dance</strong>",
-          "english_plain": "dance",
-          "html": " <span data-role=\"verb\">იცეკვე</span>",
-          "case_marking": {},
-          "georgian_verb_form": "იცეკვე"
+          "georgian_components": {
+            "verb": {
+              "text": "იცეკვე",
+              "role": "verb"
+            }
+          },
+          "english": "You, dance",
+          "english_components": {
+            "subject": {
+              "text": "You,",
+              "role": "subject",
+              "person": "2sg"
+            },
+            "verb": {
+              "text": "dance",
+              "role": "verb"
+            }
+          },
+          "georgian_verb_form": "იცეკვე",
+          "person": "2sg",
+          "effective_preverb": ""
         },
         {
           "georgian": "იცეკვეთ",
-          "english": "<strong data-role=\"verb\">dance</strong>",
-          "english_plain": "dance",
-          "html": " <span data-role=\"verb\">იცეკვეთ</span>",
-          "case_marking": {},
-          "georgian_verb_form": "იცეკვეთ"
+          "georgian_components": {
+            "verb": {
+              "text": "იცეკვეთ",
+              "role": "verb"
+            }
+          },
+          "english": "You all (you formal), dance",
+          "english_components": {
+            "subject": {
+              "text": "You all (you formal),",
+              "role": "subject",
+              "person": "2pl"
+            },
+            "verb": {
+              "text": "dance",
+              "role": "verb"
+            }
+          },
+          "georgian_verb_form": "იცეკვეთ",
+          "person": "2pl",
+          "effective_preverb": ""
         }
       ]
     }

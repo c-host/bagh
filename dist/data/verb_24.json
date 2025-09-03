@@ -150,282 +150,631 @@
   "preverb_rules": {
     "default": "",
     "replacements": {},
-    "tense_specific_fallbacks": {},
-    "english_fallbacks": {}
+    "tense_specific_fallbacks": {}
   },
   "examples": {
-    "null": {
+    "default": {
       "present": [
         {
-          "georgian": "ცხელ პურს ვყიდულობ",
-          "english": "<strong data-role=\"subject\" data-person=\"1sg\">I</strong> <strong data-role=\"verb\">buy</strong> <strong data-role=\"direct-object\">the hot bread</strong>",
-          "english_plain": "I buy the hot bread",
-          "html": "<span data-case=\"dat\" data-role=\"direct-object\">ცხელ პურს</span> <span data-role=\"verb\">ვყიდულობ</span>",
-          "case_marking": {
-            "direct_object": {
-              "case": "dat",
-              "word": "პურს"
-            }
-          },
-          "georgian_verb_form": "ვყიდულობ"
-        },
-        {
-          "georgian": "რეგულარული მომხმარებელი ყოველდღიურ გაზეთს ყიდულობს",
-          "english": "<strong data-role=\"subject\">The regular customer</strong> <strong data-role=\"verb\">buys</strong> <strong data-role=\"direct-object\">the daily newspaper</strong>",
-          "english_plain": "The regular customer buys the daily newspaper",
-          "html": "<span data-case=\"nom\" data-role=\"subject\">რეგულარული მომხმარებელი</span> <span data-case=\"dat\" data-role=\"direct-object\">ყოველდღიურ გაზეთს</span> <span data-role=\"verb\">ყიდულობს</span>",
-          "case_marking": {
-            "subject": {
-              "case": "nom",
-              "word": "მომხმარებელი"
+          "georgian": "ვყიდულობ ცხელ პურს",
+          "georgian_components": {
+            "verb": {
+              "text": "ვყიდულობ",
+              "role": "verb"
             },
             "direct_object": {
+              "text": "ცხელ პურს",
               "case": "dat",
-              "word": "გაზეთს"
+              "role": "direct_object"
             }
           },
-          "georgian_verb_form": "ყიდულობს"
-        },
-        {
-          "georgian": "უცხო ტურისტი იაფ სუვენირს ყიდულობენ",
-          "english": "<strong data-role=\"subject\">The foreign tourist</strong> <strong data-role=\"verb\">buy</strong> <strong data-role=\"direct-object\">the cheap souvenir</strong>",
-          "english_plain": "The foreign tourist buy the cheap souvenir",
-          "html": "<span data-case=\"nom\" data-role=\"subject\">უცხო ტურისტი</span> <span data-case=\"dat\" data-role=\"direct-object\">იაფ სუვენირს</span> <span data-role=\"verb\">ყიდულობენ</span>",
-          "case_marking": {
+          "english": "I buy the hot bread",
+          "english_components": {
             "subject": {
-              "case": "nom",
-              "word": "ტურისტი"
+              "text": "I",
+              "role": "subject",
+              "person": "1sg"
+            },
+            "verb": {
+              "text": "buy",
+              "role": "verb"
             },
             "direct_object": {
-              "case": "dat",
-              "word": "სუვენირს"
+              "text": "the hot bread",
+              "role": "direct_object"
             }
           },
-          "georgian_verb_form": "ყიდულობენ"
+          "georgian_verb_form": "ვყიდულობ",
+          "person": "1sg",
+          "effective_preverb": ""
+        },
+        {
+          "georgian": "რეგულარული მომხმარებელი ყიდულობს ყოველდღიურ გაზეთს",
+          "georgian_components": {
+            "subject": {
+              "text": "რეგულარული მომხმარებელი",
+              "case": "nom",
+              "role": "subject"
+            },
+            "verb": {
+              "text": "ყიდულობს",
+              "role": "verb"
+            },
+            "direct_object": {
+              "text": "ყოველდღიურ გაზეთს",
+              "case": "dat",
+              "role": "direct_object"
+            }
+          },
+          "english": "The regular customer buys the daily newspaper",
+          "english_components": {
+            "subject": {
+              "text": "The regular customer",
+              "role": "subject",
+              "person": "3sg"
+            },
+            "verb": {
+              "text": "buys",
+              "role": "verb"
+            },
+            "direct_object": {
+              "text": "the daily newspaper",
+              "role": "direct_object"
+            }
+          },
+          "georgian_verb_form": "ყიდულობს",
+          "person": "3sg",
+          "effective_preverb": ""
+        },
+        {
+          "georgian": "უცხო ტურისტები ყიდულობენ იაფ სუვენირს",
+          "georgian_components": {
+            "subject": {
+              "text": "უცხო ტურისტები",
+              "case": "nom",
+              "role": "subject"
+            },
+            "verb": {
+              "text": "ყიდულობენ",
+              "role": "verb"
+            },
+            "direct_object": {
+              "text": "იაფ სუვენირს",
+              "case": "dat",
+              "role": "direct_object"
+            }
+          },
+          "english": "The foreign tourists buy the cheap souvenir",
+          "english_components": {
+            "subject": {
+              "text": "The foreign tourists",
+              "role": "subject",
+              "person": "3pl"
+            },
+            "verb": {
+              "text": "buy",
+              "role": "verb"
+            },
+            "direct_object": {
+              "text": "the cheap souvenir",
+              "role": "direct_object"
+            }
+          },
+          "georgian_verb_form": "ყიდულობენ",
+          "person": "3pl",
+          "effective_preverb": ""
         }
       ],
       "imperfect": [
         {
-          "georgian": "ცხელ პურს ვყიდულობდი",
-          "english": "<strong data-role=\"subject\" data-person=\"1sg\">I</strong> <strong data-role=\"verb\">was buying</strong> <strong data-role=\"direct-object\">the hot bread</strong>",
-          "english_plain": "I was buying the hot bread",
-          "html": "<span data-case=\"dat\" data-role=\"direct-object\">ცხელ პურს</span> <span data-role=\"verb\">ვყიდულობდი</span>",
-          "case_marking": {
-            "direct_object": {
-              "case": "dat",
-              "word": "პურს"
-            }
-          },
-          "georgian_verb_form": "ვყიდულობდი"
-        },
-        {
-          "georgian": "რეგულარული მომხმარებელი ყოველდღიურ გაზეთს ყიდულობდა",
-          "english": "<strong data-role=\"subject\">The regular customer</strong> <strong data-role=\"verb\">was buying</strong> <strong data-role=\"direct-object\">the daily newspaper</strong>",
-          "english_plain": "The regular customer was buying the daily newspaper",
-          "html": "<span data-case=\"nom\" data-role=\"subject\">რეგულარული მომხმარებელი</span> <span data-case=\"dat\" data-role=\"direct-object\">ყოველდღიურ გაზეთს</span> <span data-role=\"verb\">ყიდულობდა</span>",
-          "case_marking": {
-            "subject": {
-              "case": "nom",
-              "word": "მომხმარებელი"
+          "georgian": "ვყიდულობდი ცხელ პურს",
+          "georgian_components": {
+            "verb": {
+              "text": "ვყიდულობდი",
+              "role": "verb"
             },
             "direct_object": {
+              "text": "ცხელ პურს",
               "case": "dat",
-              "word": "გაზეთს"
+              "role": "direct_object"
             }
           },
-          "georgian_verb_form": "ყიდულობდა"
-        },
-        {
-          "georgian": "უცხო ტურისტი იაფ სუვენირს ყიდულობდნენ",
-          "english": "<strong data-role=\"subject\">The foreign tourist</strong> <strong data-role=\"verb\">were buying</strong> <strong data-role=\"direct-object\">the cheap souvenir</strong>",
-          "english_plain": "The foreign tourist were buying the cheap souvenir",
-          "html": "<span data-case=\"nom\" data-role=\"subject\">უცხო ტურისტი</span> <span data-case=\"dat\" data-role=\"direct-object\">იაფ სუვენირს</span> <span data-role=\"verb\">ყიდულობდნენ</span>",
-          "case_marking": {
+          "english": "I was buying the hot bread",
+          "english_components": {
             "subject": {
-              "case": "nom",
-              "word": "ტურისტი"
+              "text": "I",
+              "role": "subject",
+              "person": "1sg"
+            },
+            "verb": {
+              "text": "was buying",
+              "role": "verb"
             },
             "direct_object": {
-              "case": "dat",
-              "word": "სუვენირს"
+              "text": "the hot bread",
+              "role": "direct_object"
             }
           },
-          "georgian_verb_form": "ყიდულობდნენ"
+          "georgian_verb_form": "ვყიდულობდი",
+          "person": "1sg",
+          "effective_preverb": ""
+        },
+        {
+          "georgian": "რეგულარული მომხმარებელი ყიდულობდა ყოველდღიურ გაზეთს",
+          "georgian_components": {
+            "subject": {
+              "text": "რეგულარული მომხმარებელი",
+              "case": "nom",
+              "role": "subject"
+            },
+            "verb": {
+              "text": "ყიდულობდა",
+              "role": "verb"
+            },
+            "direct_object": {
+              "text": "ყოველდღიურ გაზეთს",
+              "case": "dat",
+              "role": "direct_object"
+            }
+          },
+          "english": "The regular customer was buying the daily newspaper",
+          "english_components": {
+            "subject": {
+              "text": "The regular customer",
+              "role": "subject",
+              "person": "3sg"
+            },
+            "verb": {
+              "text": "was buying",
+              "role": "verb"
+            },
+            "direct_object": {
+              "text": "the daily newspaper",
+              "role": "direct_object"
+            }
+          },
+          "georgian_verb_form": "ყიდულობდა",
+          "person": "3sg",
+          "effective_preverb": ""
+        },
+        {
+          "georgian": "უცხო ტურისტები ყიდულობდნენ იაფ სუვენირს",
+          "georgian_components": {
+            "subject": {
+              "text": "უცხო ტურისტები",
+              "case": "nom",
+              "role": "subject"
+            },
+            "verb": {
+              "text": "ყიდულობდნენ",
+              "role": "verb"
+            },
+            "direct_object": {
+              "text": "იაფ სუვენირს",
+              "case": "dat",
+              "role": "direct_object"
+            }
+          },
+          "english": "The foreign tourists were buying the cheap souvenir",
+          "english_components": {
+            "subject": {
+              "text": "The foreign tourists",
+              "role": "subject",
+              "person": "3pl"
+            },
+            "verb": {
+              "text": "were buying",
+              "role": "verb"
+            },
+            "direct_object": {
+              "text": "the cheap souvenir",
+              "role": "direct_object"
+            }
+          },
+          "georgian_verb_form": "ყიდულობდნენ",
+          "person": "3pl",
+          "effective_preverb": ""
         }
       ],
       "future": [
         {
-          "georgian": "ცხელ პურს ვიყიდი",
-          "english": "<strong data-role=\"subject\" data-person=\"1sg\">I</strong> <strong data-role=\"verb\">will buy</strong> <strong data-role=\"direct-object\">the hot bread</strong>",
-          "english_plain": "I will buy the hot bread",
-          "html": "<span data-case=\"dat\" data-role=\"direct-object\">ცხელ პურს</span> <span data-role=\"verb\">ვიყიდი</span>",
-          "case_marking": {
-            "direct_object": {
-              "case": "dat",
-              "word": "პურს"
-            }
-          },
-          "georgian_verb_form": "ვიყიდი"
-        },
-        {
-          "georgian": "რეგულარული მომხმარებელი ყოველდღიურ გაზეთს იყიდის",
-          "english": "<strong data-role=\"subject\">The regular customer</strong> <strong data-role=\"verb\">will buy</strong> <strong data-role=\"direct-object\">the daily newspaper</strong>",
-          "english_plain": "The regular customer will buy the daily newspaper",
-          "html": "<span data-case=\"nom\" data-role=\"subject\">რეგულარული მომხმარებელი</span> <span data-case=\"dat\" data-role=\"direct-object\">ყოველდღიურ გაზეთს</span> <span data-role=\"verb\">იყიდის</span>",
-          "case_marking": {
-            "subject": {
-              "case": "nom",
-              "word": "მომხმარებელი"
+          "georgian": "ვიყიდი ცხელ პურს",
+          "georgian_components": {
+            "verb": {
+              "text": "ვიყიდი",
+              "role": "verb"
             },
             "direct_object": {
+              "text": "ცხელ პურს",
               "case": "dat",
-              "word": "გაზეთს"
+              "role": "direct_object"
             }
           },
-          "georgian_verb_form": "იყიდის"
-        },
-        {
-          "georgian": "უცხო ტურისტი იაფ სუვენირს იყიდიან",
-          "english": "<strong data-role=\"subject\">The foreign tourist</strong> <strong data-role=\"verb\">will buy</strong> <strong data-role=\"direct-object\">the cheap souvenir</strong>",
-          "english_plain": "The foreign tourist will buy the cheap souvenir",
-          "html": "<span data-case=\"nom\" data-role=\"subject\">უცხო ტურისტი</span> <span data-case=\"dat\" data-role=\"direct-object\">იაფ სუვენირს</span> <span data-role=\"verb\">იყიდიან</span>",
-          "case_marking": {
+          "english": "I will buy the hot bread",
+          "english_components": {
             "subject": {
-              "case": "nom",
-              "word": "ტურისტი"
+              "text": "I",
+              "role": "subject",
+              "person": "1sg"
+            },
+            "verb": {
+              "text": "will buy",
+              "role": "verb"
             },
             "direct_object": {
-              "case": "dat",
-              "word": "სუვენირს"
+              "text": "the hot bread",
+              "role": "direct_object"
             }
           },
-          "georgian_verb_form": "იყიდიან"
+          "georgian_verb_form": "ვიყიდი",
+          "person": "1sg",
+          "effective_preverb": ""
+        },
+        {
+          "georgian": "რეგულარული მომხმარებელი იყიდის ყოველდღიურ გაზეთს",
+          "georgian_components": {
+            "subject": {
+              "text": "რეგულარული მომხმარებელი",
+              "case": "nom",
+              "role": "subject"
+            },
+            "verb": {
+              "text": "იყიდის",
+              "role": "verb"
+            },
+            "direct_object": {
+              "text": "ყოველდღიურ გაზეთს",
+              "case": "dat",
+              "role": "direct_object"
+            }
+          },
+          "english": "The regular customer will buy the daily newspaper",
+          "english_components": {
+            "subject": {
+              "text": "The regular customer",
+              "role": "subject",
+              "person": "3sg"
+            },
+            "verb": {
+              "text": "will buy",
+              "role": "verb"
+            },
+            "direct_object": {
+              "text": "the daily newspaper",
+              "role": "direct_object"
+            }
+          },
+          "georgian_verb_form": "იყიდის",
+          "person": "3sg",
+          "effective_preverb": ""
+        },
+        {
+          "georgian": "უცხო ტურისტები იყიდიან იაფ სუვენირს",
+          "georgian_components": {
+            "subject": {
+              "text": "უცხო ტურისტები",
+              "case": "nom",
+              "role": "subject"
+            },
+            "verb": {
+              "text": "იყიდიან",
+              "role": "verb"
+            },
+            "direct_object": {
+              "text": "იაფ სუვენირს",
+              "case": "dat",
+              "role": "direct_object"
+            }
+          },
+          "english": "The foreign tourists will buy the cheap souvenir",
+          "english_components": {
+            "subject": {
+              "text": "The foreign tourists",
+              "role": "subject",
+              "person": "3pl"
+            },
+            "verb": {
+              "text": "will buy",
+              "role": "verb"
+            },
+            "direct_object": {
+              "text": "the cheap souvenir",
+              "role": "direct_object"
+            }
+          },
+          "georgian_verb_form": "იყიდიან",
+          "person": "3pl",
+          "effective_preverb": ""
         }
       ],
       "aorist": [
         {
-          "georgian": "ცხელი პური ვიყიდე",
-          "english": "<strong data-role=\"subject\" data-person=\"1sg\">I</strong> <strong data-role=\"verb\">bought</strong> <strong data-role=\"direct-object\">the hot bread</strong>",
-          "english_plain": "I bought the hot bread",
-          "html": "<span data-case=\"nom\" data-role=\"direct-object\">ცხელი პური</span> <span data-role=\"verb\">ვიყიდე</span>",
-          "case_marking": {
-            "direct_object": {
-              "case": "nom",
-              "word": "პური"
-            }
-          },
-          "georgian_verb_form": "ვიყიდე"
-        },
-        {
-          "georgian": "რეგულარულმა მომხმარებელმა ყოველდღიური გაზეთი იყიდა",
-          "english": "<strong data-role=\"subject\">The regular customer</strong> <strong data-role=\"verb\">bought</strong> <strong data-role=\"direct-object\">the daily newspaper</strong>",
-          "english_plain": "The regular customer bought the daily newspaper",
-          "html": "<span data-case=\"erg\" data-role=\"subject\">რეგულარულმა მომხმარებელმა</span> <span data-case=\"nom\" data-role=\"direct-object\">ყოველდღიური გაზეთი</span> <span data-role=\"verb\">იყიდა</span>",
-          "case_marking": {
-            "subject": {
-              "case": "erg",
-              "word": "მომხმარებელმა"
+          "georgian": "ვიყიდე ცხელი პური",
+          "georgian_components": {
+            "verb": {
+              "text": "ვიყიდე",
+              "role": "verb"
             },
             "direct_object": {
+              "text": "ცხელი პური",
               "case": "nom",
-              "word": "გაზეთი"
+              "role": "direct_object"
             }
           },
-          "georgian_verb_form": "იყიდა"
-        },
-        {
-          "georgian": "უცხო ტურისტმა იაფი სუვენირი იყიდეს",
-          "english": "<strong data-role=\"subject\">The foreign tourist</strong> <strong data-role=\"verb\">bought</strong> <strong data-role=\"direct-object\">the cheap souvenir</strong>",
-          "english_plain": "The foreign tourist bought the cheap souvenir",
-          "html": "<span data-case=\"erg\" data-role=\"subject\">უცხო ტურისტმა</span> <span data-case=\"nom\" data-role=\"direct-object\">იაფი სუვენირი</span> <span data-role=\"verb\">იყიდეს</span>",
-          "case_marking": {
+          "english": "I bought the hot bread",
+          "english_components": {
             "subject": {
-              "case": "erg",
-              "word": "ტურისტმა"
+              "text": "I",
+              "role": "subject",
+              "person": "1sg"
+            },
+            "verb": {
+              "text": "bought",
+              "role": "verb"
             },
             "direct_object": {
-              "case": "nom",
-              "word": "სუვენირი"
+              "text": "the hot bread",
+              "role": "direct_object"
             }
           },
-          "georgian_verb_form": "იყიდეს"
+          "georgian_verb_form": "ვიყიდე",
+          "person": "1sg",
+          "effective_preverb": ""
+        },
+        {
+          "georgian": "რეგულარულმა მომხმარებელმა იყიდა ყოველდღიური გაზეთი",
+          "georgian_components": {
+            "subject": {
+              "text": "რეგულარულმა მომხმარებელმა",
+              "case": "erg",
+              "role": "subject"
+            },
+            "verb": {
+              "text": "იყიდა",
+              "role": "verb"
+            },
+            "direct_object": {
+              "text": "ყოველდღიური გაზეთი",
+              "case": "nom",
+              "role": "direct_object"
+            }
+          },
+          "english": "The regular customer bought the daily newspaper",
+          "english_components": {
+            "subject": {
+              "text": "The regular customer",
+              "role": "subject",
+              "person": "3sg"
+            },
+            "verb": {
+              "text": "bought",
+              "role": "verb"
+            },
+            "direct_object": {
+              "text": "the daily newspaper",
+              "role": "direct_object"
+            }
+          },
+          "georgian_verb_form": "იყიდა",
+          "person": "3sg",
+          "effective_preverb": ""
+        },
+        {
+          "georgian": "უცხო ტურისტებმა იყიდეს იაფი სუვენირი",
+          "georgian_components": {
+            "subject": {
+              "text": "უცხო ტურისტებმა",
+              "case": "erg",
+              "role": "subject"
+            },
+            "verb": {
+              "text": "იყიდეს",
+              "role": "verb"
+            },
+            "direct_object": {
+              "text": "იაფი სუვენირი",
+              "case": "nom",
+              "role": "direct_object"
+            }
+          },
+          "english": "The foreign tourists bought the cheap souvenir",
+          "english_components": {
+            "subject": {
+              "text": "The foreign tourists",
+              "role": "subject",
+              "person": "3pl"
+            },
+            "verb": {
+              "text": "bought",
+              "role": "verb"
+            },
+            "direct_object": {
+              "text": "the cheap souvenir",
+              "role": "direct_object"
+            }
+          },
+          "georgian_verb_form": "იყიდეს",
+          "person": "3pl",
+          "effective_preverb": ""
         }
       ],
       "optative": [
         {
-          "georgian": "ცხელი პური უნდა ვიყიდო",
-          "english": "<strong data-role=\"subject\" data-person=\"1sg\">I</strong> <strong data-role=\"verb\">should</strong> <strong data-role=\"verb\">buy</strong> <strong data-role=\"direct-object\">the hot bread</strong>",
-          "english_plain": "I should buy the hot bread",
-          "html": "<span data-case=\"nom\" data-role=\"direct-object\">ცხელი პური</span> <span data-role=\"verb\">უნდა ვიყიდო</span>",
-          "case_marking": {
-            "direct_object": {
-              "case": "nom",
-              "word": "პური"
-            }
-          },
-          "georgian_verb_form": "ვიყიდო"
-        },
-        {
-          "georgian": "რეგულარულმა მომხმარებელმა ყოველდღიური გაზეთი უნდა იყიდოს",
-          "english": "<strong data-role=\"subject\">The regular customer</strong> <strong data-role=\"verb\">should</strong> <strong data-role=\"verb\">buy</strong> <strong data-role=\"direct-object\">the daily newspaper</strong>",
-          "english_plain": "The regular customer should buy the daily newspaper",
-          "html": "<span data-case=\"erg\" data-role=\"subject\">რეგულარულმა მომხმარებელმა</span> <span data-case=\"nom\" data-role=\"direct-object\">ყოველდღიური გაზეთი</span> <span data-role=\"verb\">უნდა იყიდოს</span>",
-          "case_marking": {
-            "subject": {
-              "case": "erg",
-              "word": "მომხმარებელმა"
+          "georgian": "უნდა ვიყიდო ცხელი პური",
+          "georgian_components": {
+            "verb": {
+              "text": "უნდა ვიყიდო",
+              "role": "verb"
             },
             "direct_object": {
+              "text": "ცხელი პური",
               "case": "nom",
-              "word": "გაზეთი"
+              "role": "direct_object"
             }
           },
-          "georgian_verb_form": "იყიდოს"
-        },
-        {
-          "georgian": "უცხო ტურისტმა იაფი სუვენირი უნდა იყიდონ",
-          "english": "<strong data-role=\"subject\">The foreign tourist</strong> <strong data-role=\"verb\">should</strong> <strong data-role=\"verb\">buy</strong> <strong data-role=\"direct-object\">the cheap souvenir</strong>",
-          "english_plain": "The foreign tourist should buy the cheap souvenir",
-          "html": "<span data-case=\"erg\" data-role=\"subject\">უცხო ტურისტმა</span> <span data-case=\"nom\" data-role=\"direct-object\">იაფი სუვენირი</span> <span data-role=\"verb\">უნდა იყიდონ</span>",
-          "case_marking": {
+          "english": "I should buy the hot bread",
+          "english_components": {
             "subject": {
-              "case": "erg",
-              "word": "ტურისტმა"
+              "text": "I",
+              "role": "subject",
+              "person": "1sg"
+            },
+            "verb": {
+              "text": "should buy",
+              "role": "verb"
             },
             "direct_object": {
-              "case": "nom",
-              "word": "სუვენირი"
+              "text": "the hot bread",
+              "role": "direct_object"
             }
           },
-          "georgian_verb_form": "იყიდონ"
+          "georgian_verb_form": "ვიყიდო",
+          "person": "1sg",
+          "effective_preverb": ""
+        },
+        {
+          "georgian": "რეგულარულმა მომხმარებელმა უნდა იყიდოს ყოველდღიური გაზეთი",
+          "georgian_components": {
+            "subject": {
+              "text": "რეგულარულმა მომხმარებელმა",
+              "case": "erg",
+              "role": "subject"
+            },
+            "verb": {
+              "text": "უნდა იყიდოს",
+              "role": "verb"
+            },
+            "direct_object": {
+              "text": "ყოველდღიური გაზეთი",
+              "case": "nom",
+              "role": "direct_object"
+            }
+          },
+          "english": "The regular customer should buy the daily newspaper",
+          "english_components": {
+            "subject": {
+              "text": "The regular customer",
+              "role": "subject",
+              "person": "3sg"
+            },
+            "verb": {
+              "text": "should buy",
+              "role": "verb"
+            },
+            "direct_object": {
+              "text": "the daily newspaper",
+              "role": "direct_object"
+            }
+          },
+          "georgian_verb_form": "იყიდოს",
+          "person": "3sg",
+          "effective_preverb": ""
+        },
+        {
+          "georgian": "უცხო ტურისტებმა უნდა იყიდონ იაფი სუვენირი",
+          "georgian_components": {
+            "subject": {
+              "text": "უცხო ტურისტებმა",
+              "case": "erg",
+              "role": "subject"
+            },
+            "verb": {
+              "text": "უნდა იყიდონ",
+              "role": "verb"
+            },
+            "direct_object": {
+              "text": "იაფი სუვენირი",
+              "case": "nom",
+              "role": "direct_object"
+            }
+          },
+          "english": "The foreign tourists should buy the cheap souvenir",
+          "english_components": {
+            "subject": {
+              "text": "The foreign tourists",
+              "role": "subject",
+              "person": "3pl"
+            },
+            "verb": {
+              "text": "should buy",
+              "role": "verb"
+            },
+            "direct_object": {
+              "text": "the cheap souvenir",
+              "role": "direct_object"
+            }
+          },
+          "georgian_verb_form": "იყიდონ",
+          "person": "3pl",
+          "effective_preverb": ""
         }
       ],
       "imperative": [
         {
-          "georgian": "ცივი რძე იყიდე",
-          "english": "<strong data-role=\"verb\">buy</strong> <strong data-role=\"direct-object\">the cold milk</strong>",
-          "english_plain": "buy the cold milk",
-          "html": "<span data-case=\"nom\" data-role=\"direct-object\">ცივი რძე</span> <span data-role=\"verb\">იყიდე</span>",
-          "case_marking": {
+          "georgian": "იყიდე ცივი რძე",
+          "georgian_components": {
+            "verb": {
+              "text": "იყიდე",
+              "role": "verb"
+            },
             "direct_object": {
+              "text": "ცივი რძე",
               "case": "nom",
-              "word": "რძე"
+              "role": "direct_object"
             }
           },
-          "georgian_verb_form": "იყიდე"
+          "english": "You, buy the cold milk",
+          "english_components": {
+            "subject": {
+              "text": "You,",
+              "role": "subject",
+              "person": "2sg"
+            },
+            "verb": {
+              "text": "buy",
+              "role": "verb"
+            },
+            "direct_object": {
+              "text": "the cold milk",
+              "role": "direct_object"
+            }
+          },
+          "georgian_verb_form": "იყიდე",
+          "person": "2sg",
+          "effective_preverb": ""
         },
         {
-          "georgian": "ტკბილი ხილი იყიდეთ",
-          "english": "<strong data-role=\"verb\">buy</strong> <strong data-role=\"direct-object\">the sweet fruit</strong>",
-          "english_plain": "buy the sweet fruit",
-          "html": "<span data-case=\"nom\" data-role=\"direct-object\">ტკბილი ხილი</span> <span data-role=\"verb\">იყიდეთ</span>",
-          "case_marking": {
+          "georgian": "იყიდეთ ტკბილი ხილი",
+          "georgian_components": {
+            "verb": {
+              "text": "იყიდეთ",
+              "role": "verb"
+            },
             "direct_object": {
+              "text": "ტკბილი ხილი",
               "case": "nom",
-              "word": "ხილი"
+              "role": "direct_object"
             }
           },
-          "georgian_verb_form": "იყიდეთ"
+          "english": "You all (you formal), buy the sweet fruit",
+          "english_components": {
+            "subject": {
+              "text": "You all (you formal),",
+              "role": "subject",
+              "person": "2pl"
+            },
+            "verb": {
+              "text": "buy",
+              "role": "verb"
+            },
+            "direct_object": {
+              "text": "the sweet fruit",
+              "role": "direct_object"
+            }
+          },
+          "georgian_verb_form": "იყიდეთ",
+          "person": "2pl",
+          "effective_preverb": ""
         }
       ]
     }

@@ -150,156 +150,341 @@
   "preverb_rules": {
     "default": "",
     "replacements": {},
-    "tense_specific_fallbacks": {},
-    "english_fallbacks": {}
+    "tense_specific_fallbacks": {}
   },
   "examples": {
-    "null": {
+    "default": {
       "present": [
         {
-          "georgian": "დიდი ძაღლი მყავს",
-          "english": "<strong data-role=\"subject\" data-person=\"1sg\">I</strong> <strong data-role=\"verb\">have</strong> <strong data-role=\"direct-object\">the big dog</strong>",
-          "english_plain": "I have the big dog",
-          "html": "<span data-case=\"nom\" data-role=\"direct-object\">დიდი ძაღლი</span> <span data-role=\"verb\">მყავს</span>",
-          "case_marking": {
-            "direct_object": {
-              "case": "nom",
-              "word": "ძაღლი"
-            }
-          },
-          "georgian_verb_form": "მყავს"
-        },
-        {
-          "georgian": "ბედნიერ ოჯახს ახალგაზრდა და ჰყავს",
-          "english": "<strong data-role=\"subject\">The happy family</strong> <strong data-role=\"verb\">haves</strong> <strong data-role=\"direct-object\">the young sister</strong>",
-          "english_plain": "The happy family haves the young sister",
-          "html": "<span data-case=\"dat\" data-role=\"subject\">ბედნიერ ოჯახს</span> <span data-case=\"nom\" data-role=\"direct-object\">ახალგაზრდა და</span> <span data-role=\"verb\">ჰყავს</span>",
-          "case_marking": {
-            "subject": {
-              "case": "dat",
-              "word": "ოჯახს"
+          "georgian": "მყავს დიდი ძაღლი",
+          "georgian_components": {
+            "verb": {
+              "text": "მყავს",
+              "role": "verb"
             },
             "direct_object": {
+              "text": "დიდი ძაღლი",
               "case": "nom",
-              "word": "და"
+              "role": "direct_object"
             }
           },
-          "georgian_verb_form": "ჰყავს"
-        },
-        {
-          "georgian": "მეგობრულ მეზობელს ახლო ბიძაშვილი ჰყავთ",
-          "english": "<strong data-role=\"subject\">The friendly neighbor</strong> <strong data-role=\"verb\">have</strong> <strong data-role=\"direct-object\">the close cousin</strong>",
-          "english_plain": "The friendly neighbor have the close cousin",
-          "html": "<span data-case=\"dat\" data-role=\"subject\">მეგობრულ მეზობელს</span> <span data-case=\"nom\" data-role=\"direct-object\">ახლო ბიძაშვილი</span> <span data-role=\"verb\">ჰყავთ</span>",
-          "case_marking": {
+          "english": "I have the big dog",
+          "english_components": {
             "subject": {
-              "case": "dat",
-              "word": "მეზობელს"
+              "text": "I",
+              "role": "subject",
+              "person": "1sg"
+            },
+            "verb": {
+              "text": "have",
+              "role": "verb"
             },
             "direct_object": {
-              "case": "nom",
-              "word": "ბიძაშვილი"
+              "text": "the big dog",
+              "role": "direct_object"
             }
           },
-          "georgian_verb_form": "ჰყავთ"
+          "georgian_verb_form": "მყავს",
+          "person": "1sg",
+          "effective_preverb": ""
+        },
+        {
+          "georgian": "ბედნიერ ოჯახს ჰყავს ახალგაზრდა და",
+          "georgian_components": {
+            "subject": {
+              "text": "ბედნიერ ოჯახს",
+              "case": "dat",
+              "role": "subject"
+            },
+            "verb": {
+              "text": "ჰყავს",
+              "role": "verb"
+            },
+            "direct_object": {
+              "text": "ახალგაზრდა და",
+              "case": "nom",
+              "role": "direct_object"
+            }
+          },
+          "english": "The happy family haves the young sister",
+          "english_components": {
+            "subject": {
+              "text": "The happy family",
+              "role": "subject",
+              "person": "3sg"
+            },
+            "verb": {
+              "text": "haves",
+              "role": "verb"
+            },
+            "direct_object": {
+              "text": "the young sister",
+              "role": "direct_object"
+            }
+          },
+          "georgian_verb_form": "ჰყავს",
+          "person": "3sg",
+          "effective_preverb": ""
+        },
+        {
+          "georgian": "მეგობრულ მეზობლებს ჰყავთ ახლო ბიძაშვილი",
+          "georgian_components": {
+            "subject": {
+              "text": "მეგობრულ მეზობლებს",
+              "case": "dat",
+              "role": "subject"
+            },
+            "verb": {
+              "text": "ჰყავთ",
+              "role": "verb"
+            },
+            "direct_object": {
+              "text": "ახლო ბიძაშვილი",
+              "case": "nom",
+              "role": "direct_object"
+            }
+          },
+          "english": "The friendly neighbors have the close cousin",
+          "english_components": {
+            "subject": {
+              "text": "The friendly neighbors",
+              "role": "subject",
+              "person": "3pl"
+            },
+            "verb": {
+              "text": "have",
+              "role": "verb"
+            },
+            "direct_object": {
+              "text": "the close cousin",
+              "role": "direct_object"
+            }
+          },
+          "georgian_verb_form": "ჰყავთ",
+          "person": "3pl",
+          "effective_preverb": ""
         }
       ],
       "imperfect": [
         {
-          "georgian": "დიდი ძაღლი მყავდა",
-          "english": "<strong data-role=\"subject\" data-person=\"1sg\">I</strong> <strong data-role=\"verb\">was having</strong> <strong data-role=\"direct-object\">the big dog</strong>",
-          "english_plain": "I was having the big dog",
-          "html": "<span data-case=\"nom\" data-role=\"direct-object\">დიდი ძაღლი</span> <span data-role=\"verb\">მყავდა</span>",
-          "case_marking": {
-            "direct_object": {
-              "case": "nom",
-              "word": "ძაღლი"
-            }
-          },
-          "georgian_verb_form": "მყავდა"
-        },
-        {
-          "georgian": "ბედნიერ ოჯახს ახალგაზრდა და ჰყავდა",
-          "english": "<strong data-role=\"subject\">The happy family</strong> <strong data-role=\"verb\">was having</strong> <strong data-role=\"direct-object\">the young sister</strong>",
-          "english_plain": "The happy family was having the young sister",
-          "html": "<span data-case=\"dat\" data-role=\"subject\">ბედნიერ ოჯახს</span> <span data-case=\"nom\" data-role=\"direct-object\">ახალგაზრდა და</span> <span data-role=\"verb\">ჰყავდა</span>",
-          "case_marking": {
-            "subject": {
-              "case": "dat",
-              "word": "ოჯახს"
+          "georgian": "მყავდა დიდი ძაღლი",
+          "georgian_components": {
+            "verb": {
+              "text": "მყავდა",
+              "role": "verb"
             },
             "direct_object": {
+              "text": "დიდი ძაღლი",
               "case": "nom",
-              "word": "და"
+              "role": "direct_object"
             }
           },
-          "georgian_verb_form": "ჰყავდა"
-        },
-        {
-          "georgian": "მეგობრულ მეზობელს ახლო ბიძაშვილი ჰყავდათ",
-          "english": "<strong data-role=\"subject\">The friendly neighbor</strong> <strong data-role=\"verb\">were having</strong> <strong data-role=\"direct-object\">the close cousin</strong>",
-          "english_plain": "The friendly neighbor were having the close cousin",
-          "html": "<span data-case=\"dat\" data-role=\"subject\">მეგობრულ მეზობელს</span> <span data-case=\"nom\" data-role=\"direct-object\">ახლო ბიძაშვილი</span> <span data-role=\"verb\">ჰყავდათ</span>",
-          "case_marking": {
+          "english": "I was having the big dog",
+          "english_components": {
             "subject": {
-              "case": "dat",
-              "word": "მეზობელს"
+              "text": "I",
+              "role": "subject",
+              "person": "1sg"
+            },
+            "verb": {
+              "text": "was having",
+              "role": "verb"
             },
             "direct_object": {
-              "case": "nom",
-              "word": "ბიძაშვილი"
+              "text": "the big dog",
+              "role": "direct_object"
             }
           },
-          "georgian_verb_form": "ჰყავდათ"
+          "georgian_verb_form": "მყავდა",
+          "person": "1sg",
+          "effective_preverb": ""
+        },
+        {
+          "georgian": "ბედნიერ ოჯახს ჰყავდა ახალგაზრდა და",
+          "georgian_components": {
+            "subject": {
+              "text": "ბედნიერ ოჯახს",
+              "case": "dat",
+              "role": "subject"
+            },
+            "verb": {
+              "text": "ჰყავდა",
+              "role": "verb"
+            },
+            "direct_object": {
+              "text": "ახალგაზრდა და",
+              "case": "nom",
+              "role": "direct_object"
+            }
+          },
+          "english": "The happy family was having the young sister",
+          "english_components": {
+            "subject": {
+              "text": "The happy family",
+              "role": "subject",
+              "person": "3sg"
+            },
+            "verb": {
+              "text": "was having",
+              "role": "verb"
+            },
+            "direct_object": {
+              "text": "the young sister",
+              "role": "direct_object"
+            }
+          },
+          "georgian_verb_form": "ჰყავდა",
+          "person": "3sg",
+          "effective_preverb": ""
+        },
+        {
+          "georgian": "მეგობრულ მეზობლებს ჰყავდათ ახლო ბიძაშვილი",
+          "georgian_components": {
+            "subject": {
+              "text": "მეგობრულ მეზობლებს",
+              "case": "dat",
+              "role": "subject"
+            },
+            "verb": {
+              "text": "ჰყავდათ",
+              "role": "verb"
+            },
+            "direct_object": {
+              "text": "ახლო ბიძაშვილი",
+              "case": "nom",
+              "role": "direct_object"
+            }
+          },
+          "english": "The friendly neighbors were having the close cousin",
+          "english_components": {
+            "subject": {
+              "text": "The friendly neighbors",
+              "role": "subject",
+              "person": "3pl"
+            },
+            "verb": {
+              "text": "were having",
+              "role": "verb"
+            },
+            "direct_object": {
+              "text": "the close cousin",
+              "role": "direct_object"
+            }
+          },
+          "georgian_verb_form": "ჰყავდათ",
+          "person": "3pl",
+          "effective_preverb": ""
         }
       ],
       "future": [
         {
-          "georgian": "დიდი ძაღლი მეყოლება",
-          "english": "<strong data-role=\"subject\" data-person=\"1sg\">I</strong> <strong data-role=\"verb\">will have</strong> <strong data-role=\"direct-object\">the big dog</strong>",
-          "english_plain": "I will have the big dog",
-          "html": "<span data-case=\"nom\" data-role=\"direct-object\">დიდი ძაღლი</span> <span data-role=\"verb\">მეყოლება</span>",
-          "case_marking": {
-            "direct_object": {
-              "case": "nom",
-              "word": "ძაღლი"
-            }
-          },
-          "georgian_verb_form": "მეყოლება"
-        },
-        {
-          "georgian": "ბედნიერ ოჯახს ახალგაზრდა და ეყოლება",
-          "english": "<strong data-role=\"subject\">The happy family</strong> <strong data-role=\"verb\">will have</strong> <strong data-role=\"direct-object\">the young sister</strong>",
-          "english_plain": "The happy family will have the young sister",
-          "html": "<span data-case=\"dat\" data-role=\"subject\">ბედნიერ ოჯახს</span> <span data-case=\"nom\" data-role=\"direct-object\">ახალგაზრდა და</span> <span data-role=\"verb\">ეყოლება</span>",
-          "case_marking": {
-            "subject": {
-              "case": "dat",
-              "word": "ოჯახს"
+          "georgian": "მეყოლება დიდი ძაღლი",
+          "georgian_components": {
+            "verb": {
+              "text": "მეყოლება",
+              "role": "verb"
             },
             "direct_object": {
+              "text": "დიდი ძაღლი",
               "case": "nom",
-              "word": "და"
+              "role": "direct_object"
             }
           },
-          "georgian_verb_form": "ეყოლება"
-        },
-        {
-          "georgian": "მეგობრულ მეზობელს ახლო ბიძაშვილი ეყოლებათ",
-          "english": "<strong data-role=\"subject\">The friendly neighbor</strong> <strong data-role=\"verb\">will have</strong> <strong data-role=\"direct-object\">the close cousin</strong>",
-          "english_plain": "The friendly neighbor will have the close cousin",
-          "html": "<span data-case=\"dat\" data-role=\"subject\">მეგობრულ მეზობელს</span> <span data-case=\"nom\" data-role=\"direct-object\">ახლო ბიძაშვილი</span> <span data-role=\"verb\">ეყოლებათ</span>",
-          "case_marking": {
+          "english": "I will have the big dog",
+          "english_components": {
             "subject": {
-              "case": "dat",
-              "word": "მეზობელს"
+              "text": "I",
+              "role": "subject",
+              "person": "1sg"
+            },
+            "verb": {
+              "text": "will have",
+              "role": "verb"
             },
             "direct_object": {
-              "case": "nom",
-              "word": "ბიძაშვილი"
+              "text": "the big dog",
+              "role": "direct_object"
             }
           },
-          "georgian_verb_form": "ეყოლებათ"
+          "georgian_verb_form": "მეყოლება",
+          "person": "1sg",
+          "effective_preverb": ""
+        },
+        {
+          "georgian": "ბედნიერ ოჯახს ეყოლება ახალგაზრდა და",
+          "georgian_components": {
+            "subject": {
+              "text": "ბედნიერ ოჯახს",
+              "case": "dat",
+              "role": "subject"
+            },
+            "verb": {
+              "text": "ეყოლება",
+              "role": "verb"
+            },
+            "direct_object": {
+              "text": "ახალგაზრდა და",
+              "case": "nom",
+              "role": "direct_object"
+            }
+          },
+          "english": "The happy family will have the young sister",
+          "english_components": {
+            "subject": {
+              "text": "The happy family",
+              "role": "subject",
+              "person": "3sg"
+            },
+            "verb": {
+              "text": "will have",
+              "role": "verb"
+            },
+            "direct_object": {
+              "text": "the young sister",
+              "role": "direct_object"
+            }
+          },
+          "georgian_verb_form": "ეყოლება",
+          "person": "3sg",
+          "effective_preverb": ""
+        },
+        {
+          "georgian": "მეგობრულ მეზობლებს ეყოლებათ ახლო ბიძაშვილი",
+          "georgian_components": {
+            "subject": {
+              "text": "მეგობრულ მეზობლებს",
+              "case": "dat",
+              "role": "subject"
+            },
+            "verb": {
+              "text": "ეყოლებათ",
+              "role": "verb"
+            },
+            "direct_object": {
+              "text": "ახლო ბიძაშვილი",
+              "case": "nom",
+              "role": "direct_object"
+            }
+          },
+          "english": "The friendly neighbors will have the close cousin",
+          "english_components": {
+            "subject": {
+              "text": "The friendly neighbors",
+              "role": "subject",
+              "person": "3pl"
+            },
+            "verb": {
+              "text": "will have",
+              "role": "verb"
+            },
+            "direct_object": {
+              "text": "the close cousin",
+              "role": "direct_object"
+            }
+          },
+          "georgian_verb_form": "ეყოლებათ",
+          "person": "3pl",
+          "effective_preverb": ""
         }
       ],
       "aorist": [],

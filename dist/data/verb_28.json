@@ -133,10 +133,10 @@
       "raw_gloss": "",
       "forms": {
         "1sg": "-",
-        "2sg": "გქონდეს",
+        "2sg": "-",
         "3sg": "-",
         "1pl": "-",
-        "2pl": "გქონდეთ",
+        "2pl": "-",
         "3pl": "-"
       },
       "examples": []
@@ -150,178 +150,346 @@
   "preverb_rules": {
     "default": "",
     "replacements": {},
-    "tense_specific_fallbacks": {},
-    "english_fallbacks": {}
+    "tense_specific_fallbacks": {}
   },
   "examples": {
-    "null": {
+    "default": {
       "present": [
         {
-          "georgian": "წითელი წიგნი მაქვს",
-          "english": "<strong data-role=\"subject\" data-person=\"1sg\">I</strong> <strong data-role=\"verb\">have</strong> <strong data-role=\"direct-object\">the red book</strong>",
-          "english_plain": "I have the red book",
-          "html": "<span data-case=\"nom\" data-role=\"direct-object\">წითელი წიგნი</span> <span data-role=\"verb\">მაქვს</span>",
-          "case_marking": {
-            "direct_object": {
-              "case": "nom",
-              "word": "წიგნი"
-            }
-          },
-          "georgian_verb_form": "მაქვს"
-        },
-        {
-          "georgian": "დიდ ოჯახს ლამაზი ბაღი აქვს",
-          "english": "<strong data-role=\"subject\">The big family</strong> <strong data-role=\"verb\">haves</strong> <strong data-role=\"direct-object\">the beautiful garden</strong>",
-          "english_plain": "The big family haves the beautiful garden",
-          "html": "<span data-case=\"dat\" data-role=\"subject\">დიდ ოჯახს</span> <span data-case=\"nom\" data-role=\"direct-object\">ლამაზი ბაღი</span> <span data-role=\"verb\">აქვს</span>",
-          "case_marking": {
-            "subject": {
-              "case": "dat",
-              "word": "ოჯახს"
+          "georgian": "მაქვს წითელი წიგნი",
+          "georgian_components": {
+            "verb": {
+              "text": "მაქვს",
+              "role": "verb"
             },
             "direct_object": {
+              "text": "წითელი წიგნი",
               "case": "nom",
-              "word": "ბაღი"
+              "role": "direct_object"
             }
           },
-          "georgian_verb_form": "აქვს"
-        },
-        {
-          "georgian": "დაკავებულ მეზობელს დატვირთული გრაფიკი აქვთ",
-          "english": "<strong data-role=\"subject\">The busy neighbor</strong> <strong data-role=\"verb\">have</strong> <strong data-role=\"direct-object\">the full schedule</strong>",
-          "english_plain": "The busy neighbor have the full schedule",
-          "html": "<span data-case=\"dat\" data-role=\"subject\">დაკავებულ მეზობელს</span> <span data-case=\"nom\" data-role=\"direct-object\">დატვირთული გრაფიკი</span> <span data-role=\"verb\">აქვთ</span>",
-          "case_marking": {
+          "english": "I have the red book",
+          "english_components": {
             "subject": {
-              "case": "dat",
-              "word": "მეზობელს"
+              "text": "I",
+              "role": "subject",
+              "person": "1sg"
+            },
+            "verb": {
+              "text": "have",
+              "role": "verb"
             },
             "direct_object": {
-              "case": "nom",
-              "word": "გრაფიკი"
+              "text": "the red book",
+              "role": "direct_object"
             }
           },
-          "georgian_verb_form": "აქვთ"
+          "georgian_verb_form": "მაქვს",
+          "person": "1sg",
+          "effective_preverb": ""
+        },
+        {
+          "georgian": "დიდ ოჯახს აქვს ლამაზი ბაღი",
+          "georgian_components": {
+            "subject": {
+              "text": "დიდ ოჯახს",
+              "case": "dat",
+              "role": "subject"
+            },
+            "verb": {
+              "text": "აქვს",
+              "role": "verb"
+            },
+            "direct_object": {
+              "text": "ლამაზი ბაღი",
+              "case": "nom",
+              "role": "direct_object"
+            }
+          },
+          "english": "The big family haves the beautiful garden",
+          "english_components": {
+            "subject": {
+              "text": "The big family",
+              "role": "subject",
+              "person": "3sg"
+            },
+            "verb": {
+              "text": "haves",
+              "role": "verb"
+            },
+            "direct_object": {
+              "text": "the beautiful garden",
+              "role": "direct_object"
+            }
+          },
+          "georgian_verb_form": "აქვს",
+          "person": "3sg",
+          "effective_preverb": ""
+        },
+        {
+          "georgian": "დაკავებულ მეზობლებს აქვთ დატვირთული გრაფიკი",
+          "georgian_components": {
+            "subject": {
+              "text": "დაკავებულ მეზობლებს",
+              "case": "dat",
+              "role": "subject"
+            },
+            "verb": {
+              "text": "აქვთ",
+              "role": "verb"
+            },
+            "direct_object": {
+              "text": "დატვირთული გრაფიკი",
+              "case": "nom",
+              "role": "direct_object"
+            }
+          },
+          "english": "The busy neighbors have the full schedule",
+          "english_components": {
+            "subject": {
+              "text": "The busy neighbors",
+              "role": "subject",
+              "person": "3pl"
+            },
+            "verb": {
+              "text": "have",
+              "role": "verb"
+            },
+            "direct_object": {
+              "text": "the full schedule",
+              "role": "direct_object"
+            }
+          },
+          "georgian_verb_form": "აქვთ",
+          "person": "3pl",
+          "effective_preverb": ""
         }
       ],
       "imperfect": [
         {
-          "georgian": "წითელი წიგნი მქონდა",
-          "english": "<strong data-role=\"subject\" data-person=\"1sg\">I</strong> <strong data-role=\"verb\">had</strong> <strong data-role=\"direct-object\">the red book</strong>",
-          "english_plain": "I had the red book",
-          "html": "<span data-case=\"nom\" data-role=\"direct-object\">წითელი წიგნი</span> <span data-role=\"verb\">მქონდა</span>",
-          "case_marking": {
-            "direct_object": {
-              "case": "nom",
-              "word": "წიგნი"
-            }
-          },
-          "georgian_verb_form": "მქონდა"
-        },
-        {
-          "georgian": "დიდ ოჯახს ლამაზი ბაღი ჰქონდა",
-          "english": "<strong data-role=\"subject\">The big family</strong> <strong data-role=\"verb\">had</strong> <strong data-role=\"direct-object\">the beautiful garden</strong>",
-          "english_plain": "The big family had the beautiful garden",
-          "html": "<span data-case=\"dat\" data-role=\"subject\">დიდ ოჯახს</span> <span data-case=\"nom\" data-role=\"direct-object\">ლამაზი ბაღი</span> <span data-role=\"verb\">ჰქონდა</span>",
-          "case_marking": {
-            "subject": {
-              "case": "dat",
-              "word": "ოჯახს"
+          "georgian": "მქონდა წითელი წიგნი",
+          "georgian_components": {
+            "verb": {
+              "text": "მქონდა",
+              "role": "verb"
             },
             "direct_object": {
+              "text": "წითელი წიგნი",
               "case": "nom",
-              "word": "ბაღი"
+              "role": "direct_object"
             }
           },
-          "georgian_verb_form": "ჰქონდა"
-        },
-        {
-          "georgian": "დაკავებულ მეზობელს დატვირთული გრაფიკი ჰქონდათ",
-          "english": "<strong data-role=\"subject\">The busy neighbor</strong> <strong data-role=\"verb\">had</strong> <strong data-role=\"direct-object\">the full schedule</strong>",
-          "english_plain": "The busy neighbor had the full schedule",
-          "html": "<span data-case=\"dat\" data-role=\"subject\">დაკავებულ მეზობელს</span> <span data-case=\"nom\" data-role=\"direct-object\">დატვირთული გრაფიკი</span> <span data-role=\"verb\">ჰქონდათ</span>",
-          "case_marking": {
+          "english": "I had the red book",
+          "english_components": {
             "subject": {
-              "case": "dat",
-              "word": "მეზობელს"
+              "text": "I",
+              "role": "subject",
+              "person": "1sg"
+            },
+            "verb": {
+              "text": "had",
+              "role": "verb"
             },
             "direct_object": {
-              "case": "nom",
-              "word": "გრაფიკი"
+              "text": "the red book",
+              "role": "direct_object"
             }
           },
-          "georgian_verb_form": "ჰქონდათ"
+          "georgian_verb_form": "მქონდა",
+          "person": "1sg",
+          "effective_preverb": ""
+        },
+        {
+          "georgian": "დიდ ოჯახს ჰქონდა ლამაზი ბაღი",
+          "georgian_components": {
+            "subject": {
+              "text": "დიდ ოჯახს",
+              "case": "dat",
+              "role": "subject"
+            },
+            "verb": {
+              "text": "ჰქონდა",
+              "role": "verb"
+            },
+            "direct_object": {
+              "text": "ლამაზი ბაღი",
+              "case": "nom",
+              "role": "direct_object"
+            }
+          },
+          "english": "The big family had the beautiful garden",
+          "english_components": {
+            "subject": {
+              "text": "The big family",
+              "role": "subject",
+              "person": "3sg"
+            },
+            "verb": {
+              "text": "had",
+              "role": "verb"
+            },
+            "direct_object": {
+              "text": "the beautiful garden",
+              "role": "direct_object"
+            }
+          },
+          "georgian_verb_form": "ჰქონდა",
+          "person": "3sg",
+          "effective_preverb": ""
+        },
+        {
+          "georgian": "დაკავებულ მეზობლებს ჰქონდათ დატვირთული გრაფიკი",
+          "georgian_components": {
+            "subject": {
+              "text": "დაკავებულ მეზობლებს",
+              "case": "dat",
+              "role": "subject"
+            },
+            "verb": {
+              "text": "ჰქონდათ",
+              "role": "verb"
+            },
+            "direct_object": {
+              "text": "დატვირთული გრაფიკი",
+              "case": "nom",
+              "role": "direct_object"
+            }
+          },
+          "english": "The busy neighbors had the full schedule",
+          "english_components": {
+            "subject": {
+              "text": "The busy neighbors",
+              "role": "subject",
+              "person": "3pl"
+            },
+            "verb": {
+              "text": "had",
+              "role": "verb"
+            },
+            "direct_object": {
+              "text": "the full schedule",
+              "role": "direct_object"
+            }
+          },
+          "georgian_verb_form": "ჰქონდათ",
+          "person": "3pl",
+          "effective_preverb": ""
         }
       ],
       "future": [
         {
-          "georgian": "წითელი წიგნი მექნება",
-          "english": "<strong data-role=\"subject\" data-person=\"1sg\">I</strong> <strong data-role=\"verb\">will have</strong> <strong data-role=\"direct-object\">the red book</strong>",
-          "english_plain": "I will have the red book",
-          "html": "<span data-case=\"nom\" data-role=\"direct-object\">წითელი წიგნი</span> <span data-role=\"verb\">მექნება</span>",
-          "case_marking": {
-            "direct_object": {
-              "case": "nom",
-              "word": "წიგნი"
-            }
-          },
-          "georgian_verb_form": "მექნება"
-        },
-        {
-          "georgian": "დიდ ოჯახს ლამაზი ბაღი ექნება",
-          "english": "<strong data-role=\"subject\">The big family</strong> <strong data-role=\"verb\">will have</strong> <strong data-role=\"direct-object\">the beautiful garden</strong>",
-          "english_plain": "The big family will have the beautiful garden",
-          "html": "<span data-case=\"dat\" data-role=\"subject\">დიდ ოჯახს</span> <span data-case=\"nom\" data-role=\"direct-object\">ლამაზი ბაღი</span> <span data-role=\"verb\">ექნება</span>",
-          "case_marking": {
-            "subject": {
-              "case": "dat",
-              "word": "ოჯახს"
+          "georgian": "მექნება წითელი წიგნი",
+          "georgian_components": {
+            "verb": {
+              "text": "მექნება",
+              "role": "verb"
             },
             "direct_object": {
+              "text": "წითელი წიგნი",
               "case": "nom",
-              "word": "ბაღი"
+              "role": "direct_object"
             }
           },
-          "georgian_verb_form": "ექნება"
-        },
-        {
-          "georgian": "დაკავებულ მეზობელს დატვირთული გრაფიკი ექნებათ",
-          "english": "<strong data-role=\"subject\">The busy neighbor</strong> <strong data-role=\"verb\">will have</strong> <strong data-role=\"direct-object\">the full schedule</strong>",
-          "english_plain": "The busy neighbor will have the full schedule",
-          "html": "<span data-case=\"dat\" data-role=\"subject\">დაკავებულ მეზობელს</span> <span data-case=\"nom\" data-role=\"direct-object\">დატვირთული გრაფიკი</span> <span data-role=\"verb\">ექნებათ</span>",
-          "case_marking": {
+          "english": "I will have the red book",
+          "english_components": {
             "subject": {
-              "case": "dat",
-              "word": "მეზობელს"
+              "text": "I",
+              "role": "subject",
+              "person": "1sg"
+            },
+            "verb": {
+              "text": "will have",
+              "role": "verb"
             },
             "direct_object": {
-              "case": "nom",
-              "word": "გრაფიკი"
+              "text": "the red book",
+              "role": "direct_object"
             }
           },
-          "georgian_verb_form": "ექნებათ"
+          "georgian_verb_form": "მექნება",
+          "person": "1sg",
+          "effective_preverb": ""
+        },
+        {
+          "georgian": "დიდ ოჯახს ექნება ლამაზი ბაღი",
+          "georgian_components": {
+            "subject": {
+              "text": "დიდ ოჯახს",
+              "case": "dat",
+              "role": "subject"
+            },
+            "verb": {
+              "text": "ექნება",
+              "role": "verb"
+            },
+            "direct_object": {
+              "text": "ლამაზი ბაღი",
+              "case": "nom",
+              "role": "direct_object"
+            }
+          },
+          "english": "The big family will have the beautiful garden",
+          "english_components": {
+            "subject": {
+              "text": "The big family",
+              "role": "subject",
+              "person": "3sg"
+            },
+            "verb": {
+              "text": "will have",
+              "role": "verb"
+            },
+            "direct_object": {
+              "text": "the beautiful garden",
+              "role": "direct_object"
+            }
+          },
+          "georgian_verb_form": "ექნება",
+          "person": "3sg",
+          "effective_preverb": ""
+        },
+        {
+          "georgian": "დაკავებულ მეზობლებს ექნებათ დატვირთული გრაფიკი",
+          "georgian_components": {
+            "subject": {
+              "text": "დაკავებულ მეზობლებს",
+              "case": "dat",
+              "role": "subject"
+            },
+            "verb": {
+              "text": "ექნებათ",
+              "role": "verb"
+            },
+            "direct_object": {
+              "text": "დატვირთული გრაფიკი",
+              "case": "nom",
+              "role": "direct_object"
+            }
+          },
+          "english": "The busy neighbors will have the full schedule",
+          "english_components": {
+            "subject": {
+              "text": "The busy neighbors",
+              "role": "subject",
+              "person": "3pl"
+            },
+            "verb": {
+              "text": "will have",
+              "role": "verb"
+            },
+            "direct_object": {
+              "text": "the full schedule",
+              "role": "direct_object"
+            }
+          },
+          "georgian_verb_form": "ექნებათ",
+          "person": "3pl",
+          "effective_preverb": ""
         }
       ],
       "aorist": [],
       "optative": [],
-      "imperative": [
-        {
-          "georgian": "გქონდეს",
-          "english": "<strong data-role=\"verb\">have</strong> <strong data-role=\"direct-object\">the new key</strong>",
-          "english_plain": "have the new key",
-          "html": " <span data-role=\"verb\">გქონდეს</span>",
-          "case_marking": {},
-          "georgian_verb_form": "გქონდეს"
-        },
-        {
-          "georgian": "გქონდეთ",
-          "english": "<strong data-role=\"verb\">have</strong> <strong data-role=\"direct-object\">the detailed map</strong>",
-          "english_plain": "have the detailed map",
-          "html": " <span data-role=\"verb\">გქონდეთ</span>",
-          "case_marking": {},
-          "georgian_verb_form": "გქონდეთ"
-        }
-      ]
+      "imperative": []
     }
   },
   "gloss_analysis": {

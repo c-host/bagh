@@ -152,282 +152,631 @@
   "preverb_rules": {
     "default": "",
     "replacements": {},
-    "tense_specific_fallbacks": {},
-    "english_fallbacks": {}
+    "tense_specific_fallbacks": {}
   },
   "examples": {
-    "null": {
+    "default": {
       "present": [
         {
-          "georgian": "პატარა ბავშვს ვიღვიძებ",
-          "english": "<strong data-role=\"subject\" data-person=\"1sg\">I</strong> <strong data-role=\"verb\">wake</strong> <strong data-role=\"direct-object\">up the small baby</strong>",
-          "english_plain": "I wake up the small baby",
-          "html": "<span data-case=\"dat\" data-role=\"direct-object\">პატარა ბავშვს</span> <span data-role=\"verb\">ვიღვიძებ</span>",
-          "case_marking": {
-            "direct_object": {
-              "case": "dat",
-              "word": "ბავშვს"
-            }
-          },
-          "georgian_verb_form": "ვიღვიძებ"
-        },
-        {
-          "georgian": "აქტიური ბავშვი მძინარე სტუდენტს იღვიძებს",
-          "english": "<strong data-role=\"subject\">The active child</strong> <strong data-role=\"verb\">wakes</strong> <strong data-role=\"direct-object\">up the sleepy student</strong>",
-          "english_plain": "The active child wakes up the sleepy student",
-          "html": "<span data-case=\"nom\" data-role=\"subject\">აქტიური ბავშვი</span> <span data-case=\"dat\" data-role=\"direct-object\">მძინარე სტუდენტს</span> <span data-role=\"verb\">იღვიძებს</span>",
-          "case_marking": {
-            "subject": {
-              "case": "nom",
-              "word": "ბავშვი"
+          "georgian": "ვიღვიძებ პატარა ბავშვს",
+          "georgian_components": {
+            "verb": {
+              "text": "ვიღვიძებ",
+              "role": "verb"
             },
             "direct_object": {
+              "text": "პატარა ბავშვს",
               "case": "dat",
-              "word": "სტუდენტს"
+              "role": "direct_object"
             }
           },
-          "georgian_verb_form": "იღვიძებს"
-        },
-        {
-          "georgian": "მამაცი ბავშვი დაღლილ მშობელს იღვიძებენ",
-          "english": "<strong data-role=\"subject\">The brave child</strong> <strong data-role=\"verb\">wake</strong> <strong data-role=\"direct-object\">up the tired parent</strong>",
-          "english_plain": "The brave child wake up the tired parent",
-          "html": "<span data-case=\"nom\" data-role=\"subject\">მამაცი ბავშვი</span> <span data-case=\"dat\" data-role=\"direct-object\">დაღლილ მშობელს</span> <span data-role=\"verb\">იღვიძებენ</span>",
-          "case_marking": {
+          "english": "I wake up the small baby",
+          "english_components": {
             "subject": {
-              "case": "nom",
-              "word": "ბავშვი"
+              "text": "I",
+              "role": "subject",
+              "person": "1sg"
+            },
+            "verb": {
+              "text": "wake",
+              "role": "verb"
             },
             "direct_object": {
-              "case": "dat",
-              "word": "მშობელს"
+              "text": "up the small baby",
+              "role": "direct_object"
             }
           },
-          "georgian_verb_form": "იღვიძებენ"
+          "georgian_verb_form": "ვიღვიძებ",
+          "person": "1sg",
+          "effective_preverb": "გა"
+        },
+        {
+          "georgian": "აქტიური ბავშვი იღვიძებს მძინარე სტუდენტს",
+          "georgian_components": {
+            "subject": {
+              "text": "აქტიური ბავშვი",
+              "case": "nom",
+              "role": "subject"
+            },
+            "verb": {
+              "text": "იღვიძებს",
+              "role": "verb"
+            },
+            "direct_object": {
+              "text": "მძინარე სტუდენტს",
+              "case": "dat",
+              "role": "direct_object"
+            }
+          },
+          "english": "The active child wakes up the sleepy student",
+          "english_components": {
+            "subject": {
+              "text": "The active child",
+              "role": "subject",
+              "person": "3sg"
+            },
+            "verb": {
+              "text": "wakes",
+              "role": "verb"
+            },
+            "direct_object": {
+              "text": "up the sleepy student",
+              "role": "direct_object"
+            }
+          },
+          "georgian_verb_form": "იღვიძებს",
+          "person": "3sg",
+          "effective_preverb": "გა"
+        },
+        {
+          "georgian": "მამაცი ბავშვები იღვიძებენ დაღლილ მშობელს",
+          "georgian_components": {
+            "subject": {
+              "text": "მამაცი ბავშვები",
+              "case": "nom",
+              "role": "subject"
+            },
+            "verb": {
+              "text": "იღვიძებენ",
+              "role": "verb"
+            },
+            "direct_object": {
+              "text": "დაღლილ მშობელს",
+              "case": "dat",
+              "role": "direct_object"
+            }
+          },
+          "english": "The brave children wake up the tired parent",
+          "english_components": {
+            "subject": {
+              "text": "The brave children",
+              "role": "subject",
+              "person": "3pl"
+            },
+            "verb": {
+              "text": "wake",
+              "role": "verb"
+            },
+            "direct_object": {
+              "text": "up the tired parent",
+              "role": "direct_object"
+            }
+          },
+          "georgian_verb_form": "იღვიძებენ",
+          "person": "3pl",
+          "effective_preverb": "გა"
         }
       ],
       "imperfect": [
         {
-          "georgian": "პატარა ბავშვს ვიღვიძებდი",
-          "english": "<strong data-role=\"subject\" data-person=\"1sg\">I</strong> <strong data-role=\"verb\">was waking</strong> <strong data-role=\"direct-object\">up the small baby</strong>",
-          "english_plain": "I was waking up the small baby",
-          "html": "<span data-case=\"dat\" data-role=\"direct-object\">პატარა ბავშვს</span> <span data-role=\"verb\">ვიღვიძებდი</span>",
-          "case_marking": {
-            "direct_object": {
-              "case": "dat",
-              "word": "ბავშვს"
-            }
-          },
-          "georgian_verb_form": "ვიღვიძებდი"
-        },
-        {
-          "georgian": "აქტიური ბავშვი მძინარე სტუდენტს იღვიძებდა",
-          "english": "<strong data-role=\"subject\">The active child</strong> <strong data-role=\"verb\">was waking</strong> <strong data-role=\"direct-object\">up the sleepy student</strong>",
-          "english_plain": "The active child was waking up the sleepy student",
-          "html": "<span data-case=\"nom\" data-role=\"subject\">აქტიური ბავშვი</span> <span data-case=\"dat\" data-role=\"direct-object\">მძინარე სტუდენტს</span> <span data-role=\"verb\">იღვიძებდა</span>",
-          "case_marking": {
-            "subject": {
-              "case": "nom",
-              "word": "ბავშვი"
+          "georgian": "ვიღვიძებდი პატარა ბავშვს",
+          "georgian_components": {
+            "verb": {
+              "text": "ვიღვიძებდი",
+              "role": "verb"
             },
             "direct_object": {
+              "text": "პატარა ბავშვს",
               "case": "dat",
-              "word": "სტუდენტს"
+              "role": "direct_object"
             }
           },
-          "georgian_verb_form": "იღვიძებდა"
-        },
-        {
-          "georgian": "მამაცი ბავშვი დაღლილ მშობელს იღვიძებდნენ",
-          "english": "<strong data-role=\"subject\">The brave child</strong> <strong data-role=\"verb\">were waking</strong> <strong data-role=\"direct-object\">up the tired parent</strong>",
-          "english_plain": "The brave child were waking up the tired parent",
-          "html": "<span data-case=\"nom\" data-role=\"subject\">მამაცი ბავშვი</span> <span data-case=\"dat\" data-role=\"direct-object\">დაღლილ მშობელს</span> <span data-role=\"verb\">იღვიძებდნენ</span>",
-          "case_marking": {
+          "english": "I was waking up the small baby",
+          "english_components": {
             "subject": {
-              "case": "nom",
-              "word": "ბავშვი"
+              "text": "I",
+              "role": "subject",
+              "person": "1sg"
+            },
+            "verb": {
+              "text": "was waking",
+              "role": "verb"
             },
             "direct_object": {
-              "case": "dat",
-              "word": "მშობელს"
+              "text": "up the small baby",
+              "role": "direct_object"
             }
           },
-          "georgian_verb_form": "იღვიძებდნენ"
+          "georgian_verb_form": "ვიღვიძებდი",
+          "person": "1sg",
+          "effective_preverb": "გა"
+        },
+        {
+          "georgian": "აქტიური ბავშვი იღვიძებდა მძინარე სტუდენტს",
+          "georgian_components": {
+            "subject": {
+              "text": "აქტიური ბავშვი",
+              "case": "nom",
+              "role": "subject"
+            },
+            "verb": {
+              "text": "იღვიძებდა",
+              "role": "verb"
+            },
+            "direct_object": {
+              "text": "მძინარე სტუდენტს",
+              "case": "dat",
+              "role": "direct_object"
+            }
+          },
+          "english": "The active child was waking up the sleepy student",
+          "english_components": {
+            "subject": {
+              "text": "The active child",
+              "role": "subject",
+              "person": "3sg"
+            },
+            "verb": {
+              "text": "was waking",
+              "role": "verb"
+            },
+            "direct_object": {
+              "text": "up the sleepy student",
+              "role": "direct_object"
+            }
+          },
+          "georgian_verb_form": "იღვიძებდა",
+          "person": "3sg",
+          "effective_preverb": "გა"
+        },
+        {
+          "georgian": "მამაცი ბავშვები იღვიძებდნენ დაღლილ მშობელს",
+          "georgian_components": {
+            "subject": {
+              "text": "მამაცი ბავშვები",
+              "case": "nom",
+              "role": "subject"
+            },
+            "verb": {
+              "text": "იღვიძებდნენ",
+              "role": "verb"
+            },
+            "direct_object": {
+              "text": "დაღლილ მშობელს",
+              "case": "dat",
+              "role": "direct_object"
+            }
+          },
+          "english": "The brave children were waking up the tired parent",
+          "english_components": {
+            "subject": {
+              "text": "The brave children",
+              "role": "subject",
+              "person": "3pl"
+            },
+            "verb": {
+              "text": "were waking",
+              "role": "verb"
+            },
+            "direct_object": {
+              "text": "up the tired parent",
+              "role": "direct_object"
+            }
+          },
+          "georgian_verb_form": "იღვიძებდნენ",
+          "person": "3pl",
+          "effective_preverb": "გა"
         }
       ],
       "future": [
         {
-          "georgian": "პატარა ბავშვს გავიღვიძებ",
-          "english": "<strong data-role=\"subject\" data-person=\"1sg\">I</strong> <strong data-role=\"verb\">will wake</strong> <strong data-role=\"direct-object\">up the small baby</strong>",
-          "english_plain": "I will wake up the small baby",
-          "html": "<span data-case=\"dat\" data-role=\"direct-object\">პატარა ბავშვს</span> <span data-role=\"verb\">გავიღვიძებ</span>",
-          "case_marking": {
-            "direct_object": {
-              "case": "dat",
-              "word": "ბავშვს"
-            }
-          },
-          "georgian_verb_form": "გავიღვიძებ"
-        },
-        {
-          "georgian": "აქტიური ბავშვი მძინარე სტუდენტს გაიღვიძებს",
-          "english": "<strong data-role=\"subject\">The active child</strong> <strong data-role=\"verb\">will wake</strong> <strong data-role=\"direct-object\">up the sleepy student</strong>",
-          "english_plain": "The active child will wake up the sleepy student",
-          "html": "<span data-case=\"nom\" data-role=\"subject\">აქტიური ბავშვი</span> <span data-case=\"dat\" data-role=\"direct-object\">მძინარე სტუდენტს</span> <span data-role=\"verb\">გაიღვიძებს</span>",
-          "case_marking": {
-            "subject": {
-              "case": "nom",
-              "word": "ბავშვი"
+          "georgian": "გავიღვიძებ პატარა ბავშვს",
+          "georgian_components": {
+            "verb": {
+              "text": "გავიღვიძებ",
+              "role": "verb"
             },
             "direct_object": {
+              "text": "პატარა ბავშვს",
               "case": "dat",
-              "word": "სტუდენტს"
+              "role": "direct_object"
             }
           },
-          "georgian_verb_form": "გაიღვიძებს"
-        },
-        {
-          "georgian": "მამაცი ბავშვი დაღლილ მშობელს გაიღვიძებენ",
-          "english": "<strong data-role=\"subject\">The brave child</strong> <strong data-role=\"verb\">will wake</strong> <strong data-role=\"direct-object\">up the tired parent</strong>",
-          "english_plain": "The brave child will wake up the tired parent",
-          "html": "<span data-case=\"nom\" data-role=\"subject\">მამაცი ბავშვი</span> <span data-case=\"dat\" data-role=\"direct-object\">დაღლილ მშობელს</span> <span data-role=\"verb\">გაიღვიძებენ</span>",
-          "case_marking": {
+          "english": "I will wake up the small baby",
+          "english_components": {
             "subject": {
-              "case": "nom",
-              "word": "ბავშვი"
+              "text": "I",
+              "role": "subject",
+              "person": "1sg"
+            },
+            "verb": {
+              "text": "will wake",
+              "role": "verb"
             },
             "direct_object": {
-              "case": "dat",
-              "word": "მშობელს"
+              "text": "up the small baby",
+              "role": "direct_object"
             }
           },
-          "georgian_verb_form": "გაიღვიძებენ"
+          "georgian_verb_form": "გავიღვიძებ",
+          "person": "1sg",
+          "effective_preverb": "გა"
+        },
+        {
+          "georgian": "აქტიური ბავშვი გაიღვიძებს მძინარე სტუდენტს",
+          "georgian_components": {
+            "subject": {
+              "text": "აქტიური ბავშვი",
+              "case": "nom",
+              "role": "subject"
+            },
+            "verb": {
+              "text": "გაიღვიძებს",
+              "role": "verb"
+            },
+            "direct_object": {
+              "text": "მძინარე სტუდენტს",
+              "case": "dat",
+              "role": "direct_object"
+            }
+          },
+          "english": "The active child will wake up the sleepy student",
+          "english_components": {
+            "subject": {
+              "text": "The active child",
+              "role": "subject",
+              "person": "3sg"
+            },
+            "verb": {
+              "text": "will wake",
+              "role": "verb"
+            },
+            "direct_object": {
+              "text": "up the sleepy student",
+              "role": "direct_object"
+            }
+          },
+          "georgian_verb_form": "გაიღვიძებს",
+          "person": "3sg",
+          "effective_preverb": "გა"
+        },
+        {
+          "georgian": "მამაცი ბავშვები გაიღვიძებენ დაღლილ მშობელს",
+          "georgian_components": {
+            "subject": {
+              "text": "მამაცი ბავშვები",
+              "case": "nom",
+              "role": "subject"
+            },
+            "verb": {
+              "text": "გაიღვიძებენ",
+              "role": "verb"
+            },
+            "direct_object": {
+              "text": "დაღლილ მშობელს",
+              "case": "dat",
+              "role": "direct_object"
+            }
+          },
+          "english": "The brave children will wake up the tired parent",
+          "english_components": {
+            "subject": {
+              "text": "The brave children",
+              "role": "subject",
+              "person": "3pl"
+            },
+            "verb": {
+              "text": "will wake",
+              "role": "verb"
+            },
+            "direct_object": {
+              "text": "up the tired parent",
+              "role": "direct_object"
+            }
+          },
+          "georgian_verb_form": "გაიღვიძებენ",
+          "person": "3pl",
+          "effective_preverb": "გა"
         }
       ],
       "aorist": [
         {
-          "georgian": "პატარა ბავშვი გავიღვიძე",
-          "english": "<strong data-role=\"subject\" data-person=\"1sg\">I</strong> <strong data-role=\"verb\">woke</strong> <strong data-role=\"direct-object\">up the small baby</strong>",
-          "english_plain": "I woke up the small baby",
-          "html": "<span data-case=\"nom\" data-role=\"direct-object\">პატარა ბავშვი</span> <span data-role=\"verb\">გავიღვიძე</span>",
-          "case_marking": {
-            "direct_object": {
-              "case": "nom",
-              "word": "ბავშვი"
-            }
-          },
-          "georgian_verb_form": "გავიღვიძე"
-        },
-        {
-          "georgian": "აქტიურმა ბავშვმა მძინარე სტუდენტი გაიღვიძა",
-          "english": "<strong data-role=\"subject\">The active child</strong> <strong data-role=\"verb\">woke</strong> <strong data-role=\"direct-object\">up the sleepy student</strong>",
-          "english_plain": "The active child woke up the sleepy student",
-          "html": "<span data-case=\"erg\" data-role=\"subject\">აქტიურმა ბავშვმა</span> <span data-case=\"nom\" data-role=\"direct-object\">მძინარე სტუდენტი</span> <span data-role=\"verb\">გაიღვიძა</span>",
-          "case_marking": {
-            "subject": {
-              "case": "erg",
-              "word": "ბავშვმა"
+          "georgian": "გავიღვიძე პატარა ბავშვი",
+          "georgian_components": {
+            "verb": {
+              "text": "გავიღვიძე",
+              "role": "verb"
             },
             "direct_object": {
+              "text": "პატარა ბავშვი",
               "case": "nom",
-              "word": "სტუდენტი"
+              "role": "direct_object"
             }
           },
-          "georgian_verb_form": "გაიღვიძა"
-        },
-        {
-          "georgian": "მამაცმა ბავშვმა დაღლილი მშობელი გაიღვიძეს",
-          "english": "<strong data-role=\"subject\">The brave child</strong> <strong data-role=\"verb\">woke</strong> <strong data-role=\"direct-object\">up the tired parent</strong>",
-          "english_plain": "The brave child woke up the tired parent",
-          "html": "<span data-case=\"erg\" data-role=\"subject\">მამაცმა ბავშვმა</span> <span data-case=\"nom\" data-role=\"direct-object\">დაღლილი მშობელი</span> <span data-role=\"verb\">გაიღვიძეს</span>",
-          "case_marking": {
+          "english": "I woke up the small baby",
+          "english_components": {
             "subject": {
-              "case": "erg",
-              "word": "ბავშვმა"
+              "text": "I",
+              "role": "subject",
+              "person": "1sg"
+            },
+            "verb": {
+              "text": "woke",
+              "role": "verb"
             },
             "direct_object": {
-              "case": "nom",
-              "word": "მშობელი"
+              "text": "up the small baby",
+              "role": "direct_object"
             }
           },
-          "georgian_verb_form": "გაიღვიძეს"
+          "georgian_verb_form": "გავიღვიძე",
+          "person": "1sg",
+          "effective_preverb": "გა"
+        },
+        {
+          "georgian": "აქტიურმა ბავშვმა გაიღვიძა მძინარე სტუდენტი",
+          "georgian_components": {
+            "subject": {
+              "text": "აქტიურმა ბავშვმა",
+              "case": "erg",
+              "role": "subject"
+            },
+            "verb": {
+              "text": "გაიღვიძა",
+              "role": "verb"
+            },
+            "direct_object": {
+              "text": "მძინარე სტუდენტი",
+              "case": "nom",
+              "role": "direct_object"
+            }
+          },
+          "english": "The active child woke up the sleepy student",
+          "english_components": {
+            "subject": {
+              "text": "The active child",
+              "role": "subject",
+              "person": "3sg"
+            },
+            "verb": {
+              "text": "woke",
+              "role": "verb"
+            },
+            "direct_object": {
+              "text": "up the sleepy student",
+              "role": "direct_object"
+            }
+          },
+          "georgian_verb_form": "გაიღვიძა",
+          "person": "3sg",
+          "effective_preverb": "გა"
+        },
+        {
+          "georgian": "მამაცმა ბავშვებმა გაიღვიძეს დაღლილი მშობელი",
+          "georgian_components": {
+            "subject": {
+              "text": "მამაცმა ბავშვებმა",
+              "case": "erg",
+              "role": "subject"
+            },
+            "verb": {
+              "text": "გაიღვიძეს",
+              "role": "verb"
+            },
+            "direct_object": {
+              "text": "დაღლილი მშობელი",
+              "case": "nom",
+              "role": "direct_object"
+            }
+          },
+          "english": "The brave children woke up the tired parent",
+          "english_components": {
+            "subject": {
+              "text": "The brave children",
+              "role": "subject",
+              "person": "3pl"
+            },
+            "verb": {
+              "text": "woke",
+              "role": "verb"
+            },
+            "direct_object": {
+              "text": "up the tired parent",
+              "role": "direct_object"
+            }
+          },
+          "georgian_verb_form": "გაიღვიძეს",
+          "person": "3pl",
+          "effective_preverb": "გა"
         }
       ],
       "optative": [
         {
-          "georgian": "პატარა ბავშვი უნდა გავიღვიძო",
-          "english": "<strong data-role=\"subject\" data-person=\"1sg\">I</strong> <strong data-role=\"verb\">should</strong> <strong data-role=\"verb\">wake</strong> <strong data-role=\"direct-object\">up the small baby</strong>",
-          "english_plain": "I should wake up the small baby",
-          "html": "<span data-case=\"nom\" data-role=\"direct-object\">პატარა ბავშვი</span> <span data-role=\"verb\">უნდა გავიღვიძო</span>",
-          "case_marking": {
-            "direct_object": {
-              "case": "nom",
-              "word": "ბავშვი"
-            }
-          },
-          "georgian_verb_form": "გავიღვიძო"
-        },
-        {
-          "georgian": "აქტიურმა ბავშვმა მძინარე სტუდენტი უნდა გაიღვიძოს",
-          "english": "<strong data-role=\"subject\">The active child</strong> <strong data-role=\"verb\">should</strong> <strong data-role=\"verb\">wake</strong> <strong data-role=\"direct-object\">up the sleepy student</strong>",
-          "english_plain": "The active child should wake up the sleepy student",
-          "html": "<span data-case=\"erg\" data-role=\"subject\">აქტიურმა ბავშვმა</span> <span data-case=\"nom\" data-role=\"direct-object\">მძინარე სტუდენტი</span> <span data-role=\"verb\">უნდა გაიღვიძოს</span>",
-          "case_marking": {
-            "subject": {
-              "case": "erg",
-              "word": "ბავშვმა"
+          "georgian": "უნდა გავიღვიძო პატარა ბავშვი",
+          "georgian_components": {
+            "verb": {
+              "text": "უნდა გავიღვიძო",
+              "role": "verb"
             },
             "direct_object": {
+              "text": "პატარა ბავშვი",
               "case": "nom",
-              "word": "სტუდენტი"
+              "role": "direct_object"
             }
           },
-          "georgian_verb_form": "გაიღვიძოს"
-        },
-        {
-          "georgian": "მამაცმა ბავშვმა დაღლილი მშობელი უნდა გაიღვიძონ",
-          "english": "<strong data-role=\"subject\">The brave child</strong> <strong data-role=\"verb\">should</strong> <strong data-role=\"verb\">wake</strong> <strong data-role=\"direct-object\">up the tired parent</strong>",
-          "english_plain": "The brave child should wake up the tired parent",
-          "html": "<span data-case=\"erg\" data-role=\"subject\">მამაცმა ბავშვმა</span> <span data-case=\"nom\" data-role=\"direct-object\">დაღლილი მშობელი</span> <span data-role=\"verb\">უნდა გაიღვიძონ</span>",
-          "case_marking": {
+          "english": "I should wake up the small baby",
+          "english_components": {
             "subject": {
-              "case": "erg",
-              "word": "ბავშვმა"
+              "text": "I",
+              "role": "subject",
+              "person": "1sg"
+            },
+            "verb": {
+              "text": "should wake",
+              "role": "verb"
             },
             "direct_object": {
-              "case": "nom",
-              "word": "მშობელი"
+              "text": "up the small baby",
+              "role": "direct_object"
             }
           },
-          "georgian_verb_form": "გაიღვიძონ"
+          "georgian_verb_form": "გავიღვიძო",
+          "person": "1sg",
+          "effective_preverb": "გა"
+        },
+        {
+          "georgian": "აქტიურმა ბავშვმა უნდა გაიღვიძოს მძინარე სტუდენტი",
+          "georgian_components": {
+            "subject": {
+              "text": "აქტიურმა ბავშვმა",
+              "case": "erg",
+              "role": "subject"
+            },
+            "verb": {
+              "text": "უნდა გაიღვიძოს",
+              "role": "verb"
+            },
+            "direct_object": {
+              "text": "მძინარე სტუდენტი",
+              "case": "nom",
+              "role": "direct_object"
+            }
+          },
+          "english": "The active child should wake up the sleepy student",
+          "english_components": {
+            "subject": {
+              "text": "The active child",
+              "role": "subject",
+              "person": "3sg"
+            },
+            "verb": {
+              "text": "should wake",
+              "role": "verb"
+            },
+            "direct_object": {
+              "text": "up the sleepy student",
+              "role": "direct_object"
+            }
+          },
+          "georgian_verb_form": "გაიღვიძოს",
+          "person": "3sg",
+          "effective_preverb": "გა"
+        },
+        {
+          "georgian": "მამაცმა ბავშვებმა უნდა გაიღვიძონ დაღლილი მშობელი",
+          "georgian_components": {
+            "subject": {
+              "text": "მამაცმა ბავშვებმა",
+              "case": "erg",
+              "role": "subject"
+            },
+            "verb": {
+              "text": "უნდა გაიღვიძონ",
+              "role": "verb"
+            },
+            "direct_object": {
+              "text": "დაღლილი მშობელი",
+              "case": "nom",
+              "role": "direct_object"
+            }
+          },
+          "english": "The brave children should wake up the tired parent",
+          "english_components": {
+            "subject": {
+              "text": "The brave children",
+              "role": "subject",
+              "person": "3pl"
+            },
+            "verb": {
+              "text": "should wake",
+              "role": "verb"
+            },
+            "direct_object": {
+              "text": "up the tired parent",
+              "role": "direct_object"
+            }
+          },
+          "georgian_verb_form": "გაიღვიძონ",
+          "person": "3pl",
+          "effective_preverb": "გა"
         }
       ],
       "imperative": [
         {
-          "georgian": "ახალგაზრდა ბავშვი გაიღვიძე",
-          "english": "<strong data-role=\"verb\">wake</strong> <strong data-role=\"direct-object\">up the young child</strong>",
-          "english_plain": "wake up the young child",
-          "html": "<span data-case=\"nom\" data-role=\"direct-object\">ახალგაზრდა ბავშვი</span> <span data-role=\"verb\">გაიღვიძე</span>",
-          "case_marking": {
+          "georgian": "გაიღვიძე ახალგაზრდა ბავშვი",
+          "georgian_components": {
+            "verb": {
+              "text": "გაიღვიძე",
+              "role": "verb"
+            },
             "direct_object": {
+              "text": "ახალგაზრდა ბავშვი",
               "case": "nom",
-              "word": "ბავშვი"
+              "role": "direct_object"
             }
           },
-          "georgian_verb_form": "გაიღვიძე"
+          "english": "You, wake up the young child",
+          "english_components": {
+            "subject": {
+              "text": "You,",
+              "role": "subject",
+              "person": "2sg"
+            },
+            "verb": {
+              "text": "wake",
+              "role": "verb"
+            },
+            "direct_object": {
+              "text": "up the young child",
+              "role": "direct_object"
+            }
+          },
+          "georgian_verb_form": "გაიღვიძე",
+          "person": "2sg",
+          "effective_preverb": "გა"
         },
         {
-          "georgian": "ახალი სტუმარი გაიღვიძეთ",
-          "english": "<strong data-role=\"verb\">wake</strong> <strong data-role=\"direct-object\">up the new guest</strong>",
-          "english_plain": "wake up the new guest",
-          "html": "<span data-case=\"nom\" data-role=\"direct-object\">ახალი სტუმარი</span> <span data-role=\"verb\">გაიღვიძეთ</span>",
-          "case_marking": {
+          "georgian": "გაიღვიძეთ ახალი სტუმარი",
+          "georgian_components": {
+            "verb": {
+              "text": "გაიღვიძეთ",
+              "role": "verb"
+            },
             "direct_object": {
+              "text": "ახალი სტუმარი",
               "case": "nom",
-              "word": "სტუმარი"
+              "role": "direct_object"
             }
           },
-          "georgian_verb_form": "გაიღვიძეთ"
+          "english": "You all (you formal), wake up the new guest",
+          "english_components": {
+            "subject": {
+              "text": "You all (you formal),",
+              "role": "subject",
+              "person": "2pl"
+            },
+            "verb": {
+              "text": "wake",
+              "role": "verb"
+            },
+            "direct_object": {
+              "text": "up the new guest",
+              "role": "direct_object"
+            }
+          },
+          "georgian_verb_form": "გაიღვიძეთ",
+          "person": "2pl",
+          "effective_preverb": "გა"
         }
       ]
     }

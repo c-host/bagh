@@ -126,207 +126,478 @@
   "preverb_rules": {
     "default": "",
     "replacements": {},
-    "tense_specific_fallbacks": {},
-    "english_fallbacks": {}
+    "tense_specific_fallbacks": {}
   },
   "examples": {
-    "null": {
+    "default": {
       "present": [
         {
           "georgian": "დავრბივარ",
-          "english": "<strong data-role=\"subject\" data-person=\"1sg\">I</strong> <strong data-role=\"verb\">run</strong>",
-          "english_plain": "I run",
-          "html": " <span data-role=\"verb\">დავრბივარ</span>",
-          "case_marking": {},
-          "georgian_verb_form": "დავრბივარ"
+          "georgian_components": {
+            "verb": {
+              "text": "დავრბივარ",
+              "role": "verb"
+            }
+          },
+          "english": "I run",
+          "english_components": {
+            "subject": {
+              "text": "I",
+              "role": "subject",
+              "person": "1sg"
+            },
+            "verb": {
+              "text": "run",
+              "role": "verb"
+            }
+          },
+          "georgian_verb_form": "დავრბივარ",
+          "person": "1sg",
+          "effective_preverb": "და"
         },
         {
           "georgian": "სწრაფი სპორტსმენი დარბის",
-          "english": "<strong data-role=\"subject\">The fast athlete</strong> <strong data-role=\"verb\">runs</strong>",
-          "english_plain": "The fast athlete runs",
-          "html": "<span data-case=\"nom\" data-role=\"subject\">სწრაფი სპორტსმენი</span> <span data-role=\"verb\">დარბის</span>",
-          "case_marking": {
+          "georgian_components": {
             "subject": {
+              "text": "სწრაფი სპორტსმენი",
               "case": "nom",
-              "word": "სპორტსმენი"
+              "role": "subject"
+            },
+            "verb": {
+              "text": "დარბის",
+              "role": "verb"
             }
           },
-          "georgian_verb_form": "დარბის"
+          "english": "The fast athlete runs",
+          "english_components": {
+            "subject": {
+              "text": "The fast athlete",
+              "role": "subject",
+              "person": "3sg"
+            },
+            "verb": {
+              "text": "runs",
+              "role": "verb"
+            }
+          },
+          "georgian_verb_form": "დარბის",
+          "person": "3sg",
+          "effective_preverb": "და"
         },
         {
-          "georgian": "ახალგაზრდა ბიჭი დარბიან",
-          "english": "<strong data-role=\"subject\">The young boy</strong> <strong data-role=\"verb\">run</strong>",
-          "english_plain": "The young boy run",
-          "html": "<span data-case=\"nom\" data-role=\"subject\">ახალგაზრდა ბიჭი</span> <span data-role=\"verb\">დარბიან</span>",
-          "case_marking": {
+          "georgian": "ახალგაზრდა ბიჭები დარბიან",
+          "georgian_components": {
             "subject": {
+              "text": "ახალგაზრდა ბიჭები",
               "case": "nom",
-              "word": "ბიჭი"
+              "role": "subject"
+            },
+            "verb": {
+              "text": "დარბიან",
+              "role": "verb"
             }
           },
-          "georgian_verb_form": "დარბიან"
+          "english": "The young boys run",
+          "english_components": {
+            "subject": {
+              "text": "The young boys",
+              "role": "subject",
+              "person": "3pl"
+            },
+            "verb": {
+              "text": "run",
+              "role": "verb"
+            }
+          },
+          "georgian_verb_form": "დარბიან",
+          "person": "3pl",
+          "effective_preverb": "და"
         }
       ],
       "imperfect": [
         {
           "georgian": "დავრბოდი",
-          "english": "<strong data-role=\"subject\" data-person=\"1sg\">I</strong> <strong data-role=\"verb\">was running</strong>",
-          "english_plain": "I was running",
-          "html": " <span data-role=\"verb\">დავრბოდი</span>",
-          "case_marking": {},
-          "georgian_verb_form": "დავრბოდი"
+          "georgian_components": {
+            "verb": {
+              "text": "დავრბოდი",
+              "role": "verb"
+            }
+          },
+          "english": "I was running",
+          "english_components": {
+            "subject": {
+              "text": "I",
+              "role": "subject",
+              "person": "1sg"
+            },
+            "verb": {
+              "text": "was running",
+              "role": "verb"
+            }
+          },
+          "georgian_verb_form": "დავრბოდი",
+          "person": "1sg",
+          "effective_preverb": "და"
         },
         {
           "georgian": "სწრაფი სპორტსმენი დარბოდა",
-          "english": "<strong data-role=\"subject\">The fast athlete</strong> <strong data-role=\"verb\">was running</strong>",
-          "english_plain": "The fast athlete was running",
-          "html": "<span data-case=\"nom\" data-role=\"subject\">სწრაფი სპორტსმენი</span> <span data-role=\"verb\">დარბოდა</span>",
-          "case_marking": {
+          "georgian_components": {
             "subject": {
+              "text": "სწრაფი სპორტსმენი",
               "case": "nom",
-              "word": "სპორტსმენი"
+              "role": "subject"
+            },
+            "verb": {
+              "text": "დარბოდა",
+              "role": "verb"
             }
           },
-          "georgian_verb_form": "დარბოდა"
+          "english": "The fast athlete was running",
+          "english_components": {
+            "subject": {
+              "text": "The fast athlete",
+              "role": "subject",
+              "person": "3sg"
+            },
+            "verb": {
+              "text": "was running",
+              "role": "verb"
+            }
+          },
+          "georgian_verb_form": "დარბოდა",
+          "person": "3sg",
+          "effective_preverb": "და"
         },
         {
-          "georgian": "ახალგაზრდა ბიჭი დარბოდნენ",
-          "english": "<strong data-role=\"subject\">The young boy</strong> <strong data-role=\"verb\">were running</strong>",
-          "english_plain": "The young boy were running",
-          "html": "<span data-case=\"nom\" data-role=\"subject\">ახალგაზრდა ბიჭი</span> <span data-role=\"verb\">დარბოდნენ</span>",
-          "case_marking": {
+          "georgian": "ახალგაზრდა ბიჭები დარბოდნენ",
+          "georgian_components": {
             "subject": {
+              "text": "ახალგაზრდა ბიჭები",
               "case": "nom",
-              "word": "ბიჭი"
+              "role": "subject"
+            },
+            "verb": {
+              "text": "დარბოდნენ",
+              "role": "verb"
             }
           },
-          "georgian_verb_form": "დარბოდნენ"
+          "english": "The young boys were running",
+          "english_components": {
+            "subject": {
+              "text": "The young boys",
+              "role": "subject",
+              "person": "3pl"
+            },
+            "verb": {
+              "text": "were running",
+              "role": "verb"
+            }
+          },
+          "georgian_verb_form": "დარბოდნენ",
+          "person": "3pl",
+          "effective_preverb": "და"
         }
       ],
       "future": [
         {
           "georgian": "ვირბენ",
-          "english": "<strong data-role=\"subject\" data-person=\"1sg\">I</strong> <strong data-role=\"verb\">will run</strong>",
-          "english_plain": "I will run",
-          "html": " <span data-role=\"verb\">ვირბენ</span>",
-          "case_marking": {},
-          "georgian_verb_form": "ვირბენ"
+          "georgian_components": {
+            "verb": {
+              "text": "ვირბენ",
+              "role": "verb"
+            }
+          },
+          "english": "I will run",
+          "english_components": {
+            "subject": {
+              "text": "I",
+              "role": "subject",
+              "person": "1sg"
+            },
+            "verb": {
+              "text": "will run",
+              "role": "verb"
+            }
+          },
+          "georgian_verb_form": "ვირბენ",
+          "person": "1sg",
+          "effective_preverb": "და"
         },
         {
           "georgian": "სწრაფი სპორტსმენი ირბენს",
-          "english": "<strong data-role=\"subject\">The fast athlete</strong> <strong data-role=\"verb\">will run</strong>",
-          "english_plain": "The fast athlete will run",
-          "html": "<span data-case=\"nom\" data-role=\"subject\">სწრაფი სპორტსმენი</span> <span data-role=\"verb\">ირბენს</span>",
-          "case_marking": {
+          "georgian_components": {
             "subject": {
+              "text": "სწრაფი სპორტსმენი",
               "case": "nom",
-              "word": "სპორტსმენი"
+              "role": "subject"
+            },
+            "verb": {
+              "text": "ირბენს",
+              "role": "verb"
             }
           },
-          "georgian_verb_form": "ირბენს"
+          "english": "The fast athlete will run",
+          "english_components": {
+            "subject": {
+              "text": "The fast athlete",
+              "role": "subject",
+              "person": "3sg"
+            },
+            "verb": {
+              "text": "will run",
+              "role": "verb"
+            }
+          },
+          "georgian_verb_form": "ირბენს",
+          "person": "3sg",
+          "effective_preverb": "და"
         },
         {
-          "georgian": "ახალგაზრდა ბიჭი ირბენენ",
-          "english": "<strong data-role=\"subject\">The young boy</strong> <strong data-role=\"verb\">will run</strong>",
-          "english_plain": "The young boy will run",
-          "html": "<span data-case=\"nom\" data-role=\"subject\">ახალგაზრდა ბიჭი</span> <span data-role=\"verb\">ირბენენ</span>",
-          "case_marking": {
+          "georgian": "ახალგაზრდა ბიჭები ირბენენ",
+          "georgian_components": {
             "subject": {
+              "text": "ახალგაზრდა ბიჭები",
               "case": "nom",
-              "word": "ბიჭი"
+              "role": "subject"
+            },
+            "verb": {
+              "text": "ირბენენ",
+              "role": "verb"
             }
           },
-          "georgian_verb_form": "ირბენენ"
+          "english": "The young boys will run",
+          "english_components": {
+            "subject": {
+              "text": "The young boys",
+              "role": "subject",
+              "person": "3pl"
+            },
+            "verb": {
+              "text": "will run",
+              "role": "verb"
+            }
+          },
+          "georgian_verb_form": "ირბენენ",
+          "person": "3pl",
+          "effective_preverb": "და"
         }
       ],
       "aorist": [
         {
           "georgian": "ვირბინე",
-          "english": "<strong data-role=\"subject\" data-person=\"1sg\">I</strong> <strong data-role=\"verb\">ran</strong>",
-          "english_plain": "I ran",
-          "html": " <span data-role=\"verb\">ვირბინე</span>",
-          "case_marking": {},
-          "georgian_verb_form": "ვირბინე"
+          "georgian_components": {
+            "verb": {
+              "text": "ვირბინე",
+              "role": "verb"
+            }
+          },
+          "english": "I ran",
+          "english_components": {
+            "subject": {
+              "text": "I",
+              "role": "subject",
+              "person": "1sg"
+            },
+            "verb": {
+              "text": "ran",
+              "role": "verb"
+            }
+          },
+          "georgian_verb_form": "ვირბინე",
+          "person": "1sg",
+          "effective_preverb": "და"
         },
         {
           "georgian": "სწრაფმა სპორტსმენმა ირბინა",
-          "english": "<strong data-role=\"subject\">The fast athlete</strong> <strong data-role=\"verb\">ran</strong>",
-          "english_plain": "The fast athlete ran",
-          "html": "<span data-case=\"erg\" data-role=\"subject\">სწრაფმა სპორტსმენმა</span> <span data-role=\"verb\">ირბინა</span>",
-          "case_marking": {
+          "georgian_components": {
             "subject": {
+              "text": "სწრაფმა სპორტსმენმა",
               "case": "erg",
-              "word": "სპორტსმენმა"
+              "role": "subject"
+            },
+            "verb": {
+              "text": "ირბინა",
+              "role": "verb"
             }
           },
-          "georgian_verb_form": "ირბინა"
+          "english": "The fast athlete ran",
+          "english_components": {
+            "subject": {
+              "text": "The fast athlete",
+              "role": "subject",
+              "person": "3sg"
+            },
+            "verb": {
+              "text": "ran",
+              "role": "verb"
+            }
+          },
+          "georgian_verb_form": "ირბინა",
+          "person": "3sg",
+          "effective_preverb": "და"
         },
         {
-          "georgian": "ახალგაზრდა ბიჭმა ირბინეს",
-          "english": "<strong data-role=\"subject\">The young boy</strong> <strong data-role=\"verb\">ran</strong>",
-          "english_plain": "The young boy ran",
-          "html": "<span data-case=\"erg\" data-role=\"subject\">ახალგაზრდა ბიჭმა</span> <span data-role=\"verb\">ირბინეს</span>",
-          "case_marking": {
+          "georgian": "ახალგაზრდა ბიჭებმა ირბინეს",
+          "georgian_components": {
             "subject": {
+              "text": "ახალგაზრდა ბიჭებმა",
               "case": "erg",
-              "word": "ბიჭმა"
+              "role": "subject"
+            },
+            "verb": {
+              "text": "ირბინეს",
+              "role": "verb"
             }
           },
-          "georgian_verb_form": "ირბინეს"
+          "english": "The young boys ran",
+          "english_components": {
+            "subject": {
+              "text": "The young boys",
+              "role": "subject",
+              "person": "3pl"
+            },
+            "verb": {
+              "text": "ran",
+              "role": "verb"
+            }
+          },
+          "georgian_verb_form": "ირბინეს",
+          "person": "3pl",
+          "effective_preverb": "და"
         }
       ],
       "optative": [
         {
           "georgian": "უნდა ვირბინო",
-          "english": "<strong data-role=\"subject\" data-person=\"1sg\">I</strong> <strong data-role=\"verb\">should</strong> <strong data-role=\"verb\">run</strong>",
-          "english_plain": "I should run",
-          "html": " <span data-role=\"verb\">უნდა ვირბინო</span>",
-          "case_marking": {},
-          "georgian_verb_form": "ვირბინო"
+          "georgian_components": {
+            "verb": {
+              "text": "უნდა ვირბინო",
+              "role": "verb"
+            }
+          },
+          "english": "I should run",
+          "english_components": {
+            "subject": {
+              "text": "I",
+              "role": "subject",
+              "person": "1sg"
+            },
+            "verb": {
+              "text": "should run",
+              "role": "verb"
+            }
+          },
+          "georgian_verb_form": "ვირბინო",
+          "person": "1sg",
+          "effective_preverb": "და"
         },
         {
           "georgian": "სწრაფმა სპორტსმენმა უნდა ირბინოს",
-          "english": "<strong data-role=\"subject\">The fast athlete</strong> <strong data-role=\"verb\">should</strong> <strong data-role=\"verb\">run</strong>",
-          "english_plain": "The fast athlete should run",
-          "html": "<span data-case=\"erg\" data-role=\"subject\">სწრაფმა სპორტსმენმა</span> <span data-role=\"verb\">უნდა ირბინოს</span>",
-          "case_marking": {
+          "georgian_components": {
             "subject": {
+              "text": "სწრაფმა სპორტსმენმა",
               "case": "erg",
-              "word": "სპორტსმენმა"
+              "role": "subject"
+            },
+            "verb": {
+              "text": "უნდა ირბინოს",
+              "role": "verb"
             }
           },
-          "georgian_verb_form": "ირბინოს"
+          "english": "The fast athlete should run",
+          "english_components": {
+            "subject": {
+              "text": "The fast athlete",
+              "role": "subject",
+              "person": "3sg"
+            },
+            "verb": {
+              "text": "should run",
+              "role": "verb"
+            }
+          },
+          "georgian_verb_form": "ირბინოს",
+          "person": "3sg",
+          "effective_preverb": "და"
         },
         {
-          "georgian": "ახალგაზრდა ბიჭმა უნდა ირბინონ",
-          "english": "<strong data-role=\"subject\">The young boy</strong> <strong data-role=\"verb\">should</strong> <strong data-role=\"verb\">run</strong>",
-          "english_plain": "The young boy should run",
-          "html": "<span data-case=\"erg\" data-role=\"subject\">ახალგაზრდა ბიჭმა</span> <span data-role=\"verb\">უნდა ირბინონ</span>",
-          "case_marking": {
+          "georgian": "ახალგაზრდა ბიჭებმა უნდა ირბინონ",
+          "georgian_components": {
             "subject": {
+              "text": "ახალგაზრდა ბიჭებმა",
               "case": "erg",
-              "word": "ბიჭმა"
+              "role": "subject"
+            },
+            "verb": {
+              "text": "უნდა ირბინონ",
+              "role": "verb"
             }
           },
-          "georgian_verb_form": "ირბინონ"
+          "english": "The young boys should run",
+          "english_components": {
+            "subject": {
+              "text": "The young boys",
+              "role": "subject",
+              "person": "3pl"
+            },
+            "verb": {
+              "text": "should run",
+              "role": "verb"
+            }
+          },
+          "georgian_verb_form": "ირბინონ",
+          "person": "3pl",
+          "effective_preverb": "და"
         }
       ],
       "imperative": [
         {
           "georgian": "ირბინე",
-          "english": "<strong data-role=\"verb\">run</strong>",
-          "english_plain": "run",
-          "html": " <span data-role=\"verb\">ირბინე</span>",
-          "case_marking": {},
-          "georgian_verb_form": "ირბინე"
+          "georgian_components": {
+            "verb": {
+              "text": "ირბინე",
+              "role": "verb"
+            }
+          },
+          "english": "You, run",
+          "english_components": {
+            "subject": {
+              "text": "You,",
+              "role": "subject",
+              "person": "2sg"
+            },
+            "verb": {
+              "text": "run",
+              "role": "verb"
+            }
+          },
+          "georgian_verb_form": "ირბინე",
+          "person": "2sg",
+          "effective_preverb": "და"
         },
         {
           "georgian": "ირბინეთ",
-          "english": "<strong data-role=\"verb\">run</strong>",
-          "english_plain": "run",
-          "html": " <span data-role=\"verb\">ირბინეთ</span>",
-          "case_marking": {},
-          "georgian_verb_form": "ირბინეთ"
+          "georgian_components": {
+            "verb": {
+              "text": "ირბინეთ",
+              "role": "verb"
+            }
+          },
+          "english": "You all (you formal), run",
+          "english_components": {
+            "subject": {
+              "text": "You all (you formal),",
+              "role": "subject",
+              "person": "2pl"
+            },
+            "verb": {
+              "text": "run",
+              "role": "verb"
+            }
+          },
+          "georgian_verb_form": "ირბინეთ",
+          "person": "2pl",
+          "effective_preverb": "და"
         }
       ]
     }

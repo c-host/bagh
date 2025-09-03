@@ -152,282 +152,631 @@
   "preverb_rules": {
     "default": "",
     "replacements": {},
-    "tense_specific_fallbacks": {},
-    "english_fallbacks": {}
+    "tense_specific_fallbacks": {}
   },
   "examples": {
-    "null": {
+    "default": {
       "present": [
         {
-          "georgian": "ავადმყოფ პაციენტს ვამოწმებ",
-          "english": "<strong data-role=\"subject\" data-person=\"1sg\">I</strong> <strong data-role=\"verb\">check</strong> <strong data-role=\"direct-object\">the sick patient</strong>",
-          "english_plain": "I check the sick patient",
-          "html": "<span data-case=\"dat\" data-role=\"direct-object\">ავადმყოფ პაციენტს</span> <span data-role=\"verb\">ვამოწმებ</span>",
-          "case_marking": {
-            "direct_object": {
-              "case": "dat",
-              "word": "პაციენტს"
-            }
-          },
-          "georgian_verb_form": "ვამოწმებ"
-        },
-        {
-          "georgian": "ფრთხილი ექთანი მნიშვნელოვან დოკუმენტს ამოწმებს",
-          "english": "<strong data-role=\"subject\">The careful nurse</strong> <strong data-role=\"verb\">checks</strong> <strong data-role=\"direct-object\">the important document</strong>",
-          "english_plain": "The careful nurse checks the important document",
-          "html": "<span data-case=\"nom\" data-role=\"subject\">ფრთხილი ექთანი</span> <span data-case=\"dat\" data-role=\"direct-object\">მნიშვნელოვან დოკუმენტს</span> <span data-role=\"verb\">ამოწმებს</span>",
-          "case_marking": {
-            "subject": {
-              "case": "nom",
-              "word": "ექთანი"
+          "georgian": "ვამოწმებ ავადმყოფ პაციენტს",
+          "georgian_components": {
+            "verb": {
+              "text": "ვამოწმებ",
+              "role": "verb"
             },
             "direct_object": {
+              "text": "ავადმყოფ პაციენტს",
               "case": "dat",
-              "word": "დოკუმენტს"
+              "role": "direct_object"
             }
           },
-          "georgian_verb_form": "ამოწმებს"
-        },
-        {
-          "georgian": "გამოცდილი ზედამხედველი დატვირთულ გრაფიკს ამოწმებენ",
-          "english": "<strong data-role=\"subject\">The experienced supervisor</strong> <strong data-role=\"verb\">check</strong> <strong data-role=\"direct-object\">the full schedule</strong>",
-          "english_plain": "The experienced supervisor check the full schedule",
-          "html": "<span data-case=\"nom\" data-role=\"subject\">გამოცდილი ზედამხედველი</span> <span data-case=\"dat\" data-role=\"direct-object\">დატვირთულ გრაფიკს</span> <span data-role=\"verb\">ამოწმებენ</span>",
-          "case_marking": {
+          "english": "I check the sick patient",
+          "english_components": {
             "subject": {
-              "case": "nom",
-              "word": "ზედამხედველი"
+              "text": "I",
+              "role": "subject",
+              "person": "1sg"
+            },
+            "verb": {
+              "text": "check",
+              "role": "verb"
             },
             "direct_object": {
-              "case": "dat",
-              "word": "გრაფიკს"
+              "text": "the sick patient",
+              "role": "direct_object"
             }
           },
-          "georgian_verb_form": "ამოწმებენ"
+          "georgian_verb_form": "ვამოწმებ",
+          "person": "1sg",
+          "effective_preverb": "შე"
+        },
+        {
+          "georgian": "ფრთხილი ექთანი ამოწმებს მნიშვნელოვან დოკუმენტს",
+          "georgian_components": {
+            "subject": {
+              "text": "ფრთხილი ექთანი",
+              "case": "nom",
+              "role": "subject"
+            },
+            "verb": {
+              "text": "ამოწმებს",
+              "role": "verb"
+            },
+            "direct_object": {
+              "text": "მნიშვნელოვან დოკუმენტს",
+              "case": "dat",
+              "role": "direct_object"
+            }
+          },
+          "english": "The careful nurse checks the important document",
+          "english_components": {
+            "subject": {
+              "text": "The careful nurse",
+              "role": "subject",
+              "person": "3sg"
+            },
+            "verb": {
+              "text": "checks",
+              "role": "verb"
+            },
+            "direct_object": {
+              "text": "the important document",
+              "role": "direct_object"
+            }
+          },
+          "georgian_verb_form": "ამოწმებს",
+          "person": "3sg",
+          "effective_preverb": "შე"
+        },
+        {
+          "georgian": "გამოცდილი ზედამხედველები ამოწმებენ დატვირთულ გრაფიკს",
+          "georgian_components": {
+            "subject": {
+              "text": "გამოცდილი ზედამხედველები",
+              "case": "nom",
+              "role": "subject"
+            },
+            "verb": {
+              "text": "ამოწმებენ",
+              "role": "verb"
+            },
+            "direct_object": {
+              "text": "დატვირთულ გრაფიკს",
+              "case": "dat",
+              "role": "direct_object"
+            }
+          },
+          "english": "The experienced supervisors check the full schedule",
+          "english_components": {
+            "subject": {
+              "text": "The experienced supervisors",
+              "role": "subject",
+              "person": "3pl"
+            },
+            "verb": {
+              "text": "check",
+              "role": "verb"
+            },
+            "direct_object": {
+              "text": "the full schedule",
+              "role": "direct_object"
+            }
+          },
+          "georgian_verb_form": "ამოწმებენ",
+          "person": "3pl",
+          "effective_preverb": "შე"
         }
       ],
       "imperfect": [
         {
-          "georgian": "ავადმყოფ პაციენტს ვამოწმებდი",
-          "english": "<strong data-role=\"subject\" data-person=\"1sg\">I</strong> <strong data-role=\"verb\">was checking</strong> <strong data-role=\"direct-object\">the sick patient</strong>",
-          "english_plain": "I was checking the sick patient",
-          "html": "<span data-case=\"dat\" data-role=\"direct-object\">ავადმყოფ პაციენტს</span> <span data-role=\"verb\">ვამოწმებდი</span>",
-          "case_marking": {
-            "direct_object": {
-              "case": "dat",
-              "word": "პაციენტს"
-            }
-          },
-          "georgian_verb_form": "ვამოწმებდი"
-        },
-        {
-          "georgian": "ფრთხილი ექთანი მნიშვნელოვან დოკუმენტს ამოწმებდა",
-          "english": "<strong data-role=\"subject\">The careful nurse</strong> <strong data-role=\"verb\">was checking</strong> <strong data-role=\"direct-object\">the important document</strong>",
-          "english_plain": "The careful nurse was checking the important document",
-          "html": "<span data-case=\"nom\" data-role=\"subject\">ფრთხილი ექთანი</span> <span data-case=\"dat\" data-role=\"direct-object\">მნიშვნელოვან დოკუმენტს</span> <span data-role=\"verb\">ამოწმებდა</span>",
-          "case_marking": {
-            "subject": {
-              "case": "nom",
-              "word": "ექთანი"
+          "georgian": "ვამოწმებდი ავადმყოფ პაციენტს",
+          "georgian_components": {
+            "verb": {
+              "text": "ვამოწმებდი",
+              "role": "verb"
             },
             "direct_object": {
+              "text": "ავადმყოფ პაციენტს",
               "case": "dat",
-              "word": "დოკუმენტს"
+              "role": "direct_object"
             }
           },
-          "georgian_verb_form": "ამოწმებდა"
-        },
-        {
-          "georgian": "გამოცდილი ზედამხედველი დატვირთულ გრაფიკს ამოწმებდნენ",
-          "english": "<strong data-role=\"subject\">The experienced supervisor</strong> <strong data-role=\"verb\">were checking</strong> <strong data-role=\"direct-object\">the full schedule</strong>",
-          "english_plain": "The experienced supervisor were checking the full schedule",
-          "html": "<span data-case=\"nom\" data-role=\"subject\">გამოცდილი ზედამხედველი</span> <span data-case=\"dat\" data-role=\"direct-object\">დატვირთულ გრაფიკს</span> <span data-role=\"verb\">ამოწმებდნენ</span>",
-          "case_marking": {
+          "english": "I was checking the sick patient",
+          "english_components": {
             "subject": {
-              "case": "nom",
-              "word": "ზედამხედველი"
+              "text": "I",
+              "role": "subject",
+              "person": "1sg"
+            },
+            "verb": {
+              "text": "was checking",
+              "role": "verb"
             },
             "direct_object": {
-              "case": "dat",
-              "word": "გრაფიკს"
+              "text": "the sick patient",
+              "role": "direct_object"
             }
           },
-          "georgian_verb_form": "ამოწმებდნენ"
+          "georgian_verb_form": "ვამოწმებდი",
+          "person": "1sg",
+          "effective_preverb": "შე"
+        },
+        {
+          "georgian": "ფრთხილი ექთანი ამოწმებდა მნიშვნელოვან დოკუმენტს",
+          "georgian_components": {
+            "subject": {
+              "text": "ფრთხილი ექთანი",
+              "case": "nom",
+              "role": "subject"
+            },
+            "verb": {
+              "text": "ამოწმებდა",
+              "role": "verb"
+            },
+            "direct_object": {
+              "text": "მნიშვნელოვან დოკუმენტს",
+              "case": "dat",
+              "role": "direct_object"
+            }
+          },
+          "english": "The careful nurse was checking the important document",
+          "english_components": {
+            "subject": {
+              "text": "The careful nurse",
+              "role": "subject",
+              "person": "3sg"
+            },
+            "verb": {
+              "text": "was checking",
+              "role": "verb"
+            },
+            "direct_object": {
+              "text": "the important document",
+              "role": "direct_object"
+            }
+          },
+          "georgian_verb_form": "ამოწმებდა",
+          "person": "3sg",
+          "effective_preverb": "შე"
+        },
+        {
+          "georgian": "გამოცდილი ზედამხედველები ამოწმებდნენ დატვირთულ გრაფიკს",
+          "georgian_components": {
+            "subject": {
+              "text": "გამოცდილი ზედამხედველები",
+              "case": "nom",
+              "role": "subject"
+            },
+            "verb": {
+              "text": "ამოწმებდნენ",
+              "role": "verb"
+            },
+            "direct_object": {
+              "text": "დატვირთულ გრაფიკს",
+              "case": "dat",
+              "role": "direct_object"
+            }
+          },
+          "english": "The experienced supervisors were checking the full schedule",
+          "english_components": {
+            "subject": {
+              "text": "The experienced supervisors",
+              "role": "subject",
+              "person": "3pl"
+            },
+            "verb": {
+              "text": "were checking",
+              "role": "verb"
+            },
+            "direct_object": {
+              "text": "the full schedule",
+              "role": "direct_object"
+            }
+          },
+          "georgian_verb_form": "ამოწმებდნენ",
+          "person": "3pl",
+          "effective_preverb": "შე"
         }
       ],
       "future": [
         {
-          "georgian": "ავადმყოფ პაციენტს შევამოწმებ",
-          "english": "<strong data-role=\"subject\" data-person=\"1sg\">I</strong> <strong data-role=\"verb\">will check</strong> <strong data-role=\"direct-object\">the sick patient</strong>",
-          "english_plain": "I will check the sick patient",
-          "html": "<span data-case=\"dat\" data-role=\"direct-object\">ავადმყოფ პაციენტს</span> <span data-role=\"verb\">შევამოწმებ</span>",
-          "case_marking": {
-            "direct_object": {
-              "case": "dat",
-              "word": "პაციენტს"
-            }
-          },
-          "georgian_verb_form": "შევამოწმებ"
-        },
-        {
-          "georgian": "ფრთხილი ექთანი მნიშვნელოვან დოკუმენტს შეამოწმებს",
-          "english": "<strong data-role=\"subject\">The careful nurse</strong> <strong data-role=\"verb\">will check</strong> <strong data-role=\"direct-object\">the important document</strong>",
-          "english_plain": "The careful nurse will check the important document",
-          "html": "<span data-case=\"nom\" data-role=\"subject\">ფრთხილი ექთანი</span> <span data-case=\"dat\" data-role=\"direct-object\">მნიშვნელოვან დოკუმენტს</span> <span data-role=\"verb\">შეამოწმებს</span>",
-          "case_marking": {
-            "subject": {
-              "case": "nom",
-              "word": "ექთანი"
+          "georgian": "შევამოწმებ ავადმყოფ პაციენტს",
+          "georgian_components": {
+            "verb": {
+              "text": "შევამოწმებ",
+              "role": "verb"
             },
             "direct_object": {
+              "text": "ავადმყოფ პაციენტს",
               "case": "dat",
-              "word": "დოკუმენტს"
+              "role": "direct_object"
             }
           },
-          "georgian_verb_form": "შეამოწმებს"
-        },
-        {
-          "georgian": "გამოცდილი ზედამხედველი დატვირთულ გრაფიკს შეამოწმებენ",
-          "english": "<strong data-role=\"subject\">The experienced supervisor</strong> <strong data-role=\"verb\">will check</strong> <strong data-role=\"direct-object\">the full schedule</strong>",
-          "english_plain": "The experienced supervisor will check the full schedule",
-          "html": "<span data-case=\"nom\" data-role=\"subject\">გამოცდილი ზედამხედველი</span> <span data-case=\"dat\" data-role=\"direct-object\">დატვირთულ გრაფიკს</span> <span data-role=\"verb\">შეამოწმებენ</span>",
-          "case_marking": {
+          "english": "I will check the sick patient",
+          "english_components": {
             "subject": {
-              "case": "nom",
-              "word": "ზედამხედველი"
+              "text": "I",
+              "role": "subject",
+              "person": "1sg"
+            },
+            "verb": {
+              "text": "will check",
+              "role": "verb"
             },
             "direct_object": {
-              "case": "dat",
-              "word": "გრაფიკს"
+              "text": "the sick patient",
+              "role": "direct_object"
             }
           },
-          "georgian_verb_form": "შეამოწმებენ"
+          "georgian_verb_form": "შევამოწმებ",
+          "person": "1sg",
+          "effective_preverb": "შე"
+        },
+        {
+          "georgian": "ფრთხილი ექთანი შეამოწმებს მნიშვნელოვან დოკუმენტს",
+          "georgian_components": {
+            "subject": {
+              "text": "ფრთხილი ექთანი",
+              "case": "nom",
+              "role": "subject"
+            },
+            "verb": {
+              "text": "შეამოწმებს",
+              "role": "verb"
+            },
+            "direct_object": {
+              "text": "მნიშვნელოვან დოკუმენტს",
+              "case": "dat",
+              "role": "direct_object"
+            }
+          },
+          "english": "The careful nurse will check the important document",
+          "english_components": {
+            "subject": {
+              "text": "The careful nurse",
+              "role": "subject",
+              "person": "3sg"
+            },
+            "verb": {
+              "text": "will check",
+              "role": "verb"
+            },
+            "direct_object": {
+              "text": "the important document",
+              "role": "direct_object"
+            }
+          },
+          "georgian_verb_form": "შეამოწმებს",
+          "person": "3sg",
+          "effective_preverb": "შე"
+        },
+        {
+          "georgian": "გამოცდილი ზედამხედველები შეამოწმებენ დატვირთულ გრაფიკს",
+          "georgian_components": {
+            "subject": {
+              "text": "გამოცდილი ზედამხედველები",
+              "case": "nom",
+              "role": "subject"
+            },
+            "verb": {
+              "text": "შეამოწმებენ",
+              "role": "verb"
+            },
+            "direct_object": {
+              "text": "დატვირთულ გრაფიკს",
+              "case": "dat",
+              "role": "direct_object"
+            }
+          },
+          "english": "The experienced supervisors will check the full schedule",
+          "english_components": {
+            "subject": {
+              "text": "The experienced supervisors",
+              "role": "subject",
+              "person": "3pl"
+            },
+            "verb": {
+              "text": "will check",
+              "role": "verb"
+            },
+            "direct_object": {
+              "text": "the full schedule",
+              "role": "direct_object"
+            }
+          },
+          "georgian_verb_form": "შეამოწმებენ",
+          "person": "3pl",
+          "effective_preverb": "შე"
         }
       ],
       "aorist": [
         {
-          "georgian": "ავადმყოფი პაციენტი შევამოწმე",
-          "english": "<strong data-role=\"subject\" data-person=\"1sg\">I</strong> <strong data-role=\"verb\">checked</strong> <strong data-role=\"direct-object\">the sick patient</strong>",
-          "english_plain": "I checked the sick patient",
-          "html": "<span data-case=\"nom\" data-role=\"direct-object\">ავადმყოფი პაციენტი</span> <span data-role=\"verb\">შევამოწმე</span>",
-          "case_marking": {
-            "direct_object": {
-              "case": "nom",
-              "word": "პაციენტი"
-            }
-          },
-          "georgian_verb_form": "შევამოწმე"
-        },
-        {
-          "georgian": "ფრთხილმა ექთანმა მნიშვნელოვანი დოკუმენტი შეამოწმა",
-          "english": "<strong data-role=\"subject\">The careful nurse</strong> <strong data-role=\"verb\">checked</strong> <strong data-role=\"direct-object\">the important document</strong>",
-          "english_plain": "The careful nurse checked the important document",
-          "html": "<span data-case=\"erg\" data-role=\"subject\">ფრთხილმა ექთანმა</span> <span data-case=\"nom\" data-role=\"direct-object\">მნიშვნელოვანი დოკუმენტი</span> <span data-role=\"verb\">შეამოწმა</span>",
-          "case_marking": {
-            "subject": {
-              "case": "erg",
-              "word": "ექთანმა"
+          "georgian": "შევამოწმე ავადმყოფი პაციენტი",
+          "georgian_components": {
+            "verb": {
+              "text": "შევამოწმე",
+              "role": "verb"
             },
             "direct_object": {
+              "text": "ავადმყოფი პაციენტი",
               "case": "nom",
-              "word": "დოკუმენტი"
+              "role": "direct_object"
             }
           },
-          "georgian_verb_form": "შეამოწმა"
-        },
-        {
-          "georgian": "გამოცდილმა ზედამხედველმა დატვირთული გრაფიკი შეამოწმეს",
-          "english": "<strong data-role=\"subject\">The experienced supervisor</strong> <strong data-role=\"verb\">checked</strong> <strong data-role=\"direct-object\">the full schedule</strong>",
-          "english_plain": "The experienced supervisor checked the full schedule",
-          "html": "<span data-case=\"erg\" data-role=\"subject\">გამოცდილმა ზედამხედველმა</span> <span data-case=\"nom\" data-role=\"direct-object\">დატვირთული გრაფიკი</span> <span data-role=\"verb\">შეამოწმეს</span>",
-          "case_marking": {
+          "english": "I checked the sick patient",
+          "english_components": {
             "subject": {
-              "case": "erg",
-              "word": "ზედამხედველმა"
+              "text": "I",
+              "role": "subject",
+              "person": "1sg"
+            },
+            "verb": {
+              "text": "checked",
+              "role": "verb"
             },
             "direct_object": {
-              "case": "nom",
-              "word": "გრაფიკი"
+              "text": "the sick patient",
+              "role": "direct_object"
             }
           },
-          "georgian_verb_form": "შეამოწმეს"
+          "georgian_verb_form": "შევამოწმე",
+          "person": "1sg",
+          "effective_preverb": "შე"
+        },
+        {
+          "georgian": "ფრთხილმა ექთანმა შეამოწმა მნიშვნელოვანი დოკუმენტი",
+          "georgian_components": {
+            "subject": {
+              "text": "ფრთხილმა ექთანმა",
+              "case": "erg",
+              "role": "subject"
+            },
+            "verb": {
+              "text": "შეამოწმა",
+              "role": "verb"
+            },
+            "direct_object": {
+              "text": "მნიშვნელოვანი დოკუმენტი",
+              "case": "nom",
+              "role": "direct_object"
+            }
+          },
+          "english": "The careful nurse checked the important document",
+          "english_components": {
+            "subject": {
+              "text": "The careful nurse",
+              "role": "subject",
+              "person": "3sg"
+            },
+            "verb": {
+              "text": "checked",
+              "role": "verb"
+            },
+            "direct_object": {
+              "text": "the important document",
+              "role": "direct_object"
+            }
+          },
+          "georgian_verb_form": "შეამოწმა",
+          "person": "3sg",
+          "effective_preverb": "შე"
+        },
+        {
+          "georgian": "გამოცდილმა ზედამხედველებმა შეამოწმეს დატვირთული გრაფიკი",
+          "georgian_components": {
+            "subject": {
+              "text": "გამოცდილმა ზედამხედველებმა",
+              "case": "erg",
+              "role": "subject"
+            },
+            "verb": {
+              "text": "შეამოწმეს",
+              "role": "verb"
+            },
+            "direct_object": {
+              "text": "დატვირთული გრაფიკი",
+              "case": "nom",
+              "role": "direct_object"
+            }
+          },
+          "english": "The experienced supervisors checked the full schedule",
+          "english_components": {
+            "subject": {
+              "text": "The experienced supervisors",
+              "role": "subject",
+              "person": "3pl"
+            },
+            "verb": {
+              "text": "checked",
+              "role": "verb"
+            },
+            "direct_object": {
+              "text": "the full schedule",
+              "role": "direct_object"
+            }
+          },
+          "georgian_verb_form": "შეამოწმეს",
+          "person": "3pl",
+          "effective_preverb": "შე"
         }
       ],
       "optative": [
         {
-          "georgian": "ავადმყოფი პაციენტი უნდა შევამოწმო",
-          "english": "<strong data-role=\"subject\" data-person=\"1sg\">I</strong> <strong data-role=\"verb\">should</strong> <strong data-role=\"verb\">check</strong> <strong data-role=\"direct-object\">the sick patient</strong>",
-          "english_plain": "I should check the sick patient",
-          "html": "<span data-case=\"nom\" data-role=\"direct-object\">ავადმყოფი პაციენტი</span> <span data-role=\"verb\">უნდა შევამოწმო</span>",
-          "case_marking": {
-            "direct_object": {
-              "case": "nom",
-              "word": "პაციენტი"
-            }
-          },
-          "georgian_verb_form": "შევამოწმო"
-        },
-        {
-          "georgian": "ფრთხილმა ექთანმა მნიშვნელოვანი დოკუმენტი უნდა შევამოწმოს",
-          "english": "<strong data-role=\"subject\">The careful nurse</strong> <strong data-role=\"verb\">should</strong> <strong data-role=\"verb\">check</strong> <strong data-role=\"direct-object\">the important document</strong>",
-          "english_plain": "The careful nurse should check the important document",
-          "html": "<span data-case=\"erg\" data-role=\"subject\">ფრთხილმა ექთანმა</span> <span data-case=\"nom\" data-role=\"direct-object\">მნიშვნელოვანი დოკუმენტი</span> <span data-role=\"verb\">უნდა შევამოწმოს</span>",
-          "case_marking": {
-            "subject": {
-              "case": "erg",
-              "word": "ექთანმა"
+          "georgian": "უნდა შევამოწმო ავადმყოფი პაციენტი",
+          "georgian_components": {
+            "verb": {
+              "text": "უნდა შევამოწმო",
+              "role": "verb"
             },
             "direct_object": {
+              "text": "ავადმყოფი პაციენტი",
               "case": "nom",
-              "word": "დოკუმენტი"
+              "role": "direct_object"
             }
           },
-          "georgian_verb_form": "შევამოწმოს"
-        },
-        {
-          "georgian": "გამოცდილმა ზედამხედველმა დატვირთული გრაფიკი უნდა შეამოწმონ",
-          "english": "<strong data-role=\"subject\">The experienced supervisor</strong> <strong data-role=\"verb\">should</strong> <strong data-role=\"verb\">check</strong> <strong data-role=\"direct-object\">the full schedule</strong>",
-          "english_plain": "The experienced supervisor should check the full schedule",
-          "html": "<span data-case=\"erg\" data-role=\"subject\">გამოცდილმა ზედამხედველმა</span> <span data-case=\"nom\" data-role=\"direct-object\">დატვირთული გრაფიკი</span> <span data-role=\"verb\">უნდა შეამოწმონ</span>",
-          "case_marking": {
+          "english": "I should check the sick patient",
+          "english_components": {
             "subject": {
-              "case": "erg",
-              "word": "ზედამხედველმა"
+              "text": "I",
+              "role": "subject",
+              "person": "1sg"
+            },
+            "verb": {
+              "text": "should check",
+              "role": "verb"
             },
             "direct_object": {
-              "case": "nom",
-              "word": "გრაფიკი"
+              "text": "the sick patient",
+              "role": "direct_object"
             }
           },
-          "georgian_verb_form": "შეამოწმონ"
+          "georgian_verb_form": "შევამოწმო",
+          "person": "1sg",
+          "effective_preverb": "შე"
+        },
+        {
+          "georgian": "ფრთხილმა ექთანმა უნდა შევამოწმოს მნიშვნელოვანი დოკუმენტი",
+          "georgian_components": {
+            "subject": {
+              "text": "ფრთხილმა ექთანმა",
+              "case": "erg",
+              "role": "subject"
+            },
+            "verb": {
+              "text": "უნდა შევამოწმოს",
+              "role": "verb"
+            },
+            "direct_object": {
+              "text": "მნიშვნელოვანი დოკუმენტი",
+              "case": "nom",
+              "role": "direct_object"
+            }
+          },
+          "english": "The careful nurse should check the important document",
+          "english_components": {
+            "subject": {
+              "text": "The careful nurse",
+              "role": "subject",
+              "person": "3sg"
+            },
+            "verb": {
+              "text": "should check",
+              "role": "verb"
+            },
+            "direct_object": {
+              "text": "the important document",
+              "role": "direct_object"
+            }
+          },
+          "georgian_verb_form": "შევამოწმოს",
+          "person": "3sg",
+          "effective_preverb": "შე"
+        },
+        {
+          "georgian": "გამოცდილმა ზედამხედველებმა უნდა შეამოწმონ დატვირთული გრაფიკი",
+          "georgian_components": {
+            "subject": {
+              "text": "გამოცდილმა ზედამხედველებმა",
+              "case": "erg",
+              "role": "subject"
+            },
+            "verb": {
+              "text": "უნდა შეამოწმონ",
+              "role": "verb"
+            },
+            "direct_object": {
+              "text": "დატვირთული გრაფიკი",
+              "case": "nom",
+              "role": "direct_object"
+            }
+          },
+          "english": "The experienced supervisors should check the full schedule",
+          "english_components": {
+            "subject": {
+              "text": "The experienced supervisors",
+              "role": "subject",
+              "person": "3pl"
+            },
+            "verb": {
+              "text": "should check",
+              "role": "verb"
+            },
+            "direct_object": {
+              "text": "the full schedule",
+              "role": "direct_object"
+            }
+          },
+          "georgian_verb_form": "შეამოწმონ",
+          "person": "3pl",
+          "effective_preverb": "შე"
         }
       ],
       "imperative": [
         {
-          "georgian": "დეტალური ანგარიში შეამოწმე",
-          "english": "<strong data-role=\"verb\">check</strong> <strong data-role=\"direct-object\">the detailed report</strong>",
-          "english_plain": "check the detailed report",
-          "html": "<span data-case=\"nom\" data-role=\"direct-object\">დეტალური ანგარიში</span> <span data-role=\"verb\">შეამოწმე</span>",
-          "case_marking": {
+          "georgian": "შეამოწმე დეტალური ანგარიში",
+          "georgian_components": {
+            "verb": {
+              "text": "შეამოწმე",
+              "role": "verb"
+            },
             "direct_object": {
+              "text": "დეტალური ანგარიში",
               "case": "nom",
-              "word": "ანგარიში"
+              "role": "direct_object"
             }
           },
-          "georgian_verb_form": "შეამოწმე"
+          "english": "You, check the detailed report",
+          "english_components": {
+            "subject": {
+              "text": "You,",
+              "role": "subject",
+              "person": "2sg"
+            },
+            "verb": {
+              "text": "check",
+              "role": "verb"
+            },
+            "direct_object": {
+              "text": "the detailed report",
+              "role": "direct_object"
+            }
+          },
+          "georgian_verb_form": "შეამოწმე",
+          "person": "2sg",
+          "effective_preverb": "შე"
         },
         {
-          "georgian": "სრული სია შეამოწმეთ",
-          "english": "<strong data-role=\"verb\">check</strong> <strong data-role=\"direct-object\">the complete list</strong>",
-          "english_plain": "check the complete list",
-          "html": "<span data-case=\"nom\" data-role=\"direct-object\">სრული სია</span> <span data-role=\"verb\">შეამოწმეთ</span>",
-          "case_marking": {
+          "georgian": "შეამოწმეთ სრული სია",
+          "georgian_components": {
+            "verb": {
+              "text": "შეამოწმეთ",
+              "role": "verb"
+            },
             "direct_object": {
+              "text": "სრული სია",
               "case": "nom",
-              "word": "სია"
+              "role": "direct_object"
             }
           },
-          "georgian_verb_form": "შეამოწმეთ"
+          "english": "You all (you formal), check the complete list",
+          "english_components": {
+            "subject": {
+              "text": "You all (you formal),",
+              "role": "subject",
+              "person": "2pl"
+            },
+            "verb": {
+              "text": "check",
+              "role": "verb"
+            },
+            "direct_object": {
+              "text": "the complete list",
+              "role": "direct_object"
+            }
+          },
+          "georgian_verb_form": "შეამოწმეთ",
+          "person": "2pl",
+          "effective_preverb": "შე"
         }
       ]
     }

@@ -165,562 +165,1256 @@
         "present": "მი",
         "imperfect": "მი"
       }
-    },
-    "english_fallbacks": {
-      "მო": {
-        "present": "მი",
-        "imperfect": "მი"
-      }
     }
   },
   "examples": {
     "მი": {
       "present": [
         {
-          "georgian": "ახალ თანამშრომელს ვიწვევ",
-          "english": "<strong data-role=\"subject\" data-person=\"1sg\">I</strong> <strong data-role=\"verb\">invite</strong> <strong data-role=\"direct-object\">the new employee</strong>",
-          "english_plain": "I invite the new employee",
-          "html": "<span data-case=\"dat\" data-role=\"direct-object\">ახალ თანამშრომელს</span> <span data-role=\"verb\">ვიწვევ</span>",
-          "case_marking": {
-            "direct_object": {
-              "case": "dat",
-              "word": "თანამშრომელს"
-            }
-          },
-          "georgian_verb_form": "ვიწვევ"
-        },
-        {
-          "georgian": "გამოცდილი მენეჯერი კარგ მუშას იწვევს",
-          "english": "<strong data-role=\"subject\">The experienced manager</strong> <strong data-role=\"verb\">invites</strong> <strong data-role=\"direct-object\">the good worker</strong>",
-          "english_plain": "The experienced manager invites the good worker",
-          "html": "<span data-case=\"nom\" data-role=\"subject\">გამოცდილი მენეჯერი</span> <span data-case=\"dat\" data-role=\"direct-object\">კარგ მუშას</span> <span data-role=\"verb\">იწვევს</span>",
-          "case_marking": {
-            "subject": {
-              "case": "nom",
-              "word": "მენეჯერი"
+          "georgian": "ვიწვევ ახალ თანამშრომელს",
+          "georgian_components": {
+            "verb": {
+              "text": "ვიწვევ",
+              "role": "verb"
             },
             "direct_object": {
+              "text": "ახალ თანამშრომელს",
               "case": "dat",
-              "word": "მუშას"
+              "role": "direct_object"
             }
           },
-          "georgian_verb_form": "იწვევს"
-        },
-        {
-          "georgian": "მკაცრი მასწავლებელი დამხმარე ასისტენტს იწვევენ",
-          "english": "<strong data-role=\"subject\">The strict teacher</strong> <strong data-role=\"verb\">invite</strong> <strong data-role=\"direct-object\">the helpful assistant</strong>",
-          "english_plain": "The strict teacher invite the helpful assistant",
-          "html": "<span data-case=\"nom\" data-role=\"subject\">მკაცრი მასწავლებელი</span> <span data-case=\"dat\" data-role=\"direct-object\">დამხმარე ასისტენტს</span> <span data-role=\"verb\">იწვევენ</span>",
-          "case_marking": {
+          "english": "I invite the new employee",
+          "english_components": {
             "subject": {
-              "case": "nom",
-              "word": "მასწავლებელი"
+              "text": "I",
+              "role": "subject",
+              "person": "1sg"
+            },
+            "verb": {
+              "text": "invite",
+              "role": "verb"
             },
             "direct_object": {
-              "case": "dat",
-              "word": "ასისტენტს"
+              "text": "the new employee",
+              "role": "direct_object"
             }
           },
-          "georgian_verb_form": "იწვევენ"
+          "georgian_verb_form": "ვიწვევ",
+          "person": "1sg",
+          "effective_preverb": "მი"
+        },
+        {
+          "georgian": "გამოცდილი მენეჯერი იწვევს კარგ მუშას",
+          "georgian_components": {
+            "subject": {
+              "text": "გამოცდილი მენეჯერი",
+              "case": "nom",
+              "role": "subject"
+            },
+            "verb": {
+              "text": "იწვევს",
+              "role": "verb"
+            },
+            "direct_object": {
+              "text": "კარგ მუშას",
+              "case": "dat",
+              "role": "direct_object"
+            }
+          },
+          "english": "The experienced manager invites the good worker",
+          "english_components": {
+            "subject": {
+              "text": "The experienced manager",
+              "role": "subject",
+              "person": "3sg"
+            },
+            "verb": {
+              "text": "invites",
+              "role": "verb"
+            },
+            "direct_object": {
+              "text": "the good worker",
+              "role": "direct_object"
+            }
+          },
+          "georgian_verb_form": "იწვევს",
+          "person": "3sg",
+          "effective_preverb": "მი"
+        },
+        {
+          "georgian": "მკაცრი მასწავლებლები იწვევენ დამხმარე ასისტენტს",
+          "georgian_components": {
+            "subject": {
+              "text": "მკაცრი მასწავლებლები",
+              "case": "nom",
+              "role": "subject"
+            },
+            "verb": {
+              "text": "იწვევენ",
+              "role": "verb"
+            },
+            "direct_object": {
+              "text": "დამხმარე ასისტენტს",
+              "case": "dat",
+              "role": "direct_object"
+            }
+          },
+          "english": "The strict teachers invite the helpful assistant",
+          "english_components": {
+            "subject": {
+              "text": "The strict teachers",
+              "role": "subject",
+              "person": "3pl"
+            },
+            "verb": {
+              "text": "invite",
+              "role": "verb"
+            },
+            "direct_object": {
+              "text": "the helpful assistant",
+              "role": "direct_object"
+            }
+          },
+          "georgian_verb_form": "იწვევენ",
+          "person": "3pl",
+          "effective_preverb": "მი"
         }
       ],
       "imperfect": [
         {
-          "georgian": "ახალ თანამშრომელს ვიწვევდი",
-          "english": "<strong data-role=\"subject\" data-person=\"1sg\">I</strong> <strong data-role=\"verb\">was inviting</strong> <strong data-role=\"direct-object\">the new employee</strong>",
-          "english_plain": "I was inviting the new employee",
-          "html": "<span data-case=\"dat\" data-role=\"direct-object\">ახალ თანამშრომელს</span> <span data-role=\"verb\">ვიწვევდი</span>",
-          "case_marking": {
-            "direct_object": {
-              "case": "dat",
-              "word": "თანამშრომელს"
-            }
-          },
-          "georgian_verb_form": "ვიწვევდი"
-        },
-        {
-          "georgian": "გამოცდილი მენეჯერი კარგ მუშას იწვევდა",
-          "english": "<strong data-role=\"subject\">The experienced manager</strong> <strong data-role=\"verb\">was inviting</strong> <strong data-role=\"direct-object\">the good worker</strong>",
-          "english_plain": "The experienced manager was inviting the good worker",
-          "html": "<span data-case=\"nom\" data-role=\"subject\">გამოცდილი მენეჯერი</span> <span data-case=\"dat\" data-role=\"direct-object\">კარგ მუშას</span> <span data-role=\"verb\">იწვევდა</span>",
-          "case_marking": {
-            "subject": {
-              "case": "nom",
-              "word": "მენეჯერი"
+          "georgian": "ვიწვევდი ახალ თანამშრომელს",
+          "georgian_components": {
+            "verb": {
+              "text": "ვიწვევდი",
+              "role": "verb"
             },
             "direct_object": {
+              "text": "ახალ თანამშრომელს",
               "case": "dat",
-              "word": "მუშას"
+              "role": "direct_object"
             }
           },
-          "georgian_verb_form": "იწვევდა"
-        },
-        {
-          "georgian": "მკაცრი მასწავლებელი დამხმარე ასისტენტს იწვევდნენ",
-          "english": "<strong data-role=\"subject\">The strict teacher</strong> <strong data-role=\"verb\">were inviting</strong> <strong data-role=\"direct-object\">the helpful assistant</strong>",
-          "english_plain": "The strict teacher were inviting the helpful assistant",
-          "html": "<span data-case=\"nom\" data-role=\"subject\">მკაცრი მასწავლებელი</span> <span data-case=\"dat\" data-role=\"direct-object\">დამხმარე ასისტენტს</span> <span data-role=\"verb\">იწვევდნენ</span>",
-          "case_marking": {
+          "english": "I was inviting the new employee",
+          "english_components": {
             "subject": {
-              "case": "nom",
-              "word": "მასწავლებელი"
+              "text": "I",
+              "role": "subject",
+              "person": "1sg"
+            },
+            "verb": {
+              "text": "was inviting",
+              "role": "verb"
             },
             "direct_object": {
-              "case": "dat",
-              "word": "ასისტენტს"
+              "text": "the new employee",
+              "role": "direct_object"
             }
           },
-          "georgian_verb_form": "იწვევდნენ"
+          "georgian_verb_form": "ვიწვევდი",
+          "person": "1sg",
+          "effective_preverb": "მი"
+        },
+        {
+          "georgian": "გამოცდილი მენეჯერი იწვევდა კარგ მუშას",
+          "georgian_components": {
+            "subject": {
+              "text": "გამოცდილი მენეჯერი",
+              "case": "nom",
+              "role": "subject"
+            },
+            "verb": {
+              "text": "იწვევდა",
+              "role": "verb"
+            },
+            "direct_object": {
+              "text": "კარგ მუშას",
+              "case": "dat",
+              "role": "direct_object"
+            }
+          },
+          "english": "The experienced manager was inviting the good worker",
+          "english_components": {
+            "subject": {
+              "text": "The experienced manager",
+              "role": "subject",
+              "person": "3sg"
+            },
+            "verb": {
+              "text": "was inviting",
+              "role": "verb"
+            },
+            "direct_object": {
+              "text": "the good worker",
+              "role": "direct_object"
+            }
+          },
+          "georgian_verb_form": "იწვევდა",
+          "person": "3sg",
+          "effective_preverb": "მი"
+        },
+        {
+          "georgian": "მკაცრი მასწავლებლები იწვევდნენ დამხმარე ასისტენტს",
+          "georgian_components": {
+            "subject": {
+              "text": "მკაცრი მასწავლებლები",
+              "case": "nom",
+              "role": "subject"
+            },
+            "verb": {
+              "text": "იწვევდნენ",
+              "role": "verb"
+            },
+            "direct_object": {
+              "text": "დამხმარე ასისტენტს",
+              "case": "dat",
+              "role": "direct_object"
+            }
+          },
+          "english": "The strict teachers were inviting the helpful assistant",
+          "english_components": {
+            "subject": {
+              "text": "The strict teachers",
+              "role": "subject",
+              "person": "3pl"
+            },
+            "verb": {
+              "text": "were inviting",
+              "role": "verb"
+            },
+            "direct_object": {
+              "text": "the helpful assistant",
+              "role": "direct_object"
+            }
+          },
+          "georgian_verb_form": "იწვევდნენ",
+          "person": "3pl",
+          "effective_preverb": "მი"
         }
       ],
       "future": [
         {
-          "georgian": "ახალ თანამშრომელს მივიწვევ",
-          "english": "<strong data-role=\"subject\" data-person=\"1sg\">I</strong> <strong data-role=\"verb\">will invite</strong> <strong data-role=\"direct-object\">the new employee</strong>",
-          "english_plain": "I will invite the new employee",
-          "html": "<span data-case=\"dat\" data-role=\"direct-object\">ახალ თანამშრომელს</span> <span data-role=\"verb\">მივიწვევ</span>",
-          "case_marking": {
-            "direct_object": {
-              "case": "dat",
-              "word": "თანამშრომელს"
-            }
-          },
-          "georgian_verb_form": "მივიწვევ"
-        },
-        {
-          "georgian": "გამოცდილი მენეჯერი კარგ მუშას მიიწვევს",
-          "english": "<strong data-role=\"subject\">The experienced manager</strong> <strong data-role=\"verb\">will invite</strong> <strong data-role=\"direct-object\">the good worker</strong>",
-          "english_plain": "The experienced manager will invite the good worker",
-          "html": "<span data-case=\"nom\" data-role=\"subject\">გამოცდილი მენეჯერი</span> <span data-case=\"dat\" data-role=\"direct-object\">კარგ მუშას</span> <span data-role=\"verb\">მიიწვევს</span>",
-          "case_marking": {
-            "subject": {
-              "case": "nom",
-              "word": "მენეჯერი"
+          "georgian": "მივიწვევ ახალ თანამშრომელს",
+          "georgian_components": {
+            "verb": {
+              "text": "მივიწვევ",
+              "role": "verb"
             },
             "direct_object": {
+              "text": "ახალ თანამშრომელს",
               "case": "dat",
-              "word": "მუშას"
+              "role": "direct_object"
             }
           },
-          "georgian_verb_form": "მიიწვევს"
-        },
-        {
-          "georgian": "მკაცრი მასწავლებელი დამხმარე ასისტენტს მიიწვევენ",
-          "english": "<strong data-role=\"subject\">The strict teacher</strong> <strong data-role=\"verb\">will invite</strong> <strong data-role=\"direct-object\">the helpful assistant</strong>",
-          "english_plain": "The strict teacher will invite the helpful assistant",
-          "html": "<span data-case=\"nom\" data-role=\"subject\">მკაცრი მასწავლებელი</span> <span data-case=\"dat\" data-role=\"direct-object\">დამხმარე ასისტენტს</span> <span data-role=\"verb\">მიიწვევენ</span>",
-          "case_marking": {
+          "english": "I will invite the new employee",
+          "english_components": {
             "subject": {
-              "case": "nom",
-              "word": "მასწავლებელი"
+              "text": "I",
+              "role": "subject",
+              "person": "1sg"
+            },
+            "verb": {
+              "text": "will invite",
+              "role": "verb"
             },
             "direct_object": {
-              "case": "dat",
-              "word": "ასისტენტს"
+              "text": "the new employee",
+              "role": "direct_object"
             }
           },
-          "georgian_verb_form": "მიიწვევენ"
+          "georgian_verb_form": "მივიწვევ",
+          "person": "1sg",
+          "effective_preverb": "მი"
+        },
+        {
+          "georgian": "გამოცდილი მენეჯერი მიიწვევს კარგ მუშას",
+          "georgian_components": {
+            "subject": {
+              "text": "გამოცდილი მენეჯერი",
+              "case": "nom",
+              "role": "subject"
+            },
+            "verb": {
+              "text": "მიიწვევს",
+              "role": "verb"
+            },
+            "direct_object": {
+              "text": "კარგ მუშას",
+              "case": "dat",
+              "role": "direct_object"
+            }
+          },
+          "english": "The experienced manager will invite the good worker",
+          "english_components": {
+            "subject": {
+              "text": "The experienced manager",
+              "role": "subject",
+              "person": "3sg"
+            },
+            "verb": {
+              "text": "will invite",
+              "role": "verb"
+            },
+            "direct_object": {
+              "text": "the good worker",
+              "role": "direct_object"
+            }
+          },
+          "georgian_verb_form": "მიიწვევს",
+          "person": "3sg",
+          "effective_preverb": "მი"
+        },
+        {
+          "georgian": "მკაცრი მასწავლებლები მიიწვევენ დამხმარე ასისტენტს",
+          "georgian_components": {
+            "subject": {
+              "text": "მკაცრი მასწავლებლები",
+              "case": "nom",
+              "role": "subject"
+            },
+            "verb": {
+              "text": "მიიწვევენ",
+              "role": "verb"
+            },
+            "direct_object": {
+              "text": "დამხმარე ასისტენტს",
+              "case": "dat",
+              "role": "direct_object"
+            }
+          },
+          "english": "The strict teachers will invite the helpful assistant",
+          "english_components": {
+            "subject": {
+              "text": "The strict teachers",
+              "role": "subject",
+              "person": "3pl"
+            },
+            "verb": {
+              "text": "will invite",
+              "role": "verb"
+            },
+            "direct_object": {
+              "text": "the helpful assistant",
+              "role": "direct_object"
+            }
+          },
+          "georgian_verb_form": "მიიწვევენ",
+          "person": "3pl",
+          "effective_preverb": "მი"
         }
       ],
       "aorist": [
         {
-          "georgian": "ახალი თანამშრომელი მივიწვიე",
-          "english": "<strong data-role=\"subject\" data-person=\"1sg\">I</strong> <strong data-role=\"verb\">invited</strong> <strong data-role=\"direct-object\">the new employee</strong>",
-          "english_plain": "I invited the new employee",
-          "html": "<span data-case=\"nom\" data-role=\"direct-object\">ახალი თანამშრომელი</span> <span data-role=\"verb\">მივიწვიე</span>",
-          "case_marking": {
-            "direct_object": {
-              "case": "nom",
-              "word": "თანამშრომელი"
-            }
-          },
-          "georgian_verb_form": "მივიწვიე"
-        },
-        {
-          "georgian": "გამოცდილმა მენეჯერმა კარგი მუშა მიიწვია",
-          "english": "<strong data-role=\"subject\">The experienced manager</strong> <strong data-role=\"verb\">invited</strong> <strong data-role=\"direct-object\">the good worker</strong>",
-          "english_plain": "The experienced manager invited the good worker",
-          "html": "<span data-case=\"erg\" data-role=\"subject\">გამოცდილმა მენეჯერმა</span> <span data-case=\"nom\" data-role=\"direct-object\">კარგი მუშა</span> <span data-role=\"verb\">მიიწვია</span>",
-          "case_marking": {
-            "subject": {
-              "case": "erg",
-              "word": "მენეჯერმა"
+          "georgian": "მივიწვიე ახალი თანამშრომელი",
+          "georgian_components": {
+            "verb": {
+              "text": "მივიწვიე",
+              "role": "verb"
             },
             "direct_object": {
+              "text": "ახალი თანამშრომელი",
               "case": "nom",
-              "word": "მუშა"
+              "role": "direct_object"
             }
           },
-          "georgian_verb_form": "მიიწვია"
-        },
-        {
-          "georgian": "მკაცრმა მასწავლებელმა დამხმარე ასისტენტი მიიწვიეს",
-          "english": "<strong data-role=\"subject\">The strict teacher</strong> <strong data-role=\"verb\">invited</strong> <strong data-role=\"direct-object\">the helpful assistant</strong>",
-          "english_plain": "The strict teacher invited the helpful assistant",
-          "html": "<span data-case=\"erg\" data-role=\"subject\">მკაცრმა მასწავლებელმა</span> <span data-case=\"nom\" data-role=\"direct-object\">დამხმარე ასისტენტი</span> <span data-role=\"verb\">მიიწვიეს</span>",
-          "case_marking": {
+          "english": "I invited the new employee",
+          "english_components": {
             "subject": {
-              "case": "erg",
-              "word": "მასწავლებელმა"
+              "text": "I",
+              "role": "subject",
+              "person": "1sg"
+            },
+            "verb": {
+              "text": "invited",
+              "role": "verb"
             },
             "direct_object": {
-              "case": "nom",
-              "word": "ასისტენტი"
+              "text": "the new employee",
+              "role": "direct_object"
             }
           },
-          "georgian_verb_form": "მიიწვიეს"
+          "georgian_verb_form": "მივიწვიე",
+          "person": "1sg",
+          "effective_preverb": "მი"
+        },
+        {
+          "georgian": "გამოცდილმა მენეჯერმა მიიწვია კარგი მუშა",
+          "georgian_components": {
+            "subject": {
+              "text": "გამოცდილმა მენეჯერმა",
+              "case": "erg",
+              "role": "subject"
+            },
+            "verb": {
+              "text": "მიიწვია",
+              "role": "verb"
+            },
+            "direct_object": {
+              "text": "კარგი მუშა",
+              "case": "nom",
+              "role": "direct_object"
+            }
+          },
+          "english": "The experienced manager invited the good worker",
+          "english_components": {
+            "subject": {
+              "text": "The experienced manager",
+              "role": "subject",
+              "person": "3sg"
+            },
+            "verb": {
+              "text": "invited",
+              "role": "verb"
+            },
+            "direct_object": {
+              "text": "the good worker",
+              "role": "direct_object"
+            }
+          },
+          "georgian_verb_form": "მიიწვია",
+          "person": "3sg",
+          "effective_preverb": "მი"
+        },
+        {
+          "georgian": "მკაცრმა მასწავლებლებმა მიიწვიეს დამხმარე ასისტენტი",
+          "georgian_components": {
+            "subject": {
+              "text": "მკაცრმა მასწავლებლებმა",
+              "case": "erg",
+              "role": "subject"
+            },
+            "verb": {
+              "text": "მიიწვიეს",
+              "role": "verb"
+            },
+            "direct_object": {
+              "text": "დამხმარე ასისტენტი",
+              "case": "nom",
+              "role": "direct_object"
+            }
+          },
+          "english": "The strict teachers invited the helpful assistant",
+          "english_components": {
+            "subject": {
+              "text": "The strict teachers",
+              "role": "subject",
+              "person": "3pl"
+            },
+            "verb": {
+              "text": "invited",
+              "role": "verb"
+            },
+            "direct_object": {
+              "text": "the helpful assistant",
+              "role": "direct_object"
+            }
+          },
+          "georgian_verb_form": "მიიწვიეს",
+          "person": "3pl",
+          "effective_preverb": "მი"
         }
       ],
       "optative": [
         {
-          "georgian": "ახალი თანამშრომელი უნდა მივიწვიო",
-          "english": "<strong data-role=\"subject\" data-person=\"1sg\">I</strong> <strong data-role=\"verb\">should</strong> <strong data-role=\"verb\">invite</strong> <strong data-role=\"direct-object\">the new employee</strong>",
-          "english_plain": "I should invite the new employee",
-          "html": "<span data-case=\"nom\" data-role=\"direct-object\">ახალი თანამშრომელი</span> <span data-role=\"verb\">უნდა მივიწვიო</span>",
-          "case_marking": {
-            "direct_object": {
-              "case": "nom",
-              "word": "თანამშრომელი"
-            }
-          },
-          "georgian_verb_form": "მივიწვიო"
-        },
-        {
-          "georgian": "გამოცდილმა მენეჯერმა კარგი მუშა უნდა მიიწვიოს",
-          "english": "<strong data-role=\"subject\">The experienced manager</strong> <strong data-role=\"verb\">should</strong> <strong data-role=\"verb\">invite</strong> <strong data-role=\"direct-object\">the good worker</strong>",
-          "english_plain": "The experienced manager should invite the good worker",
-          "html": "<span data-case=\"erg\" data-role=\"subject\">გამოცდილმა მენეჯერმა</span> <span data-case=\"nom\" data-role=\"direct-object\">კარგი მუშა</span> <span data-role=\"verb\">უნდა მიიწვიოს</span>",
-          "case_marking": {
-            "subject": {
-              "case": "erg",
-              "word": "მენეჯერმა"
+          "georgian": "უნდა მივიწვიო ახალი თანამშრომელი",
+          "georgian_components": {
+            "verb": {
+              "text": "უნდა მივიწვიო",
+              "role": "verb"
             },
             "direct_object": {
+              "text": "ახალი თანამშრომელი",
               "case": "nom",
-              "word": "მუშა"
+              "role": "direct_object"
             }
           },
-          "georgian_verb_form": "მიიწვიოს"
-        },
-        {
-          "georgian": "მკაცრმა მასწავლებელმა დამხმარე ასისტენტი უნდა მიიწვიონ",
-          "english": "<strong data-role=\"subject\">The strict teacher</strong> <strong data-role=\"verb\">should</strong> <strong data-role=\"verb\">invite</strong> <strong data-role=\"direct-object\">the helpful assistant</strong>",
-          "english_plain": "The strict teacher should invite the helpful assistant",
-          "html": "<span data-case=\"erg\" data-role=\"subject\">მკაცრმა მასწავლებელმა</span> <span data-case=\"nom\" data-role=\"direct-object\">დამხმარე ასისტენტი</span> <span data-role=\"verb\">უნდა მიიწვიონ</span>",
-          "case_marking": {
+          "english": "I should invite the new employee",
+          "english_components": {
             "subject": {
-              "case": "erg",
-              "word": "მასწავლებელმა"
+              "text": "I",
+              "role": "subject",
+              "person": "1sg"
+            },
+            "verb": {
+              "text": "should invite",
+              "role": "verb"
             },
             "direct_object": {
-              "case": "nom",
-              "word": "ასისტენტი"
+              "text": "the new employee",
+              "role": "direct_object"
             }
           },
-          "georgian_verb_form": "მიიწვიონ"
+          "georgian_verb_form": "მივიწვიო",
+          "person": "1sg",
+          "effective_preverb": "მი"
+        },
+        {
+          "georgian": "გამოცდილმა მენეჯერმა უნდა მიიწვიოს კარგი მუშა",
+          "georgian_components": {
+            "subject": {
+              "text": "გამოცდილმა მენეჯერმა",
+              "case": "erg",
+              "role": "subject"
+            },
+            "verb": {
+              "text": "უნდა მიიწვიოს",
+              "role": "verb"
+            },
+            "direct_object": {
+              "text": "კარგი მუშა",
+              "case": "nom",
+              "role": "direct_object"
+            }
+          },
+          "english": "The experienced manager should invite the good worker",
+          "english_components": {
+            "subject": {
+              "text": "The experienced manager",
+              "role": "subject",
+              "person": "3sg"
+            },
+            "verb": {
+              "text": "should invite",
+              "role": "verb"
+            },
+            "direct_object": {
+              "text": "the good worker",
+              "role": "direct_object"
+            }
+          },
+          "georgian_verb_form": "მიიწვიოს",
+          "person": "3sg",
+          "effective_preverb": "მი"
+        },
+        {
+          "georgian": "მკაცრმა მასწავლებლებმა უნდა მიიწვიონ დამხმარე ასისტენტი",
+          "georgian_components": {
+            "subject": {
+              "text": "მკაცრმა მასწავლებლებმა",
+              "case": "erg",
+              "role": "subject"
+            },
+            "verb": {
+              "text": "უნდა მიიწვიონ",
+              "role": "verb"
+            },
+            "direct_object": {
+              "text": "დამხმარე ასისტენტი",
+              "case": "nom",
+              "role": "direct_object"
+            }
+          },
+          "english": "The strict teachers should invite the helpful assistant",
+          "english_components": {
+            "subject": {
+              "text": "The strict teachers",
+              "role": "subject",
+              "person": "3pl"
+            },
+            "verb": {
+              "text": "should invite",
+              "role": "verb"
+            },
+            "direct_object": {
+              "text": "the helpful assistant",
+              "role": "direct_object"
+            }
+          },
+          "georgian_verb_form": "მიიწვიონ",
+          "person": "3pl",
+          "effective_preverb": "მი"
         }
       ],
       "imperative": [
         {
-          "georgian": "ახალგაზრდა სტუდენტი მიიწვიე",
-          "english": "<strong data-role=\"verb\">invite</strong> <strong data-role=\"direct-object\">the young student</strong>",
-          "english_plain": "invite the young student",
-          "html": "<span data-case=\"nom\" data-role=\"direct-object\">ახალგაზრდა სტუდენტი</span> <span data-role=\"verb\">მიიწვიე</span>",
-          "case_marking": {
+          "georgian": "მიიწვიე ახალგაზრდა სტუდენტი",
+          "georgian_components": {
+            "verb": {
+              "text": "მიიწვიე",
+              "role": "verb"
+            },
             "direct_object": {
+              "text": "ახალგაზრდა სტუდენტი",
               "case": "nom",
-              "word": "სტუდენტი"
+              "role": "direct_object"
             }
           },
-          "georgian_verb_form": "მიიწვიე"
+          "english": "You, invite the young student",
+          "english_components": {
+            "subject": {
+              "text": "You,",
+              "role": "subject",
+              "person": "2sg"
+            },
+            "verb": {
+              "text": "invite",
+              "role": "verb"
+            },
+            "direct_object": {
+              "text": "the young student",
+              "role": "direct_object"
+            }
+          },
+          "georgian_verb_form": "მიიწვიე",
+          "person": "2sg",
+          "effective_preverb": "მი"
         },
         {
-          "georgian": "დიდი ჯგუფი მიიწვიეთ",
-          "english": "<strong data-role=\"verb\">invite</strong> <strong data-role=\"direct-object\">the large group</strong>",
-          "english_plain": "invite the large group",
-          "html": "<span data-case=\"nom\" data-role=\"direct-object\">დიდი ჯგუფი</span> <span data-role=\"verb\">მიიწვიეთ</span>",
-          "case_marking": {
+          "georgian": "მიიწვიეთ დიდი ჯგუფი",
+          "georgian_components": {
+            "verb": {
+              "text": "მიიწვიეთ",
+              "role": "verb"
+            },
             "direct_object": {
+              "text": "დიდი ჯგუფი",
               "case": "nom",
-              "word": "ჯგუფი"
+              "role": "direct_object"
             }
           },
-          "georgian_verb_form": "მიიწვიეთ"
+          "english": "You all (you formal), invite the large group",
+          "english_components": {
+            "subject": {
+              "text": "You all (you formal),",
+              "role": "subject",
+              "person": "2pl"
+            },
+            "verb": {
+              "text": "invite",
+              "role": "verb"
+            },
+            "direct_object": {
+              "text": "the large group",
+              "role": "direct_object"
+            }
+          },
+          "georgian_verb_form": "მიიწვიეთ",
+          "person": "2pl",
+          "effective_preverb": "მი"
         }
       ]
     },
     "მო": {
       "present": [
         {
-          "georgian": "ახალ თანამშრომელს ვიწვევ",
-          "english": "<strong data-role=\"subject\" data-person=\"1sg\">I</strong> <strong data-role=\"verb\">invite</strong> <strong data-role=\"direct-object\">the new employee</strong>",
-          "english_plain": "I invite the new employee",
-          "html": "<span data-case=\"dat\" data-role=\"direct-object\">ახალ თანამშრომელს</span> <span data-role=\"verb\">ვიწვევ</span>",
-          "case_marking": {
-            "direct_object": {
-              "case": "dat",
-              "word": "თანამშრომელს"
-            }
-          },
-          "georgian_verb_form": "ვიწვევ"
-        },
-        {
-          "georgian": "გამოცდილი მენეჯერი კარგ მუშას იწვევს",
-          "english": "<strong data-role=\"subject\">The experienced manager</strong> <strong data-role=\"verb\">invites</strong> <strong data-role=\"direct-object\">the good worker</strong>",
-          "english_plain": "The experienced manager invites the good worker",
-          "html": "<span data-case=\"nom\" data-role=\"subject\">გამოცდილი მენეჯერი</span> <span data-case=\"dat\" data-role=\"direct-object\">კარგ მუშას</span> <span data-role=\"verb\">იწვევს</span>",
-          "case_marking": {
-            "subject": {
-              "case": "nom",
-              "word": "მენეჯერი"
+          "georgian": "ვიწვევ ახალ თანამშრომელს",
+          "georgian_components": {
+            "verb": {
+              "text": "ვიწვევ",
+              "role": "verb"
             },
             "direct_object": {
+              "text": "ახალ თანამშრომელს",
               "case": "dat",
-              "word": "მუშას"
+              "role": "direct_object"
             }
           },
-          "georgian_verb_form": "იწვევს"
-        },
-        {
-          "georgian": "მკაცრი მასწავლებელი დამხმარე ასისტენტს იწვევენ",
-          "english": "<strong data-role=\"subject\">The strict teacher</strong> <strong data-role=\"verb\">invite</strong> <strong data-role=\"direct-object\">the helpful assistant</strong>",
-          "english_plain": "The strict teacher invite the helpful assistant",
-          "html": "<span data-case=\"nom\" data-role=\"subject\">მკაცრი მასწავლებელი</span> <span data-case=\"dat\" data-role=\"direct-object\">დამხმარე ასისტენტს</span> <span data-role=\"verb\">იწვევენ</span>",
-          "case_marking": {
+          "english": "I invite the new employee",
+          "english_components": {
             "subject": {
-              "case": "nom",
-              "word": "მასწავლებელი"
+              "text": "I",
+              "role": "subject",
+              "person": "1sg"
+            },
+            "verb": {
+              "text": "invite",
+              "role": "verb"
             },
             "direct_object": {
-              "case": "dat",
-              "word": "ასისტენტს"
+              "text": "the new employee",
+              "role": "direct_object"
             }
           },
-          "georgian_verb_form": "იწვევენ"
+          "georgian_verb_form": "ვიწვევ",
+          "person": "1sg",
+          "effective_preverb": "მი"
+        },
+        {
+          "georgian": "გამოცდილი მენეჯერი იწვევს კარგ მუშას",
+          "georgian_components": {
+            "subject": {
+              "text": "გამოცდილი მენეჯერი",
+              "case": "nom",
+              "role": "subject"
+            },
+            "verb": {
+              "text": "იწვევს",
+              "role": "verb"
+            },
+            "direct_object": {
+              "text": "კარგ მუშას",
+              "case": "dat",
+              "role": "direct_object"
+            }
+          },
+          "english": "The experienced manager invites the good worker",
+          "english_components": {
+            "subject": {
+              "text": "The experienced manager",
+              "role": "subject",
+              "person": "3sg"
+            },
+            "verb": {
+              "text": "invites",
+              "role": "verb"
+            },
+            "direct_object": {
+              "text": "the good worker",
+              "role": "direct_object"
+            }
+          },
+          "georgian_verb_form": "იწვევს",
+          "person": "3sg",
+          "effective_preverb": "მი"
+        },
+        {
+          "georgian": "მკაცრი მასწავლებლები იწვევენ დამხმარე ასისტენტს",
+          "georgian_components": {
+            "subject": {
+              "text": "მკაცრი მასწავლებლები",
+              "case": "nom",
+              "role": "subject"
+            },
+            "verb": {
+              "text": "იწვევენ",
+              "role": "verb"
+            },
+            "direct_object": {
+              "text": "დამხმარე ასისტენტს",
+              "case": "dat",
+              "role": "direct_object"
+            }
+          },
+          "english": "The strict teachers invite the helpful assistant",
+          "english_components": {
+            "subject": {
+              "text": "The strict teachers",
+              "role": "subject",
+              "person": "3pl"
+            },
+            "verb": {
+              "text": "invite",
+              "role": "verb"
+            },
+            "direct_object": {
+              "text": "the helpful assistant",
+              "role": "direct_object"
+            }
+          },
+          "georgian_verb_form": "იწვევენ",
+          "person": "3pl",
+          "effective_preverb": "მი"
         }
       ],
       "imperfect": [
         {
-          "georgian": "ახალ თანამშრომელს ვიწვევდი",
-          "english": "<strong data-role=\"subject\" data-person=\"1sg\">I</strong> <strong data-role=\"verb\">was inviting</strong> <strong data-role=\"direct-object\">the new employee</strong>",
-          "english_plain": "I was inviting the new employee",
-          "html": "<span data-case=\"dat\" data-role=\"direct-object\">ახალ თანამშრომელს</span> <span data-role=\"verb\">ვიწვევდი</span>",
-          "case_marking": {
-            "direct_object": {
-              "case": "dat",
-              "word": "თანამშრომელს"
-            }
-          },
-          "georgian_verb_form": "ვიწვევდი"
-        },
-        {
-          "georgian": "გამოცდილი მენეჯერი კარგ მუშას იწვევდა",
-          "english": "<strong data-role=\"subject\">The experienced manager</strong> <strong data-role=\"verb\">was inviting</strong> <strong data-role=\"direct-object\">the good worker</strong>",
-          "english_plain": "The experienced manager was inviting the good worker",
-          "html": "<span data-case=\"nom\" data-role=\"subject\">გამოცდილი მენეჯერი</span> <span data-case=\"dat\" data-role=\"direct-object\">კარგ მუშას</span> <span data-role=\"verb\">იწვევდა</span>",
-          "case_marking": {
-            "subject": {
-              "case": "nom",
-              "word": "მენეჯერი"
+          "georgian": "ვიწვევდი ახალ თანამშრომელს",
+          "georgian_components": {
+            "verb": {
+              "text": "ვიწვევდი",
+              "role": "verb"
             },
             "direct_object": {
+              "text": "ახალ თანამშრომელს",
               "case": "dat",
-              "word": "მუშას"
+              "role": "direct_object"
             }
           },
-          "georgian_verb_form": "იწვევდა"
-        },
-        {
-          "georgian": "მკაცრი მასწავლებელი დამხმარე ასისტენტს იწვევდნენ",
-          "english": "<strong data-role=\"subject\">The strict teacher</strong> <strong data-role=\"verb\">were inviting</strong> <strong data-role=\"direct-object\">the helpful assistant</strong>",
-          "english_plain": "The strict teacher were inviting the helpful assistant",
-          "html": "<span data-case=\"nom\" data-role=\"subject\">მკაცრი მასწავლებელი</span> <span data-case=\"dat\" data-role=\"direct-object\">დამხმარე ასისტენტს</span> <span data-role=\"verb\">იწვევდნენ</span>",
-          "case_marking": {
+          "english": "I was inviting the new employee",
+          "english_components": {
             "subject": {
-              "case": "nom",
-              "word": "მასწავლებელი"
+              "text": "I",
+              "role": "subject",
+              "person": "1sg"
+            },
+            "verb": {
+              "text": "was inviting",
+              "role": "verb"
             },
             "direct_object": {
-              "case": "dat",
-              "word": "ასისტენტს"
+              "text": "the new employee",
+              "role": "direct_object"
             }
           },
-          "georgian_verb_form": "იწვევდნენ"
+          "georgian_verb_form": "ვიწვევდი",
+          "person": "1sg",
+          "effective_preverb": "მი"
+        },
+        {
+          "georgian": "გამოცდილი მენეჯერი იწვევდა კარგ მუშას",
+          "georgian_components": {
+            "subject": {
+              "text": "გამოცდილი მენეჯერი",
+              "case": "nom",
+              "role": "subject"
+            },
+            "verb": {
+              "text": "იწვევდა",
+              "role": "verb"
+            },
+            "direct_object": {
+              "text": "კარგ მუშას",
+              "case": "dat",
+              "role": "direct_object"
+            }
+          },
+          "english": "The experienced manager was inviting the good worker",
+          "english_components": {
+            "subject": {
+              "text": "The experienced manager",
+              "role": "subject",
+              "person": "3sg"
+            },
+            "verb": {
+              "text": "was inviting",
+              "role": "verb"
+            },
+            "direct_object": {
+              "text": "the good worker",
+              "role": "direct_object"
+            }
+          },
+          "georgian_verb_form": "იწვევდა",
+          "person": "3sg",
+          "effective_preverb": "მი"
+        },
+        {
+          "georgian": "მკაცრი მასწავლებლები იწვევდნენ დამხმარე ასისტენტს",
+          "georgian_components": {
+            "subject": {
+              "text": "მკაცრი მასწავლებლები",
+              "case": "nom",
+              "role": "subject"
+            },
+            "verb": {
+              "text": "იწვევდნენ",
+              "role": "verb"
+            },
+            "direct_object": {
+              "text": "დამხმარე ასისტენტს",
+              "case": "dat",
+              "role": "direct_object"
+            }
+          },
+          "english": "The strict teachers were inviting the helpful assistant",
+          "english_components": {
+            "subject": {
+              "text": "The strict teachers",
+              "role": "subject",
+              "person": "3pl"
+            },
+            "verb": {
+              "text": "were inviting",
+              "role": "verb"
+            },
+            "direct_object": {
+              "text": "the helpful assistant",
+              "role": "direct_object"
+            }
+          },
+          "georgian_verb_form": "იწვევდნენ",
+          "person": "3pl",
+          "effective_preverb": "მი"
         }
       ],
       "future": [
         {
-          "georgian": "ახალ თანამშრომელს მოვიწვევ",
-          "english": "<strong data-role=\"subject\" data-person=\"1sg\">I</strong> <strong data-role=\"verb\">will summon</strong> <strong data-role=\"direct-object\">the new employee</strong>",
-          "english_plain": "I will summon the new employee",
-          "html": "<span data-case=\"dat\" data-role=\"direct-object\">ახალ თანამშრომელს</span> <span data-role=\"verb\">მოვიწვევ</span>",
-          "case_marking": {
-            "direct_object": {
-              "case": "dat",
-              "word": "თანამშრომელს"
-            }
-          },
-          "georgian_verb_form": "მოვიწვევ"
-        },
-        {
-          "georgian": "გამოცდილი მენეჯერი კარგ მუშას მოიწვევს",
-          "english": "<strong data-role=\"subject\">The experienced manager</strong> <strong data-role=\"verb\">will summon</strong> <strong data-role=\"direct-object\">the good worker</strong>",
-          "english_plain": "The experienced manager will summon the good worker",
-          "html": "<span data-case=\"nom\" data-role=\"subject\">გამოცდილი მენეჯერი</span> <span data-case=\"dat\" data-role=\"direct-object\">კარგ მუშას</span> <span data-role=\"verb\">მოიწვევს</span>",
-          "case_marking": {
-            "subject": {
-              "case": "nom",
-              "word": "მენეჯერი"
+          "georgian": "მოვიწვევ ახალ თანამშრომელს",
+          "georgian_components": {
+            "verb": {
+              "text": "მოვიწვევ",
+              "role": "verb"
             },
             "direct_object": {
+              "text": "ახალ თანამშრომელს",
               "case": "dat",
-              "word": "მუშას"
+              "role": "direct_object"
             }
           },
-          "georgian_verb_form": "მოიწვევს"
-        },
-        {
-          "georgian": "მკაცრი მასწავლებელი დამხმარე ასისტენტს მოიწვევენ",
-          "english": "<strong data-role=\"subject\">The strict teacher</strong> <strong data-role=\"verb\">will summon</strong> <strong data-role=\"direct-object\">the helpful assistant</strong>",
-          "english_plain": "The strict teacher will summon the helpful assistant",
-          "html": "<span data-case=\"nom\" data-role=\"subject\">მკაცრი მასწავლებელი</span> <span data-case=\"dat\" data-role=\"direct-object\">დამხმარე ასისტენტს</span> <span data-role=\"verb\">მოიწვევენ</span>",
-          "case_marking": {
+          "english": "I will summon the new employee",
+          "english_components": {
             "subject": {
-              "case": "nom",
-              "word": "მასწავლებელი"
+              "text": "I",
+              "role": "subject",
+              "person": "1sg"
+            },
+            "verb": {
+              "text": "will summon",
+              "role": "verb"
             },
             "direct_object": {
-              "case": "dat",
-              "word": "ასისტენტს"
+              "text": "the new employee",
+              "role": "direct_object"
             }
           },
-          "georgian_verb_form": "მოიწვევენ"
+          "georgian_verb_form": "მოვიწვევ",
+          "person": "1sg",
+          "effective_preverb": "მო"
+        },
+        {
+          "georgian": "გამოცდილი მენეჯერი მოიწვევს კარგ მუშას",
+          "georgian_components": {
+            "subject": {
+              "text": "გამოცდილი მენეჯერი",
+              "case": "nom",
+              "role": "subject"
+            },
+            "verb": {
+              "text": "მოიწვევს",
+              "role": "verb"
+            },
+            "direct_object": {
+              "text": "კარგ მუშას",
+              "case": "dat",
+              "role": "direct_object"
+            }
+          },
+          "english": "The experienced manager will summon the good worker",
+          "english_components": {
+            "subject": {
+              "text": "The experienced manager",
+              "role": "subject",
+              "person": "3sg"
+            },
+            "verb": {
+              "text": "will summon",
+              "role": "verb"
+            },
+            "direct_object": {
+              "text": "the good worker",
+              "role": "direct_object"
+            }
+          },
+          "georgian_verb_form": "მოიწვევს",
+          "person": "3sg",
+          "effective_preverb": "მო"
+        },
+        {
+          "georgian": "მკაცრი მასწავლებლები მოიწვევენ დამხმარე ასისტენტს",
+          "georgian_components": {
+            "subject": {
+              "text": "მკაცრი მასწავლებლები",
+              "case": "nom",
+              "role": "subject"
+            },
+            "verb": {
+              "text": "მოიწვევენ",
+              "role": "verb"
+            },
+            "direct_object": {
+              "text": "დამხმარე ასისტენტს",
+              "case": "dat",
+              "role": "direct_object"
+            }
+          },
+          "english": "The strict teachers will summon the helpful assistant",
+          "english_components": {
+            "subject": {
+              "text": "The strict teachers",
+              "role": "subject",
+              "person": "3pl"
+            },
+            "verb": {
+              "text": "will summon",
+              "role": "verb"
+            },
+            "direct_object": {
+              "text": "the helpful assistant",
+              "role": "direct_object"
+            }
+          },
+          "georgian_verb_form": "მოიწვევენ",
+          "person": "3pl",
+          "effective_preverb": "მო"
         }
       ],
       "aorist": [
         {
-          "georgian": "ახალი თანამშრომელი მოვიწვიე",
-          "english": "<strong data-role=\"subject\" data-person=\"1sg\">I</strong> <strong data-role=\"verb\">summoned</strong> <strong data-role=\"direct-object\">the new employee</strong>",
-          "english_plain": "I summoned the new employee",
-          "html": "<span data-case=\"nom\" data-role=\"direct-object\">ახალი თანამშრომელი</span> <span data-role=\"verb\">მოვიწვიე</span>",
-          "case_marking": {
-            "direct_object": {
-              "case": "nom",
-              "word": "თანამშრომელი"
-            }
-          },
-          "georgian_verb_form": "მოვიწვიე"
-        },
-        {
-          "georgian": "გამოცდილმა მენეჯერმა კარგი მუშა მოიწვია",
-          "english": "<strong data-role=\"subject\">The experienced manager</strong> <strong data-role=\"verb\">summoned</strong> <strong data-role=\"direct-object\">the good worker</strong>",
-          "english_plain": "The experienced manager summoned the good worker",
-          "html": "<span data-case=\"erg\" data-role=\"subject\">გამოცდილმა მენეჯერმა</span> <span data-case=\"nom\" data-role=\"direct-object\">კარგი მუშა</span> <span data-role=\"verb\">მოიწვია</span>",
-          "case_marking": {
-            "subject": {
-              "case": "erg",
-              "word": "მენეჯერმა"
+          "georgian": "მოვიწვიე ახალი თანამშრომელი",
+          "georgian_components": {
+            "verb": {
+              "text": "მოვიწვიე",
+              "role": "verb"
             },
             "direct_object": {
+              "text": "ახალი თანამშრომელი",
               "case": "nom",
-              "word": "მუშა"
+              "role": "direct_object"
             }
           },
-          "georgian_verb_form": "მოიწვია"
-        },
-        {
-          "georgian": "მკაცრმა მასწავლებელმა დამხმარე ასისტენტი მოიწვიეს",
-          "english": "<strong data-role=\"subject\">The strict teacher</strong> <strong data-role=\"verb\">summoned</strong> <strong data-role=\"direct-object\">the helpful assistant</strong>",
-          "english_plain": "The strict teacher summoned the helpful assistant",
-          "html": "<span data-case=\"erg\" data-role=\"subject\">მკაცრმა მასწავლებელმა</span> <span data-case=\"nom\" data-role=\"direct-object\">დამხმარე ასისტენტი</span> <span data-role=\"verb\">მოიწვიეს</span>",
-          "case_marking": {
+          "english": "I summoned the new employee",
+          "english_components": {
             "subject": {
-              "case": "erg",
-              "word": "მასწავლებელმა"
+              "text": "I",
+              "role": "subject",
+              "person": "1sg"
+            },
+            "verb": {
+              "text": "summoned",
+              "role": "verb"
             },
             "direct_object": {
-              "case": "nom",
-              "word": "ასისტენტი"
+              "text": "the new employee",
+              "role": "direct_object"
             }
           },
-          "georgian_verb_form": "მოიწვიეს"
+          "georgian_verb_form": "მოვიწვიე",
+          "person": "1sg",
+          "effective_preverb": "მო"
+        },
+        {
+          "georgian": "გამოცდილმა მენეჯერმა მოიწვია კარგი მუშა",
+          "georgian_components": {
+            "subject": {
+              "text": "გამოცდილმა მენეჯერმა",
+              "case": "erg",
+              "role": "subject"
+            },
+            "verb": {
+              "text": "მოიწვია",
+              "role": "verb"
+            },
+            "direct_object": {
+              "text": "კარგი მუშა",
+              "case": "nom",
+              "role": "direct_object"
+            }
+          },
+          "english": "The experienced manager summoned the good worker",
+          "english_components": {
+            "subject": {
+              "text": "The experienced manager",
+              "role": "subject",
+              "person": "3sg"
+            },
+            "verb": {
+              "text": "summoned",
+              "role": "verb"
+            },
+            "direct_object": {
+              "text": "the good worker",
+              "role": "direct_object"
+            }
+          },
+          "georgian_verb_form": "მოიწვია",
+          "person": "3sg",
+          "effective_preverb": "მო"
+        },
+        {
+          "georgian": "მკაცრმა მასწავლებლებმა მოიწვიეს დამხმარე ასისტენტი",
+          "georgian_components": {
+            "subject": {
+              "text": "მკაცრმა მასწავლებლებმა",
+              "case": "erg",
+              "role": "subject"
+            },
+            "verb": {
+              "text": "მოიწვიეს",
+              "role": "verb"
+            },
+            "direct_object": {
+              "text": "დამხმარე ასისტენტი",
+              "case": "nom",
+              "role": "direct_object"
+            }
+          },
+          "english": "The strict teachers summoned the helpful assistant",
+          "english_components": {
+            "subject": {
+              "text": "The strict teachers",
+              "role": "subject",
+              "person": "3pl"
+            },
+            "verb": {
+              "text": "summoned",
+              "role": "verb"
+            },
+            "direct_object": {
+              "text": "the helpful assistant",
+              "role": "direct_object"
+            }
+          },
+          "georgian_verb_form": "მოიწვიეს",
+          "person": "3pl",
+          "effective_preverb": "მო"
         }
       ],
       "optative": [
         {
-          "georgian": "ახალი თანამშრომელი უნდა მოვიწვიო",
-          "english": "<strong data-role=\"subject\" data-person=\"1sg\">I</strong> <strong data-role=\"verb\">should</strong> <strong data-role=\"verb\">summon</strong> <strong data-role=\"direct-object\">the new employee</strong>",
-          "english_plain": "I should summon the new employee",
-          "html": "<span data-case=\"nom\" data-role=\"direct-object\">ახალი თანამშრომელი</span> <span data-role=\"verb\">უნდა მოვიწვიო</span>",
-          "case_marking": {
-            "direct_object": {
-              "case": "nom",
-              "word": "თანამშრომელი"
-            }
-          },
-          "georgian_verb_form": "მოვიწვიო"
-        },
-        {
-          "georgian": "გამოცდილმა მენეჯერმა კარგი მუშა უნდა მოიწვიოს",
-          "english": "<strong data-role=\"subject\">The experienced manager</strong> <strong data-role=\"verb\">should</strong> <strong data-role=\"verb\">summon</strong> <strong data-role=\"direct-object\">the good worker</strong>",
-          "english_plain": "The experienced manager should summon the good worker",
-          "html": "<span data-case=\"erg\" data-role=\"subject\">გამოცდილმა მენეჯერმა</span> <span data-case=\"nom\" data-role=\"direct-object\">კარგი მუშა</span> <span data-role=\"verb\">უნდა მოიწვიოს</span>",
-          "case_marking": {
-            "subject": {
-              "case": "erg",
-              "word": "მენეჯერმა"
+          "georgian": "უნდა მოვიწვიო ახალი თანამშრომელი",
+          "georgian_components": {
+            "verb": {
+              "text": "უნდა მოვიწვიო",
+              "role": "verb"
             },
             "direct_object": {
+              "text": "ახალი თანამშრომელი",
               "case": "nom",
-              "word": "მუშა"
+              "role": "direct_object"
             }
           },
-          "georgian_verb_form": "მოიწვიოს"
-        },
-        {
-          "georgian": "მკაცრმა მასწავლებელმა დამხმარე ასისტენტი უნდა მოიწვიონ",
-          "english": "<strong data-role=\"subject\">The strict teacher</strong> <strong data-role=\"verb\">should</strong> <strong data-role=\"verb\">summon</strong> <strong data-role=\"direct-object\">the helpful assistant</strong>",
-          "english_plain": "The strict teacher should summon the helpful assistant",
-          "html": "<span data-case=\"erg\" data-role=\"subject\">მკაცრმა მასწავლებელმა</span> <span data-case=\"nom\" data-role=\"direct-object\">დამხმარე ასისტენტი</span> <span data-role=\"verb\">უნდა მოიწვიონ</span>",
-          "case_marking": {
+          "english": "I should summon the new employee",
+          "english_components": {
             "subject": {
-              "case": "erg",
-              "word": "მასწავლებელმა"
+              "text": "I",
+              "role": "subject",
+              "person": "1sg"
+            },
+            "verb": {
+              "text": "should summon",
+              "role": "verb"
             },
             "direct_object": {
-              "case": "nom",
-              "word": "ასისტენტი"
+              "text": "the new employee",
+              "role": "direct_object"
             }
           },
-          "georgian_verb_form": "მოიწვიონ"
+          "georgian_verb_form": "მოვიწვიო",
+          "person": "1sg",
+          "effective_preverb": "მო"
+        },
+        {
+          "georgian": "გამოცდილმა მენეჯერმა უნდა მოიწვიოს კარგი მუშა",
+          "georgian_components": {
+            "subject": {
+              "text": "გამოცდილმა მენეჯერმა",
+              "case": "erg",
+              "role": "subject"
+            },
+            "verb": {
+              "text": "უნდა მოიწვიოს",
+              "role": "verb"
+            },
+            "direct_object": {
+              "text": "კარგი მუშა",
+              "case": "nom",
+              "role": "direct_object"
+            }
+          },
+          "english": "The experienced manager should summon the good worker",
+          "english_components": {
+            "subject": {
+              "text": "The experienced manager",
+              "role": "subject",
+              "person": "3sg"
+            },
+            "verb": {
+              "text": "should summon",
+              "role": "verb"
+            },
+            "direct_object": {
+              "text": "the good worker",
+              "role": "direct_object"
+            }
+          },
+          "georgian_verb_form": "მოიწვიოს",
+          "person": "3sg",
+          "effective_preverb": "მო"
+        },
+        {
+          "georgian": "მკაცრმა მასწავლებლებმა უნდა მოიწვიონ დამხმარე ასისტენტი",
+          "georgian_components": {
+            "subject": {
+              "text": "მკაცრმა მასწავლებლებმა",
+              "case": "erg",
+              "role": "subject"
+            },
+            "verb": {
+              "text": "უნდა მოიწვიონ",
+              "role": "verb"
+            },
+            "direct_object": {
+              "text": "დამხმარე ასისტენტი",
+              "case": "nom",
+              "role": "direct_object"
+            }
+          },
+          "english": "The strict teachers should summon the helpful assistant",
+          "english_components": {
+            "subject": {
+              "text": "The strict teachers",
+              "role": "subject",
+              "person": "3pl"
+            },
+            "verb": {
+              "text": "should summon",
+              "role": "verb"
+            },
+            "direct_object": {
+              "text": "the helpful assistant",
+              "role": "direct_object"
+            }
+          },
+          "georgian_verb_form": "მოიწვიონ",
+          "person": "3pl",
+          "effective_preverb": "მო"
         }
       ],
       "imperative": [
         {
-          "georgian": "ახალგაზრდა სტუდენტი მოიწვიე",
-          "english": "<strong data-role=\"verb\">summon</strong> <strong data-role=\"direct-object\">the young student</strong>",
-          "english_plain": "summon the young student",
-          "html": "<span data-case=\"nom\" data-role=\"direct-object\">ახალგაზრდა სტუდენტი</span> <span data-role=\"verb\">მოიწვიე</span>",
-          "case_marking": {
+          "georgian": "მოიწვიე ახალგაზრდა სტუდენტი",
+          "georgian_components": {
+            "verb": {
+              "text": "მოიწვიე",
+              "role": "verb"
+            },
             "direct_object": {
+              "text": "ახალგაზრდა სტუდენტი",
               "case": "nom",
-              "word": "სტუდენტი"
+              "role": "direct_object"
             }
           },
-          "georgian_verb_form": "მოიწვიე"
+          "english": "You, summon the young student",
+          "english_components": {
+            "subject": {
+              "text": "You,",
+              "role": "subject",
+              "person": "2sg"
+            },
+            "verb": {
+              "text": "summon",
+              "role": "verb"
+            },
+            "direct_object": {
+              "text": "the young student",
+              "role": "direct_object"
+            }
+          },
+          "georgian_verb_form": "მოიწვიე",
+          "person": "2sg",
+          "effective_preverb": "მო"
         },
         {
-          "georgian": "დიდი ჯგუფი მოიწვიეთ",
-          "english": "<strong data-role=\"verb\">summon</strong> <strong data-role=\"direct-object\">the large group</strong>",
-          "english_plain": "summon the large group",
-          "html": "<span data-case=\"nom\" data-role=\"direct-object\">დიდი ჯგუფი</span> <span data-role=\"verb\">მოიწვიეთ</span>",
-          "case_marking": {
+          "georgian": "მოიწვიეთ დიდი ჯგუფი",
+          "georgian_components": {
+            "verb": {
+              "text": "მოიწვიეთ",
+              "role": "verb"
+            },
             "direct_object": {
+              "text": "დიდი ჯგუფი",
               "case": "nom",
-              "word": "ჯგუფი"
+              "role": "direct_object"
             }
           },
-          "georgian_verb_form": "მოიწვიეთ"
+          "english": "You all (you formal), summon the large group",
+          "english_components": {
+            "subject": {
+              "text": "You all (you formal),",
+              "role": "subject",
+              "person": "2pl"
+            },
+            "verb": {
+              "text": "summon",
+              "role": "verb"
+            },
+            "direct_object": {
+              "text": "the large group",
+              "role": "direct_object"
+            }
+          },
+          "georgian_verb_form": "მოიწვიეთ",
+          "person": "2pl",
+          "effective_preverb": "მო"
         }
       ]
     }

@@ -150,282 +150,631 @@
   "preverb_rules": {
     "default": "",
     "replacements": {},
-    "tense_specific_fallbacks": {},
-    "english_fallbacks": {}
+    "tense_specific_fallbacks": {}
   },
   "examples": {
-    "null": {
+    "default": {
       "present": [
         {
-          "georgian": "სახალისო სპორტს ვთამაშობ",
-          "english": "<strong data-role=\"subject\" data-person=\"1sg\">I</strong> <strong data-role=\"verb\">play</strong> <strong data-role=\"direct-object\">the fun sport</strong>",
-          "english_plain": "I play the fun sport",
-          "html": "<span data-case=\"dat\" data-role=\"direct-object\">სახალისო სპორტს</span> <span data-role=\"verb\">ვთამაშობ</span>",
-          "case_marking": {
-            "direct_object": {
-              "case": "dat",
-              "word": "სპორტს"
-            }
-          },
-          "georgian_verb_form": "ვთამაშობ"
-        },
-        {
-          "georgian": "ბედნიერი ბავშვი ახალ თამაშს თამაშობს",
-          "english": "<strong data-role=\"subject\">The happy child</strong> <strong data-role=\"verb\">plays</strong> <strong data-role=\"direct-object\">the new game</strong>",
-          "english_plain": "The happy child plays the new game",
-          "html": "<span data-case=\"nom\" data-role=\"subject\">ბედნიერი ბავშვი</span> <span data-case=\"dat\" data-role=\"direct-object\">ახალ თამაშს</span> <span data-role=\"verb\">თამაშობს</span>",
-          "case_marking": {
-            "subject": {
-              "case": "nom",
-              "word": "ბავშვი"
+          "georgian": "ვთამაშობ სახალისო სპორტს",
+          "georgian_components": {
+            "verb": {
+              "text": "ვთამაშობ",
+              "role": "verb"
             },
             "direct_object": {
+              "text": "სახალისო სპორტს",
               "case": "dat",
-              "word": "თამაშს"
+              "role": "direct_object"
             }
           },
-          "georgian_verb_form": "თამაშობს"
-        },
-        {
-          "georgian": "ახალგაზრდა ბიჭი პოპულარულ სპორტს თამაშობენ",
-          "english": "<strong data-role=\"subject\">The young boy</strong> <strong data-role=\"verb\">play</strong> <strong data-role=\"direct-object\">the popular sport</strong>",
-          "english_plain": "The young boy play the popular sport",
-          "html": "<span data-case=\"nom\" data-role=\"subject\">ახალგაზრდა ბიჭი</span> <span data-case=\"dat\" data-role=\"direct-object\">პოპულარულ სპორტს</span> <span data-role=\"verb\">თამაშობენ</span>",
-          "case_marking": {
+          "english": "I play the fun sport",
+          "english_components": {
             "subject": {
-              "case": "nom",
-              "word": "ბიჭი"
+              "text": "I",
+              "role": "subject",
+              "person": "1sg"
+            },
+            "verb": {
+              "text": "play",
+              "role": "verb"
             },
             "direct_object": {
-              "case": "dat",
-              "word": "სპორტს"
+              "text": "the fun sport",
+              "role": "direct_object"
             }
           },
-          "georgian_verb_form": "თამაშობენ"
+          "georgian_verb_form": "ვთამაშობ",
+          "person": "1sg",
+          "effective_preverb": ""
+        },
+        {
+          "georgian": "ბედნიერი ბავშვი თამაშობს ახალ თამაშს",
+          "georgian_components": {
+            "subject": {
+              "text": "ბედნიერი ბავშვი",
+              "case": "nom",
+              "role": "subject"
+            },
+            "verb": {
+              "text": "თამაშობს",
+              "role": "verb"
+            },
+            "direct_object": {
+              "text": "ახალ თამაშს",
+              "case": "dat",
+              "role": "direct_object"
+            }
+          },
+          "english": "The happy child plays the new game",
+          "english_components": {
+            "subject": {
+              "text": "The happy child",
+              "role": "subject",
+              "person": "3sg"
+            },
+            "verb": {
+              "text": "plays",
+              "role": "verb"
+            },
+            "direct_object": {
+              "text": "the new game",
+              "role": "direct_object"
+            }
+          },
+          "georgian_verb_form": "თამაშობს",
+          "person": "3sg",
+          "effective_preverb": ""
+        },
+        {
+          "georgian": "ახალგაზრდა ბიჭები თამაშობენ პოპულარულ სპორტს",
+          "georgian_components": {
+            "subject": {
+              "text": "ახალგაზრდა ბიჭები",
+              "case": "nom",
+              "role": "subject"
+            },
+            "verb": {
+              "text": "თამაშობენ",
+              "role": "verb"
+            },
+            "direct_object": {
+              "text": "პოპულარულ სპორტს",
+              "case": "dat",
+              "role": "direct_object"
+            }
+          },
+          "english": "The young boys play the popular sport",
+          "english_components": {
+            "subject": {
+              "text": "The young boys",
+              "role": "subject",
+              "person": "3pl"
+            },
+            "verb": {
+              "text": "play",
+              "role": "verb"
+            },
+            "direct_object": {
+              "text": "the popular sport",
+              "role": "direct_object"
+            }
+          },
+          "georgian_verb_form": "თამაშობენ",
+          "person": "3pl",
+          "effective_preverb": ""
         }
       ],
       "imperfect": [
         {
-          "georgian": "სახალისო სპორტს ვთამაშობდი",
-          "english": "<strong data-role=\"subject\" data-person=\"1sg\">I</strong> <strong data-role=\"verb\">was playing</strong> <strong data-role=\"direct-object\">the fun sport</strong>",
-          "english_plain": "I was playing the fun sport",
-          "html": "<span data-case=\"dat\" data-role=\"direct-object\">სახალისო სპორტს</span> <span data-role=\"verb\">ვთამაშობდი</span>",
-          "case_marking": {
-            "direct_object": {
-              "case": "dat",
-              "word": "სპორტს"
-            }
-          },
-          "georgian_verb_form": "ვთამაშობდი"
-        },
-        {
-          "georgian": "ბედნიერი ბავშვი ახალ თამაშს თამაშობდა",
-          "english": "<strong data-role=\"subject\">The happy child</strong> <strong data-role=\"verb\">was playing</strong> <strong data-role=\"direct-object\">the new game</strong>",
-          "english_plain": "The happy child was playing the new game",
-          "html": "<span data-case=\"nom\" data-role=\"subject\">ბედნიერი ბავშვი</span> <span data-case=\"dat\" data-role=\"direct-object\">ახალ თამაშს</span> <span data-role=\"verb\">თამაშობდა</span>",
-          "case_marking": {
-            "subject": {
-              "case": "nom",
-              "word": "ბავშვი"
+          "georgian": "ვთამაშობდი სახალისო სპორტს",
+          "georgian_components": {
+            "verb": {
+              "text": "ვთამაშობდი",
+              "role": "verb"
             },
             "direct_object": {
+              "text": "სახალისო სპორტს",
               "case": "dat",
-              "word": "თამაშს"
+              "role": "direct_object"
             }
           },
-          "georgian_verb_form": "თამაშობდა"
-        },
-        {
-          "georgian": "ახალგაზრდა ბიჭი პოპულარულ სპორტს თამაშობდნენ",
-          "english": "<strong data-role=\"subject\">The young boy</strong> <strong data-role=\"verb\">were playing</strong> <strong data-role=\"direct-object\">the popular sport</strong>",
-          "english_plain": "The young boy were playing the popular sport",
-          "html": "<span data-case=\"nom\" data-role=\"subject\">ახალგაზრდა ბიჭი</span> <span data-case=\"dat\" data-role=\"direct-object\">პოპულარულ სპორტს</span> <span data-role=\"verb\">თამაშობდნენ</span>",
-          "case_marking": {
+          "english": "I was playing the fun sport",
+          "english_components": {
             "subject": {
-              "case": "nom",
-              "word": "ბიჭი"
+              "text": "I",
+              "role": "subject",
+              "person": "1sg"
+            },
+            "verb": {
+              "text": "was playing",
+              "role": "verb"
             },
             "direct_object": {
-              "case": "dat",
-              "word": "სპორტს"
+              "text": "the fun sport",
+              "role": "direct_object"
             }
           },
-          "georgian_verb_form": "თამაშობდნენ"
+          "georgian_verb_form": "ვთამაშობდი",
+          "person": "1sg",
+          "effective_preverb": ""
+        },
+        {
+          "georgian": "ბედნიერი ბავშვი თამაშობდა ახალ თამაშს",
+          "georgian_components": {
+            "subject": {
+              "text": "ბედნიერი ბავშვი",
+              "case": "nom",
+              "role": "subject"
+            },
+            "verb": {
+              "text": "თამაშობდა",
+              "role": "verb"
+            },
+            "direct_object": {
+              "text": "ახალ თამაშს",
+              "case": "dat",
+              "role": "direct_object"
+            }
+          },
+          "english": "The happy child was playing the new game",
+          "english_components": {
+            "subject": {
+              "text": "The happy child",
+              "role": "subject",
+              "person": "3sg"
+            },
+            "verb": {
+              "text": "was playing",
+              "role": "verb"
+            },
+            "direct_object": {
+              "text": "the new game",
+              "role": "direct_object"
+            }
+          },
+          "georgian_verb_form": "თამაშობდა",
+          "person": "3sg",
+          "effective_preverb": ""
+        },
+        {
+          "georgian": "ახალგაზრდა ბიჭები თამაშობდნენ პოპულარულ სპორტს",
+          "georgian_components": {
+            "subject": {
+              "text": "ახალგაზრდა ბიჭები",
+              "case": "nom",
+              "role": "subject"
+            },
+            "verb": {
+              "text": "თამაშობდნენ",
+              "role": "verb"
+            },
+            "direct_object": {
+              "text": "პოპულარულ სპორტს",
+              "case": "dat",
+              "role": "direct_object"
+            }
+          },
+          "english": "The young boys were playing the popular sport",
+          "english_components": {
+            "subject": {
+              "text": "The young boys",
+              "role": "subject",
+              "person": "3pl"
+            },
+            "verb": {
+              "text": "were playing",
+              "role": "verb"
+            },
+            "direct_object": {
+              "text": "the popular sport",
+              "role": "direct_object"
+            }
+          },
+          "georgian_verb_form": "თამაშობდნენ",
+          "person": "3pl",
+          "effective_preverb": ""
         }
       ],
       "future": [
         {
-          "georgian": "სახალისო სპორტს ვითამაშებ",
-          "english": "<strong data-role=\"subject\" data-person=\"1sg\">I</strong> <strong data-role=\"verb\">will play</strong> <strong data-role=\"direct-object\">the fun sport</strong>",
-          "english_plain": "I will play the fun sport",
-          "html": "<span data-case=\"dat\" data-role=\"direct-object\">სახალისო სპორტს</span> <span data-role=\"verb\">ვითამაშებ</span>",
-          "case_marking": {
-            "direct_object": {
-              "case": "dat",
-              "word": "სპორტს"
-            }
-          },
-          "georgian_verb_form": "ვითამაშებ"
-        },
-        {
-          "georgian": "ბედნიერი ბავშვი ახალ თამაშს ითამაშებს",
-          "english": "<strong data-role=\"subject\">The happy child</strong> <strong data-role=\"verb\">will play</strong> <strong data-role=\"direct-object\">the new game</strong>",
-          "english_plain": "The happy child will play the new game",
-          "html": "<span data-case=\"nom\" data-role=\"subject\">ბედნიერი ბავშვი</span> <span data-case=\"dat\" data-role=\"direct-object\">ახალ თამაშს</span> <span data-role=\"verb\">ითამაშებს</span>",
-          "case_marking": {
-            "subject": {
-              "case": "nom",
-              "word": "ბავშვი"
+          "georgian": "ვითამაშებ სახალისო სპორტს",
+          "georgian_components": {
+            "verb": {
+              "text": "ვითამაშებ",
+              "role": "verb"
             },
             "direct_object": {
+              "text": "სახალისო სპორტს",
               "case": "dat",
-              "word": "თამაშს"
+              "role": "direct_object"
             }
           },
-          "georgian_verb_form": "ითამაშებს"
-        },
-        {
-          "georgian": "ახალგაზრდა ბიჭი პოპულარულ სპორტს ითამაშებენ",
-          "english": "<strong data-role=\"subject\">The young boy</strong> <strong data-role=\"verb\">will play</strong> <strong data-role=\"direct-object\">the popular sport</strong>",
-          "english_plain": "The young boy will play the popular sport",
-          "html": "<span data-case=\"nom\" data-role=\"subject\">ახალგაზრდა ბიჭი</span> <span data-case=\"dat\" data-role=\"direct-object\">პოპულარულ სპორტს</span> <span data-role=\"verb\">ითამაშებენ</span>",
-          "case_marking": {
+          "english": "I will play the fun sport",
+          "english_components": {
             "subject": {
-              "case": "nom",
-              "word": "ბიჭი"
+              "text": "I",
+              "role": "subject",
+              "person": "1sg"
+            },
+            "verb": {
+              "text": "will play",
+              "role": "verb"
             },
             "direct_object": {
-              "case": "dat",
-              "word": "სპორტს"
+              "text": "the fun sport",
+              "role": "direct_object"
             }
           },
-          "georgian_verb_form": "ითამაშებენ"
+          "georgian_verb_form": "ვითამაშებ",
+          "person": "1sg",
+          "effective_preverb": ""
+        },
+        {
+          "georgian": "ბედნიერი ბავშვი ითამაშებს ახალ თამაშს",
+          "georgian_components": {
+            "subject": {
+              "text": "ბედნიერი ბავშვი",
+              "case": "nom",
+              "role": "subject"
+            },
+            "verb": {
+              "text": "ითამაშებს",
+              "role": "verb"
+            },
+            "direct_object": {
+              "text": "ახალ თამაშს",
+              "case": "dat",
+              "role": "direct_object"
+            }
+          },
+          "english": "The happy child will play the new game",
+          "english_components": {
+            "subject": {
+              "text": "The happy child",
+              "role": "subject",
+              "person": "3sg"
+            },
+            "verb": {
+              "text": "will play",
+              "role": "verb"
+            },
+            "direct_object": {
+              "text": "the new game",
+              "role": "direct_object"
+            }
+          },
+          "georgian_verb_form": "ითამაშებს",
+          "person": "3sg",
+          "effective_preverb": ""
+        },
+        {
+          "georgian": "ახალგაზრდა ბიჭები ითამაშებენ პოპულარულ სპორტს",
+          "georgian_components": {
+            "subject": {
+              "text": "ახალგაზრდა ბიჭები",
+              "case": "nom",
+              "role": "subject"
+            },
+            "verb": {
+              "text": "ითამაშებენ",
+              "role": "verb"
+            },
+            "direct_object": {
+              "text": "პოპულარულ სპორტს",
+              "case": "dat",
+              "role": "direct_object"
+            }
+          },
+          "english": "The young boys will play the popular sport",
+          "english_components": {
+            "subject": {
+              "text": "The young boys",
+              "role": "subject",
+              "person": "3pl"
+            },
+            "verb": {
+              "text": "will play",
+              "role": "verb"
+            },
+            "direct_object": {
+              "text": "the popular sport",
+              "role": "direct_object"
+            }
+          },
+          "georgian_verb_form": "ითამაშებენ",
+          "person": "3pl",
+          "effective_preverb": ""
         }
       ],
       "aorist": [
         {
-          "georgian": "სახალისო სპორტი ვითამაშე",
-          "english": "<strong data-role=\"subject\" data-person=\"1sg\">I</strong> <strong data-role=\"verb\">played</strong> <strong data-role=\"direct-object\">the fun sport</strong>",
-          "english_plain": "I played the fun sport",
-          "html": "<span data-case=\"nom\" data-role=\"direct-object\">სახალისო სპორტი</span> <span data-role=\"verb\">ვითამაშე</span>",
-          "case_marking": {
-            "direct_object": {
-              "case": "nom",
-              "word": "სპორტი"
-            }
-          },
-          "georgian_verb_form": "ვითამაშე"
-        },
-        {
-          "georgian": "ბედნიერმა ბავშვმა ახალი თამაში ითამაშა",
-          "english": "<strong data-role=\"subject\">The happy child</strong> <strong data-role=\"verb\">played</strong> <strong data-role=\"direct-object\">the new game</strong>",
-          "english_plain": "The happy child played the new game",
-          "html": "<span data-case=\"erg\" data-role=\"subject\">ბედნიერმა ბავშვმა</span> <span data-case=\"nom\" data-role=\"direct-object\">ახალი თამაში</span> <span data-role=\"verb\">ითამაშა</span>",
-          "case_marking": {
-            "subject": {
-              "case": "erg",
-              "word": "ბავშვმა"
+          "georgian": "ვითამაშე სახალისო სპორტი",
+          "georgian_components": {
+            "verb": {
+              "text": "ვითამაშე",
+              "role": "verb"
             },
             "direct_object": {
+              "text": "სახალისო სპორტი",
               "case": "nom",
-              "word": "თამაში"
+              "role": "direct_object"
             }
           },
-          "georgian_verb_form": "ითამაშა"
-        },
-        {
-          "georgian": "ახალგაზრდა ბიჭმა პოპულარული სპორტი ითამაშეს",
-          "english": "<strong data-role=\"subject\">The young boy</strong> <strong data-role=\"verb\">played</strong> <strong data-role=\"direct-object\">the popular sport</strong>",
-          "english_plain": "The young boy played the popular sport",
-          "html": "<span data-case=\"erg\" data-role=\"subject\">ახალგაზრდა ბიჭმა</span> <span data-case=\"nom\" data-role=\"direct-object\">პოპულარული სპორტი</span> <span data-role=\"verb\">ითამაშეს</span>",
-          "case_marking": {
+          "english": "I played the fun sport",
+          "english_components": {
             "subject": {
-              "case": "erg",
-              "word": "ბიჭმა"
+              "text": "I",
+              "role": "subject",
+              "person": "1sg"
+            },
+            "verb": {
+              "text": "played",
+              "role": "verb"
             },
             "direct_object": {
-              "case": "nom",
-              "word": "სპორტი"
+              "text": "the fun sport",
+              "role": "direct_object"
             }
           },
-          "georgian_verb_form": "ითამაშეს"
+          "georgian_verb_form": "ვითამაშე",
+          "person": "1sg",
+          "effective_preverb": ""
+        },
+        {
+          "georgian": "ბედნიერმა ბავშვმა ითამაშა ახალი თამაში",
+          "georgian_components": {
+            "subject": {
+              "text": "ბედნიერმა ბავშვმა",
+              "case": "erg",
+              "role": "subject"
+            },
+            "verb": {
+              "text": "ითამაშა",
+              "role": "verb"
+            },
+            "direct_object": {
+              "text": "ახალი თამაში",
+              "case": "nom",
+              "role": "direct_object"
+            }
+          },
+          "english": "The happy child played the new game",
+          "english_components": {
+            "subject": {
+              "text": "The happy child",
+              "role": "subject",
+              "person": "3sg"
+            },
+            "verb": {
+              "text": "played",
+              "role": "verb"
+            },
+            "direct_object": {
+              "text": "the new game",
+              "role": "direct_object"
+            }
+          },
+          "georgian_verb_form": "ითამაშა",
+          "person": "3sg",
+          "effective_preverb": ""
+        },
+        {
+          "georgian": "ახალგაზრდა ბიჭებმა ითამაშეს პოპულარული სპორტი",
+          "georgian_components": {
+            "subject": {
+              "text": "ახალგაზრდა ბიჭებმა",
+              "case": "erg",
+              "role": "subject"
+            },
+            "verb": {
+              "text": "ითამაშეს",
+              "role": "verb"
+            },
+            "direct_object": {
+              "text": "პოპულარული სპორტი",
+              "case": "nom",
+              "role": "direct_object"
+            }
+          },
+          "english": "The young boys played the popular sport",
+          "english_components": {
+            "subject": {
+              "text": "The young boys",
+              "role": "subject",
+              "person": "3pl"
+            },
+            "verb": {
+              "text": "played",
+              "role": "verb"
+            },
+            "direct_object": {
+              "text": "the popular sport",
+              "role": "direct_object"
+            }
+          },
+          "georgian_verb_form": "ითამაშეს",
+          "person": "3pl",
+          "effective_preverb": ""
         }
       ],
       "optative": [
         {
-          "georgian": "სახალისო სპორტი უნდა ვითამაშო",
-          "english": "<strong data-role=\"subject\" data-person=\"1sg\">I</strong> <strong data-role=\"verb\">should</strong> <strong data-role=\"verb\">play</strong> <strong data-role=\"direct-object\">the fun sport</strong>",
-          "english_plain": "I should play the fun sport",
-          "html": "<span data-case=\"nom\" data-role=\"direct-object\">სახალისო სპორტი</span> <span data-role=\"verb\">უნდა ვითამაშო</span>",
-          "case_marking": {
-            "direct_object": {
-              "case": "nom",
-              "word": "სპორტი"
-            }
-          },
-          "georgian_verb_form": "ვითამაშო"
-        },
-        {
-          "georgian": "ბედნიერმა ბავშვმა ახალი თამაში უნდა ითამაშოს",
-          "english": "<strong data-role=\"subject\">The happy child</strong> <strong data-role=\"verb\">should</strong> <strong data-role=\"verb\">play</strong> <strong data-role=\"direct-object\">the new game</strong>",
-          "english_plain": "The happy child should play the new game",
-          "html": "<span data-case=\"erg\" data-role=\"subject\">ბედნიერმა ბავშვმა</span> <span data-case=\"nom\" data-role=\"direct-object\">ახალი თამაში</span> <span data-role=\"verb\">უნდა ითამაშოს</span>",
-          "case_marking": {
-            "subject": {
-              "case": "erg",
-              "word": "ბავშვმა"
+          "georgian": "უნდა ვითამაშო სახალისო სპორტი",
+          "georgian_components": {
+            "verb": {
+              "text": "უნდა ვითამაშო",
+              "role": "verb"
             },
             "direct_object": {
+              "text": "სახალისო სპორტი",
               "case": "nom",
-              "word": "თამაში"
+              "role": "direct_object"
             }
           },
-          "georgian_verb_form": "ითამაშოს"
-        },
-        {
-          "georgian": "ახალგაზრდა ბიჭმა პოპულარული სპორტი უნდა ითამაშონ",
-          "english": "<strong data-role=\"subject\">The young boy</strong> <strong data-role=\"verb\">should</strong> <strong data-role=\"verb\">play</strong> <strong data-role=\"direct-object\">the popular sport</strong>",
-          "english_plain": "The young boy should play the popular sport",
-          "html": "<span data-case=\"erg\" data-role=\"subject\">ახალგაზრდა ბიჭმა</span> <span data-case=\"nom\" data-role=\"direct-object\">პოპულარული სპორტი</span> <span data-role=\"verb\">უნდა ითამაშონ</span>",
-          "case_marking": {
+          "english": "I should play the fun sport",
+          "english_components": {
             "subject": {
-              "case": "erg",
-              "word": "ბიჭმა"
+              "text": "I",
+              "role": "subject",
+              "person": "1sg"
+            },
+            "verb": {
+              "text": "should play",
+              "role": "verb"
             },
             "direct_object": {
-              "case": "nom",
-              "word": "სპორტი"
+              "text": "the fun sport",
+              "role": "direct_object"
             }
           },
-          "georgian_verb_form": "ითამაშონ"
+          "georgian_verb_form": "ვითამაშო",
+          "person": "1sg",
+          "effective_preverb": ""
+        },
+        {
+          "georgian": "ბედნიერმა ბავშვმა უნდა ითამაშოს ახალი თამაში",
+          "georgian_components": {
+            "subject": {
+              "text": "ბედნიერმა ბავშვმა",
+              "case": "erg",
+              "role": "subject"
+            },
+            "verb": {
+              "text": "უნდა ითამაშოს",
+              "role": "verb"
+            },
+            "direct_object": {
+              "text": "ახალი თამაში",
+              "case": "nom",
+              "role": "direct_object"
+            }
+          },
+          "english": "The happy child should play the new game",
+          "english_components": {
+            "subject": {
+              "text": "The happy child",
+              "role": "subject",
+              "person": "3sg"
+            },
+            "verb": {
+              "text": "should play",
+              "role": "verb"
+            },
+            "direct_object": {
+              "text": "the new game",
+              "role": "direct_object"
+            }
+          },
+          "georgian_verb_form": "ითამაშოს",
+          "person": "3sg",
+          "effective_preverb": ""
+        },
+        {
+          "georgian": "ახალგაზრდა ბიჭებმა უნდა ითამაშონ პოპულარული სპორტი",
+          "georgian_components": {
+            "subject": {
+              "text": "ახალგაზრდა ბიჭებმა",
+              "case": "erg",
+              "role": "subject"
+            },
+            "verb": {
+              "text": "უნდა ითამაშონ",
+              "role": "verb"
+            },
+            "direct_object": {
+              "text": "პოპულარული სპორტი",
+              "case": "nom",
+              "role": "direct_object"
+            }
+          },
+          "english": "The young boys should play the popular sport",
+          "english_components": {
+            "subject": {
+              "text": "The young boys",
+              "role": "subject",
+              "person": "3pl"
+            },
+            "verb": {
+              "text": "should play",
+              "role": "verb"
+            },
+            "direct_object": {
+              "text": "the popular sport",
+              "role": "direct_object"
+            }
+          },
+          "georgian_verb_form": "ითამაშონ",
+          "person": "3pl",
+          "effective_preverb": ""
         }
       ],
       "imperative": [
         {
-          "georgian": "ახალი თამაში ითამაშე",
-          "english": "<strong data-role=\"verb\">play</strong> <strong data-role=\"direct-object\">the new game</strong>",
-          "english_plain": "play the new game",
-          "html": "<span data-case=\"nom\" data-role=\"direct-object\">ახალი თამაში</span> <span data-role=\"verb\">ითამაშე</span>",
-          "case_marking": {
+          "georgian": "ითამაშე ახალი თამაში",
+          "georgian_components": {
+            "verb": {
+              "text": "ითამაშე",
+              "role": "verb"
+            },
             "direct_object": {
+              "text": "ახალი თამაში",
               "case": "nom",
-              "word": "თამაში"
+              "role": "direct_object"
             }
           },
-          "georgian_verb_form": "ითამაშე"
+          "english": "You, play the new game",
+          "english_components": {
+            "subject": {
+              "text": "You,",
+              "role": "subject",
+              "person": "2sg"
+            },
+            "verb": {
+              "text": "play",
+              "role": "verb"
+            },
+            "direct_object": {
+              "text": "the new game",
+              "role": "direct_object"
+            }
+          },
+          "georgian_verb_form": "ითამაშე",
+          "person": "2sg",
+          "effective_preverb": ""
         },
         {
-          "georgian": "ამაღელვებელი სპორტი ითამაშეთ",
-          "english": "<strong data-role=\"verb\">play</strong> <strong data-role=\"direct-object\">the exciting sport</strong>",
-          "english_plain": "play the exciting sport",
-          "html": "<span data-case=\"nom\" data-role=\"direct-object\">ამაღელვებელი სპორტი</span> <span data-role=\"verb\">ითამაშეთ</span>",
-          "case_marking": {
+          "georgian": "ითამაშეთ ამაღელვებელი სპორტი",
+          "georgian_components": {
+            "verb": {
+              "text": "ითამაშეთ",
+              "role": "verb"
+            },
             "direct_object": {
+              "text": "ამაღელვებელი სპორტი",
               "case": "nom",
-              "word": "სპორტი"
+              "role": "direct_object"
             }
           },
-          "georgian_verb_form": "ითამაშეთ"
+          "english": "You all (you formal), play the exciting sport",
+          "english_components": {
+            "subject": {
+              "text": "You all (you formal),",
+              "role": "subject",
+              "person": "2pl"
+            },
+            "verb": {
+              "text": "play",
+              "role": "verb"
+            },
+            "direct_object": {
+              "text": "the exciting sport",
+              "role": "direct_object"
+            }
+          },
+          "georgian_verb_form": "ითამაშეთ",
+          "person": "2pl",
+          "effective_preverb": ""
         }
       ]
     }

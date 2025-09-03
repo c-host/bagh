@@ -145,278 +145,628 @@
   },
   "preverb_rules": {},
   "examples": {
-    "null": {
+    "default": {
       "present": [
         {
-          "georgian": "შეშფოთებულ დედას ვპასუხობ",
-          "english": "<strong data-role=\"subject\" data-person=\"1sg\">I</strong> <strong data-role=\"verb\">answer</strong> <strong data-role=\"indirect-object\">the worried mother</strong>",
-          "english_plain": "I answer the worried mother",
-          "html": "<span data-case=\"dat\" data-role=\"indirect-object\">შეშფოთებულ დედას</span> <span data-role=\"verb\">ვპასუხობ</span>",
-          "case_marking": {
-            "indirect_object": {
-              "case": "dat",
-              "word": "დედას"
-            }
-          },
-          "georgian_verb_form": "ვპასუხობ"
-        },
-        {
-          "georgian": "ახალგაზრდა ბავშვი მწუხარე მშობელს პასუხობს",
-          "english": "<strong data-role=\"subject\">The young child</strong> <strong data-role=\"verb\">answers</strong> <strong data-role=\"indirect-object\">the concerned parent</strong>",
-          "english_plain": "The young child answers the concerned parent",
-          "html": "<span data-case=\"nom\" data-role=\"subject\">ახალგაზრდა ბავშვი</span> <span data-case=\"dat\" data-role=\"indirect-object\">მწუხარე მშობელს</span> <span data-role=\"verb\">პასუხობს</span>",
-          "case_marking": {
-            "subject": {
-              "case": "nom",
-              "word": "ბავშვი"
+          "georgian": "ვპასუხობ შეშფოთებულ დედას",
+          "georgian_components": {
+            "verb": {
+              "text": "ვპასუხობ",
+              "role": "verb"
             },
             "indirect_object": {
+              "text": "შეშფოთებულ დედას",
               "case": "dat",
-              "word": "მშობელს"
+              "role": "indirect_object"
             }
           },
-          "georgian_verb_form": "პასუხობს"
-        },
-        {
-          "georgian": "ახალი თანამშრომელი მთავარ მენეჯერს პასუხობენ",
-          "english": "<strong data-role=\"subject\">The new employee</strong> <strong data-role=\"verb\">answer</strong> <strong data-role=\"indirect-object\">the main manager</strong>",
-          "english_plain": "The new employee answer the main manager",
-          "html": "<span data-case=\"nom\" data-role=\"subject\">ახალი თანამშრომელი</span> <span data-case=\"dat\" data-role=\"indirect-object\">მთავარ მენეჯერს</span> <span data-role=\"verb\">პასუხობენ</span>",
-          "case_marking": {
+          "english": "I answer the worried mother",
+          "english_components": {
             "subject": {
-              "case": "nom",
-              "word": "თანამშრომელი"
+              "text": "I",
+              "role": "subject",
+              "person": "1sg"
+            },
+            "verb": {
+              "text": "answer",
+              "role": "verb"
             },
             "indirect_object": {
-              "case": "dat",
-              "word": "მენეჯერს"
+              "text": "the worried mother",
+              "role": "indirect_object"
             }
           },
-          "georgian_verb_form": "პასუხობენ"
+          "georgian_verb_form": "ვპასუხობ",
+          "person": "1sg",
+          "effective_preverb": ""
+        },
+        {
+          "georgian": "ახალგაზრდა ბავშვი პასუხობს მწუხარე მშობელს",
+          "georgian_components": {
+            "subject": {
+              "text": "ახალგაზრდა ბავშვი",
+              "case": "nom",
+              "role": "subject"
+            },
+            "verb": {
+              "text": "პასუხობს",
+              "role": "verb"
+            },
+            "indirect_object": {
+              "text": "მწუხარე მშობელს",
+              "case": "dat",
+              "role": "indirect_object"
+            }
+          },
+          "english": "The young child answers the concerned parent",
+          "english_components": {
+            "subject": {
+              "text": "The young child",
+              "role": "subject",
+              "person": "3sg"
+            },
+            "verb": {
+              "text": "answers",
+              "role": "verb"
+            },
+            "indirect_object": {
+              "text": "the concerned parent",
+              "role": "indirect_object"
+            }
+          },
+          "georgian_verb_form": "პასუხობს",
+          "person": "3sg",
+          "effective_preverb": ""
+        },
+        {
+          "georgian": "ახალი თანამშრომლები პასუხობენ მთავარ მენეჯერს",
+          "georgian_components": {
+            "subject": {
+              "text": "ახალი თანამშრომლები",
+              "case": "nom",
+              "role": "subject"
+            },
+            "verb": {
+              "text": "პასუხობენ",
+              "role": "verb"
+            },
+            "indirect_object": {
+              "text": "მთავარ მენეჯერს",
+              "case": "dat",
+              "role": "indirect_object"
+            }
+          },
+          "english": "The new employees answer the main manager",
+          "english_components": {
+            "subject": {
+              "text": "The new employees",
+              "role": "subject",
+              "person": "3pl"
+            },
+            "verb": {
+              "text": "answer",
+              "role": "verb"
+            },
+            "indirect_object": {
+              "text": "the main manager",
+              "role": "indirect_object"
+            }
+          },
+          "georgian_verb_form": "პასუხობენ",
+          "person": "3pl",
+          "effective_preverb": ""
         }
       ],
       "imperfect": [
         {
-          "georgian": "შეშფოთებულ დედას ვპასუხობდი",
-          "english": "<strong data-role=\"subject\" data-person=\"1sg\">I</strong> <strong data-role=\"verb\">was answering</strong> <strong data-role=\"indirect-object\">the worried mother</strong>",
-          "english_plain": "I was answering the worried mother",
-          "html": "<span data-case=\"dat\" data-role=\"indirect-object\">შეშფოთებულ დედას</span> <span data-role=\"verb\">ვპასუხობდი</span>",
-          "case_marking": {
-            "indirect_object": {
-              "case": "dat",
-              "word": "დედას"
-            }
-          },
-          "georgian_verb_form": "ვპასუხობდი"
-        },
-        {
-          "georgian": "ახალგაზრდა ბავშვი მწუხარე მშობელს პასუხობდა",
-          "english": "<strong data-role=\"subject\">The young child</strong> <strong data-role=\"verb\">was answering</strong> <strong data-role=\"indirect-object\">the concerned parent</strong>",
-          "english_plain": "The young child was answering the concerned parent",
-          "html": "<span data-case=\"nom\" data-role=\"subject\">ახალგაზრდა ბავშვი</span> <span data-case=\"dat\" data-role=\"indirect-object\">მწუხარე მშობელს</span> <span data-role=\"verb\">პასუხობდა</span>",
-          "case_marking": {
-            "subject": {
-              "case": "nom",
-              "word": "ბავშვი"
+          "georgian": "ვპასუხობდი შეშფოთებულ დედას",
+          "georgian_components": {
+            "verb": {
+              "text": "ვპასუხობდი",
+              "role": "verb"
             },
             "indirect_object": {
+              "text": "შეშფოთებულ დედას",
               "case": "dat",
-              "word": "მშობელს"
+              "role": "indirect_object"
             }
           },
-          "georgian_verb_form": "პასუხობდა"
-        },
-        {
-          "georgian": "ახალი თანამშრომელი მთავარ მენეჯერს პასუხობდნენ",
-          "english": "<strong data-role=\"subject\">The new employee</strong> <strong data-role=\"verb\">were answering</strong> <strong data-role=\"indirect-object\">the main manager</strong>",
-          "english_plain": "The new employee were answering the main manager",
-          "html": "<span data-case=\"nom\" data-role=\"subject\">ახალი თანამშრომელი</span> <span data-case=\"dat\" data-role=\"indirect-object\">მთავარ მენეჯერს</span> <span data-role=\"verb\">პასუხობდნენ</span>",
-          "case_marking": {
+          "english": "I was answering the worried mother",
+          "english_components": {
             "subject": {
-              "case": "nom",
-              "word": "თანამშრომელი"
+              "text": "I",
+              "role": "subject",
+              "person": "1sg"
+            },
+            "verb": {
+              "text": "was answering",
+              "role": "verb"
             },
             "indirect_object": {
-              "case": "dat",
-              "word": "მენეჯერს"
+              "text": "the worried mother",
+              "role": "indirect_object"
             }
           },
-          "georgian_verb_form": "პასუხობდნენ"
+          "georgian_verb_form": "ვპასუხობდი",
+          "person": "1sg",
+          "effective_preverb": ""
+        },
+        {
+          "georgian": "ახალგაზრდა ბავშვი პასუხობდა მწუხარე მშობელს",
+          "georgian_components": {
+            "subject": {
+              "text": "ახალგაზრდა ბავშვი",
+              "case": "nom",
+              "role": "subject"
+            },
+            "verb": {
+              "text": "პასუხობდა",
+              "role": "verb"
+            },
+            "indirect_object": {
+              "text": "მწუხარე მშობელს",
+              "case": "dat",
+              "role": "indirect_object"
+            }
+          },
+          "english": "The young child was answering the concerned parent",
+          "english_components": {
+            "subject": {
+              "text": "The young child",
+              "role": "subject",
+              "person": "3sg"
+            },
+            "verb": {
+              "text": "was answering",
+              "role": "verb"
+            },
+            "indirect_object": {
+              "text": "the concerned parent",
+              "role": "indirect_object"
+            }
+          },
+          "georgian_verb_form": "პასუხობდა",
+          "person": "3sg",
+          "effective_preverb": ""
+        },
+        {
+          "georgian": "ახალი თანამშრომლები პასუხობდნენ მთავარ მენეჯერს",
+          "georgian_components": {
+            "subject": {
+              "text": "ახალი თანამშრომლები",
+              "case": "nom",
+              "role": "subject"
+            },
+            "verb": {
+              "text": "პასუხობდნენ",
+              "role": "verb"
+            },
+            "indirect_object": {
+              "text": "მთავარ მენეჯერს",
+              "case": "dat",
+              "role": "indirect_object"
+            }
+          },
+          "english": "The new employees were answering the main manager",
+          "english_components": {
+            "subject": {
+              "text": "The new employees",
+              "role": "subject",
+              "person": "3pl"
+            },
+            "verb": {
+              "text": "were answering",
+              "role": "verb"
+            },
+            "indirect_object": {
+              "text": "the main manager",
+              "role": "indirect_object"
+            }
+          },
+          "georgian_verb_form": "პასუხობდნენ",
+          "person": "3pl",
+          "effective_preverb": ""
         }
       ],
       "future": [
         {
-          "georgian": "შეშფოთებულ დედას ვუპასუხებ",
-          "english": "<strong data-role=\"subject\" data-person=\"1sg\">I</strong> <strong data-role=\"verb\">will answer</strong> <strong data-role=\"indirect-object\">the worried mother</strong>",
-          "english_plain": "I will answer the worried mother",
-          "html": "<span data-case=\"dat\" data-role=\"indirect-object\">შეშფოთებულ დედას</span> <span data-role=\"verb\">ვუპასუხებ</span>",
-          "case_marking": {
-            "indirect_object": {
-              "case": "dat",
-              "word": "დედას"
-            }
-          },
-          "georgian_verb_form": "ვუპასუხებ"
-        },
-        {
-          "georgian": "ახალგაზრდა ბავშვი მწუხარე მშობელს უპასუხებს",
-          "english": "<strong data-role=\"subject\">The young child</strong> <strong data-role=\"verb\">will answer</strong> <strong data-role=\"indirect-object\">the concerned parent</strong>",
-          "english_plain": "The young child will answer the concerned parent",
-          "html": "<span data-case=\"nom\" data-role=\"subject\">ახალგაზრდა ბავშვი</span> <span data-case=\"dat\" data-role=\"indirect-object\">მწუხარე მშობელს</span> <span data-role=\"verb\">უპასუხებს</span>",
-          "case_marking": {
-            "subject": {
-              "case": "nom",
-              "word": "ბავშვი"
+          "georgian": "ვუპასუხებ შეშფოთებულ დედას",
+          "georgian_components": {
+            "verb": {
+              "text": "ვუპასუხებ",
+              "role": "verb"
             },
             "indirect_object": {
+              "text": "შეშფოთებულ დედას",
               "case": "dat",
-              "word": "მშობელს"
+              "role": "indirect_object"
             }
           },
-          "georgian_verb_form": "უპასუხებს"
-        },
-        {
-          "georgian": "ახალი თანამშრომელი მთავარ მენეჯერს უპასუხებენ",
-          "english": "<strong data-role=\"subject\">The new employee</strong> <strong data-role=\"verb\">will answer</strong> <strong data-role=\"indirect-object\">the main manager</strong>",
-          "english_plain": "The new employee will answer the main manager",
-          "html": "<span data-case=\"nom\" data-role=\"subject\">ახალი თანამშრომელი</span> <span data-case=\"dat\" data-role=\"indirect-object\">მთავარ მენეჯერს</span> <span data-role=\"verb\">უპასუხებენ</span>",
-          "case_marking": {
+          "english": "I will answer the worried mother",
+          "english_components": {
             "subject": {
-              "case": "nom",
-              "word": "თანამშრომელი"
+              "text": "I",
+              "role": "subject",
+              "person": "1sg"
+            },
+            "verb": {
+              "text": "will answer",
+              "role": "verb"
             },
             "indirect_object": {
-              "case": "dat",
-              "word": "მენეჯერს"
+              "text": "the worried mother",
+              "role": "indirect_object"
             }
           },
-          "georgian_verb_form": "უპასუხებენ"
+          "georgian_verb_form": "ვუპასუხებ",
+          "person": "1sg",
+          "effective_preverb": ""
+        },
+        {
+          "georgian": "ახალგაზრდა ბავშვი უპასუხებს მწუხარე მშობელს",
+          "georgian_components": {
+            "subject": {
+              "text": "ახალგაზრდა ბავშვი",
+              "case": "nom",
+              "role": "subject"
+            },
+            "verb": {
+              "text": "უპასუხებს",
+              "role": "verb"
+            },
+            "indirect_object": {
+              "text": "მწუხარე მშობელს",
+              "case": "dat",
+              "role": "indirect_object"
+            }
+          },
+          "english": "The young child will answer the concerned parent",
+          "english_components": {
+            "subject": {
+              "text": "The young child",
+              "role": "subject",
+              "person": "3sg"
+            },
+            "verb": {
+              "text": "will answer",
+              "role": "verb"
+            },
+            "indirect_object": {
+              "text": "the concerned parent",
+              "role": "indirect_object"
+            }
+          },
+          "georgian_verb_form": "უპასუხებს",
+          "person": "3sg",
+          "effective_preverb": ""
+        },
+        {
+          "georgian": "ახალი თანამშრომლები უპასუხებენ მთავარ მენეჯერს",
+          "georgian_components": {
+            "subject": {
+              "text": "ახალი თანამშრომლები",
+              "case": "nom",
+              "role": "subject"
+            },
+            "verb": {
+              "text": "უპასუხებენ",
+              "role": "verb"
+            },
+            "indirect_object": {
+              "text": "მთავარ მენეჯერს",
+              "case": "dat",
+              "role": "indirect_object"
+            }
+          },
+          "english": "The new employees will answer the main manager",
+          "english_components": {
+            "subject": {
+              "text": "The new employees",
+              "role": "subject",
+              "person": "3pl"
+            },
+            "verb": {
+              "text": "will answer",
+              "role": "verb"
+            },
+            "indirect_object": {
+              "text": "the main manager",
+              "role": "indirect_object"
+            }
+          },
+          "georgian_verb_form": "უპასუხებენ",
+          "person": "3pl",
+          "effective_preverb": ""
         }
       ],
       "aorist": [
         {
-          "georgian": "შეშფოთებულ დედას ვუპასუხე",
-          "english": "<strong data-role=\"subject\" data-person=\"1sg\">I</strong> <strong data-role=\"verb\">answered</strong> <strong data-role=\"indirect-object\">the worried mother</strong>",
-          "english_plain": "I answered the worried mother",
-          "html": "<span data-case=\"dat\" data-role=\"indirect-object\">შეშფოთებულ დედას</span> <span data-role=\"verb\">ვუპასუხე</span>",
-          "case_marking": {
-            "indirect_object": {
-              "case": "dat",
-              "word": "დედას"
-            }
-          },
-          "georgian_verb_form": "ვუპასუხე"
-        },
-        {
-          "georgian": "ახალგაზრდა ბავშვმა მწუხარე მშობელს უპასუხა",
-          "english": "<strong data-role=\"subject\">The young child</strong> <strong data-role=\"verb\">answered</strong> <strong data-role=\"indirect-object\">the concerned parent</strong>",
-          "english_plain": "The young child answered the concerned parent",
-          "html": "<span data-case=\"erg\" data-role=\"subject\">ახალგაზრდა ბავშვმა</span> <span data-case=\"dat\" data-role=\"indirect-object\">მწუხარე მშობელს</span> <span data-role=\"verb\">უპასუხა</span>",
-          "case_marking": {
-            "subject": {
-              "case": "erg",
-              "word": "ბავშვმა"
+          "georgian": "ვუპასუხე შეშფოთებულ დედას",
+          "georgian_components": {
+            "verb": {
+              "text": "ვუპასუხე",
+              "role": "verb"
             },
             "indirect_object": {
+              "text": "შეშფოთებულ დედას",
               "case": "dat",
-              "word": "მშობელს"
+              "role": "indirect_object"
             }
           },
-          "georgian_verb_form": "უპასუხა"
-        },
-        {
-          "georgian": "ახალმა თანამშრომელმა მთავარ მენეჯერს უპასუხეს",
-          "english": "<strong data-role=\"subject\">The new employee</strong> <strong data-role=\"verb\">answered</strong> <strong data-role=\"indirect-object\">the main manager</strong>",
-          "english_plain": "The new employee answered the main manager",
-          "html": "<span data-case=\"erg\" data-role=\"subject\">ახალმა თანამშრომელმა</span> <span data-case=\"dat\" data-role=\"indirect-object\">მთავარ მენეჯერს</span> <span data-role=\"verb\">უპასუხეს</span>",
-          "case_marking": {
+          "english": "I answered the worried mother",
+          "english_components": {
             "subject": {
-              "case": "erg",
-              "word": "თანამშრომელმა"
+              "text": "I",
+              "role": "subject",
+              "person": "1sg"
+            },
+            "verb": {
+              "text": "answered",
+              "role": "verb"
             },
             "indirect_object": {
-              "case": "dat",
-              "word": "მენეჯერს"
+              "text": "the worried mother",
+              "role": "indirect_object"
             }
           },
-          "georgian_verb_form": "უპასუხეს"
+          "georgian_verb_form": "ვუპასუხე",
+          "person": "1sg",
+          "effective_preverb": ""
+        },
+        {
+          "georgian": "ახალგაზრდა ბავშვმა უპასუხა მწუხარე მშობელს",
+          "georgian_components": {
+            "subject": {
+              "text": "ახალგაზრდა ბავშვმა",
+              "case": "erg",
+              "role": "subject"
+            },
+            "verb": {
+              "text": "უპასუხა",
+              "role": "verb"
+            },
+            "indirect_object": {
+              "text": "მწუხარე მშობელს",
+              "case": "dat",
+              "role": "indirect_object"
+            }
+          },
+          "english": "The young child answered the concerned parent",
+          "english_components": {
+            "subject": {
+              "text": "The young child",
+              "role": "subject",
+              "person": "3sg"
+            },
+            "verb": {
+              "text": "answered",
+              "role": "verb"
+            },
+            "indirect_object": {
+              "text": "the concerned parent",
+              "role": "indirect_object"
+            }
+          },
+          "georgian_verb_form": "უპასუხა",
+          "person": "3sg",
+          "effective_preverb": ""
+        },
+        {
+          "georgian": "ახალმა თანამშრომლებმა უპასუხეს მთავარ მენეჯერს",
+          "georgian_components": {
+            "subject": {
+              "text": "ახალმა თანამშრომლებმა",
+              "case": "erg",
+              "role": "subject"
+            },
+            "verb": {
+              "text": "უპასუხეს",
+              "role": "verb"
+            },
+            "indirect_object": {
+              "text": "მთავარ მენეჯერს",
+              "case": "dat",
+              "role": "indirect_object"
+            }
+          },
+          "english": "The new employees answered the main manager",
+          "english_components": {
+            "subject": {
+              "text": "The new employees",
+              "role": "subject",
+              "person": "3pl"
+            },
+            "verb": {
+              "text": "answered",
+              "role": "verb"
+            },
+            "indirect_object": {
+              "text": "the main manager",
+              "role": "indirect_object"
+            }
+          },
+          "georgian_verb_form": "უპასუხეს",
+          "person": "3pl",
+          "effective_preverb": ""
         }
       ],
       "optative": [
         {
-          "georgian": "შეშფოთებულ დედას უნდა ვუპასუხო",
-          "english": "<strong data-role=\"subject\" data-person=\"1sg\">I</strong> <strong data-role=\"verb\">should</strong> <strong data-role=\"verb\">answer</strong> <strong data-role=\"indirect-object\">the worried mother</strong>",
-          "english_plain": "I should answer the worried mother",
-          "html": "<span data-case=\"dat\" data-role=\"indirect-object\">შეშფოთებულ დედას</span> <span data-role=\"verb\">უნდა ვუპასუხო</span>",
-          "case_marking": {
-            "indirect_object": {
-              "case": "dat",
-              "word": "დედას"
-            }
-          },
-          "georgian_verb_form": "ვუპასუხო"
-        },
-        {
-          "georgian": "ახალგაზრდა ბავშვმა მწუხარე მშობელს უნდა უპასუხოს",
-          "english": "<strong data-role=\"subject\">The young child</strong> <strong data-role=\"verb\">should</strong> <strong data-role=\"verb\">answer</strong> <strong data-role=\"indirect-object\">the concerned parent</strong>",
-          "english_plain": "The young child should answer the concerned parent",
-          "html": "<span data-case=\"erg\" data-role=\"subject\">ახალგაზრდა ბავშვმა</span> <span data-case=\"dat\" data-role=\"indirect-object\">მწუხარე მშობელს</span> <span data-role=\"verb\">უნდა უპასუხოს</span>",
-          "case_marking": {
-            "subject": {
-              "case": "erg",
-              "word": "ბავშვმა"
+          "georgian": "უნდა ვუპასუხო შეშფოთებულ დედას",
+          "georgian_components": {
+            "verb": {
+              "text": "უნდა ვუპასუხო",
+              "role": "verb"
             },
             "indirect_object": {
+              "text": "შეშფოთებულ დედას",
               "case": "dat",
-              "word": "მშობელს"
+              "role": "indirect_object"
             }
           },
-          "georgian_verb_form": "უპასუხოს"
-        },
-        {
-          "georgian": "ახალმა თანამშრომელმა მთავარ მენეჯერს უნდა უპასუხონ",
-          "english": "<strong data-role=\"subject\">The new employee</strong> <strong data-role=\"verb\">should</strong> <strong data-role=\"verb\">answer</strong> <strong data-role=\"indirect-object\">the main manager</strong>",
-          "english_plain": "The new employee should answer the main manager",
-          "html": "<span data-case=\"erg\" data-role=\"subject\">ახალმა თანამშრომელმა</span> <span data-case=\"dat\" data-role=\"indirect-object\">მთავარ მენეჯერს</span> <span data-role=\"verb\">უნდა უპასუხონ</span>",
-          "case_marking": {
+          "english": "I should answer the worried mother",
+          "english_components": {
             "subject": {
-              "case": "erg",
-              "word": "თანამშრომელმა"
+              "text": "I",
+              "role": "subject",
+              "person": "1sg"
+            },
+            "verb": {
+              "text": "should answer",
+              "role": "verb"
             },
             "indirect_object": {
-              "case": "dat",
-              "word": "მენეჯერს"
+              "text": "the worried mother",
+              "role": "indirect_object"
             }
           },
-          "georgian_verb_form": "უპასუხონ"
+          "georgian_verb_form": "ვუპასუხო",
+          "person": "1sg",
+          "effective_preverb": ""
+        },
+        {
+          "georgian": "ახალგაზრდა ბავშვმა უნდა უპასუხოს მწუხარე მშობელს",
+          "georgian_components": {
+            "subject": {
+              "text": "ახალგაზრდა ბავშვმა",
+              "case": "erg",
+              "role": "subject"
+            },
+            "verb": {
+              "text": "უნდა უპასუხოს",
+              "role": "verb"
+            },
+            "indirect_object": {
+              "text": "მწუხარე მშობელს",
+              "case": "dat",
+              "role": "indirect_object"
+            }
+          },
+          "english": "The young child should answer the concerned parent",
+          "english_components": {
+            "subject": {
+              "text": "The young child",
+              "role": "subject",
+              "person": "3sg"
+            },
+            "verb": {
+              "text": "should answer",
+              "role": "verb"
+            },
+            "indirect_object": {
+              "text": "the concerned parent",
+              "role": "indirect_object"
+            }
+          },
+          "georgian_verb_form": "უპასუხოს",
+          "person": "3sg",
+          "effective_preverb": ""
+        },
+        {
+          "georgian": "ახალმა თანამშრომლებმა უნდა უპასუხონ მთავარ მენეჯერს",
+          "georgian_components": {
+            "subject": {
+              "text": "ახალმა თანამშრომლებმა",
+              "case": "erg",
+              "role": "subject"
+            },
+            "verb": {
+              "text": "უნდა უპასუხონ",
+              "role": "verb"
+            },
+            "indirect_object": {
+              "text": "მთავარ მენეჯერს",
+              "case": "dat",
+              "role": "indirect_object"
+            }
+          },
+          "english": "The new employees should answer the main manager",
+          "english_components": {
+            "subject": {
+              "text": "The new employees",
+              "role": "subject",
+              "person": "3pl"
+            },
+            "verb": {
+              "text": "should answer",
+              "role": "verb"
+            },
+            "indirect_object": {
+              "text": "the main manager",
+              "role": "indirect_object"
+            }
+          },
+          "georgian_verb_form": "უპასუხონ",
+          "person": "3pl",
+          "effective_preverb": ""
         }
       ],
       "imperative": [
         {
-          "georgian": "მკაცრ უფროსს უპასუხე",
-          "english": "<strong data-role=\"verb\">answer</strong> <strong data-role=\"indirect-object\">the strict boss</strong>",
-          "english_plain": "answer the strict boss",
-          "html": "<span data-case=\"dat\" data-role=\"indirect-object\">მკაცრ უფროსს</span> <span data-role=\"verb\">უპასუხე</span>",
-          "case_marking": {
+          "georgian": "უპასუხე მკაცრ უფროსს",
+          "georgian_components": {
+            "verb": {
+              "text": "უპასუხე",
+              "role": "verb"
+            },
             "indirect_object": {
+              "text": "მკაცრ უფროსს",
               "case": "dat",
-              "word": "უფროსს"
+              "role": "indirect_object"
             }
           },
-          "georgian_verb_form": "უპასუხე"
+          "english": "You, answer the strict boss",
+          "english_components": {
+            "subject": {
+              "text": "You,",
+              "role": "subject",
+              "person": "2sg"
+            },
+            "verb": {
+              "text": "answer",
+              "role": "verb"
+            },
+            "indirect_object": {
+              "text": "the strict boss",
+              "role": "indirect_object"
+            }
+          },
+          "georgian_verb_form": "უპასუხე",
+          "person": "2sg",
+          "effective_preverb": ""
         },
         {
-          "georgian": "მომთხოვნ ზედამხედველს უპასუხეთ",
-          "english": "<strong data-role=\"verb\">answer</strong> <strong data-role=\"indirect-object\">the demanding supervisor</strong>",
-          "english_plain": "answer the demanding supervisor",
-          "html": "<span data-case=\"dat\" data-role=\"indirect-object\">მომთხოვნ ზედამხედველს</span> <span data-role=\"verb\">უპასუხეთ</span>",
-          "case_marking": {
+          "georgian": "უპასუხეთ მომთხოვნ ზედამხედველს",
+          "georgian_components": {
+            "verb": {
+              "text": "უპასუხეთ",
+              "role": "verb"
+            },
             "indirect_object": {
+              "text": "მომთხოვნ ზედამხედველს",
               "case": "dat",
-              "word": "ზედამხედველს"
+              "role": "indirect_object"
             }
           },
-          "georgian_verb_form": "უპასუხეთ"
+          "english": "You all (you formal), answer the demanding supervisor",
+          "english_components": {
+            "subject": {
+              "text": "You all (you formal),",
+              "role": "subject",
+              "person": "2pl"
+            },
+            "verb": {
+              "text": "answer",
+              "role": "verb"
+            },
+            "indirect_object": {
+              "text": "the demanding supervisor",
+              "role": "indirect_object"
+            }
+          },
+          "georgian_verb_form": "უპასუხეთ",
+          "person": "2pl",
+          "effective_preverb": ""
         }
       ]
     }

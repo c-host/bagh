@@ -56,7 +56,7 @@
       "examples": []
     },
     "imperfect": {
-      "raw_gloss": "V Pass Impf <S:Nom>",
+      "raw_gloss": "V Pass Impf <S> <S:Nom>",
       "forms": {
         "1sg": "ვიბადებოდი",
         "2sg": "იბადებოდი",
@@ -126,189 +126,428 @@
   "preverb_rules": {
     "default": "",
     "replacements": {},
-    "tense_specific_fallbacks": {},
-    "english_fallbacks": {}
+    "tense_specific_fallbacks": {}
   },
   "examples": {
-    "null": {
+    "default": {
       "present": [
         {
           "georgian": "ვიბადები",
-          "english": "<strong data-role=\"subject\" data-person=\"1sg\">I</strong> <strong data-role=\"verb\">am born</strong>",
-          "english_plain": "I am born",
-          "html": " <span data-role=\"verb\">ვიბადები</span>",
-          "case_marking": {},
-          "georgian_verb_form": "ვიბადები"
+          "georgian_components": {
+            "verb": {
+              "text": "ვიბადები",
+              "role": "verb"
+            }
+          },
+          "english": "I am born",
+          "english_components": {
+            "subject": {
+              "text": "I",
+              "role": "subject",
+              "person": "1sg"
+            },
+            "verb": {
+              "text": "am born",
+              "role": "verb"
+            }
+          },
+          "georgian_verb_form": "ვიბადები",
+          "person": "1sg",
+          "effective_preverb": "და"
         },
         {
           "georgian": "პატარა ბავშვი იბადება",
-          "english": "<strong data-role=\"subject\">The small baby</strong> <strong data-role=\"verb\">is born</strong>",
-          "english_plain": "The small baby is born",
-          "html": "<span data-case=\"nom\" data-role=\"subject\">პატარა ბავშვი</span> <span data-role=\"verb\">იბადება</span>",
-          "case_marking": {
+          "georgian_components": {
             "subject": {
+              "text": "პატარა ბავშვი",
               "case": "nom",
-              "word": "ბავშვი"
+              "role": "subject"
+            },
+            "verb": {
+              "text": "იბადება",
+              "role": "verb"
             }
           },
-          "georgian_verb_form": "იბადება"
+          "english": "The small baby is born",
+          "english_components": {
+            "subject": {
+              "text": "The small baby",
+              "role": "subject",
+              "person": "3sg"
+            },
+            "verb": {
+              "text": "is born",
+              "role": "verb"
+            }
+          },
+          "georgian_verb_form": "იბადება",
+          "person": "3sg",
+          "effective_preverb": "და"
         },
         {
-          "georgian": "პატარა გოგო იბადებიან",
-          "english": "<strong data-role=\"subject\">The small girl</strong> <strong data-role=\"verb\">are born</strong>",
-          "english_plain": "The small girl are born",
-          "html": "<span data-case=\"nom\" data-role=\"subject\">პატარა გოგო</span> <span data-role=\"verb\">იბადებიან</span>",
-          "case_marking": {
+          "georgian": "პატარა გოგოები იბადებიან",
+          "georgian_components": {
             "subject": {
+              "text": "პატარა გოგოები",
               "case": "nom",
-              "word": "გოგო"
+              "role": "subject"
+            },
+            "verb": {
+              "text": "იბადებიან",
+              "role": "verb"
             }
           },
-          "georgian_verb_form": "იბადებიან"
+          "english": "The small girls are born",
+          "english_components": {
+            "subject": {
+              "text": "The small girls",
+              "role": "subject",
+              "person": "3pl"
+            },
+            "verb": {
+              "text": "are born",
+              "role": "verb"
+            }
+          },
+          "georgian_verb_form": "იბადებიან",
+          "person": "3pl",
+          "effective_preverb": "და"
         }
       ],
       "imperfect": [
         {
           "georgian": "ვიბადებოდი",
-          "english": "<strong data-role=\"subject\" data-person=\"1sg\">I</strong> <strong data-role=\"verb\">was born</strong>",
-          "english_plain": "I was born",
-          "html": " <span data-role=\"verb\">ვიბადებოდი</span>",
-          "case_marking": {},
-          "georgian_verb_form": "ვიბადებოდი"
+          "georgian_components": {
+            "verb": {
+              "text": "ვიბადებოდი",
+              "role": "verb"
+            }
+          },
+          "english": "I was born",
+          "english_components": {
+            "subject": {
+              "text": "I",
+              "role": "subject",
+              "person": "1sg"
+            },
+            "verb": {
+              "text": "was born",
+              "role": "verb"
+            }
+          },
+          "georgian_verb_form": "ვიბადებოდი",
+          "person": "1sg",
+          "effective_preverb": "და"
         },
         {
           "georgian": "პატარა ბავშვი იბადებოდა",
-          "english": "<strong data-role=\"subject\">The small baby</strong> <strong data-role=\"verb\">was born</strong>",
-          "english_plain": "The small baby was born",
-          "html": "<span data-case=\"nom\" data-role=\"subject\">პატარა ბავშვი</span> <span data-role=\"verb\">იბადებოდა</span>",
-          "case_marking": {
+          "georgian_components": {
             "subject": {
+              "text": "პატარა ბავშვი",
               "case": "nom",
-              "word": "ბავშვი"
+              "role": "subject"
+            },
+            "verb": {
+              "text": "იბადებოდა",
+              "role": "verb"
             }
           },
-          "georgian_verb_form": "იბადებოდა"
+          "english": "The small baby was born",
+          "english_components": {
+            "subject": {
+              "text": "The small baby",
+              "role": "subject",
+              "person": "3sg"
+            },
+            "verb": {
+              "text": "was born",
+              "role": "verb"
+            }
+          },
+          "georgian_verb_form": "იბადებოდა",
+          "person": "3sg",
+          "effective_preverb": "და"
         },
         {
-          "georgian": "პატარა გოგო იბადებოდნენ",
-          "english": "<strong data-role=\"subject\">The small girl</strong> <strong data-role=\"verb\">were born</strong>",
-          "english_plain": "The small girl were born",
-          "html": "<span data-case=\"nom\" data-role=\"subject\">პატარა გოგო</span> <span data-role=\"verb\">იბადებოდნენ</span>",
-          "case_marking": {
+          "georgian": "პატარა გოგოები იბადებოდნენ",
+          "georgian_components": {
             "subject": {
+              "text": "პატარა გოგოები",
               "case": "nom",
-              "word": "გოგო"
+              "role": "subject"
+            },
+            "verb": {
+              "text": "იბადებოდნენ",
+              "role": "verb"
             }
           },
-          "georgian_verb_form": "იბადებოდნენ"
+          "english": "The small girls were born",
+          "english_components": {
+            "subject": {
+              "text": "The small girls",
+              "role": "subject",
+              "person": "3pl"
+            },
+            "verb": {
+              "text": "were born",
+              "role": "verb"
+            }
+          },
+          "georgian_verb_form": "იბადებოდნენ",
+          "person": "3pl",
+          "effective_preverb": "და"
         }
       ],
       "future": [
         {
           "georgian": "დავიბადები",
-          "english": "<strong data-role=\"subject\" data-person=\"1sg\">I</strong> <strong data-role=\"verb\">will be born</strong>",
-          "english_plain": "I will be born",
-          "html": " <span data-role=\"verb\">დავიბადები</span>",
-          "case_marking": {},
-          "georgian_verb_form": "დავიბადები"
+          "georgian_components": {
+            "verb": {
+              "text": "დავიბადები",
+              "role": "verb"
+            }
+          },
+          "english": "I will be born",
+          "english_components": {
+            "subject": {
+              "text": "I",
+              "role": "subject",
+              "person": "1sg"
+            },
+            "verb": {
+              "text": "will be born",
+              "role": "verb"
+            }
+          },
+          "georgian_verb_form": "დავიბადები",
+          "person": "1sg",
+          "effective_preverb": "და"
         },
         {
           "georgian": "პატარა ბავშვი დაიბადება",
-          "english": "<strong data-role=\"subject\">The small baby</strong> <strong data-role=\"verb\">will be born</strong>",
-          "english_plain": "The small baby will be born",
-          "html": "<span data-case=\"nom\" data-role=\"subject\">პატარა ბავშვი</span> <span data-role=\"verb\">დაიბადება</span>",
-          "case_marking": {
+          "georgian_components": {
             "subject": {
+              "text": "პატარა ბავშვი",
               "case": "nom",
-              "word": "ბავშვი"
+              "role": "subject"
+            },
+            "verb": {
+              "text": "დაიბადება",
+              "role": "verb"
             }
           },
-          "georgian_verb_form": "დაიბადება"
+          "english": "The small baby will be born",
+          "english_components": {
+            "subject": {
+              "text": "The small baby",
+              "role": "subject",
+              "person": "3sg"
+            },
+            "verb": {
+              "text": "will be born",
+              "role": "verb"
+            }
+          },
+          "georgian_verb_form": "დაიბადება",
+          "person": "3sg",
+          "effective_preverb": "და"
         },
         {
-          "georgian": "პატარა გოგო დაიბადებიან",
-          "english": "<strong data-role=\"subject\">The small girl</strong> <strong data-role=\"verb\">will be born</strong>",
-          "english_plain": "The small girl will be born",
-          "html": "<span data-case=\"nom\" data-role=\"subject\">პატარა გოგო</span> <span data-role=\"verb\">დაიბადებიან</span>",
-          "case_marking": {
+          "georgian": "პატარა გოგოები დაიბადებიან",
+          "georgian_components": {
             "subject": {
+              "text": "პატარა გოგოები",
               "case": "nom",
-              "word": "გოგო"
+              "role": "subject"
+            },
+            "verb": {
+              "text": "დაიბადებიან",
+              "role": "verb"
             }
           },
-          "georgian_verb_form": "დაიბადებიან"
+          "english": "The small girls will be born",
+          "english_components": {
+            "subject": {
+              "text": "The small girls",
+              "role": "subject",
+              "person": "3pl"
+            },
+            "verb": {
+              "text": "will be born",
+              "role": "verb"
+            }
+          },
+          "georgian_verb_form": "დაიბადებიან",
+          "person": "3pl",
+          "effective_preverb": "და"
         }
       ],
       "aorist": [
         {
           "georgian": "დავიბადე",
-          "english": "<strong data-role=\"subject\" data-person=\"1sg\">I</strong> <strong data-role=\"verb\">was born</strong>",
-          "english_plain": "I was born",
-          "html": " <span data-role=\"verb\">დავიბადე</span>",
-          "case_marking": {},
-          "georgian_verb_form": "დავიბადე"
+          "georgian_components": {
+            "verb": {
+              "text": "დავიბადე",
+              "role": "verb"
+            }
+          },
+          "english": "I was born",
+          "english_components": {
+            "subject": {
+              "text": "I",
+              "role": "subject",
+              "person": "1sg"
+            },
+            "verb": {
+              "text": "was born",
+              "role": "verb"
+            }
+          },
+          "georgian_verb_form": "დავიბადე",
+          "person": "1sg",
+          "effective_preverb": "და"
         },
         {
           "georgian": "პატარა ბავშვი დაიბადა",
-          "english": "<strong data-role=\"subject\">The small baby</strong> <strong data-role=\"verb\">was born</strong>",
-          "english_plain": "The small baby was born",
-          "html": "<span data-case=\"nom\" data-role=\"subject\">პატარა ბავშვი</span> <span data-role=\"verb\">დაიბადა</span>",
-          "case_marking": {
+          "georgian_components": {
             "subject": {
+              "text": "პატარა ბავშვი",
               "case": "nom",
-              "word": "ბავშვი"
+              "role": "subject"
+            },
+            "verb": {
+              "text": "დაიბადა",
+              "role": "verb"
             }
           },
-          "georgian_verb_form": "დაიბადა"
+          "english": "The small baby was born",
+          "english_components": {
+            "subject": {
+              "text": "The small baby",
+              "role": "subject",
+              "person": "3sg"
+            },
+            "verb": {
+              "text": "was born",
+              "role": "verb"
+            }
+          },
+          "georgian_verb_form": "დაიბადა",
+          "person": "3sg",
+          "effective_preverb": "და"
         },
         {
-          "georgian": "პატარა გოგო დაიბადნენ",
-          "english": "<strong data-role=\"subject\">The small girl</strong> <strong data-role=\"verb\">were born</strong>",
-          "english_plain": "The small girl were born",
-          "html": "<span data-case=\"nom\" data-role=\"subject\">პატარა გოგო</span> <span data-role=\"verb\">დაიბადნენ</span>",
-          "case_marking": {
+          "georgian": "პატარა გოგოები დაიბადნენ",
+          "georgian_components": {
             "subject": {
+              "text": "პატარა გოგოები",
               "case": "nom",
-              "word": "გოგო"
+              "role": "subject"
+            },
+            "verb": {
+              "text": "დაიბადნენ",
+              "role": "verb"
             }
           },
-          "georgian_verb_form": "დაიბადნენ"
+          "english": "The small girls were born",
+          "english_components": {
+            "subject": {
+              "text": "The small girls",
+              "role": "subject",
+              "person": "3pl"
+            },
+            "verb": {
+              "text": "were born",
+              "role": "verb"
+            }
+          },
+          "georgian_verb_form": "დაიბადნენ",
+          "person": "3pl",
+          "effective_preverb": "და"
         }
       ],
       "optative": [
         {
           "georgian": "უნდა დავიბადო",
-          "english": "<strong data-role=\"subject\" data-person=\"1sg\">I</strong> <strong data-role=\"verb\">should</strong> <strong data-role=\"verb\">be born</strong>",
-          "english_plain": "I should be born",
-          "html": " <span data-role=\"verb\">უნდა დავიბადო</span>",
-          "case_marking": {},
-          "georgian_verb_form": "დავიბადო"
+          "georgian_components": {
+            "verb": {
+              "text": "უნდა დავიბადო",
+              "role": "verb"
+            }
+          },
+          "english": "I should be born",
+          "english_components": {
+            "subject": {
+              "text": "I",
+              "role": "subject",
+              "person": "1sg"
+            },
+            "verb": {
+              "text": "should be born",
+              "role": "verb"
+            }
+          },
+          "georgian_verb_form": "დავიბადო",
+          "person": "1sg",
+          "effective_preverb": "და"
         },
         {
           "georgian": "პატარა ბავშვი უნდა დაიბადოს",
-          "english": "<strong data-role=\"subject\">The small baby</strong> <strong data-role=\"verb\">should</strong> <strong data-role=\"verb\">be born</strong>",
-          "english_plain": "The small baby should be born",
-          "html": "<span data-case=\"nom\" data-role=\"subject\">პატარა ბავშვი</span> <span data-role=\"verb\">უნდა დაიბადოს</span>",
-          "case_marking": {
+          "georgian_components": {
             "subject": {
+              "text": "პატარა ბავშვი",
               "case": "nom",
-              "word": "ბავშვი"
+              "role": "subject"
+            },
+            "verb": {
+              "text": "უნდა დაიბადოს",
+              "role": "verb"
             }
           },
-          "georgian_verb_form": "დაიბადოს"
+          "english": "The small baby should be born",
+          "english_components": {
+            "subject": {
+              "text": "The small baby",
+              "role": "subject",
+              "person": "3sg"
+            },
+            "verb": {
+              "text": "should be born",
+              "role": "verb"
+            }
+          },
+          "georgian_verb_form": "დაიბადოს",
+          "person": "3sg",
+          "effective_preverb": "და"
         },
         {
-          "georgian": "პატარა გოგო უნდა დაიბადონ",
-          "english": "<strong data-role=\"subject\">The small girl</strong> <strong data-role=\"verb\">should</strong> <strong data-role=\"verb\">be born</strong>",
-          "english_plain": "The small girl should be born",
-          "html": "<span data-case=\"nom\" data-role=\"subject\">პატარა გოგო</span> <span data-role=\"verb\">უნდა დაიბადონ</span>",
-          "case_marking": {
+          "georgian": "პატარა გოგოები უნდა დაიბადონ",
+          "georgian_components": {
             "subject": {
+              "text": "პატარა გოგოები",
               "case": "nom",
-              "word": "გოგო"
+              "role": "subject"
+            },
+            "verb": {
+              "text": "უნდა დაიბადონ",
+              "role": "verb"
             }
           },
-          "georgian_verb_form": "დაიბადონ"
+          "english": "The small girls should be born",
+          "english_components": {
+            "subject": {
+              "text": "The small girls",
+              "role": "subject",
+              "person": "3pl"
+            },
+            "verb": {
+              "text": "should be born",
+              "role": "verb"
+            }
+          },
+          "georgian_verb_form": "დაიბადონ",
+          "person": "3pl",
+          "effective_preverb": "და"
         }
       ],
       "imperative": []
@@ -389,7 +628,7 @@
       }
     },
     "imperfect": {
-      "raw_gloss": "V Pass Impf <S:Nom>",
+      "raw_gloss": "V Pass Impf <S> <S:Nom>",
       "structured_gloss": {
         "raw_components": [
           {
@@ -409,6 +648,12 @@
             "component_type": "tense",
             "color_class": "gloss-tense",
             "description": "Imperfect"
+          },
+          {
+            "text": "<S>",
+            "component_type": "argument_pattern",
+            "color_class": "gloss-argument",
+            "description": "Intransitive absolute"
           },
           {
             "text": "<S:Nom>",
@@ -437,13 +682,19 @@
             "description": "Imperfect"
           },
           {
+            "text": "<S>",
+            "component_type": "argument_pattern",
+            "color_class": "gloss-argument",
+            "description": "Intransitive absolute"
+          },
+          {
             "text": "<S:Nom>",
             "component_type": "case_spec",
             "color_class": "gloss-subject",
             "description": "Nominative subject"
           }
         ],
-        "argument_pattern": null,
+        "argument_pattern": "<S>",
         "case_specifications": [
           "<S:Nom>"
         ]

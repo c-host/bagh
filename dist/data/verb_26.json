@@ -152,282 +152,631 @@
   "preverb_rules": {
     "default": "",
     "replacements": {},
-    "tense_specific_fallbacks": {},
-    "english_fallbacks": {}
+    "tense_specific_fallbacks": {}
   },
   "examples": {
-    "null": {
+    "default": {
       "present": [
         {
-          "georgian": "ჯანსაღ საუზმეს ვამზადებ",
-          "english": "<strong data-role=\"subject\" data-person=\"1sg\">I</strong> <strong data-role=\"verb\">prepare</strong> <strong data-role=\"direct-object\">the healthy breakfast</strong>",
-          "english_plain": "I prepare the healthy breakfast",
-          "html": "<span data-case=\"dat\" data-role=\"direct-object\">ჯანსაღ საუზმეს</span> <span data-role=\"verb\">ვამზადებ</span>",
-          "case_marking": {
-            "direct_object": {
-              "case": "dat",
-              "word": "საუზმეს"
-            }
-          },
-          "georgian_verb_form": "ვამზადებ"
-        },
-        {
-          "georgian": "გამოცდილი მზარეული განსაკუთრებულ კვებას ამზადებს",
-          "english": "<strong data-role=\"subject\">The experienced cook</strong> <strong data-role=\"verb\">prepares</strong> <strong data-role=\"direct-object\">the special meal</strong>",
-          "english_plain": "The experienced cook prepares the special meal",
-          "html": "<span data-case=\"nom\" data-role=\"subject\">გამოცდილი მზარეული</span> <span data-case=\"dat\" data-role=\"direct-object\">განსაკუთრებულ კვებას</span> <span data-role=\"verb\">ამზადებს</span>",
-          "case_marking": {
-            "subject": {
-              "case": "nom",
-              "word": "მზარეული"
+          "georgian": "ვამზადებ ჯანსაღ საუზმეს",
+          "georgian_components": {
+            "verb": {
+              "text": "ვამზადებ",
+              "role": "verb"
             },
             "direct_object": {
+              "text": "ჯანსაღ საუზმეს",
               "case": "dat",
-              "word": "კვებას"
+              "role": "direct_object"
             }
           },
-          "georgian_verb_form": "ამზადებს"
-        },
-        {
-          "georgian": "თავდადებული მასწავლებელი საინტერესო გაკვეთილს ამზადებენ",
-          "english": "<strong data-role=\"subject\">The dedicated teacher</strong> <strong data-role=\"verb\">prepare</strong> <strong data-role=\"direct-object\">the interesting lesson</strong>",
-          "english_plain": "The dedicated teacher prepare the interesting lesson",
-          "html": "<span data-case=\"nom\" data-role=\"subject\">თავდადებული მასწავლებელი</span> <span data-case=\"dat\" data-role=\"direct-object\">საინტერესო გაკვეთილს</span> <span data-role=\"verb\">ამზადებენ</span>",
-          "case_marking": {
+          "english": "I prepare the healthy breakfast",
+          "english_components": {
             "subject": {
-              "case": "nom",
-              "word": "მასწავლებელი"
+              "text": "I",
+              "role": "subject",
+              "person": "1sg"
+            },
+            "verb": {
+              "text": "prepare",
+              "role": "verb"
             },
             "direct_object": {
-              "case": "dat",
-              "word": "გაკვეთილს"
+              "text": "the healthy breakfast",
+              "role": "direct_object"
             }
           },
-          "georgian_verb_form": "ამზადებენ"
+          "georgian_verb_form": "ვამზადებ",
+          "person": "1sg",
+          "effective_preverb": "მო"
+        },
+        {
+          "georgian": "გამოცდილი მზარეული ამზადებს განსაკუთრებულ კვებას",
+          "georgian_components": {
+            "subject": {
+              "text": "გამოცდილი მზარეული",
+              "case": "nom",
+              "role": "subject"
+            },
+            "verb": {
+              "text": "ამზადებს",
+              "role": "verb"
+            },
+            "direct_object": {
+              "text": "განსაკუთრებულ კვებას",
+              "case": "dat",
+              "role": "direct_object"
+            }
+          },
+          "english": "The experienced cook prepares the special meal",
+          "english_components": {
+            "subject": {
+              "text": "The experienced cook",
+              "role": "subject",
+              "person": "3sg"
+            },
+            "verb": {
+              "text": "prepares",
+              "role": "verb"
+            },
+            "direct_object": {
+              "text": "the special meal",
+              "role": "direct_object"
+            }
+          },
+          "georgian_verb_form": "ამზადებს",
+          "person": "3sg",
+          "effective_preverb": "მო"
+        },
+        {
+          "georgian": "თავდადებული მასწავლებლები ამზადებენ საინტერესო გაკვეთილს",
+          "georgian_components": {
+            "subject": {
+              "text": "თავდადებული მასწავლებლები",
+              "case": "nom",
+              "role": "subject"
+            },
+            "verb": {
+              "text": "ამზადებენ",
+              "role": "verb"
+            },
+            "direct_object": {
+              "text": "საინტერესო გაკვეთილს",
+              "case": "dat",
+              "role": "direct_object"
+            }
+          },
+          "english": "The dedicated teachers prepare the interesting lesson",
+          "english_components": {
+            "subject": {
+              "text": "The dedicated teachers",
+              "role": "subject",
+              "person": "3pl"
+            },
+            "verb": {
+              "text": "prepare",
+              "role": "verb"
+            },
+            "direct_object": {
+              "text": "the interesting lesson",
+              "role": "direct_object"
+            }
+          },
+          "georgian_verb_form": "ამზადებენ",
+          "person": "3pl",
+          "effective_preverb": "მო"
         }
       ],
       "imperfect": [
         {
-          "georgian": "ჯანსაღ საუზმეს ვამზადებდი",
-          "english": "<strong data-role=\"subject\" data-person=\"1sg\">I</strong> <strong data-role=\"verb\">was preparing</strong> <strong data-role=\"direct-object\">the healthy breakfast</strong>",
-          "english_plain": "I was preparing the healthy breakfast",
-          "html": "<span data-case=\"dat\" data-role=\"direct-object\">ჯანსაღ საუზმეს</span> <span data-role=\"verb\">ვამზადებდი</span>",
-          "case_marking": {
-            "direct_object": {
-              "case": "dat",
-              "word": "საუზმეს"
-            }
-          },
-          "georgian_verb_form": "ვამზადებდი"
-        },
-        {
-          "georgian": "გამოცდილი მზარეული განსაკუთრებულ კვებას ამზადებდა",
-          "english": "<strong data-role=\"subject\">The experienced cook</strong> <strong data-role=\"verb\">was preparing</strong> <strong data-role=\"direct-object\">the special meal</strong>",
-          "english_plain": "The experienced cook was preparing the special meal",
-          "html": "<span data-case=\"nom\" data-role=\"subject\">გამოცდილი მზარეული</span> <span data-case=\"dat\" data-role=\"direct-object\">განსაკუთრებულ კვებას</span> <span data-role=\"verb\">ამზადებდა</span>",
-          "case_marking": {
-            "subject": {
-              "case": "nom",
-              "word": "მზარეული"
+          "georgian": "ვამზადებდი ჯანსაღ საუზმეს",
+          "georgian_components": {
+            "verb": {
+              "text": "ვამზადებდი",
+              "role": "verb"
             },
             "direct_object": {
+              "text": "ჯანსაღ საუზმეს",
               "case": "dat",
-              "word": "კვებას"
+              "role": "direct_object"
             }
           },
-          "georgian_verb_form": "ამზადებდა"
-        },
-        {
-          "georgian": "თავდადებული მასწავლებელი საინტერესო გაკვეთილს ამზადებდნენ",
-          "english": "<strong data-role=\"subject\">The dedicated teacher</strong> <strong data-role=\"verb\">were preparing</strong> <strong data-role=\"direct-object\">the interesting lesson</strong>",
-          "english_plain": "The dedicated teacher were preparing the interesting lesson",
-          "html": "<span data-case=\"nom\" data-role=\"subject\">თავდადებული მასწავლებელი</span> <span data-case=\"dat\" data-role=\"direct-object\">საინტერესო გაკვეთილს</span> <span data-role=\"verb\">ამზადებდნენ</span>",
-          "case_marking": {
+          "english": "I was preparing the healthy breakfast",
+          "english_components": {
             "subject": {
-              "case": "nom",
-              "word": "მასწავლებელი"
+              "text": "I",
+              "role": "subject",
+              "person": "1sg"
+            },
+            "verb": {
+              "text": "was preparing",
+              "role": "verb"
             },
             "direct_object": {
-              "case": "dat",
-              "word": "გაკვეთილს"
+              "text": "the healthy breakfast",
+              "role": "direct_object"
             }
           },
-          "georgian_verb_form": "ამზადებდნენ"
+          "georgian_verb_form": "ვამზადებდი",
+          "person": "1sg",
+          "effective_preverb": "მო"
+        },
+        {
+          "georgian": "გამოცდილი მზარეული ამზადებდა განსაკუთრებულ კვებას",
+          "georgian_components": {
+            "subject": {
+              "text": "გამოცდილი მზარეული",
+              "case": "nom",
+              "role": "subject"
+            },
+            "verb": {
+              "text": "ამზადებდა",
+              "role": "verb"
+            },
+            "direct_object": {
+              "text": "განსაკუთრებულ კვებას",
+              "case": "dat",
+              "role": "direct_object"
+            }
+          },
+          "english": "The experienced cook was preparing the special meal",
+          "english_components": {
+            "subject": {
+              "text": "The experienced cook",
+              "role": "subject",
+              "person": "3sg"
+            },
+            "verb": {
+              "text": "was preparing",
+              "role": "verb"
+            },
+            "direct_object": {
+              "text": "the special meal",
+              "role": "direct_object"
+            }
+          },
+          "georgian_verb_form": "ამზადებდა",
+          "person": "3sg",
+          "effective_preverb": "მო"
+        },
+        {
+          "georgian": "თავდადებული მასწავლებლები ამზადებდნენ საინტერესო გაკვეთილს",
+          "georgian_components": {
+            "subject": {
+              "text": "თავდადებული მასწავლებლები",
+              "case": "nom",
+              "role": "subject"
+            },
+            "verb": {
+              "text": "ამზადებდნენ",
+              "role": "verb"
+            },
+            "direct_object": {
+              "text": "საინტერესო გაკვეთილს",
+              "case": "dat",
+              "role": "direct_object"
+            }
+          },
+          "english": "The dedicated teachers were preparing the interesting lesson",
+          "english_components": {
+            "subject": {
+              "text": "The dedicated teachers",
+              "role": "subject",
+              "person": "3pl"
+            },
+            "verb": {
+              "text": "were preparing",
+              "role": "verb"
+            },
+            "direct_object": {
+              "text": "the interesting lesson",
+              "role": "direct_object"
+            }
+          },
+          "georgian_verb_form": "ამზადებდნენ",
+          "person": "3pl",
+          "effective_preverb": "მო"
         }
       ],
       "future": [
         {
-          "georgian": "ჯანსაღ საუზმეს მოვამზადებ",
-          "english": "<strong data-role=\"subject\" data-person=\"1sg\">I</strong> <strong data-role=\"verb\">will prepare</strong> <strong data-role=\"direct-object\">the healthy breakfast</strong>",
-          "english_plain": "I will prepare the healthy breakfast",
-          "html": "<span data-case=\"dat\" data-role=\"direct-object\">ჯანსაღ საუზმეს</span> <span data-role=\"verb\">მოვამზადებ</span>",
-          "case_marking": {
-            "direct_object": {
-              "case": "dat",
-              "word": "საუზმეს"
-            }
-          },
-          "georgian_verb_form": "მოვამზადებ"
-        },
-        {
-          "georgian": "გამოცდილი მზარეული განსაკუთრებულ კვებას მოამზადებს",
-          "english": "<strong data-role=\"subject\">The experienced cook</strong> <strong data-role=\"verb\">will prepare</strong> <strong data-role=\"direct-object\">the special meal</strong>",
-          "english_plain": "The experienced cook will prepare the special meal",
-          "html": "<span data-case=\"nom\" data-role=\"subject\">გამოცდილი მზარეული</span> <span data-case=\"dat\" data-role=\"direct-object\">განსაკუთრებულ კვებას</span> <span data-role=\"verb\">მოამზადებს</span>",
-          "case_marking": {
-            "subject": {
-              "case": "nom",
-              "word": "მზარეული"
+          "georgian": "მოვამზადებ ჯანსაღ საუზმეს",
+          "georgian_components": {
+            "verb": {
+              "text": "მოვამზადებ",
+              "role": "verb"
             },
             "direct_object": {
+              "text": "ჯანსაღ საუზმეს",
               "case": "dat",
-              "word": "კვებას"
+              "role": "direct_object"
             }
           },
-          "georgian_verb_form": "მოამზადებს"
-        },
-        {
-          "georgian": "თავდადებული მასწავლებელი საინტერესო გაკვეთილს მოამზადებენ",
-          "english": "<strong data-role=\"subject\">The dedicated teacher</strong> <strong data-role=\"verb\">will prepare</strong> <strong data-role=\"direct-object\">the interesting lesson</strong>",
-          "english_plain": "The dedicated teacher will prepare the interesting lesson",
-          "html": "<span data-case=\"nom\" data-role=\"subject\">თავდადებული მასწავლებელი</span> <span data-case=\"dat\" data-role=\"direct-object\">საინტერესო გაკვეთილს</span> <span data-role=\"verb\">მოამზადებენ</span>",
-          "case_marking": {
+          "english": "I will prepare the healthy breakfast",
+          "english_components": {
             "subject": {
-              "case": "nom",
-              "word": "მასწავლებელი"
+              "text": "I",
+              "role": "subject",
+              "person": "1sg"
+            },
+            "verb": {
+              "text": "will prepare",
+              "role": "verb"
             },
             "direct_object": {
-              "case": "dat",
-              "word": "გაკვეთილს"
+              "text": "the healthy breakfast",
+              "role": "direct_object"
             }
           },
-          "georgian_verb_form": "მოამზადებენ"
+          "georgian_verb_form": "მოვამზადებ",
+          "person": "1sg",
+          "effective_preverb": "მო"
+        },
+        {
+          "georgian": "გამოცდილი მზარეული მოამზადებს განსაკუთრებულ კვებას",
+          "georgian_components": {
+            "subject": {
+              "text": "გამოცდილი მზარეული",
+              "case": "nom",
+              "role": "subject"
+            },
+            "verb": {
+              "text": "მოამზადებს",
+              "role": "verb"
+            },
+            "direct_object": {
+              "text": "განსაკუთრებულ კვებას",
+              "case": "dat",
+              "role": "direct_object"
+            }
+          },
+          "english": "The experienced cook will prepare the special meal",
+          "english_components": {
+            "subject": {
+              "text": "The experienced cook",
+              "role": "subject",
+              "person": "3sg"
+            },
+            "verb": {
+              "text": "will prepare",
+              "role": "verb"
+            },
+            "direct_object": {
+              "text": "the special meal",
+              "role": "direct_object"
+            }
+          },
+          "georgian_verb_form": "მოამზადებს",
+          "person": "3sg",
+          "effective_preverb": "მო"
+        },
+        {
+          "georgian": "თავდადებული მასწავლებლები მოამზადებენ საინტერესო გაკვეთილს",
+          "georgian_components": {
+            "subject": {
+              "text": "თავდადებული მასწავლებლები",
+              "case": "nom",
+              "role": "subject"
+            },
+            "verb": {
+              "text": "მოამზადებენ",
+              "role": "verb"
+            },
+            "direct_object": {
+              "text": "საინტერესო გაკვეთილს",
+              "case": "dat",
+              "role": "direct_object"
+            }
+          },
+          "english": "The dedicated teachers will prepare the interesting lesson",
+          "english_components": {
+            "subject": {
+              "text": "The dedicated teachers",
+              "role": "subject",
+              "person": "3pl"
+            },
+            "verb": {
+              "text": "will prepare",
+              "role": "verb"
+            },
+            "direct_object": {
+              "text": "the interesting lesson",
+              "role": "direct_object"
+            }
+          },
+          "georgian_verb_form": "მოამზადებენ",
+          "person": "3pl",
+          "effective_preverb": "მო"
         }
       ],
       "aorist": [
         {
-          "georgian": "ჯანსაღი საუზმე მოვამზადე",
-          "english": "<strong data-role=\"subject\" data-person=\"1sg\">I</strong> <strong data-role=\"verb\">prepared</strong> <strong data-role=\"direct-object\">the healthy breakfast</strong>",
-          "english_plain": "I prepared the healthy breakfast",
-          "html": "<span data-case=\"nom\" data-role=\"direct-object\">ჯანსაღი საუზმე</span> <span data-role=\"verb\">მოვამზადე</span>",
-          "case_marking": {
-            "direct_object": {
-              "case": "nom",
-              "word": "საუზმე"
-            }
-          },
-          "georgian_verb_form": "მოვამზადე"
-        },
-        {
-          "georgian": "გამოცდილმა მზარეულმა განსაკუთრებული კვება მოამზადა",
-          "english": "<strong data-role=\"subject\">The experienced cook</strong> <strong data-role=\"verb\">prepared</strong> <strong data-role=\"direct-object\">the special meal</strong>",
-          "english_plain": "The experienced cook prepared the special meal",
-          "html": "<span data-case=\"erg\" data-role=\"subject\">გამოცდილმა მზარეულმა</span> <span data-case=\"nom\" data-role=\"direct-object\">განსაკუთრებული კვება</span> <span data-role=\"verb\">მოამზადა</span>",
-          "case_marking": {
-            "subject": {
-              "case": "erg",
-              "word": "მზარეულმა"
+          "georgian": "მოვამზადე ჯანსაღი საუზმე",
+          "georgian_components": {
+            "verb": {
+              "text": "მოვამზადე",
+              "role": "verb"
             },
             "direct_object": {
+              "text": "ჯანსაღი საუზმე",
               "case": "nom",
-              "word": "კვება"
+              "role": "direct_object"
             }
           },
-          "georgian_verb_form": "მოამზადა"
-        },
-        {
-          "georgian": "თავდადებულმა მასწავლებელმა საინტერესო გაკვეთილი მოამზადეს",
-          "english": "<strong data-role=\"subject\">The dedicated teacher</strong> <strong data-role=\"verb\">prepared</strong> <strong data-role=\"direct-object\">the interesting lesson</strong>",
-          "english_plain": "The dedicated teacher prepared the interesting lesson",
-          "html": "<span data-case=\"erg\" data-role=\"subject\">თავდადებულმა მასწავლებელმა</span> <span data-case=\"nom\" data-role=\"direct-object\">საინტერესო გაკვეთილი</span> <span data-role=\"verb\">მოამზადეს</span>",
-          "case_marking": {
+          "english": "I prepared the healthy breakfast",
+          "english_components": {
             "subject": {
-              "case": "erg",
-              "word": "მასწავლებელმა"
+              "text": "I",
+              "role": "subject",
+              "person": "1sg"
+            },
+            "verb": {
+              "text": "prepared",
+              "role": "verb"
             },
             "direct_object": {
-              "case": "nom",
-              "word": "გაკვეთილი"
+              "text": "the healthy breakfast",
+              "role": "direct_object"
             }
           },
-          "georgian_verb_form": "მოამზადეს"
+          "georgian_verb_form": "მოვამზადე",
+          "person": "1sg",
+          "effective_preverb": "მო"
+        },
+        {
+          "georgian": "გამოცდილმა მზარეულმა მოამზადა განსაკუთრებული კვება",
+          "georgian_components": {
+            "subject": {
+              "text": "გამოცდილმა მზარეულმა",
+              "case": "erg",
+              "role": "subject"
+            },
+            "verb": {
+              "text": "მოამზადა",
+              "role": "verb"
+            },
+            "direct_object": {
+              "text": "განსაკუთრებული კვება",
+              "case": "nom",
+              "role": "direct_object"
+            }
+          },
+          "english": "The experienced cook prepared the special meal",
+          "english_components": {
+            "subject": {
+              "text": "The experienced cook",
+              "role": "subject",
+              "person": "3sg"
+            },
+            "verb": {
+              "text": "prepared",
+              "role": "verb"
+            },
+            "direct_object": {
+              "text": "the special meal",
+              "role": "direct_object"
+            }
+          },
+          "georgian_verb_form": "მოამზადა",
+          "person": "3sg",
+          "effective_preverb": "მო"
+        },
+        {
+          "georgian": "თავდადებულმა მასწავლებლებმა მოამზადეს საინტერესო გაკვეთილი",
+          "georgian_components": {
+            "subject": {
+              "text": "თავდადებულმა მასწავლებლებმა",
+              "case": "erg",
+              "role": "subject"
+            },
+            "verb": {
+              "text": "მოამზადეს",
+              "role": "verb"
+            },
+            "direct_object": {
+              "text": "საინტერესო გაკვეთილი",
+              "case": "nom",
+              "role": "direct_object"
+            }
+          },
+          "english": "The dedicated teachers prepared the interesting lesson",
+          "english_components": {
+            "subject": {
+              "text": "The dedicated teachers",
+              "role": "subject",
+              "person": "3pl"
+            },
+            "verb": {
+              "text": "prepared",
+              "role": "verb"
+            },
+            "direct_object": {
+              "text": "the interesting lesson",
+              "role": "direct_object"
+            }
+          },
+          "georgian_verb_form": "მოამზადეს",
+          "person": "3pl",
+          "effective_preverb": "მო"
         }
       ],
       "optative": [
         {
-          "georgian": "ჯანსაღი საუზმე უნდა მოვამზადო",
-          "english": "<strong data-role=\"subject\" data-person=\"1sg\">I</strong> <strong data-role=\"verb\">should</strong> <strong data-role=\"verb\">prepare</strong> <strong data-role=\"direct-object\">the healthy breakfast</strong>",
-          "english_plain": "I should prepare the healthy breakfast",
-          "html": "<span data-case=\"nom\" data-role=\"direct-object\">ჯანსაღი საუზმე</span> <span data-role=\"verb\">უნდა მოვამზადო</span>",
-          "case_marking": {
-            "direct_object": {
-              "case": "nom",
-              "word": "საუზმე"
-            }
-          },
-          "georgian_verb_form": "მოვამზადო"
-        },
-        {
-          "georgian": "გამოცდილმა მზარეულმა განსაკუთრებული კვება უნდა მოამზადოს",
-          "english": "<strong data-role=\"subject\">The experienced cook</strong> <strong data-role=\"verb\">should</strong> <strong data-role=\"verb\">prepare</strong> <strong data-role=\"direct-object\">the special meal</strong>",
-          "english_plain": "The experienced cook should prepare the special meal",
-          "html": "<span data-case=\"erg\" data-role=\"subject\">გამოცდილმა მზარეულმა</span> <span data-case=\"nom\" data-role=\"direct-object\">განსაკუთრებული კვება</span> <span data-role=\"verb\">უნდა მოამზადოს</span>",
-          "case_marking": {
-            "subject": {
-              "case": "erg",
-              "word": "მზარეულმა"
+          "georgian": "უნდა მოვამზადო ჯანსაღი საუზმე",
+          "georgian_components": {
+            "verb": {
+              "text": "უნდა მოვამზადო",
+              "role": "verb"
             },
             "direct_object": {
+              "text": "ჯანსაღი საუზმე",
               "case": "nom",
-              "word": "კვება"
+              "role": "direct_object"
             }
           },
-          "georgian_verb_form": "მოამზადოს"
-        },
-        {
-          "georgian": "თავდადებულმა მასწავლებელმა საინტერესო გაკვეთილი უნდა მოამზადონ",
-          "english": "<strong data-role=\"subject\">The dedicated teacher</strong> <strong data-role=\"verb\">should</strong> <strong data-role=\"verb\">prepare</strong> <strong data-role=\"direct-object\">the interesting lesson</strong>",
-          "english_plain": "The dedicated teacher should prepare the interesting lesson",
-          "html": "<span data-case=\"erg\" data-role=\"subject\">თავდადებულმა მასწავლებელმა</span> <span data-case=\"nom\" data-role=\"direct-object\">საინტერესო გაკვეთილი</span> <span data-role=\"verb\">უნდა მოამზადონ</span>",
-          "case_marking": {
+          "english": "I should prepare the healthy breakfast",
+          "english_components": {
             "subject": {
-              "case": "erg",
-              "word": "მასწავლებელმა"
+              "text": "I",
+              "role": "subject",
+              "person": "1sg"
+            },
+            "verb": {
+              "text": "should prepare",
+              "role": "verb"
             },
             "direct_object": {
-              "case": "nom",
-              "word": "გაკვეთილი"
+              "text": "the healthy breakfast",
+              "role": "direct_object"
             }
           },
-          "georgian_verb_form": "მოამზადონ"
+          "georgian_verb_form": "მოვამზადო",
+          "person": "1sg",
+          "effective_preverb": "მო"
+        },
+        {
+          "georgian": "გამოცდილმა მზარეულმა უნდა მოამზადოს განსაკუთრებული კვება",
+          "georgian_components": {
+            "subject": {
+              "text": "გამოცდილმა მზარეულმა",
+              "case": "erg",
+              "role": "subject"
+            },
+            "verb": {
+              "text": "უნდა მოამზადოს",
+              "role": "verb"
+            },
+            "direct_object": {
+              "text": "განსაკუთრებული კვება",
+              "case": "nom",
+              "role": "direct_object"
+            }
+          },
+          "english": "The experienced cook should prepare the special meal",
+          "english_components": {
+            "subject": {
+              "text": "The experienced cook",
+              "role": "subject",
+              "person": "3sg"
+            },
+            "verb": {
+              "text": "should prepare",
+              "role": "verb"
+            },
+            "direct_object": {
+              "text": "the special meal",
+              "role": "direct_object"
+            }
+          },
+          "georgian_verb_form": "მოამზადოს",
+          "person": "3sg",
+          "effective_preverb": "მო"
+        },
+        {
+          "georgian": "თავდადებულმა მასწავლებლებმა უნდა მოამზადონ საინტერესო გაკვეთილი",
+          "georgian_components": {
+            "subject": {
+              "text": "თავდადებულმა მასწავლებლებმა",
+              "case": "erg",
+              "role": "subject"
+            },
+            "verb": {
+              "text": "უნდა მოამზადონ",
+              "role": "verb"
+            },
+            "direct_object": {
+              "text": "საინტერესო გაკვეთილი",
+              "case": "nom",
+              "role": "direct_object"
+            }
+          },
+          "english": "The dedicated teachers should prepare the interesting lesson",
+          "english_components": {
+            "subject": {
+              "text": "The dedicated teachers",
+              "role": "subject",
+              "person": "3pl"
+            },
+            "verb": {
+              "text": "should prepare",
+              "role": "verb"
+            },
+            "direct_object": {
+              "text": "the interesting lesson",
+              "role": "direct_object"
+            }
+          },
+          "georgian_verb_form": "მოამზადონ",
+          "person": "3pl",
+          "effective_preverb": "მო"
         }
       ],
       "imperative": [
         {
-          "georgian": "გემრიელი სადილი მოამზადე",
-          "english": "<strong data-role=\"verb\">prepare</strong> <strong data-role=\"direct-object\">the delicious lunch</strong>",
-          "english_plain": "prepare the delicious lunch",
-          "html": "<span data-case=\"nom\" data-role=\"direct-object\">გემრიელი სადილი</span> <span data-role=\"verb\">მოამზადე</span>",
-          "case_marking": {
+          "georgian": "მოამზადე გემრიელი სადილი",
+          "georgian_components": {
+            "verb": {
+              "text": "მოამზადე",
+              "role": "verb"
+            },
             "direct_object": {
+              "text": "გემრიელი სადილი",
               "case": "nom",
-              "word": "სადილი"
+              "role": "direct_object"
             }
           },
-          "georgian_verb_form": "მოამზადე"
+          "english": "You, prepare the delicious lunch",
+          "english_components": {
+            "subject": {
+              "text": "You,",
+              "role": "subject",
+              "person": "2sg"
+            },
+            "verb": {
+              "text": "prepare",
+              "role": "verb"
+            },
+            "direct_object": {
+              "text": "the delicious lunch",
+              "role": "direct_object"
+            }
+          },
+          "georgian_verb_form": "მოამზადე",
+          "person": "2sg",
+          "effective_preverb": "მო"
         },
         {
-          "georgian": "ცხელი წვნიანი მოამზადეთ",
-          "english": "<strong data-role=\"verb\">prepare</strong> <strong data-role=\"direct-object\">the hot soup</strong>",
-          "english_plain": "prepare the hot soup",
-          "html": "<span data-case=\"nom\" data-role=\"direct-object\">ცხელი წვნიანი</span> <span data-role=\"verb\">მოამზადეთ</span>",
-          "case_marking": {
+          "georgian": "მოამზადეთ ცხელი წვნიანი",
+          "georgian_components": {
+            "verb": {
+              "text": "მოამზადეთ",
+              "role": "verb"
+            },
             "direct_object": {
+              "text": "ცხელი წვნიანი",
               "case": "nom",
-              "word": "წვნიანი"
+              "role": "direct_object"
             }
           },
-          "georgian_verb_form": "მოამზადეთ"
+          "english": "You all (you formal), prepare the hot soup",
+          "english_components": {
+            "subject": {
+              "text": "You all (you formal),",
+              "role": "subject",
+              "person": "2pl"
+            },
+            "verb": {
+              "text": "prepare",
+              "role": "verb"
+            },
+            "direct_object": {
+              "text": "the hot soup",
+              "role": "direct_object"
+            }
+          },
+          "georgian_verb_form": "მოამზადეთ",
+          "person": "2pl",
+          "effective_preverb": "მო"
         }
       ]
     }

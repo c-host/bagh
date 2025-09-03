@@ -104,7 +104,7 @@
       "examples": []
     },
     "imperative": {
-      "raw_gloss": "V MedPass Impv <S:Nom>",
+      "raw_gloss": "V MedPass Impv <S> <S:Nom>",
       "forms": {
         "1sg": "-",
         "2sg": "იდექი",
@@ -124,172 +124,395 @@
   "preverb_rules": {
     "default": "",
     "replacements": {},
-    "tense_specific_fallbacks": {},
-    "english_fallbacks": {}
+    "tense_specific_fallbacks": {}
   },
   "examples": {
-    "null": {
+    "default": {
       "present": [
         {
           "georgian": "ვდგავარ",
-          "english": "<strong data-role=\"subject\" data-person=\"1sg\">I</strong> <strong data-role=\"verb\">stand</strong>",
-          "english_plain": "I stand",
-          "html": " <span data-role=\"verb\">ვდგავარ</span>",
-          "case_marking": {},
-          "georgian_verb_form": "ვდგავარ"
+          "georgian_components": {
+            "verb": {
+              "text": "ვდგავარ",
+              "role": "verb"
+            }
+          },
+          "english": "I stand",
+          "english_components": {
+            "subject": {
+              "text": "I",
+              "role": "subject",
+              "person": "1sg"
+            },
+            "verb": {
+              "text": "stand",
+              "role": "verb"
+            }
+          },
+          "georgian_verb_form": "ვდგავარ",
+          "person": "1sg",
+          "effective_preverb": ""
         },
         {
           "georgian": "მაღალი მცველი დგას",
-          "english": "<strong data-role=\"subject\">The tall guard</strong> <strong data-role=\"verb\">stands</strong>",
-          "english_plain": "The tall guard stands",
-          "html": "<span data-case=\"nom\" data-role=\"subject\">მაღალი მცველი</span> <span data-role=\"verb\">დგას</span>",
-          "case_marking": {
+          "georgian_components": {
             "subject": {
+              "text": "მაღალი მცველი",
               "case": "nom",
-              "word": "მცველი"
+              "role": "subject"
+            },
+            "verb": {
+              "text": "დგას",
+              "role": "verb"
             }
           },
-          "georgian_verb_form": "დგას"
+          "english": "The tall guard stands",
+          "english_components": {
+            "subject": {
+              "text": "The tall guard",
+              "role": "subject",
+              "person": "3sg"
+            },
+            "verb": {
+              "text": "stands",
+              "role": "verb"
+            }
+          },
+          "georgian_verb_form": "დგას",
+          "person": "3sg",
+          "effective_preverb": ""
         },
         {
-          "georgian": "მამაცი ჯარისკაცი დგანან",
-          "english": "<strong data-role=\"subject\">The brave soldier</strong> <strong data-role=\"verb\">stand</strong>",
-          "english_plain": "The brave soldier stand",
-          "html": "<span data-case=\"nom\" data-role=\"subject\">მამაცი ჯარისკაცი</span> <span data-role=\"verb\">დგანან</span>",
-          "case_marking": {
+          "georgian": "მამაცი ჯარისკაცები დგანან",
+          "georgian_components": {
             "subject": {
+              "text": "მამაცი ჯარისკაცები",
               "case": "nom",
-              "word": "ჯარისკაცი"
+              "role": "subject"
+            },
+            "verb": {
+              "text": "დგანან",
+              "role": "verb"
             }
           },
-          "georgian_verb_form": "დგანან"
+          "english": "The brave soldiers stand",
+          "english_components": {
+            "subject": {
+              "text": "The brave soldiers",
+              "role": "subject",
+              "person": "3pl"
+            },
+            "verb": {
+              "text": "stand",
+              "role": "verb"
+            }
+          },
+          "georgian_verb_form": "დგანან",
+          "person": "3pl",
+          "effective_preverb": ""
         }
       ],
       "imperfect": [],
       "future": [
         {
           "georgian": "ვიდგები",
-          "english": "<strong data-role=\"subject\" data-person=\"1sg\">I</strong> <strong data-role=\"verb\">will stand</strong>",
-          "english_plain": "I will stand",
-          "html": " <span data-role=\"verb\">ვიდგები</span>",
-          "case_marking": {},
-          "georgian_verb_form": "ვიდგები"
+          "georgian_components": {
+            "verb": {
+              "text": "ვიდგები",
+              "role": "verb"
+            }
+          },
+          "english": "I will stand",
+          "english_components": {
+            "subject": {
+              "text": "I",
+              "role": "subject",
+              "person": "1sg"
+            },
+            "verb": {
+              "text": "will stand",
+              "role": "verb"
+            }
+          },
+          "georgian_verb_form": "ვიდგები",
+          "person": "1sg",
+          "effective_preverb": ""
         },
         {
           "georgian": "მაღალი მცველი იდგება",
-          "english": "<strong data-role=\"subject\">The tall guard</strong> <strong data-role=\"verb\">will stand</strong>",
-          "english_plain": "The tall guard will stand",
-          "html": "<span data-case=\"nom\" data-role=\"subject\">მაღალი მცველი</span> <span data-role=\"verb\">იდგება</span>",
-          "case_marking": {
+          "georgian_components": {
             "subject": {
+              "text": "მაღალი მცველი",
               "case": "nom",
-              "word": "მცველი"
+              "role": "subject"
+            },
+            "verb": {
+              "text": "იდგება",
+              "role": "verb"
             }
           },
-          "georgian_verb_form": "იდგება"
+          "english": "The tall guard will stand",
+          "english_components": {
+            "subject": {
+              "text": "The tall guard",
+              "role": "subject",
+              "person": "3sg"
+            },
+            "verb": {
+              "text": "will stand",
+              "role": "verb"
+            }
+          },
+          "georgian_verb_form": "იდგება",
+          "person": "3sg",
+          "effective_preverb": ""
         },
         {
-          "georgian": "მამაცი ჯარისკაცი იდგებიან",
-          "english": "<strong data-role=\"subject\">The brave soldier</strong> <strong data-role=\"verb\">will stand</strong>",
-          "english_plain": "The brave soldier will stand",
-          "html": "<span data-case=\"nom\" data-role=\"subject\">მამაცი ჯარისკაცი</span> <span data-role=\"verb\">იდგებიან</span>",
-          "case_marking": {
+          "georgian": "მამაცი ჯარისკაცები იდგებიან",
+          "georgian_components": {
             "subject": {
+              "text": "მამაცი ჯარისკაცები",
               "case": "nom",
-              "word": "ჯარისკაცი"
+              "role": "subject"
+            },
+            "verb": {
+              "text": "იდგებიან",
+              "role": "verb"
             }
           },
-          "georgian_verb_form": "იდგებიან"
+          "english": "The brave soldiers will stand",
+          "english_components": {
+            "subject": {
+              "text": "The brave soldiers",
+              "role": "subject",
+              "person": "3pl"
+            },
+            "verb": {
+              "text": "will stand",
+              "role": "verb"
+            }
+          },
+          "georgian_verb_form": "იდგებიან",
+          "person": "3pl",
+          "effective_preverb": ""
         }
       ],
       "aorist": [
         {
           "georgian": "ვიდექი",
-          "english": "<strong data-role=\"subject\" data-person=\"1sg\">I</strong> <strong data-role=\"verb\">stood</strong>",
-          "english_plain": "I stood",
-          "html": " <span data-role=\"verb\">ვიდექი</span>",
-          "case_marking": {},
-          "georgian_verb_form": "ვიდექი"
+          "georgian_components": {
+            "verb": {
+              "text": "ვიდექი",
+              "role": "verb"
+            }
+          },
+          "english": "I stood",
+          "english_components": {
+            "subject": {
+              "text": "I",
+              "role": "subject",
+              "person": "1sg"
+            },
+            "verb": {
+              "text": "stood",
+              "role": "verb"
+            }
+          },
+          "georgian_verb_form": "ვიდექი",
+          "person": "1sg",
+          "effective_preverb": ""
         },
         {
           "georgian": "მაღალი მცველი იდგა",
-          "english": "<strong data-role=\"subject\">The tall guard</strong> <strong data-role=\"verb\">stood</strong>",
-          "english_plain": "The tall guard stood",
-          "html": "<span data-case=\"nom\" data-role=\"subject\">მაღალი მცველი</span> <span data-role=\"verb\">იდგა</span>",
-          "case_marking": {
+          "georgian_components": {
             "subject": {
+              "text": "მაღალი მცველი",
               "case": "nom",
-              "word": "მცველი"
+              "role": "subject"
+            },
+            "verb": {
+              "text": "იდგა",
+              "role": "verb"
             }
           },
-          "georgian_verb_form": "იდგა"
+          "english": "The tall guard stood",
+          "english_components": {
+            "subject": {
+              "text": "The tall guard",
+              "role": "subject",
+              "person": "3sg"
+            },
+            "verb": {
+              "text": "stood",
+              "role": "verb"
+            }
+          },
+          "georgian_verb_form": "იდგა",
+          "person": "3sg",
+          "effective_preverb": ""
         },
         {
-          "georgian": "მამაცი ჯარისკაცი იდგნენ",
-          "english": "<strong data-role=\"subject\">The brave soldier</strong> <strong data-role=\"verb\">stood</strong>",
-          "english_plain": "The brave soldier stood",
-          "html": "<span data-case=\"nom\" data-role=\"subject\">მამაცი ჯარისკაცი</span> <span data-role=\"verb\">იდგნენ</span>",
-          "case_marking": {
+          "georgian": "მამაცი ჯარისკაცები იდგნენ",
+          "georgian_components": {
             "subject": {
+              "text": "მამაცი ჯარისკაცები",
               "case": "nom",
-              "word": "ჯარისკაცი"
+              "role": "subject"
+            },
+            "verb": {
+              "text": "იდგნენ",
+              "role": "verb"
             }
           },
-          "georgian_verb_form": "იდგნენ"
+          "english": "The brave soldiers stood",
+          "english_components": {
+            "subject": {
+              "text": "The brave soldiers",
+              "role": "subject",
+              "person": "3pl"
+            },
+            "verb": {
+              "text": "stood",
+              "role": "verb"
+            }
+          },
+          "georgian_verb_form": "იდგნენ",
+          "person": "3pl",
+          "effective_preverb": ""
         }
       ],
       "optative": [
         {
           "georgian": "უნდა ვიდგე",
-          "english": "<strong data-role=\"subject\" data-person=\"1sg\">I</strong> <strong data-role=\"verb\">should</strong> <strong data-role=\"verb\">stand</strong>",
-          "english_plain": "I should stand",
-          "html": " <span data-role=\"verb\">უნდა ვიდგე</span>",
-          "case_marking": {},
-          "georgian_verb_form": "ვიდგე"
+          "georgian_components": {
+            "verb": {
+              "text": "უნდა ვიდგე",
+              "role": "verb"
+            }
+          },
+          "english": "I should stand",
+          "english_components": {
+            "subject": {
+              "text": "I",
+              "role": "subject",
+              "person": "1sg"
+            },
+            "verb": {
+              "text": "should stand",
+              "role": "verb"
+            }
+          },
+          "georgian_verb_form": "ვიდგე",
+          "person": "1sg",
+          "effective_preverb": ""
         },
         {
           "georgian": "მაღალი მცველი უნდა იდგეს",
-          "english": "<strong data-role=\"subject\">The tall guard</strong> <strong data-role=\"verb\">should</strong> <strong data-role=\"verb\">stand</strong>",
-          "english_plain": "The tall guard should stand",
-          "html": "<span data-case=\"nom\" data-role=\"subject\">მაღალი მცველი</span> <span data-role=\"verb\">უნდა იდგეს</span>",
-          "case_marking": {
+          "georgian_components": {
             "subject": {
+              "text": "მაღალი მცველი",
               "case": "nom",
-              "word": "მცველი"
+              "role": "subject"
+            },
+            "verb": {
+              "text": "უნდა იდგეს",
+              "role": "verb"
             }
           },
-          "georgian_verb_form": "იდგეს"
+          "english": "The tall guard should stand",
+          "english_components": {
+            "subject": {
+              "text": "The tall guard",
+              "role": "subject",
+              "person": "3sg"
+            },
+            "verb": {
+              "text": "should stand",
+              "role": "verb"
+            }
+          },
+          "georgian_verb_form": "იდგეს",
+          "person": "3sg",
+          "effective_preverb": ""
         },
         {
-          "georgian": "მამაცი ჯარისკაცი უნდა იდგნენ",
-          "english": "<strong data-role=\"subject\">The brave soldier</strong> <strong data-role=\"verb\">should</strong> <strong data-role=\"verb\">stand</strong>",
-          "english_plain": "The brave soldier should stand",
-          "html": "<span data-case=\"nom\" data-role=\"subject\">მამაცი ჯარისკაცი</span> <span data-role=\"verb\">უნდა იდგნენ</span>",
-          "case_marking": {
+          "georgian": "მამაცი ჯარისკაცები უნდა იდგნენ",
+          "georgian_components": {
             "subject": {
+              "text": "მამაცი ჯარისკაცები",
               "case": "nom",
-              "word": "ჯარისკაცი"
+              "role": "subject"
+            },
+            "verb": {
+              "text": "უნდა იდგნენ",
+              "role": "verb"
             }
           },
-          "georgian_verb_form": "იდგნენ"
+          "english": "The brave soldiers should stand",
+          "english_components": {
+            "subject": {
+              "text": "The brave soldiers",
+              "role": "subject",
+              "person": "3pl"
+            },
+            "verb": {
+              "text": "should stand",
+              "role": "verb"
+            }
+          },
+          "georgian_verb_form": "იდგნენ",
+          "person": "3pl",
+          "effective_preverb": ""
         }
       ],
       "imperative": [
         {
           "georgian": "იდექი",
-          "english": "<strong data-role=\"verb\">stand</strong>",
-          "english_plain": "stand",
-          "html": " <span data-role=\"verb\">იდექი</span>",
-          "case_marking": {},
-          "georgian_verb_form": "იდექი"
+          "georgian_components": {
+            "verb": {
+              "text": "იდექი",
+              "role": "verb"
+            }
+          },
+          "english": "You, stand",
+          "english_components": {
+            "subject": {
+              "text": "You,",
+              "role": "subject",
+              "person": "2sg"
+            },
+            "verb": {
+              "text": "stand",
+              "role": "verb"
+            }
+          },
+          "georgian_verb_form": "იდექი",
+          "person": "2sg",
+          "effective_preverb": ""
         },
         {
           "georgian": "ვიდგეთ",
-          "english": "<strong data-role=\"verb\">stand</strong>",
-          "english_plain": "stand",
-          "html": " <span data-role=\"verb\">ვიდგეთ</span>",
-          "case_marking": {},
-          "georgian_verb_form": "ვიდგეთ"
+          "georgian_components": {
+            "verb": {
+              "text": "ვიდგეთ",
+              "role": "verb"
+            }
+          },
+          "english": "You all (you formal), stand",
+          "english_components": {
+            "subject": {
+              "text": "You all (you formal),",
+              "role": "subject",
+              "person": "2pl"
+            },
+            "verb": {
+              "text": "stand",
+              "role": "verb"
+            }
+          },
+          "georgian_verb_form": "ვიდგეთ",
+          "person": "2pl",
+          "effective_preverb": ""
         }
       ]
     }
@@ -592,7 +815,7 @@
       }
     },
     "imperative": {
-      "raw_gloss": "V MedPass Impv <S:Nom>",
+      "raw_gloss": "V MedPass Impv <S> <S:Nom>",
       "structured_gloss": {
         "raw_components": [
           {
@@ -612,6 +835,12 @@
             "component_type": "tense",
             "color_class": "gloss-tense",
             "description": "Imperative"
+          },
+          {
+            "text": "<S>",
+            "component_type": "argument_pattern",
+            "color_class": "gloss-argument",
+            "description": "Intransitive absolute"
           },
           {
             "text": "<S:Nom>",
@@ -640,13 +869,19 @@
             "description": "Imperative"
           },
           {
+            "text": "<S>",
+            "component_type": "argument_pattern",
+            "color_class": "gloss-argument",
+            "description": "Intransitive absolute"
+          },
+          {
             "text": "<S:Nom>",
             "component_type": "case_spec",
             "color_class": "gloss-subject",
             "description": "Nominative subject"
           }
         ],
-        "argument_pattern": null,
+        "argument_pattern": "<S>",
         "case_specifications": [
           "<S:Nom>"
         ]

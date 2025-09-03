@@ -152,282 +152,631 @@
   "preverb_rules": {
     "default": "",
     "replacements": {},
-    "tense_specific_fallbacks": {},
-    "english_fallbacks": {}
+    "tense_specific_fallbacks": {}
   },
   "examples": {
-    "null": {
+    "default": {
       "present": [
         {
-          "georgian": "ძლიერი წამალი მჭირდება",
-          "english": "<strong data-role=\"subject\" data-person=\"1sg\">I</strong> <strong data-role=\"verb\">need</strong> <strong data-role=\"direct-object\">the strong medicine</strong>",
-          "english_plain": "I need the strong medicine",
-          "html": "<span data-case=\"nom\" data-role=\"direct-object\">ძლიერი წამალი</span> <span data-role=\"verb\">მჭირდება</span>",
-          "case_marking": {
-            "direct_object": {
-              "case": "nom",
-              "word": "წამალი"
-            }
-          },
-          "georgian_verb_form": "მჭირდება"
-        },
-        {
-          "georgian": "ავადმყოფ პაციენტს სამედიცინო დახმარება სჭირდება",
-          "english": "<strong data-role=\"subject\">The sick patient</strong> <strong data-role=\"verb\">needs</strong> <strong data-role=\"direct-object\">the medical help</strong>",
-          "english_plain": "The sick patient needs the medical help",
-          "html": "<span data-case=\"dat\" data-role=\"subject\">ავადმყოფ პაციენტს</span> <span data-case=\"nom\" data-role=\"direct-object\">სამედიცინო დახმარება</span> <span data-role=\"verb\">სჭირდება</span>",
-          "case_marking": {
-            "subject": {
-              "case": "dat",
-              "word": "პაციენტს"
+          "georgian": "მჭირდება ძლიერი წამალი",
+          "georgian_components": {
+            "verb": {
+              "text": "მჭირდება",
+              "role": "verb"
             },
             "direct_object": {
+              "text": "ძლიერი წამალი",
               "case": "nom",
-              "word": "დახმარება"
+              "role": "direct_object"
             }
           },
-          "georgian_verb_form": "სჭირდება"
-        },
-        {
-          "georgian": "მშიერ ოჯახს სრული კვება სჭირდებათ",
-          "english": "<strong data-role=\"subject\">The hungry family</strong> <strong data-role=\"verb\">need</strong> <strong data-role=\"direct-object\">the complete meal</strong>",
-          "english_plain": "The hungry family need the complete meal",
-          "html": "<span data-case=\"dat\" data-role=\"subject\">მშიერ ოჯახს</span> <span data-case=\"nom\" data-role=\"direct-object\">სრული კვება</span> <span data-role=\"verb\">სჭირდებათ</span>",
-          "case_marking": {
+          "english": "I need the strong medicine",
+          "english_components": {
             "subject": {
-              "case": "dat",
-              "word": "ოჯახს"
+              "text": "I",
+              "role": "subject",
+              "person": "1sg"
+            },
+            "verb": {
+              "text": "need",
+              "role": "verb"
             },
             "direct_object": {
-              "case": "nom",
-              "word": "კვება"
+              "text": "the strong medicine",
+              "role": "direct_object"
             }
           },
-          "georgian_verb_form": "სჭირდებათ"
+          "georgian_verb_form": "მჭირდება",
+          "person": "1sg",
+          "effective_preverb": "და"
+        },
+        {
+          "georgian": "ავადმყოფ პაციენტს სჭირდება სამედიცინო დახმარება",
+          "georgian_components": {
+            "subject": {
+              "text": "ავადმყოფ პაციენტს",
+              "case": "dat",
+              "role": "subject"
+            },
+            "verb": {
+              "text": "სჭირდება",
+              "role": "verb"
+            },
+            "direct_object": {
+              "text": "სამედიცინო დახმარება",
+              "case": "nom",
+              "role": "direct_object"
+            }
+          },
+          "english": "The sick patient needs the medical help",
+          "english_components": {
+            "subject": {
+              "text": "The sick patient",
+              "role": "subject",
+              "person": "3sg"
+            },
+            "verb": {
+              "text": "needs",
+              "role": "verb"
+            },
+            "direct_object": {
+              "text": "the medical help",
+              "role": "direct_object"
+            }
+          },
+          "georgian_verb_form": "სჭირდება",
+          "person": "3sg",
+          "effective_preverb": "და"
+        },
+        {
+          "georgian": "მშიერ ოჯახებს სჭირდებათ სრული კვება",
+          "georgian_components": {
+            "subject": {
+              "text": "მშიერ ოჯახებს",
+              "case": "dat",
+              "role": "subject"
+            },
+            "verb": {
+              "text": "სჭირდებათ",
+              "role": "verb"
+            },
+            "direct_object": {
+              "text": "სრული კვება",
+              "case": "nom",
+              "role": "direct_object"
+            }
+          },
+          "english": "The hungry families need the complete meal",
+          "english_components": {
+            "subject": {
+              "text": "The hungry families",
+              "role": "subject",
+              "person": "3pl"
+            },
+            "verb": {
+              "text": "need",
+              "role": "verb"
+            },
+            "direct_object": {
+              "text": "the complete meal",
+              "role": "direct_object"
+            }
+          },
+          "georgian_verb_form": "სჭირდებათ",
+          "person": "3pl",
+          "effective_preverb": "და"
         }
       ],
       "imperfect": [
         {
-          "georgian": "ძლიერი წამალი მჭირდებოდა",
-          "english": "<strong data-role=\"subject\" data-person=\"1sg\">I</strong> <strong data-role=\"verb\">was needing</strong> <strong data-role=\"direct-object\">the strong medicine</strong>",
-          "english_plain": "I was needing the strong medicine",
-          "html": "<span data-case=\"nom\" data-role=\"direct-object\">ძლიერი წამალი</span> <span data-role=\"verb\">მჭირდებოდა</span>",
-          "case_marking": {
-            "direct_object": {
-              "case": "nom",
-              "word": "წამალი"
-            }
-          },
-          "georgian_verb_form": "მჭირდებოდა"
-        },
-        {
-          "georgian": "ავადმყოფ პაციენტს სამედიცინო დახმარება სჭირდებოდა",
-          "english": "<strong data-role=\"subject\">The sick patient</strong> <strong data-role=\"verb\">was needing</strong> <strong data-role=\"direct-object\">the medical help</strong>",
-          "english_plain": "The sick patient was needing the medical help",
-          "html": "<span data-case=\"dat\" data-role=\"subject\">ავადმყოფ პაციენტს</span> <span data-case=\"nom\" data-role=\"direct-object\">სამედიცინო დახმარება</span> <span data-role=\"verb\">სჭირდებოდა</span>",
-          "case_marking": {
-            "subject": {
-              "case": "dat",
-              "word": "პაციენტს"
+          "georgian": "მჭირდებოდა ძლიერი წამალი",
+          "georgian_components": {
+            "verb": {
+              "text": "მჭირდებოდა",
+              "role": "verb"
             },
             "direct_object": {
+              "text": "ძლიერი წამალი",
               "case": "nom",
-              "word": "დახმარება"
+              "role": "direct_object"
             }
           },
-          "georgian_verb_form": "სჭირდებოდა"
-        },
-        {
-          "georgian": "მშიერ ოჯახს სრული კვება სჭირდებოდათ",
-          "english": "<strong data-role=\"subject\">The hungry family</strong> <strong data-role=\"verb\">were needing</strong> <strong data-role=\"direct-object\">the complete meal</strong>",
-          "english_plain": "The hungry family were needing the complete meal",
-          "html": "<span data-case=\"dat\" data-role=\"subject\">მშიერ ოჯახს</span> <span data-case=\"nom\" data-role=\"direct-object\">სრული კვება</span> <span data-role=\"verb\">სჭირდებოდათ</span>",
-          "case_marking": {
+          "english": "I was needing the strong medicine",
+          "english_components": {
             "subject": {
-              "case": "dat",
-              "word": "ოჯახს"
+              "text": "I",
+              "role": "subject",
+              "person": "1sg"
+            },
+            "verb": {
+              "text": "was needing",
+              "role": "verb"
             },
             "direct_object": {
-              "case": "nom",
-              "word": "კვება"
+              "text": "the strong medicine",
+              "role": "direct_object"
             }
           },
-          "georgian_verb_form": "სჭირდებოდათ"
+          "georgian_verb_form": "მჭირდებოდა",
+          "person": "1sg",
+          "effective_preverb": "და"
+        },
+        {
+          "georgian": "ავადმყოფ პაციენტს სჭირდებოდა სამედიცინო დახმარება",
+          "georgian_components": {
+            "subject": {
+              "text": "ავადმყოფ პაციენტს",
+              "case": "dat",
+              "role": "subject"
+            },
+            "verb": {
+              "text": "სჭირდებოდა",
+              "role": "verb"
+            },
+            "direct_object": {
+              "text": "სამედიცინო დახმარება",
+              "case": "nom",
+              "role": "direct_object"
+            }
+          },
+          "english": "The sick patient was needing the medical help",
+          "english_components": {
+            "subject": {
+              "text": "The sick patient",
+              "role": "subject",
+              "person": "3sg"
+            },
+            "verb": {
+              "text": "was needing",
+              "role": "verb"
+            },
+            "direct_object": {
+              "text": "the medical help",
+              "role": "direct_object"
+            }
+          },
+          "georgian_verb_form": "სჭირდებოდა",
+          "person": "3sg",
+          "effective_preverb": "და"
+        },
+        {
+          "georgian": "მშიერ ოჯახებს სჭირდებოდათ სრული კვება",
+          "georgian_components": {
+            "subject": {
+              "text": "მშიერ ოჯახებს",
+              "case": "dat",
+              "role": "subject"
+            },
+            "verb": {
+              "text": "სჭირდებოდათ",
+              "role": "verb"
+            },
+            "direct_object": {
+              "text": "სრული კვება",
+              "case": "nom",
+              "role": "direct_object"
+            }
+          },
+          "english": "The hungry families were needing the complete meal",
+          "english_components": {
+            "subject": {
+              "text": "The hungry families",
+              "role": "subject",
+              "person": "3pl"
+            },
+            "verb": {
+              "text": "were needing",
+              "role": "verb"
+            },
+            "direct_object": {
+              "text": "the complete meal",
+              "role": "direct_object"
+            }
+          },
+          "georgian_verb_form": "სჭირდებოდათ",
+          "person": "3pl",
+          "effective_preverb": "და"
         }
       ],
       "future": [
         {
-          "georgian": "ძლიერი წამალი დამჭირდება",
-          "english": "<strong data-role=\"subject\" data-person=\"1sg\">I</strong> <strong data-role=\"verb\">will need</strong> <strong data-role=\"direct-object\">the strong medicine</strong>",
-          "english_plain": "I will need the strong medicine",
-          "html": "<span data-case=\"nom\" data-role=\"direct-object\">ძლიერი წამალი</span> <span data-role=\"verb\">დამჭირდება</span>",
-          "case_marking": {
-            "direct_object": {
-              "case": "nom",
-              "word": "წამალი"
-            }
-          },
-          "georgian_verb_form": "დამჭირდება"
-        },
-        {
-          "georgian": "ავადმყოფ პაციენტს სამედიცინო დახმარება დასჭირდება",
-          "english": "<strong data-role=\"subject\">The sick patient</strong> <strong data-role=\"verb\">will need</strong> <strong data-role=\"direct-object\">the medical help</strong>",
-          "english_plain": "The sick patient will need the medical help",
-          "html": "<span data-case=\"dat\" data-role=\"subject\">ავადმყოფ პაციენტს</span> <span data-case=\"nom\" data-role=\"direct-object\">სამედიცინო დახმარება</span> <span data-role=\"verb\">დასჭირდება</span>",
-          "case_marking": {
-            "subject": {
-              "case": "dat",
-              "word": "პაციენტს"
+          "georgian": "დამჭირდება ძლიერი წამალი",
+          "georgian_components": {
+            "verb": {
+              "text": "დამჭირდება",
+              "role": "verb"
             },
             "direct_object": {
+              "text": "ძლიერი წამალი",
               "case": "nom",
-              "word": "დახმარება"
+              "role": "direct_object"
             }
           },
-          "georgian_verb_form": "დასჭირდება"
-        },
-        {
-          "georgian": "მშიერ ოჯახს სრული კვება დასჭირდებათ",
-          "english": "<strong data-role=\"subject\">The hungry family</strong> <strong data-role=\"verb\">will need</strong> <strong data-role=\"direct-object\">the complete meal</strong>",
-          "english_plain": "The hungry family will need the complete meal",
-          "html": "<span data-case=\"dat\" data-role=\"subject\">მშიერ ოჯახს</span> <span data-case=\"nom\" data-role=\"direct-object\">სრული კვება</span> <span data-role=\"verb\">დასჭირდებათ</span>",
-          "case_marking": {
+          "english": "I will need the strong medicine",
+          "english_components": {
             "subject": {
-              "case": "dat",
-              "word": "ოჯახს"
+              "text": "I",
+              "role": "subject",
+              "person": "1sg"
+            },
+            "verb": {
+              "text": "will need",
+              "role": "verb"
             },
             "direct_object": {
-              "case": "nom",
-              "word": "კვება"
+              "text": "the strong medicine",
+              "role": "direct_object"
             }
           },
-          "georgian_verb_form": "დასჭირდებათ"
+          "georgian_verb_form": "დამჭირდება",
+          "person": "1sg",
+          "effective_preverb": "და"
+        },
+        {
+          "georgian": "ავადმყოფ პაციენტს დასჭირდება სამედიცინო დახმარება",
+          "georgian_components": {
+            "subject": {
+              "text": "ავადმყოფ პაციენტს",
+              "case": "dat",
+              "role": "subject"
+            },
+            "verb": {
+              "text": "დასჭირდება",
+              "role": "verb"
+            },
+            "direct_object": {
+              "text": "სამედიცინო დახმარება",
+              "case": "nom",
+              "role": "direct_object"
+            }
+          },
+          "english": "The sick patient will need the medical help",
+          "english_components": {
+            "subject": {
+              "text": "The sick patient",
+              "role": "subject",
+              "person": "3sg"
+            },
+            "verb": {
+              "text": "will need",
+              "role": "verb"
+            },
+            "direct_object": {
+              "text": "the medical help",
+              "role": "direct_object"
+            }
+          },
+          "georgian_verb_form": "დასჭირდება",
+          "person": "3sg",
+          "effective_preverb": "და"
+        },
+        {
+          "georgian": "მშიერ ოჯახებს დასჭირდებათ სრული კვება",
+          "georgian_components": {
+            "subject": {
+              "text": "მშიერ ოჯახებს",
+              "case": "dat",
+              "role": "subject"
+            },
+            "verb": {
+              "text": "დასჭირდებათ",
+              "role": "verb"
+            },
+            "direct_object": {
+              "text": "სრული კვება",
+              "case": "nom",
+              "role": "direct_object"
+            }
+          },
+          "english": "The hungry families will need the complete meal",
+          "english_components": {
+            "subject": {
+              "text": "The hungry families",
+              "role": "subject",
+              "person": "3pl"
+            },
+            "verb": {
+              "text": "will need",
+              "role": "verb"
+            },
+            "direct_object": {
+              "text": "the complete meal",
+              "role": "direct_object"
+            }
+          },
+          "georgian_verb_form": "დასჭირდებათ",
+          "person": "3pl",
+          "effective_preverb": "და"
         }
       ],
       "aorist": [
         {
-          "georgian": "ძლიერი წამალი დამჭირდა",
-          "english": "<strong data-role=\"subject\" data-person=\"1sg\">I</strong> <strong data-role=\"verb\">needed</strong> <strong data-role=\"direct-object\">the strong medicine</strong>",
-          "english_plain": "I needed the strong medicine",
-          "html": "<span data-case=\"nom\" data-role=\"direct-object\">ძლიერი წამალი</span> <span data-role=\"verb\">დამჭირდა</span>",
-          "case_marking": {
-            "direct_object": {
-              "case": "nom",
-              "word": "წამალი"
-            }
-          },
-          "georgian_verb_form": "დამჭირდა"
-        },
-        {
-          "georgian": "ავადმყოფ პაციენტს სამედიცინო დახმარება დასჭირდა",
-          "english": "<strong data-role=\"subject\">The sick patient</strong> <strong data-role=\"verb\">needed</strong> <strong data-role=\"direct-object\">the medical help</strong>",
-          "english_plain": "The sick patient needed the medical help",
-          "html": "<span data-case=\"dat\" data-role=\"subject\">ავადმყოფ პაციენტს</span> <span data-case=\"nom\" data-role=\"direct-object\">სამედიცინო დახმარება</span> <span data-role=\"verb\">დასჭირდა</span>",
-          "case_marking": {
-            "subject": {
-              "case": "dat",
-              "word": "პაციენტს"
+          "georgian": "დამჭირდა ძლიერი წამალი",
+          "georgian_components": {
+            "verb": {
+              "text": "დამჭირდა",
+              "role": "verb"
             },
             "direct_object": {
+              "text": "ძლიერი წამალი",
               "case": "nom",
-              "word": "დახმარება"
+              "role": "direct_object"
             }
           },
-          "georgian_verb_form": "დასჭირდა"
-        },
-        {
-          "georgian": "მშიერ ოჯახს სრული კვება დასჭირდათ",
-          "english": "<strong data-role=\"subject\">The hungry family</strong> <strong data-role=\"verb\">needed</strong> <strong data-role=\"direct-object\">the complete meal</strong>",
-          "english_plain": "The hungry family needed the complete meal",
-          "html": "<span data-case=\"dat\" data-role=\"subject\">მშიერ ოჯახს</span> <span data-case=\"nom\" data-role=\"direct-object\">სრული კვება</span> <span data-role=\"verb\">დასჭირდათ</span>",
-          "case_marking": {
+          "english": "I needed the strong medicine",
+          "english_components": {
             "subject": {
-              "case": "dat",
-              "word": "ოჯახს"
+              "text": "I",
+              "role": "subject",
+              "person": "1sg"
+            },
+            "verb": {
+              "text": "needed",
+              "role": "verb"
             },
             "direct_object": {
-              "case": "nom",
-              "word": "კვება"
+              "text": "the strong medicine",
+              "role": "direct_object"
             }
           },
-          "georgian_verb_form": "დასჭირდათ"
+          "georgian_verb_form": "დამჭირდა",
+          "person": "1sg",
+          "effective_preverb": "და"
+        },
+        {
+          "georgian": "ავადმყოფ პაციენტს დასჭირდა სამედიცინო დახმარება",
+          "georgian_components": {
+            "subject": {
+              "text": "ავადმყოფ პაციენტს",
+              "case": "dat",
+              "role": "subject"
+            },
+            "verb": {
+              "text": "დასჭირდა",
+              "role": "verb"
+            },
+            "direct_object": {
+              "text": "სამედიცინო დახმარება",
+              "case": "nom",
+              "role": "direct_object"
+            }
+          },
+          "english": "The sick patient needed the medical help",
+          "english_components": {
+            "subject": {
+              "text": "The sick patient",
+              "role": "subject",
+              "person": "3sg"
+            },
+            "verb": {
+              "text": "needed",
+              "role": "verb"
+            },
+            "direct_object": {
+              "text": "the medical help",
+              "role": "direct_object"
+            }
+          },
+          "georgian_verb_form": "დასჭირდა",
+          "person": "3sg",
+          "effective_preverb": "და"
+        },
+        {
+          "georgian": "მშიერ ოჯახებს დასჭირდათ სრული კვება",
+          "georgian_components": {
+            "subject": {
+              "text": "მშიერ ოჯახებს",
+              "case": "dat",
+              "role": "subject"
+            },
+            "verb": {
+              "text": "დასჭირდათ",
+              "role": "verb"
+            },
+            "direct_object": {
+              "text": "სრული კვება",
+              "case": "nom",
+              "role": "direct_object"
+            }
+          },
+          "english": "The hungry families needed the complete meal",
+          "english_components": {
+            "subject": {
+              "text": "The hungry families",
+              "role": "subject",
+              "person": "3pl"
+            },
+            "verb": {
+              "text": "needed",
+              "role": "verb"
+            },
+            "direct_object": {
+              "text": "the complete meal",
+              "role": "direct_object"
+            }
+          },
+          "georgian_verb_form": "დასჭირდათ",
+          "person": "3pl",
+          "effective_preverb": "და"
         }
       ],
       "optative": [
         {
-          "georgian": "ძლიერი წამალი უნდა დამჭირდეს",
-          "english": "<strong data-role=\"subject\" data-person=\"1sg\">I</strong> <strong data-role=\"verb\">should</strong> <strong data-role=\"verb\">need</strong> <strong data-role=\"direct-object\">the strong medicine</strong>",
-          "english_plain": "I should need the strong medicine",
-          "html": "<span data-case=\"nom\" data-role=\"direct-object\">ძლიერი წამალი</span> <span data-role=\"verb\">უნდა დამჭირდეს</span>",
-          "case_marking": {
-            "direct_object": {
-              "case": "nom",
-              "word": "წამალი"
-            }
-          },
-          "georgian_verb_form": "დამჭირდეს"
-        },
-        {
-          "georgian": "ავადმყოფ პაციენტს სამედიცინო დახმარება უნდა დასჭირდეს",
-          "english": "<strong data-role=\"subject\">The sick patient</strong> <strong data-role=\"verb\">should</strong> <strong data-role=\"verb\">need</strong> <strong data-role=\"direct-object\">the medical help</strong>",
-          "english_plain": "The sick patient should need the medical help",
-          "html": "<span data-case=\"dat\" data-role=\"subject\">ავადმყოფ პაციენტს</span> <span data-case=\"nom\" data-role=\"direct-object\">სამედიცინო დახმარება</span> <span data-role=\"verb\">უნდა დასჭირდეს</span>",
-          "case_marking": {
-            "subject": {
-              "case": "dat",
-              "word": "პაციენტს"
+          "georgian": "უნდა დამჭირდეს ძლიერი წამალი",
+          "georgian_components": {
+            "verb": {
+              "text": "უნდა დამჭირდეს",
+              "role": "verb"
             },
             "direct_object": {
+              "text": "ძლიერი წამალი",
               "case": "nom",
-              "word": "დახმარება"
+              "role": "direct_object"
             }
           },
-          "georgian_verb_form": "დასჭირდეს"
-        },
-        {
-          "georgian": "მშიერ ოჯახს სრული კვება უნდა დასჭირდეთ",
-          "english": "<strong data-role=\"subject\">The hungry family</strong> <strong data-role=\"verb\">should</strong> <strong data-role=\"verb\">need</strong> <strong data-role=\"direct-object\">the complete meal</strong>",
-          "english_plain": "The hungry family should need the complete meal",
-          "html": "<span data-case=\"dat\" data-role=\"subject\">მშიერ ოჯახს</span> <span data-case=\"nom\" data-role=\"direct-object\">სრული კვება</span> <span data-role=\"verb\">უნდა დასჭირდეთ</span>",
-          "case_marking": {
+          "english": "I should need the strong medicine",
+          "english_components": {
             "subject": {
-              "case": "dat",
-              "word": "ოჯახს"
+              "text": "I",
+              "role": "subject",
+              "person": "1sg"
+            },
+            "verb": {
+              "text": "should need",
+              "role": "verb"
             },
             "direct_object": {
-              "case": "nom",
-              "word": "კვება"
+              "text": "the strong medicine",
+              "role": "direct_object"
             }
           },
-          "georgian_verb_form": "დასჭირდეთ"
+          "georgian_verb_form": "დამჭირდეს",
+          "person": "1sg",
+          "effective_preverb": "და"
+        },
+        {
+          "georgian": "ავადმყოფ პაციენტს უნდა დასჭირდეს სამედიცინო დახმარება",
+          "georgian_components": {
+            "subject": {
+              "text": "ავადმყოფ პაციენტს",
+              "case": "dat",
+              "role": "subject"
+            },
+            "verb": {
+              "text": "უნდა დასჭირდეს",
+              "role": "verb"
+            },
+            "direct_object": {
+              "text": "სამედიცინო დახმარება",
+              "case": "nom",
+              "role": "direct_object"
+            }
+          },
+          "english": "The sick patient should need the medical help",
+          "english_components": {
+            "subject": {
+              "text": "The sick patient",
+              "role": "subject",
+              "person": "3sg"
+            },
+            "verb": {
+              "text": "should need",
+              "role": "verb"
+            },
+            "direct_object": {
+              "text": "the medical help",
+              "role": "direct_object"
+            }
+          },
+          "georgian_verb_form": "დასჭირდეს",
+          "person": "3sg",
+          "effective_preverb": "და"
+        },
+        {
+          "georgian": "მშიერ ოჯახებს უნდა დასჭირდეთ სრული კვება",
+          "georgian_components": {
+            "subject": {
+              "text": "მშიერ ოჯახებს",
+              "case": "dat",
+              "role": "subject"
+            },
+            "verb": {
+              "text": "უნდა დასჭირდეთ",
+              "role": "verb"
+            },
+            "direct_object": {
+              "text": "სრული კვება",
+              "case": "nom",
+              "role": "direct_object"
+            }
+          },
+          "english": "The hungry families should need the complete meal",
+          "english_components": {
+            "subject": {
+              "text": "The hungry families",
+              "role": "subject",
+              "person": "3pl"
+            },
+            "verb": {
+              "text": "should need",
+              "role": "verb"
+            },
+            "direct_object": {
+              "text": "the complete meal",
+              "role": "direct_object"
+            }
+          },
+          "georgian_verb_form": "დასჭირდეთ",
+          "person": "3pl",
+          "effective_preverb": "და"
         }
       ],
       "imperative": [
         {
-          "georgian": "დამატებითი ფული დაგჭირდეს",
-          "english": "<strong data-role=\"verb\">need</strong> <strong data-role=\"direct-object\">the extra money</strong>",
-          "english_plain": "need the extra money",
-          "html": "<span data-case=\"nom\" data-role=\"direct-object\">დამატებითი ფული</span> <span data-role=\"verb\">დაგჭირდეს</span>",
-          "case_marking": {
+          "georgian": "დაგჭირდეს დამატებითი ფული",
+          "georgian_components": {
+            "verb": {
+              "text": "დაგჭირდეს",
+              "role": "verb"
+            },
             "direct_object": {
+              "text": "დამატებითი ფული",
               "case": "nom",
-              "word": "ფული"
+              "role": "direct_object"
             }
           },
-          "georgian_verb_form": "დაგჭირდეს"
+          "english": "You, need the extra money",
+          "english_components": {
+            "subject": {
+              "text": "You,",
+              "role": "subject",
+              "person": "2sg"
+            },
+            "verb": {
+              "text": "need",
+              "role": "verb"
+            },
+            "direct_object": {
+              "text": "the extra money",
+              "role": "direct_object"
+            }
+          },
+          "georgian_verb_form": "დაგჭირდეს",
+          "person": "2sg",
+          "effective_preverb": "და"
         },
         {
-          "georgian": "ცივი წყალი დაგჭირდეთ",
-          "english": "<strong data-role=\"verb\">need</strong> <strong data-role=\"direct-object\">the cold water</strong>",
-          "english_plain": "need the cold water",
-          "html": "<span data-case=\"nom\" data-role=\"direct-object\">ცივი წყალი</span> <span data-role=\"verb\">დაგჭირდეთ</span>",
-          "case_marking": {
+          "georgian": "დაგჭირდეთ ცივი წყალი",
+          "georgian_components": {
+            "verb": {
+              "text": "დაგჭირდეთ",
+              "role": "verb"
+            },
             "direct_object": {
+              "text": "ცივი წყალი",
               "case": "nom",
-              "word": "წყალი"
+              "role": "direct_object"
             }
           },
-          "georgian_verb_form": "დაგჭირდეთ"
+          "english": "You all (you formal), need the cold water",
+          "english_components": {
+            "subject": {
+              "text": "You all (you formal),",
+              "role": "subject",
+              "person": "2pl"
+            },
+            "verb": {
+              "text": "need",
+              "role": "verb"
+            },
+            "direct_object": {
+              "text": "the cold water",
+              "role": "direct_object"
+            }
+          },
+          "georgian_verb_form": "დაგჭირდეთ",
+          "person": "2pl",
+          "effective_preverb": "და"
         }
       ]
     }

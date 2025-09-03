@@ -152,282 +152,631 @@
   "preverb_rules": {
     "default": "",
     "replacements": {},
-    "tense_specific_fallbacks": {},
-    "english_fallbacks": {}
+    "tense_specific_fallbacks": {}
   },
   "examples": {
-    "null": {
+    "default": {
       "present": [
         {
-          "georgian": "კარგ ექიმს ვრეკავ",
-          "english": "<strong data-role=\"subject\" data-person=\"1sg\">I</strong> <strong data-role=\"verb\">call</strong> <strong data-role=\"direct-object\">the good doctor</strong>",
-          "english_plain": "I call the good doctor",
-          "html": "<span data-case=\"dat\" data-role=\"direct-object\">კარგ ექიმს</span> <span data-role=\"verb\">ვრეკავ</span>",
-          "case_marking": {
-            "direct_object": {
-              "case": "dat",
-              "word": "ექიმს"
-            }
-          },
-          "georgian_verb_form": "ვრეკავ"
-        },
-        {
-          "georgian": "შეშფოთებული დედა მწუხარე მშობელს რეკავს",
-          "english": "<strong data-role=\"subject\">The worried mother</strong> <strong data-role=\"verb\">calls</strong> <strong data-role=\"direct-object\">the concerned parent</strong>",
-          "english_plain": "The worried mother calls the concerned parent",
-          "html": "<span data-case=\"nom\" data-role=\"subject\">შეშფოთებული დედა</span> <span data-case=\"dat\" data-role=\"direct-object\">მწუხარე მშობელს</span> <span data-role=\"verb\">რეკავს</span>",
-          "case_marking": {
-            "subject": {
-              "case": "nom",
-              "word": "დედა"
+          "georgian": "ვრეკავ კარგ ექიმს",
+          "georgian_components": {
+            "verb": {
+              "text": "ვრეკავ",
+              "role": "verb"
             },
             "direct_object": {
+              "text": "კარგ ექიმს",
               "case": "dat",
-              "word": "მშობელს"
+              "role": "direct_object"
             }
           },
-          "georgian_verb_form": "რეკავს"
-        },
-        {
-          "georgian": "გამოუცდელი მოცეკვავე მცოდნე მასწავლებელს რეკავენ",
-          "english": "<strong data-role=\"subject\">The inexperienced dancer</strong> <strong data-role=\"verb\">call</strong> <strong data-role=\"direct-object\">the knowledgeable teacher</strong>",
-          "english_plain": "The inexperienced dancer call the knowledgeable teacher",
-          "html": "<span data-case=\"nom\" data-role=\"subject\">გამოუცდელი მოცეკვავე</span> <span data-case=\"dat\" data-role=\"direct-object\">მცოდნე მასწავლებელს</span> <span data-role=\"verb\">რეკავენ</span>",
-          "case_marking": {
+          "english": "I call the good doctor",
+          "english_components": {
             "subject": {
-              "case": "nom",
-              "word": "მოცეკვავე"
+              "text": "I",
+              "role": "subject",
+              "person": "1sg"
+            },
+            "verb": {
+              "text": "call",
+              "role": "verb"
             },
             "direct_object": {
-              "case": "dat",
-              "word": "მასწავლებელს"
+              "text": "the good doctor",
+              "role": "direct_object"
             }
           },
-          "georgian_verb_form": "რეკავენ"
+          "georgian_verb_form": "ვრეკავ",
+          "person": "1sg",
+          "effective_preverb": "და"
+        },
+        {
+          "georgian": "შეშფოთებული დედა რეკავს მწუხარე მშობელს",
+          "georgian_components": {
+            "subject": {
+              "text": "შეშფოთებული დედა",
+              "case": "nom",
+              "role": "subject"
+            },
+            "verb": {
+              "text": "რეკავს",
+              "role": "verb"
+            },
+            "direct_object": {
+              "text": "მწუხარე მშობელს",
+              "case": "dat",
+              "role": "direct_object"
+            }
+          },
+          "english": "The worried mother calls the concerned parent",
+          "english_components": {
+            "subject": {
+              "text": "The worried mother",
+              "role": "subject",
+              "person": "3sg"
+            },
+            "verb": {
+              "text": "calls",
+              "role": "verb"
+            },
+            "direct_object": {
+              "text": "the concerned parent",
+              "role": "direct_object"
+            }
+          },
+          "georgian_verb_form": "რეკავს",
+          "person": "3sg",
+          "effective_preverb": "და"
+        },
+        {
+          "georgian": "გამოუცდელი მოცეკვავეები რეკავენ მცოდნე მასწავლებელს",
+          "georgian_components": {
+            "subject": {
+              "text": "გამოუცდელი მოცეკვავეები",
+              "case": "nom",
+              "role": "subject"
+            },
+            "verb": {
+              "text": "რეკავენ",
+              "role": "verb"
+            },
+            "direct_object": {
+              "text": "მცოდნე მასწავლებელს",
+              "case": "dat",
+              "role": "direct_object"
+            }
+          },
+          "english": "The inexperienced dancers call the knowledgeable teacher",
+          "english_components": {
+            "subject": {
+              "text": "The inexperienced dancers",
+              "role": "subject",
+              "person": "3pl"
+            },
+            "verb": {
+              "text": "call",
+              "role": "verb"
+            },
+            "direct_object": {
+              "text": "the knowledgeable teacher",
+              "role": "direct_object"
+            }
+          },
+          "georgian_verb_form": "რეკავენ",
+          "person": "3pl",
+          "effective_preverb": "და"
         }
       ],
       "imperfect": [
         {
-          "georgian": "კარგ ექიმს ვრეკავდი",
-          "english": "<strong data-role=\"subject\" data-person=\"1sg\">I</strong> <strong data-role=\"verb\">was calling</strong> <strong data-role=\"direct-object\">the good doctor</strong>",
-          "english_plain": "I was calling the good doctor",
-          "html": "<span data-case=\"dat\" data-role=\"direct-object\">კარგ ექიმს</span> <span data-role=\"verb\">ვრეკავდი</span>",
-          "case_marking": {
-            "direct_object": {
-              "case": "dat",
-              "word": "ექიმს"
-            }
-          },
-          "georgian_verb_form": "ვრეკავდი"
-        },
-        {
-          "georgian": "შეშფოთებული დედა მწუხარე მშობელს რეკავდა",
-          "english": "<strong data-role=\"subject\">The worried mother</strong> <strong data-role=\"verb\">was calling</strong> <strong data-role=\"direct-object\">the concerned parent</strong>",
-          "english_plain": "The worried mother was calling the concerned parent",
-          "html": "<span data-case=\"nom\" data-role=\"subject\">შეშფოთებული დედა</span> <span data-case=\"dat\" data-role=\"direct-object\">მწუხარე მშობელს</span> <span data-role=\"verb\">რეკავდა</span>",
-          "case_marking": {
-            "subject": {
-              "case": "nom",
-              "word": "დედა"
+          "georgian": "ვრეკავდი კარგ ექიმს",
+          "georgian_components": {
+            "verb": {
+              "text": "ვრეკავდი",
+              "role": "verb"
             },
             "direct_object": {
+              "text": "კარგ ექიმს",
               "case": "dat",
-              "word": "მშობელს"
+              "role": "direct_object"
             }
           },
-          "georgian_verb_form": "რეკავდა"
-        },
-        {
-          "georgian": "გამოუცდელი მოცეკვავე მცოდნე მასწავლებელს რეკავდნენ",
-          "english": "<strong data-role=\"subject\">The inexperienced dancer</strong> <strong data-role=\"verb\">were calling</strong> <strong data-role=\"direct-object\">the knowledgeable teacher</strong>",
-          "english_plain": "The inexperienced dancer were calling the knowledgeable teacher",
-          "html": "<span data-case=\"nom\" data-role=\"subject\">გამოუცდელი მოცეკვავე</span> <span data-case=\"dat\" data-role=\"direct-object\">მცოდნე მასწავლებელს</span> <span data-role=\"verb\">რეკავდნენ</span>",
-          "case_marking": {
+          "english": "I was calling the good doctor",
+          "english_components": {
             "subject": {
-              "case": "nom",
-              "word": "მოცეკვავე"
+              "text": "I",
+              "role": "subject",
+              "person": "1sg"
+            },
+            "verb": {
+              "text": "was calling",
+              "role": "verb"
             },
             "direct_object": {
-              "case": "dat",
-              "word": "მასწავლებელს"
+              "text": "the good doctor",
+              "role": "direct_object"
             }
           },
-          "georgian_verb_form": "რეკავდნენ"
+          "georgian_verb_form": "ვრეკავდი",
+          "person": "1sg",
+          "effective_preverb": "და"
+        },
+        {
+          "georgian": "შეშფოთებული დედა რეკავდა მწუხარე მშობელს",
+          "georgian_components": {
+            "subject": {
+              "text": "შეშფოთებული დედა",
+              "case": "nom",
+              "role": "subject"
+            },
+            "verb": {
+              "text": "რეკავდა",
+              "role": "verb"
+            },
+            "direct_object": {
+              "text": "მწუხარე მშობელს",
+              "case": "dat",
+              "role": "direct_object"
+            }
+          },
+          "english": "The worried mother was calling the concerned parent",
+          "english_components": {
+            "subject": {
+              "text": "The worried mother",
+              "role": "subject",
+              "person": "3sg"
+            },
+            "verb": {
+              "text": "was calling",
+              "role": "verb"
+            },
+            "direct_object": {
+              "text": "the concerned parent",
+              "role": "direct_object"
+            }
+          },
+          "georgian_verb_form": "რეკავდა",
+          "person": "3sg",
+          "effective_preverb": "და"
+        },
+        {
+          "georgian": "გამოუცდელი მოცეკვავეები რეკავდნენ მცოდნე მასწავლებელს",
+          "georgian_components": {
+            "subject": {
+              "text": "გამოუცდელი მოცეკვავეები",
+              "case": "nom",
+              "role": "subject"
+            },
+            "verb": {
+              "text": "რეკავდნენ",
+              "role": "verb"
+            },
+            "direct_object": {
+              "text": "მცოდნე მასწავლებელს",
+              "case": "dat",
+              "role": "direct_object"
+            }
+          },
+          "english": "The inexperienced dancers were calling the knowledgeable teacher",
+          "english_components": {
+            "subject": {
+              "text": "The inexperienced dancers",
+              "role": "subject",
+              "person": "3pl"
+            },
+            "verb": {
+              "text": "were calling",
+              "role": "verb"
+            },
+            "direct_object": {
+              "text": "the knowledgeable teacher",
+              "role": "direct_object"
+            }
+          },
+          "georgian_verb_form": "რეკავდნენ",
+          "person": "3pl",
+          "effective_preverb": "და"
         }
       ],
       "future": [
         {
-          "georgian": "კარგ ექიმს დავრეკავ",
-          "english": "<strong data-role=\"subject\" data-person=\"1sg\">I</strong> <strong data-role=\"verb\">will call</strong> <strong data-role=\"direct-object\">the good doctor</strong>",
-          "english_plain": "I will call the good doctor",
-          "html": "<span data-case=\"dat\" data-role=\"direct-object\">კარგ ექიმს</span> <span data-role=\"verb\">დავრეკავ</span>",
-          "case_marking": {
-            "direct_object": {
-              "case": "dat",
-              "word": "ექიმს"
-            }
-          },
-          "georgian_verb_form": "დავრეკავ"
-        },
-        {
-          "georgian": "შეშფოთებული დედა მწუხარე მშობელს დარეკავს",
-          "english": "<strong data-role=\"subject\">The worried mother</strong> <strong data-role=\"verb\">will call</strong> <strong data-role=\"direct-object\">the concerned parent</strong>",
-          "english_plain": "The worried mother will call the concerned parent",
-          "html": "<span data-case=\"nom\" data-role=\"subject\">შეშფოთებული დედა</span> <span data-case=\"dat\" data-role=\"direct-object\">მწუხარე მშობელს</span> <span data-role=\"verb\">დარეკავს</span>",
-          "case_marking": {
-            "subject": {
-              "case": "nom",
-              "word": "დედა"
+          "georgian": "დავრეკავ კარგ ექიმს",
+          "georgian_components": {
+            "verb": {
+              "text": "დავრეკავ",
+              "role": "verb"
             },
             "direct_object": {
+              "text": "კარგ ექიმს",
               "case": "dat",
-              "word": "მშობელს"
+              "role": "direct_object"
             }
           },
-          "georgian_verb_form": "დარეკავს"
-        },
-        {
-          "georgian": "გამოუცდელი მოცეკვავე მცოდნე მასწავლებელს დარეკავენ",
-          "english": "<strong data-role=\"subject\">The inexperienced dancer</strong> <strong data-role=\"verb\">will call</strong> <strong data-role=\"direct-object\">the knowledgeable teacher</strong>",
-          "english_plain": "The inexperienced dancer will call the knowledgeable teacher",
-          "html": "<span data-case=\"nom\" data-role=\"subject\">გამოუცდელი მოცეკვავე</span> <span data-case=\"dat\" data-role=\"direct-object\">მცოდნე მასწავლებელს</span> <span data-role=\"verb\">დარეკავენ</span>",
-          "case_marking": {
+          "english": "I will call the good doctor",
+          "english_components": {
             "subject": {
-              "case": "nom",
-              "word": "მოცეკვავე"
+              "text": "I",
+              "role": "subject",
+              "person": "1sg"
+            },
+            "verb": {
+              "text": "will call",
+              "role": "verb"
             },
             "direct_object": {
-              "case": "dat",
-              "word": "მასწავლებელს"
+              "text": "the good doctor",
+              "role": "direct_object"
             }
           },
-          "georgian_verb_form": "დარეკავენ"
+          "georgian_verb_form": "დავრეკავ",
+          "person": "1sg",
+          "effective_preverb": "და"
+        },
+        {
+          "georgian": "შეშფოთებული დედა დარეკავს მწუხარე მშობელს",
+          "georgian_components": {
+            "subject": {
+              "text": "შეშფოთებული დედა",
+              "case": "nom",
+              "role": "subject"
+            },
+            "verb": {
+              "text": "დარეკავს",
+              "role": "verb"
+            },
+            "direct_object": {
+              "text": "მწუხარე მშობელს",
+              "case": "dat",
+              "role": "direct_object"
+            }
+          },
+          "english": "The worried mother will call the concerned parent",
+          "english_components": {
+            "subject": {
+              "text": "The worried mother",
+              "role": "subject",
+              "person": "3sg"
+            },
+            "verb": {
+              "text": "will call",
+              "role": "verb"
+            },
+            "direct_object": {
+              "text": "the concerned parent",
+              "role": "direct_object"
+            }
+          },
+          "georgian_verb_form": "დარეკავს",
+          "person": "3sg",
+          "effective_preverb": "და"
+        },
+        {
+          "georgian": "გამოუცდელი მოცეკვავეები დარეკავენ მცოდნე მასწავლებელს",
+          "georgian_components": {
+            "subject": {
+              "text": "გამოუცდელი მოცეკვავეები",
+              "case": "nom",
+              "role": "subject"
+            },
+            "verb": {
+              "text": "დარეკავენ",
+              "role": "verb"
+            },
+            "direct_object": {
+              "text": "მცოდნე მასწავლებელს",
+              "case": "dat",
+              "role": "direct_object"
+            }
+          },
+          "english": "The inexperienced dancers will call the knowledgeable teacher",
+          "english_components": {
+            "subject": {
+              "text": "The inexperienced dancers",
+              "role": "subject",
+              "person": "3pl"
+            },
+            "verb": {
+              "text": "will call",
+              "role": "verb"
+            },
+            "direct_object": {
+              "text": "the knowledgeable teacher",
+              "role": "direct_object"
+            }
+          },
+          "georgian_verb_form": "დარეკავენ",
+          "person": "3pl",
+          "effective_preverb": "და"
         }
       ],
       "aorist": [
         {
-          "georgian": "კარგი ექიმი დავრეკე",
-          "english": "<strong data-role=\"subject\" data-person=\"1sg\">I</strong> <strong data-role=\"verb\">called</strong> <strong data-role=\"direct-object\">the good doctor</strong>",
-          "english_plain": "I called the good doctor",
-          "html": "<span data-case=\"nom\" data-role=\"direct-object\">კარგი ექიმი</span> <span data-role=\"verb\">დავრეკე</span>",
-          "case_marking": {
-            "direct_object": {
-              "case": "nom",
-              "word": "ექიმი"
-            }
-          },
-          "georgian_verb_form": "დავრეკე"
-        },
-        {
-          "georgian": "შეშფოთებულმა დედამ მწუხარე მშობელი დარეკა",
-          "english": "<strong data-role=\"subject\">The worried mother</strong> <strong data-role=\"verb\">called</strong> <strong data-role=\"direct-object\">the concerned parent</strong>",
-          "english_plain": "The worried mother called the concerned parent",
-          "html": "<span data-case=\"erg\" data-role=\"subject\">შეშფოთებულმა დედამ</span> <span data-case=\"nom\" data-role=\"direct-object\">მწუხარე მშობელი</span> <span data-role=\"verb\">დარეკა</span>",
-          "case_marking": {
-            "subject": {
-              "case": "erg",
-              "word": "დედამ"
+          "georgian": "დავრეკე კარგი ექიმი",
+          "georgian_components": {
+            "verb": {
+              "text": "დავრეკე",
+              "role": "verb"
             },
             "direct_object": {
+              "text": "კარგი ექიმი",
               "case": "nom",
-              "word": "მშობელი"
+              "role": "direct_object"
             }
           },
-          "georgian_verb_form": "დარეკა"
-        },
-        {
-          "georgian": "გამოუცდელმა მოცეკვავემ მცოდნე მასწავლებელი დარეკეს",
-          "english": "<strong data-role=\"subject\">The inexperienced dancer</strong> <strong data-role=\"verb\">called</strong> <strong data-role=\"direct-object\">the knowledgeable teacher</strong>",
-          "english_plain": "The inexperienced dancer called the knowledgeable teacher",
-          "html": "<span data-case=\"erg\" data-role=\"subject\">გამოუცდელმა მოცეკვავემ</span> <span data-case=\"nom\" data-role=\"direct-object\">მცოდნე მასწავლებელი</span> <span data-role=\"verb\">დარეკეს</span>",
-          "case_marking": {
+          "english": "I called the good doctor",
+          "english_components": {
             "subject": {
-              "case": "erg",
-              "word": "მოცეკვავემ"
+              "text": "I",
+              "role": "subject",
+              "person": "1sg"
+            },
+            "verb": {
+              "text": "called",
+              "role": "verb"
             },
             "direct_object": {
-              "case": "nom",
-              "word": "მასწავლებელი"
+              "text": "the good doctor",
+              "role": "direct_object"
             }
           },
-          "georgian_verb_form": "დარეკეს"
+          "georgian_verb_form": "დავრეკე",
+          "person": "1sg",
+          "effective_preverb": "და"
+        },
+        {
+          "georgian": "შეშფოთებულმა დედამ დარეკა მწუხარე მშობელი",
+          "georgian_components": {
+            "subject": {
+              "text": "შეშფოთებულმა დედამ",
+              "case": "erg",
+              "role": "subject"
+            },
+            "verb": {
+              "text": "დარეკა",
+              "role": "verb"
+            },
+            "direct_object": {
+              "text": "მწუხარე მშობელი",
+              "case": "nom",
+              "role": "direct_object"
+            }
+          },
+          "english": "The worried mother called the concerned parent",
+          "english_components": {
+            "subject": {
+              "text": "The worried mother",
+              "role": "subject",
+              "person": "3sg"
+            },
+            "verb": {
+              "text": "called",
+              "role": "verb"
+            },
+            "direct_object": {
+              "text": "the concerned parent",
+              "role": "direct_object"
+            }
+          },
+          "georgian_verb_form": "დარეკა",
+          "person": "3sg",
+          "effective_preverb": "და"
+        },
+        {
+          "georgian": "გამოუცდელმა მოცეკვავეებმა დარეკეს მცოდნე მასწავლებელი",
+          "georgian_components": {
+            "subject": {
+              "text": "გამოუცდელმა მოცეკვავეებმა",
+              "case": "erg",
+              "role": "subject"
+            },
+            "verb": {
+              "text": "დარეკეს",
+              "role": "verb"
+            },
+            "direct_object": {
+              "text": "მცოდნე მასწავლებელი",
+              "case": "nom",
+              "role": "direct_object"
+            }
+          },
+          "english": "The inexperienced dancers called the knowledgeable teacher",
+          "english_components": {
+            "subject": {
+              "text": "The inexperienced dancers",
+              "role": "subject",
+              "person": "3pl"
+            },
+            "verb": {
+              "text": "called",
+              "role": "verb"
+            },
+            "direct_object": {
+              "text": "the knowledgeable teacher",
+              "role": "direct_object"
+            }
+          },
+          "georgian_verb_form": "დარეკეს",
+          "person": "3pl",
+          "effective_preverb": "და"
         }
       ],
       "optative": [
         {
-          "georgian": "კარგი ექიმი უნდა დავრეკო",
-          "english": "<strong data-role=\"subject\" data-person=\"1sg\">I</strong> <strong data-role=\"verb\">should</strong> <strong data-role=\"verb\">call</strong> <strong data-role=\"direct-object\">the good doctor</strong>",
-          "english_plain": "I should call the good doctor",
-          "html": "<span data-case=\"nom\" data-role=\"direct-object\">კარგი ექიმი</span> <span data-role=\"verb\">უნდა დავრეკო</span>",
-          "case_marking": {
-            "direct_object": {
-              "case": "nom",
-              "word": "ექიმი"
-            }
-          },
-          "georgian_verb_form": "დავრეკო"
-        },
-        {
-          "georgian": "შეშფოთებულმა დედამ მწუხარე მშობელი უნდა დარეკოს",
-          "english": "<strong data-role=\"subject\">The worried mother</strong> <strong data-role=\"verb\">should</strong> <strong data-role=\"verb\">call</strong> <strong data-role=\"direct-object\">the concerned parent</strong>",
-          "english_plain": "The worried mother should call the concerned parent",
-          "html": "<span data-case=\"erg\" data-role=\"subject\">შეშფოთებულმა დედამ</span> <span data-case=\"nom\" data-role=\"direct-object\">მწუხარე მშობელი</span> <span data-role=\"verb\">უნდა დარეკოს</span>",
-          "case_marking": {
-            "subject": {
-              "case": "erg",
-              "word": "დედამ"
+          "georgian": "უნდა დავრეკო კარგი ექიმი",
+          "georgian_components": {
+            "verb": {
+              "text": "უნდა დავრეკო",
+              "role": "verb"
             },
             "direct_object": {
+              "text": "კარგი ექიმი",
               "case": "nom",
-              "word": "მშობელი"
+              "role": "direct_object"
             }
           },
-          "georgian_verb_form": "დარეკოს"
-        },
-        {
-          "georgian": "გამოუცდელმა მოცეკვავემ მცოდნე მასწავლებელი უნდა დარეკონ",
-          "english": "<strong data-role=\"subject\">The inexperienced dancer</strong> <strong data-role=\"verb\">should</strong> <strong data-role=\"verb\">call</strong> <strong data-role=\"direct-object\">the knowledgeable teacher</strong>",
-          "english_plain": "The inexperienced dancer should call the knowledgeable teacher",
-          "html": "<span data-case=\"erg\" data-role=\"subject\">გამოუცდელმა მოცეკვავემ</span> <span data-case=\"nom\" data-role=\"direct-object\">მცოდნე მასწავლებელი</span> <span data-role=\"verb\">უნდა დარეკონ</span>",
-          "case_marking": {
+          "english": "I should call the good doctor",
+          "english_components": {
             "subject": {
-              "case": "erg",
-              "word": "მოცეკვავემ"
+              "text": "I",
+              "role": "subject",
+              "person": "1sg"
+            },
+            "verb": {
+              "text": "should call",
+              "role": "verb"
             },
             "direct_object": {
-              "case": "nom",
-              "word": "მასწავლებელი"
+              "text": "the good doctor",
+              "role": "direct_object"
             }
           },
-          "georgian_verb_form": "დარეკონ"
+          "georgian_verb_form": "დავრეკო",
+          "person": "1sg",
+          "effective_preverb": "და"
+        },
+        {
+          "georgian": "შეშფოთებულმა დედამ უნდა დარეკოს მწუხარე მშობელი",
+          "georgian_components": {
+            "subject": {
+              "text": "შეშფოთებულმა დედამ",
+              "case": "erg",
+              "role": "subject"
+            },
+            "verb": {
+              "text": "უნდა დარეკოს",
+              "role": "verb"
+            },
+            "direct_object": {
+              "text": "მწუხარე მშობელი",
+              "case": "nom",
+              "role": "direct_object"
+            }
+          },
+          "english": "The worried mother should call the concerned parent",
+          "english_components": {
+            "subject": {
+              "text": "The worried mother",
+              "role": "subject",
+              "person": "3sg"
+            },
+            "verb": {
+              "text": "should call",
+              "role": "verb"
+            },
+            "direct_object": {
+              "text": "the concerned parent",
+              "role": "direct_object"
+            }
+          },
+          "georgian_verb_form": "დარეკოს",
+          "person": "3sg",
+          "effective_preverb": "და"
+        },
+        {
+          "georgian": "გამოუცდელმა მოცეკვავეებმა უნდა დარეკონ მცოდნე მასწავლებელი",
+          "georgian_components": {
+            "subject": {
+              "text": "გამოუცდელმა მოცეკვავეებმა",
+              "case": "erg",
+              "role": "subject"
+            },
+            "verb": {
+              "text": "უნდა დარეკონ",
+              "role": "verb"
+            },
+            "direct_object": {
+              "text": "მცოდნე მასწავლებელი",
+              "case": "nom",
+              "role": "direct_object"
+            }
+          },
+          "english": "The inexperienced dancers should call the knowledgeable teacher",
+          "english_components": {
+            "subject": {
+              "text": "The inexperienced dancers",
+              "role": "subject",
+              "person": "3pl"
+            },
+            "verb": {
+              "text": "should call",
+              "role": "verb"
+            },
+            "direct_object": {
+              "text": "the knowledgeable teacher",
+              "role": "direct_object"
+            }
+          },
+          "georgian_verb_form": "დარეკონ",
+          "person": "3pl",
+          "effective_preverb": "და"
         }
       ],
       "imperative": [
         {
-          "georgian": "ძველი მეგობარი დარეკე",
-          "english": "<strong data-role=\"verb\">call</strong> <strong data-role=\"direct-object\">the old friend</strong>",
-          "english_plain": "call the old friend",
-          "html": "<span data-case=\"nom\" data-role=\"direct-object\">ძველი მეგობარი</span> <span data-role=\"verb\">დარეკე</span>",
-          "case_marking": {
+          "georgian": "დარეკე ძველი მეგობარი",
+          "georgian_components": {
+            "verb": {
+              "text": "დარეკე",
+              "role": "verb"
+            },
             "direct_object": {
+              "text": "ძველი მეგობარი",
               "case": "nom",
-              "word": "მეგობარი"
+              "role": "direct_object"
             }
           },
-          "georgian_verb_form": "დარეკე"
+          "english": "You, call the old friend",
+          "english_components": {
+            "subject": {
+              "text": "You,",
+              "role": "subject",
+              "person": "2sg"
+            },
+            "verb": {
+              "text": "call",
+              "role": "verb"
+            },
+            "direct_object": {
+              "text": "the old friend",
+              "role": "direct_object"
+            }
+          },
+          "georgian_verb_form": "დარეკე",
+          "person": "2sg",
+          "effective_preverb": "და"
         },
         {
-          "georgian": "კეთილი ძმა დარეკეთ",
-          "english": "<strong data-role=\"verb\">call</strong> <strong data-role=\"direct-object\">the kind brother</strong>",
-          "english_plain": "call the kind brother",
-          "html": "<span data-case=\"nom\" data-role=\"direct-object\">კეთილი ძმა</span> <span data-role=\"verb\">დარეკეთ</span>",
-          "case_marking": {
+          "georgian": "დარეკეთ კეთილი ძმა",
+          "georgian_components": {
+            "verb": {
+              "text": "დარეკეთ",
+              "role": "verb"
+            },
             "direct_object": {
+              "text": "კეთილი ძმა",
               "case": "nom",
-              "word": "ძმა"
+              "role": "direct_object"
             }
           },
-          "georgian_verb_form": "დარეკეთ"
+          "english": "You all (you formal), call the kind brother",
+          "english_components": {
+            "subject": {
+              "text": "You all (you formal),",
+              "role": "subject",
+              "person": "2pl"
+            },
+            "verb": {
+              "text": "call",
+              "role": "verb"
+            },
+            "direct_object": {
+              "text": "the kind brother",
+              "role": "direct_object"
+            }
+          },
+          "georgian_verb_form": "დარეკეთ",
+          "person": "2pl",
+          "effective_preverb": "და"
         }
       ]
     }

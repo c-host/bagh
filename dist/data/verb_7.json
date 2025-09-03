@@ -152,282 +152,631 @@
   "preverb_rules": {
     "default": "",
     "replacements": {},
-    "tense_specific_fallbacks": {},
-    "english_fallbacks": {}
+    "tense_specific_fallbacks": {}
   },
   "examples": {
-    "null": {
+    "default": {
       "present": [
         {
-          "georgian": "რთულ საშინაო დავალებას ვამთავრებ",
-          "english": "<strong data-role=\"subject\" data-person=\"1sg\">I</strong> <strong data-role=\"verb\">finish</strong> <strong data-role=\"direct-object\">the difficult homework</strong>",
-          "english_plain": "I finish the difficult homework",
-          "html": "<span data-case=\"dat\" data-role=\"direct-object\">რთულ საშინაო დავალებას</span> <span data-role=\"verb\">ვამთავრებ</span>",
-          "case_marking": {
-            "direct_object": {
-              "case": "dat",
-              "word": "საშინაო დავალებას"
-            }
-          },
-          "georgian_verb_form": "ვამთავრებ"
-        },
-        {
-          "georgian": "ჭკვიანი სტუდენტი მნიშვნელოვან სამუშაოს ამთავრებს",
-          "english": "<strong data-role=\"subject\">The clever student</strong> <strong data-role=\"verb\">finishes</strong> <strong data-role=\"direct-object\">the important work</strong>",
-          "english_plain": "The clever student finishes the important work",
-          "html": "<span data-case=\"nom\" data-role=\"subject\">ჭკვიანი სტუდენტი</span> <span data-case=\"dat\" data-role=\"direct-object\">მნიშვნელოვან სამუშაოს</span> <span data-role=\"verb\">ამთავრებს</span>",
-          "case_marking": {
-            "subject": {
-              "case": "nom",
-              "word": "სტუდენტი"
+          "georgian": "ვამთავრებ რთულ საშინაო დავალებას",
+          "georgian_components": {
+            "verb": {
+              "text": "ვამთავრებ",
+              "role": "verb"
             },
             "direct_object": {
+              "text": "რთულ საშინაო დავალებას",
               "case": "dat",
-              "word": "სამუშაოს"
+              "role": "direct_object"
             }
           },
-          "georgian_verb_form": "ამთავრებს"
-        },
-        {
-          "georgian": "კარგი მუშა სქელ წიგნს ამთავრებენ",
-          "english": "<strong data-role=\"subject\">The good worker</strong> <strong data-role=\"verb\">finish</strong> <strong data-role=\"direct-object\">the thick book</strong>",
-          "english_plain": "The good worker finish the thick book",
-          "html": "<span data-case=\"nom\" data-role=\"subject\">კარგი მუშა</span> <span data-case=\"dat\" data-role=\"direct-object\">სქელ წიგნს</span> <span data-role=\"verb\">ამთავრებენ</span>",
-          "case_marking": {
+          "english": "I finish the difficult homework",
+          "english_components": {
             "subject": {
-              "case": "nom",
-              "word": "მუშა"
+              "text": "I",
+              "role": "subject",
+              "person": "1sg"
+            },
+            "verb": {
+              "text": "finish",
+              "role": "verb"
             },
             "direct_object": {
-              "case": "dat",
-              "word": "წიგნს"
+              "text": "the difficult homework",
+              "role": "direct_object"
             }
           },
-          "georgian_verb_form": "ამთავრებენ"
+          "georgian_verb_form": "ვამთავრებ",
+          "person": "1sg",
+          "effective_preverb": "და"
+        },
+        {
+          "georgian": "ჭკვიანი სტუდენტი ამთავრებს მნიშვნელოვან სამუშაოს",
+          "georgian_components": {
+            "subject": {
+              "text": "ჭკვიანი სტუდენტი",
+              "case": "nom",
+              "role": "subject"
+            },
+            "verb": {
+              "text": "ამთავრებს",
+              "role": "verb"
+            },
+            "direct_object": {
+              "text": "მნიშვნელოვან სამუშაოს",
+              "case": "dat",
+              "role": "direct_object"
+            }
+          },
+          "english": "The clever student finishes the important work",
+          "english_components": {
+            "subject": {
+              "text": "The clever student",
+              "role": "subject",
+              "person": "3sg"
+            },
+            "verb": {
+              "text": "finishes",
+              "role": "verb"
+            },
+            "direct_object": {
+              "text": "the important work",
+              "role": "direct_object"
+            }
+          },
+          "georgian_verb_form": "ამთავრებს",
+          "person": "3sg",
+          "effective_preverb": "და"
+        },
+        {
+          "georgian": "კარგი მუშები ამთავრებენ სქელ წიგნს",
+          "georgian_components": {
+            "subject": {
+              "text": "კარგი მუშები",
+              "case": "nom",
+              "role": "subject"
+            },
+            "verb": {
+              "text": "ამთავრებენ",
+              "role": "verb"
+            },
+            "direct_object": {
+              "text": "სქელ წიგნს",
+              "case": "dat",
+              "role": "direct_object"
+            }
+          },
+          "english": "The good workers finish the thick book",
+          "english_components": {
+            "subject": {
+              "text": "The good workers",
+              "role": "subject",
+              "person": "3pl"
+            },
+            "verb": {
+              "text": "finish",
+              "role": "verb"
+            },
+            "direct_object": {
+              "text": "the thick book",
+              "role": "direct_object"
+            }
+          },
+          "georgian_verb_form": "ამთავრებენ",
+          "person": "3pl",
+          "effective_preverb": "და"
         }
       ],
       "imperfect": [
         {
-          "georgian": "რთულ საშინაო დავალებას ვამთავრებდი",
-          "english": "<strong data-role=\"subject\" data-person=\"1sg\">I</strong> <strong data-role=\"verb\">was finishing</strong> <strong data-role=\"direct-object\">the difficult homework</strong>",
-          "english_plain": "I was finishing the difficult homework",
-          "html": "<span data-case=\"dat\" data-role=\"direct-object\">რთულ საშინაო დავალებას</span> <span data-role=\"verb\">ვამთავრებდი</span>",
-          "case_marking": {
-            "direct_object": {
-              "case": "dat",
-              "word": "საშინაო დავალებას"
-            }
-          },
-          "georgian_verb_form": "ვამთავრებდი"
-        },
-        {
-          "georgian": "ჭკვიანი სტუდენტი მნიშვნელოვან სამუშაოს ამთავრებდა",
-          "english": "<strong data-role=\"subject\">The clever student</strong> <strong data-role=\"verb\">was finishing</strong> <strong data-role=\"direct-object\">the important work</strong>",
-          "english_plain": "The clever student was finishing the important work",
-          "html": "<span data-case=\"nom\" data-role=\"subject\">ჭკვიანი სტუდენტი</span> <span data-case=\"dat\" data-role=\"direct-object\">მნიშვნელოვან სამუშაოს</span> <span data-role=\"verb\">ამთავრებდა</span>",
-          "case_marking": {
-            "subject": {
-              "case": "nom",
-              "word": "სტუდენტი"
+          "georgian": "ვამთავრებდი რთულ საშინაო დავალებას",
+          "georgian_components": {
+            "verb": {
+              "text": "ვამთავრებდი",
+              "role": "verb"
             },
             "direct_object": {
+              "text": "რთულ საშინაო დავალებას",
               "case": "dat",
-              "word": "სამუშაოს"
+              "role": "direct_object"
             }
           },
-          "georgian_verb_form": "ამთავრებდა"
-        },
-        {
-          "georgian": "კარგი მუშა სქელ წიგნს ამთავრებდნენ",
-          "english": "<strong data-role=\"subject\">The good worker</strong> <strong data-role=\"verb\">were finishing</strong> <strong data-role=\"direct-object\">the thick book</strong>",
-          "english_plain": "The good worker were finishing the thick book",
-          "html": "<span data-case=\"nom\" data-role=\"subject\">კარგი მუშა</span> <span data-case=\"dat\" data-role=\"direct-object\">სქელ წიგნს</span> <span data-role=\"verb\">ამთავრებდნენ</span>",
-          "case_marking": {
+          "english": "I was finishing the difficult homework",
+          "english_components": {
             "subject": {
-              "case": "nom",
-              "word": "მუშა"
+              "text": "I",
+              "role": "subject",
+              "person": "1sg"
+            },
+            "verb": {
+              "text": "was finishing",
+              "role": "verb"
             },
             "direct_object": {
-              "case": "dat",
-              "word": "წიგნს"
+              "text": "the difficult homework",
+              "role": "direct_object"
             }
           },
-          "georgian_verb_form": "ამთავრებდნენ"
+          "georgian_verb_form": "ვამთავრებდი",
+          "person": "1sg",
+          "effective_preverb": "და"
+        },
+        {
+          "georgian": "ჭკვიანი სტუდენტი ამთავრებდა მნიშვნელოვან სამუშაოს",
+          "georgian_components": {
+            "subject": {
+              "text": "ჭკვიანი სტუდენტი",
+              "case": "nom",
+              "role": "subject"
+            },
+            "verb": {
+              "text": "ამთავრებდა",
+              "role": "verb"
+            },
+            "direct_object": {
+              "text": "მნიშვნელოვან სამუშაოს",
+              "case": "dat",
+              "role": "direct_object"
+            }
+          },
+          "english": "The clever student was finishing the important work",
+          "english_components": {
+            "subject": {
+              "text": "The clever student",
+              "role": "subject",
+              "person": "3sg"
+            },
+            "verb": {
+              "text": "was finishing",
+              "role": "verb"
+            },
+            "direct_object": {
+              "text": "the important work",
+              "role": "direct_object"
+            }
+          },
+          "georgian_verb_form": "ამთავრებდა",
+          "person": "3sg",
+          "effective_preverb": "და"
+        },
+        {
+          "georgian": "კარგი მუშები ამთავრებდნენ სქელ წიგნს",
+          "georgian_components": {
+            "subject": {
+              "text": "კარგი მუშები",
+              "case": "nom",
+              "role": "subject"
+            },
+            "verb": {
+              "text": "ამთავრებდნენ",
+              "role": "verb"
+            },
+            "direct_object": {
+              "text": "სქელ წიგნს",
+              "case": "dat",
+              "role": "direct_object"
+            }
+          },
+          "english": "The good workers were finishing the thick book",
+          "english_components": {
+            "subject": {
+              "text": "The good workers",
+              "role": "subject",
+              "person": "3pl"
+            },
+            "verb": {
+              "text": "were finishing",
+              "role": "verb"
+            },
+            "direct_object": {
+              "text": "the thick book",
+              "role": "direct_object"
+            }
+          },
+          "georgian_verb_form": "ამთავრებდნენ",
+          "person": "3pl",
+          "effective_preverb": "და"
         }
       ],
       "future": [
         {
-          "georgian": "რთულ საშინაო დავალებას დავამთავრებ",
-          "english": "<strong data-role=\"subject\" data-person=\"1sg\">I</strong> <strong data-role=\"verb\">will finish</strong> <strong data-role=\"direct-object\">the difficult homework</strong>",
-          "english_plain": "I will finish the difficult homework",
-          "html": "<span data-case=\"dat\" data-role=\"direct-object\">რთულ საშინაო დავალებას</span> <span data-role=\"verb\">დავამთავრებ</span>",
-          "case_marking": {
-            "direct_object": {
-              "case": "dat",
-              "word": "საშინაო დავალებას"
-            }
-          },
-          "georgian_verb_form": "დავამთავრებ"
-        },
-        {
-          "georgian": "ჭკვიანი სტუდენტი მნიშვნელოვან სამუშაოს დაამთავრებს",
-          "english": "<strong data-role=\"subject\">The clever student</strong> <strong data-role=\"verb\">will finish</strong> <strong data-role=\"direct-object\">the important work</strong>",
-          "english_plain": "The clever student will finish the important work",
-          "html": "<span data-case=\"nom\" data-role=\"subject\">ჭკვიანი სტუდენტი</span> <span data-case=\"dat\" data-role=\"direct-object\">მნიშვნელოვან სამუშაოს</span> <span data-role=\"verb\">დაამთავრებს</span>",
-          "case_marking": {
-            "subject": {
-              "case": "nom",
-              "word": "სტუდენტი"
+          "georgian": "დავამთავრებ რთულ საშინაო დავალებას",
+          "georgian_components": {
+            "verb": {
+              "text": "დავამთავრებ",
+              "role": "verb"
             },
             "direct_object": {
+              "text": "რთულ საშინაო დავალებას",
               "case": "dat",
-              "word": "სამუშაოს"
+              "role": "direct_object"
             }
           },
-          "georgian_verb_form": "დაამთავრებს"
-        },
-        {
-          "georgian": "კარგი მუშა სქელ წიგნს დაამთავრებენ",
-          "english": "<strong data-role=\"subject\">The good worker</strong> <strong data-role=\"verb\">will finish</strong> <strong data-role=\"direct-object\">the thick book</strong>",
-          "english_plain": "The good worker will finish the thick book",
-          "html": "<span data-case=\"nom\" data-role=\"subject\">კარგი მუშა</span> <span data-case=\"dat\" data-role=\"direct-object\">სქელ წიგნს</span> <span data-role=\"verb\">დაამთავრებენ</span>",
-          "case_marking": {
+          "english": "I will finish the difficult homework",
+          "english_components": {
             "subject": {
-              "case": "nom",
-              "word": "მუშა"
+              "text": "I",
+              "role": "subject",
+              "person": "1sg"
+            },
+            "verb": {
+              "text": "will finish",
+              "role": "verb"
             },
             "direct_object": {
-              "case": "dat",
-              "word": "წიგნს"
+              "text": "the difficult homework",
+              "role": "direct_object"
             }
           },
-          "georgian_verb_form": "დაამთავრებენ"
+          "georgian_verb_form": "დავამთავრებ",
+          "person": "1sg",
+          "effective_preverb": "და"
+        },
+        {
+          "georgian": "ჭკვიანი სტუდენტი დაამთავრებს მნიშვნელოვან სამუშაოს",
+          "georgian_components": {
+            "subject": {
+              "text": "ჭკვიანი სტუდენტი",
+              "case": "nom",
+              "role": "subject"
+            },
+            "verb": {
+              "text": "დაამთავრებს",
+              "role": "verb"
+            },
+            "direct_object": {
+              "text": "მნიშვნელოვან სამუშაოს",
+              "case": "dat",
+              "role": "direct_object"
+            }
+          },
+          "english": "The clever student will finish the important work",
+          "english_components": {
+            "subject": {
+              "text": "The clever student",
+              "role": "subject",
+              "person": "3sg"
+            },
+            "verb": {
+              "text": "will finish",
+              "role": "verb"
+            },
+            "direct_object": {
+              "text": "the important work",
+              "role": "direct_object"
+            }
+          },
+          "georgian_verb_form": "დაამთავრებს",
+          "person": "3sg",
+          "effective_preverb": "და"
+        },
+        {
+          "georgian": "კარგი მუშები დაამთავრებენ სქელ წიგნს",
+          "georgian_components": {
+            "subject": {
+              "text": "კარგი მუშები",
+              "case": "nom",
+              "role": "subject"
+            },
+            "verb": {
+              "text": "დაამთავრებენ",
+              "role": "verb"
+            },
+            "direct_object": {
+              "text": "სქელ წიგნს",
+              "case": "dat",
+              "role": "direct_object"
+            }
+          },
+          "english": "The good workers will finish the thick book",
+          "english_components": {
+            "subject": {
+              "text": "The good workers",
+              "role": "subject",
+              "person": "3pl"
+            },
+            "verb": {
+              "text": "will finish",
+              "role": "verb"
+            },
+            "direct_object": {
+              "text": "the thick book",
+              "role": "direct_object"
+            }
+          },
+          "georgian_verb_form": "დაამთავრებენ",
+          "person": "3pl",
+          "effective_preverb": "და"
         }
       ],
       "aorist": [
         {
-          "georgian": "რთული საშინაო დავალება დავამთავრე",
-          "english": "<strong data-role=\"subject\" data-person=\"1sg\">I</strong> <strong data-role=\"verb\">finished</strong> <strong data-role=\"direct-object\">the difficult homework</strong>",
-          "english_plain": "I finished the difficult homework",
-          "html": "<span data-case=\"nom\" data-role=\"direct-object\">რთული საშინაო დავალება</span> <span data-role=\"verb\">დავამთავრე</span>",
-          "case_marking": {
-            "direct_object": {
-              "case": "nom",
-              "word": "საშინაო დავალება"
-            }
-          },
-          "georgian_verb_form": "დავამთავრე"
-        },
-        {
-          "georgian": "ჭკვიანმა სტუდენტმა მნიშვნელოვანი სამუშაო დაამთავრა",
-          "english": "<strong data-role=\"subject\">The clever student</strong> <strong data-role=\"verb\">finished</strong> <strong data-role=\"direct-object\">the important work</strong>",
-          "english_plain": "The clever student finished the important work",
-          "html": "<span data-case=\"erg\" data-role=\"subject\">ჭკვიანმა სტუდენტმა</span> <span data-case=\"nom\" data-role=\"direct-object\">მნიშვნელოვანი სამუშაო</span> <span data-role=\"verb\">დაამთავრა</span>",
-          "case_marking": {
-            "subject": {
-              "case": "erg",
-              "word": "სტუდენტმა"
+          "georgian": "დავამთავრე რთული საშინაო დავალება",
+          "georgian_components": {
+            "verb": {
+              "text": "დავამთავრე",
+              "role": "verb"
             },
             "direct_object": {
+              "text": "რთული საშინაო დავალება",
               "case": "nom",
-              "word": "სამუშაო"
+              "role": "direct_object"
             }
           },
-          "georgian_verb_form": "დაამთავრა"
-        },
-        {
-          "georgian": "კარგმა მუშამ სქელი წიგნი დაამთავრეს",
-          "english": "<strong data-role=\"subject\">The good worker</strong> <strong data-role=\"verb\">finished</strong> <strong data-role=\"direct-object\">the thick book</strong>",
-          "english_plain": "The good worker finished the thick book",
-          "html": "<span data-case=\"erg\" data-role=\"subject\">კარგმა მუშამ</span> <span data-case=\"nom\" data-role=\"direct-object\">სქელი წიგნი</span> <span data-role=\"verb\">დაამთავრეს</span>",
-          "case_marking": {
+          "english": "I finished the difficult homework",
+          "english_components": {
             "subject": {
-              "case": "erg",
-              "word": "მუშამ"
+              "text": "I",
+              "role": "subject",
+              "person": "1sg"
+            },
+            "verb": {
+              "text": "finished",
+              "role": "verb"
             },
             "direct_object": {
-              "case": "nom",
-              "word": "წიგნი"
+              "text": "the difficult homework",
+              "role": "direct_object"
             }
           },
-          "georgian_verb_form": "დაამთავრეს"
+          "georgian_verb_form": "დავამთავრე",
+          "person": "1sg",
+          "effective_preverb": "და"
+        },
+        {
+          "georgian": "ჭკვიანმა სტუდენტმა დაამთავრა მნიშვნელოვანი სამუშაო",
+          "georgian_components": {
+            "subject": {
+              "text": "ჭკვიანმა სტუდენტმა",
+              "case": "erg",
+              "role": "subject"
+            },
+            "verb": {
+              "text": "დაამთავრა",
+              "role": "verb"
+            },
+            "direct_object": {
+              "text": "მნიშვნელოვანი სამუშაო",
+              "case": "nom",
+              "role": "direct_object"
+            }
+          },
+          "english": "The clever student finished the important work",
+          "english_components": {
+            "subject": {
+              "text": "The clever student",
+              "role": "subject",
+              "person": "3sg"
+            },
+            "verb": {
+              "text": "finished",
+              "role": "verb"
+            },
+            "direct_object": {
+              "text": "the important work",
+              "role": "direct_object"
+            }
+          },
+          "georgian_verb_form": "დაამთავრა",
+          "person": "3sg",
+          "effective_preverb": "და"
+        },
+        {
+          "georgian": "კარგმა მუშებმა დაამთავრეს სქელი წიგნი",
+          "georgian_components": {
+            "subject": {
+              "text": "კარგმა მუშებმა",
+              "case": "erg",
+              "role": "subject"
+            },
+            "verb": {
+              "text": "დაამთავრეს",
+              "role": "verb"
+            },
+            "direct_object": {
+              "text": "სქელი წიგნი",
+              "case": "nom",
+              "role": "direct_object"
+            }
+          },
+          "english": "The good workers finished the thick book",
+          "english_components": {
+            "subject": {
+              "text": "The good workers",
+              "role": "subject",
+              "person": "3pl"
+            },
+            "verb": {
+              "text": "finished",
+              "role": "verb"
+            },
+            "direct_object": {
+              "text": "the thick book",
+              "role": "direct_object"
+            }
+          },
+          "georgian_verb_form": "დაამთავრეს",
+          "person": "3pl",
+          "effective_preverb": "და"
         }
       ],
       "optative": [
         {
-          "georgian": "რთული საშინაო დავალება უნდა დავამთავრო",
-          "english": "<strong data-role=\"subject\" data-person=\"1sg\">I</strong> <strong data-role=\"verb\">should</strong> <strong data-role=\"verb\">finish</strong> <strong data-role=\"direct-object\">the difficult homework</strong>",
-          "english_plain": "I should finish the difficult homework",
-          "html": "<span data-case=\"nom\" data-role=\"direct-object\">რთული საშინაო დავალება</span> <span data-role=\"verb\">უნდა დავამთავრო</span>",
-          "case_marking": {
-            "direct_object": {
-              "case": "nom",
-              "word": "საშინაო დავალება"
-            }
-          },
-          "georgian_verb_form": "დავამთავრო"
-        },
-        {
-          "georgian": "ჭკვიანმა სტუდენტმა მნიშვნელოვანი სამუშაო უნდა დაამთავროს",
-          "english": "<strong data-role=\"subject\">The clever student</strong> <strong data-role=\"verb\">should</strong> <strong data-role=\"verb\">finish</strong> <strong data-role=\"direct-object\">the important work</strong>",
-          "english_plain": "The clever student should finish the important work",
-          "html": "<span data-case=\"erg\" data-role=\"subject\">ჭკვიანმა სტუდენტმა</span> <span data-case=\"nom\" data-role=\"direct-object\">მნიშვნელოვანი სამუშაო</span> <span data-role=\"verb\">უნდა დაამთავროს</span>",
-          "case_marking": {
-            "subject": {
-              "case": "erg",
-              "word": "სტუდენტმა"
+          "georgian": "უნდა დავამთავრო რთული საშინაო დავალება",
+          "georgian_components": {
+            "verb": {
+              "text": "უნდა დავამთავრო",
+              "role": "verb"
             },
             "direct_object": {
+              "text": "რთული საშინაო დავალება",
               "case": "nom",
-              "word": "სამუშაო"
+              "role": "direct_object"
             }
           },
-          "georgian_verb_form": "დაამთავროს"
-        },
-        {
-          "georgian": "კარგმა მუშამ სქელი წიგნი უნდა დაამთავრონ",
-          "english": "<strong data-role=\"subject\">The good worker</strong> <strong data-role=\"verb\">should</strong> <strong data-role=\"verb\">finish</strong> <strong data-role=\"direct-object\">the thick book</strong>",
-          "english_plain": "The good worker should finish the thick book",
-          "html": "<span data-case=\"erg\" data-role=\"subject\">კარგმა მუშამ</span> <span data-case=\"nom\" data-role=\"direct-object\">სქელი წიგნი</span> <span data-role=\"verb\">უნდა დაამთავრონ</span>",
-          "case_marking": {
+          "english": "I should finish the difficult homework",
+          "english_components": {
             "subject": {
-              "case": "erg",
-              "word": "მუშამ"
+              "text": "I",
+              "role": "subject",
+              "person": "1sg"
+            },
+            "verb": {
+              "text": "should finish",
+              "role": "verb"
             },
             "direct_object": {
-              "case": "nom",
-              "word": "წიგნი"
+              "text": "the difficult homework",
+              "role": "direct_object"
             }
           },
-          "georgian_verb_form": "დაამთავრონ"
+          "georgian_verb_form": "დავამთავრო",
+          "person": "1sg",
+          "effective_preverb": "და"
+        },
+        {
+          "georgian": "ჭკვიანმა სტუდენტმა უნდა დაამთავროს მნიშვნელოვანი სამუშაო",
+          "georgian_components": {
+            "subject": {
+              "text": "ჭკვიანმა სტუდენტმა",
+              "case": "erg",
+              "role": "subject"
+            },
+            "verb": {
+              "text": "უნდა დაამთავროს",
+              "role": "verb"
+            },
+            "direct_object": {
+              "text": "მნიშვნელოვანი სამუშაო",
+              "case": "nom",
+              "role": "direct_object"
+            }
+          },
+          "english": "The clever student should finish the important work",
+          "english_components": {
+            "subject": {
+              "text": "The clever student",
+              "role": "subject",
+              "person": "3sg"
+            },
+            "verb": {
+              "text": "should finish",
+              "role": "verb"
+            },
+            "direct_object": {
+              "text": "the important work",
+              "role": "direct_object"
+            }
+          },
+          "georgian_verb_form": "დაამთავროს",
+          "person": "3sg",
+          "effective_preverb": "და"
+        },
+        {
+          "georgian": "კარგმა მუშებმა უნდა დაამთავრონ სქელი წიგნი",
+          "georgian_components": {
+            "subject": {
+              "text": "კარგმა მუშებმა",
+              "case": "erg",
+              "role": "subject"
+            },
+            "verb": {
+              "text": "უნდა დაამთავრონ",
+              "role": "verb"
+            },
+            "direct_object": {
+              "text": "სქელი წიგნი",
+              "case": "nom",
+              "role": "direct_object"
+            }
+          },
+          "english": "The good workers should finish the thick book",
+          "english_components": {
+            "subject": {
+              "text": "The good workers",
+              "role": "subject",
+              "person": "3pl"
+            },
+            "verb": {
+              "text": "should finish",
+              "role": "verb"
+            },
+            "direct_object": {
+              "text": "the thick book",
+              "role": "direct_object"
+            }
+          },
+          "georgian_verb_form": "დაამთავრონ",
+          "person": "3pl",
+          "effective_preverb": "და"
         }
       ],
       "imperative": [
         {
-          "georgian": "დიდი პროექტი დაამთავრე",
-          "english": "<strong data-role=\"verb\">finish</strong> <strong data-role=\"direct-object\">the big project</strong>",
-          "english_plain": "finish the big project",
-          "html": "<span data-case=\"nom\" data-role=\"direct-object\">დიდი პროექტი</span> <span data-role=\"verb\">დაამთავრე</span>",
-          "case_marking": {
+          "georgian": "დაამთავრე დიდი პროექტი",
+          "georgian_components": {
+            "verb": {
+              "text": "დაამთავრე",
+              "role": "verb"
+            },
             "direct_object": {
+              "text": "დიდი პროექტი",
               "case": "nom",
-              "word": "პროექტი"
+              "role": "direct_object"
             }
           },
-          "georgian_verb_form": "დაამთავრე"
+          "english": "You, finish the big project",
+          "english_components": {
+            "subject": {
+              "text": "You,",
+              "role": "subject",
+              "person": "2sg"
+            },
+            "verb": {
+              "text": "finish",
+              "role": "verb"
+            },
+            "direct_object": {
+              "text": "the big project",
+              "role": "direct_object"
+            }
+          },
+          "georgian_verb_form": "დაამთავრე",
+          "person": "2sg",
+          "effective_preverb": "და"
         },
         {
-          "georgian": "ახალი სამუშაო დაამთავრეთ",
-          "english": "<strong data-role=\"verb\">finish</strong> <strong data-role=\"direct-object\">the new job</strong>",
-          "english_plain": "finish the new job",
-          "html": "<span data-case=\"nom\" data-role=\"direct-object\">ახალი სამუშაო</span> <span data-role=\"verb\">დაამთავრეთ</span>",
-          "case_marking": {
+          "georgian": "დაამთავრეთ ახალი სამუშაო",
+          "georgian_components": {
+            "verb": {
+              "text": "დაამთავრეთ",
+              "role": "verb"
+            },
             "direct_object": {
+              "text": "ახალი სამუშაო",
               "case": "nom",
-              "word": "სამუშაო"
+              "role": "direct_object"
             }
           },
-          "georgian_verb_form": "დაამთავრეთ"
+          "english": "You all (you formal), finish the new job",
+          "english_components": {
+            "subject": {
+              "text": "You all (you formal),",
+              "role": "subject",
+              "person": "2pl"
+            },
+            "verb": {
+              "text": "finish",
+              "role": "verb"
+            },
+            "direct_object": {
+              "text": "the new job",
+              "role": "direct_object"
+            }
+          },
+          "georgian_verb_form": "დაამთავრეთ",
+          "person": "2pl",
+          "effective_preverb": "და"
         }
       ]
     }

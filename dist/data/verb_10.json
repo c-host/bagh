@@ -152,282 +152,631 @@
   "preverb_rules": {
     "default": "",
     "replacements": {},
-    "tense_specific_fallbacks": {},
-    "english_fallbacks": {}
+    "tense_specific_fallbacks": {}
   },
   "examples": {
-    "null": {
+    "default": {
       "present": [
         {
-          "georgian": "ახალ თამაშს ვცდილობ",
-          "english": "<strong data-role=\"subject\" data-person=\"1sg\">I</strong> <strong data-role=\"verb\">try</strong> <strong data-role=\"indirect-object\">the new game</strong>",
-          "english_plain": "I try the new game",
-          "html": "<span data-case=\"dat\" data-role=\"indirect-object\">ახალ თამაშს</span> <span data-role=\"verb\">ვცდილობ</span>",
-          "case_marking": {
-            "indirect_object": {
-              "case": "dat",
-              "word": "თამაშს"
-            }
-          },
-          "georgian_verb_form": "ვცდილობ"
-        },
-        {
-          "georgian": "ძლიერი სპორტსმენი რთულ სავარჯიშოს ცდილობს",
-          "english": "<strong data-role=\"subject\">The strong athlete</strong> <strong data-role=\"verb\">tries</strong> <strong data-role=\"indirect-object\">the difficult exercise</strong>",
-          "english_plain": "The strong athlete tries the difficult exercise",
-          "html": "<span data-case=\"nom\" data-role=\"subject\">ძლიერი სპორტსმენი</span> <span data-case=\"dat\" data-role=\"indirect-object\">რთულ სავარჯიშოს</span> <span data-role=\"verb\">ცდილობს</span>",
-          "case_marking": {
-            "subject": {
-              "case": "nom",
-              "word": "სპორტსმენი"
+          "georgian": "ვცდილობ ახალ თამაშს",
+          "georgian_components": {
+            "verb": {
+              "text": "ვცდილობ",
+              "role": "verb"
             },
             "indirect_object": {
+              "text": "ახალ თამაშს",
               "case": "dat",
-              "word": "სავარჯიშოს"
+              "role": "indirect_object"
             }
           },
-          "georgian_verb_form": "ცდილობს"
-        },
-        {
-          "georgian": "ახალგაზრდა ბავშვი პოპულარულ სპორტს ცდილობიან",
-          "english": "<strong data-role=\"subject\">The young child</strong> <strong data-role=\"verb\">try</strong> <strong data-role=\"indirect-object\">the popular sport</strong>",
-          "english_plain": "The young child try the popular sport",
-          "html": "<span data-case=\"nom\" data-role=\"subject\">ახალგაზრდა ბავშვი</span> <span data-case=\"dat\" data-role=\"indirect-object\">პოპულარულ სპორტს</span> <span data-role=\"verb\">ცდილობიან</span>",
-          "case_marking": {
+          "english": "I try the new game",
+          "english_components": {
             "subject": {
-              "case": "nom",
-              "word": "ბავშვი"
+              "text": "I",
+              "role": "subject",
+              "person": "1sg"
+            },
+            "verb": {
+              "text": "try",
+              "role": "verb"
             },
             "indirect_object": {
-              "case": "dat",
-              "word": "სპორტს"
+              "text": "the new game",
+              "role": "indirect_object"
             }
           },
-          "georgian_verb_form": "ცდილობიან"
+          "georgian_verb_form": "ვცდილობ",
+          "person": "1sg",
+          "effective_preverb": "შე"
+        },
+        {
+          "georgian": "ძლიერი სპორტსმენი ცდილობს რთულ სავარჯიშოს",
+          "georgian_components": {
+            "subject": {
+              "text": "ძლიერი სპორტსმენი",
+              "case": "nom",
+              "role": "subject"
+            },
+            "verb": {
+              "text": "ცდილობს",
+              "role": "verb"
+            },
+            "indirect_object": {
+              "text": "რთულ სავარჯიშოს",
+              "case": "dat",
+              "role": "indirect_object"
+            }
+          },
+          "english": "The strong athlete tries the difficult exercise",
+          "english_components": {
+            "subject": {
+              "text": "The strong athlete",
+              "role": "subject",
+              "person": "3sg"
+            },
+            "verb": {
+              "text": "tries",
+              "role": "verb"
+            },
+            "indirect_object": {
+              "text": "the difficult exercise",
+              "role": "indirect_object"
+            }
+          },
+          "georgian_verb_form": "ცდილობს",
+          "person": "3sg",
+          "effective_preverb": "შე"
+        },
+        {
+          "georgian": "ახალგაზრდა ბავშვები ცდილობიან პოპულარულ სპორტს",
+          "georgian_components": {
+            "subject": {
+              "text": "ახალგაზრდა ბავშვები",
+              "case": "nom",
+              "role": "subject"
+            },
+            "verb": {
+              "text": "ცდილობიან",
+              "role": "verb"
+            },
+            "indirect_object": {
+              "text": "პოპულარულ სპორტს",
+              "case": "dat",
+              "role": "indirect_object"
+            }
+          },
+          "english": "The young children try the popular sport",
+          "english_components": {
+            "subject": {
+              "text": "The young children",
+              "role": "subject",
+              "person": "3pl"
+            },
+            "verb": {
+              "text": "try",
+              "role": "verb"
+            },
+            "indirect_object": {
+              "text": "the popular sport",
+              "role": "indirect_object"
+            }
+          },
+          "georgian_verb_form": "ცდილობიან",
+          "person": "3pl",
+          "effective_preverb": "შე"
         }
       ],
       "imperfect": [
         {
-          "georgian": "ახალ თამაშს ვცდილობდი",
-          "english": "<strong data-role=\"subject\" data-person=\"1sg\">I</strong> <strong data-role=\"verb\">was trying</strong> <strong data-role=\"indirect-object\">the new game</strong>",
-          "english_plain": "I was trying the new game",
-          "html": "<span data-case=\"dat\" data-role=\"indirect-object\">ახალ თამაშს</span> <span data-role=\"verb\">ვცდილობდი</span>",
-          "case_marking": {
-            "indirect_object": {
-              "case": "dat",
-              "word": "თამაშს"
-            }
-          },
-          "georgian_verb_form": "ვცდილობდი"
-        },
-        {
-          "georgian": "ძლიერი სპორტსმენი რთულ სავარჯიშოს ცდილობდა",
-          "english": "<strong data-role=\"subject\">The strong athlete</strong> <strong data-role=\"verb\">was trying</strong> <strong data-role=\"indirect-object\">the difficult exercise</strong>",
-          "english_plain": "The strong athlete was trying the difficult exercise",
-          "html": "<span data-case=\"nom\" data-role=\"subject\">ძლიერი სპორტსმენი</span> <span data-case=\"dat\" data-role=\"indirect-object\">რთულ სავარჯიშოს</span> <span data-role=\"verb\">ცდილობდა</span>",
-          "case_marking": {
-            "subject": {
-              "case": "nom",
-              "word": "სპორტსმენი"
+          "georgian": "ვცდილობდი ახალ თამაშს",
+          "georgian_components": {
+            "verb": {
+              "text": "ვცდილობდი",
+              "role": "verb"
             },
             "indirect_object": {
+              "text": "ახალ თამაშს",
               "case": "dat",
-              "word": "სავარჯიშოს"
+              "role": "indirect_object"
             }
           },
-          "georgian_verb_form": "ცდილობდა"
-        },
-        {
-          "georgian": "ახალგაზრდა ბავშვი პოპულარულ სპორტს ცდილობდნენ",
-          "english": "<strong data-role=\"subject\">The young child</strong> <strong data-role=\"verb\">were trying</strong> <strong data-role=\"indirect-object\">the popular sport</strong>",
-          "english_plain": "The young child were trying the popular sport",
-          "html": "<span data-case=\"nom\" data-role=\"subject\">ახალგაზრდა ბავშვი</span> <span data-case=\"dat\" data-role=\"indirect-object\">პოპულარულ სპორტს</span> <span data-role=\"verb\">ცდილობდნენ</span>",
-          "case_marking": {
+          "english": "I was trying the new game",
+          "english_components": {
             "subject": {
-              "case": "nom",
-              "word": "ბავშვი"
+              "text": "I",
+              "role": "subject",
+              "person": "1sg"
+            },
+            "verb": {
+              "text": "was trying",
+              "role": "verb"
             },
             "indirect_object": {
-              "case": "dat",
-              "word": "სპორტს"
+              "text": "the new game",
+              "role": "indirect_object"
             }
           },
-          "georgian_verb_form": "ცდილობდნენ"
+          "georgian_verb_form": "ვცდილობდი",
+          "person": "1sg",
+          "effective_preverb": "შე"
+        },
+        {
+          "georgian": "ძლიერი სპორტსმენი ცდილობდა რთულ სავარჯიშოს",
+          "georgian_components": {
+            "subject": {
+              "text": "ძლიერი სპორტსმენი",
+              "case": "nom",
+              "role": "subject"
+            },
+            "verb": {
+              "text": "ცდილობდა",
+              "role": "verb"
+            },
+            "indirect_object": {
+              "text": "რთულ სავარჯიშოს",
+              "case": "dat",
+              "role": "indirect_object"
+            }
+          },
+          "english": "The strong athlete was trying the difficult exercise",
+          "english_components": {
+            "subject": {
+              "text": "The strong athlete",
+              "role": "subject",
+              "person": "3sg"
+            },
+            "verb": {
+              "text": "was trying",
+              "role": "verb"
+            },
+            "indirect_object": {
+              "text": "the difficult exercise",
+              "role": "indirect_object"
+            }
+          },
+          "georgian_verb_form": "ცდილობდა",
+          "person": "3sg",
+          "effective_preverb": "შე"
+        },
+        {
+          "georgian": "ახალგაზრდა ბავშვები ცდილობდნენ პოპულარულ სპორტს",
+          "georgian_components": {
+            "subject": {
+              "text": "ახალგაზრდა ბავშვები",
+              "case": "nom",
+              "role": "subject"
+            },
+            "verb": {
+              "text": "ცდილობდნენ",
+              "role": "verb"
+            },
+            "indirect_object": {
+              "text": "პოპულარულ სპორტს",
+              "case": "dat",
+              "role": "indirect_object"
+            }
+          },
+          "english": "The young children were trying the popular sport",
+          "english_components": {
+            "subject": {
+              "text": "The young children",
+              "role": "subject",
+              "person": "3pl"
+            },
+            "verb": {
+              "text": "were trying",
+              "role": "verb"
+            },
+            "indirect_object": {
+              "text": "the popular sport",
+              "role": "indirect_object"
+            }
+          },
+          "georgian_verb_form": "ცდილობდნენ",
+          "person": "3pl",
+          "effective_preverb": "შე"
         }
       ],
       "future": [
         {
-          "georgian": "ახალ თამაშს შევეცდები",
-          "english": "<strong data-role=\"subject\" data-person=\"1sg\">I</strong> <strong data-role=\"verb\">will try</strong> <strong data-role=\"indirect-object\">the new game</strong>",
-          "english_plain": "I will try the new game",
-          "html": "<span data-case=\"dat\" data-role=\"indirect-object\">ახალ თამაშს</span> <span data-role=\"verb\">შევეცდები</span>",
-          "case_marking": {
-            "indirect_object": {
-              "case": "dat",
-              "word": "თამაშს"
-            }
-          },
-          "georgian_verb_form": "შევეცდები"
-        },
-        {
-          "georgian": "ძლიერი სპორტსმენი რთულ სავარჯიშოს შეეცდება",
-          "english": "<strong data-role=\"subject\">The strong athlete</strong> <strong data-role=\"verb\">will try</strong> <strong data-role=\"indirect-object\">the difficult exercise</strong>",
-          "english_plain": "The strong athlete will try the difficult exercise",
-          "html": "<span data-case=\"nom\" data-role=\"subject\">ძლიერი სპორტსმენი</span> <span data-case=\"dat\" data-role=\"indirect-object\">რთულ სავარჯიშოს</span> <span data-role=\"verb\">შეეცდება</span>",
-          "case_marking": {
-            "subject": {
-              "case": "nom",
-              "word": "სპორტსმენი"
+          "georgian": "შევეცდები ახალ თამაშს",
+          "georgian_components": {
+            "verb": {
+              "text": "შევეცდები",
+              "role": "verb"
             },
             "indirect_object": {
+              "text": "ახალ თამაშს",
               "case": "dat",
-              "word": "სავარჯიშოს"
+              "role": "indirect_object"
             }
           },
-          "georgian_verb_form": "შეეცდება"
-        },
-        {
-          "georgian": "ახალგაზრდა ბავშვი პოპულარულ სპორტს შეეცდებიან",
-          "english": "<strong data-role=\"subject\">The young child</strong> <strong data-role=\"verb\">will try</strong> <strong data-role=\"indirect-object\">the popular sport</strong>",
-          "english_plain": "The young child will try the popular sport",
-          "html": "<span data-case=\"nom\" data-role=\"subject\">ახალგაზრდა ბავშვი</span> <span data-case=\"dat\" data-role=\"indirect-object\">პოპულარულ სპორტს</span> <span data-role=\"verb\">შეეცდებიან</span>",
-          "case_marking": {
+          "english": "I will try the new game",
+          "english_components": {
             "subject": {
-              "case": "nom",
-              "word": "ბავშვი"
+              "text": "I",
+              "role": "subject",
+              "person": "1sg"
+            },
+            "verb": {
+              "text": "will try",
+              "role": "verb"
             },
             "indirect_object": {
-              "case": "dat",
-              "word": "სპორტს"
+              "text": "the new game",
+              "role": "indirect_object"
             }
           },
-          "georgian_verb_form": "შეეცდებიან"
+          "georgian_verb_form": "შევეცდები",
+          "person": "1sg",
+          "effective_preverb": "შე"
+        },
+        {
+          "georgian": "ძლიერი სპორტსმენი შეეცდება რთულ სავარჯიშოს",
+          "georgian_components": {
+            "subject": {
+              "text": "ძლიერი სპორტსმენი",
+              "case": "nom",
+              "role": "subject"
+            },
+            "verb": {
+              "text": "შეეცდება",
+              "role": "verb"
+            },
+            "indirect_object": {
+              "text": "რთულ სავარჯიშოს",
+              "case": "dat",
+              "role": "indirect_object"
+            }
+          },
+          "english": "The strong athlete will try the difficult exercise",
+          "english_components": {
+            "subject": {
+              "text": "The strong athlete",
+              "role": "subject",
+              "person": "3sg"
+            },
+            "verb": {
+              "text": "will try",
+              "role": "verb"
+            },
+            "indirect_object": {
+              "text": "the difficult exercise",
+              "role": "indirect_object"
+            }
+          },
+          "georgian_verb_form": "შეეცდება",
+          "person": "3sg",
+          "effective_preverb": "შე"
+        },
+        {
+          "georgian": "ახალგაზრდა ბავშვები შეეცდებიან პოპულარულ სპორტს",
+          "georgian_components": {
+            "subject": {
+              "text": "ახალგაზრდა ბავშვები",
+              "case": "nom",
+              "role": "subject"
+            },
+            "verb": {
+              "text": "შეეცდებიან",
+              "role": "verb"
+            },
+            "indirect_object": {
+              "text": "პოპულარულ სპორტს",
+              "case": "dat",
+              "role": "indirect_object"
+            }
+          },
+          "english": "The young children will try the popular sport",
+          "english_components": {
+            "subject": {
+              "text": "The young children",
+              "role": "subject",
+              "person": "3pl"
+            },
+            "verb": {
+              "text": "will try",
+              "role": "verb"
+            },
+            "indirect_object": {
+              "text": "the popular sport",
+              "role": "indirect_object"
+            }
+          },
+          "georgian_verb_form": "შეეცდებიან",
+          "person": "3pl",
+          "effective_preverb": "შე"
         }
       ],
       "aorist": [
         {
-          "georgian": "ახალ თამაშს შევეცადე",
-          "english": "<strong data-role=\"subject\" data-person=\"1sg\">I</strong> <strong data-role=\"verb\">tried</strong> <strong data-role=\"indirect-object\">the new game</strong>",
-          "english_plain": "I tried the new game",
-          "html": "<span data-case=\"dat\" data-role=\"indirect-object\">ახალ თამაშს</span> <span data-role=\"verb\">შევეცადე</span>",
-          "case_marking": {
-            "indirect_object": {
-              "case": "dat",
-              "word": "თამაშს"
-            }
-          },
-          "georgian_verb_form": "შევეცადე"
-        },
-        {
-          "georgian": "ძლიერი სპორტსმენი რთულ სავარჯიშოს შეეცადა",
-          "english": "<strong data-role=\"subject\">The strong athlete</strong> <strong data-role=\"verb\">tried</strong> <strong data-role=\"indirect-object\">the difficult exercise</strong>",
-          "english_plain": "The strong athlete tried the difficult exercise",
-          "html": "<span data-case=\"nom\" data-role=\"subject\">ძლიერი სპორტსმენი</span> <span data-case=\"dat\" data-role=\"indirect-object\">რთულ სავარჯიშოს</span> <span data-role=\"verb\">შეეცადა</span>",
-          "case_marking": {
-            "subject": {
-              "case": "nom",
-              "word": "სპორტსმენი"
+          "georgian": "შევეცადე ახალ თამაშს",
+          "georgian_components": {
+            "verb": {
+              "text": "შევეცადე",
+              "role": "verb"
             },
             "indirect_object": {
+              "text": "ახალ თამაშს",
               "case": "dat",
-              "word": "სავარჯიშოს"
+              "role": "indirect_object"
             }
           },
-          "georgian_verb_form": "შეეცადა"
-        },
-        {
-          "georgian": "ახალგაზრდა ბავშვი პოპულარულ სპორტს შეეცადეს",
-          "english": "<strong data-role=\"subject\">The young child</strong> <strong data-role=\"verb\">tried</strong> <strong data-role=\"indirect-object\">the popular sport</strong>",
-          "english_plain": "The young child tried the popular sport",
-          "html": "<span data-case=\"nom\" data-role=\"subject\">ახალგაზრდა ბავშვი</span> <span data-case=\"dat\" data-role=\"indirect-object\">პოპულარულ სპორტს</span> <span data-role=\"verb\">შეეცადეს</span>",
-          "case_marking": {
+          "english": "I tried the new game",
+          "english_components": {
             "subject": {
-              "case": "nom",
-              "word": "ბავშვი"
+              "text": "I",
+              "role": "subject",
+              "person": "1sg"
+            },
+            "verb": {
+              "text": "tried",
+              "role": "verb"
             },
             "indirect_object": {
-              "case": "dat",
-              "word": "სპორტს"
+              "text": "the new game",
+              "role": "indirect_object"
             }
           },
-          "georgian_verb_form": "შეეცადეს"
+          "georgian_verb_form": "შევეცადე",
+          "person": "1sg",
+          "effective_preverb": "შე"
+        },
+        {
+          "georgian": "ძლიერი სპორტსმენი შეეცადა რთულ სავარჯიშოს",
+          "georgian_components": {
+            "subject": {
+              "text": "ძლიერი სპორტსმენი",
+              "case": "nom",
+              "role": "subject"
+            },
+            "verb": {
+              "text": "შეეცადა",
+              "role": "verb"
+            },
+            "indirect_object": {
+              "text": "რთულ სავარჯიშოს",
+              "case": "dat",
+              "role": "indirect_object"
+            }
+          },
+          "english": "The strong athlete tried the difficult exercise",
+          "english_components": {
+            "subject": {
+              "text": "The strong athlete",
+              "role": "subject",
+              "person": "3sg"
+            },
+            "verb": {
+              "text": "tried",
+              "role": "verb"
+            },
+            "indirect_object": {
+              "text": "the difficult exercise",
+              "role": "indirect_object"
+            }
+          },
+          "georgian_verb_form": "შეეცადა",
+          "person": "3sg",
+          "effective_preverb": "შე"
+        },
+        {
+          "georgian": "ახალგაზრდა ბავშვები შეეცადეს პოპულარულ სპორტს",
+          "georgian_components": {
+            "subject": {
+              "text": "ახალგაზრდა ბავშვები",
+              "case": "nom",
+              "role": "subject"
+            },
+            "verb": {
+              "text": "შეეცადეს",
+              "role": "verb"
+            },
+            "indirect_object": {
+              "text": "პოპულარულ სპორტს",
+              "case": "dat",
+              "role": "indirect_object"
+            }
+          },
+          "english": "The young children tried the popular sport",
+          "english_components": {
+            "subject": {
+              "text": "The young children",
+              "role": "subject",
+              "person": "3pl"
+            },
+            "verb": {
+              "text": "tried",
+              "role": "verb"
+            },
+            "indirect_object": {
+              "text": "the popular sport",
+              "role": "indirect_object"
+            }
+          },
+          "georgian_verb_form": "შეეცადეს",
+          "person": "3pl",
+          "effective_preverb": "შე"
         }
       ],
       "optative": [
         {
-          "georgian": "ახალ თამაშს უნდა შევეცადო",
-          "english": "<strong data-role=\"subject\" data-person=\"1sg\">I</strong> <strong data-role=\"verb\">should</strong> <strong data-role=\"verb\">try</strong> <strong data-role=\"indirect-object\">the new game</strong>",
-          "english_plain": "I should try the new game",
-          "html": "<span data-case=\"dat\" data-role=\"indirect-object\">ახალ თამაშს</span> <span data-role=\"verb\">უნდა შევეცადო</span>",
-          "case_marking": {
-            "indirect_object": {
-              "case": "dat",
-              "word": "თამაშს"
-            }
-          },
-          "georgian_verb_form": "შევეცადო"
-        },
-        {
-          "georgian": "ძლიერი სპორტსმენი რთულ სავარჯიშოს უნდა შეეცადოს",
-          "english": "<strong data-role=\"subject\">The strong athlete</strong> <strong data-role=\"verb\">should</strong> <strong data-role=\"verb\">try</strong> <strong data-role=\"indirect-object\">the difficult exercise</strong>",
-          "english_plain": "The strong athlete should try the difficult exercise",
-          "html": "<span data-case=\"nom\" data-role=\"subject\">ძლიერი სპორტსმენი</span> <span data-case=\"dat\" data-role=\"indirect-object\">რთულ სავარჯიშოს</span> <span data-role=\"verb\">უნდა შეეცადოს</span>",
-          "case_marking": {
-            "subject": {
-              "case": "nom",
-              "word": "სპორტსმენი"
+          "georgian": "უნდა შევეცადო ახალ თამაშს",
+          "georgian_components": {
+            "verb": {
+              "text": "უნდა შევეცადო",
+              "role": "verb"
             },
             "indirect_object": {
+              "text": "ახალ თამაშს",
               "case": "dat",
-              "word": "სავარჯიშოს"
+              "role": "indirect_object"
             }
           },
-          "georgian_verb_form": "შეეცადოს"
-        },
-        {
-          "georgian": "ახალგაზრდა ბავშვი პოპულარულ სპორტს უნდა შეეცადონ",
-          "english": "<strong data-role=\"subject\">The young child</strong> <strong data-role=\"verb\">should</strong> <strong data-role=\"verb\">try</strong> <strong data-role=\"indirect-object\">the popular sport</strong>",
-          "english_plain": "The young child should try the popular sport",
-          "html": "<span data-case=\"nom\" data-role=\"subject\">ახალგაზრდა ბავშვი</span> <span data-case=\"dat\" data-role=\"indirect-object\">პოპულარულ სპორტს</span> <span data-role=\"verb\">უნდა შეეცადონ</span>",
-          "case_marking": {
+          "english": "I should try the new game",
+          "english_components": {
             "subject": {
-              "case": "nom",
-              "word": "ბავშვი"
+              "text": "I",
+              "role": "subject",
+              "person": "1sg"
+            },
+            "verb": {
+              "text": "should try",
+              "role": "verb"
             },
             "indirect_object": {
-              "case": "dat",
-              "word": "სპორტს"
+              "text": "the new game",
+              "role": "indirect_object"
             }
           },
-          "georgian_verb_form": "შეეცადონ"
+          "georgian_verb_form": "შევეცადო",
+          "person": "1sg",
+          "effective_preverb": "შე"
+        },
+        {
+          "georgian": "ძლიერი სპორტსმენი უნდა შეეცადოს რთულ სავარჯიშოს",
+          "georgian_components": {
+            "subject": {
+              "text": "ძლიერი სპორტსმენი",
+              "case": "nom",
+              "role": "subject"
+            },
+            "verb": {
+              "text": "უნდა შეეცადოს",
+              "role": "verb"
+            },
+            "indirect_object": {
+              "text": "რთულ სავარჯიშოს",
+              "case": "dat",
+              "role": "indirect_object"
+            }
+          },
+          "english": "The strong athlete should try the difficult exercise",
+          "english_components": {
+            "subject": {
+              "text": "The strong athlete",
+              "role": "subject",
+              "person": "3sg"
+            },
+            "verb": {
+              "text": "should try",
+              "role": "verb"
+            },
+            "indirect_object": {
+              "text": "the difficult exercise",
+              "role": "indirect_object"
+            }
+          },
+          "georgian_verb_form": "შეეცადოს",
+          "person": "3sg",
+          "effective_preverb": "შე"
+        },
+        {
+          "georgian": "ახალგაზრდა ბავშვები უნდა შეეცადონ პოპულარულ სპორტს",
+          "georgian_components": {
+            "subject": {
+              "text": "ახალგაზრდა ბავშვები",
+              "case": "nom",
+              "role": "subject"
+            },
+            "verb": {
+              "text": "უნდა შეეცადონ",
+              "role": "verb"
+            },
+            "indirect_object": {
+              "text": "პოპულარულ სპორტს",
+              "case": "dat",
+              "role": "indirect_object"
+            }
+          },
+          "english": "The young children should try the popular sport",
+          "english_components": {
+            "subject": {
+              "text": "The young children",
+              "role": "subject",
+              "person": "3pl"
+            },
+            "verb": {
+              "text": "should try",
+              "role": "verb"
+            },
+            "indirect_object": {
+              "text": "the popular sport",
+              "role": "indirect_object"
+            }
+          },
+          "georgian_verb_form": "შეეცადონ",
+          "person": "3pl",
+          "effective_preverb": "შე"
         }
       ],
       "imperative": [
         {
-          "georgian": "რთულ სიმღერას შეეცადე",
-          "english": "<strong data-role=\"verb\">try</strong> <strong data-role=\"indirect-object\">the difficult song</strong>",
-          "english_plain": "try the difficult song",
-          "html": "<span data-case=\"dat\" data-role=\"indirect-object\">რთულ სიმღერას</span> <span data-role=\"verb\">შეეცადე</span>",
-          "case_marking": {
+          "georgian": "შეეცადე რთულ სიმღერას",
+          "georgian_components": {
+            "verb": {
+              "text": "შეეცადე",
+              "role": "verb"
+            },
             "indirect_object": {
+              "text": "რთულ სიმღერას",
               "case": "dat",
-              "word": "სიმღერას"
+              "role": "indirect_object"
             }
           },
-          "georgian_verb_form": "შეეცადე"
+          "english": "You, try the difficult song",
+          "english_components": {
+            "subject": {
+              "text": "You,",
+              "role": "subject",
+              "person": "2sg"
+            },
+            "verb": {
+              "text": "try",
+              "role": "verb"
+            },
+            "indirect_object": {
+              "text": "the difficult song",
+              "role": "indirect_object"
+            }
+          },
+          "georgian_verb_form": "შეეცადე",
+          "person": "2sg",
+          "effective_preverb": "შე"
         },
         {
-          "georgian": "ტრადიციულ ცეკვას შეეცადეთ",
-          "english": "<strong data-role=\"verb\">try</strong> <strong data-role=\"indirect-object\">the traditional dance</strong>",
-          "english_plain": "try the traditional dance",
-          "html": "<span data-case=\"dat\" data-role=\"indirect-object\">ტრადიციულ ცეკვას</span> <span data-role=\"verb\">შეეცადეთ</span>",
-          "case_marking": {
+          "georgian": "შეეცადეთ ტრადიციულ ცეკვას",
+          "georgian_components": {
+            "verb": {
+              "text": "შეეცადეთ",
+              "role": "verb"
+            },
             "indirect_object": {
+              "text": "ტრადიციულ ცეკვას",
               "case": "dat",
-              "word": "ცეკვას"
+              "role": "indirect_object"
             }
           },
-          "georgian_verb_form": "შეეცადეთ"
+          "english": "You all (you formal), try the traditional dance",
+          "english_components": {
+            "subject": {
+              "text": "You all (you formal),",
+              "role": "subject",
+              "person": "2pl"
+            },
+            "verb": {
+              "text": "try",
+              "role": "verb"
+            },
+            "indirect_object": {
+              "text": "the traditional dance",
+              "role": "indirect_object"
+            }
+          },
+          "georgian_verb_form": "შეეცადეთ",
+          "person": "2pl",
+          "effective_preverb": "შე"
         }
       ]
     }

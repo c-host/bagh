@@ -170,832 +170,1881 @@
       "მო": "მო",
       "წა": "წა"
     },
-    "tense_specific_fallbacks": {},
-    "english_fallbacks": {}
+    "tense_specific_fallbacks": {}
   },
   "examples": {
     "მი": {
       "present": [
         {
-          "georgian": "თბილი პური მიმაქვს",
-          "english": "<strong data-role=\"subject\" data-person=\"1sg\">I</strong> <strong data-role=\"verb\">deliver</strong> <strong data-role=\"direct-object\">the warm bread</strong>",
-          "english_plain": "I deliver the warm bread",
-          "html": "<span data-case=\"nom\" data-role=\"direct-object\">თბილი პური</span> <span data-role=\"verb\">მიმაქვს</span>",
-          "case_marking": {
-            "direct_object": {
-              "case": "nom",
-              "word": "პური"
-            }
-          },
-          "georgian_verb_form": "მიმაქვს"
-        },
-        {
-          "georgian": "ბედნიერ მიმტანს ცხელი პური მიაქვს",
-          "english": "<strong data-role=\"subject\">The happy waiter</strong> <strong data-role=\"verb\">delivers</strong> <strong data-role=\"direct-object\">the hot bread</strong>",
-          "english_plain": "The happy waiter delivers the hot bread",
-          "html": "<span data-case=\"dat\" data-role=\"subject\">ბედნიერ მიმტანს</span> <span data-case=\"nom\" data-role=\"direct-object\">ცხელი პური</span> <span data-role=\"verb\">მიაქვს</span>",
-          "case_marking": {
-            "subject": {
-              "case": "dat",
-              "word": "მიმტანს"
+          "georgian": "მიმაქვს თბილი პური",
+          "georgian_components": {
+            "verb": {
+              "text": "მიმაქვს",
+              "role": "verb"
             },
             "direct_object": {
+              "text": "თბილი პური",
               "case": "nom",
-              "word": "პური"
+              "role": "direct_object"
             }
           },
-          "georgian_verb_form": "მიაქვს"
-        },
-        {
-          "georgian": "ახალ სტუმარს ძვირი ველოსიპედი მიაქვთ",
-          "english": "<strong data-role=\"subject\">The new guest</strong> <strong data-role=\"verb\">deliver</strong> <strong data-role=\"direct-object\">the expensive bike</strong>",
-          "english_plain": "The new guest deliver the expensive bike",
-          "html": "<span data-case=\"dat\" data-role=\"subject\">ახალ სტუმარს</span> <span data-case=\"nom\" data-role=\"direct-object\">ძვირი ველოსიპედი</span> <span data-role=\"verb\">მიაქვთ</span>",
-          "case_marking": {
+          "english": "I deliver the warm bread",
+          "english_components": {
             "subject": {
-              "case": "dat",
-              "word": "სტუმარს"
+              "text": "I",
+              "role": "subject",
+              "person": "1sg"
+            },
+            "verb": {
+              "text": "deliver",
+              "role": "verb"
             },
             "direct_object": {
-              "case": "nom",
-              "word": "ველოსიპედი"
+              "text": "the warm bread",
+              "role": "direct_object"
             }
           },
-          "georgian_verb_form": "მიაქვთ"
+          "georgian_verb_form": "მიმაქვს",
+          "person": "1sg",
+          "effective_preverb": "მი"
+        },
+        {
+          "georgian": "ბედნიერ მიმტანს მიაქვს ცხელი პური",
+          "georgian_components": {
+            "subject": {
+              "text": "ბედნიერ მიმტანს",
+              "case": "dat",
+              "role": "subject"
+            },
+            "verb": {
+              "text": "მიაქვს",
+              "role": "verb"
+            },
+            "direct_object": {
+              "text": "ცხელი პური",
+              "case": "nom",
+              "role": "direct_object"
+            }
+          },
+          "english": "The happy waiter delivers the hot bread",
+          "english_components": {
+            "subject": {
+              "text": "The happy waiter",
+              "role": "subject",
+              "person": "3sg"
+            },
+            "verb": {
+              "text": "delivers",
+              "role": "verb"
+            },
+            "direct_object": {
+              "text": "the hot bread",
+              "role": "direct_object"
+            }
+          },
+          "georgian_verb_form": "მიაქვს",
+          "person": "3sg",
+          "effective_preverb": "მი"
+        },
+        {
+          "georgian": "ახალ სტუმრებს მიაქვთ ძვირი ველოსიპედი",
+          "georgian_components": {
+            "subject": {
+              "text": "ახალ სტუმრებს",
+              "case": "dat",
+              "role": "subject"
+            },
+            "verb": {
+              "text": "მიაქვთ",
+              "role": "verb"
+            },
+            "direct_object": {
+              "text": "ძვირი ველოსიპედი",
+              "case": "nom",
+              "role": "direct_object"
+            }
+          },
+          "english": "The new guests deliver the expensive bike",
+          "english_components": {
+            "subject": {
+              "text": "The new guests",
+              "role": "subject",
+              "person": "3pl"
+            },
+            "verb": {
+              "text": "deliver",
+              "role": "verb"
+            },
+            "direct_object": {
+              "text": "the expensive bike",
+              "role": "direct_object"
+            }
+          },
+          "georgian_verb_form": "მიაქვთ",
+          "person": "3pl",
+          "effective_preverb": "მი"
         }
       ],
       "imperfect": [
         {
-          "georgian": "თბილი პური მიმქონდა",
-          "english": "<strong data-role=\"subject\" data-person=\"1sg\">I</strong> <strong data-role=\"verb\">was delivering</strong> <strong data-role=\"direct-object\">the warm bread</strong>",
-          "english_plain": "I was delivering the warm bread",
-          "html": "<span data-case=\"nom\" data-role=\"direct-object\">თბილი პური</span> <span data-role=\"verb\">მიმქონდა</span>",
-          "case_marking": {
-            "direct_object": {
-              "case": "nom",
-              "word": "პური"
-            }
-          },
-          "georgian_verb_form": "მიმქონდა"
-        },
-        {
-          "georgian": "ბედნიერ მიმტანს ცხელი პური მიჰქონდა",
-          "english": "<strong data-role=\"subject\">The happy waiter</strong> <strong data-role=\"verb\">was delivering</strong> <strong data-role=\"direct-object\">the hot bread</strong>",
-          "english_plain": "The happy waiter was delivering the hot bread",
-          "html": "<span data-case=\"dat\" data-role=\"subject\">ბედნიერ მიმტანს</span> <span data-case=\"nom\" data-role=\"direct-object\">ცხელი პური</span> <span data-role=\"verb\">მიჰქონდა</span>",
-          "case_marking": {
-            "subject": {
-              "case": "dat",
-              "word": "მიმტანს"
+          "georgian": "მიმქონდა თბილი პური",
+          "georgian_components": {
+            "verb": {
+              "text": "მიმქონდა",
+              "role": "verb"
             },
             "direct_object": {
+              "text": "თბილი პური",
               "case": "nom",
-              "word": "პური"
+              "role": "direct_object"
             }
           },
-          "georgian_verb_form": "მიჰქონდა"
-        },
-        {
-          "georgian": "ახალ სტუმარს ძვირი ველოსიპედი მიჰქონდათ",
-          "english": "<strong data-role=\"subject\">The new guest</strong> <strong data-role=\"verb\">were delivering</strong> <strong data-role=\"direct-object\">the expensive bike</strong>",
-          "english_plain": "The new guest were delivering the expensive bike",
-          "html": "<span data-case=\"dat\" data-role=\"subject\">ახალ სტუმარს</span> <span data-case=\"nom\" data-role=\"direct-object\">ძვირი ველოსიპედი</span> <span data-role=\"verb\">მიჰქონდათ</span>",
-          "case_marking": {
+          "english": "I was delivering the warm bread",
+          "english_components": {
             "subject": {
-              "case": "dat",
-              "word": "სტუმარს"
+              "text": "I",
+              "role": "subject",
+              "person": "1sg"
+            },
+            "verb": {
+              "text": "was delivering",
+              "role": "verb"
             },
             "direct_object": {
-              "case": "nom",
-              "word": "ველოსიპედი"
+              "text": "the warm bread",
+              "role": "direct_object"
             }
           },
-          "georgian_verb_form": "მიჰქონდათ"
+          "georgian_verb_form": "მიმქონდა",
+          "person": "1sg",
+          "effective_preverb": "მი"
+        },
+        {
+          "georgian": "ბედნიერ მიმტანს მიჰქონდა ცხელი პური",
+          "georgian_components": {
+            "subject": {
+              "text": "ბედნიერ მიმტანს",
+              "case": "dat",
+              "role": "subject"
+            },
+            "verb": {
+              "text": "მიჰქონდა",
+              "role": "verb"
+            },
+            "direct_object": {
+              "text": "ცხელი პური",
+              "case": "nom",
+              "role": "direct_object"
+            }
+          },
+          "english": "The happy waiter was delivering the hot bread",
+          "english_components": {
+            "subject": {
+              "text": "The happy waiter",
+              "role": "subject",
+              "person": "3sg"
+            },
+            "verb": {
+              "text": "was delivering",
+              "role": "verb"
+            },
+            "direct_object": {
+              "text": "the hot bread",
+              "role": "direct_object"
+            }
+          },
+          "georgian_verb_form": "მიჰქონდა",
+          "person": "3sg",
+          "effective_preverb": "მი"
+        },
+        {
+          "georgian": "ახალ სტუმრებს მიჰქონდათ ძვირი ველოსიპედი",
+          "georgian_components": {
+            "subject": {
+              "text": "ახალ სტუმრებს",
+              "case": "dat",
+              "role": "subject"
+            },
+            "verb": {
+              "text": "მიჰქონდათ",
+              "role": "verb"
+            },
+            "direct_object": {
+              "text": "ძვირი ველოსიპედი",
+              "case": "nom",
+              "role": "direct_object"
+            }
+          },
+          "english": "The new guests were delivering the expensive bike",
+          "english_components": {
+            "subject": {
+              "text": "The new guests",
+              "role": "subject",
+              "person": "3pl"
+            },
+            "verb": {
+              "text": "were delivering",
+              "role": "verb"
+            },
+            "direct_object": {
+              "text": "the expensive bike",
+              "role": "direct_object"
+            }
+          },
+          "georgian_verb_form": "მიჰქონდათ",
+          "person": "3pl",
+          "effective_preverb": "მი"
         }
       ],
       "future": [
         {
-          "georgian": "თბილ პურს მივიტან",
-          "english": "<strong data-role=\"subject\" data-person=\"1sg\">I</strong> <strong data-role=\"verb\">will deliver</strong> <strong data-role=\"direct-object\">the warm bread</strong>",
-          "english_plain": "I will deliver the warm bread",
-          "html": "<span data-case=\"dat\" data-role=\"direct-object\">თბილ პურს</span> <span data-role=\"verb\">მივიტან</span>",
-          "case_marking": {
-            "direct_object": {
-              "case": "dat",
-              "word": "პურს"
-            }
-          },
-          "georgian_verb_form": "მივიტან"
-        },
-        {
-          "georgian": "ბედნიერი მიმტანი ცხელ პურს მიიტანს",
-          "english": "<strong data-role=\"subject\">The happy waiter</strong> <strong data-role=\"verb\">will deliver</strong> <strong data-role=\"direct-object\">the hot bread</strong>",
-          "english_plain": "The happy waiter will deliver the hot bread",
-          "html": "<span data-case=\"nom\" data-role=\"subject\">ბედნიერი მიმტანი</span> <span data-case=\"dat\" data-role=\"direct-object\">ცხელ პურს</span> <span data-role=\"verb\">მიიტანს</span>",
-          "case_marking": {
-            "subject": {
-              "case": "nom",
-              "word": "მიმტანი"
+          "georgian": "მივიტან თბილ პურს",
+          "georgian_components": {
+            "verb": {
+              "text": "მივიტან",
+              "role": "verb"
             },
             "direct_object": {
+              "text": "თბილ პურს",
               "case": "dat",
-              "word": "პურს"
+              "role": "direct_object"
             }
           },
-          "georgian_verb_form": "მიიტანს"
-        },
-        {
-          "georgian": "ახალი სტუმარი ძვირ ველოსიპედს მიიტანენ",
-          "english": "<strong data-role=\"subject\">The new guest</strong> <strong data-role=\"verb\">will deliver</strong> <strong data-role=\"direct-object\">the expensive bike</strong>",
-          "english_plain": "The new guest will deliver the expensive bike",
-          "html": "<span data-case=\"nom\" data-role=\"subject\">ახალი სტუმარი</span> <span data-case=\"dat\" data-role=\"direct-object\">ძვირ ველოსიპედს</span> <span data-role=\"verb\">მიიტანენ</span>",
-          "case_marking": {
+          "english": "I will deliver the warm bread",
+          "english_components": {
             "subject": {
-              "case": "nom",
-              "word": "სტუმარი"
+              "text": "I",
+              "role": "subject",
+              "person": "1sg"
+            },
+            "verb": {
+              "text": "will deliver",
+              "role": "verb"
             },
             "direct_object": {
-              "case": "dat",
-              "word": "ველოსიპედს"
+              "text": "the warm bread",
+              "role": "direct_object"
             }
           },
-          "georgian_verb_form": "მიიტანენ"
+          "georgian_verb_form": "მივიტან",
+          "person": "1sg",
+          "effective_preverb": "მი"
+        },
+        {
+          "georgian": "ბედნიერი მიმტანი მიიტანს ცხელ პურს",
+          "georgian_components": {
+            "subject": {
+              "text": "ბედნიერი მიმტანი",
+              "case": "nom",
+              "role": "subject"
+            },
+            "verb": {
+              "text": "მიიტანს",
+              "role": "verb"
+            },
+            "direct_object": {
+              "text": "ცხელ პურს",
+              "case": "dat",
+              "role": "direct_object"
+            }
+          },
+          "english": "The happy waiter will deliver the hot bread",
+          "english_components": {
+            "subject": {
+              "text": "The happy waiter",
+              "role": "subject",
+              "person": "3sg"
+            },
+            "verb": {
+              "text": "will deliver",
+              "role": "verb"
+            },
+            "direct_object": {
+              "text": "the hot bread",
+              "role": "direct_object"
+            }
+          },
+          "georgian_verb_form": "მიიტანს",
+          "person": "3sg",
+          "effective_preverb": "მი"
+        },
+        {
+          "georgian": "ახალი სტუმრები მიიტანენ ძვირ ველოსიპედს",
+          "georgian_components": {
+            "subject": {
+              "text": "ახალი სტუმრები",
+              "case": "nom",
+              "role": "subject"
+            },
+            "verb": {
+              "text": "მიიტანენ",
+              "role": "verb"
+            },
+            "direct_object": {
+              "text": "ძვირ ველოსიპედს",
+              "case": "dat",
+              "role": "direct_object"
+            }
+          },
+          "english": "The new guests will deliver the expensive bike",
+          "english_components": {
+            "subject": {
+              "text": "The new guests",
+              "role": "subject",
+              "person": "3pl"
+            },
+            "verb": {
+              "text": "will deliver",
+              "role": "verb"
+            },
+            "direct_object": {
+              "text": "the expensive bike",
+              "role": "direct_object"
+            }
+          },
+          "georgian_verb_form": "მიიტანენ",
+          "person": "3pl",
+          "effective_preverb": "მი"
         }
       ],
       "aorist": [
         {
-          "georgian": "თბილი პური მივიტანე",
-          "english": "<strong data-role=\"subject\" data-person=\"1sg\">I</strong> <strong data-role=\"verb\">delivered</strong> <strong data-role=\"direct-object\">the warm bread</strong>",
-          "english_plain": "I delivered the warm bread",
-          "html": "<span data-case=\"nom\" data-role=\"direct-object\">თბილი პური</span> <span data-role=\"verb\">მივიტანე</span>",
-          "case_marking": {
-            "direct_object": {
-              "case": "nom",
-              "word": "პური"
-            }
-          },
-          "georgian_verb_form": "მივიტანე"
-        },
-        {
-          "georgian": "ბედნიერმა მიმტანმა ცხელი პური მიიტანა",
-          "english": "<strong data-role=\"subject\">The happy waiter</strong> <strong data-role=\"verb\">delivered</strong> <strong data-role=\"direct-object\">the hot bread</strong>",
-          "english_plain": "The happy waiter delivered the hot bread",
-          "html": "<span data-case=\"erg\" data-role=\"subject\">ბედნიერმა მიმტანმა</span> <span data-case=\"nom\" data-role=\"direct-object\">ცხელი პური</span> <span data-role=\"verb\">მიიტანა</span>",
-          "case_marking": {
-            "subject": {
-              "case": "erg",
-              "word": "მიმტანმა"
+          "georgian": "მივიტანე თბილი პური",
+          "georgian_components": {
+            "verb": {
+              "text": "მივიტანე",
+              "role": "verb"
             },
             "direct_object": {
+              "text": "თბილი პური",
               "case": "nom",
-              "word": "პური"
+              "role": "direct_object"
             }
           },
-          "georgian_verb_form": "მიიტანა"
-        },
-        {
-          "georgian": "ახალმა სტუმარმა ძვირი ველოსიპედი მიიტანეს",
-          "english": "<strong data-role=\"subject\">The new guest</strong> <strong data-role=\"verb\">delivered</strong> <strong data-role=\"direct-object\">the expensive bike</strong>",
-          "english_plain": "The new guest delivered the expensive bike",
-          "html": "<span data-case=\"erg\" data-role=\"subject\">ახალმა სტუმარმა</span> <span data-case=\"nom\" data-role=\"direct-object\">ძვირი ველოსიპედი</span> <span data-role=\"verb\">მიიტანეს</span>",
-          "case_marking": {
+          "english": "I delivered the warm bread",
+          "english_components": {
             "subject": {
-              "case": "erg",
-              "word": "სტუმარმა"
+              "text": "I",
+              "role": "subject",
+              "person": "1sg"
+            },
+            "verb": {
+              "text": "delivered",
+              "role": "verb"
             },
             "direct_object": {
-              "case": "nom",
-              "word": "ველოსიპედი"
+              "text": "the warm bread",
+              "role": "direct_object"
             }
           },
-          "georgian_verb_form": "მიიტანეს"
+          "georgian_verb_form": "მივიტანე",
+          "person": "1sg",
+          "effective_preverb": "მი"
+        },
+        {
+          "georgian": "ბედნიერმა მიმტანმა მიიტანა ცხელი პური",
+          "georgian_components": {
+            "subject": {
+              "text": "ბედნიერმა მიმტანმა",
+              "case": "erg",
+              "role": "subject"
+            },
+            "verb": {
+              "text": "მიიტანა",
+              "role": "verb"
+            },
+            "direct_object": {
+              "text": "ცხელი პური",
+              "case": "nom",
+              "role": "direct_object"
+            }
+          },
+          "english": "The happy waiter delivered the hot bread",
+          "english_components": {
+            "subject": {
+              "text": "The happy waiter",
+              "role": "subject",
+              "person": "3sg"
+            },
+            "verb": {
+              "text": "delivered",
+              "role": "verb"
+            },
+            "direct_object": {
+              "text": "the hot bread",
+              "role": "direct_object"
+            }
+          },
+          "georgian_verb_form": "მიიტანა",
+          "person": "3sg",
+          "effective_preverb": "მი"
+        },
+        {
+          "georgian": "ახალმა სტუმრებმა მიიტანეს ძვირი ველოსიპედი",
+          "georgian_components": {
+            "subject": {
+              "text": "ახალმა სტუმრებმა",
+              "case": "erg",
+              "role": "subject"
+            },
+            "verb": {
+              "text": "მიიტანეს",
+              "role": "verb"
+            },
+            "direct_object": {
+              "text": "ძვირი ველოსიპედი",
+              "case": "nom",
+              "role": "direct_object"
+            }
+          },
+          "english": "The new guests delivered the expensive bike",
+          "english_components": {
+            "subject": {
+              "text": "The new guests",
+              "role": "subject",
+              "person": "3pl"
+            },
+            "verb": {
+              "text": "delivered",
+              "role": "verb"
+            },
+            "direct_object": {
+              "text": "the expensive bike",
+              "role": "direct_object"
+            }
+          },
+          "georgian_verb_form": "მიიტანეს",
+          "person": "3pl",
+          "effective_preverb": "მი"
         }
       ],
       "optative": [
         {
-          "georgian": "თბილი პური უნდა მივიტანო",
-          "english": "<strong data-role=\"subject\" data-person=\"1sg\">I</strong> <strong data-role=\"verb\">should</strong> <strong data-role=\"verb\">deliver</strong> <strong data-role=\"direct-object\">the warm bread</strong>",
-          "english_plain": "I should deliver the warm bread",
-          "html": "<span data-case=\"nom\" data-role=\"direct-object\">თბილი პური</span> <span data-role=\"verb\">უნდა მივიტანო</span>",
-          "case_marking": {
-            "direct_object": {
-              "case": "nom",
-              "word": "პური"
-            }
-          },
-          "georgian_verb_form": "მივიტანო"
-        },
-        {
-          "georgian": "ბედნიერმა მიმტანმა ცხელი პური უნდა მიიტანოს",
-          "english": "<strong data-role=\"subject\">The happy waiter</strong> <strong data-role=\"verb\">should</strong> <strong data-role=\"verb\">deliver</strong> <strong data-role=\"direct-object\">the hot bread</strong>",
-          "english_plain": "The happy waiter should deliver the hot bread",
-          "html": "<span data-case=\"erg\" data-role=\"subject\">ბედნიერმა მიმტანმა</span> <span data-case=\"nom\" data-role=\"direct-object\">ცხელი პური</span> <span data-role=\"verb\">უნდა მიიტანოს</span>",
-          "case_marking": {
-            "subject": {
-              "case": "erg",
-              "word": "მიმტანმა"
+          "georgian": "უნდა მივიტანო თბილი პური",
+          "georgian_components": {
+            "verb": {
+              "text": "უნდა მივიტანო",
+              "role": "verb"
             },
             "direct_object": {
+              "text": "თბილი პური",
               "case": "nom",
-              "word": "პური"
+              "role": "direct_object"
             }
           },
-          "georgian_verb_form": "მიიტანოს"
-        },
-        {
-          "georgian": "ახალმა სტუმარმა ძვირი ველოსიპედი უნდა მიიტანონ",
-          "english": "<strong data-role=\"subject\">The new guest</strong> <strong data-role=\"verb\">should</strong> <strong data-role=\"verb\">deliver</strong> <strong data-role=\"direct-object\">the expensive bike</strong>",
-          "english_plain": "The new guest should deliver the expensive bike",
-          "html": "<span data-case=\"erg\" data-role=\"subject\">ახალმა სტუმარმა</span> <span data-case=\"nom\" data-role=\"direct-object\">ძვირი ველოსიპედი</span> <span data-role=\"verb\">უნდა მიიტანონ</span>",
-          "case_marking": {
+          "english": "I should deliver the warm bread",
+          "english_components": {
             "subject": {
-              "case": "erg",
-              "word": "სტუმარმა"
+              "text": "I",
+              "role": "subject",
+              "person": "1sg"
+            },
+            "verb": {
+              "text": "should deliver",
+              "role": "verb"
             },
             "direct_object": {
-              "case": "nom",
-              "word": "ველოსიპედი"
+              "text": "the warm bread",
+              "role": "direct_object"
             }
           },
-          "georgian_verb_form": "მიიტანონ"
+          "georgian_verb_form": "მივიტანო",
+          "person": "1sg",
+          "effective_preverb": "მი"
+        },
+        {
+          "georgian": "ბედნიერმა მიმტანმა უნდა მიიტანოს ცხელი პური",
+          "georgian_components": {
+            "subject": {
+              "text": "ბედნიერმა მიმტანმა",
+              "case": "erg",
+              "role": "subject"
+            },
+            "verb": {
+              "text": "უნდა მიიტანოს",
+              "role": "verb"
+            },
+            "direct_object": {
+              "text": "ცხელი პური",
+              "case": "nom",
+              "role": "direct_object"
+            }
+          },
+          "english": "The happy waiter should deliver the hot bread",
+          "english_components": {
+            "subject": {
+              "text": "The happy waiter",
+              "role": "subject",
+              "person": "3sg"
+            },
+            "verb": {
+              "text": "should deliver",
+              "role": "verb"
+            },
+            "direct_object": {
+              "text": "the hot bread",
+              "role": "direct_object"
+            }
+          },
+          "georgian_verb_form": "მიიტანოს",
+          "person": "3sg",
+          "effective_preverb": "მი"
+        },
+        {
+          "georgian": "ახალმა სტუმრებმა უნდა მიიტანონ ძვირი ველოსიპედი",
+          "georgian_components": {
+            "subject": {
+              "text": "ახალმა სტუმრებმა",
+              "case": "erg",
+              "role": "subject"
+            },
+            "verb": {
+              "text": "უნდა მიიტანონ",
+              "role": "verb"
+            },
+            "direct_object": {
+              "text": "ძვირი ველოსიპედი",
+              "case": "nom",
+              "role": "direct_object"
+            }
+          },
+          "english": "The new guests should deliver the expensive bike",
+          "english_components": {
+            "subject": {
+              "text": "The new guests",
+              "role": "subject",
+              "person": "3pl"
+            },
+            "verb": {
+              "text": "should deliver",
+              "role": "verb"
+            },
+            "direct_object": {
+              "text": "the expensive bike",
+              "role": "direct_object"
+            }
+          },
+          "georgian_verb_form": "მიიტანონ",
+          "person": "3pl",
+          "effective_preverb": "მი"
         }
       ],
       "imperative": [
         {
-          "georgian": "ლურჯი ჩანთა მიიტანე",
-          "english": "<strong data-role=\"verb\">deliver</strong> <strong data-role=\"direct-object\">the blue bag</strong>",
-          "english_plain": "deliver the blue bag",
-          "html": "<span data-case=\"nom\" data-role=\"direct-object\">ლურჯი ჩანთა</span> <span data-role=\"verb\">მიიტანე</span>",
-          "case_marking": {
+          "georgian": "მიიტანე ლურჯი ჩანთა",
+          "georgian_components": {
+            "verb": {
+              "text": "მიიტანე",
+              "role": "verb"
+            },
             "direct_object": {
+              "text": "ლურჯი ჩანთა",
               "case": "nom",
-              "word": "ჩანთა"
+              "role": "direct_object"
             }
           },
-          "georgian_verb_form": "მიიტანე"
+          "english": "You, deliver the blue bag",
+          "english_components": {
+            "subject": {
+              "text": "You,",
+              "role": "subject",
+              "person": "2sg"
+            },
+            "verb": {
+              "text": "deliver",
+              "role": "verb"
+            },
+            "direct_object": {
+              "text": "the blue bag",
+              "role": "direct_object"
+            }
+          },
+          "georgian_verb_form": "მიიტანე",
+          "person": "2sg",
+          "effective_preverb": "მი"
         },
         {
-          "georgian": "ახალი მანქანა მიიტანეთ",
-          "english": "<strong data-role=\"verb\">deliver</strong> <strong data-role=\"direct-object\">the new car</strong>",
-          "english_plain": "deliver the new car",
-          "html": "<span data-case=\"nom\" data-role=\"direct-object\">ახალი მანქანა</span> <span data-role=\"verb\">მიიტანეთ</span>",
-          "case_marking": {
+          "georgian": "მიიტანეთ ახალი მანქანა",
+          "georgian_components": {
+            "verb": {
+              "text": "მიიტანეთ",
+              "role": "verb"
+            },
             "direct_object": {
+              "text": "ახალი მანქანა",
               "case": "nom",
-              "word": "მანქანა"
+              "role": "direct_object"
             }
           },
-          "georgian_verb_form": "მიიტანეთ"
+          "english": "You all (you formal), deliver the new car",
+          "english_components": {
+            "subject": {
+              "text": "You all (you formal),",
+              "role": "subject",
+              "person": "2pl"
+            },
+            "verb": {
+              "text": "deliver",
+              "role": "verb"
+            },
+            "direct_object": {
+              "text": "the new car",
+              "role": "direct_object"
+            }
+          },
+          "georgian_verb_form": "მიიტანეთ",
+          "person": "2pl",
+          "effective_preverb": "მი"
         }
       ]
     },
     "მო": {
       "present": [
         {
-          "georgian": "თბილი პური მომაქვს",
-          "english": "<strong data-role=\"subject\" data-person=\"1sg\">I</strong> <strong data-role=\"verb\">bring</strong> <strong data-role=\"direct-object\">the warm bread</strong>",
-          "english_plain": "I bring the warm bread",
-          "html": "<span data-case=\"nom\" data-role=\"direct-object\">თბილი პური</span> <span data-role=\"verb\">მომაქვს</span>",
-          "case_marking": {
-            "direct_object": {
-              "case": "nom",
-              "word": "პური"
-            }
-          },
-          "georgian_verb_form": "მომაქვს"
-        },
-        {
-          "georgian": "ბედნიერ მიმტანს ცხელი პური მოაქვს",
-          "english": "<strong data-role=\"subject\">The happy waiter</strong> <strong data-role=\"verb\">brings</strong> <strong data-role=\"direct-object\">the hot bread</strong>",
-          "english_plain": "The happy waiter brings the hot bread",
-          "html": "<span data-case=\"dat\" data-role=\"subject\">ბედნიერ მიმტანს</span> <span data-case=\"nom\" data-role=\"direct-object\">ცხელი პური</span> <span data-role=\"verb\">მოაქვს</span>",
-          "case_marking": {
-            "subject": {
-              "case": "dat",
-              "word": "მიმტანს"
+          "georgian": "მომაქვს თბილი პური",
+          "georgian_components": {
+            "verb": {
+              "text": "მომაქვს",
+              "role": "verb"
             },
             "direct_object": {
+              "text": "თბილი პური",
               "case": "nom",
-              "word": "პური"
+              "role": "direct_object"
             }
           },
-          "georgian_verb_form": "მოაქვს"
-        },
-        {
-          "georgian": "ახალ სტუმარს ძვირი ველოსიპედი მოაქვთ",
-          "english": "<strong data-role=\"subject\">The new guest</strong> <strong data-role=\"verb\">bring</strong> <strong data-role=\"direct-object\">the expensive bike</strong>",
-          "english_plain": "The new guest bring the expensive bike",
-          "html": "<span data-case=\"dat\" data-role=\"subject\">ახალ სტუმარს</span> <span data-case=\"nom\" data-role=\"direct-object\">ძვირი ველოსიპედი</span> <span data-role=\"verb\">მოაქვთ</span>",
-          "case_marking": {
+          "english": "I bring the warm bread",
+          "english_components": {
             "subject": {
-              "case": "dat",
-              "word": "სტუმარს"
+              "text": "I",
+              "role": "subject",
+              "person": "1sg"
+            },
+            "verb": {
+              "text": "bring",
+              "role": "verb"
             },
             "direct_object": {
-              "case": "nom",
-              "word": "ველოსიპედი"
+              "text": "the warm bread",
+              "role": "direct_object"
             }
           },
-          "georgian_verb_form": "მოაქვთ"
+          "georgian_verb_form": "მომაქვს",
+          "person": "1sg",
+          "effective_preverb": "მო"
+        },
+        {
+          "georgian": "ბედნიერ მიმტანს მოაქვს ცხელი პური",
+          "georgian_components": {
+            "subject": {
+              "text": "ბედნიერ მიმტანს",
+              "case": "dat",
+              "role": "subject"
+            },
+            "verb": {
+              "text": "მოაქვს",
+              "role": "verb"
+            },
+            "direct_object": {
+              "text": "ცხელი პური",
+              "case": "nom",
+              "role": "direct_object"
+            }
+          },
+          "english": "The happy waiter brings the hot bread",
+          "english_components": {
+            "subject": {
+              "text": "The happy waiter",
+              "role": "subject",
+              "person": "3sg"
+            },
+            "verb": {
+              "text": "brings",
+              "role": "verb"
+            },
+            "direct_object": {
+              "text": "the hot bread",
+              "role": "direct_object"
+            }
+          },
+          "georgian_verb_form": "მოაქვს",
+          "person": "3sg",
+          "effective_preverb": "მო"
+        },
+        {
+          "georgian": "ახალ სტუმრებს მოაქვთ ძვირი ველოსიპედი",
+          "georgian_components": {
+            "subject": {
+              "text": "ახალ სტუმრებს",
+              "case": "dat",
+              "role": "subject"
+            },
+            "verb": {
+              "text": "მოაქვთ",
+              "role": "verb"
+            },
+            "direct_object": {
+              "text": "ძვირი ველოსიპედი",
+              "case": "nom",
+              "role": "direct_object"
+            }
+          },
+          "english": "The new guests bring the expensive bike",
+          "english_components": {
+            "subject": {
+              "text": "The new guests",
+              "role": "subject",
+              "person": "3pl"
+            },
+            "verb": {
+              "text": "bring",
+              "role": "verb"
+            },
+            "direct_object": {
+              "text": "the expensive bike",
+              "role": "direct_object"
+            }
+          },
+          "georgian_verb_form": "მოაქვთ",
+          "person": "3pl",
+          "effective_preverb": "მო"
         }
       ],
       "imperfect": [
         {
-          "georgian": "თბილი პური მომქონდა",
-          "english": "<strong data-role=\"subject\" data-person=\"1sg\">I</strong> <strong data-role=\"verb\">was bringing</strong> <strong data-role=\"direct-object\">the warm bread</strong>",
-          "english_plain": "I was bringing the warm bread",
-          "html": "<span data-case=\"nom\" data-role=\"direct-object\">თბილი პური</span> <span data-role=\"verb\">მომქონდა</span>",
-          "case_marking": {
-            "direct_object": {
-              "case": "nom",
-              "word": "პური"
-            }
-          },
-          "georgian_verb_form": "მომქონდა"
-        },
-        {
-          "georgian": "ბედნიერ მიმტანს ცხელი პური მოჰქონდა",
-          "english": "<strong data-role=\"subject\">The happy waiter</strong> <strong data-role=\"verb\">was bringing</strong> <strong data-role=\"direct-object\">the hot bread</strong>",
-          "english_plain": "The happy waiter was bringing the hot bread",
-          "html": "<span data-case=\"dat\" data-role=\"subject\">ბედნიერ მიმტანს</span> <span data-case=\"nom\" data-role=\"direct-object\">ცხელი პური</span> <span data-role=\"verb\">მოჰქონდა</span>",
-          "case_marking": {
-            "subject": {
-              "case": "dat",
-              "word": "მიმტანს"
+          "georgian": "მომქონდა თბილი პური",
+          "georgian_components": {
+            "verb": {
+              "text": "მომქონდა",
+              "role": "verb"
             },
             "direct_object": {
+              "text": "თბილი პური",
               "case": "nom",
-              "word": "პური"
+              "role": "direct_object"
             }
           },
-          "georgian_verb_form": "მოჰქონდა"
-        },
-        {
-          "georgian": "ახალ სტუმარს ძვირი ველოსიპედი მოჰქონდათ",
-          "english": "<strong data-role=\"subject\">The new guest</strong> <strong data-role=\"verb\">were bringing</strong> <strong data-role=\"direct-object\">the expensive bike</strong>",
-          "english_plain": "The new guest were bringing the expensive bike",
-          "html": "<span data-case=\"dat\" data-role=\"subject\">ახალ სტუმარს</span> <span data-case=\"nom\" data-role=\"direct-object\">ძვირი ველოსიპედი</span> <span data-role=\"verb\">მოჰქონდათ</span>",
-          "case_marking": {
+          "english": "I was bringing the warm bread",
+          "english_components": {
             "subject": {
-              "case": "dat",
-              "word": "სტუმარს"
+              "text": "I",
+              "role": "subject",
+              "person": "1sg"
+            },
+            "verb": {
+              "text": "was bringing",
+              "role": "verb"
             },
             "direct_object": {
-              "case": "nom",
-              "word": "ველოსიპედი"
+              "text": "the warm bread",
+              "role": "direct_object"
             }
           },
-          "georgian_verb_form": "მოჰქონდათ"
+          "georgian_verb_form": "მომქონდა",
+          "person": "1sg",
+          "effective_preverb": "მო"
+        },
+        {
+          "georgian": "ბედნიერ მიმტანს მოჰქონდა ცხელი პური",
+          "georgian_components": {
+            "subject": {
+              "text": "ბედნიერ მიმტანს",
+              "case": "dat",
+              "role": "subject"
+            },
+            "verb": {
+              "text": "მოჰქონდა",
+              "role": "verb"
+            },
+            "direct_object": {
+              "text": "ცხელი პური",
+              "case": "nom",
+              "role": "direct_object"
+            }
+          },
+          "english": "The happy waiter was bringing the hot bread",
+          "english_components": {
+            "subject": {
+              "text": "The happy waiter",
+              "role": "subject",
+              "person": "3sg"
+            },
+            "verb": {
+              "text": "was bringing",
+              "role": "verb"
+            },
+            "direct_object": {
+              "text": "the hot bread",
+              "role": "direct_object"
+            }
+          },
+          "georgian_verb_form": "მოჰქონდა",
+          "person": "3sg",
+          "effective_preverb": "მო"
+        },
+        {
+          "georgian": "ახალ სტუმრებს მოჰქონდათ ძვირი ველოსიპედი",
+          "georgian_components": {
+            "subject": {
+              "text": "ახალ სტუმრებს",
+              "case": "dat",
+              "role": "subject"
+            },
+            "verb": {
+              "text": "მოჰქონდათ",
+              "role": "verb"
+            },
+            "direct_object": {
+              "text": "ძვირი ველოსიპედი",
+              "case": "nom",
+              "role": "direct_object"
+            }
+          },
+          "english": "The new guests were bringing the expensive bike",
+          "english_components": {
+            "subject": {
+              "text": "The new guests",
+              "role": "subject",
+              "person": "3pl"
+            },
+            "verb": {
+              "text": "were bringing",
+              "role": "verb"
+            },
+            "direct_object": {
+              "text": "the expensive bike",
+              "role": "direct_object"
+            }
+          },
+          "georgian_verb_form": "მოჰქონდათ",
+          "person": "3pl",
+          "effective_preverb": "მო"
         }
       ],
       "future": [
         {
-          "georgian": "თბილ პურს მოვიტან",
-          "english": "<strong data-role=\"subject\" data-person=\"1sg\">I</strong> <strong data-role=\"verb\">will bring</strong> <strong data-role=\"direct-object\">the warm bread</strong>",
-          "english_plain": "I will bring the warm bread",
-          "html": "<span data-case=\"dat\" data-role=\"direct-object\">თბილ პურს</span> <span data-role=\"verb\">მოვიტან</span>",
-          "case_marking": {
-            "direct_object": {
-              "case": "dat",
-              "word": "პურს"
-            }
-          },
-          "georgian_verb_form": "მოვიტან"
-        },
-        {
-          "georgian": "ბედნიერი მიმტანი ცხელ პურს მოიტანს",
-          "english": "<strong data-role=\"subject\">The happy waiter</strong> <strong data-role=\"verb\">will bring</strong> <strong data-role=\"direct-object\">the hot bread</strong>",
-          "english_plain": "The happy waiter will bring the hot bread",
-          "html": "<span data-case=\"nom\" data-role=\"subject\">ბედნიერი მიმტანი</span> <span data-case=\"dat\" data-role=\"direct-object\">ცხელ პურს</span> <span data-role=\"verb\">მოიტანს</span>",
-          "case_marking": {
-            "subject": {
-              "case": "nom",
-              "word": "მიმტანი"
+          "georgian": "მოვიტან თბილ პურს",
+          "georgian_components": {
+            "verb": {
+              "text": "მოვიტან",
+              "role": "verb"
             },
             "direct_object": {
+              "text": "თბილ პურს",
               "case": "dat",
-              "word": "პურს"
+              "role": "direct_object"
             }
           },
-          "georgian_verb_form": "მოიტანს"
-        },
-        {
-          "georgian": "ახალი სტუმარი ძვირ ველოსიპედს მოიტანენ",
-          "english": "<strong data-role=\"subject\">The new guest</strong> <strong data-role=\"verb\">will bring</strong> <strong data-role=\"direct-object\">the expensive bike</strong>",
-          "english_plain": "The new guest will bring the expensive bike",
-          "html": "<span data-case=\"nom\" data-role=\"subject\">ახალი სტუმარი</span> <span data-case=\"dat\" data-role=\"direct-object\">ძვირ ველოსიპედს</span> <span data-role=\"verb\">მოიტანენ</span>",
-          "case_marking": {
+          "english": "I will bring the warm bread",
+          "english_components": {
             "subject": {
-              "case": "nom",
-              "word": "სტუმარი"
+              "text": "I",
+              "role": "subject",
+              "person": "1sg"
+            },
+            "verb": {
+              "text": "will bring",
+              "role": "verb"
             },
             "direct_object": {
-              "case": "dat",
-              "word": "ველოსიპედს"
+              "text": "the warm bread",
+              "role": "direct_object"
             }
           },
-          "georgian_verb_form": "მოიტანენ"
+          "georgian_verb_form": "მოვიტან",
+          "person": "1sg",
+          "effective_preverb": "მო"
+        },
+        {
+          "georgian": "ბედნიერი მიმტანი მოიტანს ცხელ პურს",
+          "georgian_components": {
+            "subject": {
+              "text": "ბედნიერი მიმტანი",
+              "case": "nom",
+              "role": "subject"
+            },
+            "verb": {
+              "text": "მოიტანს",
+              "role": "verb"
+            },
+            "direct_object": {
+              "text": "ცხელ პურს",
+              "case": "dat",
+              "role": "direct_object"
+            }
+          },
+          "english": "The happy waiter will bring the hot bread",
+          "english_components": {
+            "subject": {
+              "text": "The happy waiter",
+              "role": "subject",
+              "person": "3sg"
+            },
+            "verb": {
+              "text": "will bring",
+              "role": "verb"
+            },
+            "direct_object": {
+              "text": "the hot bread",
+              "role": "direct_object"
+            }
+          },
+          "georgian_verb_form": "მოიტანს",
+          "person": "3sg",
+          "effective_preverb": "მო"
+        },
+        {
+          "georgian": "ახალი სტუმრები მოიტანენ ძვირ ველოსიპედს",
+          "georgian_components": {
+            "subject": {
+              "text": "ახალი სტუმრები",
+              "case": "nom",
+              "role": "subject"
+            },
+            "verb": {
+              "text": "მოიტანენ",
+              "role": "verb"
+            },
+            "direct_object": {
+              "text": "ძვირ ველოსიპედს",
+              "case": "dat",
+              "role": "direct_object"
+            }
+          },
+          "english": "The new guests will bring the expensive bike",
+          "english_components": {
+            "subject": {
+              "text": "The new guests",
+              "role": "subject",
+              "person": "3pl"
+            },
+            "verb": {
+              "text": "will bring",
+              "role": "verb"
+            },
+            "direct_object": {
+              "text": "the expensive bike",
+              "role": "direct_object"
+            }
+          },
+          "georgian_verb_form": "მოიტანენ",
+          "person": "3pl",
+          "effective_preverb": "მო"
         }
       ],
       "aorist": [
         {
-          "georgian": "თბილი პური მოვიტანე",
-          "english": "<strong data-role=\"subject\" data-person=\"1sg\">I</strong> <strong data-role=\"verb\">brought</strong> <strong data-role=\"direct-object\">the warm bread</strong>",
-          "english_plain": "I brought the warm bread",
-          "html": "<span data-case=\"nom\" data-role=\"direct-object\">თბილი პური</span> <span data-role=\"verb\">მოვიტანე</span>",
-          "case_marking": {
-            "direct_object": {
-              "case": "nom",
-              "word": "პური"
-            }
-          },
-          "georgian_verb_form": "მოვიტანე"
-        },
-        {
-          "georgian": "ბედნიერმა მიმტანმა ცხელი პური მოიტანა",
-          "english": "<strong data-role=\"subject\">The happy waiter</strong> <strong data-role=\"verb\">brought</strong> <strong data-role=\"direct-object\">the hot bread</strong>",
-          "english_plain": "The happy waiter brought the hot bread",
-          "html": "<span data-case=\"erg\" data-role=\"subject\">ბედნიერმა მიმტანმა</span> <span data-case=\"nom\" data-role=\"direct-object\">ცხელი პური</span> <span data-role=\"verb\">მოიტანა</span>",
-          "case_marking": {
-            "subject": {
-              "case": "erg",
-              "word": "მიმტანმა"
+          "georgian": "მოვიტანე თბილი პური",
+          "georgian_components": {
+            "verb": {
+              "text": "მოვიტანე",
+              "role": "verb"
             },
             "direct_object": {
+              "text": "თბილი პური",
               "case": "nom",
-              "word": "პური"
+              "role": "direct_object"
             }
           },
-          "georgian_verb_form": "მოიტანა"
-        },
-        {
-          "georgian": "ახალმა სტუმარმა ძვირი ველოსიპედი მოიტანეს",
-          "english": "<strong data-role=\"subject\">The new guest</strong> <strong data-role=\"verb\">brought</strong> <strong data-role=\"direct-object\">the expensive bike</strong>",
-          "english_plain": "The new guest brought the expensive bike",
-          "html": "<span data-case=\"erg\" data-role=\"subject\">ახალმა სტუმარმა</span> <span data-case=\"nom\" data-role=\"direct-object\">ძვირი ველოსიპედი</span> <span data-role=\"verb\">მოიტანეს</span>",
-          "case_marking": {
+          "english": "I brought the warm bread",
+          "english_components": {
             "subject": {
-              "case": "erg",
-              "word": "სტუმარმა"
+              "text": "I",
+              "role": "subject",
+              "person": "1sg"
+            },
+            "verb": {
+              "text": "brought",
+              "role": "verb"
             },
             "direct_object": {
-              "case": "nom",
-              "word": "ველოსიპედი"
+              "text": "the warm bread",
+              "role": "direct_object"
             }
           },
-          "georgian_verb_form": "მოიტანეს"
+          "georgian_verb_form": "მოვიტანე",
+          "person": "1sg",
+          "effective_preverb": "მო"
+        },
+        {
+          "georgian": "ბედნიერმა მიმტანმა მოიტანა ცხელი პური",
+          "georgian_components": {
+            "subject": {
+              "text": "ბედნიერმა მიმტანმა",
+              "case": "erg",
+              "role": "subject"
+            },
+            "verb": {
+              "text": "მოიტანა",
+              "role": "verb"
+            },
+            "direct_object": {
+              "text": "ცხელი პური",
+              "case": "nom",
+              "role": "direct_object"
+            }
+          },
+          "english": "The happy waiter brought the hot bread",
+          "english_components": {
+            "subject": {
+              "text": "The happy waiter",
+              "role": "subject",
+              "person": "3sg"
+            },
+            "verb": {
+              "text": "brought",
+              "role": "verb"
+            },
+            "direct_object": {
+              "text": "the hot bread",
+              "role": "direct_object"
+            }
+          },
+          "georgian_verb_form": "მოიტანა",
+          "person": "3sg",
+          "effective_preverb": "მო"
+        },
+        {
+          "georgian": "ახალმა სტუმრებმა მოიტანეს ძვირი ველოსიპედი",
+          "georgian_components": {
+            "subject": {
+              "text": "ახალმა სტუმრებმა",
+              "case": "erg",
+              "role": "subject"
+            },
+            "verb": {
+              "text": "მოიტანეს",
+              "role": "verb"
+            },
+            "direct_object": {
+              "text": "ძვირი ველოსიპედი",
+              "case": "nom",
+              "role": "direct_object"
+            }
+          },
+          "english": "The new guests brought the expensive bike",
+          "english_components": {
+            "subject": {
+              "text": "The new guests",
+              "role": "subject",
+              "person": "3pl"
+            },
+            "verb": {
+              "text": "brought",
+              "role": "verb"
+            },
+            "direct_object": {
+              "text": "the expensive bike",
+              "role": "direct_object"
+            }
+          },
+          "georgian_verb_form": "მოიტანეს",
+          "person": "3pl",
+          "effective_preverb": "მო"
         }
       ],
       "optative": [
         {
-          "georgian": "თბილი პური უნდა მოვიტანო",
-          "english": "<strong data-role=\"subject\" data-person=\"1sg\">I</strong> <strong data-role=\"verb\">should</strong> <strong data-role=\"verb\">bring</strong> <strong data-role=\"direct-object\">the warm bread</strong>",
-          "english_plain": "I should bring the warm bread",
-          "html": "<span data-case=\"nom\" data-role=\"direct-object\">თბილი პური</span> <span data-role=\"verb\">უნდა მოვიტანო</span>",
-          "case_marking": {
-            "direct_object": {
-              "case": "nom",
-              "word": "პური"
-            }
-          },
-          "georgian_verb_form": "მოვიტანო"
-        },
-        {
-          "georgian": "ბედნიერმა მიმტანმა ცხელი პური უნდა მოიტანოს",
-          "english": "<strong data-role=\"subject\">The happy waiter</strong> <strong data-role=\"verb\">should</strong> <strong data-role=\"verb\">bring</strong> <strong data-role=\"direct-object\">the hot bread</strong>",
-          "english_plain": "The happy waiter should bring the hot bread",
-          "html": "<span data-case=\"erg\" data-role=\"subject\">ბედნიერმა მიმტანმა</span> <span data-case=\"nom\" data-role=\"direct-object\">ცხელი პური</span> <span data-role=\"verb\">უნდა მოიტანოს</span>",
-          "case_marking": {
-            "subject": {
-              "case": "erg",
-              "word": "მიმტანმა"
+          "georgian": "უნდა მოვიტანო თბილი პური",
+          "georgian_components": {
+            "verb": {
+              "text": "უნდა მოვიტანო",
+              "role": "verb"
             },
             "direct_object": {
+              "text": "თბილი პური",
               "case": "nom",
-              "word": "პური"
+              "role": "direct_object"
             }
           },
-          "georgian_verb_form": "მოიტანოს"
-        },
-        {
-          "georgian": "ახალმა სტუმარმა ძვირი ველოსიპედი უნდა მოიტანონ",
-          "english": "<strong data-role=\"subject\">The new guest</strong> <strong data-role=\"verb\">should</strong> <strong data-role=\"verb\">bring</strong> <strong data-role=\"direct-object\">the expensive bike</strong>",
-          "english_plain": "The new guest should bring the expensive bike",
-          "html": "<span data-case=\"erg\" data-role=\"subject\">ახალმა სტუმარმა</span> <span data-case=\"nom\" data-role=\"direct-object\">ძვირი ველოსიპედი</span> <span data-role=\"verb\">უნდა მოიტანონ</span>",
-          "case_marking": {
+          "english": "I should bring the warm bread",
+          "english_components": {
             "subject": {
-              "case": "erg",
-              "word": "სტუმარმა"
+              "text": "I",
+              "role": "subject",
+              "person": "1sg"
+            },
+            "verb": {
+              "text": "should bring",
+              "role": "verb"
             },
             "direct_object": {
-              "case": "nom",
-              "word": "ველოსიპედი"
+              "text": "the warm bread",
+              "role": "direct_object"
             }
           },
-          "georgian_verb_form": "მოიტანონ"
+          "georgian_verb_form": "მოვიტანო",
+          "person": "1sg",
+          "effective_preverb": "მო"
+        },
+        {
+          "georgian": "ბედნიერმა მიმტანმა უნდა მოიტანოს ცხელი პური",
+          "georgian_components": {
+            "subject": {
+              "text": "ბედნიერმა მიმტანმა",
+              "case": "erg",
+              "role": "subject"
+            },
+            "verb": {
+              "text": "უნდა მოიტანოს",
+              "role": "verb"
+            },
+            "direct_object": {
+              "text": "ცხელი პური",
+              "case": "nom",
+              "role": "direct_object"
+            }
+          },
+          "english": "The happy waiter should bring the hot bread",
+          "english_components": {
+            "subject": {
+              "text": "The happy waiter",
+              "role": "subject",
+              "person": "3sg"
+            },
+            "verb": {
+              "text": "should bring",
+              "role": "verb"
+            },
+            "direct_object": {
+              "text": "the hot bread",
+              "role": "direct_object"
+            }
+          },
+          "georgian_verb_form": "მოიტანოს",
+          "person": "3sg",
+          "effective_preverb": "მო"
+        },
+        {
+          "georgian": "ახალმა სტუმრებმა უნდა მოიტანონ ძვირი ველოსიპედი",
+          "georgian_components": {
+            "subject": {
+              "text": "ახალმა სტუმრებმა",
+              "case": "erg",
+              "role": "subject"
+            },
+            "verb": {
+              "text": "უნდა მოიტანონ",
+              "role": "verb"
+            },
+            "direct_object": {
+              "text": "ძვირი ველოსიპედი",
+              "case": "nom",
+              "role": "direct_object"
+            }
+          },
+          "english": "The new guests should bring the expensive bike",
+          "english_components": {
+            "subject": {
+              "text": "The new guests",
+              "role": "subject",
+              "person": "3pl"
+            },
+            "verb": {
+              "text": "should bring",
+              "role": "verb"
+            },
+            "direct_object": {
+              "text": "the expensive bike",
+              "role": "direct_object"
+            }
+          },
+          "georgian_verb_form": "მოიტანონ",
+          "person": "3pl",
+          "effective_preverb": "მო"
         }
       ],
       "imperative": [
         {
-          "georgian": "ლურჯი ჩანთა მოიტანე",
-          "english": "<strong data-role=\"verb\">bring</strong> <strong data-role=\"direct-object\">the blue bag</strong>",
-          "english_plain": "bring the blue bag",
-          "html": "<span data-case=\"nom\" data-role=\"direct-object\">ლურჯი ჩანთა</span> <span data-role=\"verb\">მოიტანე</span>",
-          "case_marking": {
+          "georgian": "მოიტანე ლურჯი ჩანთა",
+          "georgian_components": {
+            "verb": {
+              "text": "მოიტანე",
+              "role": "verb"
+            },
             "direct_object": {
+              "text": "ლურჯი ჩანთა",
               "case": "nom",
-              "word": "ჩანთა"
+              "role": "direct_object"
             }
           },
-          "georgian_verb_form": "მოიტანე"
+          "english": "You, bring the blue bag",
+          "english_components": {
+            "subject": {
+              "text": "You,",
+              "role": "subject",
+              "person": "2sg"
+            },
+            "verb": {
+              "text": "bring",
+              "role": "verb"
+            },
+            "direct_object": {
+              "text": "the blue bag",
+              "role": "direct_object"
+            }
+          },
+          "georgian_verb_form": "მოიტანე",
+          "person": "2sg",
+          "effective_preverb": "მო"
         },
         {
-          "georgian": "ახალი მანქანა მოიტანეთ",
-          "english": "<strong data-role=\"verb\">bring</strong> <strong data-role=\"direct-object\">the new car</strong>",
-          "english_plain": "bring the new car",
-          "html": "<span data-case=\"nom\" data-role=\"direct-object\">ახალი მანქანა</span> <span data-role=\"verb\">მოიტანეთ</span>",
-          "case_marking": {
+          "georgian": "მოიტანეთ ახალი მანქანა",
+          "georgian_components": {
+            "verb": {
+              "text": "მოიტანეთ",
+              "role": "verb"
+            },
             "direct_object": {
+              "text": "ახალი მანქანა",
               "case": "nom",
-              "word": "მანქანა"
+              "role": "direct_object"
             }
           },
-          "georgian_verb_form": "მოიტანეთ"
+          "english": "You all (you formal), bring the new car",
+          "english_components": {
+            "subject": {
+              "text": "You all (you formal),",
+              "role": "subject",
+              "person": "2pl"
+            },
+            "verb": {
+              "text": "bring",
+              "role": "verb"
+            },
+            "direct_object": {
+              "text": "the new car",
+              "role": "direct_object"
+            }
+          },
+          "georgian_verb_form": "მოიტანეთ",
+          "person": "2pl",
+          "effective_preverb": "მო"
         }
       ]
     },
     "წა": {
       "present": [
         {
-          "georgian": "თბილი პური წამაქვს",
-          "english": "<strong data-role=\"subject\" data-person=\"1sg\">I</strong> <strong data-role=\"verb\">take away</strong> <strong data-role=\"direct-object\">the warm bread</strong>",
-          "english_plain": "I take away the warm bread",
-          "html": "<span data-case=\"nom\" data-role=\"direct-object\">თბილი პური</span> <span data-role=\"verb\">წამაქვს</span>",
-          "case_marking": {
-            "direct_object": {
-              "case": "nom",
-              "word": "პური"
-            }
-          },
-          "georgian_verb_form": "წამაქვს"
-        },
-        {
-          "georgian": "ბედნიერ მიმტანს ცხელი პური წააქვს",
-          "english": "<strong data-role=\"subject\">The happy waiter</strong> <strong data-role=\"verb\">take aways</strong> <strong data-role=\"direct-object\">the hot bread</strong>",
-          "english_plain": "The happy waiter take aways the hot bread",
-          "html": "<span data-case=\"dat\" data-role=\"subject\">ბედნიერ მიმტანს</span> <span data-case=\"nom\" data-role=\"direct-object\">ცხელი პური</span> <span data-role=\"verb\">წააქვს</span>",
-          "case_marking": {
-            "subject": {
-              "case": "dat",
-              "word": "მიმტანს"
+          "georgian": "წამაქვს თბილი პური",
+          "georgian_components": {
+            "verb": {
+              "text": "წამაქვს",
+              "role": "verb"
             },
             "direct_object": {
+              "text": "თბილი პური",
               "case": "nom",
-              "word": "პური"
+              "role": "direct_object"
             }
           },
-          "georgian_verb_form": "წააქვს"
-        },
-        {
-          "georgian": "ახალ სტუმარს ძვირი ველოსიპედი წააქვთ",
-          "english": "<strong data-role=\"subject\">The new guest</strong> <strong data-role=\"verb\">take away</strong> <strong data-role=\"direct-object\">the expensive bike</strong>",
-          "english_plain": "The new guest take away the expensive bike",
-          "html": "<span data-case=\"dat\" data-role=\"subject\">ახალ სტუმარს</span> <span data-case=\"nom\" data-role=\"direct-object\">ძვირი ველოსიპედი</span> <span data-role=\"verb\">წააქვთ</span>",
-          "case_marking": {
+          "english": "I take away the warm bread",
+          "english_components": {
             "subject": {
-              "case": "dat",
-              "word": "სტუმარს"
+              "text": "I",
+              "role": "subject",
+              "person": "1sg"
+            },
+            "verb": {
+              "text": "take away",
+              "role": "verb"
             },
             "direct_object": {
-              "case": "nom",
-              "word": "ველოსიპედი"
+              "text": "the warm bread",
+              "role": "direct_object"
             }
           },
-          "georgian_verb_form": "წააქვთ"
+          "georgian_verb_form": "წამაქვს",
+          "person": "1sg",
+          "effective_preverb": "წა"
+        },
+        {
+          "georgian": "ბედნიერ მიმტანს წააქვს ცხელი პური",
+          "georgian_components": {
+            "subject": {
+              "text": "ბედნიერ მიმტანს",
+              "case": "dat",
+              "role": "subject"
+            },
+            "verb": {
+              "text": "წააქვს",
+              "role": "verb"
+            },
+            "direct_object": {
+              "text": "ცხელი პური",
+              "case": "nom",
+              "role": "direct_object"
+            }
+          },
+          "english": "The happy waiter take aways the hot bread",
+          "english_components": {
+            "subject": {
+              "text": "The happy waiter",
+              "role": "subject",
+              "person": "3sg"
+            },
+            "verb": {
+              "text": "take aways",
+              "role": "verb"
+            },
+            "direct_object": {
+              "text": "the hot bread",
+              "role": "direct_object"
+            }
+          },
+          "georgian_verb_form": "წააქვს",
+          "person": "3sg",
+          "effective_preverb": "წა"
+        },
+        {
+          "georgian": "ახალ სტუმრებს წააქვთ ძვირი ველოსიპედი",
+          "georgian_components": {
+            "subject": {
+              "text": "ახალ სტუმრებს",
+              "case": "dat",
+              "role": "subject"
+            },
+            "verb": {
+              "text": "წააქვთ",
+              "role": "verb"
+            },
+            "direct_object": {
+              "text": "ძვირი ველოსიპედი",
+              "case": "nom",
+              "role": "direct_object"
+            }
+          },
+          "english": "The new guests take away the expensive bike",
+          "english_components": {
+            "subject": {
+              "text": "The new guests",
+              "role": "subject",
+              "person": "3pl"
+            },
+            "verb": {
+              "text": "take away",
+              "role": "verb"
+            },
+            "direct_object": {
+              "text": "the expensive bike",
+              "role": "direct_object"
+            }
+          },
+          "georgian_verb_form": "წააქვთ",
+          "person": "3pl",
+          "effective_preverb": "წა"
         }
       ],
       "imperfect": [
         {
-          "georgian": "თბილი პური წამქონდა",
-          "english": "<strong data-role=\"subject\" data-person=\"1sg\">I</strong> <strong data-role=\"verb\">was taking away</strong> <strong data-role=\"direct-object\">the warm bread</strong>",
-          "english_plain": "I was taking away the warm bread",
-          "html": "<span data-case=\"nom\" data-role=\"direct-object\">თბილი პური</span> <span data-role=\"verb\">წამქონდა</span>",
-          "case_marking": {
-            "direct_object": {
-              "case": "nom",
-              "word": "პური"
-            }
-          },
-          "georgian_verb_form": "წამქონდა"
-        },
-        {
-          "georgian": "ბედნიერ მიმტანს ცხელი პური წაჰქონდა",
-          "english": "<strong data-role=\"subject\">The happy waiter</strong> <strong data-role=\"verb\">was taking away</strong> <strong data-role=\"direct-object\">the hot bread</strong>",
-          "english_plain": "The happy waiter was taking away the hot bread",
-          "html": "<span data-case=\"dat\" data-role=\"subject\">ბედნიერ მიმტანს</span> <span data-case=\"nom\" data-role=\"direct-object\">ცხელი პური</span> <span data-role=\"verb\">წაჰქონდა</span>",
-          "case_marking": {
-            "subject": {
-              "case": "dat",
-              "word": "მიმტანს"
+          "georgian": "წამქონდა თბილი პური",
+          "georgian_components": {
+            "verb": {
+              "text": "წამქონდა",
+              "role": "verb"
             },
             "direct_object": {
+              "text": "თბილი პური",
               "case": "nom",
-              "word": "პური"
+              "role": "direct_object"
             }
           },
-          "georgian_verb_form": "წაჰქონდა"
-        },
-        {
-          "georgian": "ახალ სტუმარს ძვირი ველოსიპედი წაჰქონდათ",
-          "english": "<strong data-role=\"subject\">The new guest</strong> <strong data-role=\"verb\">were taking away</strong> <strong data-role=\"direct-object\">the expensive bike</strong>",
-          "english_plain": "The new guest were taking away the expensive bike",
-          "html": "<span data-case=\"dat\" data-role=\"subject\">ახალ სტუმარს</span> <span data-case=\"nom\" data-role=\"direct-object\">ძვირი ველოსიპედი</span> <span data-role=\"verb\">წაჰქონდათ</span>",
-          "case_marking": {
+          "english": "I was taking away the warm bread",
+          "english_components": {
             "subject": {
-              "case": "dat",
-              "word": "სტუმარს"
+              "text": "I",
+              "role": "subject",
+              "person": "1sg"
+            },
+            "verb": {
+              "text": "was taking away",
+              "role": "verb"
             },
             "direct_object": {
-              "case": "nom",
-              "word": "ველოსიპედი"
+              "text": "the warm bread",
+              "role": "direct_object"
             }
           },
-          "georgian_verb_form": "წაჰქონდათ"
+          "georgian_verb_form": "წამქონდა",
+          "person": "1sg",
+          "effective_preverb": "წა"
+        },
+        {
+          "georgian": "ბედნიერ მიმტანს წაჰქონდა ცხელი პური",
+          "georgian_components": {
+            "subject": {
+              "text": "ბედნიერ მიმტანს",
+              "case": "dat",
+              "role": "subject"
+            },
+            "verb": {
+              "text": "წაჰქონდა",
+              "role": "verb"
+            },
+            "direct_object": {
+              "text": "ცხელი პური",
+              "case": "nom",
+              "role": "direct_object"
+            }
+          },
+          "english": "The happy waiter was taking away the hot bread",
+          "english_components": {
+            "subject": {
+              "text": "The happy waiter",
+              "role": "subject",
+              "person": "3sg"
+            },
+            "verb": {
+              "text": "was taking away",
+              "role": "verb"
+            },
+            "direct_object": {
+              "text": "the hot bread",
+              "role": "direct_object"
+            }
+          },
+          "georgian_verb_form": "წაჰქონდა",
+          "person": "3sg",
+          "effective_preverb": "წა"
+        },
+        {
+          "georgian": "ახალ სტუმრებს წაჰქონდათ ძვირი ველოსიპედი",
+          "georgian_components": {
+            "subject": {
+              "text": "ახალ სტუმრებს",
+              "case": "dat",
+              "role": "subject"
+            },
+            "verb": {
+              "text": "წაჰქონდათ",
+              "role": "verb"
+            },
+            "direct_object": {
+              "text": "ძვირი ველოსიპედი",
+              "case": "nom",
+              "role": "direct_object"
+            }
+          },
+          "english": "The new guests were taking away the expensive bike",
+          "english_components": {
+            "subject": {
+              "text": "The new guests",
+              "role": "subject",
+              "person": "3pl"
+            },
+            "verb": {
+              "text": "were taking away",
+              "role": "verb"
+            },
+            "direct_object": {
+              "text": "the expensive bike",
+              "role": "direct_object"
+            }
+          },
+          "georgian_verb_form": "წაჰქონდათ",
+          "person": "3pl",
+          "effective_preverb": "წა"
         }
       ],
       "future": [
         {
-          "georgian": "თბილ პურს წავიტან",
-          "english": "<strong data-role=\"subject\" data-person=\"1sg\">I</strong> <strong data-role=\"verb\">will take away</strong> <strong data-role=\"direct-object\">the warm bread</strong>",
-          "english_plain": "I will take away the warm bread",
-          "html": "<span data-case=\"dat\" data-role=\"direct-object\">თბილ პურს</span> <span data-role=\"verb\">წავიტან</span>",
-          "case_marking": {
-            "direct_object": {
-              "case": "dat",
-              "word": "პურს"
-            }
-          },
-          "georgian_verb_form": "წავიტან"
-        },
-        {
-          "georgian": "ბედნიერი მიმტანი ცხელ პურს წაიტანს",
-          "english": "<strong data-role=\"subject\">The happy waiter</strong> <strong data-role=\"verb\">will take away</strong> <strong data-role=\"direct-object\">the hot bread</strong>",
-          "english_plain": "The happy waiter will take away the hot bread",
-          "html": "<span data-case=\"nom\" data-role=\"subject\">ბედნიერი მიმტანი</span> <span data-case=\"dat\" data-role=\"direct-object\">ცხელ პურს</span> <span data-role=\"verb\">წაიტანს</span>",
-          "case_marking": {
-            "subject": {
-              "case": "nom",
-              "word": "მიმტანი"
+          "georgian": "წავიტან თბილ პურს",
+          "georgian_components": {
+            "verb": {
+              "text": "წავიტან",
+              "role": "verb"
             },
             "direct_object": {
+              "text": "თბილ პურს",
               "case": "dat",
-              "word": "პურს"
+              "role": "direct_object"
             }
           },
-          "georgian_verb_form": "წაიტანს"
-        },
-        {
-          "georgian": "ახალი სტუმარი ძვირ ველოსიპედს წაიტანენ",
-          "english": "<strong data-role=\"subject\">The new guest</strong> <strong data-role=\"verb\">will take away</strong> <strong data-role=\"direct-object\">the expensive bike</strong>",
-          "english_plain": "The new guest will take away the expensive bike",
-          "html": "<span data-case=\"nom\" data-role=\"subject\">ახალი სტუმარი</span> <span data-case=\"dat\" data-role=\"direct-object\">ძვირ ველოსიპედს</span> <span data-role=\"verb\">წაიტანენ</span>",
-          "case_marking": {
+          "english": "I will take away the warm bread",
+          "english_components": {
             "subject": {
-              "case": "nom",
-              "word": "სტუმარი"
+              "text": "I",
+              "role": "subject",
+              "person": "1sg"
+            },
+            "verb": {
+              "text": "will take away",
+              "role": "verb"
             },
             "direct_object": {
-              "case": "dat",
-              "word": "ველოსიპედს"
+              "text": "the warm bread",
+              "role": "direct_object"
             }
           },
-          "georgian_verb_form": "წაიტანენ"
+          "georgian_verb_form": "წავიტან",
+          "person": "1sg",
+          "effective_preverb": "წა"
+        },
+        {
+          "georgian": "ბედნიერი მიმტანი წაიტანს ცხელ პურს",
+          "georgian_components": {
+            "subject": {
+              "text": "ბედნიერი მიმტანი",
+              "case": "nom",
+              "role": "subject"
+            },
+            "verb": {
+              "text": "წაიტანს",
+              "role": "verb"
+            },
+            "direct_object": {
+              "text": "ცხელ პურს",
+              "case": "dat",
+              "role": "direct_object"
+            }
+          },
+          "english": "The happy waiter will take away the hot bread",
+          "english_components": {
+            "subject": {
+              "text": "The happy waiter",
+              "role": "subject",
+              "person": "3sg"
+            },
+            "verb": {
+              "text": "will take away",
+              "role": "verb"
+            },
+            "direct_object": {
+              "text": "the hot bread",
+              "role": "direct_object"
+            }
+          },
+          "georgian_verb_form": "წაიტანს",
+          "person": "3sg",
+          "effective_preverb": "წა"
+        },
+        {
+          "georgian": "ახალი სტუმრები წაიტანენ ძვირ ველოსიპედს",
+          "georgian_components": {
+            "subject": {
+              "text": "ახალი სტუმრები",
+              "case": "nom",
+              "role": "subject"
+            },
+            "verb": {
+              "text": "წაიტანენ",
+              "role": "verb"
+            },
+            "direct_object": {
+              "text": "ძვირ ველოსიპედს",
+              "case": "dat",
+              "role": "direct_object"
+            }
+          },
+          "english": "The new guests will take away the expensive bike",
+          "english_components": {
+            "subject": {
+              "text": "The new guests",
+              "role": "subject",
+              "person": "3pl"
+            },
+            "verb": {
+              "text": "will take away",
+              "role": "verb"
+            },
+            "direct_object": {
+              "text": "the expensive bike",
+              "role": "direct_object"
+            }
+          },
+          "georgian_verb_form": "წაიტანენ",
+          "person": "3pl",
+          "effective_preverb": "წა"
         }
       ],
       "aorist": [
         {
-          "georgian": "თბილი პური წავიტანე",
-          "english": "<strong data-role=\"subject\" data-person=\"1sg\">I</strong> <strong data-role=\"verb\">took away</strong> <strong data-role=\"direct-object\">the warm bread</strong>",
-          "english_plain": "I took away the warm bread",
-          "html": "<span data-case=\"nom\" data-role=\"direct-object\">თბილი პური</span> <span data-role=\"verb\">წავიტანე</span>",
-          "case_marking": {
-            "direct_object": {
-              "case": "nom",
-              "word": "პური"
-            }
-          },
-          "georgian_verb_form": "წავიტანე"
-        },
-        {
-          "georgian": "ბედნიერმა მიმტანმა ცხელი პური წაიტანა",
-          "english": "<strong data-role=\"subject\">The happy waiter</strong> <strong data-role=\"verb\">took away</strong> <strong data-role=\"direct-object\">the hot bread</strong>",
-          "english_plain": "The happy waiter took away the hot bread",
-          "html": "<span data-case=\"erg\" data-role=\"subject\">ბედნიერმა მიმტანმა</span> <span data-case=\"nom\" data-role=\"direct-object\">ცხელი პური</span> <span data-role=\"verb\">წაიტანა</span>",
-          "case_marking": {
-            "subject": {
-              "case": "erg",
-              "word": "მიმტანმა"
+          "georgian": "წავიტანე თბილი პური",
+          "georgian_components": {
+            "verb": {
+              "text": "წავიტანე",
+              "role": "verb"
             },
             "direct_object": {
+              "text": "თბილი პური",
               "case": "nom",
-              "word": "პური"
+              "role": "direct_object"
             }
           },
-          "georgian_verb_form": "წაიტანა"
-        },
-        {
-          "georgian": "ახალმა სტუმარმა ძვირი ველოსიპედი წაიტანეს",
-          "english": "<strong data-role=\"subject\">The new guest</strong> <strong data-role=\"verb\">took away</strong> <strong data-role=\"direct-object\">the expensive bike</strong>",
-          "english_plain": "The new guest took away the expensive bike",
-          "html": "<span data-case=\"erg\" data-role=\"subject\">ახალმა სტუმარმა</span> <span data-case=\"nom\" data-role=\"direct-object\">ძვირი ველოსიპედი</span> <span data-role=\"verb\">წაიტანეს</span>",
-          "case_marking": {
+          "english": "I took away the warm bread",
+          "english_components": {
             "subject": {
-              "case": "erg",
-              "word": "სტუმარმა"
+              "text": "I",
+              "role": "subject",
+              "person": "1sg"
+            },
+            "verb": {
+              "text": "took away",
+              "role": "verb"
             },
             "direct_object": {
-              "case": "nom",
-              "word": "ველოსიპედი"
+              "text": "the warm bread",
+              "role": "direct_object"
             }
           },
-          "georgian_verb_form": "წაიტანეს"
+          "georgian_verb_form": "წავიტანე",
+          "person": "1sg",
+          "effective_preverb": "წა"
+        },
+        {
+          "georgian": "ბედნიერმა მიმტანმა წაიტანა ცხელი პური",
+          "georgian_components": {
+            "subject": {
+              "text": "ბედნიერმა მიმტანმა",
+              "case": "erg",
+              "role": "subject"
+            },
+            "verb": {
+              "text": "წაიტანა",
+              "role": "verb"
+            },
+            "direct_object": {
+              "text": "ცხელი პური",
+              "case": "nom",
+              "role": "direct_object"
+            }
+          },
+          "english": "The happy waiter took away the hot bread",
+          "english_components": {
+            "subject": {
+              "text": "The happy waiter",
+              "role": "subject",
+              "person": "3sg"
+            },
+            "verb": {
+              "text": "took away",
+              "role": "verb"
+            },
+            "direct_object": {
+              "text": "the hot bread",
+              "role": "direct_object"
+            }
+          },
+          "georgian_verb_form": "წაიტანა",
+          "person": "3sg",
+          "effective_preverb": "წა"
+        },
+        {
+          "georgian": "ახალმა სტუმრებმა წაიტანეს ძვირი ველოსიპედი",
+          "georgian_components": {
+            "subject": {
+              "text": "ახალმა სტუმრებმა",
+              "case": "erg",
+              "role": "subject"
+            },
+            "verb": {
+              "text": "წაიტანეს",
+              "role": "verb"
+            },
+            "direct_object": {
+              "text": "ძვირი ველოსიპედი",
+              "case": "nom",
+              "role": "direct_object"
+            }
+          },
+          "english": "The new guests took away the expensive bike",
+          "english_components": {
+            "subject": {
+              "text": "The new guests",
+              "role": "subject",
+              "person": "3pl"
+            },
+            "verb": {
+              "text": "took away",
+              "role": "verb"
+            },
+            "direct_object": {
+              "text": "the expensive bike",
+              "role": "direct_object"
+            }
+          },
+          "georgian_verb_form": "წაიტანეს",
+          "person": "3pl",
+          "effective_preverb": "წა"
         }
       ],
       "optative": [
         {
-          "georgian": "თბილი პური უნდა წავიტანო",
-          "english": "<strong data-role=\"subject\" data-person=\"1sg\">I</strong> <strong data-role=\"verb\">should</strong> <strong data-role=\"verb\">take away</strong> <strong data-role=\"direct-object\">the warm bread</strong>",
-          "english_plain": "I should take away the warm bread",
-          "html": "<span data-case=\"nom\" data-role=\"direct-object\">თბილი პური</span> <span data-role=\"verb\">უნდა წავიტანო</span>",
-          "case_marking": {
-            "direct_object": {
-              "case": "nom",
-              "word": "პური"
-            }
-          },
-          "georgian_verb_form": "წავიტანო"
-        },
-        {
-          "georgian": "ბედნიერმა მიმტანმა ცხელი პური უნდა წაიტანოს",
-          "english": "<strong data-role=\"subject\">The happy waiter</strong> <strong data-role=\"verb\">should</strong> <strong data-role=\"verb\">take away</strong> <strong data-role=\"direct-object\">the hot bread</strong>",
-          "english_plain": "The happy waiter should take away the hot bread",
-          "html": "<span data-case=\"erg\" data-role=\"subject\">ბედნიერმა მიმტანმა</span> <span data-case=\"nom\" data-role=\"direct-object\">ცხელი პური</span> <span data-role=\"verb\">უნდა წაიტანოს</span>",
-          "case_marking": {
-            "subject": {
-              "case": "erg",
-              "word": "მიმტანმა"
+          "georgian": "უნდა წავიტანო თბილი პური",
+          "georgian_components": {
+            "verb": {
+              "text": "უნდა წავიტანო",
+              "role": "verb"
             },
             "direct_object": {
+              "text": "თბილი პური",
               "case": "nom",
-              "word": "პური"
+              "role": "direct_object"
             }
           },
-          "georgian_verb_form": "წაიტანოს"
-        },
-        {
-          "georgian": "ახალმა სტუმარმა ძვირი ველოსიპედი უნდა წაიტანონ",
-          "english": "<strong data-role=\"subject\">The new guest</strong> <strong data-role=\"verb\">should</strong> <strong data-role=\"verb\">take away</strong> <strong data-role=\"direct-object\">the expensive bike</strong>",
-          "english_plain": "The new guest should take away the expensive bike",
-          "html": "<span data-case=\"erg\" data-role=\"subject\">ახალმა სტუმარმა</span> <span data-case=\"nom\" data-role=\"direct-object\">ძვირი ველოსიპედი</span> <span data-role=\"verb\">უნდა წაიტანონ</span>",
-          "case_marking": {
+          "english": "I should take away the warm bread",
+          "english_components": {
             "subject": {
-              "case": "erg",
-              "word": "სტუმარმა"
+              "text": "I",
+              "role": "subject",
+              "person": "1sg"
+            },
+            "verb": {
+              "text": "should take away",
+              "role": "verb"
             },
             "direct_object": {
-              "case": "nom",
-              "word": "ველოსიპედი"
+              "text": "the warm bread",
+              "role": "direct_object"
             }
           },
-          "georgian_verb_form": "წაიტანონ"
+          "georgian_verb_form": "წავიტანო",
+          "person": "1sg",
+          "effective_preverb": "წა"
+        },
+        {
+          "georgian": "ბედნიერმა მიმტანმა უნდა წაიტანოს ცხელი პური",
+          "georgian_components": {
+            "subject": {
+              "text": "ბედნიერმა მიმტანმა",
+              "case": "erg",
+              "role": "subject"
+            },
+            "verb": {
+              "text": "უნდა წაიტანოს",
+              "role": "verb"
+            },
+            "direct_object": {
+              "text": "ცხელი პური",
+              "case": "nom",
+              "role": "direct_object"
+            }
+          },
+          "english": "The happy waiter should take away the hot bread",
+          "english_components": {
+            "subject": {
+              "text": "The happy waiter",
+              "role": "subject",
+              "person": "3sg"
+            },
+            "verb": {
+              "text": "should take away",
+              "role": "verb"
+            },
+            "direct_object": {
+              "text": "the hot bread",
+              "role": "direct_object"
+            }
+          },
+          "georgian_verb_form": "წაიტანოს",
+          "person": "3sg",
+          "effective_preverb": "წა"
+        },
+        {
+          "georgian": "ახალმა სტუმრებმა უნდა წაიტანონ ძვირი ველოსიპედი",
+          "georgian_components": {
+            "subject": {
+              "text": "ახალმა სტუმრებმა",
+              "case": "erg",
+              "role": "subject"
+            },
+            "verb": {
+              "text": "უნდა წაიტანონ",
+              "role": "verb"
+            },
+            "direct_object": {
+              "text": "ძვირი ველოსიპედი",
+              "case": "nom",
+              "role": "direct_object"
+            }
+          },
+          "english": "The new guests should take away the expensive bike",
+          "english_components": {
+            "subject": {
+              "text": "The new guests",
+              "role": "subject",
+              "person": "3pl"
+            },
+            "verb": {
+              "text": "should take away",
+              "role": "verb"
+            },
+            "direct_object": {
+              "text": "the expensive bike",
+              "role": "direct_object"
+            }
+          },
+          "georgian_verb_form": "წაიტანონ",
+          "person": "3pl",
+          "effective_preverb": "წა"
         }
       ],
       "imperative": [
         {
-          "georgian": "ლურჯი ჩანთა წაიტანე",
-          "english": "<strong data-role=\"verb\">take away</strong> <strong data-role=\"direct-object\">the blue bag</strong>",
-          "english_plain": "take away the blue bag",
-          "html": "<span data-case=\"nom\" data-role=\"direct-object\">ლურჯი ჩანთა</span> <span data-role=\"verb\">წაიტანე</span>",
-          "case_marking": {
+          "georgian": "წაიტანე ლურჯი ჩანთა",
+          "georgian_components": {
+            "verb": {
+              "text": "წაიტანე",
+              "role": "verb"
+            },
             "direct_object": {
+              "text": "ლურჯი ჩანთა",
               "case": "nom",
-              "word": "ჩანთა"
+              "role": "direct_object"
             }
           },
-          "georgian_verb_form": "წაიტანე"
+          "english": "You, take away the blue bag",
+          "english_components": {
+            "subject": {
+              "text": "You,",
+              "role": "subject",
+              "person": "2sg"
+            },
+            "verb": {
+              "text": "take away",
+              "role": "verb"
+            },
+            "direct_object": {
+              "text": "the blue bag",
+              "role": "direct_object"
+            }
+          },
+          "georgian_verb_form": "წაიტანე",
+          "person": "2sg",
+          "effective_preverb": "წა"
         },
         {
-          "georgian": "ახალი მანქანა წაიტანეთ",
-          "english": "<strong data-role=\"verb\">take away</strong> <strong data-role=\"direct-object\">the new car</strong>",
-          "english_plain": "take away the new car",
-          "html": "<span data-case=\"nom\" data-role=\"direct-object\">ახალი მანქანა</span> <span data-role=\"verb\">წაიტანეთ</span>",
-          "case_marking": {
+          "georgian": "წაიტანეთ ახალი მანქანა",
+          "georgian_components": {
+            "verb": {
+              "text": "წაიტანეთ",
+              "role": "verb"
+            },
             "direct_object": {
+              "text": "ახალი მანქანა",
               "case": "nom",
-              "word": "მანქანა"
+              "role": "direct_object"
             }
           },
-          "georgian_verb_form": "წაიტანეთ"
+          "english": "You all (you formal), take away the new car",
+          "english_components": {
+            "subject": {
+              "text": "You all (you formal),",
+              "role": "subject",
+              "person": "2pl"
+            },
+            "verb": {
+              "text": "take away",
+              "role": "verb"
+            },
+            "direct_object": {
+              "text": "the new car",
+              "role": "direct_object"
+            }
+          },
+          "georgian_verb_form": "წაიტანეთ",
+          "person": "2pl",
+          "effective_preverb": "წა"
         }
       ]
     }

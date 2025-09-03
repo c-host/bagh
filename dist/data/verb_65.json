@@ -124,207 +124,478 @@
   "preverb_rules": {
     "default": "",
     "replacements": {},
-    "tense_specific_fallbacks": {},
-    "english_fallbacks": {}
+    "tense_specific_fallbacks": {}
   },
   "examples": {
-    "null": {
+    "default": {
       "present": [
         {
           "georgian": "ვშრომობ",
-          "english": "<strong data-role=\"subject\" data-person=\"1sg\">I</strong> <strong data-role=\"verb\">labor</strong>",
-          "english_plain": "I labor",
-          "html": " <span data-role=\"verb\">ვშრომობ</span>",
-          "case_marking": {},
-          "georgian_verb_form": "ვშრომობ"
+          "georgian_components": {
+            "verb": {
+              "text": "ვშრომობ",
+              "role": "verb"
+            }
+          },
+          "english": "I labor",
+          "english_components": {
+            "subject": {
+              "text": "I",
+              "role": "subject",
+              "person": "1sg"
+            },
+            "verb": {
+              "text": "labor",
+              "role": "verb"
+            }
+          },
+          "georgian_verb_form": "ვშრომობ",
+          "person": "1sg",
+          "effective_preverb": ""
         },
         {
           "georgian": "შრომისმოყვარე მუშა შრომობს",
-          "english": "<strong data-role=\"subject\">The diligent worker</strong> <strong data-role=\"verb\">labors</strong>",
-          "english_plain": "The diligent worker labors",
-          "html": "<span data-case=\"nom\" data-role=\"subject\">შრომისმოყვარე მუშა</span> <span data-role=\"verb\">შრომობს</span>",
-          "case_marking": {
+          "georgian_components": {
             "subject": {
+              "text": "შრომისმოყვარე მუშა",
               "case": "nom",
-              "word": "მუშა"
+              "role": "subject"
+            },
+            "verb": {
+              "text": "შრომობს",
+              "role": "verb"
             }
           },
-          "georgian_verb_form": "შრომობს"
+          "english": "The diligent worker labors",
+          "english_components": {
+            "subject": {
+              "text": "The diligent worker",
+              "role": "subject",
+              "person": "3sg"
+            },
+            "verb": {
+              "text": "labors",
+              "role": "verb"
+            }
+          },
+          "georgian_verb_form": "შრომობს",
+          "person": "3sg",
+          "effective_preverb": ""
         },
         {
-          "georgian": "დაღლილი ფერმერი შრომობენ",
-          "english": "<strong data-role=\"subject\">The tired farmer</strong> <strong data-role=\"verb\">labor</strong>",
-          "english_plain": "The tired farmer labor",
-          "html": "<span data-case=\"nom\" data-role=\"subject\">დაღლილი ფერმერი</span> <span data-role=\"verb\">შრომობენ</span>",
-          "case_marking": {
+          "georgian": "დაღლილი ფერმერები შრომობენ",
+          "georgian_components": {
             "subject": {
+              "text": "დაღლილი ფერმერები",
               "case": "nom",
-              "word": "ფერმერი"
+              "role": "subject"
+            },
+            "verb": {
+              "text": "შრომობენ",
+              "role": "verb"
             }
           },
-          "georgian_verb_form": "შრომობენ"
+          "english": "The tired farmers labor",
+          "english_components": {
+            "subject": {
+              "text": "The tired farmers",
+              "role": "subject",
+              "person": "3pl"
+            },
+            "verb": {
+              "text": "labor",
+              "role": "verb"
+            }
+          },
+          "georgian_verb_form": "შრომობენ",
+          "person": "3pl",
+          "effective_preverb": ""
         }
       ],
       "imperfect": [
         {
           "georgian": "ვშრომობდი",
-          "english": "<strong data-role=\"subject\" data-person=\"1sg\">I</strong> <strong data-role=\"verb\">was laboring</strong>",
-          "english_plain": "I was laboring",
-          "html": " <span data-role=\"verb\">ვშრომობდი</span>",
-          "case_marking": {},
-          "georgian_verb_form": "ვშრომობდი"
+          "georgian_components": {
+            "verb": {
+              "text": "ვშრომობდი",
+              "role": "verb"
+            }
+          },
+          "english": "I was laboring",
+          "english_components": {
+            "subject": {
+              "text": "I",
+              "role": "subject",
+              "person": "1sg"
+            },
+            "verb": {
+              "text": "was laboring",
+              "role": "verb"
+            }
+          },
+          "georgian_verb_form": "ვშრომობდი",
+          "person": "1sg",
+          "effective_preverb": ""
         },
         {
           "georgian": "შრომისმოყვარე მუშა შრომობდა",
-          "english": "<strong data-role=\"subject\">The diligent worker</strong> <strong data-role=\"verb\">was laboring</strong>",
-          "english_plain": "The diligent worker was laboring",
-          "html": "<span data-case=\"nom\" data-role=\"subject\">შრომისმოყვარე მუშა</span> <span data-role=\"verb\">შრომობდა</span>",
-          "case_marking": {
+          "georgian_components": {
             "subject": {
+              "text": "შრომისმოყვარე მუშა",
               "case": "nom",
-              "word": "მუშა"
+              "role": "subject"
+            },
+            "verb": {
+              "text": "შრომობდა",
+              "role": "verb"
             }
           },
-          "georgian_verb_form": "შრომობდა"
+          "english": "The diligent worker was laboring",
+          "english_components": {
+            "subject": {
+              "text": "The diligent worker",
+              "role": "subject",
+              "person": "3sg"
+            },
+            "verb": {
+              "text": "was laboring",
+              "role": "verb"
+            }
+          },
+          "georgian_verb_form": "შრომობდა",
+          "person": "3sg",
+          "effective_preverb": ""
         },
         {
-          "georgian": "დაღლილი ფერმერი შრომობდნენ",
-          "english": "<strong data-role=\"subject\">The tired farmer</strong> <strong data-role=\"verb\">were laboring</strong>",
-          "english_plain": "The tired farmer were laboring",
-          "html": "<span data-case=\"nom\" data-role=\"subject\">დაღლილი ფერმერი</span> <span data-role=\"verb\">შრომობდნენ</span>",
-          "case_marking": {
+          "georgian": "დაღლილი ფერმერები შრომობდნენ",
+          "georgian_components": {
             "subject": {
+              "text": "დაღლილი ფერმერები",
               "case": "nom",
-              "word": "ფერმერი"
+              "role": "subject"
+            },
+            "verb": {
+              "text": "შრომობდნენ",
+              "role": "verb"
             }
           },
-          "georgian_verb_form": "შრომობდნენ"
+          "english": "The tired farmers were laboring",
+          "english_components": {
+            "subject": {
+              "text": "The tired farmers",
+              "role": "subject",
+              "person": "3pl"
+            },
+            "verb": {
+              "text": "were laboring",
+              "role": "verb"
+            }
+          },
+          "georgian_verb_form": "შრომობდნენ",
+          "person": "3pl",
+          "effective_preverb": ""
         }
       ],
       "future": [
         {
           "georgian": "ვიშრომებ",
-          "english": "<strong data-role=\"subject\" data-person=\"1sg\">I</strong> <strong data-role=\"verb\">will labor</strong>",
-          "english_plain": "I will labor",
-          "html": " <span data-role=\"verb\">ვიშრომებ</span>",
-          "case_marking": {},
-          "georgian_verb_form": "ვიშრომებ"
+          "georgian_components": {
+            "verb": {
+              "text": "ვიშრომებ",
+              "role": "verb"
+            }
+          },
+          "english": "I will labor",
+          "english_components": {
+            "subject": {
+              "text": "I",
+              "role": "subject",
+              "person": "1sg"
+            },
+            "verb": {
+              "text": "will labor",
+              "role": "verb"
+            }
+          },
+          "georgian_verb_form": "ვიშრომებ",
+          "person": "1sg",
+          "effective_preverb": ""
         },
         {
           "georgian": "შრომისმოყვარე მუშა იშრომებს",
-          "english": "<strong data-role=\"subject\">The diligent worker</strong> <strong data-role=\"verb\">will labor</strong>",
-          "english_plain": "The diligent worker will labor",
-          "html": "<span data-case=\"nom\" data-role=\"subject\">შრომისმოყვარე მუშა</span> <span data-role=\"verb\">იშრომებს</span>",
-          "case_marking": {
+          "georgian_components": {
             "subject": {
+              "text": "შრომისმოყვარე მუშა",
               "case": "nom",
-              "word": "მუშა"
+              "role": "subject"
+            },
+            "verb": {
+              "text": "იშრომებს",
+              "role": "verb"
             }
           },
-          "georgian_verb_form": "იშრომებს"
+          "english": "The diligent worker will labor",
+          "english_components": {
+            "subject": {
+              "text": "The diligent worker",
+              "role": "subject",
+              "person": "3sg"
+            },
+            "verb": {
+              "text": "will labor",
+              "role": "verb"
+            }
+          },
+          "georgian_verb_form": "იშრომებს",
+          "person": "3sg",
+          "effective_preverb": ""
         },
         {
-          "georgian": "დაღლილი ფერმერი იშრომებენ",
-          "english": "<strong data-role=\"subject\">The tired farmer</strong> <strong data-role=\"verb\">will labor</strong>",
-          "english_plain": "The tired farmer will labor",
-          "html": "<span data-case=\"nom\" data-role=\"subject\">დაღლილი ფერმერი</span> <span data-role=\"verb\">იშრომებენ</span>",
-          "case_marking": {
+          "georgian": "დაღლილი ფერმერები იშრომებენ",
+          "georgian_components": {
             "subject": {
+              "text": "დაღლილი ფერმერები",
               "case": "nom",
-              "word": "ფერმერი"
+              "role": "subject"
+            },
+            "verb": {
+              "text": "იშრომებენ",
+              "role": "verb"
             }
           },
-          "georgian_verb_form": "იშრომებენ"
+          "english": "The tired farmers will labor",
+          "english_components": {
+            "subject": {
+              "text": "The tired farmers",
+              "role": "subject",
+              "person": "3pl"
+            },
+            "verb": {
+              "text": "will labor",
+              "role": "verb"
+            }
+          },
+          "georgian_verb_form": "იშრომებენ",
+          "person": "3pl",
+          "effective_preverb": ""
         }
       ],
       "aorist": [
         {
           "georgian": "ვიშრომე",
-          "english": "<strong data-role=\"subject\" data-person=\"1sg\">I</strong> <strong data-role=\"verb\">labored</strong>",
-          "english_plain": "I labored",
-          "html": " <span data-role=\"verb\">ვიშრომე</span>",
-          "case_marking": {},
-          "georgian_verb_form": "ვიშრომე"
+          "georgian_components": {
+            "verb": {
+              "text": "ვიშრომე",
+              "role": "verb"
+            }
+          },
+          "english": "I labored",
+          "english_components": {
+            "subject": {
+              "text": "I",
+              "role": "subject",
+              "person": "1sg"
+            },
+            "verb": {
+              "text": "labored",
+              "role": "verb"
+            }
+          },
+          "georgian_verb_form": "ვიშრომე",
+          "person": "1sg",
+          "effective_preverb": ""
         },
         {
           "georgian": "შრომისმოყვარე მუშამ იშრომა",
-          "english": "<strong data-role=\"subject\">The diligent worker</strong> <strong data-role=\"verb\">labored</strong>",
-          "english_plain": "The diligent worker labored",
-          "html": "<span data-case=\"erg\" data-role=\"subject\">შრომისმოყვარე მუშამ</span> <span data-role=\"verb\">იშრომა</span>",
-          "case_marking": {
+          "georgian_components": {
             "subject": {
+              "text": "შრომისმოყვარე მუშამ",
               "case": "erg",
-              "word": "მუშამ"
+              "role": "subject"
+            },
+            "verb": {
+              "text": "იშრომა",
+              "role": "verb"
             }
           },
-          "georgian_verb_form": "იშრომა"
+          "english": "The diligent worker labored",
+          "english_components": {
+            "subject": {
+              "text": "The diligent worker",
+              "role": "subject",
+              "person": "3sg"
+            },
+            "verb": {
+              "text": "labored",
+              "role": "verb"
+            }
+          },
+          "georgian_verb_form": "იშრომა",
+          "person": "3sg",
+          "effective_preverb": ""
         },
         {
-          "georgian": "დაღლილმა ფერმერმა იშრომეს",
-          "english": "<strong data-role=\"subject\">The tired farmer</strong> <strong data-role=\"verb\">labored</strong>",
-          "english_plain": "The tired farmer labored",
-          "html": "<span data-case=\"erg\" data-role=\"subject\">დაღლილმა ფერმერმა</span> <span data-role=\"verb\">იშრომეს</span>",
-          "case_marking": {
+          "georgian": "დაღლილმა ფერმერებმა იშრომეს",
+          "georgian_components": {
             "subject": {
+              "text": "დაღლილმა ფერმერებმა",
               "case": "erg",
-              "word": "ფერმერმა"
+              "role": "subject"
+            },
+            "verb": {
+              "text": "იშრომეს",
+              "role": "verb"
             }
           },
-          "georgian_verb_form": "იშრომეს"
+          "english": "The tired farmers labored",
+          "english_components": {
+            "subject": {
+              "text": "The tired farmers",
+              "role": "subject",
+              "person": "3pl"
+            },
+            "verb": {
+              "text": "labored",
+              "role": "verb"
+            }
+          },
+          "georgian_verb_form": "იშრომეს",
+          "person": "3pl",
+          "effective_preverb": ""
         }
       ],
       "optative": [
         {
           "georgian": "უნდა ვიშრომო",
-          "english": "<strong data-role=\"subject\" data-person=\"1sg\">I</strong> <strong data-role=\"verb\">should</strong> <strong data-role=\"verb\">labor</strong>",
-          "english_plain": "I should labor",
-          "html": " <span data-role=\"verb\">უნდა ვიშრომო</span>",
-          "case_marking": {},
-          "georgian_verb_form": "ვიშრომო"
+          "georgian_components": {
+            "verb": {
+              "text": "უნდა ვიშრომო",
+              "role": "verb"
+            }
+          },
+          "english": "I should labor",
+          "english_components": {
+            "subject": {
+              "text": "I",
+              "role": "subject",
+              "person": "1sg"
+            },
+            "verb": {
+              "text": "should labor",
+              "role": "verb"
+            }
+          },
+          "georgian_verb_form": "ვიშრომო",
+          "person": "1sg",
+          "effective_preverb": ""
         },
         {
           "georgian": "შრომისმოყვარე მუშამ უნდა იშრომოს",
-          "english": "<strong data-role=\"subject\">The diligent worker</strong> <strong data-role=\"verb\">should</strong> <strong data-role=\"verb\">labor</strong>",
-          "english_plain": "The diligent worker should labor",
-          "html": "<span data-case=\"erg\" data-role=\"subject\">შრომისმოყვარე მუშამ</span> <span data-role=\"verb\">უნდა იშრომოს</span>",
-          "case_marking": {
+          "georgian_components": {
             "subject": {
+              "text": "შრომისმოყვარე მუშამ",
               "case": "erg",
-              "word": "მუშამ"
+              "role": "subject"
+            },
+            "verb": {
+              "text": "უნდა იშრომოს",
+              "role": "verb"
             }
           },
-          "georgian_verb_form": "იშრომოს"
+          "english": "The diligent worker should labor",
+          "english_components": {
+            "subject": {
+              "text": "The diligent worker",
+              "role": "subject",
+              "person": "3sg"
+            },
+            "verb": {
+              "text": "should labor",
+              "role": "verb"
+            }
+          },
+          "georgian_verb_form": "იშრომოს",
+          "person": "3sg",
+          "effective_preverb": ""
         },
         {
-          "georgian": "დაღლილმა ფერმერმა უნდა იშრომონ",
-          "english": "<strong data-role=\"subject\">The tired farmer</strong> <strong data-role=\"verb\">should</strong> <strong data-role=\"verb\">labor</strong>",
-          "english_plain": "The tired farmer should labor",
-          "html": "<span data-case=\"erg\" data-role=\"subject\">დაღლილმა ფერმერმა</span> <span data-role=\"verb\">უნდა იშრომონ</span>",
-          "case_marking": {
+          "georgian": "დაღლილმა ფერმერებმა უნდა იშრომონ",
+          "georgian_components": {
             "subject": {
+              "text": "დაღლილმა ფერმერებმა",
               "case": "erg",
-              "word": "ფერმერმა"
+              "role": "subject"
+            },
+            "verb": {
+              "text": "უნდა იშრომონ",
+              "role": "verb"
             }
           },
-          "georgian_verb_form": "იშრომონ"
+          "english": "The tired farmers should labor",
+          "english_components": {
+            "subject": {
+              "text": "The tired farmers",
+              "role": "subject",
+              "person": "3pl"
+            },
+            "verb": {
+              "text": "should labor",
+              "role": "verb"
+            }
+          },
+          "georgian_verb_form": "იშრომონ",
+          "person": "3pl",
+          "effective_preverb": ""
         }
       ],
       "imperative": [
         {
           "georgian": "იშრომე",
-          "english": "<strong data-role=\"verb\">labor</strong>",
-          "english_plain": "labor",
-          "html": " <span data-role=\"verb\">იშრომე</span>",
-          "case_marking": {},
-          "georgian_verb_form": "იშრომე"
+          "georgian_components": {
+            "verb": {
+              "text": "იშრომე",
+              "role": "verb"
+            }
+          },
+          "english": "You, labor",
+          "english_components": {
+            "subject": {
+              "text": "You,",
+              "role": "subject",
+              "person": "2sg"
+            },
+            "verb": {
+              "text": "labor",
+              "role": "verb"
+            }
+          },
+          "georgian_verb_form": "იშრომე",
+          "person": "2sg",
+          "effective_preverb": ""
         },
         {
           "georgian": "იშრომეთ",
-          "english": "<strong data-role=\"verb\">labor</strong>",
-          "english_plain": "labor",
-          "html": " <span data-role=\"verb\">იშრომეთ</span>",
-          "case_marking": {},
-          "georgian_verb_form": "იშრომეთ"
+          "georgian_components": {
+            "verb": {
+              "text": "იშრომეთ",
+              "role": "verb"
+            }
+          },
+          "english": "You all (you formal), labor",
+          "english_components": {
+            "subject": {
+              "text": "You all (you formal),",
+              "role": "subject",
+              "person": "2pl"
+            },
+            "verb": {
+              "text": "labor",
+              "role": "verb"
+            }
+          },
+          "georgian_verb_form": "იშრომეთ",
+          "person": "2pl",
+          "effective_preverb": ""
         }
       ]
     }

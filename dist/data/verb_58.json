@@ -124,207 +124,478 @@
   "preverb_rules": {
     "default": "",
     "replacements": {},
-    "tense_specific_fallbacks": {},
-    "english_fallbacks": {}
+    "tense_specific_fallbacks": {}
   },
   "examples": {
-    "null": {
+    "default": {
       "present": [
         {
           "georgian": "ვცურავ",
-          "english": "<strong data-role=\"subject\" data-person=\"1sg\">I</strong> <strong data-role=\"verb\">swim</strong>",
-          "english_plain": "I swim",
-          "html": " <span data-role=\"verb\">ვცურავ</span>",
-          "case_marking": {},
-          "georgian_verb_form": "ვცურავ"
+          "georgian_components": {
+            "verb": {
+              "text": "ვცურავ",
+              "role": "verb"
+            }
+          },
+          "english": "I swim",
+          "english_components": {
+            "subject": {
+              "text": "I",
+              "role": "subject",
+              "person": "1sg"
+            },
+            "verb": {
+              "text": "swim",
+              "role": "verb"
+            }
+          },
+          "georgian_verb_form": "ვცურავ",
+          "person": "1sg",
+          "effective_preverb": ""
         },
         {
           "georgian": "ძლიერი ბიჭი ცურავს",
-          "english": "<strong data-role=\"subject\">The strong boy</strong> <strong data-role=\"verb\">swims</strong>",
-          "english_plain": "The strong boy swims",
-          "html": "<span data-case=\"nom\" data-role=\"subject\">ძლიერი ბიჭი</span> <span data-role=\"verb\">ცურავს</span>",
-          "case_marking": {
+          "georgian_components": {
             "subject": {
+              "text": "ძლიერი ბიჭი",
               "case": "nom",
-              "word": "ბიჭი"
+              "role": "subject"
+            },
+            "verb": {
+              "text": "ცურავს",
+              "role": "verb"
             }
           },
-          "georgian_verb_form": "ცურავს"
+          "english": "The strong boy swims",
+          "english_components": {
+            "subject": {
+              "text": "The strong boy",
+              "role": "subject",
+              "person": "3sg"
+            },
+            "verb": {
+              "text": "swims",
+              "role": "verb"
+            }
+          },
+          "georgian_verb_form": "ცურავს",
+          "person": "3sg",
+          "effective_preverb": ""
         },
         {
-          "georgian": "პატარა თევზი ცურავენ",
-          "english": "<strong data-role=\"subject\">The small fish</strong> <strong data-role=\"verb\">swim</strong>",
-          "english_plain": "The small fish swim",
-          "html": "<span data-case=\"nom\" data-role=\"subject\">პატარა თევზი</span> <span data-role=\"verb\">ცურავენ</span>",
-          "case_marking": {
+          "georgian": "პატარა თევზები ცურავენ",
+          "georgian_components": {
             "subject": {
+              "text": "პატარა თევზები",
               "case": "nom",
-              "word": "თევზი"
+              "role": "subject"
+            },
+            "verb": {
+              "text": "ცურავენ",
+              "role": "verb"
             }
           },
-          "georgian_verb_form": "ცურავენ"
+          "english": "The small fish swim",
+          "english_components": {
+            "subject": {
+              "text": "The small fish",
+              "role": "subject",
+              "person": "3pl"
+            },
+            "verb": {
+              "text": "swim",
+              "role": "verb"
+            }
+          },
+          "georgian_verb_form": "ცურავენ",
+          "person": "3pl",
+          "effective_preverb": ""
         }
       ],
       "imperfect": [
         {
           "georgian": "ვცურავდი",
-          "english": "<strong data-role=\"subject\" data-person=\"1sg\">I</strong> <strong data-role=\"verb\">was swimming</strong>",
-          "english_plain": "I was swimming",
-          "html": " <span data-role=\"verb\">ვცურავდი</span>",
-          "case_marking": {},
-          "georgian_verb_form": "ვცურავდი"
+          "georgian_components": {
+            "verb": {
+              "text": "ვცურავდი",
+              "role": "verb"
+            }
+          },
+          "english": "I was swimming",
+          "english_components": {
+            "subject": {
+              "text": "I",
+              "role": "subject",
+              "person": "1sg"
+            },
+            "verb": {
+              "text": "was swimming",
+              "role": "verb"
+            }
+          },
+          "georgian_verb_form": "ვცურავდი",
+          "person": "1sg",
+          "effective_preverb": ""
         },
         {
           "georgian": "ძლიერი ბიჭი ცურავდა",
-          "english": "<strong data-role=\"subject\">The strong boy</strong> <strong data-role=\"verb\">was swimming</strong>",
-          "english_plain": "The strong boy was swimming",
-          "html": "<span data-case=\"nom\" data-role=\"subject\">ძლიერი ბიჭი</span> <span data-role=\"verb\">ცურავდა</span>",
-          "case_marking": {
+          "georgian_components": {
             "subject": {
+              "text": "ძლიერი ბიჭი",
               "case": "nom",
-              "word": "ბიჭი"
+              "role": "subject"
+            },
+            "verb": {
+              "text": "ცურავდა",
+              "role": "verb"
             }
           },
-          "georgian_verb_form": "ცურავდა"
+          "english": "The strong boy was swimming",
+          "english_components": {
+            "subject": {
+              "text": "The strong boy",
+              "role": "subject",
+              "person": "3sg"
+            },
+            "verb": {
+              "text": "was swimming",
+              "role": "verb"
+            }
+          },
+          "georgian_verb_form": "ცურავდა",
+          "person": "3sg",
+          "effective_preverb": ""
         },
         {
-          "georgian": "პატარა თევზი ცურავდნენ",
-          "english": "<strong data-role=\"subject\">The small fish</strong> <strong data-role=\"verb\">were swimming</strong>",
-          "english_plain": "The small fish were swimming",
-          "html": "<span data-case=\"nom\" data-role=\"subject\">პატარა თევზი</span> <span data-role=\"verb\">ცურავდნენ</span>",
-          "case_marking": {
+          "georgian": "პატარა თევზები ცურავდნენ",
+          "georgian_components": {
             "subject": {
+              "text": "პატარა თევზები",
               "case": "nom",
-              "word": "თევზი"
+              "role": "subject"
+            },
+            "verb": {
+              "text": "ცურავდნენ",
+              "role": "verb"
             }
           },
-          "georgian_verb_form": "ცურავდნენ"
+          "english": "The small fish were swimming",
+          "english_components": {
+            "subject": {
+              "text": "The small fish",
+              "role": "subject",
+              "person": "3pl"
+            },
+            "verb": {
+              "text": "were swimming",
+              "role": "verb"
+            }
+          },
+          "georgian_verb_form": "ცურავდნენ",
+          "person": "3pl",
+          "effective_preverb": ""
         }
       ],
       "future": [
         {
           "georgian": "ვიცურავებ",
-          "english": "<strong data-role=\"subject\" data-person=\"1sg\">I</strong> <strong data-role=\"verb\">will swim</strong>",
-          "english_plain": "I will swim",
-          "html": " <span data-role=\"verb\">ვიცურავებ</span>",
-          "case_marking": {},
-          "georgian_verb_form": "ვიცურავებ"
+          "georgian_components": {
+            "verb": {
+              "text": "ვიცურავებ",
+              "role": "verb"
+            }
+          },
+          "english": "I will swim",
+          "english_components": {
+            "subject": {
+              "text": "I",
+              "role": "subject",
+              "person": "1sg"
+            },
+            "verb": {
+              "text": "will swim",
+              "role": "verb"
+            }
+          },
+          "georgian_verb_form": "ვიცურავებ",
+          "person": "1sg",
+          "effective_preverb": ""
         },
         {
           "georgian": "ძლიერი ბიჭი იცურავებს",
-          "english": "<strong data-role=\"subject\">The strong boy</strong> <strong data-role=\"verb\">will swim</strong>",
-          "english_plain": "The strong boy will swim",
-          "html": "<span data-case=\"nom\" data-role=\"subject\">ძლიერი ბიჭი</span> <span data-role=\"verb\">იცურავებს</span>",
-          "case_marking": {
+          "georgian_components": {
             "subject": {
+              "text": "ძლიერი ბიჭი",
               "case": "nom",
-              "word": "ბიჭი"
+              "role": "subject"
+            },
+            "verb": {
+              "text": "იცურავებს",
+              "role": "verb"
             }
           },
-          "georgian_verb_form": "იცურავებს"
+          "english": "The strong boy will swim",
+          "english_components": {
+            "subject": {
+              "text": "The strong boy",
+              "role": "subject",
+              "person": "3sg"
+            },
+            "verb": {
+              "text": "will swim",
+              "role": "verb"
+            }
+          },
+          "georgian_verb_form": "იცურავებს",
+          "person": "3sg",
+          "effective_preverb": ""
         },
         {
-          "georgian": "პატარა თევზი იცურავებენ",
-          "english": "<strong data-role=\"subject\">The small fish</strong> <strong data-role=\"verb\">will swim</strong>",
-          "english_plain": "The small fish will swim",
-          "html": "<span data-case=\"nom\" data-role=\"subject\">პატარა თევზი</span> <span data-role=\"verb\">იცურავებენ</span>",
-          "case_marking": {
+          "georgian": "პატარა თევზები იცურავებენ",
+          "georgian_components": {
             "subject": {
+              "text": "პატარა თევზები",
               "case": "nom",
-              "word": "თევზი"
+              "role": "subject"
+            },
+            "verb": {
+              "text": "იცურავებენ",
+              "role": "verb"
             }
           },
-          "georgian_verb_form": "იცურავებენ"
+          "english": "The small fish will swim",
+          "english_components": {
+            "subject": {
+              "text": "The small fish",
+              "role": "subject",
+              "person": "3pl"
+            },
+            "verb": {
+              "text": "will swim",
+              "role": "verb"
+            }
+          },
+          "georgian_verb_form": "იცურავებენ",
+          "person": "3pl",
+          "effective_preverb": ""
         }
       ],
       "aorist": [
         {
           "georgian": "ვიცურავე",
-          "english": "<strong data-role=\"subject\" data-person=\"1sg\">I</strong> <strong data-role=\"verb\">swam</strong>",
-          "english_plain": "I swam",
-          "html": " <span data-role=\"verb\">ვიცურავე</span>",
-          "case_marking": {},
-          "georgian_verb_form": "ვიცურავე"
+          "georgian_components": {
+            "verb": {
+              "text": "ვიცურავე",
+              "role": "verb"
+            }
+          },
+          "english": "I swam",
+          "english_components": {
+            "subject": {
+              "text": "I",
+              "role": "subject",
+              "person": "1sg"
+            },
+            "verb": {
+              "text": "swam",
+              "role": "verb"
+            }
+          },
+          "georgian_verb_form": "ვიცურავე",
+          "person": "1sg",
+          "effective_preverb": ""
         },
         {
           "georgian": "ძლიერმა ბიჭმა იცურავა",
-          "english": "<strong data-role=\"subject\">The strong boy</strong> <strong data-role=\"verb\">swam</strong>",
-          "english_plain": "The strong boy swam",
-          "html": "<span data-case=\"erg\" data-role=\"subject\">ძლიერმა ბიჭმა</span> <span data-role=\"verb\">იცურავა</span>",
-          "case_marking": {
+          "georgian_components": {
             "subject": {
+              "text": "ძლიერმა ბიჭმა",
               "case": "erg",
-              "word": "ბიჭმა"
+              "role": "subject"
+            },
+            "verb": {
+              "text": "იცურავა",
+              "role": "verb"
             }
           },
-          "georgian_verb_form": "იცურავა"
+          "english": "The strong boy swam",
+          "english_components": {
+            "subject": {
+              "text": "The strong boy",
+              "role": "subject",
+              "person": "3sg"
+            },
+            "verb": {
+              "text": "swam",
+              "role": "verb"
+            }
+          },
+          "georgian_verb_form": "იცურავა",
+          "person": "3sg",
+          "effective_preverb": ""
         },
         {
-          "georgian": "პატარა თევზმა იცურავეს",
-          "english": "<strong data-role=\"subject\">The small fish</strong> <strong data-role=\"verb\">swam</strong>",
-          "english_plain": "The small fish swam",
-          "html": "<span data-case=\"erg\" data-role=\"subject\">პატარა თევზმა</span> <span data-role=\"verb\">იცურავეს</span>",
-          "case_marking": {
+          "georgian": "პატარა თევზებმა იცურავეს",
+          "georgian_components": {
             "subject": {
+              "text": "პატარა თევზებმა",
               "case": "erg",
-              "word": "თევზმა"
+              "role": "subject"
+            },
+            "verb": {
+              "text": "იცურავეს",
+              "role": "verb"
             }
           },
-          "georgian_verb_form": "იცურავეს"
+          "english": "The small fish swam",
+          "english_components": {
+            "subject": {
+              "text": "The small fish",
+              "role": "subject",
+              "person": "3pl"
+            },
+            "verb": {
+              "text": "swam",
+              "role": "verb"
+            }
+          },
+          "georgian_verb_form": "იცურავეს",
+          "person": "3pl",
+          "effective_preverb": ""
         }
       ],
       "optative": [
         {
           "georgian": "უნდა ვიცურაო",
-          "english": "<strong data-role=\"subject\" data-person=\"1sg\">I</strong> <strong data-role=\"verb\">should</strong> <strong data-role=\"verb\">swim</strong>",
-          "english_plain": "I should swim",
-          "html": " <span data-role=\"verb\">უნდა ვიცურაო</span>",
-          "case_marking": {},
-          "georgian_verb_form": "ვიცურაო"
+          "georgian_components": {
+            "verb": {
+              "text": "უნდა ვიცურაო",
+              "role": "verb"
+            }
+          },
+          "english": "I should swim",
+          "english_components": {
+            "subject": {
+              "text": "I",
+              "role": "subject",
+              "person": "1sg"
+            },
+            "verb": {
+              "text": "should swim",
+              "role": "verb"
+            }
+          },
+          "georgian_verb_form": "ვიცურაო",
+          "person": "1sg",
+          "effective_preverb": ""
         },
         {
           "georgian": "ძლიერმა ბიჭმა უნდა იცურაოს",
-          "english": "<strong data-role=\"subject\">The strong boy</strong> <strong data-role=\"verb\">should</strong> <strong data-role=\"verb\">swim</strong>",
-          "english_plain": "The strong boy should swim",
-          "html": "<span data-case=\"erg\" data-role=\"subject\">ძლიერმა ბიჭმა</span> <span data-role=\"verb\">უნდა იცურაოს</span>",
-          "case_marking": {
+          "georgian_components": {
             "subject": {
+              "text": "ძლიერმა ბიჭმა",
               "case": "erg",
-              "word": "ბიჭმა"
+              "role": "subject"
+            },
+            "verb": {
+              "text": "უნდა იცურაოს",
+              "role": "verb"
             }
           },
-          "georgian_verb_form": "იცურაოს"
+          "english": "The strong boy should swim",
+          "english_components": {
+            "subject": {
+              "text": "The strong boy",
+              "role": "subject",
+              "person": "3sg"
+            },
+            "verb": {
+              "text": "should swim",
+              "role": "verb"
+            }
+          },
+          "georgian_verb_form": "იცურაოს",
+          "person": "3sg",
+          "effective_preverb": ""
         },
         {
-          "georgian": "პატარა თევზმა უნდა იცურაონ",
-          "english": "<strong data-role=\"subject\">The small fish</strong> <strong data-role=\"verb\">should</strong> <strong data-role=\"verb\">swim</strong>",
-          "english_plain": "The small fish should swim",
-          "html": "<span data-case=\"erg\" data-role=\"subject\">პატარა თევზმა</span> <span data-role=\"verb\">უნდა იცურაონ</span>",
-          "case_marking": {
+          "georgian": "პატარა თევზებმა უნდა იცურაონ",
+          "georgian_components": {
             "subject": {
+              "text": "პატარა თევზებმა",
               "case": "erg",
-              "word": "თევზმა"
+              "role": "subject"
+            },
+            "verb": {
+              "text": "უნდა იცურაონ",
+              "role": "verb"
             }
           },
-          "georgian_verb_form": "იცურაონ"
+          "english": "The small fish should swim",
+          "english_components": {
+            "subject": {
+              "text": "The small fish",
+              "role": "subject",
+              "person": "3pl"
+            },
+            "verb": {
+              "text": "should swim",
+              "role": "verb"
+            }
+          },
+          "georgian_verb_form": "იცურაონ",
+          "person": "3pl",
+          "effective_preverb": ""
         }
       ],
       "imperative": [
         {
           "georgian": "იცურავე",
-          "english": "<strong data-role=\"verb\">swim</strong>",
-          "english_plain": "swim",
-          "html": " <span data-role=\"verb\">იცურავე</span>",
-          "case_marking": {},
-          "georgian_verb_form": "იცურავე"
+          "georgian_components": {
+            "verb": {
+              "text": "იცურავე",
+              "role": "verb"
+            }
+          },
+          "english": "You, swim",
+          "english_components": {
+            "subject": {
+              "text": "You,",
+              "role": "subject",
+              "person": "2sg"
+            },
+            "verb": {
+              "text": "swim",
+              "role": "verb"
+            }
+          },
+          "georgian_verb_form": "იცურავე",
+          "person": "2sg",
+          "effective_preverb": ""
         },
         {
           "georgian": "იცურავეთ",
-          "english": "<strong data-role=\"verb\">swim</strong>",
-          "english_plain": "swim",
-          "html": " <span data-role=\"verb\">იცურავეთ</span>",
-          "case_marking": {},
-          "georgian_verb_form": "იცურავეთ"
+          "georgian_components": {
+            "verb": {
+              "text": "იცურავეთ",
+              "role": "verb"
+            }
+          },
+          "english": "You all (you formal), swim",
+          "english_components": {
+            "subject": {
+              "text": "You all (you formal),",
+              "role": "subject",
+              "person": "2pl"
+            },
+            "verb": {
+              "text": "swim",
+              "role": "verb"
+            }
+          },
+          "georgian_verb_form": "იცურავეთ",
+          "person": "2pl",
+          "effective_preverb": ""
         }
       ]
     }

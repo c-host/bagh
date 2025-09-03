@@ -1,121 +1,215 @@
 #!/usr/bin/env python3
 """
 Verb Conjugation Module - Handles verb conjugation and preverb form calculations
+
+This module provides clean, maintainable conjugation processing with proper fallback
+handling for tenses that legitimately have no forms (e.g., verb 2's future tense).
 """
 
-import logging
 from typing import Dict, List, Optional, Any
+from dataclasses import dataclass
 
 # Import Unicode-safe logging utilities
 from tools.utils.unicode_console import safe_log
 
-logger = logging.getLogger(__name__)
+
+@dataclass
+class VerbStructure:
+    """Represents the structure type of a verb."""
+
+    has_multiple_preverbs: bool
+    has_forms_structure: bool
+    default_preverb: str = ""
 
 
-def get_conjugation_form(
-    verb: Dict, tense: str, person: str, preverb: Optional[str] = None
-) -> str:
+@dataclass
+class ConjugationRequest:
+    """Represents a conjugation request with all necessary parameters."""
+
+    verb: Dict
+    tense: str
+    person: str
+    preverb: Optional[str] = None
+
+
+class VerbConjugationProcessor:
     """
-    Get verb form with preverb handling using data structure detection.
+    Clean, maintainable verb conjugation processor.
 
-    Args:
-        verb: Verb dictionary
-        tense: Tense name (e.g., "present", "future")
-        person: Person form (e.g., "1sg", "3pl")
-        preverb: Optional preverb to use (defaults to verb's default preverb)
-
-    Returns:
-        Verb form string
+    Handles both single and multi-preverb verbs with proper fallback logic
+    for tenses that legitimately have no forms.
     """
-    import logging
 
-    logger = logging.getLogger(__name__)
+    def __init__(self, config: Optional[Dict] = None):
+        """Initialize with optional configuration."""
+        self.config = config or {}
+        self.enable_debug_logging = self.config.get("enable_debug_logging", False)
 
-    safe_log(
-        logger,
-        "info",
-        f"[CONJUGATION] Getting form for verb: {verb.get('georgian', 'unknown')}, tense: {tense}, person: {person}, preverb: {preverb}",
-    )
+        # Extract Georgian preverbs to configuration
+        self.georgian_preverbs = self.config.get(
+            "georgian_preverbs",
+            ["მო", "წა", "მი", "გა", "და", "შე", "შემო", "გადა", "მიმო", "გამო"],
+        )
 
-    preverb_config = verb.get("preverb_config", {})
-    has_multiple_preverbs = preverb_config.get("has_multiple_preverbs", False)
+    def get_conjugation_form(
+        self, verb: Dict, tense: str, person: str, preverb: Optional[str] = None
+    ) -> str:
+        """
+        Get verb form with preverb handling - main entry point.
 
-    safe_log(
-        logger, "info", f"[CONJUGATION] Has multiple preverbs: {has_multiple_preverbs}"
-    )
+        Args:
+            verb: Verb dictionary
+            tense: Tense name (e.g., "present", "future")
+            person: Person form (e.g., "1sg", "3pl")
+            preverb: Optional preverb to use (defaults to verb's default preverb)
 
-    # Get the base verb form
-    base_form = ""
+        Returns:
+            Verb form string (or "-" if no form exists for this tense/person)
+        """
+        request = ConjugationRequest(verb, tense, person, preverb)
 
-    # Single preverb verb (old format)
-    if not has_multiple_preverbs:
-        safe_log(logger, "info", "[CONJUGATION] Single preverb verb")
+        try:
+            # Stage 1: Detect verb structure
+            structure = self._detect_verb_structure(request.verb)
+
+            # Stage 2: Extract base forms
+            base_forms = self._extract_base_forms(
+                request.verb, request.tense, structure
+            )
+
+            # Stage 3: Calculate final form
+            return self._calculate_final_form(
+                base_forms, request.person, request.preverb, request.verb, structure
+            )
+
+        except Exception as e:
+            safe_log(
+                "error",
+                f"Conjugation failed for {request.verb.get('id', 'unknown')}/{request.tense}/{request.person}: {e}",
+            )
+            return "-"  # Fallback for unexpected errors
+
+    def _detect_verb_structure(self, verb: Dict) -> VerbStructure:
+        """Detect the structure type of a verb."""
+        preverb_config = verb.get("preverb_config", {})
+        has_multiple_preverbs = preverb_config.get("has_multiple_preverbs", False)
+        default_preverb = preverb_config.get("default_preverb", "")
+
+        # Assume new structure - fail fast if data is malformed
+        conjugations = verb.get("conjugations", {})
+        if not isinstance(conjugations, dict):
+            raise ValueError(
+                f"Invalid conjugations structure for verb {verb.get('id', 'unknown')}"
+            )
+
+        return VerbStructure(
+            has_multiple_preverbs=has_multiple_preverbs,
+            has_forms_structure=True,  # Assume new structure
+            default_preverb=default_preverb,
+        )
+
+    def _extract_base_forms(
+        self, verb: Dict, tense: str, structure: VerbStructure
+    ) -> Dict[str, str]:
+        """Extract base forms for a specific tense."""
         conjugations = verb.get("conjugations", {})
         tense_data = conjugations.get(tense, {})
 
-        # New structure with forms
-        if isinstance(tense_data, dict) and "forms" in tense_data:
-            base_form = tense_data["forms"].get(person, "-")
-            safe_log(
-                logger, "info", f"[CONJUGATION] Using new structure, form: {base_form}"
+        # Assume new structure - fail fast if malformed
+        if not isinstance(tense_data, dict):
+            raise ValueError(
+                f"Invalid tense data structure for {tense} in verb {verb.get('id', 'unknown')}"
             )
-        else:
-            base_form = "-"
-            safe_log(logger, "warning", f"[CONJUGATION] No forms found in tense data")
 
-    else:
-        # Multi-preverb verb
-        safe_log(logger, "info", "[CONJUGATION] Multi-preverb verb")
+        # Get forms directly - assume they exist
+        forms = tense_data.get("forms", {})
+
+        if self.enable_debug_logging:
+            if forms:
+                safe_log("debug", f"Found forms for {tense}: {forms}")
+            else:
+                safe_log(
+                    "debug",
+                    f"No forms found for {tense} - this may be legitimate",
+                )
+
+        return forms
+
+    def _calculate_final_form(
+        self,
+        base_forms: Dict[str, str],
+        person: str,
+        preverb: Optional[str],
+        verb: Dict,
+        structure: VerbStructure,
+    ) -> str:
+        """Calculate the final form for a specific person and preverb."""
+
+        # If no forms exist for this tense, return "-" (legitimate case)
+        if not base_forms:
+            return "-"
+
+        # Get the base form for this person
+        base_form = base_forms.get(person, "-")
+
+        # If no form for this person, return "-" (legitimate case)
+        if base_form == "-" or base_form == "":
+            return "-"
+
+        # For single preverb verbs, return the base form directly
+        if not structure.has_multiple_preverbs:
+            return base_form
+
+        # For multi-preverb verbs, apply preverb transformation
         if preverb is None:
-            preverb = preverb_config.get("default_preverb", "")
-            safe_log(logger, "info", f"[CONJUGATION] Using default preverb: {preverb}")
+            preverb = structure.default_preverb
 
-        conjugations = verb.get("conjugations", {})
-        tense_data = conjugations.get(tense, {})
+        if preverb == structure.default_preverb:
+            return base_form  # No transformation needed
 
-        if "forms" in tense_data:
-            # Get the base forms (which already have the default preverb)
-            base_forms = tense_data["forms"]
-            safe_log(logger, "info", f"[CONJUGATION] Base forms: {base_forms}")
+        # Apply preverb transformation
+        return self._apply_preverb_transformation(
+            base_form, preverb, structure.default_preverb, verb
+        )
 
-            # Get preverb rules for replacement
-            preverb_rules = verb.get("preverb_rules", {})
-            safe_log(logger, "info", f"[CONJUGATION] Preverb rules: {preverb_rules}")
+    def _apply_preverb_transformation(
+        self, base_form: str, target_preverb: str, default_preverb: str, verb: Dict
+    ) -> str:
+        """Apply preverb transformation to a base form."""
+        preverb_rules = verb.get("preverb_rules", {})
+        replacements = preverb_rules.get("replacements", {})
 
-            # Calculate the forms with the target preverb
-            preverb_forms = calculate_preverb_forms(base_forms, preverb_rules, preverb)
-            safe_log(
-                logger,
-                "info",
-                f"[CONJUGATION] Calculated preverb forms: {preverb_forms}",
-            )
+        # Get the actual replacement for this preverb
+        replacement = replacements.get(target_preverb, target_preverb)
 
-            # Get the specific person form
-            base_form = preverb_forms.get(person, "-")
-            safe_log(
-                logger, "info", f"[CONJUGATION] Final form for {person}: {base_form}"
-            )
-        else:
-            base_form = "-"
-            safe_log(logger, "warning", f"[CONJUGATION] No forms found in tense data")
+        # Normalize preverb values by removing hyphens for comparison
+        normalized_target = target_preverb.replace("-", "")
+        normalized_default = default_preverb.replace("-", "")
 
-    safe_log(logger, "info", f"[CONJUGATION] Returning form: {base_form}")
-    return base_form
+        # If the target preverb is the same as the default preverb, return the original form
+        if normalized_target == normalized_default:
+            return base_form
 
+        # Extract the stem (remove the default preverb) and apply the new preverb
+        if base_form.startswith(normalized_default):
+            stem = base_form[len(normalized_default) :]
+            return replacement + stem
 
-def _is_stem_based_approach(preverb_config: Dict) -> bool:
-    """
-    Detect if verb uses stem-based approach by checking for available_preverbs array.
+        # Handle irregular forms that don't follow prefix pattern
+        return base_form
 
-    Args:
-        preverb_config: Preverb configuration dictionary
+    def has_preverb_in_tense(self, verb: Dict, tense: str) -> bool:
+        """
+                Check if a verb has preverbs in a specific tense using instance configuration.
 
-    Returns:
-        True if stem-based approach, False if pre-defined forms approach
-    """
-    return "available_preverbs" in preverb_config and isinstance(
-        preverb_config["available_preverbs"], list
-    )
+        Args:
+                    verb: Verb dictionary
+                    tense: Tense name (e.g., "present", "future")
+
+        Returns:
+                    True if the verb has preverbs in this tense, False otherwise
+        """
+        return has_preverb_in_tense(verb, tense, self.georgian_preverbs)
 
 
 def calculate_preverb_forms(
@@ -123,6 +217,8 @@ def calculate_preverb_forms(
 ) -> Dict[str, str]:
     """
     Calculate preverb forms based on preverb rules.
+
+    This function is kept for backward compatibility but delegates to the new processor.
 
     Args:
         forms: Dictionary of conjugation forms with default preverb
@@ -132,93 +228,39 @@ def calculate_preverb_forms(
     Returns:
         Dictionary of forms with the target preverb applied
     """
-    import logging
+    # Create a minimal verb structure for the processor
+    verb_structure = {
+        "preverb_config": {
+            "has_multiple_preverbs": True,
+            "default_preverb": preverb_rules.get("default", ""),
+        },
+        "preverb_rules": preverb_rules,
+    }
 
-    logger = logging.getLogger(__name__)
-
-    safe_log(
-        logger,
-        "info",
-        f"[PREVERB_CALC] Calculating preverb forms for target: {target_preverb}",
-    )
-    safe_log(logger, "info", f"[PREVERB_CALC] Input forms: {forms}")
-    safe_log(logger, "info", f"[PREVERB_CALC] Preverb rules: {preverb_rules}")
-
-    if not preverb_rules:
-        safe_log(
-            logger, "info", "[PREVERB_CALC] No preverb rules, returning original forms"
-        )
-        return forms
-
-    default_preverb = preverb_rules.get("default", "")
-    replacements = preverb_rules.get("replacements", {})
-    tense_specific_fallbacks = preverb_rules.get("tense_specific_fallbacks", {})
-
-    safe_log(logger, "info", f"[PREVERB_CALC] Default preverb: {default_preverb}")
-    safe_log(logger, "info", f"[PREVERB_CALC] Replacements: {replacements}")
-
-    # Get the actual replacement for this preverb
-    replacement = replacements.get(target_preverb, target_preverb)
-    safe_log(
-        logger,
-        "info",
-        f"[PREVERB_CALC] Replacement for {target_preverb}: {replacement}",
-    )
-
-    # Check for tense-specific fallbacks
-    if target_preverb in tense_specific_fallbacks:
-        # Handle this in the calling function
-        # This is a placeholder for future tense-specific logic
-        safe_log(
-            logger,
-            "info",
-            f"[PREVERB_CALC] Found tense-specific fallback for {target_preverb}",
-        )
-        pass
-
-    # Normalize preverb values by removing hyphens for comparison
-    normalized_target = target_preverb.replace("-", "")
-    normalized_default = default_preverb.replace("-", "")
-
-    safe_log(
-        logger,
-        "info",
-        f"[PREVERB_CALC] Normalized target: {normalized_target}, normalized default: {normalized_default}",
-    )
-
-    # If the target preverb is the same as the default preverb, return the original forms
-    if normalized_target == normalized_default:
-        safe_log(
-            logger,
-            "info",
-            "[PREVERB_CALC] Target same as default, returning original forms",
-        )
-        return forms
-
+    processor = VerbConjugationProcessor()
     result = {}
+
     for person, form in forms.items():
-        safe_log(logger, "info", f"[PREVERB_CALC] Processing {person}: {form}")
         if form == "-" or form == "":
             result[person] = form
-            safe_log(logger, "info", f"[PREVERB_CALC] Empty form for {person}: {form}")
-        elif form.startswith(normalized_default):
-            # Extract the stem (remove the default preverb) and apply the new preverb
-            stem = form[len(normalized_default) :]
-            result[person] = replacement + stem
-            safe_log(
-                logger,
-                "info",
-                f"[PREVERB_CALC] Replaced preverb for {person}: {form} -> {result[person]} (stem: {stem})",
-            )
         else:
-            # Handle irregular forms that don't follow prefix pattern
-            result[person] = form
-            safe_log(
-                logger, "info", f"[PREVERB_CALC] Irregular form for {person}: {form}"
+            result[person] = processor._apply_preverb_transformation(
+                form, target_preverb, preverb_rules.get("default", ""), verb_structure
             )
 
-    safe_log(logger, "info", f"[PREVERB_CALC] Final result: {result}")
     return result
+
+
+def get_conjugation_form(
+    verb: Dict, tense: str, person: str, preverb: Optional[str] = None
+) -> str:
+    """
+    Get verb form with preverb handling - backward compatibility wrapper.
+
+    This function is kept for backward compatibility but delegates to the new processor.
+    """
+    processor = VerbConjugationProcessor()
+    return processor.get_conjugation_form(verb, tense, person, preverb)
 
 
 def get_preverb_mappings(
@@ -287,129 +329,22 @@ def get_english_translation(
     Returns:
         English translation string
     """
-    import logging
-    from pathlib import Path
+    # Get the raw gloss for this tense
+    conjugations = verb.get("conjugations", {})
+    tense_data = conjugations.get(tense, {})
 
-    # Get logger for this module
-    logger = logging.getLogger(__name__)
-
-    # Configure logging for this module if not already configured
-    if not logger.handlers:
-        # Create logs directory if it doesn't exist
-        logs_dir = (
-            Path(__file__).parent.parent.parent
-            / "src"
-            / "data"
-            / "verb_editor"
-            / "servers"
-            / "logs"
-        )
-        logs_dir.mkdir(exist_ok=True)
-
-        # Create file handler
-        file_handler = logging.FileHandler(logs_dir / "verb_conjugation.log")
-        file_handler.setLevel(logging.INFO)
-
-        # Create console handler
-        console_handler = logging.StreamHandler()
-        console_handler.setLevel(logging.INFO)
-
-        # Create formatter
-        formatter = logging.Formatter(
-            "%(asctime)s - %(name)s - %(levelname)s - %(message)s"
-        )
-        file_handler.setFormatter(formatter)
-        console_handler.setFormatter(formatter)
-
-        # Add handlers to logger
-        logger.addHandler(file_handler)
-        logger.addHandler(console_handler)
-        logger.setLevel(logging.INFO)
-
-    # Get English translations from the new structure
-    english_translations = verb.get("english_translations", {})
-
-    safe_log(
-        logger,
-        "info",
-        f"Looking up English translation: preverb='{preverb}', tense='{tense}'",
-    )
-    safe_log(
-        logger,
-        "info",
-        f"Available preverbs in english_translations: {list(english_translations.keys())}",
-    )
-
-    # Check for preverb-specific translations first
-    if preverb and preverb in english_translations:
-        safe_log(
-            logger,
-            "info",
-            f"Found preverb translations for '{preverb}': {english_translations[preverb]}",
-        )
-        if (
-            isinstance(english_translations[preverb], dict)
-            and tense in english_translations[preverb]
-        ):
-            result = english_translations[preverb][tense]
-            safe_log(logger, "info", f"Using preverb-specific translation: '{result}'")
-            return result
-
-    # Check for default translations
-    default_translations = english_translations.get("default", {})
-    safe_log(logger, "info", f"Default translations: {default_translations}")
-    if isinstance(default_translations, dict) and tense in default_translations:
-        result = default_translations[tense]
-        safe_log(logger, "info", f"Using default translation: '{result}'")
-        return result
-
-    # Fall back to semantic key
-    fallback = verb.get("semantic_key", "to do")
-    safe_log(logger, "info", f"Using fallback translation: '{fallback}'")
-    return fallback
-
-
-def add_should_prefix_for_optative(translation: str, tense: str) -> str:
-    """
-    Add "should" prefix to optative translations if not already present.
-
-    Args:
-        translation: The translation string
-        tense: The tense name
-
-    Returns:
-        Translation with "should" prefix added for optative tense if needed
-    """
-    if not translation or not translation.strip():
+    if not isinstance(tense_data, dict):
         return ""
 
-    if tense != "optative":
-        return translation
+    # Check for raw_gloss in the new structure
+    if "raw_gloss" in tense_data:
+        raw_gloss = tense_data["raw_gloss"]
+        if raw_gloss:
+            # Extract the base translation from the raw gloss
+            # This is a simplified approach - could be enhanced with more sophisticated parsing
+            return raw_gloss
 
-    trimmed = translation.strip()
-
-    # If it already starts with "should", return as is
-    if trimmed.lower().startswith("should "):
-        return trimmed
-
-    # Add "should" prefix for optative tense
-    return f"should {trimmed}"
-
-
-def get_indirect_object_preposition(verb: Dict) -> str:
-    """
-    Get the appropriate preposition for indirect objects with this verb.
-
-    Args:
-        verb: Verb dictionary
-
-    Returns:
-        Preposition string (e.g., "to", "for") or empty string if not specified
-    """
-    # Check new prepositions object structure first
-    prepositions = verb.get("prepositions", {})
-    if "indirect_object" in prepositions:
-        return prepositions["indirect_object"]
+    return ""
 
 
 def get_direct_object_preposition(verb: Dict) -> str:
@@ -422,22 +357,39 @@ def get_direct_object_preposition(verb: Dict) -> str:
     Returns:
         Preposition string (e.g., "to", "for") or empty string if not specified
     """
-    # Check new prepositions object structure
     prepositions = verb.get("prepositions", {})
     return prepositions.get("direct_object", "")
 
 
-def has_preverb_in_tense(verb: Dict, tense: str) -> bool:
+def has_preverb_in_tense(
+    verb: Dict, tense: str, georgian_preverbs: Optional[List[str]] = None
+) -> bool:
     """
     Check if a verb has preverbs in a specific tense.
 
     Args:
         verb: Verb dictionary
         tense: Tense name (e.g., "present", "future")
+        georgian_preverbs: Optional list of Georgian preverbs to check against
 
     Returns:
         True if the verb has preverbs in this tense, False otherwise
     """
+    # Default preverbs if none provided
+    if georgian_preverbs is None:
+        georgian_preverbs = [
+            "მო",
+            "წა",
+            "მი",
+            "გა",
+            "და",
+            "შე",
+            "შემო",
+            "გადა",
+            "მიმო",
+            "გამო",
+        ]
+
     conjugations = verb.get("conjugations", {})
     tense_data = conjugations.get(tense, {})
 
@@ -445,10 +397,11 @@ def has_preverb_in_tense(verb: Dict, tense: str) -> bool:
         return False
 
     # Check if there's a gloss with preverb information
-    if "gloss" in tense_data:
-        gloss = tense_data["gloss"]
-        preverb = gloss.get("preverb", "")
-        return bool(preverb and preverb.strip())
+    if "raw_gloss" in tense_data:
+        raw_gloss = tense_data["raw_gloss"]
+        if raw_gloss and "V" in raw_gloss:
+            # Simple check for verb forms in raw_gloss
+            return True
 
     # Check if there are forms with preverbs
     if "forms" in tense_data:
@@ -456,20 +409,7 @@ def has_preverb_in_tense(verb: Dict, tense: str) -> bool:
         # Check if any form contains a preverb (starts with a preverb)
         for form in forms.values():
             if form and form != "-":
-                # Common Georgian preverbs
-                preverbs = [
-                    "მო-",
-                    "წა-",
-                    "მი-",
-                    "გა-",
-                    "და-",
-                    "შე-",
-                    "შემო-",
-                    "გადა-",
-                    "მიმო-",
-                    "გამო-",
-                ]
-                if any(form.startswith(p.replace("-", "")) for p in preverbs):
+                if any(form.startswith(preverb) for preverb in georgian_preverbs):
                     return True
 
     return False
@@ -489,9 +429,13 @@ def get_verb_gloss(verb: Dict, tense: str) -> Optional[Dict[str, str]]:
     conjugations = verb.get("conjugations", {})
     tense_data = conjugations.get(tense, {})
 
-    # New structure with gloss
-    if isinstance(tense_data, dict) and "gloss" in tense_data:
-        return tense_data["gloss"]
+    # New structure with raw_gloss
+    if isinstance(tense_data, dict) and "raw_gloss" in tense_data:
+        raw_gloss = tense_data["raw_gloss"]
+        if raw_gloss:
+            return {"raw_gloss": raw_gloss}
+
+    return None
 
 
 def get_verb_examples(verb: Dict, tense: str) -> List[Dict[str, Any]]:
@@ -511,3 +455,41 @@ def get_verb_examples(verb: Dict, tense: str) -> List[Dict[str, Any]]:
     # New structure with examples in conjugations
     if isinstance(tense_data, dict) and "examples" in tense_data:
         return tense_data["examples"]
+
+    return []
+
+
+def get_indirect_object_preposition(verb: Dict) -> str:
+    """
+    Get the appropriate preposition for indirect objects with this verb.
+
+    Args:
+        verb: Verb dictionary
+
+    Returns:
+        Preposition string (e.g., "to", "for") or empty string if not specified
+    """
+    prepositions = verb.get("prepositions", {})
+    return prepositions.get("indirect_object", "")
+
+
+def add_should_prefix_for_optative(verb: Dict, tense: str) -> str:
+    """
+    Add "should" prefix for optative tense English translations.
+
+    Args:
+        verb: Verb dictionary
+        tense: Tense name
+
+    Returns:
+        English translation with "should" prefix if applicable
+    """
+    if tense != "optative":
+        return ""
+
+    # Get the base translation
+    base_translation = get_english_translation(verb, tense)
+    if base_translation:
+        return f"should {base_translation}"
+
+    return ""

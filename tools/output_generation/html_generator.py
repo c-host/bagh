@@ -945,7 +945,6 @@ class HTMLGenerator:
     ) -> str:
         """
         Generate examples section HTML using processed data instead of calling example generation methods.
-        [REFACTORED - Now reads from processed data instead of calling generate_pedagogical_examples]
 
         Args:
             verb: Base verb data dictionary

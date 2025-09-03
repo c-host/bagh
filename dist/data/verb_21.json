@@ -152,282 +152,631 @@
   "preverb_rules": {
     "default": "",
     "replacements": {},
-    "tense_specific_fallbacks": {},
-    "english_fallbacks": {}
+    "tense_specific_fallbacks": {}
   },
   "examples": {
-    "null": {
+    "default": {
       "present": [
         {
-          "georgian": "ლამაზ ხმას ვუსმენ",
-          "english": "<strong data-role=\"subject\" data-person=\"1sg\">I</strong> <strong data-role=\"verb\">listen</strong> <strong data-role=\"indirect-object\">to the beautiful sound</strong>",
-          "english_plain": "I listen to the beautiful sound",
-          "html": "<span data-case=\"dat\" data-role=\"indirect-object\">ლამაზ ხმას</span> <span data-role=\"verb\">ვუსმენ</span>",
-          "case_marking": {
-            "indirect_object": {
-              "case": "dat",
-              "word": "ხმას"
-            }
-          },
-          "georgian_verb_form": "ვუსმენ"
-        },
-        {
-          "georgian": "ნიჭიერი მუსიკოსი ძველ ინსტრუმენტს უსმენს",
-          "english": "<strong data-role=\"subject\">The talented musician</strong> <strong data-role=\"verb\">listens</strong> <strong data-role=\"indirect-object\">to the old instrument</strong>",
-          "english_plain": "The talented musician listens to the old instrument",
-          "html": "<span data-case=\"nom\" data-role=\"subject\">ნიჭიერი მუსიკოსი</span> <span data-case=\"dat\" data-role=\"indirect-object\">ძველ ინსტრუმენტს</span> <span data-role=\"verb\">უსმენს</span>",
-          "case_marking": {
-            "subject": {
-              "case": "nom",
-              "word": "მუსიკოსი"
+          "georgian": "ვუსმენ ლამაზ ხმას",
+          "georgian_components": {
+            "verb": {
+              "text": "ვუსმენ",
+              "role": "verb"
             },
             "indirect_object": {
+              "text": "ლამაზ ხმას",
               "case": "dat",
-              "word": "ინსტრუმენტს"
+              "role": "indirect_object"
             }
           },
-          "georgian_verb_form": "უსმენს"
-        },
-        {
-          "georgian": "დიდი აუდიტორია ცოცხალ მუსიკას უსმენენ",
-          "english": "<strong data-role=\"subject\">The large audience</strong> <strong data-role=\"verb\">listen</strong> <strong data-role=\"indirect-object\">to the live music</strong>",
-          "english_plain": "The large audience listen to the live music",
-          "html": "<span data-case=\"nom\" data-role=\"subject\">დიდი აუდიტორია</span> <span data-case=\"dat\" data-role=\"indirect-object\">ცოცხალ მუსიკას</span> <span data-role=\"verb\">უსმენენ</span>",
-          "case_marking": {
+          "english": "I listen to the beautiful sound",
+          "english_components": {
             "subject": {
-              "case": "nom",
-              "word": "აუდიტორია"
+              "text": "I",
+              "role": "subject",
+              "person": "1sg"
+            },
+            "verb": {
+              "text": "listen",
+              "role": "verb"
             },
             "indirect_object": {
-              "case": "dat",
-              "word": "მუსიკას"
+              "text": "to the beautiful sound",
+              "role": "indirect_object"
             }
           },
-          "georgian_verb_form": "უსმენენ"
+          "georgian_verb_form": "ვუსმენ",
+          "person": "1sg",
+          "effective_preverb": "მო"
+        },
+        {
+          "georgian": "ნიჭიერი მუსიკოსი უსმენს ძველ ინსტრუმენტს",
+          "georgian_components": {
+            "subject": {
+              "text": "ნიჭიერი მუსიკოსი",
+              "case": "nom",
+              "role": "subject"
+            },
+            "verb": {
+              "text": "უსმენს",
+              "role": "verb"
+            },
+            "indirect_object": {
+              "text": "ძველ ინსტრუმენტს",
+              "case": "dat",
+              "role": "indirect_object"
+            }
+          },
+          "english": "The talented musician listens to the old instrument",
+          "english_components": {
+            "subject": {
+              "text": "The talented musician",
+              "role": "subject",
+              "person": "3sg"
+            },
+            "verb": {
+              "text": "listens",
+              "role": "verb"
+            },
+            "indirect_object": {
+              "text": "to the old instrument",
+              "role": "indirect_object"
+            }
+          },
+          "georgian_verb_form": "უსმენს",
+          "person": "3sg",
+          "effective_preverb": "მო"
+        },
+        {
+          "georgian": "დიდი აუდიტორიები უსმენენ ცოცხალ მუსიკას",
+          "georgian_components": {
+            "subject": {
+              "text": "დიდი აუდიტორიები",
+              "case": "nom",
+              "role": "subject"
+            },
+            "verb": {
+              "text": "უსმენენ",
+              "role": "verb"
+            },
+            "indirect_object": {
+              "text": "ცოცხალ მუსიკას",
+              "case": "dat",
+              "role": "indirect_object"
+            }
+          },
+          "english": "The large audiences listen to the live music",
+          "english_components": {
+            "subject": {
+              "text": "The large audiences",
+              "role": "subject",
+              "person": "3pl"
+            },
+            "verb": {
+              "text": "listen",
+              "role": "verb"
+            },
+            "indirect_object": {
+              "text": "to the live music",
+              "role": "indirect_object"
+            }
+          },
+          "georgian_verb_form": "უსმენენ",
+          "person": "3pl",
+          "effective_preverb": "მო"
         }
       ],
       "imperfect": [
         {
-          "georgian": "ლამაზ ხმას ვუსმენდი",
-          "english": "<strong data-role=\"subject\" data-person=\"1sg\">I</strong> <strong data-role=\"verb\">was listening</strong> <strong data-role=\"indirect-object\">to the beautiful sound</strong>",
-          "english_plain": "I was listening to the beautiful sound",
-          "html": "<span data-case=\"dat\" data-role=\"indirect-object\">ლამაზ ხმას</span> <span data-role=\"verb\">ვუსმენდი</span>",
-          "case_marking": {
-            "indirect_object": {
-              "case": "dat",
-              "word": "ხმას"
-            }
-          },
-          "georgian_verb_form": "ვუსმენდი"
-        },
-        {
-          "georgian": "ნიჭიერი მუსიკოსი ძველ ინსტრუმენტს უსმენდა",
-          "english": "<strong data-role=\"subject\">The talented musician</strong> <strong data-role=\"verb\">was listening</strong> <strong data-role=\"indirect-object\">to the old instrument</strong>",
-          "english_plain": "The talented musician was listening to the old instrument",
-          "html": "<span data-case=\"nom\" data-role=\"subject\">ნიჭიერი მუსიკოსი</span> <span data-case=\"dat\" data-role=\"indirect-object\">ძველ ინსტრუმენტს</span> <span data-role=\"verb\">უსმენდა</span>",
-          "case_marking": {
-            "subject": {
-              "case": "nom",
-              "word": "მუსიკოსი"
+          "georgian": "ვუსმენდი ლამაზ ხმას",
+          "georgian_components": {
+            "verb": {
+              "text": "ვუსმენდი",
+              "role": "verb"
             },
             "indirect_object": {
+              "text": "ლამაზ ხმას",
               "case": "dat",
-              "word": "ინსტრუმენტს"
+              "role": "indirect_object"
             }
           },
-          "georgian_verb_form": "უსმენდა"
-        },
-        {
-          "georgian": "დიდი აუდიტორია ცოცხალ მუსიკას უსმენდნენ",
-          "english": "<strong data-role=\"subject\">The large audience</strong> <strong data-role=\"verb\">were listening</strong> <strong data-role=\"indirect-object\">to the live music</strong>",
-          "english_plain": "The large audience were listening to the live music",
-          "html": "<span data-case=\"nom\" data-role=\"subject\">დიდი აუდიტორია</span> <span data-case=\"dat\" data-role=\"indirect-object\">ცოცხალ მუსიკას</span> <span data-role=\"verb\">უსმენდნენ</span>",
-          "case_marking": {
+          "english": "I was listening to the beautiful sound",
+          "english_components": {
             "subject": {
-              "case": "nom",
-              "word": "აუდიტორია"
+              "text": "I",
+              "role": "subject",
+              "person": "1sg"
+            },
+            "verb": {
+              "text": "was listening",
+              "role": "verb"
             },
             "indirect_object": {
-              "case": "dat",
-              "word": "მუსიკას"
+              "text": "to the beautiful sound",
+              "role": "indirect_object"
             }
           },
-          "georgian_verb_form": "უსმენდნენ"
+          "georgian_verb_form": "ვუსმენდი",
+          "person": "1sg",
+          "effective_preverb": "მო"
+        },
+        {
+          "georgian": "ნიჭიერი მუსიკოსი უსმენდა ძველ ინსტრუმენტს",
+          "georgian_components": {
+            "subject": {
+              "text": "ნიჭიერი მუსიკოსი",
+              "case": "nom",
+              "role": "subject"
+            },
+            "verb": {
+              "text": "უსმენდა",
+              "role": "verb"
+            },
+            "indirect_object": {
+              "text": "ძველ ინსტრუმენტს",
+              "case": "dat",
+              "role": "indirect_object"
+            }
+          },
+          "english": "The talented musician was listening to the old instrument",
+          "english_components": {
+            "subject": {
+              "text": "The talented musician",
+              "role": "subject",
+              "person": "3sg"
+            },
+            "verb": {
+              "text": "was listening",
+              "role": "verb"
+            },
+            "indirect_object": {
+              "text": "to the old instrument",
+              "role": "indirect_object"
+            }
+          },
+          "georgian_verb_form": "უსმენდა",
+          "person": "3sg",
+          "effective_preverb": "მო"
+        },
+        {
+          "georgian": "დიდი აუდიტორიები უსმენდნენ ცოცხალ მუსიკას",
+          "georgian_components": {
+            "subject": {
+              "text": "დიდი აუდიტორიები",
+              "case": "nom",
+              "role": "subject"
+            },
+            "verb": {
+              "text": "უსმენდნენ",
+              "role": "verb"
+            },
+            "indirect_object": {
+              "text": "ცოცხალ მუსიკას",
+              "case": "dat",
+              "role": "indirect_object"
+            }
+          },
+          "english": "The large audiences were listening to the live music",
+          "english_components": {
+            "subject": {
+              "text": "The large audiences",
+              "role": "subject",
+              "person": "3pl"
+            },
+            "verb": {
+              "text": "were listening",
+              "role": "verb"
+            },
+            "indirect_object": {
+              "text": "to the live music",
+              "role": "indirect_object"
+            }
+          },
+          "georgian_verb_form": "უსმენდნენ",
+          "person": "3pl",
+          "effective_preverb": "მო"
         }
       ],
       "future": [
         {
-          "georgian": "ლამაზ ხმას მოვუსმენ",
-          "english": "<strong data-role=\"subject\" data-person=\"1sg\">I</strong> <strong data-role=\"verb\">will listen</strong> <strong data-role=\"indirect-object\">to the beautiful sound</strong>",
-          "english_plain": "I will listen to the beautiful sound",
-          "html": "<span data-case=\"dat\" data-role=\"indirect-object\">ლამაზ ხმას</span> <span data-role=\"verb\">მოვუსმენ</span>",
-          "case_marking": {
-            "indirect_object": {
-              "case": "dat",
-              "word": "ხმას"
-            }
-          },
-          "georgian_verb_form": "მოვუსმენ"
-        },
-        {
-          "georgian": "ნიჭიერი მუსიკოსი ძველ ინსტრუმენტს მოუსმენს",
-          "english": "<strong data-role=\"subject\">The talented musician</strong> <strong data-role=\"verb\">will listen</strong> <strong data-role=\"indirect-object\">to the old instrument</strong>",
-          "english_plain": "The talented musician will listen to the old instrument",
-          "html": "<span data-case=\"nom\" data-role=\"subject\">ნიჭიერი მუსიკოსი</span> <span data-case=\"dat\" data-role=\"indirect-object\">ძველ ინსტრუმენტს</span> <span data-role=\"verb\">მოუსმენს</span>",
-          "case_marking": {
-            "subject": {
-              "case": "nom",
-              "word": "მუსიკოსი"
+          "georgian": "მოვუსმენ ლამაზ ხმას",
+          "georgian_components": {
+            "verb": {
+              "text": "მოვუსმენ",
+              "role": "verb"
             },
             "indirect_object": {
+              "text": "ლამაზ ხმას",
               "case": "dat",
-              "word": "ინსტრუმენტს"
+              "role": "indirect_object"
             }
           },
-          "georgian_verb_form": "მოუსმენს"
-        },
-        {
-          "georgian": "დიდი აუდიტორია ცოცხალ მუსიკას მოუსმენენ",
-          "english": "<strong data-role=\"subject\">The large audience</strong> <strong data-role=\"verb\">will listen</strong> <strong data-role=\"indirect-object\">to the live music</strong>",
-          "english_plain": "The large audience will listen to the live music",
-          "html": "<span data-case=\"nom\" data-role=\"subject\">დიდი აუდიტორია</span> <span data-case=\"dat\" data-role=\"indirect-object\">ცოცხალ მუსიკას</span> <span data-role=\"verb\">მოუსმენენ</span>",
-          "case_marking": {
+          "english": "I will listen to the beautiful sound",
+          "english_components": {
             "subject": {
-              "case": "nom",
-              "word": "აუდიტორია"
+              "text": "I",
+              "role": "subject",
+              "person": "1sg"
+            },
+            "verb": {
+              "text": "will listen",
+              "role": "verb"
             },
             "indirect_object": {
-              "case": "dat",
-              "word": "მუსიკას"
+              "text": "to the beautiful sound",
+              "role": "indirect_object"
             }
           },
-          "georgian_verb_form": "მოუსმენენ"
+          "georgian_verb_form": "მოვუსმენ",
+          "person": "1sg",
+          "effective_preverb": "მო"
+        },
+        {
+          "georgian": "ნიჭიერი მუსიკოსი მოუსმენს ძველ ინსტრუმენტს",
+          "georgian_components": {
+            "subject": {
+              "text": "ნიჭიერი მუსიკოსი",
+              "case": "nom",
+              "role": "subject"
+            },
+            "verb": {
+              "text": "მოუსმენს",
+              "role": "verb"
+            },
+            "indirect_object": {
+              "text": "ძველ ინსტრუმენტს",
+              "case": "dat",
+              "role": "indirect_object"
+            }
+          },
+          "english": "The talented musician will listen to the old instrument",
+          "english_components": {
+            "subject": {
+              "text": "The talented musician",
+              "role": "subject",
+              "person": "3sg"
+            },
+            "verb": {
+              "text": "will listen",
+              "role": "verb"
+            },
+            "indirect_object": {
+              "text": "to the old instrument",
+              "role": "indirect_object"
+            }
+          },
+          "georgian_verb_form": "მოუსმენს",
+          "person": "3sg",
+          "effective_preverb": "მო"
+        },
+        {
+          "georgian": "დიდი აუდიტორიები მოუსმენენ ცოცხალ მუსიკას",
+          "georgian_components": {
+            "subject": {
+              "text": "დიდი აუდიტორიები",
+              "case": "nom",
+              "role": "subject"
+            },
+            "verb": {
+              "text": "მოუსმენენ",
+              "role": "verb"
+            },
+            "indirect_object": {
+              "text": "ცოცხალ მუსიკას",
+              "case": "dat",
+              "role": "indirect_object"
+            }
+          },
+          "english": "The large audiences will listen to the live music",
+          "english_components": {
+            "subject": {
+              "text": "The large audiences",
+              "role": "subject",
+              "person": "3pl"
+            },
+            "verb": {
+              "text": "will listen",
+              "role": "verb"
+            },
+            "indirect_object": {
+              "text": "to the live music",
+              "role": "indirect_object"
+            }
+          },
+          "georgian_verb_form": "მოუსმენენ",
+          "person": "3pl",
+          "effective_preverb": "მო"
         }
       ],
       "aorist": [
         {
-          "georgian": "ლამაზ ხმას მოვუსმინე",
-          "english": "<strong data-role=\"subject\" data-person=\"1sg\">I</strong> <strong data-role=\"verb\">listened</strong> <strong data-role=\"indirect-object\">to the beautiful sound</strong>",
-          "english_plain": "I listened to the beautiful sound",
-          "html": "<span data-case=\"dat\" data-role=\"indirect-object\">ლამაზ ხმას</span> <span data-role=\"verb\">მოვუსმინე</span>",
-          "case_marking": {
-            "indirect_object": {
-              "case": "dat",
-              "word": "ხმას"
-            }
-          },
-          "georgian_verb_form": "მოვუსმინე"
-        },
-        {
-          "georgian": "ნიჭიერმა მუსიკოსმა ძველ ინსტრუმენტს მოუსმინა",
-          "english": "<strong data-role=\"subject\">The talented musician</strong> <strong data-role=\"verb\">listened</strong> <strong data-role=\"indirect-object\">to the old instrument</strong>",
-          "english_plain": "The talented musician listened to the old instrument",
-          "html": "<span data-case=\"erg\" data-role=\"subject\">ნიჭიერმა მუსიკოსმა</span> <span data-case=\"dat\" data-role=\"indirect-object\">ძველ ინსტრუმენტს</span> <span data-role=\"verb\">მოუსმინა</span>",
-          "case_marking": {
-            "subject": {
-              "case": "erg",
-              "word": "მუსიკოსმა"
+          "georgian": "მოვუსმინე ლამაზ ხმას",
+          "georgian_components": {
+            "verb": {
+              "text": "მოვუსმინე",
+              "role": "verb"
             },
             "indirect_object": {
+              "text": "ლამაზ ხმას",
               "case": "dat",
-              "word": "ინსტრუმენტს"
+              "role": "indirect_object"
             }
           },
-          "georgian_verb_form": "მოუსმინა"
-        },
-        {
-          "georgian": "დიდმა აუდიტორიამ ცოცხალ მუსიკას მოუსმინეს",
-          "english": "<strong data-role=\"subject\">The large audience</strong> <strong data-role=\"verb\">listened</strong> <strong data-role=\"indirect-object\">to the live music</strong>",
-          "english_plain": "The large audience listened to the live music",
-          "html": "<span data-case=\"erg\" data-role=\"subject\">დიდმა აუდიტორიამ</span> <span data-case=\"dat\" data-role=\"indirect-object\">ცოცხალ მუსიკას</span> <span data-role=\"verb\">მოუსმინეს</span>",
-          "case_marking": {
+          "english": "I listened to the beautiful sound",
+          "english_components": {
             "subject": {
-              "case": "erg",
-              "word": "აუდიტორიამ"
+              "text": "I",
+              "role": "subject",
+              "person": "1sg"
+            },
+            "verb": {
+              "text": "listened",
+              "role": "verb"
             },
             "indirect_object": {
-              "case": "dat",
-              "word": "მუსიკას"
+              "text": "to the beautiful sound",
+              "role": "indirect_object"
             }
           },
-          "georgian_verb_form": "მოუსმინეს"
+          "georgian_verb_form": "მოვუსმინე",
+          "person": "1sg",
+          "effective_preverb": "მო"
+        },
+        {
+          "georgian": "ნიჭიერმა მუსიკოსმა მოუსმინა ძველ ინსტრუმენტს",
+          "georgian_components": {
+            "subject": {
+              "text": "ნიჭიერმა მუსიკოსმა",
+              "case": "erg",
+              "role": "subject"
+            },
+            "verb": {
+              "text": "მოუსმინა",
+              "role": "verb"
+            },
+            "indirect_object": {
+              "text": "ძველ ინსტრუმენტს",
+              "case": "dat",
+              "role": "indirect_object"
+            }
+          },
+          "english": "The talented musician listened to the old instrument",
+          "english_components": {
+            "subject": {
+              "text": "The talented musician",
+              "role": "subject",
+              "person": "3sg"
+            },
+            "verb": {
+              "text": "listened",
+              "role": "verb"
+            },
+            "indirect_object": {
+              "text": "to the old instrument",
+              "role": "indirect_object"
+            }
+          },
+          "georgian_verb_form": "მოუსმინა",
+          "person": "3sg",
+          "effective_preverb": "მო"
+        },
+        {
+          "georgian": "დიდმა აუდიტორიებმა მოუსმინეს ცოცხალ მუსიკას",
+          "georgian_components": {
+            "subject": {
+              "text": "დიდმა აუდიტორიებმა",
+              "case": "erg",
+              "role": "subject"
+            },
+            "verb": {
+              "text": "მოუსმინეს",
+              "role": "verb"
+            },
+            "indirect_object": {
+              "text": "ცოცხალ მუსიკას",
+              "case": "dat",
+              "role": "indirect_object"
+            }
+          },
+          "english": "The large audiences listened to the live music",
+          "english_components": {
+            "subject": {
+              "text": "The large audiences",
+              "role": "subject",
+              "person": "3pl"
+            },
+            "verb": {
+              "text": "listened",
+              "role": "verb"
+            },
+            "indirect_object": {
+              "text": "to the live music",
+              "role": "indirect_object"
+            }
+          },
+          "georgian_verb_form": "მოუსმინეს",
+          "person": "3pl",
+          "effective_preverb": "მო"
         }
       ],
       "optative": [
         {
-          "georgian": "ლამაზ ხმას უნდა მოვუსმინო",
-          "english": "<strong data-role=\"subject\" data-person=\"1sg\">I</strong> <strong data-role=\"verb\">should</strong> <strong data-role=\"verb\">listen</strong> <strong data-role=\"indirect-object\">to the beautiful sound</strong>",
-          "english_plain": "I should listen to the beautiful sound",
-          "html": "<span data-case=\"dat\" data-role=\"indirect-object\">ლამაზ ხმას</span> <span data-role=\"verb\">უნდა მოვუსმინო</span>",
-          "case_marking": {
-            "indirect_object": {
-              "case": "dat",
-              "word": "ხმას"
-            }
-          },
-          "georgian_verb_form": "მოვუსმინო"
-        },
-        {
-          "georgian": "ნიჭიერმა მუსიკოსმა ძველ ინსტრუმენტს უნდა მოუსმინოს",
-          "english": "<strong data-role=\"subject\">The talented musician</strong> <strong data-role=\"verb\">should</strong> <strong data-role=\"verb\">listen</strong> <strong data-role=\"indirect-object\">to the old instrument</strong>",
-          "english_plain": "The talented musician should listen to the old instrument",
-          "html": "<span data-case=\"erg\" data-role=\"subject\">ნიჭიერმა მუსიკოსმა</span> <span data-case=\"dat\" data-role=\"indirect-object\">ძველ ინსტრუმენტს</span> <span data-role=\"verb\">უნდა მოუსმინოს</span>",
-          "case_marking": {
-            "subject": {
-              "case": "erg",
-              "word": "მუსიკოსმა"
+          "georgian": "უნდა მოვუსმინო ლამაზ ხმას",
+          "georgian_components": {
+            "verb": {
+              "text": "უნდა მოვუსმინო",
+              "role": "verb"
             },
             "indirect_object": {
+              "text": "ლამაზ ხმას",
               "case": "dat",
-              "word": "ინსტრუმენტს"
+              "role": "indirect_object"
             }
           },
-          "georgian_verb_form": "მოუსმინოს"
-        },
-        {
-          "georgian": "დიდმა აუდიტორიამ ცოცხალ მუსიკას უნდა მოუსმინონ",
-          "english": "<strong data-role=\"subject\">The large audience</strong> <strong data-role=\"verb\">should</strong> <strong data-role=\"verb\">listen</strong> <strong data-role=\"indirect-object\">to the live music</strong>",
-          "english_plain": "The large audience should listen to the live music",
-          "html": "<span data-case=\"erg\" data-role=\"subject\">დიდმა აუდიტორიამ</span> <span data-case=\"dat\" data-role=\"indirect-object\">ცოცხალ მუსიკას</span> <span data-role=\"verb\">უნდა მოუსმინონ</span>",
-          "case_marking": {
+          "english": "I should listen to the beautiful sound",
+          "english_components": {
             "subject": {
-              "case": "erg",
-              "word": "აუდიტორიამ"
+              "text": "I",
+              "role": "subject",
+              "person": "1sg"
+            },
+            "verb": {
+              "text": "should listen",
+              "role": "verb"
             },
             "indirect_object": {
-              "case": "dat",
-              "word": "მუსიკას"
+              "text": "to the beautiful sound",
+              "role": "indirect_object"
             }
           },
-          "georgian_verb_form": "მოუსმინონ"
+          "georgian_verb_form": "მოვუსმინო",
+          "person": "1sg",
+          "effective_preverb": "მო"
+        },
+        {
+          "georgian": "ნიჭიერმა მუსიკოსმა უნდა მოუსმინოს ძველ ინსტრუმენტს",
+          "georgian_components": {
+            "subject": {
+              "text": "ნიჭიერმა მუსიკოსმა",
+              "case": "erg",
+              "role": "subject"
+            },
+            "verb": {
+              "text": "უნდა მოუსმინოს",
+              "role": "verb"
+            },
+            "indirect_object": {
+              "text": "ძველ ინსტრუმენტს",
+              "case": "dat",
+              "role": "indirect_object"
+            }
+          },
+          "english": "The talented musician should listen to the old instrument",
+          "english_components": {
+            "subject": {
+              "text": "The talented musician",
+              "role": "subject",
+              "person": "3sg"
+            },
+            "verb": {
+              "text": "should listen",
+              "role": "verb"
+            },
+            "indirect_object": {
+              "text": "to the old instrument",
+              "role": "indirect_object"
+            }
+          },
+          "georgian_verb_form": "მოუსმინოს",
+          "person": "3sg",
+          "effective_preverb": "მო"
+        },
+        {
+          "georgian": "დიდმა აუდიტორიებმა უნდა მოუსმინონ ცოცხალ მუსიკას",
+          "georgian_components": {
+            "subject": {
+              "text": "დიდმა აუდიტორიებმა",
+              "case": "erg",
+              "role": "subject"
+            },
+            "verb": {
+              "text": "უნდა მოუსმინონ",
+              "role": "verb"
+            },
+            "indirect_object": {
+              "text": "ცოცხალ მუსიკას",
+              "case": "dat",
+              "role": "indirect_object"
+            }
+          },
+          "english": "The large audiences should listen to the live music",
+          "english_components": {
+            "subject": {
+              "text": "The large audiences",
+              "role": "subject",
+              "person": "3pl"
+            },
+            "verb": {
+              "text": "should listen",
+              "role": "verb"
+            },
+            "indirect_object": {
+              "text": "to the live music",
+              "role": "indirect_object"
+            }
+          },
+          "georgian_verb_form": "მოუსმინონ",
+          "person": "3pl",
+          "effective_preverb": "მო"
         }
       ],
       "imperative": [
         {
-          "georgian": "საინტერესო ამბავს მოუსმინე",
-          "english": "<strong data-role=\"verb\">listen</strong> <strong data-role=\"indirect-object\">to the interesting story</strong>",
-          "english_plain": "listen to the interesting story",
-          "html": "<span data-case=\"dat\" data-role=\"indirect-object\">საინტერესო ამბავს</span> <span data-role=\"verb\">მოუსმინე</span>",
-          "case_marking": {
+          "georgian": "მოუსმინე საინტერესო ამბავს",
+          "georgian_components": {
+            "verb": {
+              "text": "მოუსმინე",
+              "role": "verb"
+            },
             "indirect_object": {
+              "text": "საინტერესო ამბავს",
               "case": "dat",
-              "word": "ამბავს"
+              "role": "indirect_object"
             }
           },
-          "georgian_verb_form": "მოუსმინე"
+          "english": "You, listen to the interesting story",
+          "english_components": {
+            "subject": {
+              "text": "You,",
+              "role": "subject",
+              "person": "2sg"
+            },
+            "verb": {
+              "text": "listen",
+              "role": "verb"
+            },
+            "indirect_object": {
+              "text": "to the interesting story",
+              "role": "indirect_object"
+            }
+          },
+          "georgian_verb_form": "მოუსმინე",
+          "person": "2sg",
+          "effective_preverb": "მო"
         },
         {
-          "georgian": "გრძელ სიტყვას მოუსმინეთ",
-          "english": "<strong data-role=\"verb\">listen</strong> <strong data-role=\"indirect-object\">to the long speech</strong>",
-          "english_plain": "listen to the long speech",
-          "html": "<span data-case=\"dat\" data-role=\"indirect-object\">გრძელ სიტყვას</span> <span data-role=\"verb\">მოუსმინეთ</span>",
-          "case_marking": {
+          "georgian": "მოუსმინეთ გრძელ სიტყვას",
+          "georgian_components": {
+            "verb": {
+              "text": "მოუსმინეთ",
+              "role": "verb"
+            },
             "indirect_object": {
+              "text": "გრძელ სიტყვას",
               "case": "dat",
-              "word": "სიტყვას"
+              "role": "indirect_object"
             }
           },
-          "georgian_verb_form": "მოუსმინეთ"
+          "english": "You all (you formal), listen to the long speech",
+          "english_components": {
+            "subject": {
+              "text": "You all (you formal),",
+              "role": "subject",
+              "person": "2pl"
+            },
+            "verb": {
+              "text": "listen",
+              "role": "verb"
+            },
+            "indirect_object": {
+              "text": "to the long speech",
+              "role": "indirect_object"
+            }
+          },
+          "georgian_verb_form": "მოუსმინეთ",
+          "person": "2pl",
+          "effective_preverb": "მო"
         }
       ]
     }

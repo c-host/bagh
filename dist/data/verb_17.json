@@ -152,282 +152,631 @@
   "preverb_rules": {
     "default": "",
     "replacements": {},
-    "tense_specific_fallbacks": {},
-    "english_fallbacks": {}
+    "tense_specific_fallbacks": {}
   },
   "examples": {
-    "null": {
+    "default": {
       "present": [
         {
-          "georgian": "ახალ სახელს ვივიწყებ",
-          "english": "<strong data-role=\"subject\" data-person=\"1sg\">I</strong> <strong data-role=\"verb\">forget</strong> <strong data-role=\"direct-object\">the new name</strong>",
-          "english_plain": "I forget the new name",
-          "html": "<span data-case=\"dat\" data-role=\"direct-object\">ახალ სახელს</span> <span data-role=\"verb\">ვივიწყებ</span>",
-          "case_marking": {
-            "direct_object": {
-              "case": "dat",
-              "word": "სახელს"
-            }
-          },
-          "georgian_verb_form": "ვივიწყებ"
-        },
-        {
-          "georgian": "ძველი ბებია რთულ სიტყვას ივიწყებს",
-          "english": "<strong data-role=\"subject\">The old grandmother</strong> <strong data-role=\"verb\">forgets</strong> <strong data-role=\"direct-object\">the difficult word</strong>",
-          "english_plain": "The old grandmother forgets the difficult word",
-          "html": "<span data-case=\"nom\" data-role=\"subject\">ძველი ბებია</span> <span data-case=\"dat\" data-role=\"direct-object\">რთულ სიტყვას</span> <span data-role=\"verb\">ივიწყებს</span>",
-          "case_marking": {
-            "subject": {
-              "case": "nom",
-              "word": "ბებია"
+          "georgian": "ვივიწყებ ახალ სახელს",
+          "georgian_components": {
+            "verb": {
+              "text": "ვივიწყებ",
+              "role": "verb"
             },
             "direct_object": {
+              "text": "ახალ სახელს",
               "case": "dat",
-              "word": "სიტყვას"
+              "role": "direct_object"
             }
           },
-          "georgian_verb_form": "ივიწყებს"
-        },
-        {
-          "georgian": "ახალგაზრდა სტუდენტი მნიშვნელოვან საშინაო დავალებას ივიწყებენ",
-          "english": "<strong data-role=\"subject\">The young student</strong> <strong data-role=\"verb\">forget</strong> <strong data-role=\"direct-object\">the important homework</strong>",
-          "english_plain": "The young student forget the important homework",
-          "html": "<span data-case=\"nom\" data-role=\"subject\">ახალგაზრდა სტუდენტი</span> <span data-case=\"dat\" data-role=\"direct-object\">მნიშვნელოვან საშინაო დავალებას</span> <span data-role=\"verb\">ივიწყებენ</span>",
-          "case_marking": {
+          "english": "I forget the new name",
+          "english_components": {
             "subject": {
-              "case": "nom",
-              "word": "სტუდენტი"
+              "text": "I",
+              "role": "subject",
+              "person": "1sg"
+            },
+            "verb": {
+              "text": "forget",
+              "role": "verb"
             },
             "direct_object": {
-              "case": "dat",
-              "word": "საშინაო დავალებას"
+              "text": "the new name",
+              "role": "direct_object"
             }
           },
-          "georgian_verb_form": "ივიწყებენ"
+          "georgian_verb_form": "ვივიწყებ",
+          "person": "1sg",
+          "effective_preverb": "და"
+        },
+        {
+          "georgian": "ძველი ბებია ივიწყებს რთულ სიტყვას",
+          "georgian_components": {
+            "subject": {
+              "text": "ძველი ბებია",
+              "case": "nom",
+              "role": "subject"
+            },
+            "verb": {
+              "text": "ივიწყებს",
+              "role": "verb"
+            },
+            "direct_object": {
+              "text": "რთულ სიტყვას",
+              "case": "dat",
+              "role": "direct_object"
+            }
+          },
+          "english": "The old grandmother forgets the difficult word",
+          "english_components": {
+            "subject": {
+              "text": "The old grandmother",
+              "role": "subject",
+              "person": "3sg"
+            },
+            "verb": {
+              "text": "forgets",
+              "role": "verb"
+            },
+            "direct_object": {
+              "text": "the difficult word",
+              "role": "direct_object"
+            }
+          },
+          "georgian_verb_form": "ივიწყებს",
+          "person": "3sg",
+          "effective_preverb": "და"
+        },
+        {
+          "georgian": "ახალგაზრდა სტუდენტები ივიწყებენ მნიშვნელოვან საშინაო დავალებას",
+          "georgian_components": {
+            "subject": {
+              "text": "ახალგაზრდა სტუდენტები",
+              "case": "nom",
+              "role": "subject"
+            },
+            "verb": {
+              "text": "ივიწყებენ",
+              "role": "verb"
+            },
+            "direct_object": {
+              "text": "მნიშვნელოვან საშინაო დავალებას",
+              "case": "dat",
+              "role": "direct_object"
+            }
+          },
+          "english": "The young students forget the important homework",
+          "english_components": {
+            "subject": {
+              "text": "The young students",
+              "role": "subject",
+              "person": "3pl"
+            },
+            "verb": {
+              "text": "forget",
+              "role": "verb"
+            },
+            "direct_object": {
+              "text": "the important homework",
+              "role": "direct_object"
+            }
+          },
+          "georgian_verb_form": "ივიწყებენ",
+          "person": "3pl",
+          "effective_preverb": "და"
         }
       ],
       "imperfect": [
         {
-          "georgian": "ახალ სახელს ვივიწყებდი",
-          "english": "<strong data-role=\"subject\" data-person=\"1sg\">I</strong> <strong data-role=\"verb\">was forgetting</strong> <strong data-role=\"direct-object\">the new name</strong>",
-          "english_plain": "I was forgetting the new name",
-          "html": "<span data-case=\"dat\" data-role=\"direct-object\">ახალ სახელს</span> <span data-role=\"verb\">ვივიწყებდი</span>",
-          "case_marking": {
-            "direct_object": {
-              "case": "dat",
-              "word": "სახელს"
-            }
-          },
-          "georgian_verb_form": "ვივიწყებდი"
-        },
-        {
-          "georgian": "ძველი ბებია რთულ სიტყვას ივიწყებდა",
-          "english": "<strong data-role=\"subject\">The old grandmother</strong> <strong data-role=\"verb\">was forgetting</strong> <strong data-role=\"direct-object\">the difficult word</strong>",
-          "english_plain": "The old grandmother was forgetting the difficult word",
-          "html": "<span data-case=\"nom\" data-role=\"subject\">ძველი ბებია</span> <span data-case=\"dat\" data-role=\"direct-object\">რთულ სიტყვას</span> <span data-role=\"verb\">ივიწყებდა</span>",
-          "case_marking": {
-            "subject": {
-              "case": "nom",
-              "word": "ბებია"
+          "georgian": "ვივიწყებდი ახალ სახელს",
+          "georgian_components": {
+            "verb": {
+              "text": "ვივიწყებდი",
+              "role": "verb"
             },
             "direct_object": {
+              "text": "ახალ სახელს",
               "case": "dat",
-              "word": "სიტყვას"
+              "role": "direct_object"
             }
           },
-          "georgian_verb_form": "ივიწყებდა"
-        },
-        {
-          "georgian": "ახალგაზრდა სტუდენტი მნიშვნელოვან საშინაო დავალებას ივიწყებდნენ",
-          "english": "<strong data-role=\"subject\">The young student</strong> <strong data-role=\"verb\">were forgetting</strong> <strong data-role=\"direct-object\">the important homework</strong>",
-          "english_plain": "The young student were forgetting the important homework",
-          "html": "<span data-case=\"nom\" data-role=\"subject\">ახალგაზრდა სტუდენტი</span> <span data-case=\"dat\" data-role=\"direct-object\">მნიშვნელოვან საშინაო დავალებას</span> <span data-role=\"verb\">ივიწყებდნენ</span>",
-          "case_marking": {
+          "english": "I was forgetting the new name",
+          "english_components": {
             "subject": {
-              "case": "nom",
-              "word": "სტუდენტი"
+              "text": "I",
+              "role": "subject",
+              "person": "1sg"
+            },
+            "verb": {
+              "text": "was forgetting",
+              "role": "verb"
             },
             "direct_object": {
-              "case": "dat",
-              "word": "საშინაო დავალებას"
+              "text": "the new name",
+              "role": "direct_object"
             }
           },
-          "georgian_verb_form": "ივიწყებდნენ"
+          "georgian_verb_form": "ვივიწყებდი",
+          "person": "1sg",
+          "effective_preverb": "და"
+        },
+        {
+          "georgian": "ძველი ბებია ივიწყებდა რთულ სიტყვას",
+          "georgian_components": {
+            "subject": {
+              "text": "ძველი ბებია",
+              "case": "nom",
+              "role": "subject"
+            },
+            "verb": {
+              "text": "ივიწყებდა",
+              "role": "verb"
+            },
+            "direct_object": {
+              "text": "რთულ სიტყვას",
+              "case": "dat",
+              "role": "direct_object"
+            }
+          },
+          "english": "The old grandmother was forgetting the difficult word",
+          "english_components": {
+            "subject": {
+              "text": "The old grandmother",
+              "role": "subject",
+              "person": "3sg"
+            },
+            "verb": {
+              "text": "was forgetting",
+              "role": "verb"
+            },
+            "direct_object": {
+              "text": "the difficult word",
+              "role": "direct_object"
+            }
+          },
+          "georgian_verb_form": "ივიწყებდა",
+          "person": "3sg",
+          "effective_preverb": "და"
+        },
+        {
+          "georgian": "ახალგაზრდა სტუდენტები ივიწყებდნენ მნიშვნელოვან საშინაო დავალებას",
+          "georgian_components": {
+            "subject": {
+              "text": "ახალგაზრდა სტუდენტები",
+              "case": "nom",
+              "role": "subject"
+            },
+            "verb": {
+              "text": "ივიწყებდნენ",
+              "role": "verb"
+            },
+            "direct_object": {
+              "text": "მნიშვნელოვან საშინაო დავალებას",
+              "case": "dat",
+              "role": "direct_object"
+            }
+          },
+          "english": "The young students were forgetting the important homework",
+          "english_components": {
+            "subject": {
+              "text": "The young students",
+              "role": "subject",
+              "person": "3pl"
+            },
+            "verb": {
+              "text": "were forgetting",
+              "role": "verb"
+            },
+            "direct_object": {
+              "text": "the important homework",
+              "role": "direct_object"
+            }
+          },
+          "georgian_verb_form": "ივიწყებდნენ",
+          "person": "3pl",
+          "effective_preverb": "და"
         }
       ],
       "future": [
         {
-          "georgian": "ახალ სახელს დავივიწყებ",
-          "english": "<strong data-role=\"subject\" data-person=\"1sg\">I</strong> <strong data-role=\"verb\">will forget</strong> <strong data-role=\"direct-object\">the new name</strong>",
-          "english_plain": "I will forget the new name",
-          "html": "<span data-case=\"dat\" data-role=\"direct-object\">ახალ სახელს</span> <span data-role=\"verb\">დავივიწყებ</span>",
-          "case_marking": {
-            "direct_object": {
-              "case": "dat",
-              "word": "სახელს"
-            }
-          },
-          "georgian_verb_form": "დავივიწყებ"
-        },
-        {
-          "georgian": "ძველი ბებია რთულ სიტყვას დაივიწყებს",
-          "english": "<strong data-role=\"subject\">The old grandmother</strong> <strong data-role=\"verb\">will forget</strong> <strong data-role=\"direct-object\">the difficult word</strong>",
-          "english_plain": "The old grandmother will forget the difficult word",
-          "html": "<span data-case=\"nom\" data-role=\"subject\">ძველი ბებია</span> <span data-case=\"dat\" data-role=\"direct-object\">რთულ სიტყვას</span> <span data-role=\"verb\">დაივიწყებს</span>",
-          "case_marking": {
-            "subject": {
-              "case": "nom",
-              "word": "ბებია"
+          "georgian": "დავივიწყებ ახალ სახელს",
+          "georgian_components": {
+            "verb": {
+              "text": "დავივიწყებ",
+              "role": "verb"
             },
             "direct_object": {
+              "text": "ახალ სახელს",
               "case": "dat",
-              "word": "სიტყვას"
+              "role": "direct_object"
             }
           },
-          "georgian_verb_form": "დაივიწყებს"
-        },
-        {
-          "georgian": "ახალგაზრდა სტუდენტი მნიშვნელოვან საშინაო დავალებას დაივიწყებენ",
-          "english": "<strong data-role=\"subject\">The young student</strong> <strong data-role=\"verb\">will forget</strong> <strong data-role=\"direct-object\">the important homework</strong>",
-          "english_plain": "The young student will forget the important homework",
-          "html": "<span data-case=\"nom\" data-role=\"subject\">ახალგაზრდა სტუდენტი</span> <span data-case=\"dat\" data-role=\"direct-object\">მნიშვნელოვან საშინაო დავალებას</span> <span data-role=\"verb\">დაივიწყებენ</span>",
-          "case_marking": {
+          "english": "I will forget the new name",
+          "english_components": {
             "subject": {
-              "case": "nom",
-              "word": "სტუდენტი"
+              "text": "I",
+              "role": "subject",
+              "person": "1sg"
+            },
+            "verb": {
+              "text": "will forget",
+              "role": "verb"
             },
             "direct_object": {
-              "case": "dat",
-              "word": "საშინაო დავალებას"
+              "text": "the new name",
+              "role": "direct_object"
             }
           },
-          "georgian_verb_form": "დაივიწყებენ"
+          "georgian_verb_form": "დავივიწყებ",
+          "person": "1sg",
+          "effective_preverb": "და"
+        },
+        {
+          "georgian": "ძველი ბებია დაივიწყებს რთულ სიტყვას",
+          "georgian_components": {
+            "subject": {
+              "text": "ძველი ბებია",
+              "case": "nom",
+              "role": "subject"
+            },
+            "verb": {
+              "text": "დაივიწყებს",
+              "role": "verb"
+            },
+            "direct_object": {
+              "text": "რთულ სიტყვას",
+              "case": "dat",
+              "role": "direct_object"
+            }
+          },
+          "english": "The old grandmother will forget the difficult word",
+          "english_components": {
+            "subject": {
+              "text": "The old grandmother",
+              "role": "subject",
+              "person": "3sg"
+            },
+            "verb": {
+              "text": "will forget",
+              "role": "verb"
+            },
+            "direct_object": {
+              "text": "the difficult word",
+              "role": "direct_object"
+            }
+          },
+          "georgian_verb_form": "დაივიწყებს",
+          "person": "3sg",
+          "effective_preverb": "და"
+        },
+        {
+          "georgian": "ახალგაზრდა სტუდენტები დაივიწყებენ მნიშვნელოვან საშინაო დავალებას",
+          "georgian_components": {
+            "subject": {
+              "text": "ახალგაზრდა სტუდენტები",
+              "case": "nom",
+              "role": "subject"
+            },
+            "verb": {
+              "text": "დაივიწყებენ",
+              "role": "verb"
+            },
+            "direct_object": {
+              "text": "მნიშვნელოვან საშინაო დავალებას",
+              "case": "dat",
+              "role": "direct_object"
+            }
+          },
+          "english": "The young students will forget the important homework",
+          "english_components": {
+            "subject": {
+              "text": "The young students",
+              "role": "subject",
+              "person": "3pl"
+            },
+            "verb": {
+              "text": "will forget",
+              "role": "verb"
+            },
+            "direct_object": {
+              "text": "the important homework",
+              "role": "direct_object"
+            }
+          },
+          "georgian_verb_form": "დაივიწყებენ",
+          "person": "3pl",
+          "effective_preverb": "და"
         }
       ],
       "aorist": [
         {
-          "georgian": "ახალი სახელი დავივიწყე",
-          "english": "<strong data-role=\"subject\" data-person=\"1sg\">I</strong> <strong data-role=\"verb\">forgot</strong> <strong data-role=\"direct-object\">the new name</strong>",
-          "english_plain": "I forgot the new name",
-          "html": "<span data-case=\"nom\" data-role=\"direct-object\">ახალი სახელი</span> <span data-role=\"verb\">დავივიწყე</span>",
-          "case_marking": {
-            "direct_object": {
-              "case": "nom",
-              "word": "სახელი"
-            }
-          },
-          "georgian_verb_form": "დავივიწყე"
-        },
-        {
-          "georgian": "ძველმა ბებიამ რთული სიტყვა დაივიწყა",
-          "english": "<strong data-role=\"subject\">The old grandmother</strong> <strong data-role=\"verb\">forgot</strong> <strong data-role=\"direct-object\">the difficult word</strong>",
-          "english_plain": "The old grandmother forgot the difficult word",
-          "html": "<span data-case=\"erg\" data-role=\"subject\">ძველმა ბებიამ</span> <span data-case=\"nom\" data-role=\"direct-object\">რთული სიტყვა</span> <span data-role=\"verb\">დაივიწყა</span>",
-          "case_marking": {
-            "subject": {
-              "case": "erg",
-              "word": "ბებიამ"
+          "georgian": "დავივიწყე ახალი სახელი",
+          "georgian_components": {
+            "verb": {
+              "text": "დავივიწყე",
+              "role": "verb"
             },
             "direct_object": {
+              "text": "ახალი სახელი",
               "case": "nom",
-              "word": "სიტყვა"
+              "role": "direct_object"
             }
           },
-          "georgian_verb_form": "დაივიწყა"
-        },
-        {
-          "georgian": "ახალგაზრდა სტუდენტმა მნიშვნელოვანი საშინაო დავალება დაივიწყეს",
-          "english": "<strong data-role=\"subject\">The young student</strong> <strong data-role=\"verb\">forgot</strong> <strong data-role=\"direct-object\">the important homework</strong>",
-          "english_plain": "The young student forgot the important homework",
-          "html": "<span data-case=\"erg\" data-role=\"subject\">ახალგაზრდა სტუდენტმა</span> <span data-case=\"nom\" data-role=\"direct-object\">მნიშვნელოვანი საშინაო დავალება</span> <span data-role=\"verb\">დაივიწყეს</span>",
-          "case_marking": {
+          "english": "I forgot the new name",
+          "english_components": {
             "subject": {
-              "case": "erg",
-              "word": "სტუდენტმა"
+              "text": "I",
+              "role": "subject",
+              "person": "1sg"
+            },
+            "verb": {
+              "text": "forgot",
+              "role": "verb"
             },
             "direct_object": {
-              "case": "nom",
-              "word": "საშინაო დავალება"
+              "text": "the new name",
+              "role": "direct_object"
             }
           },
-          "georgian_verb_form": "დაივიწყეს"
+          "georgian_verb_form": "დავივიწყე",
+          "person": "1sg",
+          "effective_preverb": "და"
+        },
+        {
+          "georgian": "ძველმა ბებიამ დაივიწყა რთული სიტყვა",
+          "georgian_components": {
+            "subject": {
+              "text": "ძველმა ბებიამ",
+              "case": "erg",
+              "role": "subject"
+            },
+            "verb": {
+              "text": "დაივიწყა",
+              "role": "verb"
+            },
+            "direct_object": {
+              "text": "რთული სიტყვა",
+              "case": "nom",
+              "role": "direct_object"
+            }
+          },
+          "english": "The old grandmother forgot the difficult word",
+          "english_components": {
+            "subject": {
+              "text": "The old grandmother",
+              "role": "subject",
+              "person": "3sg"
+            },
+            "verb": {
+              "text": "forgot",
+              "role": "verb"
+            },
+            "direct_object": {
+              "text": "the difficult word",
+              "role": "direct_object"
+            }
+          },
+          "georgian_verb_form": "დაივიწყა",
+          "person": "3sg",
+          "effective_preverb": "და"
+        },
+        {
+          "georgian": "ახალგაზრდა სტუდენტებმა დაივიწყეს მნიშვნელოვანი საშინაო დავალება",
+          "georgian_components": {
+            "subject": {
+              "text": "ახალგაზრდა სტუდენტებმა",
+              "case": "erg",
+              "role": "subject"
+            },
+            "verb": {
+              "text": "დაივიწყეს",
+              "role": "verb"
+            },
+            "direct_object": {
+              "text": "მნიშვნელოვანი საშინაო დავალება",
+              "case": "nom",
+              "role": "direct_object"
+            }
+          },
+          "english": "The young students forgot the important homework",
+          "english_components": {
+            "subject": {
+              "text": "The young students",
+              "role": "subject",
+              "person": "3pl"
+            },
+            "verb": {
+              "text": "forgot",
+              "role": "verb"
+            },
+            "direct_object": {
+              "text": "the important homework",
+              "role": "direct_object"
+            }
+          },
+          "georgian_verb_form": "დაივიწყეს",
+          "person": "3pl",
+          "effective_preverb": "და"
         }
       ],
       "optative": [
         {
-          "georgian": "ახალი სახელი უნდა დავივიწყო",
-          "english": "<strong data-role=\"subject\" data-person=\"1sg\">I</strong> <strong data-role=\"verb\">should</strong> <strong data-role=\"verb\">forget</strong> <strong data-role=\"direct-object\">the new name</strong>",
-          "english_plain": "I should forget the new name",
-          "html": "<span data-case=\"nom\" data-role=\"direct-object\">ახალი სახელი</span> <span data-role=\"verb\">უნდა დავივიწყო</span>",
-          "case_marking": {
-            "direct_object": {
-              "case": "nom",
-              "word": "სახელი"
-            }
-          },
-          "georgian_verb_form": "დავივიწყო"
-        },
-        {
-          "georgian": "ძველმა ბებიამ რთული სიტყვა უნდა დაივიწყოს",
-          "english": "<strong data-role=\"subject\">The old grandmother</strong> <strong data-role=\"verb\">should</strong> <strong data-role=\"verb\">forget</strong> <strong data-role=\"direct-object\">the difficult word</strong>",
-          "english_plain": "The old grandmother should forget the difficult word",
-          "html": "<span data-case=\"erg\" data-role=\"subject\">ძველმა ბებიამ</span> <span data-case=\"nom\" data-role=\"direct-object\">რთული სიტყვა</span> <span data-role=\"verb\">უნდა დაივიწყოს</span>",
-          "case_marking": {
-            "subject": {
-              "case": "erg",
-              "word": "ბებიამ"
+          "georgian": "უნდა დავივიწყო ახალი სახელი",
+          "georgian_components": {
+            "verb": {
+              "text": "უნდა დავივიწყო",
+              "role": "verb"
             },
             "direct_object": {
+              "text": "ახალი სახელი",
               "case": "nom",
-              "word": "სიტყვა"
+              "role": "direct_object"
             }
           },
-          "georgian_verb_form": "დაივიწყოს"
-        },
-        {
-          "georgian": "ახალგაზრდა სტუდენტმა მნიშვნელოვანი საშინაო დავალება უნდა დაივიწყონ",
-          "english": "<strong data-role=\"subject\">The young student</strong> <strong data-role=\"verb\">should</strong> <strong data-role=\"verb\">forget</strong> <strong data-role=\"direct-object\">the important homework</strong>",
-          "english_plain": "The young student should forget the important homework",
-          "html": "<span data-case=\"erg\" data-role=\"subject\">ახალგაზრდა სტუდენტმა</span> <span data-case=\"nom\" data-role=\"direct-object\">მნიშვნელოვანი საშინაო დავალება</span> <span data-role=\"verb\">უნდა დაივიწყონ</span>",
-          "case_marking": {
+          "english": "I should forget the new name",
+          "english_components": {
             "subject": {
-              "case": "erg",
-              "word": "სტუდენტმა"
+              "text": "I",
+              "role": "subject",
+              "person": "1sg"
+            },
+            "verb": {
+              "text": "should forget",
+              "role": "verb"
             },
             "direct_object": {
-              "case": "nom",
-              "word": "საშინაო დავალება"
+              "text": "the new name",
+              "role": "direct_object"
             }
           },
-          "georgian_verb_form": "დაივიწყონ"
+          "georgian_verb_form": "დავივიწყო",
+          "person": "1sg",
+          "effective_preverb": "და"
+        },
+        {
+          "georgian": "ძველმა ბებიამ უნდა დაივიწყოს რთული სიტყვა",
+          "georgian_components": {
+            "subject": {
+              "text": "ძველმა ბებიამ",
+              "case": "erg",
+              "role": "subject"
+            },
+            "verb": {
+              "text": "უნდა დაივიწყოს",
+              "role": "verb"
+            },
+            "direct_object": {
+              "text": "რთული სიტყვა",
+              "case": "nom",
+              "role": "direct_object"
+            }
+          },
+          "english": "The old grandmother should forget the difficult word",
+          "english_components": {
+            "subject": {
+              "text": "The old grandmother",
+              "role": "subject",
+              "person": "3sg"
+            },
+            "verb": {
+              "text": "should forget",
+              "role": "verb"
+            },
+            "direct_object": {
+              "text": "the difficult word",
+              "role": "direct_object"
+            }
+          },
+          "georgian_verb_form": "დაივიწყოს",
+          "person": "3sg",
+          "effective_preverb": "და"
+        },
+        {
+          "georgian": "ახალგაზრდა სტუდენტებმა უნდა დაივიწყონ მნიშვნელოვანი საშინაო დავალება",
+          "georgian_components": {
+            "subject": {
+              "text": "ახალგაზრდა სტუდენტებმა",
+              "case": "erg",
+              "role": "subject"
+            },
+            "verb": {
+              "text": "უნდა დაივიწყონ",
+              "role": "verb"
+            },
+            "direct_object": {
+              "text": "მნიშვნელოვანი საშინაო დავალება",
+              "case": "nom",
+              "role": "direct_object"
+            }
+          },
+          "english": "The young students should forget the important homework",
+          "english_components": {
+            "subject": {
+              "text": "The young students",
+              "role": "subject",
+              "person": "3pl"
+            },
+            "verb": {
+              "text": "should forget",
+              "role": "verb"
+            },
+            "direct_object": {
+              "text": "the important homework",
+              "role": "direct_object"
+            }
+          },
+          "georgian_verb_form": "დაივიწყონ",
+          "person": "3pl",
+          "effective_preverb": "და"
         }
       ],
       "imperative": [
         {
-          "georgian": "პატარა გასაღები დაივიწყე",
-          "english": "<strong data-role=\"verb\">forget</strong> <strong data-role=\"direct-object\">the small key</strong>",
-          "english_plain": "forget the small key",
-          "html": "<span data-case=\"nom\" data-role=\"direct-object\">პატარა გასაღები</span> <span data-role=\"verb\">დაივიწყე</span>",
-          "case_marking": {
+          "georgian": "დაივიწყე პატარა გასაღები",
+          "georgian_components": {
+            "verb": {
+              "text": "დაივიწყე",
+              "role": "verb"
+            },
             "direct_object": {
+              "text": "პატარა გასაღები",
               "case": "nom",
-              "word": "გასაღები"
+              "role": "direct_object"
             }
           },
-          "georgian_verb_form": "დაივიწყე"
+          "english": "You, forget the small key",
+          "english_components": {
+            "subject": {
+              "text": "You,",
+              "role": "subject",
+              "person": "2sg"
+            },
+            "verb": {
+              "text": "forget",
+              "role": "verb"
+            },
+            "direct_object": {
+              "text": "the small key",
+              "role": "direct_object"
+            }
+          },
+          "georgian_verb_form": "დაივიწყე",
+          "person": "2sg",
+          "effective_preverb": "და"
         },
         {
-          "georgian": "გრძელი ნომერი დაივიწყეთ",
-          "english": "<strong data-role=\"verb\">forget</strong> <strong data-role=\"direct-object\">the long number</strong>",
-          "english_plain": "forget the long number",
-          "html": "<span data-case=\"nom\" data-role=\"direct-object\">გრძელი ნომერი</span> <span data-role=\"verb\">დაივიწყეთ</span>",
-          "case_marking": {
+          "georgian": "დაივიწყეთ გრძელი ნომერი",
+          "georgian_components": {
+            "verb": {
+              "text": "დაივიწყეთ",
+              "role": "verb"
+            },
             "direct_object": {
+              "text": "გრძელი ნომერი",
               "case": "nom",
-              "word": "ნომერი"
+              "role": "direct_object"
             }
           },
-          "georgian_verb_form": "დაივიწყეთ"
+          "english": "You all (you formal), forget the long number",
+          "english_components": {
+            "subject": {
+              "text": "You all (you formal),",
+              "role": "subject",
+              "person": "2pl"
+            },
+            "verb": {
+              "text": "forget",
+              "role": "verb"
+            },
+            "direct_object": {
+              "text": "the long number",
+              "role": "direct_object"
+            }
+          },
+          "georgian_verb_form": "დაივიწყეთ",
+          "person": "2pl",
+          "effective_preverb": "და"
         }
       ]
     }

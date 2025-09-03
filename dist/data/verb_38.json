@@ -152,282 +152,631 @@
   "preverb_rules": {
     "default": "",
     "replacements": {},
-    "tense_specific_fallbacks": {},
-    "english_fallbacks": {}
+    "tense_specific_fallbacks": {}
   },
   "examples": {
-    "null": {
+    "default": {
       "present": [
         {
-          "georgian": "დიდ ქალაქს ვიცნობ",
-          "english": "<strong data-role=\"subject\" data-person=\"1sg\">I</strong> <strong data-role=\"verb\">am familiar</strong> <strong data-role=\"direct-object\">with the big city</strong>",
-          "english_plain": "I am familiar with the big city",
-          "html": "<span data-case=\"dat\" data-role=\"direct-object\">დიდ ქალაქს</span> <span data-role=\"verb\">ვიცნობ</span>",
-          "case_marking": {
-            "direct_object": {
-              "case": "dat",
-              "word": "ქალაქს"
-            }
-          },
-          "georgian_verb_form": "ვიცნობ"
-        },
-        {
-          "georgian": "უცხო ტურისტი ცნობილ ადგილს იცნობს",
-          "english": "<strong data-role=\"subject\">The foreign tourist</strong> <strong data-role=\"verb\">is familiar</strong> <strong data-role=\"direct-object\">with the famous place</strong>",
-          "english_plain": "The foreign tourist is familiar with the famous place",
-          "html": "<span data-case=\"nom\" data-role=\"subject\">უცხო ტურისტი</span> <span data-case=\"dat\" data-role=\"direct-object\">ცნობილ ადგილს</span> <span data-role=\"verb\">იცნობს</span>",
-          "case_marking": {
-            "subject": {
-              "case": "nom",
-              "word": "ტურისტი"
+          "georgian": "ვიცნობ დიდ ქალაქს",
+          "georgian_components": {
+            "verb": {
+              "text": "ვიცნობ",
+              "role": "verb"
             },
             "direct_object": {
+              "text": "დიდ ქალაქს",
               "case": "dat",
-              "word": "ადგილს"
+              "role": "direct_object"
             }
           },
-          "georgian_verb_form": "იცნობს"
-        },
-        {
-          "georgian": "ახალი სტუმარი წყნარ სამეზობლოს იცნობენ",
-          "english": "<strong data-role=\"subject\">The new guest</strong> <strong data-role=\"verb\">are familiar</strong> <strong data-role=\"direct-object\">with the quiet neighborhood</strong>",
-          "english_plain": "The new guest are familiar with the quiet neighborhood",
-          "html": "<span data-case=\"nom\" data-role=\"subject\">ახალი სტუმარი</span> <span data-case=\"dat\" data-role=\"direct-object\">წყნარ სამეზობლოს</span> <span data-role=\"verb\">იცნობენ</span>",
-          "case_marking": {
+          "english": "I am familiar with the big city",
+          "english_components": {
             "subject": {
-              "case": "nom",
-              "word": "სტუმარი"
+              "text": "I",
+              "role": "subject",
+              "person": "1sg"
+            },
+            "verb": {
+              "text": "am familiar",
+              "role": "verb"
             },
             "direct_object": {
-              "case": "dat",
-              "word": "სამეზობლოს"
+              "text": "with the big city",
+              "role": "direct_object"
             }
           },
-          "georgian_verb_form": "იცნობენ"
+          "georgian_verb_form": "ვიცნობ",
+          "person": "1sg",
+          "effective_preverb": "გა"
+        },
+        {
+          "georgian": "უცხო ტურისტი იცნობს ცნობილ ადგილს",
+          "georgian_components": {
+            "subject": {
+              "text": "უცხო ტურისტი",
+              "case": "nom",
+              "role": "subject"
+            },
+            "verb": {
+              "text": "იცნობს",
+              "role": "verb"
+            },
+            "direct_object": {
+              "text": "ცნობილ ადგილს",
+              "case": "dat",
+              "role": "direct_object"
+            }
+          },
+          "english": "The foreign tourist is familiar with the famous place",
+          "english_components": {
+            "subject": {
+              "text": "The foreign tourist",
+              "role": "subject",
+              "person": "3sg"
+            },
+            "verb": {
+              "text": "is familiar",
+              "role": "verb"
+            },
+            "direct_object": {
+              "text": "with the famous place",
+              "role": "direct_object"
+            }
+          },
+          "georgian_verb_form": "იცნობს",
+          "person": "3sg",
+          "effective_preverb": "გა"
+        },
+        {
+          "georgian": "ახალი სტუმრები იცნობენ წყნარ სამეზობლოს",
+          "georgian_components": {
+            "subject": {
+              "text": "ახალი სტუმრები",
+              "case": "nom",
+              "role": "subject"
+            },
+            "verb": {
+              "text": "იცნობენ",
+              "role": "verb"
+            },
+            "direct_object": {
+              "text": "წყნარ სამეზობლოს",
+              "case": "dat",
+              "role": "direct_object"
+            }
+          },
+          "english": "The new guests are familiar with the quiet neighborhood",
+          "english_components": {
+            "subject": {
+              "text": "The new guests",
+              "role": "subject",
+              "person": "3pl"
+            },
+            "verb": {
+              "text": "are familiar",
+              "role": "verb"
+            },
+            "direct_object": {
+              "text": "with the quiet neighborhood",
+              "role": "direct_object"
+            }
+          },
+          "georgian_verb_form": "იცნობენ",
+          "person": "3pl",
+          "effective_preverb": "გა"
         }
       ],
       "imperfect": [
         {
-          "georgian": "დიდ ქალაქს ვიცნობდი",
-          "english": "<strong data-role=\"subject\" data-person=\"1sg\">I</strong> <strong data-role=\"verb\">was familiar</strong> <strong data-role=\"direct-object\">with the big city</strong>",
-          "english_plain": "I was familiar with the big city",
-          "html": "<span data-case=\"dat\" data-role=\"direct-object\">დიდ ქალაქს</span> <span data-role=\"verb\">ვიცნობდი</span>",
-          "case_marking": {
-            "direct_object": {
-              "case": "dat",
-              "word": "ქალაქს"
-            }
-          },
-          "georgian_verb_form": "ვიცნობდი"
-        },
-        {
-          "georgian": "უცხო ტურისტი ცნობილ ადგილს იცნობდა",
-          "english": "<strong data-role=\"subject\">The foreign tourist</strong> <strong data-role=\"verb\">was familiar</strong> <strong data-role=\"direct-object\">with the famous place</strong>",
-          "english_plain": "The foreign tourist was familiar with the famous place",
-          "html": "<span data-case=\"nom\" data-role=\"subject\">უცხო ტურისტი</span> <span data-case=\"dat\" data-role=\"direct-object\">ცნობილ ადგილს</span> <span data-role=\"verb\">იცნობდა</span>",
-          "case_marking": {
-            "subject": {
-              "case": "nom",
-              "word": "ტურისტი"
+          "georgian": "ვიცნობდი დიდ ქალაქს",
+          "georgian_components": {
+            "verb": {
+              "text": "ვიცნობდი",
+              "role": "verb"
             },
             "direct_object": {
+              "text": "დიდ ქალაქს",
               "case": "dat",
-              "word": "ადგილს"
+              "role": "direct_object"
             }
           },
-          "georgian_verb_form": "იცნობდა"
-        },
-        {
-          "georgian": "ახალი სტუმარი წყნარ სამეზობლოს იცნობდნენ",
-          "english": "<strong data-role=\"subject\">The new guest</strong> <strong data-role=\"verb\">were familiar</strong> <strong data-role=\"direct-object\">with the quiet neighborhood</strong>",
-          "english_plain": "The new guest were familiar with the quiet neighborhood",
-          "html": "<span data-case=\"nom\" data-role=\"subject\">ახალი სტუმარი</span> <span data-case=\"dat\" data-role=\"direct-object\">წყნარ სამეზობლოს</span> <span data-role=\"verb\">იცნობდნენ</span>",
-          "case_marking": {
+          "english": "I was familiar with the big city",
+          "english_components": {
             "subject": {
-              "case": "nom",
-              "word": "სტუმარი"
+              "text": "I",
+              "role": "subject",
+              "person": "1sg"
+            },
+            "verb": {
+              "text": "was familiar",
+              "role": "verb"
             },
             "direct_object": {
-              "case": "dat",
-              "word": "სამეზობლოს"
+              "text": "with the big city",
+              "role": "direct_object"
             }
           },
-          "georgian_verb_form": "იცნობდნენ"
+          "georgian_verb_form": "ვიცნობდი",
+          "person": "1sg",
+          "effective_preverb": "გა"
+        },
+        {
+          "georgian": "უცხო ტურისტი იცნობდა ცნობილ ადგილს",
+          "georgian_components": {
+            "subject": {
+              "text": "უცხო ტურისტი",
+              "case": "nom",
+              "role": "subject"
+            },
+            "verb": {
+              "text": "იცნობდა",
+              "role": "verb"
+            },
+            "direct_object": {
+              "text": "ცნობილ ადგილს",
+              "case": "dat",
+              "role": "direct_object"
+            }
+          },
+          "english": "The foreign tourist was familiar with the famous place",
+          "english_components": {
+            "subject": {
+              "text": "The foreign tourist",
+              "role": "subject",
+              "person": "3sg"
+            },
+            "verb": {
+              "text": "was familiar",
+              "role": "verb"
+            },
+            "direct_object": {
+              "text": "with the famous place",
+              "role": "direct_object"
+            }
+          },
+          "georgian_verb_form": "იცნობდა",
+          "person": "3sg",
+          "effective_preverb": "გა"
+        },
+        {
+          "georgian": "ახალი სტუმრები იცნობდნენ წყნარ სამეზობლოს",
+          "georgian_components": {
+            "subject": {
+              "text": "ახალი სტუმრები",
+              "case": "nom",
+              "role": "subject"
+            },
+            "verb": {
+              "text": "იცნობდნენ",
+              "role": "verb"
+            },
+            "direct_object": {
+              "text": "წყნარ სამეზობლოს",
+              "case": "dat",
+              "role": "direct_object"
+            }
+          },
+          "english": "The new guests were familiar with the quiet neighborhood",
+          "english_components": {
+            "subject": {
+              "text": "The new guests",
+              "role": "subject",
+              "person": "3pl"
+            },
+            "verb": {
+              "text": "were familiar",
+              "role": "verb"
+            },
+            "direct_object": {
+              "text": "with the quiet neighborhood",
+              "role": "direct_object"
+            }
+          },
+          "georgian_verb_form": "იცნობდნენ",
+          "person": "3pl",
+          "effective_preverb": "გა"
         }
       ],
       "future": [
         {
-          "georgian": "დიდ ქალაქს გავიცნობ",
-          "english": "<strong data-role=\"subject\" data-person=\"1sg\">I</strong> <strong data-role=\"verb\">will be familiar</strong> <strong data-role=\"direct-object\">with the big city</strong>",
-          "english_plain": "I will be familiar with the big city",
-          "html": "<span data-case=\"dat\" data-role=\"direct-object\">დიდ ქალაქს</span> <span data-role=\"verb\">გავიცნობ</span>",
-          "case_marking": {
-            "direct_object": {
-              "case": "dat",
-              "word": "ქალაქს"
-            }
-          },
-          "georgian_verb_form": "გავიცნობ"
-        },
-        {
-          "georgian": "უცხო ტურისტი ცნობილ ადგილს გაიცნობს",
-          "english": "<strong data-role=\"subject\">The foreign tourist</strong> <strong data-role=\"verb\">will be familiar</strong> <strong data-role=\"direct-object\">with the famous place</strong>",
-          "english_plain": "The foreign tourist will be familiar with the famous place",
-          "html": "<span data-case=\"nom\" data-role=\"subject\">უცხო ტურისტი</span> <span data-case=\"dat\" data-role=\"direct-object\">ცნობილ ადგილს</span> <span data-role=\"verb\">გაიცნობს</span>",
-          "case_marking": {
-            "subject": {
-              "case": "nom",
-              "word": "ტურისტი"
+          "georgian": "გავიცნობ დიდ ქალაქს",
+          "georgian_components": {
+            "verb": {
+              "text": "გავიცნობ",
+              "role": "verb"
             },
             "direct_object": {
+              "text": "დიდ ქალაქს",
               "case": "dat",
-              "word": "ადგილს"
+              "role": "direct_object"
             }
           },
-          "georgian_verb_form": "გაიცნობს"
-        },
-        {
-          "georgian": "ახალი სტუმარი წყნარ სამეზობლოს გაიცნობენ",
-          "english": "<strong data-role=\"subject\">The new guest</strong> <strong data-role=\"verb\">will be familiar</strong> <strong data-role=\"direct-object\">with the quiet neighborhood</strong>",
-          "english_plain": "The new guest will be familiar with the quiet neighborhood",
-          "html": "<span data-case=\"nom\" data-role=\"subject\">ახალი სტუმარი</span> <span data-case=\"dat\" data-role=\"direct-object\">წყნარ სამეზობლოს</span> <span data-role=\"verb\">გაიცნობენ</span>",
-          "case_marking": {
+          "english": "I will be familiar with the big city",
+          "english_components": {
             "subject": {
-              "case": "nom",
-              "word": "სტუმარი"
+              "text": "I",
+              "role": "subject",
+              "person": "1sg"
+            },
+            "verb": {
+              "text": "will be familiar",
+              "role": "verb"
             },
             "direct_object": {
-              "case": "dat",
-              "word": "სამეზობლოს"
+              "text": "with the big city",
+              "role": "direct_object"
             }
           },
-          "georgian_verb_form": "გაიცნობენ"
+          "georgian_verb_form": "გავიცნობ",
+          "person": "1sg",
+          "effective_preverb": "გა"
+        },
+        {
+          "georgian": "უცხო ტურისტი გაიცნობს ცნობილ ადგილს",
+          "georgian_components": {
+            "subject": {
+              "text": "უცხო ტურისტი",
+              "case": "nom",
+              "role": "subject"
+            },
+            "verb": {
+              "text": "გაიცნობს",
+              "role": "verb"
+            },
+            "direct_object": {
+              "text": "ცნობილ ადგილს",
+              "case": "dat",
+              "role": "direct_object"
+            }
+          },
+          "english": "The foreign tourist will be familiar with the famous place",
+          "english_components": {
+            "subject": {
+              "text": "The foreign tourist",
+              "role": "subject",
+              "person": "3sg"
+            },
+            "verb": {
+              "text": "will be familiar",
+              "role": "verb"
+            },
+            "direct_object": {
+              "text": "with the famous place",
+              "role": "direct_object"
+            }
+          },
+          "georgian_verb_form": "გაიცნობს",
+          "person": "3sg",
+          "effective_preverb": "გა"
+        },
+        {
+          "georgian": "ახალი სტუმრები გაიცნობენ წყნარ სამეზობლოს",
+          "georgian_components": {
+            "subject": {
+              "text": "ახალი სტუმრები",
+              "case": "nom",
+              "role": "subject"
+            },
+            "verb": {
+              "text": "გაიცნობენ",
+              "role": "verb"
+            },
+            "direct_object": {
+              "text": "წყნარ სამეზობლოს",
+              "case": "dat",
+              "role": "direct_object"
+            }
+          },
+          "english": "The new guests will be familiar with the quiet neighborhood",
+          "english_components": {
+            "subject": {
+              "text": "The new guests",
+              "role": "subject",
+              "person": "3pl"
+            },
+            "verb": {
+              "text": "will be familiar",
+              "role": "verb"
+            },
+            "direct_object": {
+              "text": "with the quiet neighborhood",
+              "role": "direct_object"
+            }
+          },
+          "georgian_verb_form": "გაიცნობენ",
+          "person": "3pl",
+          "effective_preverb": "გა"
         }
       ],
       "aorist": [
         {
-          "georgian": "დიდი ქალაქი გავიცანი",
-          "english": "<strong data-role=\"subject\" data-person=\"1sg\">I</strong> <strong data-role=\"verb\">was familiar</strong> <strong data-role=\"direct-object\">with the big city</strong>",
-          "english_plain": "I was familiar with the big city",
-          "html": "<span data-case=\"nom\" data-role=\"direct-object\">დიდი ქალაქი</span> <span data-role=\"verb\">გავიცანი</span>",
-          "case_marking": {
-            "direct_object": {
-              "case": "nom",
-              "word": "ქალაქი"
-            }
-          },
-          "georgian_verb_form": "გავიცანი"
-        },
-        {
-          "georgian": "უცხო ტურისტმა ცნობილი ადგილი გაიცნო",
-          "english": "<strong data-role=\"subject\">The foreign tourist</strong> <strong data-role=\"verb\">was familiar</strong> <strong data-role=\"direct-object\">with the famous place</strong>",
-          "english_plain": "The foreign tourist was familiar with the famous place",
-          "html": "<span data-case=\"erg\" data-role=\"subject\">უცხო ტურისტმა</span> <span data-case=\"nom\" data-role=\"direct-object\">ცნობილი ადგილი</span> <span data-role=\"verb\">გაიცნო</span>",
-          "case_marking": {
-            "subject": {
-              "case": "erg",
-              "word": "ტურისტმა"
+          "georgian": "გავიცანი დიდი ქალაქი",
+          "georgian_components": {
+            "verb": {
+              "text": "გავიცანი",
+              "role": "verb"
             },
             "direct_object": {
+              "text": "დიდი ქალაქი",
               "case": "nom",
-              "word": "ადგილი"
+              "role": "direct_object"
             }
           },
-          "georgian_verb_form": "გაიცნო"
-        },
-        {
-          "georgian": "ახალმა სტუმარმა წყნარი სამეზობლო გაიცნეს",
-          "english": "<strong data-role=\"subject\">The new guest</strong> <strong data-role=\"verb\">were familiar</strong> <strong data-role=\"direct-object\">with the quiet neighborhood</strong>",
-          "english_plain": "The new guest were familiar with the quiet neighborhood",
-          "html": "<span data-case=\"erg\" data-role=\"subject\">ახალმა სტუმარმა</span> <span data-case=\"nom\" data-role=\"direct-object\">წყნარი სამეზობლო</span> <span data-role=\"verb\">გაიცნეს</span>",
-          "case_marking": {
+          "english": "I was familiar with the big city",
+          "english_components": {
             "subject": {
-              "case": "erg",
-              "word": "სტუმარმა"
+              "text": "I",
+              "role": "subject",
+              "person": "1sg"
+            },
+            "verb": {
+              "text": "was familiar",
+              "role": "verb"
             },
             "direct_object": {
-              "case": "nom",
-              "word": "სამეზობლო"
+              "text": "with the big city",
+              "role": "direct_object"
             }
           },
-          "georgian_verb_form": "გაიცნეს"
+          "georgian_verb_form": "გავიცანი",
+          "person": "1sg",
+          "effective_preverb": "გა"
+        },
+        {
+          "georgian": "უცხო ტურისტმა გაიცნო ცნობილი ადგილი",
+          "georgian_components": {
+            "subject": {
+              "text": "უცხო ტურისტმა",
+              "case": "erg",
+              "role": "subject"
+            },
+            "verb": {
+              "text": "გაიცნო",
+              "role": "verb"
+            },
+            "direct_object": {
+              "text": "ცნობილი ადგილი",
+              "case": "nom",
+              "role": "direct_object"
+            }
+          },
+          "english": "The foreign tourist was familiar with the famous place",
+          "english_components": {
+            "subject": {
+              "text": "The foreign tourist",
+              "role": "subject",
+              "person": "3sg"
+            },
+            "verb": {
+              "text": "was familiar",
+              "role": "verb"
+            },
+            "direct_object": {
+              "text": "with the famous place",
+              "role": "direct_object"
+            }
+          },
+          "georgian_verb_form": "გაიცნო",
+          "person": "3sg",
+          "effective_preverb": "გა"
+        },
+        {
+          "georgian": "ახალმა სტუმრებმა გაიცნეს წყნარი სამეზობლო",
+          "georgian_components": {
+            "subject": {
+              "text": "ახალმა სტუმრებმა",
+              "case": "erg",
+              "role": "subject"
+            },
+            "verb": {
+              "text": "გაიცნეს",
+              "role": "verb"
+            },
+            "direct_object": {
+              "text": "წყნარი სამეზობლო",
+              "case": "nom",
+              "role": "direct_object"
+            }
+          },
+          "english": "The new guests were familiar with the quiet neighborhood",
+          "english_components": {
+            "subject": {
+              "text": "The new guests",
+              "role": "subject",
+              "person": "3pl"
+            },
+            "verb": {
+              "text": "were familiar",
+              "role": "verb"
+            },
+            "direct_object": {
+              "text": "with the quiet neighborhood",
+              "role": "direct_object"
+            }
+          },
+          "georgian_verb_form": "გაიცნეს",
+          "person": "3pl",
+          "effective_preverb": "გა"
         }
       ],
       "optative": [
         {
-          "georgian": "დიდი ქალაქი უნდა გავიცნო",
-          "english": "<strong data-role=\"subject\" data-person=\"1sg\">I</strong> <strong data-role=\"verb\">should</strong> <strong data-role=\"verb\">be familiar</strong> <strong data-role=\"direct-object\">with the big city</strong>",
-          "english_plain": "I should be familiar with the big city",
-          "html": "<span data-case=\"nom\" data-role=\"direct-object\">დიდი ქალაქი</span> <span data-role=\"verb\">უნდა გავიცნო</span>",
-          "case_marking": {
-            "direct_object": {
-              "case": "nom",
-              "word": "ქალაქი"
-            }
-          },
-          "georgian_verb_form": "გავიცნო"
-        },
-        {
-          "georgian": "უცხო ტურისტმა ცნობილი ადგილი უნდა გაიცნოს",
-          "english": "<strong data-role=\"subject\">The foreign tourist</strong> <strong data-role=\"verb\">should</strong> <strong data-role=\"verb\">be familiar</strong> <strong data-role=\"direct-object\">with the famous place</strong>",
-          "english_plain": "The foreign tourist should be familiar with the famous place",
-          "html": "<span data-case=\"erg\" data-role=\"subject\">უცხო ტურისტმა</span> <span data-case=\"nom\" data-role=\"direct-object\">ცნობილი ადგილი</span> <span data-role=\"verb\">უნდა გაიცნოს</span>",
-          "case_marking": {
-            "subject": {
-              "case": "erg",
-              "word": "ტურისტმა"
+          "georgian": "უნდა გავიცნო დიდი ქალაქი",
+          "georgian_components": {
+            "verb": {
+              "text": "უნდა გავიცნო",
+              "role": "verb"
             },
             "direct_object": {
+              "text": "დიდი ქალაქი",
               "case": "nom",
-              "word": "ადგილი"
+              "role": "direct_object"
             }
           },
-          "georgian_verb_form": "გაიცნოს"
-        },
-        {
-          "georgian": "ახალმა სტუმარმა წყნარი სამეზობლო უნდა გაიცნონ",
-          "english": "<strong data-role=\"subject\">The new guest</strong> <strong data-role=\"verb\">should</strong> <strong data-role=\"verb\">be familiar</strong> <strong data-role=\"direct-object\">with the quiet neighborhood</strong>",
-          "english_plain": "The new guest should be familiar with the quiet neighborhood",
-          "html": "<span data-case=\"erg\" data-role=\"subject\">ახალმა სტუმარმა</span> <span data-case=\"nom\" data-role=\"direct-object\">წყნარი სამეზობლო</span> <span data-role=\"verb\">უნდა გაიცნონ</span>",
-          "case_marking": {
+          "english": "I should be familiar with the big city",
+          "english_components": {
             "subject": {
-              "case": "erg",
-              "word": "სტუმარმა"
+              "text": "I",
+              "role": "subject",
+              "person": "1sg"
+            },
+            "verb": {
+              "text": "should be familiar",
+              "role": "verb"
             },
             "direct_object": {
-              "case": "nom",
-              "word": "სამეზობლო"
+              "text": "with the big city",
+              "role": "direct_object"
             }
           },
-          "georgian_verb_form": "გაიცნონ"
+          "georgian_verb_form": "გავიცნო",
+          "person": "1sg",
+          "effective_preverb": "გა"
+        },
+        {
+          "georgian": "უცხო ტურისტმა უნდა გაიცნოს ცნობილი ადგილი",
+          "georgian_components": {
+            "subject": {
+              "text": "უცხო ტურისტმა",
+              "case": "erg",
+              "role": "subject"
+            },
+            "verb": {
+              "text": "უნდა გაიცნოს",
+              "role": "verb"
+            },
+            "direct_object": {
+              "text": "ცნობილი ადგილი",
+              "case": "nom",
+              "role": "direct_object"
+            }
+          },
+          "english": "The foreign tourist should be familiar with the famous place",
+          "english_components": {
+            "subject": {
+              "text": "The foreign tourist",
+              "role": "subject",
+              "person": "3sg"
+            },
+            "verb": {
+              "text": "should be familiar",
+              "role": "verb"
+            },
+            "direct_object": {
+              "text": "with the famous place",
+              "role": "direct_object"
+            }
+          },
+          "georgian_verb_form": "გაიცნოს",
+          "person": "3sg",
+          "effective_preverb": "გა"
+        },
+        {
+          "georgian": "ახალმა სტუმრებმა უნდა გაიცნონ წყნარი სამეზობლო",
+          "georgian_components": {
+            "subject": {
+              "text": "ახალმა სტუმრებმა",
+              "case": "erg",
+              "role": "subject"
+            },
+            "verb": {
+              "text": "უნდა გაიცნონ",
+              "role": "verb"
+            },
+            "direct_object": {
+              "text": "წყნარი სამეზობლო",
+              "case": "nom",
+              "role": "direct_object"
+            }
+          },
+          "english": "The new guests should be familiar with the quiet neighborhood",
+          "english_components": {
+            "subject": {
+              "text": "The new guests",
+              "role": "subject",
+              "person": "3pl"
+            },
+            "verb": {
+              "text": "should be familiar",
+              "role": "verb"
+            },
+            "direct_object": {
+              "text": "with the quiet neighborhood",
+              "role": "direct_object"
+            }
+          },
+          "georgian_verb_form": "გაიცნონ",
+          "person": "3pl",
+          "effective_preverb": "გა"
         }
       ],
       "imperative": [
         {
-          "georgian": "ადგილობრივი შენობა გაიცანი",
-          "english": "<strong data-role=\"verb\">be familiar</strong> <strong data-role=\"direct-object\">with the local building</strong>",
-          "english_plain": "be familiar with the local building",
-          "html": "<span data-case=\"nom\" data-role=\"direct-object\">ადგილობრივი შენობა</span> <span data-role=\"verb\">გაიცანი</span>",
-          "case_marking": {
+          "georgian": "გაიცანი ადგილობრივი შენობა",
+          "georgian_components": {
+            "verb": {
+              "text": "გაიცანი",
+              "role": "verb"
+            },
             "direct_object": {
+              "text": "ადგილობრივი შენობა",
               "case": "nom",
-              "word": "შენობა"
+              "role": "direct_object"
             }
           },
-          "georgian_verb_form": "გაიცანი"
+          "english": "You, be familiar with the local building",
+          "english_components": {
+            "subject": {
+              "text": "You,",
+              "role": "subject",
+              "person": "2sg"
+            },
+            "verb": {
+              "text": "be familiar",
+              "role": "verb"
+            },
+            "direct_object": {
+              "text": "with the local building",
+              "role": "direct_object"
+            }
+          },
+          "georgian_verb_form": "გაიცანი",
+          "person": "2sg",
+          "effective_preverb": "გა"
         },
         {
-          "georgian": "ძველი შენობა გაიცანით",
-          "english": "<strong data-role=\"verb\">be familiar</strong> <strong data-role=\"direct-object\">with the old building</strong>",
-          "english_plain": "be familiar with the old building",
-          "html": "<span data-case=\"nom\" data-role=\"direct-object\">ძველი შენობა</span> <span data-role=\"verb\">გაიცანით</span>",
-          "case_marking": {
+          "georgian": "გაიცანით ძველი შენობა",
+          "georgian_components": {
+            "verb": {
+              "text": "გაიცანით",
+              "role": "verb"
+            },
             "direct_object": {
+              "text": "ძველი შენობა",
               "case": "nom",
-              "word": "შენობა"
+              "role": "direct_object"
             }
           },
-          "georgian_verb_form": "გაიცანით"
+          "english": "You all (you formal), be familiar with the old building",
+          "english_components": {
+            "subject": {
+              "text": "You all (you formal),",
+              "role": "subject",
+              "person": "2pl"
+            },
+            "verb": {
+              "text": "be familiar",
+              "role": "verb"
+            },
+            "direct_object": {
+              "text": "with the old building",
+              "role": "direct_object"
+            }
+          },
+          "georgian_verb_form": "გაიცანით",
+          "person": "2pl",
+          "effective_preverb": "გა"
         }
       ]
     }

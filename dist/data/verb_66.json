@@ -152,282 +152,631 @@
   "preverb_rules": {
     "default": "",
     "replacements": {},
-    "tense_specific_fallbacks": {},
-    "english_fallbacks": {}
+    "tense_specific_fallbacks": {}
   },
   "examples": {
-    "null": {
+    "default": {
       "present": [
         {
-          "georgian": "პატარა ბავშვი მომყავს",
-          "english": "<strong data-role=\"subject\" data-person=\"1sg\">I</strong> <strong data-role=\"verb\">bring</strong> <strong data-role=\"direct-object\">the small child</strong>",
-          "english_plain": "I bring the small child",
-          "html": "<span data-case=\"nom\" data-role=\"direct-object\">პატარა ბავშვი</span> <span data-role=\"verb\">მომყავს</span>",
-          "case_marking": {
-            "direct_object": {
-              "case": "nom",
-              "word": "ბავშვი"
-            }
-          },
-          "georgian_verb_form": "მომყავს"
-        },
-        {
-          "georgian": "კეთილ დედას ახალგაზრდა და მოჰყავს",
-          "english": "<strong data-role=\"subject\">The kind mother</strong> <strong data-role=\"verb\">brings</strong> <strong data-role=\"direct-object\">the young sister</strong>",
-          "english_plain": "The kind mother brings the young sister",
-          "html": "<span data-case=\"dat\" data-role=\"subject\">კეთილ დედას</span> <span data-case=\"nom\" data-role=\"direct-object\">ახალგაზრდა და</span> <span data-role=\"verb\">მოჰყავს</span>",
-          "case_marking": {
-            "subject": {
-              "case": "dat",
-              "word": "დედას"
+          "georgian": "მომყავს პატარა ბავშვი",
+          "georgian_components": {
+            "verb": {
+              "text": "მომყავს",
+              "role": "verb"
             },
             "direct_object": {
+              "text": "პატარა ბავშვი",
               "case": "nom",
-              "word": "და"
+              "role": "direct_object"
             }
           },
-          "georgian_verb_form": "მოჰყავს"
-        },
-        {
-          "georgian": "დამხმარე მეგობარს ახლო ბიძაშვილი მოჰყავთ",
-          "english": "<strong data-role=\"subject\">The helpful friend</strong> <strong data-role=\"verb\">bring</strong> <strong data-role=\"direct-object\">the close cousin</strong>",
-          "english_plain": "The helpful friend bring the close cousin",
-          "html": "<span data-case=\"dat\" data-role=\"subject\">დამხმარე მეგობარს</span> <span data-case=\"nom\" data-role=\"direct-object\">ახლო ბიძაშვილი</span> <span data-role=\"verb\">მოჰყავთ</span>",
-          "case_marking": {
+          "english": "I bring the small child",
+          "english_components": {
             "subject": {
-              "case": "dat",
-              "word": "მეგობარს"
+              "text": "I",
+              "role": "subject",
+              "person": "1sg"
+            },
+            "verb": {
+              "text": "bring",
+              "role": "verb"
             },
             "direct_object": {
-              "case": "nom",
-              "word": "ბიძაშვილი"
+              "text": "the small child",
+              "role": "direct_object"
             }
           },
-          "georgian_verb_form": "მოჰყავთ"
+          "georgian_verb_form": "მომყავს",
+          "person": "1sg",
+          "effective_preverb": "მო"
+        },
+        {
+          "georgian": "კეთილ დედას მოჰყავს ახალგაზრდა და",
+          "georgian_components": {
+            "subject": {
+              "text": "კეთილ დედას",
+              "case": "dat",
+              "role": "subject"
+            },
+            "verb": {
+              "text": "მოჰყავს",
+              "role": "verb"
+            },
+            "direct_object": {
+              "text": "ახალგაზრდა და",
+              "case": "nom",
+              "role": "direct_object"
+            }
+          },
+          "english": "The kind mother brings the young sister",
+          "english_components": {
+            "subject": {
+              "text": "The kind mother",
+              "role": "subject",
+              "person": "3sg"
+            },
+            "verb": {
+              "text": "brings",
+              "role": "verb"
+            },
+            "direct_object": {
+              "text": "the young sister",
+              "role": "direct_object"
+            }
+          },
+          "georgian_verb_form": "მოჰყავს",
+          "person": "3sg",
+          "effective_preverb": "მო"
+        },
+        {
+          "georgian": "დამხმარე მეგობრებს მოჰყავთ ახლო ბიძაშვილი",
+          "georgian_components": {
+            "subject": {
+              "text": "დამხმარე მეგობრებს",
+              "case": "dat",
+              "role": "subject"
+            },
+            "verb": {
+              "text": "მოჰყავთ",
+              "role": "verb"
+            },
+            "direct_object": {
+              "text": "ახლო ბიძაშვილი",
+              "case": "nom",
+              "role": "direct_object"
+            }
+          },
+          "english": "The helpful friends bring the close cousin",
+          "english_components": {
+            "subject": {
+              "text": "The helpful friends",
+              "role": "subject",
+              "person": "3pl"
+            },
+            "verb": {
+              "text": "bring",
+              "role": "verb"
+            },
+            "direct_object": {
+              "text": "the close cousin",
+              "role": "direct_object"
+            }
+          },
+          "georgian_verb_form": "მოჰყავთ",
+          "person": "3pl",
+          "effective_preverb": "მო"
         }
       ],
       "imperfect": [
         {
-          "georgian": "პატარა ბავშვი მომყავდა",
-          "english": "<strong data-role=\"subject\" data-person=\"1sg\">I</strong> <strong data-role=\"verb\">was bringing</strong> <strong data-role=\"direct-object\">the small child</strong>",
-          "english_plain": "I was bringing the small child",
-          "html": "<span data-case=\"nom\" data-role=\"direct-object\">პატარა ბავშვი</span> <span data-role=\"verb\">მომყავდა</span>",
-          "case_marking": {
-            "direct_object": {
-              "case": "nom",
-              "word": "ბავშვი"
-            }
-          },
-          "georgian_verb_form": "მომყავდა"
-        },
-        {
-          "georgian": "კეთილ დედას ახალგაზრდა და მოჰყავდა",
-          "english": "<strong data-role=\"subject\">The kind mother</strong> <strong data-role=\"verb\">was bringing</strong> <strong data-role=\"direct-object\">the young sister</strong>",
-          "english_plain": "The kind mother was bringing the young sister",
-          "html": "<span data-case=\"dat\" data-role=\"subject\">კეთილ დედას</span> <span data-case=\"nom\" data-role=\"direct-object\">ახალგაზრდა და</span> <span data-role=\"verb\">მოჰყავდა</span>",
-          "case_marking": {
-            "subject": {
-              "case": "dat",
-              "word": "დედას"
+          "georgian": "მომყავდა პატარა ბავშვი",
+          "georgian_components": {
+            "verb": {
+              "text": "მომყავდა",
+              "role": "verb"
             },
             "direct_object": {
+              "text": "პატარა ბავშვი",
               "case": "nom",
-              "word": "და"
+              "role": "direct_object"
             }
           },
-          "georgian_verb_form": "მოჰყავდა"
-        },
-        {
-          "georgian": "დამხმარე მეგობარს ახლო ბიძაშვილი მოჰყავდათ",
-          "english": "<strong data-role=\"subject\">The helpful friend</strong> <strong data-role=\"verb\">were bringing</strong> <strong data-role=\"direct-object\">the close cousin</strong>",
-          "english_plain": "The helpful friend were bringing the close cousin",
-          "html": "<span data-case=\"dat\" data-role=\"subject\">დამხმარე მეგობარს</span> <span data-case=\"nom\" data-role=\"direct-object\">ახლო ბიძაშვილი</span> <span data-role=\"verb\">მოჰყავდათ</span>",
-          "case_marking": {
+          "english": "I was bringing the small child",
+          "english_components": {
             "subject": {
-              "case": "dat",
-              "word": "მეგობარს"
+              "text": "I",
+              "role": "subject",
+              "person": "1sg"
+            },
+            "verb": {
+              "text": "was bringing",
+              "role": "verb"
             },
             "direct_object": {
-              "case": "nom",
-              "word": "ბიძაშვილი"
+              "text": "the small child",
+              "role": "direct_object"
             }
           },
-          "georgian_verb_form": "მოჰყავდათ"
+          "georgian_verb_form": "მომყავდა",
+          "person": "1sg",
+          "effective_preverb": "მო"
+        },
+        {
+          "georgian": "კეთილ დედას მოჰყავდა ახალგაზრდა და",
+          "georgian_components": {
+            "subject": {
+              "text": "კეთილ დედას",
+              "case": "dat",
+              "role": "subject"
+            },
+            "verb": {
+              "text": "მოჰყავდა",
+              "role": "verb"
+            },
+            "direct_object": {
+              "text": "ახალგაზრდა და",
+              "case": "nom",
+              "role": "direct_object"
+            }
+          },
+          "english": "The kind mother was bringing the young sister",
+          "english_components": {
+            "subject": {
+              "text": "The kind mother",
+              "role": "subject",
+              "person": "3sg"
+            },
+            "verb": {
+              "text": "was bringing",
+              "role": "verb"
+            },
+            "direct_object": {
+              "text": "the young sister",
+              "role": "direct_object"
+            }
+          },
+          "georgian_verb_form": "მოჰყავდა",
+          "person": "3sg",
+          "effective_preverb": "მო"
+        },
+        {
+          "georgian": "დამხმარე მეგობრებს მოჰყავდათ ახლო ბიძაშვილი",
+          "georgian_components": {
+            "subject": {
+              "text": "დამხმარე მეგობრებს",
+              "case": "dat",
+              "role": "subject"
+            },
+            "verb": {
+              "text": "მოჰყავდათ",
+              "role": "verb"
+            },
+            "direct_object": {
+              "text": "ახლო ბიძაშვილი",
+              "case": "nom",
+              "role": "direct_object"
+            }
+          },
+          "english": "The helpful friends were bringing the close cousin",
+          "english_components": {
+            "subject": {
+              "text": "The helpful friends",
+              "role": "subject",
+              "person": "3pl"
+            },
+            "verb": {
+              "text": "were bringing",
+              "role": "verb"
+            },
+            "direct_object": {
+              "text": "the close cousin",
+              "role": "direct_object"
+            }
+          },
+          "georgian_verb_form": "მოჰყავდათ",
+          "person": "3pl",
+          "effective_preverb": "მო"
         }
       ],
       "future": [
         {
-          "georgian": "პატარა ბავშვს მოვიყვან",
-          "english": "<strong data-role=\"subject\" data-person=\"1sg\">I</strong> <strong data-role=\"verb\">will bring</strong> <strong data-role=\"direct-object\">the small child</strong>",
-          "english_plain": "I will bring the small child",
-          "html": "<span data-case=\"dat\" data-role=\"direct-object\">პატარა ბავშვს</span> <span data-role=\"verb\">მოვიყვან</span>",
-          "case_marking": {
-            "direct_object": {
-              "case": "dat",
-              "word": "ბავშვს"
-            }
-          },
-          "georgian_verb_form": "მოვიყვან"
-        },
-        {
-          "georgian": "კეთილი დედა ახალგაზრდა დას მოიყვანს",
-          "english": "<strong data-role=\"subject\">The kind mother</strong> <strong data-role=\"verb\">will bring</strong> <strong data-role=\"direct-object\">the young sister</strong>",
-          "english_plain": "The kind mother will bring the young sister",
-          "html": "<span data-case=\"nom\" data-role=\"subject\">კეთილი დედა</span> <span data-case=\"dat\" data-role=\"direct-object\">ახალგაზრდა დას</span> <span data-role=\"verb\">მოიყვანს</span>",
-          "case_marking": {
-            "subject": {
-              "case": "nom",
-              "word": "დედა"
+          "georgian": "მოვიყვან პატარა ბავშვს",
+          "georgian_components": {
+            "verb": {
+              "text": "მოვიყვან",
+              "role": "verb"
             },
             "direct_object": {
+              "text": "პატარა ბავშვს",
               "case": "dat",
-              "word": "დას"
+              "role": "direct_object"
             }
           },
-          "georgian_verb_form": "მოიყვანს"
-        },
-        {
-          "georgian": "დამხმარე მეგობარი ახლო ბიძაშვილს მოიყვანენ",
-          "english": "<strong data-role=\"subject\">The helpful friend</strong> <strong data-role=\"verb\">will bring</strong> <strong data-role=\"direct-object\">the close cousin</strong>",
-          "english_plain": "The helpful friend will bring the close cousin",
-          "html": "<span data-case=\"nom\" data-role=\"subject\">დამხმარე მეგობარი</span> <span data-case=\"dat\" data-role=\"direct-object\">ახლო ბიძაშვილს</span> <span data-role=\"verb\">მოიყვანენ</span>",
-          "case_marking": {
+          "english": "I will bring the small child",
+          "english_components": {
             "subject": {
-              "case": "nom",
-              "word": "მეგობარი"
+              "text": "I",
+              "role": "subject",
+              "person": "1sg"
+            },
+            "verb": {
+              "text": "will bring",
+              "role": "verb"
             },
             "direct_object": {
-              "case": "dat",
-              "word": "ბიძაშვილს"
+              "text": "the small child",
+              "role": "direct_object"
             }
           },
-          "georgian_verb_form": "მოიყვანენ"
+          "georgian_verb_form": "მოვიყვან",
+          "person": "1sg",
+          "effective_preverb": "მო"
+        },
+        {
+          "georgian": "კეთილი დედა მოიყვანს ახალგაზრდა დას",
+          "georgian_components": {
+            "subject": {
+              "text": "კეთილი დედა",
+              "case": "nom",
+              "role": "subject"
+            },
+            "verb": {
+              "text": "მოიყვანს",
+              "role": "verb"
+            },
+            "direct_object": {
+              "text": "ახალგაზრდა დას",
+              "case": "dat",
+              "role": "direct_object"
+            }
+          },
+          "english": "The kind mother will bring the young sister",
+          "english_components": {
+            "subject": {
+              "text": "The kind mother",
+              "role": "subject",
+              "person": "3sg"
+            },
+            "verb": {
+              "text": "will bring",
+              "role": "verb"
+            },
+            "direct_object": {
+              "text": "the young sister",
+              "role": "direct_object"
+            }
+          },
+          "georgian_verb_form": "მოიყვანს",
+          "person": "3sg",
+          "effective_preverb": "მო"
+        },
+        {
+          "georgian": "დამხმარე მეგობრები მოიყვანენ ახლო ბიძაშვილს",
+          "georgian_components": {
+            "subject": {
+              "text": "დამხმარე მეგობრები",
+              "case": "nom",
+              "role": "subject"
+            },
+            "verb": {
+              "text": "მოიყვანენ",
+              "role": "verb"
+            },
+            "direct_object": {
+              "text": "ახლო ბიძაშვილს",
+              "case": "dat",
+              "role": "direct_object"
+            }
+          },
+          "english": "The helpful friends will bring the close cousin",
+          "english_components": {
+            "subject": {
+              "text": "The helpful friends",
+              "role": "subject",
+              "person": "3pl"
+            },
+            "verb": {
+              "text": "will bring",
+              "role": "verb"
+            },
+            "direct_object": {
+              "text": "the close cousin",
+              "role": "direct_object"
+            }
+          },
+          "georgian_verb_form": "მოიყვანენ",
+          "person": "3pl",
+          "effective_preverb": "მო"
         }
       ],
       "aorist": [
         {
-          "georgian": "პატარა ბავშვი მოვიყვანე",
-          "english": "<strong data-role=\"subject\" data-person=\"1sg\">I</strong> <strong data-role=\"verb\">brought</strong> <strong data-role=\"direct-object\">the small child</strong>",
-          "english_plain": "I brought the small child",
-          "html": "<span data-case=\"nom\" data-role=\"direct-object\">პატარა ბავშვი</span> <span data-role=\"verb\">მოვიყვანე</span>",
-          "case_marking": {
-            "direct_object": {
-              "case": "nom",
-              "word": "ბავშვი"
-            }
-          },
-          "georgian_verb_form": "მოვიყვანე"
-        },
-        {
-          "georgian": "კეთილმა დედამ ახალგაზრდა და მოიყვანა",
-          "english": "<strong data-role=\"subject\">The kind mother</strong> <strong data-role=\"verb\">brought</strong> <strong data-role=\"direct-object\">the young sister</strong>",
-          "english_plain": "The kind mother brought the young sister",
-          "html": "<span data-case=\"erg\" data-role=\"subject\">კეთილმა დედამ</span> <span data-case=\"nom\" data-role=\"direct-object\">ახალგაზრდა და</span> <span data-role=\"verb\">მოიყვანა</span>",
-          "case_marking": {
-            "subject": {
-              "case": "erg",
-              "word": "დედამ"
+          "georgian": "მოვიყვანე პატარა ბავშვი",
+          "georgian_components": {
+            "verb": {
+              "text": "მოვიყვანე",
+              "role": "verb"
             },
             "direct_object": {
+              "text": "პატარა ბავშვი",
               "case": "nom",
-              "word": "და"
+              "role": "direct_object"
             }
           },
-          "georgian_verb_form": "მოიყვანა"
-        },
-        {
-          "georgian": "დამხმარე მეგობარმა ახლო ბიძაშვილი მოიყვანეს",
-          "english": "<strong data-role=\"subject\">The helpful friend</strong> <strong data-role=\"verb\">brought</strong> <strong data-role=\"direct-object\">the close cousin</strong>",
-          "english_plain": "The helpful friend brought the close cousin",
-          "html": "<span data-case=\"erg\" data-role=\"subject\">დამხმარე მეგობარმა</span> <span data-case=\"nom\" data-role=\"direct-object\">ახლო ბიძაშვილი</span> <span data-role=\"verb\">მოიყვანეს</span>",
-          "case_marking": {
+          "english": "I brought the small child",
+          "english_components": {
             "subject": {
-              "case": "erg",
-              "word": "მეგობარმა"
+              "text": "I",
+              "role": "subject",
+              "person": "1sg"
+            },
+            "verb": {
+              "text": "brought",
+              "role": "verb"
             },
             "direct_object": {
-              "case": "nom",
-              "word": "ბიძაშვილი"
+              "text": "the small child",
+              "role": "direct_object"
             }
           },
-          "georgian_verb_form": "მოიყვანეს"
+          "georgian_verb_form": "მოვიყვანე",
+          "person": "1sg",
+          "effective_preverb": "მო"
+        },
+        {
+          "georgian": "კეთილმა დედამ მოიყვანა ახალგაზრდა და",
+          "georgian_components": {
+            "subject": {
+              "text": "კეთილმა დედამ",
+              "case": "erg",
+              "role": "subject"
+            },
+            "verb": {
+              "text": "მოიყვანა",
+              "role": "verb"
+            },
+            "direct_object": {
+              "text": "ახალგაზრდა და",
+              "case": "nom",
+              "role": "direct_object"
+            }
+          },
+          "english": "The kind mother brought the young sister",
+          "english_components": {
+            "subject": {
+              "text": "The kind mother",
+              "role": "subject",
+              "person": "3sg"
+            },
+            "verb": {
+              "text": "brought",
+              "role": "verb"
+            },
+            "direct_object": {
+              "text": "the young sister",
+              "role": "direct_object"
+            }
+          },
+          "georgian_verb_form": "მოიყვანა",
+          "person": "3sg",
+          "effective_preverb": "მო"
+        },
+        {
+          "georgian": "დამხმარე მეგობრებმა მოიყვანეს ახლო ბიძაშვილი",
+          "georgian_components": {
+            "subject": {
+              "text": "დამხმარე მეგობრებმა",
+              "case": "erg",
+              "role": "subject"
+            },
+            "verb": {
+              "text": "მოიყვანეს",
+              "role": "verb"
+            },
+            "direct_object": {
+              "text": "ახლო ბიძაშვილი",
+              "case": "nom",
+              "role": "direct_object"
+            }
+          },
+          "english": "The helpful friends brought the close cousin",
+          "english_components": {
+            "subject": {
+              "text": "The helpful friends",
+              "role": "subject",
+              "person": "3pl"
+            },
+            "verb": {
+              "text": "brought",
+              "role": "verb"
+            },
+            "direct_object": {
+              "text": "the close cousin",
+              "role": "direct_object"
+            }
+          },
+          "georgian_verb_form": "მოიყვანეს",
+          "person": "3pl",
+          "effective_preverb": "მო"
         }
       ],
       "optative": [
         {
-          "georgian": "პატარა ბავშვი უნდა მოვიყვანო",
-          "english": "<strong data-role=\"subject\" data-person=\"1sg\">I</strong> <strong data-role=\"verb\">should</strong> <strong data-role=\"verb\">bring</strong> <strong data-role=\"direct-object\">the small child</strong>",
-          "english_plain": "I should bring the small child",
-          "html": "<span data-case=\"nom\" data-role=\"direct-object\">პატარა ბავშვი</span> <span data-role=\"verb\">უნდა მოვიყვანო</span>",
-          "case_marking": {
-            "direct_object": {
-              "case": "nom",
-              "word": "ბავშვი"
-            }
-          },
-          "georgian_verb_form": "მოვიყვანო"
-        },
-        {
-          "georgian": "კეთილმა დედამ ახალგაზრდა და უნდა მოიყვანოს",
-          "english": "<strong data-role=\"subject\">The kind mother</strong> <strong data-role=\"verb\">should</strong> <strong data-role=\"verb\">bring</strong> <strong data-role=\"direct-object\">the young sister</strong>",
-          "english_plain": "The kind mother should bring the young sister",
-          "html": "<span data-case=\"erg\" data-role=\"subject\">კეთილმა დედამ</span> <span data-case=\"nom\" data-role=\"direct-object\">ახალგაზრდა და</span> <span data-role=\"verb\">უნდა მოიყვანოს</span>",
-          "case_marking": {
-            "subject": {
-              "case": "erg",
-              "word": "დედამ"
+          "georgian": "უნდა მოვიყვანო პატარა ბავშვი",
+          "georgian_components": {
+            "verb": {
+              "text": "უნდა მოვიყვანო",
+              "role": "verb"
             },
             "direct_object": {
+              "text": "პატარა ბავშვი",
               "case": "nom",
-              "word": "და"
+              "role": "direct_object"
             }
           },
-          "georgian_verb_form": "მოიყვანოს"
-        },
-        {
-          "georgian": "დამხმარე მეგობარმა ახლო ბიძაშვილი უნდა მოიყვანონ",
-          "english": "<strong data-role=\"subject\">The helpful friend</strong> <strong data-role=\"verb\">should</strong> <strong data-role=\"verb\">bring</strong> <strong data-role=\"direct-object\">the close cousin</strong>",
-          "english_plain": "The helpful friend should bring the close cousin",
-          "html": "<span data-case=\"erg\" data-role=\"subject\">დამხმარე მეგობარმა</span> <span data-case=\"nom\" data-role=\"direct-object\">ახლო ბიძაშვილი</span> <span data-role=\"verb\">უნდა მოიყვანონ</span>",
-          "case_marking": {
+          "english": "I should bring the small child",
+          "english_components": {
             "subject": {
-              "case": "erg",
-              "word": "მეგობარმა"
+              "text": "I",
+              "role": "subject",
+              "person": "1sg"
+            },
+            "verb": {
+              "text": "should bring",
+              "role": "verb"
             },
             "direct_object": {
-              "case": "nom",
-              "word": "ბიძაშვილი"
+              "text": "the small child",
+              "role": "direct_object"
             }
           },
-          "georgian_verb_form": "მოიყვანონ"
+          "georgian_verb_form": "მოვიყვანო",
+          "person": "1sg",
+          "effective_preverb": "მო"
+        },
+        {
+          "georgian": "კეთილმა დედამ უნდა მოიყვანოს ახალგაზრდა და",
+          "georgian_components": {
+            "subject": {
+              "text": "კეთილმა დედამ",
+              "case": "erg",
+              "role": "subject"
+            },
+            "verb": {
+              "text": "უნდა მოიყვანოს",
+              "role": "verb"
+            },
+            "direct_object": {
+              "text": "ახალგაზრდა და",
+              "case": "nom",
+              "role": "direct_object"
+            }
+          },
+          "english": "The kind mother should bring the young sister",
+          "english_components": {
+            "subject": {
+              "text": "The kind mother",
+              "role": "subject",
+              "person": "3sg"
+            },
+            "verb": {
+              "text": "should bring",
+              "role": "verb"
+            },
+            "direct_object": {
+              "text": "the young sister",
+              "role": "direct_object"
+            }
+          },
+          "georgian_verb_form": "მოიყვანოს",
+          "person": "3sg",
+          "effective_preverb": "მო"
+        },
+        {
+          "georgian": "დამხმარე მეგობრებმა უნდა მოიყვანონ ახლო ბიძაშვილი",
+          "georgian_components": {
+            "subject": {
+              "text": "დამხმარე მეგობრებმა",
+              "case": "erg",
+              "role": "subject"
+            },
+            "verb": {
+              "text": "უნდა მოიყვანონ",
+              "role": "verb"
+            },
+            "direct_object": {
+              "text": "ახლო ბიძაშვილი",
+              "case": "nom",
+              "role": "direct_object"
+            }
+          },
+          "english": "The helpful friends should bring the close cousin",
+          "english_components": {
+            "subject": {
+              "text": "The helpful friends",
+              "role": "subject",
+              "person": "3pl"
+            },
+            "verb": {
+              "text": "should bring",
+              "role": "verb"
+            },
+            "direct_object": {
+              "text": "the close cousin",
+              "role": "direct_object"
+            }
+          },
+          "georgian_verb_form": "მოიყვანონ",
+          "person": "3pl",
+          "effective_preverb": "მო"
         }
       ],
       "imperative": [
         {
-          "georgian": "დიდი ძაღლი მოიყვანე",
-          "english": "<strong data-role=\"verb\">bring</strong> <strong data-role=\"direct-object\">the big dog</strong>",
-          "english_plain": "bring the big dog",
-          "html": "<span data-case=\"nom\" data-role=\"direct-object\">დიდი ძაღლი</span> <span data-role=\"verb\">მოიყვანე</span>",
-          "case_marking": {
+          "georgian": "მოიყვანე დიდი ძაღლი",
+          "georgian_components": {
+            "verb": {
+              "text": "მოიყვანე",
+              "role": "verb"
+            },
             "direct_object": {
+              "text": "დიდი ძაღლი",
               "case": "nom",
-              "word": "ძაღლი"
+              "role": "direct_object"
             }
           },
-          "georgian_verb_form": "მოიყვანე"
+          "english": "You, bring the big dog",
+          "english_components": {
+            "subject": {
+              "text": "You,",
+              "role": "subject",
+              "person": "2sg"
+            },
+            "verb": {
+              "text": "bring",
+              "role": "verb"
+            },
+            "direct_object": {
+              "text": "the big dog",
+              "role": "direct_object"
+            }
+          },
+          "georgian_verb_form": "მოიყვანე",
+          "person": "2sg",
+          "effective_preverb": "მო"
         },
         {
-          "georgian": "ძველი ძმა მოიყვანეთ",
-          "english": "<strong data-role=\"verb\">bring</strong> <strong data-role=\"direct-object\">the old brother</strong>",
-          "english_plain": "bring the old brother",
-          "html": "<span data-case=\"nom\" data-role=\"direct-object\">ძველი ძმა</span> <span data-role=\"verb\">მოიყვანეთ</span>",
-          "case_marking": {
+          "georgian": "მოიყვანეთ ძველი ძმა",
+          "georgian_components": {
+            "verb": {
+              "text": "მოიყვანეთ",
+              "role": "verb"
+            },
             "direct_object": {
+              "text": "ძველი ძმა",
               "case": "nom",
-              "word": "ძმა"
+              "role": "direct_object"
             }
           },
-          "georgian_verb_form": "მოიყვანეთ"
+          "english": "You all (you formal), bring the old brother",
+          "english_components": {
+            "subject": {
+              "text": "You all (you formal),",
+              "role": "subject",
+              "person": "2pl"
+            },
+            "verb": {
+              "text": "bring",
+              "role": "verb"
+            },
+            "direct_object": {
+              "text": "the old brother",
+              "role": "direct_object"
+            }
+          },
+          "georgian_verb_form": "მოიყვანეთ",
+          "person": "2pl",
+          "effective_preverb": "მო"
         }
       ]
     }

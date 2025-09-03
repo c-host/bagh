@@ -124,207 +124,478 @@
   "preverb_rules": {
     "default": "",
     "replacements": {},
-    "tense_specific_fallbacks": {},
-    "english_fallbacks": {}
+    "tense_specific_fallbacks": {}
   },
   "examples": {
-    "null": {
+    "default": {
       "present": [
         {
           "georgian": "ვსეირნობ",
-          "english": "<strong data-role=\"subject\" data-person=\"1sg\">I</strong> <strong data-role=\"verb\">walk</strong>",
-          "english_plain": "I walk",
-          "html": " <span data-role=\"verb\">ვსეირნობ</span>",
-          "case_marking": {},
-          "georgian_verb_form": "ვსეირნობ"
+          "georgian_components": {
+            "verb": {
+              "text": "ვსეირნობ",
+              "role": "verb"
+            }
+          },
+          "english": "I walk",
+          "english_components": {
+            "subject": {
+              "text": "I",
+              "role": "subject",
+              "person": "1sg"
+            },
+            "verb": {
+              "text": "walk",
+              "role": "verb"
+            }
+          },
+          "georgian_verb_form": "ვსეირნობ",
+          "person": "1sg",
+          "effective_preverb": ""
         },
         {
           "georgian": "ძველი ბაბუა სეირნობს",
-          "english": "<strong data-role=\"subject\">The old grandfather</strong> <strong data-role=\"verb\">walks</strong>",
-          "english_plain": "The old grandfather walks",
-          "html": "<span data-case=\"nom\" data-role=\"subject\">ძველი ბაბუა</span> <span data-role=\"verb\">სეირნობს</span>",
-          "case_marking": {
+          "georgian_components": {
             "subject": {
+              "text": "ძველი ბაბუა",
               "case": "nom",
-              "word": "ბაბუა"
+              "role": "subject"
+            },
+            "verb": {
+              "text": "სეირნობს",
+              "role": "verb"
             }
           },
-          "georgian_verb_form": "სეირნობს"
+          "english": "The old grandfather walks",
+          "english_components": {
+            "subject": {
+              "text": "The old grandfather",
+              "role": "subject",
+              "person": "3sg"
+            },
+            "verb": {
+              "text": "walks",
+              "role": "verb"
+            }
+          },
+          "georgian_verb_form": "სეირნობს",
+          "person": "3sg",
+          "effective_preverb": ""
         },
         {
-          "georgian": "ახალგაზრდა მეგობარი სეირნობენ",
-          "english": "<strong data-role=\"subject\">The young friend</strong> <strong data-role=\"verb\">walk</strong>",
-          "english_plain": "The young friend walk",
-          "html": "<span data-case=\"nom\" data-role=\"subject\">ახალგაზრდა მეგობარი</span> <span data-role=\"verb\">სეირნობენ</span>",
-          "case_marking": {
+          "georgian": "ახალგაზრდა მეგობრები სეირნობენ",
+          "georgian_components": {
             "subject": {
+              "text": "ახალგაზრდა მეგობრები",
               "case": "nom",
-              "word": "მეგობარი"
+              "role": "subject"
+            },
+            "verb": {
+              "text": "სეირნობენ",
+              "role": "verb"
             }
           },
-          "georgian_verb_form": "სეირნობენ"
+          "english": "The young friends walk",
+          "english_components": {
+            "subject": {
+              "text": "The young friends",
+              "role": "subject",
+              "person": "3pl"
+            },
+            "verb": {
+              "text": "walk",
+              "role": "verb"
+            }
+          },
+          "georgian_verb_form": "სეირნობენ",
+          "person": "3pl",
+          "effective_preverb": ""
         }
       ],
       "imperfect": [
         {
           "georgian": "ვსეირნობდი",
-          "english": "<strong data-role=\"subject\" data-person=\"1sg\">I</strong> <strong data-role=\"verb\">was walking</strong>",
-          "english_plain": "I was walking",
-          "html": " <span data-role=\"verb\">ვსეირნობდი</span>",
-          "case_marking": {},
-          "georgian_verb_form": "ვსეირნობდი"
+          "georgian_components": {
+            "verb": {
+              "text": "ვსეირნობდი",
+              "role": "verb"
+            }
+          },
+          "english": "I was walking",
+          "english_components": {
+            "subject": {
+              "text": "I",
+              "role": "subject",
+              "person": "1sg"
+            },
+            "verb": {
+              "text": "was walking",
+              "role": "verb"
+            }
+          },
+          "georgian_verb_form": "ვსეირნობდი",
+          "person": "1sg",
+          "effective_preverb": ""
         },
         {
           "georgian": "ძველი ბაბუა სეირნობდა",
-          "english": "<strong data-role=\"subject\">The old grandfather</strong> <strong data-role=\"verb\">was walking</strong>",
-          "english_plain": "The old grandfather was walking",
-          "html": "<span data-case=\"nom\" data-role=\"subject\">ძველი ბაბუა</span> <span data-role=\"verb\">სეირნობდა</span>",
-          "case_marking": {
+          "georgian_components": {
             "subject": {
+              "text": "ძველი ბაბუა",
               "case": "nom",
-              "word": "ბაბუა"
+              "role": "subject"
+            },
+            "verb": {
+              "text": "სეირნობდა",
+              "role": "verb"
             }
           },
-          "georgian_verb_form": "სეირნობდა"
+          "english": "The old grandfather was walking",
+          "english_components": {
+            "subject": {
+              "text": "The old grandfather",
+              "role": "subject",
+              "person": "3sg"
+            },
+            "verb": {
+              "text": "was walking",
+              "role": "verb"
+            }
+          },
+          "georgian_verb_form": "სეირნობდა",
+          "person": "3sg",
+          "effective_preverb": ""
         },
         {
-          "georgian": "ახალგაზრდა მეგობარი სეირნობდნენ",
-          "english": "<strong data-role=\"subject\">The young friend</strong> <strong data-role=\"verb\">were walking</strong>",
-          "english_plain": "The young friend were walking",
-          "html": "<span data-case=\"nom\" data-role=\"subject\">ახალგაზრდა მეგობარი</span> <span data-role=\"verb\">სეირნობდნენ</span>",
-          "case_marking": {
+          "georgian": "ახალგაზრდა მეგობრები სეირნობდნენ",
+          "georgian_components": {
             "subject": {
+              "text": "ახალგაზრდა მეგობრები",
               "case": "nom",
-              "word": "მეგობარი"
+              "role": "subject"
+            },
+            "verb": {
+              "text": "სეირნობდნენ",
+              "role": "verb"
             }
           },
-          "georgian_verb_form": "სეირნობდნენ"
+          "english": "The young friends were walking",
+          "english_components": {
+            "subject": {
+              "text": "The young friends",
+              "role": "subject",
+              "person": "3pl"
+            },
+            "verb": {
+              "text": "were walking",
+              "role": "verb"
+            }
+          },
+          "georgian_verb_form": "სეირნობდნენ",
+          "person": "3pl",
+          "effective_preverb": ""
         }
       ],
       "future": [
         {
           "georgian": "ვისეირნებ",
-          "english": "<strong data-role=\"subject\" data-person=\"1sg\">I</strong> <strong data-role=\"verb\">will walk</strong>",
-          "english_plain": "I will walk",
-          "html": " <span data-role=\"verb\">ვისეირნებ</span>",
-          "case_marking": {},
-          "georgian_verb_form": "ვისეირნებ"
+          "georgian_components": {
+            "verb": {
+              "text": "ვისეირნებ",
+              "role": "verb"
+            }
+          },
+          "english": "I will walk",
+          "english_components": {
+            "subject": {
+              "text": "I",
+              "role": "subject",
+              "person": "1sg"
+            },
+            "verb": {
+              "text": "will walk",
+              "role": "verb"
+            }
+          },
+          "georgian_verb_form": "ვისეირნებ",
+          "person": "1sg",
+          "effective_preverb": ""
         },
         {
           "georgian": "ძველი ბაბუა ისეირნებს",
-          "english": "<strong data-role=\"subject\">The old grandfather</strong> <strong data-role=\"verb\">will walk</strong>",
-          "english_plain": "The old grandfather will walk",
-          "html": "<span data-case=\"nom\" data-role=\"subject\">ძველი ბაბუა</span> <span data-role=\"verb\">ისეირნებს</span>",
-          "case_marking": {
+          "georgian_components": {
             "subject": {
+              "text": "ძველი ბაბუა",
               "case": "nom",
-              "word": "ბაბუა"
+              "role": "subject"
+            },
+            "verb": {
+              "text": "ისეირნებს",
+              "role": "verb"
             }
           },
-          "georgian_verb_form": "ისეირნებს"
+          "english": "The old grandfather will walk",
+          "english_components": {
+            "subject": {
+              "text": "The old grandfather",
+              "role": "subject",
+              "person": "3sg"
+            },
+            "verb": {
+              "text": "will walk",
+              "role": "verb"
+            }
+          },
+          "georgian_verb_form": "ისეირნებს",
+          "person": "3sg",
+          "effective_preverb": ""
         },
         {
-          "georgian": "ახალგაზრდა მეგობარი ისეირნებენ",
-          "english": "<strong data-role=\"subject\">The young friend</strong> <strong data-role=\"verb\">will walk</strong>",
-          "english_plain": "The young friend will walk",
-          "html": "<span data-case=\"nom\" data-role=\"subject\">ახალგაზრდა მეგობარი</span> <span data-role=\"verb\">ისეირნებენ</span>",
-          "case_marking": {
+          "georgian": "ახალგაზრდა მეგობრები ისეირნებენ",
+          "georgian_components": {
             "subject": {
+              "text": "ახალგაზრდა მეგობრები",
               "case": "nom",
-              "word": "მეგობარი"
+              "role": "subject"
+            },
+            "verb": {
+              "text": "ისეირნებენ",
+              "role": "verb"
             }
           },
-          "georgian_verb_form": "ისეირნებენ"
+          "english": "The young friends will walk",
+          "english_components": {
+            "subject": {
+              "text": "The young friends",
+              "role": "subject",
+              "person": "3pl"
+            },
+            "verb": {
+              "text": "will walk",
+              "role": "verb"
+            }
+          },
+          "georgian_verb_form": "ისეირნებენ",
+          "person": "3pl",
+          "effective_preverb": ""
         }
       ],
       "aorist": [
         {
           "georgian": "ვისეირნე",
-          "english": "<strong data-role=\"subject\" data-person=\"1sg\">I</strong> <strong data-role=\"verb\">walked</strong>",
-          "english_plain": "I walked",
-          "html": " <span data-role=\"verb\">ვისეირნე</span>",
-          "case_marking": {},
-          "georgian_verb_form": "ვისეირნე"
+          "georgian_components": {
+            "verb": {
+              "text": "ვისეირნე",
+              "role": "verb"
+            }
+          },
+          "english": "I walked",
+          "english_components": {
+            "subject": {
+              "text": "I",
+              "role": "subject",
+              "person": "1sg"
+            },
+            "verb": {
+              "text": "walked",
+              "role": "verb"
+            }
+          },
+          "georgian_verb_form": "ვისეირნე",
+          "person": "1sg",
+          "effective_preverb": ""
         },
         {
           "georgian": "ძველმა ბაბუამ ისეირნა",
-          "english": "<strong data-role=\"subject\">The old grandfather</strong> <strong data-role=\"verb\">walked</strong>",
-          "english_plain": "The old grandfather walked",
-          "html": "<span data-case=\"erg\" data-role=\"subject\">ძველმა ბაბუამ</span> <span data-role=\"verb\">ისეირნა</span>",
-          "case_marking": {
+          "georgian_components": {
             "subject": {
+              "text": "ძველმა ბაბუამ",
               "case": "erg",
-              "word": "ბაბუამ"
+              "role": "subject"
+            },
+            "verb": {
+              "text": "ისეირნა",
+              "role": "verb"
             }
           },
-          "georgian_verb_form": "ისეირნა"
+          "english": "The old grandfather walked",
+          "english_components": {
+            "subject": {
+              "text": "The old grandfather",
+              "role": "subject",
+              "person": "3sg"
+            },
+            "verb": {
+              "text": "walked",
+              "role": "verb"
+            }
+          },
+          "georgian_verb_form": "ისეირნა",
+          "person": "3sg",
+          "effective_preverb": ""
         },
         {
-          "georgian": "ახალგაზრდა მეგობარმა ისეირნეს",
-          "english": "<strong data-role=\"subject\">The young friend</strong> <strong data-role=\"verb\">walked</strong>",
-          "english_plain": "The young friend walked",
-          "html": "<span data-case=\"erg\" data-role=\"subject\">ახალგაზრდა მეგობარმა</span> <span data-role=\"verb\">ისეირნეს</span>",
-          "case_marking": {
+          "georgian": "ახალგაზრდა მეგობრებმა ისეირნეს",
+          "georgian_components": {
             "subject": {
+              "text": "ახალგაზრდა მეგობრებმა",
               "case": "erg",
-              "word": "მეგობარმა"
+              "role": "subject"
+            },
+            "verb": {
+              "text": "ისეირნეს",
+              "role": "verb"
             }
           },
-          "georgian_verb_form": "ისეირნეს"
+          "english": "The young friends walked",
+          "english_components": {
+            "subject": {
+              "text": "The young friends",
+              "role": "subject",
+              "person": "3pl"
+            },
+            "verb": {
+              "text": "walked",
+              "role": "verb"
+            }
+          },
+          "georgian_verb_form": "ისეირნეს",
+          "person": "3pl",
+          "effective_preverb": ""
         }
       ],
       "optative": [
         {
           "georgian": "უნდა ვისეირნო",
-          "english": "<strong data-role=\"subject\" data-person=\"1sg\">I</strong> <strong data-role=\"verb\">should</strong> <strong data-role=\"verb\">walk</strong>",
-          "english_plain": "I should walk",
-          "html": " <span data-role=\"verb\">უნდა ვისეირნო</span>",
-          "case_marking": {},
-          "georgian_verb_form": "ვისეირნო"
+          "georgian_components": {
+            "verb": {
+              "text": "უნდა ვისეირნო",
+              "role": "verb"
+            }
+          },
+          "english": "I should walk",
+          "english_components": {
+            "subject": {
+              "text": "I",
+              "role": "subject",
+              "person": "1sg"
+            },
+            "verb": {
+              "text": "should walk",
+              "role": "verb"
+            }
+          },
+          "georgian_verb_form": "ვისეირნო",
+          "person": "1sg",
+          "effective_preverb": ""
         },
         {
           "georgian": "ძველმა ბაბუამ უნდა ისეირნოს",
-          "english": "<strong data-role=\"subject\">The old grandfather</strong> <strong data-role=\"verb\">should</strong> <strong data-role=\"verb\">walk</strong>",
-          "english_plain": "The old grandfather should walk",
-          "html": "<span data-case=\"erg\" data-role=\"subject\">ძველმა ბაბუამ</span> <span data-role=\"verb\">უნდა ისეირნოს</span>",
-          "case_marking": {
+          "georgian_components": {
             "subject": {
+              "text": "ძველმა ბაბუამ",
               "case": "erg",
-              "word": "ბაბუამ"
+              "role": "subject"
+            },
+            "verb": {
+              "text": "უნდა ისეირნოს",
+              "role": "verb"
             }
           },
-          "georgian_verb_form": "ისეირნოს"
+          "english": "The old grandfather should walk",
+          "english_components": {
+            "subject": {
+              "text": "The old grandfather",
+              "role": "subject",
+              "person": "3sg"
+            },
+            "verb": {
+              "text": "should walk",
+              "role": "verb"
+            }
+          },
+          "georgian_verb_form": "ისეირნოს",
+          "person": "3sg",
+          "effective_preverb": ""
         },
         {
-          "georgian": "ახალგაზრდა მეგობარმა უნდა ისეირნონ",
-          "english": "<strong data-role=\"subject\">The young friend</strong> <strong data-role=\"verb\">should</strong> <strong data-role=\"verb\">walk</strong>",
-          "english_plain": "The young friend should walk",
-          "html": "<span data-case=\"erg\" data-role=\"subject\">ახალგაზრდა მეგობარმა</span> <span data-role=\"verb\">უნდა ისეირნონ</span>",
-          "case_marking": {
+          "georgian": "ახალგაზრდა მეგობრებმა უნდა ისეირნონ",
+          "georgian_components": {
             "subject": {
+              "text": "ახალგაზრდა მეგობრებმა",
               "case": "erg",
-              "word": "მეგობარმა"
+              "role": "subject"
+            },
+            "verb": {
+              "text": "უნდა ისეირნონ",
+              "role": "verb"
             }
           },
-          "georgian_verb_form": "ისეირნონ"
+          "english": "The young friends should walk",
+          "english_components": {
+            "subject": {
+              "text": "The young friends",
+              "role": "subject",
+              "person": "3pl"
+            },
+            "verb": {
+              "text": "should walk",
+              "role": "verb"
+            }
+          },
+          "georgian_verb_form": "ისეირნონ",
+          "person": "3pl",
+          "effective_preverb": ""
         }
       ],
       "imperative": [
         {
           "georgian": "ისეირნე",
-          "english": "<strong data-role=\"verb\">walk</strong>",
-          "english_plain": "walk",
-          "html": " <span data-role=\"verb\">ისეირნე</span>",
-          "case_marking": {},
-          "georgian_verb_form": "ისეირნე"
+          "georgian_components": {
+            "verb": {
+              "text": "ისეირნე",
+              "role": "verb"
+            }
+          },
+          "english": "You, walk",
+          "english_components": {
+            "subject": {
+              "text": "You,",
+              "role": "subject",
+              "person": "2sg"
+            },
+            "verb": {
+              "text": "walk",
+              "role": "verb"
+            }
+          },
+          "georgian_verb_form": "ისეირნე",
+          "person": "2sg",
+          "effective_preverb": ""
         },
         {
           "georgian": "ისეირნეთ",
-          "english": "<strong data-role=\"verb\">walk</strong>",
-          "english_plain": "walk",
-          "html": " <span data-role=\"verb\">ისეირნეთ</span>",
-          "case_marking": {},
-          "georgian_verb_form": "ისეირნეთ"
+          "georgian_components": {
+            "verb": {
+              "text": "ისეირნეთ",
+              "role": "verb"
+            }
+          },
+          "english": "You all (you formal), walk",
+          "english_components": {
+            "subject": {
+              "text": "You all (you formal),",
+              "role": "subject",
+              "person": "2pl"
+            },
+            "verb": {
+              "text": "walk",
+              "role": "verb"
+            }
+          },
+          "georgian_verb_form": "ისეირნეთ",
+          "person": "2pl",
+          "effective_preverb": ""
         }
       ]
     }

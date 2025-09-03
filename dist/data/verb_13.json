@@ -124,207 +124,478 @@
   "preverb_rules": {
     "default": "",
     "replacements": {},
-    "tense_specific_fallbacks": {},
-    "english_fallbacks": {}
+    "tense_specific_fallbacks": {}
   },
   "examples": {
-    "null": {
+    "default": {
       "present": [
         {
           "georgian": "ვსაუბრობ",
-          "english": "<strong data-role=\"subject\" data-person=\"1sg\">I</strong> <strong data-role=\"verb\">converse</strong>",
-          "english_plain": "I converse",
-          "html": " <span data-role=\"verb\">ვსაუბრობ</span>",
-          "case_marking": {},
-          "georgian_verb_form": "ვსაუბრობ"
+          "georgian_components": {
+            "verb": {
+              "text": "ვსაუბრობ",
+              "role": "verb"
+            }
+          },
+          "english": "I converse",
+          "english_components": {
+            "subject": {
+              "text": "I",
+              "role": "subject",
+              "person": "1sg"
+            },
+            "verb": {
+              "text": "converse",
+              "role": "verb"
+            }
+          },
+          "georgian_verb_form": "ვსაუბრობ",
+          "person": "1sg",
+          "effective_preverb": ""
         },
         {
           "georgian": "ჭკვიანი მასწავლებელი საუბრობს",
-          "english": "<strong data-role=\"subject\">The smart teacher</strong> <strong data-role=\"verb\">converses</strong>",
-          "english_plain": "The smart teacher converses",
-          "html": "<span data-case=\"nom\" data-role=\"subject\">ჭკვიანი მასწავლებელი</span> <span data-role=\"verb\">საუბრობს</span>",
-          "case_marking": {
+          "georgian_components": {
             "subject": {
+              "text": "ჭკვიანი მასწავლებელი",
               "case": "nom",
-              "word": "მასწავლებელი"
+              "role": "subject"
+            },
+            "verb": {
+              "text": "საუბრობს",
+              "role": "verb"
             }
           },
-          "georgian_verb_form": "საუბრობს"
+          "english": "The smart teacher converses",
+          "english_components": {
+            "subject": {
+              "text": "The smart teacher",
+              "role": "subject",
+              "person": "3sg"
+            },
+            "verb": {
+              "text": "converses",
+              "role": "verb"
+            }
+          },
+          "georgian_verb_form": "საუბრობს",
+          "person": "3sg",
+          "effective_preverb": ""
         },
         {
-          "georgian": "ცნობისმოყვარე სტუდენტი საუბრობენ",
-          "english": "<strong data-role=\"subject\">The curious student</strong> <strong data-role=\"verb\">converse</strong>",
-          "english_plain": "The curious student converse",
-          "html": "<span data-case=\"nom\" data-role=\"subject\">ცნობისმოყვარე სტუდენტი</span> <span data-role=\"verb\">საუბრობენ</span>",
-          "case_marking": {
+          "georgian": "ცნობისმოყვარე სტუდენტები საუბრობენ",
+          "georgian_components": {
             "subject": {
+              "text": "ცნობისმოყვარე სტუდენტები",
               "case": "nom",
-              "word": "სტუდენტი"
+              "role": "subject"
+            },
+            "verb": {
+              "text": "საუბრობენ",
+              "role": "verb"
             }
           },
-          "georgian_verb_form": "საუბრობენ"
+          "english": "The curious students converse",
+          "english_components": {
+            "subject": {
+              "text": "The curious students",
+              "role": "subject",
+              "person": "3pl"
+            },
+            "verb": {
+              "text": "converse",
+              "role": "verb"
+            }
+          },
+          "georgian_verb_form": "საუბრობენ",
+          "person": "3pl",
+          "effective_preverb": ""
         }
       ],
       "imperfect": [
         {
           "georgian": "ვსაუბრობდი",
-          "english": "<strong data-role=\"subject\" data-person=\"1sg\">I</strong> <strong data-role=\"verb\">was conversing</strong>",
-          "english_plain": "I was conversing",
-          "html": " <span data-role=\"verb\">ვსაუბრობდი</span>",
-          "case_marking": {},
-          "georgian_verb_form": "ვსაუბრობდი"
+          "georgian_components": {
+            "verb": {
+              "text": "ვსაუბრობდი",
+              "role": "verb"
+            }
+          },
+          "english": "I was conversing",
+          "english_components": {
+            "subject": {
+              "text": "I",
+              "role": "subject",
+              "person": "1sg"
+            },
+            "verb": {
+              "text": "was conversing",
+              "role": "verb"
+            }
+          },
+          "georgian_verb_form": "ვსაუბრობდი",
+          "person": "1sg",
+          "effective_preverb": ""
         },
         {
           "georgian": "ჭკვიანი მასწავლებელი საუბრობდა",
-          "english": "<strong data-role=\"subject\">The smart teacher</strong> <strong data-role=\"verb\">was conversing</strong>",
-          "english_plain": "The smart teacher was conversing",
-          "html": "<span data-case=\"nom\" data-role=\"subject\">ჭკვიანი მასწავლებელი</span> <span data-role=\"verb\">საუბრობდა</span>",
-          "case_marking": {
+          "georgian_components": {
             "subject": {
+              "text": "ჭკვიანი მასწავლებელი",
               "case": "nom",
-              "word": "მასწავლებელი"
+              "role": "subject"
+            },
+            "verb": {
+              "text": "საუბრობდა",
+              "role": "verb"
             }
           },
-          "georgian_verb_form": "საუბრობდა"
+          "english": "The smart teacher was conversing",
+          "english_components": {
+            "subject": {
+              "text": "The smart teacher",
+              "role": "subject",
+              "person": "3sg"
+            },
+            "verb": {
+              "text": "was conversing",
+              "role": "verb"
+            }
+          },
+          "georgian_verb_form": "საუბრობდა",
+          "person": "3sg",
+          "effective_preverb": ""
         },
         {
-          "georgian": "ცნობისმოყვარე სტუდენტი საუბრობდნენ",
-          "english": "<strong data-role=\"subject\">The curious student</strong> <strong data-role=\"verb\">were conversing</strong>",
-          "english_plain": "The curious student were conversing",
-          "html": "<span data-case=\"nom\" data-role=\"subject\">ცნობისმოყვარე სტუდენტი</span> <span data-role=\"verb\">საუბრობდნენ</span>",
-          "case_marking": {
+          "georgian": "ცნობისმოყვარე სტუდენტები საუბრობდნენ",
+          "georgian_components": {
             "subject": {
+              "text": "ცნობისმოყვარე სტუდენტები",
               "case": "nom",
-              "word": "სტუდენტი"
+              "role": "subject"
+            },
+            "verb": {
+              "text": "საუბრობდნენ",
+              "role": "verb"
             }
           },
-          "georgian_verb_form": "საუბრობდნენ"
+          "english": "The curious students were conversing",
+          "english_components": {
+            "subject": {
+              "text": "The curious students",
+              "role": "subject",
+              "person": "3pl"
+            },
+            "verb": {
+              "text": "were conversing",
+              "role": "verb"
+            }
+          },
+          "georgian_verb_form": "საუბრობდნენ",
+          "person": "3pl",
+          "effective_preverb": ""
         }
       ],
       "future": [
         {
           "georgian": "ვისაუბრებ",
-          "english": "<strong data-role=\"subject\" data-person=\"1sg\">I</strong> <strong data-role=\"verb\">will converse</strong>",
-          "english_plain": "I will converse",
-          "html": " <span data-role=\"verb\">ვისაუბრებ</span>",
-          "case_marking": {},
-          "georgian_verb_form": "ვისაუბრებ"
+          "georgian_components": {
+            "verb": {
+              "text": "ვისაუბრებ",
+              "role": "verb"
+            }
+          },
+          "english": "I will converse",
+          "english_components": {
+            "subject": {
+              "text": "I",
+              "role": "subject",
+              "person": "1sg"
+            },
+            "verb": {
+              "text": "will converse",
+              "role": "verb"
+            }
+          },
+          "georgian_verb_form": "ვისაუბრებ",
+          "person": "1sg",
+          "effective_preverb": ""
         },
         {
           "georgian": "ჭკვიანი მასწავლებელი ისაუბრებს",
-          "english": "<strong data-role=\"subject\">The smart teacher</strong> <strong data-role=\"verb\">will converse</strong>",
-          "english_plain": "The smart teacher will converse",
-          "html": "<span data-case=\"nom\" data-role=\"subject\">ჭკვიანი მასწავლებელი</span> <span data-role=\"verb\">ისაუბრებს</span>",
-          "case_marking": {
+          "georgian_components": {
             "subject": {
+              "text": "ჭკვიანი მასწავლებელი",
               "case": "nom",
-              "word": "მასწავლებელი"
+              "role": "subject"
+            },
+            "verb": {
+              "text": "ისაუბრებს",
+              "role": "verb"
             }
           },
-          "georgian_verb_form": "ისაუბრებს"
+          "english": "The smart teacher will converse",
+          "english_components": {
+            "subject": {
+              "text": "The smart teacher",
+              "role": "subject",
+              "person": "3sg"
+            },
+            "verb": {
+              "text": "will converse",
+              "role": "verb"
+            }
+          },
+          "georgian_verb_form": "ისაუბრებს",
+          "person": "3sg",
+          "effective_preverb": ""
         },
         {
-          "georgian": "ცნობისმოყვარე სტუდენტი ისაუბრებენ",
-          "english": "<strong data-role=\"subject\">The curious student</strong> <strong data-role=\"verb\">will converse</strong>",
-          "english_plain": "The curious student will converse",
-          "html": "<span data-case=\"nom\" data-role=\"subject\">ცნობისმოყვარე სტუდენტი</span> <span data-role=\"verb\">ისაუბრებენ</span>",
-          "case_marking": {
+          "georgian": "ცნობისმოყვარე სტუდენტები ისაუბრებენ",
+          "georgian_components": {
             "subject": {
+              "text": "ცნობისმოყვარე სტუდენტები",
               "case": "nom",
-              "word": "სტუდენტი"
+              "role": "subject"
+            },
+            "verb": {
+              "text": "ისაუბრებენ",
+              "role": "verb"
             }
           },
-          "georgian_verb_form": "ისაუბრებენ"
+          "english": "The curious students will converse",
+          "english_components": {
+            "subject": {
+              "text": "The curious students",
+              "role": "subject",
+              "person": "3pl"
+            },
+            "verb": {
+              "text": "will converse",
+              "role": "verb"
+            }
+          },
+          "georgian_verb_form": "ისაუბრებენ",
+          "person": "3pl",
+          "effective_preverb": ""
         }
       ],
       "aorist": [
         {
           "georgian": "ვისაუბრე",
-          "english": "<strong data-role=\"subject\" data-person=\"1sg\">I</strong> <strong data-role=\"verb\">conversed</strong>",
-          "english_plain": "I conversed",
-          "html": " <span data-role=\"verb\">ვისაუბრე</span>",
-          "case_marking": {},
-          "georgian_verb_form": "ვისაუბრე"
+          "georgian_components": {
+            "verb": {
+              "text": "ვისაუბრე",
+              "role": "verb"
+            }
+          },
+          "english": "I conversed",
+          "english_components": {
+            "subject": {
+              "text": "I",
+              "role": "subject",
+              "person": "1sg"
+            },
+            "verb": {
+              "text": "conversed",
+              "role": "verb"
+            }
+          },
+          "georgian_verb_form": "ვისაუბრე",
+          "person": "1sg",
+          "effective_preverb": ""
         },
         {
           "georgian": "ჭკვიანმა მასწავლებელმა ისაუბრა",
-          "english": "<strong data-role=\"subject\">The smart teacher</strong> <strong data-role=\"verb\">conversed</strong>",
-          "english_plain": "The smart teacher conversed",
-          "html": "<span data-case=\"erg\" data-role=\"subject\">ჭკვიანმა მასწავლებელმა</span> <span data-role=\"verb\">ისაუბრა</span>",
-          "case_marking": {
+          "georgian_components": {
             "subject": {
+              "text": "ჭკვიანმა მასწავლებელმა",
               "case": "erg",
-              "word": "მასწავლებელმა"
+              "role": "subject"
+            },
+            "verb": {
+              "text": "ისაუბრა",
+              "role": "verb"
             }
           },
-          "georgian_verb_form": "ისაუბრა"
+          "english": "The smart teacher conversed",
+          "english_components": {
+            "subject": {
+              "text": "The smart teacher",
+              "role": "subject",
+              "person": "3sg"
+            },
+            "verb": {
+              "text": "conversed",
+              "role": "verb"
+            }
+          },
+          "georgian_verb_form": "ისაუბრა",
+          "person": "3sg",
+          "effective_preverb": ""
         },
         {
-          "georgian": "ცნობისმოყვარე სტუდენტმა ისაუბრეს",
-          "english": "<strong data-role=\"subject\">The curious student</strong> <strong data-role=\"verb\">conversed</strong>",
-          "english_plain": "The curious student conversed",
-          "html": "<span data-case=\"erg\" data-role=\"subject\">ცნობისმოყვარე სტუდენტმა</span> <span data-role=\"verb\">ისაუბრეს</span>",
-          "case_marking": {
+          "georgian": "ცნობისმოყვარე სტუდენტებმა ისაუბრეს",
+          "georgian_components": {
             "subject": {
+              "text": "ცნობისმოყვარე სტუდენტებმა",
               "case": "erg",
-              "word": "სტუდენტმა"
+              "role": "subject"
+            },
+            "verb": {
+              "text": "ისაუბრეს",
+              "role": "verb"
             }
           },
-          "georgian_verb_form": "ისაუბრეს"
+          "english": "The curious students conversed",
+          "english_components": {
+            "subject": {
+              "text": "The curious students",
+              "role": "subject",
+              "person": "3pl"
+            },
+            "verb": {
+              "text": "conversed",
+              "role": "verb"
+            }
+          },
+          "georgian_verb_form": "ისაუბრეს",
+          "person": "3pl",
+          "effective_preverb": ""
         }
       ],
       "optative": [
         {
           "georgian": "უნდა ვისაუბრო",
-          "english": "<strong data-role=\"subject\" data-person=\"1sg\">I</strong> <strong data-role=\"verb\">should</strong> <strong data-role=\"verb\">converse</strong>",
-          "english_plain": "I should converse",
-          "html": " <span data-role=\"verb\">უნდა ვისაუბრო</span>",
-          "case_marking": {},
-          "georgian_verb_form": "ვისაუბრო"
+          "georgian_components": {
+            "verb": {
+              "text": "უნდა ვისაუბრო",
+              "role": "verb"
+            }
+          },
+          "english": "I should converse",
+          "english_components": {
+            "subject": {
+              "text": "I",
+              "role": "subject",
+              "person": "1sg"
+            },
+            "verb": {
+              "text": "should converse",
+              "role": "verb"
+            }
+          },
+          "georgian_verb_form": "ვისაუბრო",
+          "person": "1sg",
+          "effective_preverb": ""
         },
         {
           "georgian": "ჭკვიანმა მასწავლებელმა უნდა ისაუბროს",
-          "english": "<strong data-role=\"subject\">The smart teacher</strong> <strong data-role=\"verb\">should</strong> <strong data-role=\"verb\">converse</strong>",
-          "english_plain": "The smart teacher should converse",
-          "html": "<span data-case=\"erg\" data-role=\"subject\">ჭკვიანმა მასწავლებელმა</span> <span data-role=\"verb\">უნდა ისაუბროს</span>",
-          "case_marking": {
+          "georgian_components": {
             "subject": {
+              "text": "ჭკვიანმა მასწავლებელმა",
               "case": "erg",
-              "word": "მასწავლებელმა"
+              "role": "subject"
+            },
+            "verb": {
+              "text": "უნდა ისაუბროს",
+              "role": "verb"
             }
           },
-          "georgian_verb_form": "ისაუბროს"
+          "english": "The smart teacher should converse",
+          "english_components": {
+            "subject": {
+              "text": "The smart teacher",
+              "role": "subject",
+              "person": "3sg"
+            },
+            "verb": {
+              "text": "should converse",
+              "role": "verb"
+            }
+          },
+          "georgian_verb_form": "ისაუბროს",
+          "person": "3sg",
+          "effective_preverb": ""
         },
         {
-          "georgian": "ცნობისმოყვარე სტუდენტმა უნდა ისაუბრონ",
-          "english": "<strong data-role=\"subject\">The curious student</strong> <strong data-role=\"verb\">should</strong> <strong data-role=\"verb\">converse</strong>",
-          "english_plain": "The curious student should converse",
-          "html": "<span data-case=\"erg\" data-role=\"subject\">ცნობისმოყვარე სტუდენტმა</span> <span data-role=\"verb\">უნდა ისაუბრონ</span>",
-          "case_marking": {
+          "georgian": "ცნობისმოყვარე სტუდენტებმა უნდა ისაუბრონ",
+          "georgian_components": {
             "subject": {
+              "text": "ცნობისმოყვარე სტუდენტებმა",
               "case": "erg",
-              "word": "სტუდენტმა"
+              "role": "subject"
+            },
+            "verb": {
+              "text": "უნდა ისაუბრონ",
+              "role": "verb"
             }
           },
-          "georgian_verb_form": "ისაუბრონ"
+          "english": "The curious students should converse",
+          "english_components": {
+            "subject": {
+              "text": "The curious students",
+              "role": "subject",
+              "person": "3pl"
+            },
+            "verb": {
+              "text": "should converse",
+              "role": "verb"
+            }
+          },
+          "georgian_verb_form": "ისაუბრონ",
+          "person": "3pl",
+          "effective_preverb": ""
         }
       ],
       "imperative": [
         {
           "georgian": "ისაუბრე",
-          "english": "<strong data-role=\"verb\">converse</strong>",
-          "english_plain": "converse",
-          "html": " <span data-role=\"verb\">ისაუბრე</span>",
-          "case_marking": {},
-          "georgian_verb_form": "ისაუბრე"
+          "georgian_components": {
+            "verb": {
+              "text": "ისაუბრე",
+              "role": "verb"
+            }
+          },
+          "english": "You, converse",
+          "english_components": {
+            "subject": {
+              "text": "You,",
+              "role": "subject",
+              "person": "2sg"
+            },
+            "verb": {
+              "text": "converse",
+              "role": "verb"
+            }
+          },
+          "georgian_verb_form": "ისაუბრე",
+          "person": "2sg",
+          "effective_preverb": ""
         },
         {
           "georgian": "ისაუბრეთ",
-          "english": "<strong data-role=\"verb\">converse</strong>",
-          "english_plain": "converse",
-          "html": " <span data-role=\"verb\">ისაუბრეთ</span>",
-          "case_marking": {},
-          "georgian_verb_form": "ისაუბრეთ"
+          "georgian_components": {
+            "verb": {
+              "text": "ისაუბრეთ",
+              "role": "verb"
+            }
+          },
+          "english": "You all (you formal), converse",
+          "english_components": {
+            "subject": {
+              "text": "You all (you formal),",
+              "role": "subject",
+              "person": "2pl"
+            },
+            "verb": {
+              "text": "converse",
+              "role": "verb"
+            }
+          },
+          "georgian_verb_form": "ისაუბრეთ",
+          "person": "2pl",
+          "effective_preverb": ""
         }
       ]
     }

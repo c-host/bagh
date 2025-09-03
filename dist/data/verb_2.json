@@ -176,290 +176,647 @@
   "preverb_rules": {
     "default": "",
     "replacements": {},
-    "tense_specific_fallbacks": {},
-    "english_fallbacks": {}
+    "tense_specific_fallbacks": {}
   },
   "examples": {
-    "null": {
+    "default": {
       "present": [
         {
-          "georgian": "სასაცილო ფილმს ბედნიერ დედას ვაჩვენებ",
-          "english": "<strong data-role=\"subject\" data-person=\"1sg\">I</strong> <strong data-role=\"verb\">show</strong> <strong data-role=\"direct-object\">the funny movie</strong> <strong data-role=\"indirect-object\">to the happy mother</strong>",
-          "english_plain": "I show the funny movie to the happy mother",
-          "html": "<span data-case=\"dat\" data-role=\"direct-object\">სასაცილო ფილმს</span> <span data-case=\"dat\" data-role=\"indirect-object\">ბედნიერ დედას</span> <span data-role=\"verb\">ვაჩვენებ</span>",
-          "case_marking": {
+          "georgian": "ვაჩვენებ სასაცილო ფილმს ბედნიერ დედას",
+          "georgian_components": {
+            "verb": {
+              "text": "ვაჩვენებ",
+              "role": "verb"
+            },
             "direct_object": {
+              "text": "სასაცილო ფილმს",
               "case": "dat",
-              "word": "ფილმს"
+              "role": "direct_object"
             },
             "indirect_object": {
+              "text": "ბედნიერ დედას",
               "case": "dat",
-              "word": "დედას"
+              "role": "indirect_object"
             }
           },
-          "georgian_verb_form": "ვაჩვენებ"
+          "english": "I show the funny movie to the happy mother",
+          "english_components": {
+            "subject": {
+              "text": "I",
+              "role": "subject",
+              "person": "1sg"
+            },
+            "verb": {
+              "text": "show",
+              "role": "verb"
+            },
+            "direct_object": {
+              "text": "the funny movie",
+              "role": "direct_object"
+            },
+            "indirect_object": {
+              "text": "to the happy mother",
+              "role": "indirect_object"
+            }
+          },
+          "georgian_verb_form": "ვაჩვენებ",
+          "person": "1sg",
+          "effective_preverb": ""
         },
         {
-          "georgian": "კეთილი მასწავლებელი ლამაზ ფოტოს ბედნიერ ბავშვს აჩვენებს",
-          "english": "<strong data-role=\"subject\">The kind teacher</strong> <strong data-role=\"verb\">shows</strong> <strong data-role=\"direct-object\">the beautiful photo</strong> <strong data-role=\"indirect-object\">to the happy child</strong>",
-          "english_plain": "The kind teacher shows the beautiful photo to the happy child",
-          "html": "<span data-case=\"nom\" data-role=\"subject\">კეთილი მასწავლებელი</span> <span data-case=\"dat\" data-role=\"direct-object\">ლამაზ ფოტოს</span> <span data-case=\"dat\" data-role=\"indirect-object\">ბედნიერ ბავშვს</span> <span data-role=\"verb\">აჩვენებს</span>",
-          "case_marking": {
+          "georgian": "კეთილი მასწავლებელი აჩვენებს ლამაზ ფოტოს ბედნიერ ბავშვს",
+          "georgian_components": {
             "subject": {
+              "text": "კეთილი მასწავლებელი",
               "case": "nom",
-              "word": "მასწავლებელი"
+              "role": "subject"
+            },
+            "verb": {
+              "text": "აჩვენებს",
+              "role": "verb"
             },
             "direct_object": {
+              "text": "ლამაზ ფოტოს",
               "case": "dat",
-              "word": "ფოტოს"
+              "role": "direct_object"
             },
             "indirect_object": {
+              "text": "ბედნიერ ბავშვს",
               "case": "dat",
-              "word": "ბავშვს"
+              "role": "indirect_object"
             }
           },
-          "georgian_verb_form": "აჩვენებს"
+          "english": "The kind teacher shows the beautiful photo to the happy child",
+          "english_components": {
+            "subject": {
+              "text": "The kind teacher",
+              "role": "subject",
+              "person": "3sg"
+            },
+            "verb": {
+              "text": "shows",
+              "role": "verb"
+            },
+            "direct_object": {
+              "text": "the beautiful photo",
+              "role": "direct_object"
+            },
+            "indirect_object": {
+              "text": "to the happy child",
+              "role": "indirect_object"
+            }
+          },
+          "georgian_verb_form": "აჩვენებს",
+          "person": "3sg",
+          "effective_preverb": ""
         },
         {
-          "georgian": "ჭკვიანი სტუდენტი საინტერესო ამბავს საუკეთესო მეგობარს აჩვენებენ",
-          "english": "<strong data-role=\"subject\">The clever student</strong> <strong data-role=\"verb\">show</strong> <strong data-role=\"direct-object\">the interesting story</strong> <strong data-role=\"indirect-object\">to the best friend</strong>",
-          "english_plain": "The clever student show the interesting story to the best friend",
-          "html": "<span data-case=\"nom\" data-role=\"subject\">ჭკვიანი სტუდენტი</span> <span data-case=\"dat\" data-role=\"direct-object\">საინტერესო ამბავს</span> <span data-case=\"dat\" data-role=\"indirect-object\">საუკეთესო მეგობარს</span> <span data-role=\"verb\">აჩვენებენ</span>",
-          "case_marking": {
+          "georgian": "ჭკვიანი სტუდენტები აჩვენებენ საინტერესო ამბავს საუკეთესო მეგობარს",
+          "georgian_components": {
             "subject": {
+              "text": "ჭკვიანი სტუდენტები",
               "case": "nom",
-              "word": "სტუდენტი"
+              "role": "subject"
+            },
+            "verb": {
+              "text": "აჩვენებენ",
+              "role": "verb"
             },
             "direct_object": {
+              "text": "საინტერესო ამბავს",
               "case": "dat",
-              "word": "ამბავს"
+              "role": "direct_object"
             },
             "indirect_object": {
+              "text": "საუკეთესო მეგობარს",
               "case": "dat",
-              "word": "მეგობარს"
+              "role": "indirect_object"
             }
           },
-          "georgian_verb_form": "აჩვენებენ"
+          "english": "The clever students show the interesting story to the best friend",
+          "english_components": {
+            "subject": {
+              "text": "The clever students",
+              "role": "subject",
+              "person": "3pl"
+            },
+            "verb": {
+              "text": "show",
+              "role": "verb"
+            },
+            "direct_object": {
+              "text": "the interesting story",
+              "role": "direct_object"
+            },
+            "indirect_object": {
+              "text": "to the best friend",
+              "role": "indirect_object"
+            }
+          },
+          "georgian_verb_form": "აჩვენებენ",
+          "person": "3pl",
+          "effective_preverb": ""
         }
       ],
       "imperfect": [
         {
-          "georgian": "სასაცილო ფილმს ბედნიერ დედას ვაჩვენებდი",
-          "english": "<strong data-role=\"subject\" data-person=\"1sg\">I</strong> <strong data-role=\"verb\">was showing</strong> <strong data-role=\"direct-object\">the funny movie</strong> <strong data-role=\"indirect-object\">to the happy mother</strong>",
-          "english_plain": "I was showing the funny movie to the happy mother",
-          "html": "<span data-case=\"dat\" data-role=\"direct-object\">სასაცილო ფილმს</span> <span data-case=\"dat\" data-role=\"indirect-object\">ბედნიერ დედას</span> <span data-role=\"verb\">ვაჩვენებდი</span>",
-          "case_marking": {
+          "georgian": "ვაჩვენებდი სასაცილო ფილმს ბედნიერ დედას",
+          "georgian_components": {
+            "verb": {
+              "text": "ვაჩვენებდი",
+              "role": "verb"
+            },
             "direct_object": {
+              "text": "სასაცილო ფილმს",
               "case": "dat",
-              "word": "ფილმს"
+              "role": "direct_object"
             },
             "indirect_object": {
+              "text": "ბედნიერ დედას",
               "case": "dat",
-              "word": "დედას"
+              "role": "indirect_object"
             }
           },
-          "georgian_verb_form": "ვაჩვენებდი"
+          "english": "I was showing the funny movie to the happy mother",
+          "english_components": {
+            "subject": {
+              "text": "I",
+              "role": "subject",
+              "person": "1sg"
+            },
+            "verb": {
+              "text": "was showing",
+              "role": "verb"
+            },
+            "direct_object": {
+              "text": "the funny movie",
+              "role": "direct_object"
+            },
+            "indirect_object": {
+              "text": "to the happy mother",
+              "role": "indirect_object"
+            }
+          },
+          "georgian_verb_form": "ვაჩვენებდი",
+          "person": "1sg",
+          "effective_preverb": ""
         },
         {
-          "georgian": "კეთილი მასწავლებელი ლამაზ ფოტოს ბედნიერ ბავშვს აჩვენებდა",
-          "english": "<strong data-role=\"subject\">The kind teacher</strong> <strong data-role=\"verb\">was showing</strong> <strong data-role=\"direct-object\">the beautiful photo</strong> <strong data-role=\"indirect-object\">to the happy child</strong>",
-          "english_plain": "The kind teacher was showing the beautiful photo to the happy child",
-          "html": "<span data-case=\"nom\" data-role=\"subject\">კეთილი მასწავლებელი</span> <span data-case=\"dat\" data-role=\"direct-object\">ლამაზ ფოტოს</span> <span data-case=\"dat\" data-role=\"indirect-object\">ბედნიერ ბავშვს</span> <span data-role=\"verb\">აჩვენებდა</span>",
-          "case_marking": {
+          "georgian": "კეთილი მასწავლებელი აჩვენებდა ლამაზ ფოტოს ბედნიერ ბავშვს",
+          "georgian_components": {
             "subject": {
+              "text": "კეთილი მასწავლებელი",
               "case": "nom",
-              "word": "მასწავლებელი"
+              "role": "subject"
+            },
+            "verb": {
+              "text": "აჩვენებდა",
+              "role": "verb"
             },
             "direct_object": {
+              "text": "ლამაზ ფოტოს",
               "case": "dat",
-              "word": "ფოტოს"
+              "role": "direct_object"
             },
             "indirect_object": {
+              "text": "ბედნიერ ბავშვს",
               "case": "dat",
-              "word": "ბავშვს"
+              "role": "indirect_object"
             }
           },
-          "georgian_verb_form": "აჩვენებდა"
+          "english": "The kind teacher was showing the beautiful photo to the happy child",
+          "english_components": {
+            "subject": {
+              "text": "The kind teacher",
+              "role": "subject",
+              "person": "3sg"
+            },
+            "verb": {
+              "text": "was showing",
+              "role": "verb"
+            },
+            "direct_object": {
+              "text": "the beautiful photo",
+              "role": "direct_object"
+            },
+            "indirect_object": {
+              "text": "to the happy child",
+              "role": "indirect_object"
+            }
+          },
+          "georgian_verb_form": "აჩვენებდა",
+          "person": "3sg",
+          "effective_preverb": ""
         },
         {
-          "georgian": "ჭკვიანი სტუდენტი საინტერესო ამბავს საუკეთესო მეგობარს აჩვენებდნენ",
-          "english": "<strong data-role=\"subject\">The clever student</strong> <strong data-role=\"verb\">were showing</strong> <strong data-role=\"direct-object\">the interesting story</strong> <strong data-role=\"indirect-object\">to the best friend</strong>",
-          "english_plain": "The clever student were showing the interesting story to the best friend",
-          "html": "<span data-case=\"nom\" data-role=\"subject\">ჭკვიანი სტუდენტი</span> <span data-case=\"dat\" data-role=\"direct-object\">საინტერესო ამბავს</span> <span data-case=\"dat\" data-role=\"indirect-object\">საუკეთესო მეგობარს</span> <span data-role=\"verb\">აჩვენებდნენ</span>",
-          "case_marking": {
+          "georgian": "ჭკვიანი სტუდენტები აჩვენებდნენ საინტერესო ამბავს საუკეთესო მეგობარს",
+          "georgian_components": {
             "subject": {
+              "text": "ჭკვიანი სტუდენტები",
               "case": "nom",
-              "word": "სტუდენტი"
+              "role": "subject"
+            },
+            "verb": {
+              "text": "აჩვენებდნენ",
+              "role": "verb"
             },
             "direct_object": {
+              "text": "საინტერესო ამბავს",
               "case": "dat",
-              "word": "ამბავს"
+              "role": "direct_object"
             },
             "indirect_object": {
+              "text": "საუკეთესო მეგობარს",
               "case": "dat",
-              "word": "მეგობარს"
+              "role": "indirect_object"
             }
           },
-          "georgian_verb_form": "აჩვენებდნენ"
+          "english": "The clever students were showing the interesting story to the best friend",
+          "english_components": {
+            "subject": {
+              "text": "The clever students",
+              "role": "subject",
+              "person": "3pl"
+            },
+            "verb": {
+              "text": "were showing",
+              "role": "verb"
+            },
+            "direct_object": {
+              "text": "the interesting story",
+              "role": "direct_object"
+            },
+            "indirect_object": {
+              "text": "to the best friend",
+              "role": "indirect_object"
+            }
+          },
+          "georgian_verb_form": "აჩვენებდნენ",
+          "person": "3pl",
+          "effective_preverb": ""
         }
       ],
       "future": [],
       "aorist": [
         {
-          "georgian": "სასაცილო ფილმი ბედნიერ დედას ვაჩვენე",
-          "english": "<strong data-role=\"subject\" data-person=\"1sg\">I</strong> <strong data-role=\"verb\">showed</strong> <strong data-role=\"direct-object\">the funny movie</strong> <strong data-role=\"indirect-object\">to the happy mother</strong>",
-          "english_plain": "I showed the funny movie to the happy mother",
-          "html": "<span data-case=\"nom\" data-role=\"direct-object\">სასაცილო ფილმი</span> <span data-case=\"dat\" data-role=\"indirect-object\">ბედნიერ დედას</span> <span data-role=\"verb\">ვაჩვენე</span>",
-          "case_marking": {
+          "georgian": "ვაჩვენე სასაცილო ფილმი ბედნიერ დედას",
+          "georgian_components": {
+            "verb": {
+              "text": "ვაჩვენე",
+              "role": "verb"
+            },
             "direct_object": {
+              "text": "სასაცილო ფილმი",
               "case": "nom",
-              "word": "ფილმი"
+              "role": "direct_object"
             },
             "indirect_object": {
+              "text": "ბედნიერ დედას",
               "case": "dat",
-              "word": "დედას"
+              "role": "indirect_object"
             }
           },
-          "georgian_verb_form": "ვაჩვენე"
+          "english": "I showed the funny movie to the happy mother",
+          "english_components": {
+            "subject": {
+              "text": "I",
+              "role": "subject",
+              "person": "1sg"
+            },
+            "verb": {
+              "text": "showed",
+              "role": "verb"
+            },
+            "direct_object": {
+              "text": "the funny movie",
+              "role": "direct_object"
+            },
+            "indirect_object": {
+              "text": "to the happy mother",
+              "role": "indirect_object"
+            }
+          },
+          "georgian_verb_form": "ვაჩვენე",
+          "person": "1sg",
+          "effective_preverb": ""
         },
         {
-          "georgian": "კეთილმა მასწავლებელმა ლამაზი ფოტო ბედნიერ ბავშვს აჩვენა",
-          "english": "<strong data-role=\"subject\">The kind teacher</strong> <strong data-role=\"verb\">showed</strong> <strong data-role=\"direct-object\">the beautiful photo</strong> <strong data-role=\"indirect-object\">to the happy child</strong>",
-          "english_plain": "The kind teacher showed the beautiful photo to the happy child",
-          "html": "<span data-case=\"erg\" data-role=\"subject\">კეთილმა მასწავლებელმა</span> <span data-case=\"nom\" data-role=\"direct-object\">ლამაზი ფოტო</span> <span data-case=\"dat\" data-role=\"indirect-object\">ბედნიერ ბავშვს</span> <span data-role=\"verb\">აჩვენა</span>",
-          "case_marking": {
+          "georgian": "კეთილმა მასწავლებელმა აჩვენა ლამაზი ფოტო ბედნიერ ბავშვს",
+          "georgian_components": {
             "subject": {
+              "text": "კეთილმა მასწავლებელმა",
               "case": "erg",
-              "word": "მასწავლებელმა"
+              "role": "subject"
+            },
+            "verb": {
+              "text": "აჩვენა",
+              "role": "verb"
             },
             "direct_object": {
+              "text": "ლამაზი ფოტო",
               "case": "nom",
-              "word": "ფოტო"
+              "role": "direct_object"
             },
             "indirect_object": {
+              "text": "ბედნიერ ბავშვს",
               "case": "dat",
-              "word": "ბავშვს"
+              "role": "indirect_object"
             }
           },
-          "georgian_verb_form": "აჩვენა"
+          "english": "The kind teacher showed the beautiful photo to the happy child",
+          "english_components": {
+            "subject": {
+              "text": "The kind teacher",
+              "role": "subject",
+              "person": "3sg"
+            },
+            "verb": {
+              "text": "showed",
+              "role": "verb"
+            },
+            "direct_object": {
+              "text": "the beautiful photo",
+              "role": "direct_object"
+            },
+            "indirect_object": {
+              "text": "to the happy child",
+              "role": "indirect_object"
+            }
+          },
+          "georgian_verb_form": "აჩვენა",
+          "person": "3sg",
+          "effective_preverb": ""
         },
         {
-          "georgian": "ჭკვიანმა სტუდენტმა საინტერესო ამბავი საუკეთესო მეგობარს აჩვენეს",
-          "english": "<strong data-role=\"subject\">The clever student</strong> <strong data-role=\"verb\">showed</strong> <strong data-role=\"direct-object\">the interesting story</strong> <strong data-role=\"indirect-object\">to the best friend</strong>",
-          "english_plain": "The clever student showed the interesting story to the best friend",
-          "html": "<span data-case=\"erg\" data-role=\"subject\">ჭკვიანმა სტუდენტმა</span> <span data-case=\"nom\" data-role=\"direct-object\">საინტერესო ამბავი</span> <span data-case=\"dat\" data-role=\"indirect-object\">საუკეთესო მეგობარს</span> <span data-role=\"verb\">აჩვენეს</span>",
-          "case_marking": {
+          "georgian": "ჭკვიანმა სტუდენტებმა აჩვენეს საინტერესო ამბავი საუკეთესო მეგობარს",
+          "georgian_components": {
             "subject": {
+              "text": "ჭკვიანმა სტუდენტებმა",
               "case": "erg",
-              "word": "სტუდენტმა"
+              "role": "subject"
+            },
+            "verb": {
+              "text": "აჩვენეს",
+              "role": "verb"
             },
             "direct_object": {
+              "text": "საინტერესო ამბავი",
               "case": "nom",
-              "word": "ამბავი"
+              "role": "direct_object"
             },
             "indirect_object": {
+              "text": "საუკეთესო მეგობარს",
               "case": "dat",
-              "word": "მეგობარს"
+              "role": "indirect_object"
             }
           },
-          "georgian_verb_form": "აჩვენეს"
+          "english": "The clever students showed the interesting story to the best friend",
+          "english_components": {
+            "subject": {
+              "text": "The clever students",
+              "role": "subject",
+              "person": "3pl"
+            },
+            "verb": {
+              "text": "showed",
+              "role": "verb"
+            },
+            "direct_object": {
+              "text": "the interesting story",
+              "role": "direct_object"
+            },
+            "indirect_object": {
+              "text": "to the best friend",
+              "role": "indirect_object"
+            }
+          },
+          "georgian_verb_form": "აჩვენეს",
+          "person": "3pl",
+          "effective_preverb": ""
         }
       ],
       "optative": [
         {
-          "georgian": "სასაცილო ფილმი ბედნიერ დედას უნდა ვაჩვენო",
-          "english": "<strong data-role=\"subject\" data-person=\"1sg\">I</strong> <strong data-role=\"verb\">should show</strong> <strong data-role=\"direct-object\">the funny movie</strong> <strong data-role=\"indirect-object\">to the happy mother</strong>",
-          "english_plain": "I should show the funny movie to the happy mother",
-          "html": "<span data-case=\"nom\" data-role=\"direct-object\">სასაცილო ფილმი</span> <span data-case=\"dat\" data-role=\"indirect-object\">ბედნიერ დედას</span> <span data-role=\"verb\">უნდა ვაჩვენო</span>",
-          "case_marking": {
+          "georgian": "უნდა ვაჩვენო სასაცილო ფილმი ბედნიერ დედას",
+          "georgian_components": {
+            "verb": {
+              "text": "უნდა ვაჩვენო",
+              "role": "verb"
+            },
             "direct_object": {
+              "text": "სასაცილო ფილმი",
               "case": "nom",
-              "word": "ფილმი"
+              "role": "direct_object"
             },
             "indirect_object": {
+              "text": "ბედნიერ დედას",
               "case": "dat",
-              "word": "დედას"
+              "role": "indirect_object"
             }
           },
-          "georgian_verb_form": "ვაჩვენო"
+          "english": "I should should show the funny movie to the happy mother",
+          "english_components": {
+            "subject": {
+              "text": "I",
+              "role": "subject",
+              "person": "1sg"
+            },
+            "verb": {
+              "text": "should should show",
+              "role": "verb"
+            },
+            "direct_object": {
+              "text": "the funny movie",
+              "role": "direct_object"
+            },
+            "indirect_object": {
+              "text": "to the happy mother",
+              "role": "indirect_object"
+            }
+          },
+          "georgian_verb_form": "ვაჩვენო",
+          "person": "1sg",
+          "effective_preverb": ""
         },
         {
-          "georgian": "კეთილმა მასწავლებელმა ლამაზი ფოტო ბედნიერ ბავშვს უნდა აჩვენოს",
-          "english": "<strong data-role=\"subject\">The kind teacher</strong> <strong data-role=\"verb\">should show</strong> <strong data-role=\"direct-object\">the beautiful photo</strong> <strong data-role=\"indirect-object\">to the happy child</strong>",
-          "english_plain": "The kind teacher should show the beautiful photo to the happy child",
-          "html": "<span data-case=\"erg\" data-role=\"subject\">კეთილმა მასწავლებელმა</span> <span data-case=\"nom\" data-role=\"direct-object\">ლამაზი ფოტო</span> <span data-case=\"dat\" data-role=\"indirect-object\">ბედნიერ ბავშვს</span> <span data-role=\"verb\">უნდა აჩვენოს</span>",
-          "case_marking": {
+          "georgian": "კეთილმა მასწავლებელმა უნდა აჩვენოს ლამაზი ფოტო ბედნიერ ბავშვს",
+          "georgian_components": {
             "subject": {
+              "text": "კეთილმა მასწავლებელმა",
               "case": "erg",
-              "word": "მასწავლებელმა"
+              "role": "subject"
+            },
+            "verb": {
+              "text": "უნდა აჩვენოს",
+              "role": "verb"
             },
             "direct_object": {
+              "text": "ლამაზი ფოტო",
               "case": "nom",
-              "word": "ფოტო"
+              "role": "direct_object"
             },
             "indirect_object": {
+              "text": "ბედნიერ ბავშვს",
               "case": "dat",
-              "word": "ბავშვს"
+              "role": "indirect_object"
             }
           },
-          "georgian_verb_form": "აჩვენოს"
+          "english": "The kind teacher should should show the beautiful photo to the happy child",
+          "english_components": {
+            "subject": {
+              "text": "The kind teacher",
+              "role": "subject",
+              "person": "3sg"
+            },
+            "verb": {
+              "text": "should should show",
+              "role": "verb"
+            },
+            "direct_object": {
+              "text": "the beautiful photo",
+              "role": "direct_object"
+            },
+            "indirect_object": {
+              "text": "to the happy child",
+              "role": "indirect_object"
+            }
+          },
+          "georgian_verb_form": "აჩვენოს",
+          "person": "3sg",
+          "effective_preverb": ""
         },
         {
-          "georgian": "ჭკვიანმა სტუდენტმა საინტერესო ამბავი საუკეთესო მეგობარს უნდა აჩვენონ",
-          "english": "<strong data-role=\"subject\">The clever student</strong> <strong data-role=\"verb\">should show</strong> <strong data-role=\"direct-object\">the interesting story</strong> <strong data-role=\"indirect-object\">to the best friend</strong>",
-          "english_plain": "The clever student should show the interesting story to the best friend",
-          "html": "<span data-case=\"erg\" data-role=\"subject\">ჭკვიანმა სტუდენტმა</span> <span data-case=\"nom\" data-role=\"direct-object\">საინტერესო ამბავი</span> <span data-case=\"dat\" data-role=\"indirect-object\">საუკეთესო მეგობარს</span> <span data-role=\"verb\">უნდა აჩვენონ</span>",
-          "case_marking": {
+          "georgian": "ჭკვიანმა სტუდენტებმა უნდა აჩვენონ საინტერესო ამბავი საუკეთესო მეგობარს",
+          "georgian_components": {
             "subject": {
+              "text": "ჭკვიანმა სტუდენტებმა",
               "case": "erg",
-              "word": "სტუდენტმა"
+              "role": "subject"
+            },
+            "verb": {
+              "text": "უნდა აჩვენონ",
+              "role": "verb"
             },
             "direct_object": {
+              "text": "საინტერესო ამბავი",
               "case": "nom",
-              "word": "ამბავი"
+              "role": "direct_object"
             },
             "indirect_object": {
+              "text": "საუკეთესო მეგობარს",
               "case": "dat",
-              "word": "მეგობარს"
+              "role": "indirect_object"
             }
           },
-          "georgian_verb_form": "აჩვენონ"
+          "english": "The clever students should should show the interesting story to the best friend",
+          "english_components": {
+            "subject": {
+              "text": "The clever students",
+              "role": "subject",
+              "person": "3pl"
+            },
+            "verb": {
+              "text": "should should show",
+              "role": "verb"
+            },
+            "direct_object": {
+              "text": "the interesting story",
+              "role": "direct_object"
+            },
+            "indirect_object": {
+              "text": "to the best friend",
+              "role": "indirect_object"
+            }
+          },
+          "georgian_verb_form": "აჩვენონ",
+          "person": "3pl",
+          "effective_preverb": ""
         }
       ],
       "imperative": [
         {
-          "georgian": "ამაღელვებელი თამაში ბედნიერ დას აჩვენე",
-          "english": "<strong data-role=\"verb\">show</strong> <strong data-role=\"direct-object\">the exciting game</strong> <strong data-role=\"indirect-object\">to the happy sister</strong>",
-          "english_plain": "show the exciting game to the happy sister",
-          "html": "<span data-case=\"nom\" data-role=\"direct-object\">ამაღელვებელი თამაში</span> <span data-case=\"dat\" data-role=\"indirect-object\">ბედნიერ დას</span> <span data-role=\"verb\">აჩვენე</span>",
-          "case_marking": {
+          "georgian": "აჩვენე ამაღელვებელი თამაში ბედნიერ დას",
+          "georgian_components": {
+            "verb": {
+              "text": "აჩვენე",
+              "role": "verb"
+            },
             "direct_object": {
+              "text": "ამაღელვებელი თამაში",
               "case": "nom",
-              "word": "თამაში"
+              "role": "direct_object"
             },
             "indirect_object": {
+              "text": "ბედნიერ დას",
               "case": "dat",
-              "word": "დას"
+              "role": "indirect_object"
             }
           },
-          "georgian_verb_form": "აჩვენე"
+          "english": "You, show the exciting game to the happy sister",
+          "english_components": {
+            "subject": {
+              "text": "You,",
+              "role": "subject",
+              "person": "2sg"
+            },
+            "verb": {
+              "text": "show",
+              "role": "verb"
+            },
+            "direct_object": {
+              "text": "the exciting game",
+              "role": "direct_object"
+            },
+            "indirect_object": {
+              "text": "to the happy sister",
+              "role": "indirect_object"
+            }
+          },
+          "georgian_verb_form": "აჩვენე",
+          "person": "2sg",
+          "effective_preverb": ""
         },
         {
-          "georgian": "ახალი სათამაშო ახალგაზრდა ბავშვს აჩვენეთ",
-          "english": "<strong data-role=\"verb\">show</strong> <strong data-role=\"direct-object\">the new toy</strong> <strong data-role=\"indirect-object\">to the young child</strong>",
-          "english_plain": "show the new toy to the young child",
-          "html": "<span data-case=\"nom\" data-role=\"direct-object\">ახალი სათამაშო</span> <span data-case=\"dat\" data-role=\"indirect-object\">ახალგაზრდა ბავშვს</span> <span data-role=\"verb\">აჩვენეთ</span>",
-          "case_marking": {
+          "georgian": "აჩვენეთ ახალი სათამაშო ახალგაზრდა ბავშვს",
+          "georgian_components": {
+            "verb": {
+              "text": "აჩვენეთ",
+              "role": "verb"
+            },
             "direct_object": {
+              "text": "ახალი სათამაშო",
               "case": "nom",
-              "word": "სათამაშო"
+              "role": "direct_object"
             },
             "indirect_object": {
+              "text": "ახალგაზრდა ბავშვს",
               "case": "dat",
-              "word": "ბავშვს"
+              "role": "indirect_object"
             }
           },
-          "georgian_verb_form": "აჩვენეთ"
+          "english": "You all (you formal), show the new toy to the young child",
+          "english_components": {
+            "subject": {
+              "text": "You all (you formal),",
+              "role": "subject",
+              "person": "2pl"
+            },
+            "verb": {
+              "text": "show",
+              "role": "verb"
+            },
+            "direct_object": {
+              "text": "the new toy",
+              "role": "direct_object"
+            },
+            "indirect_object": {
+              "text": "to the young child",
+              "role": "indirect_object"
+            }
+          },
+          "georgian_verb_form": "აჩვენეთ",
+          "person": "2pl",
+          "effective_preverb": ""
         }
       ]
     }

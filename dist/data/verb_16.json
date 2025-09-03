@@ -150,282 +150,631 @@
   "preverb_rules": {
     "default": "",
     "replacements": {},
-    "tense_specific_fallbacks": {},
-    "english_fallbacks": {}
+    "tense_specific_fallbacks": {}
   },
   "examples": {
-    "null": {
+    "default": {
       "present": [
         {
-          "georgian": "სასაცილო ფილმს ვუყურებ",
-          "english": "<strong data-role=\"subject\" data-person=\"1sg\">I</strong> <strong data-role=\"verb\">watch</strong> <strong data-role=\"indirect-object\">the funny movie</strong>",
-          "english_plain": "I watch the funny movie",
-          "html": "<span data-case=\"dat\" data-role=\"indirect-object\">სასაცილო ფილმს</span> <span data-role=\"verb\">ვუყურებ</span>",
-          "case_marking": {
-            "indirect_object": {
-              "case": "dat",
-              "word": "ფილმს"
-            }
-          },
-          "georgian_verb_form": "ვუყურებ"
-        },
-        {
-          "georgian": "პატარა ბავშვი ძველ ტელევიზიას უყურებს",
-          "english": "<strong data-role=\"subject\">The small child</strong> <strong data-role=\"verb\">watches</strong> <strong data-role=\"indirect-object\">the old television</strong>",
-          "english_plain": "The small child watches the old television",
-          "html": "<span data-case=\"nom\" data-role=\"subject\">პატარა ბავშვი</span> <span data-case=\"dat\" data-role=\"indirect-object\">ძველ ტელევიზიას</span> <span data-role=\"verb\">უყურებს</span>",
-          "case_marking": {
-            "subject": {
-              "case": "nom",
-              "word": "ბავშვი"
+          "georgian": "ვუყურებ სასაცილო ფილმს",
+          "georgian_components": {
+            "verb": {
+              "text": "ვუყურებ",
+              "role": "verb"
             },
             "indirect_object": {
+              "text": "სასაცილო ფილმს",
               "case": "dat",
-              "word": "ტელევიზიას"
+              "role": "indirect_object"
             }
           },
-          "georgian_verb_form": "უყურებს"
-        },
-        {
-          "georgian": "დიდი ოჯახი ახალ ფილმს უყურებენ",
-          "english": "<strong data-role=\"subject\">The big family</strong> <strong data-role=\"verb\">watch</strong> <strong data-role=\"indirect-object\">the new movie</strong>",
-          "english_plain": "The big family watch the new movie",
-          "html": "<span data-case=\"nom\" data-role=\"subject\">დიდი ოჯახი</span> <span data-case=\"dat\" data-role=\"indirect-object\">ახალ ფილმს</span> <span data-role=\"verb\">უყურებენ</span>",
-          "case_marking": {
+          "english": "I watch the funny movie",
+          "english_components": {
             "subject": {
-              "case": "nom",
-              "word": "ოჯახი"
+              "text": "I",
+              "role": "subject",
+              "person": "1sg"
+            },
+            "verb": {
+              "text": "watch",
+              "role": "verb"
             },
             "indirect_object": {
-              "case": "dat",
-              "word": "ფილმს"
+              "text": "the funny movie",
+              "role": "indirect_object"
             }
           },
-          "georgian_verb_form": "უყურებენ"
+          "georgian_verb_form": "ვუყურებ",
+          "person": "1sg",
+          "effective_preverb": ""
+        },
+        {
+          "georgian": "პატარა ბავშვი უყურებს ძველ ტელევიზიას",
+          "georgian_components": {
+            "subject": {
+              "text": "პატარა ბავშვი",
+              "case": "nom",
+              "role": "subject"
+            },
+            "verb": {
+              "text": "უყურებს",
+              "role": "verb"
+            },
+            "indirect_object": {
+              "text": "ძველ ტელევიზიას",
+              "case": "dat",
+              "role": "indirect_object"
+            }
+          },
+          "english": "The small child watches the old television",
+          "english_components": {
+            "subject": {
+              "text": "The small child",
+              "role": "subject",
+              "person": "3sg"
+            },
+            "verb": {
+              "text": "watches",
+              "role": "verb"
+            },
+            "indirect_object": {
+              "text": "the old television",
+              "role": "indirect_object"
+            }
+          },
+          "georgian_verb_form": "უყურებს",
+          "person": "3sg",
+          "effective_preverb": ""
+        },
+        {
+          "georgian": "დიდი ოჯახები უყურებენ ახალ ფილმს",
+          "georgian_components": {
+            "subject": {
+              "text": "დიდი ოჯახები",
+              "case": "nom",
+              "role": "subject"
+            },
+            "verb": {
+              "text": "უყურებენ",
+              "role": "verb"
+            },
+            "indirect_object": {
+              "text": "ახალ ფილმს",
+              "case": "dat",
+              "role": "indirect_object"
+            }
+          },
+          "english": "The big families watch the new movie",
+          "english_components": {
+            "subject": {
+              "text": "The big families",
+              "role": "subject",
+              "person": "3pl"
+            },
+            "verb": {
+              "text": "watch",
+              "role": "verb"
+            },
+            "indirect_object": {
+              "text": "the new movie",
+              "role": "indirect_object"
+            }
+          },
+          "georgian_verb_form": "უყურებენ",
+          "person": "3pl",
+          "effective_preverb": ""
         }
       ],
       "imperfect": [
         {
-          "georgian": "სასაცილო ფილმს ვუყურებდი",
-          "english": "<strong data-role=\"subject\" data-person=\"1sg\">I</strong> <strong data-role=\"verb\">was watching</strong> <strong data-role=\"indirect-object\">the funny movie</strong>",
-          "english_plain": "I was watching the funny movie",
-          "html": "<span data-case=\"dat\" data-role=\"indirect-object\">სასაცილო ფილმს</span> <span data-role=\"verb\">ვუყურებდი</span>",
-          "case_marking": {
-            "indirect_object": {
-              "case": "dat",
-              "word": "ფილმს"
-            }
-          },
-          "georgian_verb_form": "ვუყურებდი"
-        },
-        {
-          "georgian": "პატარა ბავშვი ძველ ტელევიზიას უყურებდა",
-          "english": "<strong data-role=\"subject\">The small child</strong> <strong data-role=\"verb\">was watching</strong> <strong data-role=\"indirect-object\">the old television</strong>",
-          "english_plain": "The small child was watching the old television",
-          "html": "<span data-case=\"nom\" data-role=\"subject\">პატარა ბავშვი</span> <span data-case=\"dat\" data-role=\"indirect-object\">ძველ ტელევიზიას</span> <span data-role=\"verb\">უყურებდა</span>",
-          "case_marking": {
-            "subject": {
-              "case": "nom",
-              "word": "ბავშვი"
+          "georgian": "ვუყურებდი სასაცილო ფილმს",
+          "georgian_components": {
+            "verb": {
+              "text": "ვუყურებდი",
+              "role": "verb"
             },
             "indirect_object": {
+              "text": "სასაცილო ფილმს",
               "case": "dat",
-              "word": "ტელევიზიას"
+              "role": "indirect_object"
             }
           },
-          "georgian_verb_form": "უყურებდა"
-        },
-        {
-          "georgian": "დიდი ოჯახი ახალ ფილმს უყურებდნენ",
-          "english": "<strong data-role=\"subject\">The big family</strong> <strong data-role=\"verb\">were watching</strong> <strong data-role=\"indirect-object\">the new movie</strong>",
-          "english_plain": "The big family were watching the new movie",
-          "html": "<span data-case=\"nom\" data-role=\"subject\">დიდი ოჯახი</span> <span data-case=\"dat\" data-role=\"indirect-object\">ახალ ფილმს</span> <span data-role=\"verb\">უყურებდნენ</span>",
-          "case_marking": {
+          "english": "I was watching the funny movie",
+          "english_components": {
             "subject": {
-              "case": "nom",
-              "word": "ოჯახი"
+              "text": "I",
+              "role": "subject",
+              "person": "1sg"
+            },
+            "verb": {
+              "text": "was watching",
+              "role": "verb"
             },
             "indirect_object": {
-              "case": "dat",
-              "word": "ფილმს"
+              "text": "the funny movie",
+              "role": "indirect_object"
             }
           },
-          "georgian_verb_form": "უყურებდნენ"
+          "georgian_verb_form": "ვუყურებდი",
+          "person": "1sg",
+          "effective_preverb": ""
+        },
+        {
+          "georgian": "პატარა ბავშვი უყურებდა ძველ ტელევიზიას",
+          "georgian_components": {
+            "subject": {
+              "text": "პატარა ბავშვი",
+              "case": "nom",
+              "role": "subject"
+            },
+            "verb": {
+              "text": "უყურებდა",
+              "role": "verb"
+            },
+            "indirect_object": {
+              "text": "ძველ ტელევიზიას",
+              "case": "dat",
+              "role": "indirect_object"
+            }
+          },
+          "english": "The small child was watching the old television",
+          "english_components": {
+            "subject": {
+              "text": "The small child",
+              "role": "subject",
+              "person": "3sg"
+            },
+            "verb": {
+              "text": "was watching",
+              "role": "verb"
+            },
+            "indirect_object": {
+              "text": "the old television",
+              "role": "indirect_object"
+            }
+          },
+          "georgian_verb_form": "უყურებდა",
+          "person": "3sg",
+          "effective_preverb": ""
+        },
+        {
+          "georgian": "დიდი ოჯახები უყურებდნენ ახალ ფილმს",
+          "georgian_components": {
+            "subject": {
+              "text": "დიდი ოჯახები",
+              "case": "nom",
+              "role": "subject"
+            },
+            "verb": {
+              "text": "უყურებდნენ",
+              "role": "verb"
+            },
+            "indirect_object": {
+              "text": "ახალ ფილმს",
+              "case": "dat",
+              "role": "indirect_object"
+            }
+          },
+          "english": "The big families were watching the new movie",
+          "english_components": {
+            "subject": {
+              "text": "The big families",
+              "role": "subject",
+              "person": "3pl"
+            },
+            "verb": {
+              "text": "were watching",
+              "role": "verb"
+            },
+            "indirect_object": {
+              "text": "the new movie",
+              "role": "indirect_object"
+            }
+          },
+          "georgian_verb_form": "უყურებდნენ",
+          "person": "3pl",
+          "effective_preverb": ""
         }
       ],
       "future": [
         {
-          "georgian": "სასაცილო ფილმს ვუყურებ",
-          "english": "<strong data-role=\"subject\" data-person=\"1sg\">I</strong> <strong data-role=\"verb\">will watch</strong> <strong data-role=\"indirect-object\">the funny movie</strong>",
-          "english_plain": "I will watch the funny movie",
-          "html": "<span data-case=\"dat\" data-role=\"indirect-object\">სასაცილო ფილმს</span> <span data-role=\"verb\">ვუყურებ</span>",
-          "case_marking": {
-            "indirect_object": {
-              "case": "dat",
-              "word": "ფილმს"
-            }
-          },
-          "georgian_verb_form": "ვუყურებ"
-        },
-        {
-          "georgian": "პატარა ბავშვი ძველ ტელევიზიას უყურებს",
-          "english": "<strong data-role=\"subject\">The small child</strong> <strong data-role=\"verb\">will watch</strong> <strong data-role=\"indirect-object\">the old television</strong>",
-          "english_plain": "The small child will watch the old television",
-          "html": "<span data-case=\"nom\" data-role=\"subject\">პატარა ბავშვი</span> <span data-case=\"dat\" data-role=\"indirect-object\">ძველ ტელევიზიას</span> <span data-role=\"verb\">უყურებს</span>",
-          "case_marking": {
-            "subject": {
-              "case": "nom",
-              "word": "ბავშვი"
+          "georgian": "ვუყურებ სასაცილო ფილმს",
+          "georgian_components": {
+            "verb": {
+              "text": "ვუყურებ",
+              "role": "verb"
             },
             "indirect_object": {
+              "text": "სასაცილო ფილმს",
               "case": "dat",
-              "word": "ტელევიზიას"
+              "role": "indirect_object"
             }
           },
-          "georgian_verb_form": "უყურებს"
-        },
-        {
-          "georgian": "დიდი ოჯახი ახალ ფილმს უყურებენ",
-          "english": "<strong data-role=\"subject\">The big family</strong> <strong data-role=\"verb\">will watch</strong> <strong data-role=\"indirect-object\">the new movie</strong>",
-          "english_plain": "The big family will watch the new movie",
-          "html": "<span data-case=\"nom\" data-role=\"subject\">დიდი ოჯახი</span> <span data-case=\"dat\" data-role=\"indirect-object\">ახალ ფილმს</span> <span data-role=\"verb\">უყურებენ</span>",
-          "case_marking": {
+          "english": "I will watch the funny movie",
+          "english_components": {
             "subject": {
-              "case": "nom",
-              "word": "ოჯახი"
+              "text": "I",
+              "role": "subject",
+              "person": "1sg"
+            },
+            "verb": {
+              "text": "will watch",
+              "role": "verb"
             },
             "indirect_object": {
-              "case": "dat",
-              "word": "ფილმს"
+              "text": "the funny movie",
+              "role": "indirect_object"
             }
           },
-          "georgian_verb_form": "უყურებენ"
+          "georgian_verb_form": "ვუყურებ",
+          "person": "1sg",
+          "effective_preverb": ""
+        },
+        {
+          "georgian": "პატარა ბავშვი უყურებს ძველ ტელევიზიას",
+          "georgian_components": {
+            "subject": {
+              "text": "პატარა ბავშვი",
+              "case": "nom",
+              "role": "subject"
+            },
+            "verb": {
+              "text": "უყურებს",
+              "role": "verb"
+            },
+            "indirect_object": {
+              "text": "ძველ ტელევიზიას",
+              "case": "dat",
+              "role": "indirect_object"
+            }
+          },
+          "english": "The small child will watch the old television",
+          "english_components": {
+            "subject": {
+              "text": "The small child",
+              "role": "subject",
+              "person": "3sg"
+            },
+            "verb": {
+              "text": "will watch",
+              "role": "verb"
+            },
+            "indirect_object": {
+              "text": "the old television",
+              "role": "indirect_object"
+            }
+          },
+          "georgian_verb_form": "უყურებს",
+          "person": "3sg",
+          "effective_preverb": ""
+        },
+        {
+          "georgian": "დიდი ოჯახები უყურებენ ახალ ფილმს",
+          "georgian_components": {
+            "subject": {
+              "text": "დიდი ოჯახები",
+              "case": "nom",
+              "role": "subject"
+            },
+            "verb": {
+              "text": "უყურებენ",
+              "role": "verb"
+            },
+            "indirect_object": {
+              "text": "ახალ ფილმს",
+              "case": "dat",
+              "role": "indirect_object"
+            }
+          },
+          "english": "The big families will watch the new movie",
+          "english_components": {
+            "subject": {
+              "text": "The big families",
+              "role": "subject",
+              "person": "3pl"
+            },
+            "verb": {
+              "text": "will watch",
+              "role": "verb"
+            },
+            "indirect_object": {
+              "text": "the new movie",
+              "role": "indirect_object"
+            }
+          },
+          "georgian_verb_form": "უყურებენ",
+          "person": "3pl",
+          "effective_preverb": ""
         }
       ],
       "aorist": [
         {
-          "georgian": "სასაცილო ფილმს ვუყურე",
-          "english": "<strong data-role=\"subject\" data-person=\"1sg\">I</strong> <strong data-role=\"verb\">watched</strong> <strong data-role=\"indirect-object\">the funny movie</strong>",
-          "english_plain": "I watched the funny movie",
-          "html": "<span data-case=\"dat\" data-role=\"indirect-object\">სასაცილო ფილმს</span> <span data-role=\"verb\">ვუყურე</span>",
-          "case_marking": {
-            "indirect_object": {
-              "case": "dat",
-              "word": "ფილმს"
-            }
-          },
-          "georgian_verb_form": "ვუყურე"
-        },
-        {
-          "georgian": "პატარა ბავშვმა ძველ ტელევიზიას უყურა",
-          "english": "<strong data-role=\"subject\">The small child</strong> <strong data-role=\"verb\">watched</strong> <strong data-role=\"indirect-object\">the old television</strong>",
-          "english_plain": "The small child watched the old television",
-          "html": "<span data-case=\"erg\" data-role=\"subject\">პატარა ბავშვმა</span> <span data-case=\"dat\" data-role=\"indirect-object\">ძველ ტელევიზიას</span> <span data-role=\"verb\">უყურა</span>",
-          "case_marking": {
-            "subject": {
-              "case": "erg",
-              "word": "ბავშვმა"
+          "georgian": "ვუყურე სასაცილო ფილმს",
+          "georgian_components": {
+            "verb": {
+              "text": "ვუყურე",
+              "role": "verb"
             },
             "indirect_object": {
+              "text": "სასაცილო ფილმს",
               "case": "dat",
-              "word": "ტელევიზიას"
+              "role": "indirect_object"
             }
           },
-          "georgian_verb_form": "უყურა"
-        },
-        {
-          "georgian": "დიდმა ოჯახმა ახალ ფილმს უყურეს",
-          "english": "<strong data-role=\"subject\">The big family</strong> <strong data-role=\"verb\">watched</strong> <strong data-role=\"indirect-object\">the new movie</strong>",
-          "english_plain": "The big family watched the new movie",
-          "html": "<span data-case=\"erg\" data-role=\"subject\">დიდმა ოჯახმა</span> <span data-case=\"dat\" data-role=\"indirect-object\">ახალ ფილმს</span> <span data-role=\"verb\">უყურეს</span>",
-          "case_marking": {
+          "english": "I watched the funny movie",
+          "english_components": {
             "subject": {
-              "case": "erg",
-              "word": "ოჯახმა"
+              "text": "I",
+              "role": "subject",
+              "person": "1sg"
+            },
+            "verb": {
+              "text": "watched",
+              "role": "verb"
             },
             "indirect_object": {
-              "case": "dat",
-              "word": "ფილმს"
+              "text": "the funny movie",
+              "role": "indirect_object"
             }
           },
-          "georgian_verb_form": "უყურეს"
+          "georgian_verb_form": "ვუყურე",
+          "person": "1sg",
+          "effective_preverb": ""
+        },
+        {
+          "georgian": "პატარა ბავშვმა უყურა ძველ ტელევიზიას",
+          "georgian_components": {
+            "subject": {
+              "text": "პატარა ბავშვმა",
+              "case": "erg",
+              "role": "subject"
+            },
+            "verb": {
+              "text": "უყურა",
+              "role": "verb"
+            },
+            "indirect_object": {
+              "text": "ძველ ტელევიზიას",
+              "case": "dat",
+              "role": "indirect_object"
+            }
+          },
+          "english": "The small child watched the old television",
+          "english_components": {
+            "subject": {
+              "text": "The small child",
+              "role": "subject",
+              "person": "3sg"
+            },
+            "verb": {
+              "text": "watched",
+              "role": "verb"
+            },
+            "indirect_object": {
+              "text": "the old television",
+              "role": "indirect_object"
+            }
+          },
+          "georgian_verb_form": "უყურა",
+          "person": "3sg",
+          "effective_preverb": ""
+        },
+        {
+          "georgian": "დიდმა ოჯახებმა უყურეს ახალ ფილმს",
+          "georgian_components": {
+            "subject": {
+              "text": "დიდმა ოჯახებმა",
+              "case": "erg",
+              "role": "subject"
+            },
+            "verb": {
+              "text": "უყურეს",
+              "role": "verb"
+            },
+            "indirect_object": {
+              "text": "ახალ ფილმს",
+              "case": "dat",
+              "role": "indirect_object"
+            }
+          },
+          "english": "The big families watched the new movie",
+          "english_components": {
+            "subject": {
+              "text": "The big families",
+              "role": "subject",
+              "person": "3pl"
+            },
+            "verb": {
+              "text": "watched",
+              "role": "verb"
+            },
+            "indirect_object": {
+              "text": "the new movie",
+              "role": "indirect_object"
+            }
+          },
+          "georgian_verb_form": "უყურეს",
+          "person": "3pl",
+          "effective_preverb": ""
         }
       ],
       "optative": [
         {
-          "georgian": "სასაცილო ფილმს უნდა ვუყურო",
-          "english": "<strong data-role=\"subject\" data-person=\"1sg\">I</strong> <strong data-role=\"verb\">should</strong> <strong data-role=\"verb\">watch</strong> <strong data-role=\"indirect-object\">the funny movie</strong>",
-          "english_plain": "I should watch the funny movie",
-          "html": "<span data-case=\"dat\" data-role=\"indirect-object\">სასაცილო ფილმს</span> <span data-role=\"verb\">უნდა ვუყურო</span>",
-          "case_marking": {
-            "indirect_object": {
-              "case": "dat",
-              "word": "ფილმს"
-            }
-          },
-          "georgian_verb_form": "ვუყურო"
-        },
-        {
-          "georgian": "პატარა ბავშვმა ძველ ტელევიზიას უნდა უყუროს",
-          "english": "<strong data-role=\"subject\">The small child</strong> <strong data-role=\"verb\">should</strong> <strong data-role=\"verb\">watch</strong> <strong data-role=\"indirect-object\">the old television</strong>",
-          "english_plain": "The small child should watch the old television",
-          "html": "<span data-case=\"erg\" data-role=\"subject\">პატარა ბავშვმა</span> <span data-case=\"dat\" data-role=\"indirect-object\">ძველ ტელევიზიას</span> <span data-role=\"verb\">უნდა უყუროს</span>",
-          "case_marking": {
-            "subject": {
-              "case": "erg",
-              "word": "ბავშვმა"
+          "georgian": "უნდა ვუყურო სასაცილო ფილმს",
+          "georgian_components": {
+            "verb": {
+              "text": "უნდა ვუყურო",
+              "role": "verb"
             },
             "indirect_object": {
+              "text": "სასაცილო ფილმს",
               "case": "dat",
-              "word": "ტელევიზიას"
+              "role": "indirect_object"
             }
           },
-          "georgian_verb_form": "უყუროს"
-        },
-        {
-          "georgian": "დიდმა ოჯახმა ახალ ფილმს უნდა უყურონ",
-          "english": "<strong data-role=\"subject\">The big family</strong> <strong data-role=\"verb\">should</strong> <strong data-role=\"verb\">watch</strong> <strong data-role=\"indirect-object\">the new movie</strong>",
-          "english_plain": "The big family should watch the new movie",
-          "html": "<span data-case=\"erg\" data-role=\"subject\">დიდმა ოჯახმა</span> <span data-case=\"dat\" data-role=\"indirect-object\">ახალ ფილმს</span> <span data-role=\"verb\">უნდა უყურონ</span>",
-          "case_marking": {
+          "english": "I should watch the funny movie",
+          "english_components": {
             "subject": {
-              "case": "erg",
-              "word": "ოჯახმა"
+              "text": "I",
+              "role": "subject",
+              "person": "1sg"
+            },
+            "verb": {
+              "text": "should watch",
+              "role": "verb"
             },
             "indirect_object": {
-              "case": "dat",
-              "word": "ფილმს"
+              "text": "the funny movie",
+              "role": "indirect_object"
             }
           },
-          "georgian_verb_form": "უყურონ"
+          "georgian_verb_form": "ვუყურო",
+          "person": "1sg",
+          "effective_preverb": ""
+        },
+        {
+          "georgian": "პატარა ბავშვმა უნდა უყუროს ძველ ტელევიზიას",
+          "georgian_components": {
+            "subject": {
+              "text": "პატარა ბავშვმა",
+              "case": "erg",
+              "role": "subject"
+            },
+            "verb": {
+              "text": "უნდა უყუროს",
+              "role": "verb"
+            },
+            "indirect_object": {
+              "text": "ძველ ტელევიზიას",
+              "case": "dat",
+              "role": "indirect_object"
+            }
+          },
+          "english": "The small child should watch the old television",
+          "english_components": {
+            "subject": {
+              "text": "The small child",
+              "role": "subject",
+              "person": "3sg"
+            },
+            "verb": {
+              "text": "should watch",
+              "role": "verb"
+            },
+            "indirect_object": {
+              "text": "the old television",
+              "role": "indirect_object"
+            }
+          },
+          "georgian_verb_form": "უყუროს",
+          "person": "3sg",
+          "effective_preverb": ""
+        },
+        {
+          "georgian": "დიდმა ოჯახებმა უნდა უყურონ ახალ ფილმს",
+          "georgian_components": {
+            "subject": {
+              "text": "დიდმა ოჯახებმა",
+              "case": "erg",
+              "role": "subject"
+            },
+            "verb": {
+              "text": "უნდა უყურონ",
+              "role": "verb"
+            },
+            "indirect_object": {
+              "text": "ახალ ფილმს",
+              "case": "dat",
+              "role": "indirect_object"
+            }
+          },
+          "english": "The big families should watch the new movie",
+          "english_components": {
+            "subject": {
+              "text": "The big families",
+              "role": "subject",
+              "person": "3pl"
+            },
+            "verb": {
+              "text": "should watch",
+              "role": "verb"
+            },
+            "indirect_object": {
+              "text": "the new movie",
+              "role": "indirect_object"
+            }
+          },
+          "georgian_verb_form": "უყურონ",
+          "person": "3pl",
+          "effective_preverb": ""
         }
       ],
       "imperative": [
         {
-          "georgian": "ამაღელვებელ თამაშს უყურე",
-          "english": "<strong data-role=\"verb\">watch</strong> <strong data-role=\"indirect-object\">the exciting game</strong>",
-          "english_plain": "watch the exciting game",
-          "html": "<span data-case=\"dat\" data-role=\"indirect-object\">ამაღელვებელ თამაშს</span> <span data-role=\"verb\">უყურე</span>",
-          "case_marking": {
+          "georgian": "უყურე ამაღელვებელ თამაშს",
+          "georgian_components": {
+            "verb": {
+              "text": "უყურე",
+              "role": "verb"
+            },
             "indirect_object": {
+              "text": "ამაღელვებელ თამაშს",
               "case": "dat",
-              "word": "თამაშს"
+              "role": "indirect_object"
             }
           },
-          "georgian_verb_form": "უყურე"
+          "english": "You, watch the exciting game",
+          "english_components": {
+            "subject": {
+              "text": "You,",
+              "role": "subject",
+              "person": "2sg"
+            },
+            "verb": {
+              "text": "watch",
+              "role": "verb"
+            },
+            "indirect_object": {
+              "text": "the exciting game",
+              "role": "indirect_object"
+            }
+          },
+          "georgian_verb_form": "უყურე",
+          "person": "2sg",
+          "effective_preverb": ""
         },
         {
-          "georgian": "ამაღელვებელ მატჩს უყურეთ",
-          "english": "<strong data-role=\"verb\">watch</strong> <strong data-role=\"indirect-object\">the exciting match</strong>",
-          "english_plain": "watch the exciting match",
-          "html": "<span data-case=\"dat\" data-role=\"indirect-object\">ამაღელვებელ მატჩს</span> <span data-role=\"verb\">უყურეთ</span>",
-          "case_marking": {
+          "georgian": "უყურეთ ამაღელვებელ მატჩს",
+          "georgian_components": {
+            "verb": {
+              "text": "უყურეთ",
+              "role": "verb"
+            },
             "indirect_object": {
+              "text": "ამაღელვებელ მატჩს",
               "case": "dat",
-              "word": "მატჩს"
+              "role": "indirect_object"
             }
           },
-          "georgian_verb_form": "უყურეთ"
+          "english": "You all (you formal), watch the exciting match",
+          "english_components": {
+            "subject": {
+              "text": "You all (you formal),",
+              "role": "subject",
+              "person": "2pl"
+            },
+            "verb": {
+              "text": "watch",
+              "role": "verb"
+            },
+            "indirect_object": {
+              "text": "the exciting match",
+              "role": "indirect_object"
+            }
+          },
+          "georgian_verb_form": "უყურეთ",
+          "person": "2pl",
+          "effective_preverb": ""
         }
       ]
     }

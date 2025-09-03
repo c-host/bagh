@@ -124,172 +124,395 @@
   "preverb_rules": {
     "default": "",
     "replacements": {},
-    "tense_specific_fallbacks": {},
-    "english_fallbacks": {}
+    "tense_specific_fallbacks": {}
   },
   "examples": {
-    "null": {
+    "default": {
       "present": [
         {
           "georgian": "ვარ",
-          "english": "<strong data-role=\"subject\" data-person=\"1sg\">I</strong> <strong data-role=\"verb\">be</strong>",
-          "english_plain": "I be",
-          "html": " <span data-role=\"verb\">ვარ</span>",
-          "case_marking": {},
-          "georgian_verb_form": "ვარ"
+          "georgian_components": {
+            "verb": {
+              "text": "ვარ",
+              "role": "verb"
+            }
+          },
+          "english": "I be",
+          "english_components": {
+            "subject": {
+              "text": "I",
+              "role": "subject",
+              "person": "1sg"
+            },
+            "verb": {
+              "text": "be",
+              "role": "verb"
+            }
+          },
+          "georgian_verb_form": "ვარ",
+          "person": "1sg",
+          "effective_preverb": ""
         },
         {
           "georgian": "ახალგაზრდა ექიმი არის",
-          "english": "<strong data-role=\"subject\">The young doctor</strong> <strong data-role=\"verb\">bes</strong>",
-          "english_plain": "The young doctor bes",
-          "html": "<span data-case=\"nom\" data-role=\"subject\">ახალგაზრდა ექიმი</span> <span data-role=\"verb\">არის</span>",
-          "case_marking": {
+          "georgian_components": {
             "subject": {
+              "text": "ახალგაზრდა ექიმი",
               "case": "nom",
-              "word": "ექიმი"
+              "role": "subject"
+            },
+            "verb": {
+              "text": "არის",
+              "role": "verb"
             }
           },
-          "georgian_verb_form": "არის"
+          "english": "The young doctor bes",
+          "english_components": {
+            "subject": {
+              "text": "The young doctor",
+              "role": "subject",
+              "person": "3sg"
+            },
+            "verb": {
+              "text": "bes",
+              "role": "verb"
+            }
+          },
+          "georgian_verb_form": "არის",
+          "person": "3sg",
+          "effective_preverb": ""
         },
         {
-          "georgian": "ნიჭიერი ხელოვანი არიან",
-          "english": "<strong data-role=\"subject\">The talented artist</strong> <strong data-role=\"verb\">be</strong>",
-          "english_plain": "The talented artist be",
-          "html": "<span data-case=\"nom\" data-role=\"subject\">ნიჭიერი ხელოვანი</span> <span data-role=\"verb\">არიან</span>",
-          "case_marking": {
+          "georgian": "ნიჭიერი ხელოვანები არიან",
+          "georgian_components": {
             "subject": {
+              "text": "ნიჭიერი ხელოვანები",
               "case": "nom",
-              "word": "ხელოვანი"
+              "role": "subject"
+            },
+            "verb": {
+              "text": "არიან",
+              "role": "verb"
             }
           },
-          "georgian_verb_form": "არიან"
+          "english": "The talented artists be",
+          "english_components": {
+            "subject": {
+              "text": "The talented artists",
+              "role": "subject",
+              "person": "3pl"
+            },
+            "verb": {
+              "text": "be",
+              "role": "verb"
+            }
+          },
+          "georgian_verb_form": "არიან",
+          "person": "3pl",
+          "effective_preverb": ""
         }
       ],
       "imperfect": [],
       "future": [
         {
           "georgian": "ვიქნები",
-          "english": "<strong data-role=\"subject\" data-person=\"1sg\">I</strong> <strong data-role=\"verb\">will be</strong>",
-          "english_plain": "I will be",
-          "html": " <span data-role=\"verb\">ვიქნები</span>",
-          "case_marking": {},
-          "georgian_verb_form": "ვიქნები"
+          "georgian_components": {
+            "verb": {
+              "text": "ვიქნები",
+              "role": "verb"
+            }
+          },
+          "english": "I will be",
+          "english_components": {
+            "subject": {
+              "text": "I",
+              "role": "subject",
+              "person": "1sg"
+            },
+            "verb": {
+              "text": "will be",
+              "role": "verb"
+            }
+          },
+          "georgian_verb_form": "ვიქნები",
+          "person": "1sg",
+          "effective_preverb": ""
         },
         {
           "georgian": "ახალგაზრდა ექიმი იქნება",
-          "english": "<strong data-role=\"subject\">The young doctor</strong> <strong data-role=\"verb\">will be</strong>",
-          "english_plain": "The young doctor will be",
-          "html": "<span data-case=\"nom\" data-role=\"subject\">ახალგაზრდა ექიმი</span> <span data-role=\"verb\">იქნება</span>",
-          "case_marking": {
+          "georgian_components": {
             "subject": {
+              "text": "ახალგაზრდა ექიმი",
               "case": "nom",
-              "word": "ექიმი"
+              "role": "subject"
+            },
+            "verb": {
+              "text": "იქნება",
+              "role": "verb"
             }
           },
-          "georgian_verb_form": "იქნება"
+          "english": "The young doctor will be",
+          "english_components": {
+            "subject": {
+              "text": "The young doctor",
+              "role": "subject",
+              "person": "3sg"
+            },
+            "verb": {
+              "text": "will be",
+              "role": "verb"
+            }
+          },
+          "georgian_verb_form": "იქნება",
+          "person": "3sg",
+          "effective_preverb": ""
         },
         {
-          "georgian": "ნიჭიერი ხელოვანი იქნებიან",
-          "english": "<strong data-role=\"subject\">The talented artist</strong> <strong data-role=\"verb\">will be</strong>",
-          "english_plain": "The talented artist will be",
-          "html": "<span data-case=\"nom\" data-role=\"subject\">ნიჭიერი ხელოვანი</span> <span data-role=\"verb\">იქნებიან</span>",
-          "case_marking": {
+          "georgian": "ნიჭიერი ხელოვანები იქნებიან",
+          "georgian_components": {
             "subject": {
+              "text": "ნიჭიერი ხელოვანები",
               "case": "nom",
-              "word": "ხელოვანი"
+              "role": "subject"
+            },
+            "verb": {
+              "text": "იქნებიან",
+              "role": "verb"
             }
           },
-          "georgian_verb_form": "იქნებიან"
+          "english": "The talented artists will be",
+          "english_components": {
+            "subject": {
+              "text": "The talented artists",
+              "role": "subject",
+              "person": "3pl"
+            },
+            "verb": {
+              "text": "will be",
+              "role": "verb"
+            }
+          },
+          "georgian_verb_form": "იქნებიან",
+          "person": "3pl",
+          "effective_preverb": ""
         }
       ],
       "aorist": [
         {
           "georgian": "ვიყავი",
-          "english": "<strong data-role=\"subject\" data-person=\"1sg\">I</strong> <strong data-role=\"verb\">was</strong>",
-          "english_plain": "I was",
-          "html": " <span data-role=\"verb\">ვიყავი</span>",
-          "case_marking": {},
-          "georgian_verb_form": "ვიყავი"
+          "georgian_components": {
+            "verb": {
+              "text": "ვიყავი",
+              "role": "verb"
+            }
+          },
+          "english": "I was",
+          "english_components": {
+            "subject": {
+              "text": "I",
+              "role": "subject",
+              "person": "1sg"
+            },
+            "verb": {
+              "text": "was",
+              "role": "verb"
+            }
+          },
+          "georgian_verb_form": "ვიყავი",
+          "person": "1sg",
+          "effective_preverb": ""
         },
         {
           "georgian": "ახალგაზრდა ექიმი იყო",
-          "english": "<strong data-role=\"subject\">The young doctor</strong> <strong data-role=\"verb\">was</strong>",
-          "english_plain": "The young doctor was",
-          "html": "<span data-case=\"nom\" data-role=\"subject\">ახალგაზრდა ექიმი</span> <span data-role=\"verb\">იყო</span>",
-          "case_marking": {
+          "georgian_components": {
             "subject": {
+              "text": "ახალგაზრდა ექიმი",
               "case": "nom",
-              "word": "ექიმი"
+              "role": "subject"
+            },
+            "verb": {
+              "text": "იყო",
+              "role": "verb"
             }
           },
-          "georgian_verb_form": "იყო"
+          "english": "The young doctor was",
+          "english_components": {
+            "subject": {
+              "text": "The young doctor",
+              "role": "subject",
+              "person": "3sg"
+            },
+            "verb": {
+              "text": "was",
+              "role": "verb"
+            }
+          },
+          "georgian_verb_form": "იყო",
+          "person": "3sg",
+          "effective_preverb": ""
         },
         {
-          "georgian": "ნიჭიერი ხელოვანი იყვნენ",
-          "english": "<strong data-role=\"subject\">The talented artist</strong> <strong data-role=\"verb\">were</strong>",
-          "english_plain": "The talented artist were",
-          "html": "<span data-case=\"nom\" data-role=\"subject\">ნიჭიერი ხელოვანი</span> <span data-role=\"verb\">იყვნენ</span>",
-          "case_marking": {
+          "georgian": "ნიჭიერი ხელოვანები იყვნენ",
+          "georgian_components": {
             "subject": {
+              "text": "ნიჭიერი ხელოვანები",
               "case": "nom",
-              "word": "ხელოვანი"
+              "role": "subject"
+            },
+            "verb": {
+              "text": "იყვნენ",
+              "role": "verb"
             }
           },
-          "georgian_verb_form": "იყვნენ"
+          "english": "The talented artists were",
+          "english_components": {
+            "subject": {
+              "text": "The talented artists",
+              "role": "subject",
+              "person": "3pl"
+            },
+            "verb": {
+              "text": "were",
+              "role": "verb"
+            }
+          },
+          "georgian_verb_form": "იყვნენ",
+          "person": "3pl",
+          "effective_preverb": ""
         }
       ],
       "optative": [
         {
           "georgian": "უნდა ვიყო",
-          "english": "<strong data-role=\"subject\" data-person=\"1sg\">I</strong> <strong data-role=\"verb\">should</strong> <strong data-role=\"verb\">be</strong>",
-          "english_plain": "I should be",
-          "html": " <span data-role=\"verb\">უნდა ვიყო</span>",
-          "case_marking": {},
-          "georgian_verb_form": "ვიყო"
+          "georgian_components": {
+            "verb": {
+              "text": "უნდა ვიყო",
+              "role": "verb"
+            }
+          },
+          "english": "I should be",
+          "english_components": {
+            "subject": {
+              "text": "I",
+              "role": "subject",
+              "person": "1sg"
+            },
+            "verb": {
+              "text": "should be",
+              "role": "verb"
+            }
+          },
+          "georgian_verb_form": "ვიყო",
+          "person": "1sg",
+          "effective_preverb": ""
         },
         {
           "georgian": "ახალგაზრდა ექიმი უნდა იყოს",
-          "english": "<strong data-role=\"subject\">The young doctor</strong> <strong data-role=\"verb\">should</strong> <strong data-role=\"verb\">be</strong>",
-          "english_plain": "The young doctor should be",
-          "html": "<span data-case=\"nom\" data-role=\"subject\">ახალგაზრდა ექიმი</span> <span data-role=\"verb\">უნდა იყოს</span>",
-          "case_marking": {
+          "georgian_components": {
             "subject": {
+              "text": "ახალგაზრდა ექიმი",
               "case": "nom",
-              "word": "ექიმი"
+              "role": "subject"
+            },
+            "verb": {
+              "text": "უნდა იყოს",
+              "role": "verb"
             }
           },
-          "georgian_verb_form": "იყოს"
+          "english": "The young doctor should be",
+          "english_components": {
+            "subject": {
+              "text": "The young doctor",
+              "role": "subject",
+              "person": "3sg"
+            },
+            "verb": {
+              "text": "should be",
+              "role": "verb"
+            }
+          },
+          "georgian_verb_form": "იყოს",
+          "person": "3sg",
+          "effective_preverb": ""
         },
         {
-          "georgian": "ნიჭიერი ხელოვანი უნდა იყვნენ",
-          "english": "<strong data-role=\"subject\">The talented artist</strong> <strong data-role=\"verb\">should</strong> <strong data-role=\"verb\">be</strong>",
-          "english_plain": "The talented artist should be",
-          "html": "<span data-case=\"nom\" data-role=\"subject\">ნიჭიერი ხელოვანი</span> <span data-role=\"verb\">უნდა იყვნენ</span>",
-          "case_marking": {
+          "georgian": "ნიჭიერი ხელოვანები უნდა იყვნენ",
+          "georgian_components": {
             "subject": {
+              "text": "ნიჭიერი ხელოვანები",
               "case": "nom",
-              "word": "ხელოვანი"
+              "role": "subject"
+            },
+            "verb": {
+              "text": "უნდა იყვნენ",
+              "role": "verb"
             }
           },
-          "georgian_verb_form": "იყვნენ"
+          "english": "The talented artists should be",
+          "english_components": {
+            "subject": {
+              "text": "The talented artists",
+              "role": "subject",
+              "person": "3pl"
+            },
+            "verb": {
+              "text": "should be",
+              "role": "verb"
+            }
+          },
+          "georgian_verb_form": "იყვნენ",
+          "person": "3pl",
+          "effective_preverb": ""
         }
       ],
       "imperative": [
         {
           "georgian": "იყავი",
-          "english": "<strong data-role=\"verb\">be</strong>",
-          "english_plain": "be",
-          "html": " <span data-role=\"verb\">იყავი</span>",
-          "case_marking": {},
-          "georgian_verb_form": "იყავი"
+          "georgian_components": {
+            "verb": {
+              "text": "იყავი",
+              "role": "verb"
+            }
+          },
+          "english": "You, be",
+          "english_components": {
+            "subject": {
+              "text": "You,",
+              "role": "subject",
+              "person": "2sg"
+            },
+            "verb": {
+              "text": "be",
+              "role": "verb"
+            }
+          },
+          "georgian_verb_form": "იყავი",
+          "person": "2sg",
+          "effective_preverb": ""
         },
         {
           "georgian": "იყავით",
-          "english": "<strong data-role=\"verb\">be</strong>",
-          "english_plain": "be",
-          "html": " <span data-role=\"verb\">იყავით</span>",
-          "case_marking": {},
-          "georgian_verb_form": "იყავით"
+          "georgian_components": {
+            "verb": {
+              "text": "იყავით",
+              "role": "verb"
+            }
+          },
+          "english": "You all (you formal), be",
+          "english_components": {
+            "subject": {
+              "text": "You all (you formal),",
+              "role": "subject",
+              "person": "2pl"
+            },
+            "verb": {
+              "text": "be",
+              "role": "verb"
+            }
+          },
+          "georgian_verb_form": "იყავით",
+          "person": "2pl",
+          "effective_preverb": ""
         }
       ]
     }

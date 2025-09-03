@@ -152,282 +152,631 @@
   "preverb_rules": {
     "default": "",
     "replacements": {},
-    "tense_specific_fallbacks": {},
-    "english_fallbacks": {}
+    "tense_specific_fallbacks": {}
   },
   "examples": {
-    "null": {
+    "default": {
       "present": [
         {
-          "georgian": "გვიან ავტობუსს ველოდები",
-          "english": "<strong data-role=\"subject\" data-person=\"1sg\">I</strong> <strong data-role=\"verb\">wait</strong> <strong data-role=\"indirect-object\">for the late bus</strong>",
-          "english_plain": "I wait for the late bus",
-          "html": "<span data-case=\"dat\" data-role=\"indirect-object\">გვიან ავტობუსს</span> <span data-role=\"verb\">ველოდები</span>",
-          "case_marking": {
-            "indirect_object": {
-              "case": "dat",
-              "word": "ავტობუსს"
-            }
-          },
-          "georgian_verb_form": "ველოდები"
-        },
-        {
-          "georgian": "მოთმინებული ბავშვი დაკავებულ დედას ელოდება",
-          "english": "<strong data-role=\"subject\">The patient child</strong> <strong data-role=\"verb\">waits</strong> <strong data-role=\"indirect-object\">for the busy mother</strong>",
-          "english_plain": "The patient child waits for the busy mother",
-          "html": "<span data-case=\"nom\" data-role=\"subject\">მოთმინებული ბავშვი</span> <span data-case=\"dat\" data-role=\"indirect-object\">დაკავებულ დედას</span> <span data-role=\"verb\">ელოდება</span>",
-          "case_marking": {
-            "subject": {
-              "case": "nom",
-              "word": "ბავშვი"
+          "georgian": "ველოდები გვიან ავტობუსს",
+          "georgian_components": {
+            "verb": {
+              "text": "ველოდები",
+              "role": "verb"
             },
             "indirect_object": {
+              "text": "გვიან ავტობუსს",
               "case": "dat",
-              "word": "დედას"
+              "role": "indirect_object"
             }
           },
-          "georgian_verb_form": "ელოდება"
-        },
-        {
-          "georgian": "გაბრაზებული მომხმარებელი ნელ მომსახურებას ელოდებიან",
-          "english": "<strong data-role=\"subject\">The angry customer</strong> <strong data-role=\"verb\">wait</strong> <strong data-role=\"indirect-object\">for the slow service</strong>",
-          "english_plain": "The angry customer wait for the slow service",
-          "html": "<span data-case=\"nom\" data-role=\"subject\">გაბრაზებული მომხმარებელი</span> <span data-case=\"dat\" data-role=\"indirect-object\">ნელ მომსახურებას</span> <span data-role=\"verb\">ელოდებიან</span>",
-          "case_marking": {
+          "english": "I wait for the late bus",
+          "english_components": {
             "subject": {
-              "case": "nom",
-              "word": "მომხმარებელი"
+              "text": "I",
+              "role": "subject",
+              "person": "1sg"
+            },
+            "verb": {
+              "text": "wait",
+              "role": "verb"
             },
             "indirect_object": {
-              "case": "dat",
-              "word": "მომსახურებას"
+              "text": "for the late bus",
+              "role": "indirect_object"
             }
           },
-          "georgian_verb_form": "ელოდებიან"
+          "georgian_verb_form": "ველოდები",
+          "person": "1sg",
+          "effective_preverb": "და"
+        },
+        {
+          "georgian": "მოთმინებული ბავშვი ელოდება დაკავებულ დედას",
+          "georgian_components": {
+            "subject": {
+              "text": "მოთმინებული ბავშვი",
+              "case": "nom",
+              "role": "subject"
+            },
+            "verb": {
+              "text": "ელოდება",
+              "role": "verb"
+            },
+            "indirect_object": {
+              "text": "დაკავებულ დედას",
+              "case": "dat",
+              "role": "indirect_object"
+            }
+          },
+          "english": "The patient child waits for the busy mother",
+          "english_components": {
+            "subject": {
+              "text": "The patient child",
+              "role": "subject",
+              "person": "3sg"
+            },
+            "verb": {
+              "text": "waits",
+              "role": "verb"
+            },
+            "indirect_object": {
+              "text": "for the busy mother",
+              "role": "indirect_object"
+            }
+          },
+          "georgian_verb_form": "ელოდება",
+          "person": "3sg",
+          "effective_preverb": "და"
+        },
+        {
+          "georgian": "გაბრაზებული მომხმარებლები ელოდებიან ნელ მომსახურებას",
+          "georgian_components": {
+            "subject": {
+              "text": "გაბრაზებული მომხმარებლები",
+              "case": "nom",
+              "role": "subject"
+            },
+            "verb": {
+              "text": "ელოდებიან",
+              "role": "verb"
+            },
+            "indirect_object": {
+              "text": "ნელ მომსახურებას",
+              "case": "dat",
+              "role": "indirect_object"
+            }
+          },
+          "english": "The angry customers wait for the slow service",
+          "english_components": {
+            "subject": {
+              "text": "The angry customers",
+              "role": "subject",
+              "person": "3pl"
+            },
+            "verb": {
+              "text": "wait",
+              "role": "verb"
+            },
+            "indirect_object": {
+              "text": "for the slow service",
+              "role": "indirect_object"
+            }
+          },
+          "georgian_verb_form": "ელოდებიან",
+          "person": "3pl",
+          "effective_preverb": "და"
         }
       ],
       "imperfect": [
         {
-          "georgian": "გვიან ავტობუსს ველოდებოდი",
-          "english": "<strong data-role=\"subject\" data-person=\"1sg\">I</strong> <strong data-role=\"verb\">was waiting</strong> <strong data-role=\"indirect-object\">for the late bus</strong>",
-          "english_plain": "I was waiting for the late bus",
-          "html": "<span data-case=\"dat\" data-role=\"indirect-object\">გვიან ავტობუსს</span> <span data-role=\"verb\">ველოდებოდი</span>",
-          "case_marking": {
-            "indirect_object": {
-              "case": "dat",
-              "word": "ავტობუსს"
-            }
-          },
-          "georgian_verb_form": "ველოდებოდი"
-        },
-        {
-          "georgian": "მოთმინებული ბავშვი დაკავებულ დედას ელოდებოდა",
-          "english": "<strong data-role=\"subject\">The patient child</strong> <strong data-role=\"verb\">was waiting</strong> <strong data-role=\"indirect-object\">for the busy mother</strong>",
-          "english_plain": "The patient child was waiting for the busy mother",
-          "html": "<span data-case=\"nom\" data-role=\"subject\">მოთმინებული ბავშვი</span> <span data-case=\"dat\" data-role=\"indirect-object\">დაკავებულ დედას</span> <span data-role=\"verb\">ელოდებოდა</span>",
-          "case_marking": {
-            "subject": {
-              "case": "nom",
-              "word": "ბავშვი"
+          "georgian": "ველოდებოდი გვიან ავტობუსს",
+          "georgian_components": {
+            "verb": {
+              "text": "ველოდებოდი",
+              "role": "verb"
             },
             "indirect_object": {
+              "text": "გვიან ავტობუსს",
               "case": "dat",
-              "word": "დედას"
+              "role": "indirect_object"
             }
           },
-          "georgian_verb_form": "ელოდებოდა"
-        },
-        {
-          "georgian": "გაბრაზებული მომხმარებელი ნელ მომსახურებას ელოდებოდნენ",
-          "english": "<strong data-role=\"subject\">The angry customer</strong> <strong data-role=\"verb\">were waiting</strong> <strong data-role=\"indirect-object\">for the slow service</strong>",
-          "english_plain": "The angry customer were waiting for the slow service",
-          "html": "<span data-case=\"nom\" data-role=\"subject\">გაბრაზებული მომხმარებელი</span> <span data-case=\"dat\" data-role=\"indirect-object\">ნელ მომსახურებას</span> <span data-role=\"verb\">ელოდებოდნენ</span>",
-          "case_marking": {
+          "english": "I was waiting for the late bus",
+          "english_components": {
             "subject": {
-              "case": "nom",
-              "word": "მომხმარებელი"
+              "text": "I",
+              "role": "subject",
+              "person": "1sg"
+            },
+            "verb": {
+              "text": "was waiting",
+              "role": "verb"
             },
             "indirect_object": {
-              "case": "dat",
-              "word": "მომსახურებას"
+              "text": "for the late bus",
+              "role": "indirect_object"
             }
           },
-          "georgian_verb_form": "ელოდებოდნენ"
+          "georgian_verb_form": "ველოდებოდი",
+          "person": "1sg",
+          "effective_preverb": "და"
+        },
+        {
+          "georgian": "მოთმინებული ბავშვი ელოდებოდა დაკავებულ დედას",
+          "georgian_components": {
+            "subject": {
+              "text": "მოთმინებული ბავშვი",
+              "case": "nom",
+              "role": "subject"
+            },
+            "verb": {
+              "text": "ელოდებოდა",
+              "role": "verb"
+            },
+            "indirect_object": {
+              "text": "დაკავებულ დედას",
+              "case": "dat",
+              "role": "indirect_object"
+            }
+          },
+          "english": "The patient child was waiting for the busy mother",
+          "english_components": {
+            "subject": {
+              "text": "The patient child",
+              "role": "subject",
+              "person": "3sg"
+            },
+            "verb": {
+              "text": "was waiting",
+              "role": "verb"
+            },
+            "indirect_object": {
+              "text": "for the busy mother",
+              "role": "indirect_object"
+            }
+          },
+          "georgian_verb_form": "ელოდებოდა",
+          "person": "3sg",
+          "effective_preverb": "და"
+        },
+        {
+          "georgian": "გაბრაზებული მომხმარებლები ელოდებოდნენ ნელ მომსახურებას",
+          "georgian_components": {
+            "subject": {
+              "text": "გაბრაზებული მომხმარებლები",
+              "case": "nom",
+              "role": "subject"
+            },
+            "verb": {
+              "text": "ელოდებოდნენ",
+              "role": "verb"
+            },
+            "indirect_object": {
+              "text": "ნელ მომსახურებას",
+              "case": "dat",
+              "role": "indirect_object"
+            }
+          },
+          "english": "The angry customers were waiting for the slow service",
+          "english_components": {
+            "subject": {
+              "text": "The angry customers",
+              "role": "subject",
+              "person": "3pl"
+            },
+            "verb": {
+              "text": "were waiting",
+              "role": "verb"
+            },
+            "indirect_object": {
+              "text": "for the slow service",
+              "role": "indirect_object"
+            }
+          },
+          "georgian_verb_form": "ელოდებოდნენ",
+          "person": "3pl",
+          "effective_preverb": "და"
         }
       ],
       "future": [
         {
-          "georgian": "გვიან ავტობუსს დაველოდები",
-          "english": "<strong data-role=\"subject\" data-person=\"1sg\">I</strong> <strong data-role=\"verb\">will wait</strong> <strong data-role=\"indirect-object\">for the late bus</strong>",
-          "english_plain": "I will wait for the late bus",
-          "html": "<span data-case=\"dat\" data-role=\"indirect-object\">გვიან ავტობუსს</span> <span data-role=\"verb\">დაველოდები</span>",
-          "case_marking": {
-            "indirect_object": {
-              "case": "dat",
-              "word": "ავტობუსს"
-            }
-          },
-          "georgian_verb_form": "დაველოდები"
-        },
-        {
-          "georgian": "მოთმინებული ბავშვი დაკავებულ დედას დაელოდება",
-          "english": "<strong data-role=\"subject\">The patient child</strong> <strong data-role=\"verb\">will wait</strong> <strong data-role=\"indirect-object\">for the busy mother</strong>",
-          "english_plain": "The patient child will wait for the busy mother",
-          "html": "<span data-case=\"nom\" data-role=\"subject\">მოთმინებული ბავშვი</span> <span data-case=\"dat\" data-role=\"indirect-object\">დაკავებულ დედას</span> <span data-role=\"verb\">დაელოდება</span>",
-          "case_marking": {
-            "subject": {
-              "case": "nom",
-              "word": "ბავშვი"
+          "georgian": "დაველოდები გვიან ავტობუსს",
+          "georgian_components": {
+            "verb": {
+              "text": "დაველოდები",
+              "role": "verb"
             },
             "indirect_object": {
+              "text": "გვიან ავტობუსს",
               "case": "dat",
-              "word": "დედას"
+              "role": "indirect_object"
             }
           },
-          "georgian_verb_form": "დაელოდება"
-        },
-        {
-          "georgian": "გაბრაზებული მომხმარებელი ნელ მომსახურებას დაელოდებიან",
-          "english": "<strong data-role=\"subject\">The angry customer</strong> <strong data-role=\"verb\">will wait</strong> <strong data-role=\"indirect-object\">for the slow service</strong>",
-          "english_plain": "The angry customer will wait for the slow service",
-          "html": "<span data-case=\"nom\" data-role=\"subject\">გაბრაზებული მომხმარებელი</span> <span data-case=\"dat\" data-role=\"indirect-object\">ნელ მომსახურებას</span> <span data-role=\"verb\">დაელოდებიან</span>",
-          "case_marking": {
+          "english": "I will wait for the late bus",
+          "english_components": {
             "subject": {
-              "case": "nom",
-              "word": "მომხმარებელი"
+              "text": "I",
+              "role": "subject",
+              "person": "1sg"
+            },
+            "verb": {
+              "text": "will wait",
+              "role": "verb"
             },
             "indirect_object": {
-              "case": "dat",
-              "word": "მომსახურებას"
+              "text": "for the late bus",
+              "role": "indirect_object"
             }
           },
-          "georgian_verb_form": "დაელოდებიან"
+          "georgian_verb_form": "დაველოდები",
+          "person": "1sg",
+          "effective_preverb": "და"
+        },
+        {
+          "georgian": "მოთმინებული ბავშვი დაელოდება დაკავებულ დედას",
+          "georgian_components": {
+            "subject": {
+              "text": "მოთმინებული ბავშვი",
+              "case": "nom",
+              "role": "subject"
+            },
+            "verb": {
+              "text": "დაელოდება",
+              "role": "verb"
+            },
+            "indirect_object": {
+              "text": "დაკავებულ დედას",
+              "case": "dat",
+              "role": "indirect_object"
+            }
+          },
+          "english": "The patient child will wait for the busy mother",
+          "english_components": {
+            "subject": {
+              "text": "The patient child",
+              "role": "subject",
+              "person": "3sg"
+            },
+            "verb": {
+              "text": "will wait",
+              "role": "verb"
+            },
+            "indirect_object": {
+              "text": "for the busy mother",
+              "role": "indirect_object"
+            }
+          },
+          "georgian_verb_form": "დაელოდება",
+          "person": "3sg",
+          "effective_preverb": "და"
+        },
+        {
+          "georgian": "გაბრაზებული მომხმარებლები დაელოდებიან ნელ მომსახურებას",
+          "georgian_components": {
+            "subject": {
+              "text": "გაბრაზებული მომხმარებლები",
+              "case": "nom",
+              "role": "subject"
+            },
+            "verb": {
+              "text": "დაელოდებიან",
+              "role": "verb"
+            },
+            "indirect_object": {
+              "text": "ნელ მომსახურებას",
+              "case": "dat",
+              "role": "indirect_object"
+            }
+          },
+          "english": "The angry customers will wait for the slow service",
+          "english_components": {
+            "subject": {
+              "text": "The angry customers",
+              "role": "subject",
+              "person": "3pl"
+            },
+            "verb": {
+              "text": "will wait",
+              "role": "verb"
+            },
+            "indirect_object": {
+              "text": "for the slow service",
+              "role": "indirect_object"
+            }
+          },
+          "georgian_verb_form": "დაელოდებიან",
+          "person": "3pl",
+          "effective_preverb": "და"
         }
       ],
       "aorist": [
         {
-          "georgian": "გვიან ავტობუსს დაველოდე",
-          "english": "<strong data-role=\"subject\" data-person=\"1sg\">I</strong> <strong data-role=\"verb\">waited</strong> <strong data-role=\"indirect-object\">for the late bus</strong>",
-          "english_plain": "I waited for the late bus",
-          "html": "<span data-case=\"dat\" data-role=\"indirect-object\">გვიან ავტობუსს</span> <span data-role=\"verb\">დაველოდე</span>",
-          "case_marking": {
-            "indirect_object": {
-              "case": "dat",
-              "word": "ავტობუსს"
-            }
-          },
-          "georgian_verb_form": "დაველოდე"
-        },
-        {
-          "georgian": "მოთმინებული ბავშვი დაკავებულ დედას დაელოდა",
-          "english": "<strong data-role=\"subject\">The patient child</strong> <strong data-role=\"verb\">waited</strong> <strong data-role=\"indirect-object\">for the busy mother</strong>",
-          "english_plain": "The patient child waited for the busy mother",
-          "html": "<span data-case=\"nom\" data-role=\"subject\">მოთმინებული ბავშვი</span> <span data-case=\"dat\" data-role=\"indirect-object\">დაკავებულ დედას</span> <span data-role=\"verb\">დაელოდა</span>",
-          "case_marking": {
-            "subject": {
-              "case": "nom",
-              "word": "ბავშვი"
+          "georgian": "დაველოდე გვიან ავტობუსს",
+          "georgian_components": {
+            "verb": {
+              "text": "დაველოდე",
+              "role": "verb"
             },
             "indirect_object": {
+              "text": "გვიან ავტობუსს",
               "case": "dat",
-              "word": "დედას"
+              "role": "indirect_object"
             }
           },
-          "georgian_verb_form": "დაელოდა"
-        },
-        {
-          "georgian": "გაბრაზებული მომხმარებელი ნელ მომსახურებას დაელოდეს",
-          "english": "<strong data-role=\"subject\">The angry customer</strong> <strong data-role=\"verb\">waited</strong> <strong data-role=\"indirect-object\">for the slow service</strong>",
-          "english_plain": "The angry customer waited for the slow service",
-          "html": "<span data-case=\"nom\" data-role=\"subject\">გაბრაზებული მომხმარებელი</span> <span data-case=\"dat\" data-role=\"indirect-object\">ნელ მომსახურებას</span> <span data-role=\"verb\">დაელოდეს</span>",
-          "case_marking": {
+          "english": "I waited for the late bus",
+          "english_components": {
             "subject": {
-              "case": "nom",
-              "word": "მომხმარებელი"
+              "text": "I",
+              "role": "subject",
+              "person": "1sg"
+            },
+            "verb": {
+              "text": "waited",
+              "role": "verb"
             },
             "indirect_object": {
-              "case": "dat",
-              "word": "მომსახურებას"
+              "text": "for the late bus",
+              "role": "indirect_object"
             }
           },
-          "georgian_verb_form": "დაელოდეს"
+          "georgian_verb_form": "დაველოდე",
+          "person": "1sg",
+          "effective_preverb": "და"
+        },
+        {
+          "georgian": "მოთმინებული ბავშვი დაელოდა დაკავებულ დედას",
+          "georgian_components": {
+            "subject": {
+              "text": "მოთმინებული ბავშვი",
+              "case": "nom",
+              "role": "subject"
+            },
+            "verb": {
+              "text": "დაელოდა",
+              "role": "verb"
+            },
+            "indirect_object": {
+              "text": "დაკავებულ დედას",
+              "case": "dat",
+              "role": "indirect_object"
+            }
+          },
+          "english": "The patient child waited for the busy mother",
+          "english_components": {
+            "subject": {
+              "text": "The patient child",
+              "role": "subject",
+              "person": "3sg"
+            },
+            "verb": {
+              "text": "waited",
+              "role": "verb"
+            },
+            "indirect_object": {
+              "text": "for the busy mother",
+              "role": "indirect_object"
+            }
+          },
+          "georgian_verb_form": "დაელოდა",
+          "person": "3sg",
+          "effective_preverb": "და"
+        },
+        {
+          "georgian": "გაბრაზებული მომხმარებლები დაელოდეს ნელ მომსახურებას",
+          "georgian_components": {
+            "subject": {
+              "text": "გაბრაზებული მომხმარებლები",
+              "case": "nom",
+              "role": "subject"
+            },
+            "verb": {
+              "text": "დაელოდეს",
+              "role": "verb"
+            },
+            "indirect_object": {
+              "text": "ნელ მომსახურებას",
+              "case": "dat",
+              "role": "indirect_object"
+            }
+          },
+          "english": "The angry customers waited for the slow service",
+          "english_components": {
+            "subject": {
+              "text": "The angry customers",
+              "role": "subject",
+              "person": "3pl"
+            },
+            "verb": {
+              "text": "waited",
+              "role": "verb"
+            },
+            "indirect_object": {
+              "text": "for the slow service",
+              "role": "indirect_object"
+            }
+          },
+          "georgian_verb_form": "დაელოდეს",
+          "person": "3pl",
+          "effective_preverb": "და"
         }
       ],
       "optative": [
         {
-          "georgian": "გვიან ავტობუსს უნდა დაველოდო",
-          "english": "<strong data-role=\"subject\" data-person=\"1sg\">I</strong> <strong data-role=\"verb\">should</strong> <strong data-role=\"verb\">wait</strong> <strong data-role=\"indirect-object\">for the late bus</strong>",
-          "english_plain": "I should wait for the late bus",
-          "html": "<span data-case=\"dat\" data-role=\"indirect-object\">გვიან ავტობუსს</span> <span data-role=\"verb\">უნდა დაველოდო</span>",
-          "case_marking": {
-            "indirect_object": {
-              "case": "dat",
-              "word": "ავტობუსს"
-            }
-          },
-          "georgian_verb_form": "დაველოდო"
-        },
-        {
-          "georgian": "მოთმინებული ბავშვი დაკავებულ დედას უნდა დაელოდოს",
-          "english": "<strong data-role=\"subject\">The patient child</strong> <strong data-role=\"verb\">should</strong> <strong data-role=\"verb\">wait</strong> <strong data-role=\"indirect-object\">for the busy mother</strong>",
-          "english_plain": "The patient child should wait for the busy mother",
-          "html": "<span data-case=\"nom\" data-role=\"subject\">მოთმინებული ბავშვი</span> <span data-case=\"dat\" data-role=\"indirect-object\">დაკავებულ დედას</span> <span data-role=\"verb\">უნდა დაელოდოს</span>",
-          "case_marking": {
-            "subject": {
-              "case": "nom",
-              "word": "ბავშვი"
+          "georgian": "უნდა დაველოდო გვიან ავტობუსს",
+          "georgian_components": {
+            "verb": {
+              "text": "უნდა დაველოდო",
+              "role": "verb"
             },
             "indirect_object": {
+              "text": "გვიან ავტობუსს",
               "case": "dat",
-              "word": "დედას"
+              "role": "indirect_object"
             }
           },
-          "georgian_verb_form": "დაელოდოს"
-        },
-        {
-          "georgian": "გაბრაზებული მომხმარებელი ნელ მომსახურებას უნდა დაელოდონ",
-          "english": "<strong data-role=\"subject\">The angry customer</strong> <strong data-role=\"verb\">should</strong> <strong data-role=\"verb\">wait</strong> <strong data-role=\"indirect-object\">for the slow service</strong>",
-          "english_plain": "The angry customer should wait for the slow service",
-          "html": "<span data-case=\"nom\" data-role=\"subject\">გაბრაზებული მომხმარებელი</span> <span data-case=\"dat\" data-role=\"indirect-object\">ნელ მომსახურებას</span> <span data-role=\"verb\">უნდა დაელოდონ</span>",
-          "case_marking": {
+          "english": "I should wait for the late bus",
+          "english_components": {
             "subject": {
-              "case": "nom",
-              "word": "მომხმარებელი"
+              "text": "I",
+              "role": "subject",
+              "person": "1sg"
+            },
+            "verb": {
+              "text": "should wait",
+              "role": "verb"
             },
             "indirect_object": {
-              "case": "dat",
-              "word": "მომსახურებას"
+              "text": "for the late bus",
+              "role": "indirect_object"
             }
           },
-          "georgian_verb_form": "დაელოდონ"
+          "georgian_verb_form": "დაველოდო",
+          "person": "1sg",
+          "effective_preverb": "და"
+        },
+        {
+          "georgian": "მოთმინებული ბავშვი უნდა დაელოდოს დაკავებულ დედას",
+          "georgian_components": {
+            "subject": {
+              "text": "მოთმინებული ბავშვი",
+              "case": "nom",
+              "role": "subject"
+            },
+            "verb": {
+              "text": "უნდა დაელოდოს",
+              "role": "verb"
+            },
+            "indirect_object": {
+              "text": "დაკავებულ დედას",
+              "case": "dat",
+              "role": "indirect_object"
+            }
+          },
+          "english": "The patient child should wait for the busy mother",
+          "english_components": {
+            "subject": {
+              "text": "The patient child",
+              "role": "subject",
+              "person": "3sg"
+            },
+            "verb": {
+              "text": "should wait",
+              "role": "verb"
+            },
+            "indirect_object": {
+              "text": "for the busy mother",
+              "role": "indirect_object"
+            }
+          },
+          "georgian_verb_form": "დაელოდოს",
+          "person": "3sg",
+          "effective_preverb": "და"
+        },
+        {
+          "georgian": "გაბრაზებული მომხმარებლები უნდა დაელოდონ ნელ მომსახურებას",
+          "georgian_components": {
+            "subject": {
+              "text": "გაბრაზებული მომხმარებლები",
+              "case": "nom",
+              "role": "subject"
+            },
+            "verb": {
+              "text": "უნდა დაელოდონ",
+              "role": "verb"
+            },
+            "indirect_object": {
+              "text": "ნელ მომსახურებას",
+              "case": "dat",
+              "role": "indirect_object"
+            }
+          },
+          "english": "The angry customers should wait for the slow service",
+          "english_components": {
+            "subject": {
+              "text": "The angry customers",
+              "role": "subject",
+              "person": "3pl"
+            },
+            "verb": {
+              "text": "should wait",
+              "role": "verb"
+            },
+            "indirect_object": {
+              "text": "for the slow service",
+              "role": "indirect_object"
+            }
+          },
+          "georgian_verb_form": "დაელოდონ",
+          "person": "3pl",
+          "effective_preverb": "და"
         }
       ],
       "imperative": [
         {
-          "georgian": "საუკეთესო მეგობარს დაელოდე",
-          "english": "<strong data-role=\"verb\">wait</strong> <strong data-role=\"indirect-object\">for the best friend</strong>",
-          "english_plain": "wait for the best friend",
-          "html": "<span data-case=\"dat\" data-role=\"indirect-object\">საუკეთესო მეგობარს</span> <span data-role=\"verb\">დაელოდე</span>",
-          "case_marking": {
+          "georgian": "დაელოდე საუკეთესო მეგობარს",
+          "georgian_components": {
+            "verb": {
+              "text": "დაელოდე",
+              "role": "verb"
+            },
             "indirect_object": {
+              "text": "საუკეთესო მეგობარს",
               "case": "dat",
-              "word": "მეგობარს"
+              "role": "indirect_object"
             }
           },
-          "georgian_verb_form": "დაელოდე"
+          "english": "You, wait for the best friend",
+          "english_components": {
+            "subject": {
+              "text": "You,",
+              "role": "subject",
+              "person": "2sg"
+            },
+            "verb": {
+              "text": "wait",
+              "role": "verb"
+            },
+            "indirect_object": {
+              "text": "for the best friend",
+              "role": "indirect_object"
+            }
+          },
+          "georgian_verb_form": "დაელოდე",
+          "person": "2sg",
+          "effective_preverb": "და"
         },
         {
-          "georgian": "ახალ მასწავლებელს დაელოდეთ",
-          "english": "<strong data-role=\"verb\">wait</strong> <strong data-role=\"indirect-object\">for the new teacher</strong>",
-          "english_plain": "wait for the new teacher",
-          "html": "<span data-case=\"dat\" data-role=\"indirect-object\">ახალ მასწავლებელს</span> <span data-role=\"verb\">დაელოდეთ</span>",
-          "case_marking": {
+          "georgian": "დაელოდეთ ახალ მასწავლებელს",
+          "georgian_components": {
+            "verb": {
+              "text": "დაელოდეთ",
+              "role": "verb"
+            },
             "indirect_object": {
+              "text": "ახალ მასწავლებელს",
               "case": "dat",
-              "word": "მასწავლებელს"
+              "role": "indirect_object"
             }
           },
-          "georgian_verb_form": "დაელოდეთ"
+          "english": "You all (you formal), wait for the new teacher",
+          "english_components": {
+            "subject": {
+              "text": "You all (you formal),",
+              "role": "subject",
+              "person": "2pl"
+            },
+            "verb": {
+              "text": "wait",
+              "role": "verb"
+            },
+            "indirect_object": {
+              "text": "for the new teacher",
+              "role": "indirect_object"
+            }
+          },
+          "georgian_verb_form": "დაელოდეთ",
+          "person": "2pl",
+          "effective_preverb": "და"
         }
       ]
     }

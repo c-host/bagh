@@ -56,7 +56,7 @@
       "examples": []
     },
     "imperfect": {
-      "raw_gloss": "V Act Impf SV <S:Nom>",
+      "raw_gloss": "V Act Impf SV <S> <S:Nom>",
       "forms": {
         "1sg": "ვისვენებდი",
         "2sg": "ისვენებდი",
@@ -104,7 +104,7 @@
       "examples": []
     },
     "imperative": {
-      "raw_gloss": "V Act Impf SV <S:Erg>",
+      "raw_gloss": "V Act Impf SV <S> <S:Erg>",
       "forms": {
         "1sg": "-",
         "2sg": "დაისვენე",
@@ -124,207 +124,478 @@
   "preverb_rules": {
     "default": "",
     "replacements": {},
-    "tense_specific_fallbacks": {},
-    "english_fallbacks": {}
+    "tense_specific_fallbacks": {}
   },
   "examples": {
-    "null": {
+    "default": {
       "present": [
         {
           "georgian": "ვისვენებ",
-          "english": "<strong data-role=\"subject\" data-person=\"1sg\">I</strong> <strong data-role=\"verb\">rest</strong>",
-          "english_plain": "I rest",
-          "html": " <span data-role=\"verb\">ვისვენებ</span>",
-          "case_marking": {},
-          "georgian_verb_form": "ვისვენებ"
+          "georgian_components": {
+            "verb": {
+              "text": "ვისვენებ",
+              "role": "verb"
+            }
+          },
+          "english": "I rest",
+          "english_components": {
+            "subject": {
+              "text": "I",
+              "role": "subject",
+              "person": "1sg"
+            },
+            "verb": {
+              "text": "rest",
+              "role": "verb"
+            }
+          },
+          "georgian_verb_form": "ვისვენებ",
+          "person": "1sg",
+          "effective_preverb": ""
         },
         {
           "georgian": "დაღლილი სპორტსმენი ისვენებს",
-          "english": "<strong data-role=\"subject\">The tired athlete</strong> <strong data-role=\"verb\">rests</strong>",
-          "english_plain": "The tired athlete rests",
-          "html": "<span data-case=\"nom\" data-role=\"subject\">დაღლილი სპორტსმენი</span> <span data-role=\"verb\">ისვენებს</span>",
-          "case_marking": {
+          "georgian_components": {
             "subject": {
+              "text": "დაღლილი სპორტსმენი",
               "case": "nom",
-              "word": "სპორტსმენი"
+              "role": "subject"
+            },
+            "verb": {
+              "text": "ისვენებს",
+              "role": "verb"
             }
           },
-          "georgian_verb_form": "ისვენებს"
+          "english": "The tired athlete rests",
+          "english_components": {
+            "subject": {
+              "text": "The tired athlete",
+              "role": "subject",
+              "person": "3sg"
+            },
+            "verb": {
+              "text": "rests",
+              "role": "verb"
+            }
+          },
+          "georgian_verb_form": "ისვენებს",
+          "person": "3sg",
+          "effective_preverb": ""
         },
         {
-          "georgian": "ძველი ბაბუა ისვენებენ",
-          "english": "<strong data-role=\"subject\">The old grandfather</strong> <strong data-role=\"verb\">rest</strong>",
-          "english_plain": "The old grandfather rest",
-          "html": "<span data-case=\"nom\" data-role=\"subject\">ძველი ბაბუა</span> <span data-role=\"verb\">ისვენებენ</span>",
-          "case_marking": {
+          "georgian": "ძველი ბაბუები ისვენებენ",
+          "georgian_components": {
             "subject": {
+              "text": "ძველი ბაბუები",
               "case": "nom",
-              "word": "ბაბუა"
+              "role": "subject"
+            },
+            "verb": {
+              "text": "ისვენებენ",
+              "role": "verb"
             }
           },
-          "georgian_verb_form": "ისვენებენ"
+          "english": "The old grandfathers rest",
+          "english_components": {
+            "subject": {
+              "text": "The old grandfathers",
+              "role": "subject",
+              "person": "3pl"
+            },
+            "verb": {
+              "text": "rest",
+              "role": "verb"
+            }
+          },
+          "georgian_verb_form": "ისვენებენ",
+          "person": "3pl",
+          "effective_preverb": ""
         }
       ],
       "imperfect": [
         {
           "georgian": "ვისვენებდი",
-          "english": "<strong data-role=\"subject\" data-person=\"1sg\">I</strong> <strong data-role=\"verb\">was resting</strong>",
-          "english_plain": "I was resting",
-          "html": " <span data-role=\"verb\">ვისვენებდი</span>",
-          "case_marking": {},
-          "georgian_verb_form": "ვისვენებდი"
+          "georgian_components": {
+            "verb": {
+              "text": "ვისვენებდი",
+              "role": "verb"
+            }
+          },
+          "english": "I was resting",
+          "english_components": {
+            "subject": {
+              "text": "I",
+              "role": "subject",
+              "person": "1sg"
+            },
+            "verb": {
+              "text": "was resting",
+              "role": "verb"
+            }
+          },
+          "georgian_verb_form": "ვისვენებდი",
+          "person": "1sg",
+          "effective_preverb": ""
         },
         {
           "georgian": "დაღლილი სპორტსმენი ისვენებდა",
-          "english": "<strong data-role=\"subject\">The tired athlete</strong> <strong data-role=\"verb\">was resting</strong>",
-          "english_plain": "The tired athlete was resting",
-          "html": "<span data-case=\"nom\" data-role=\"subject\">დაღლილი სპორტსმენი</span> <span data-role=\"verb\">ისვენებდა</span>",
-          "case_marking": {
+          "georgian_components": {
             "subject": {
+              "text": "დაღლილი სპორტსმენი",
               "case": "nom",
-              "word": "სპორტსმენი"
+              "role": "subject"
+            },
+            "verb": {
+              "text": "ისვენებდა",
+              "role": "verb"
             }
           },
-          "georgian_verb_form": "ისვენებდა"
+          "english": "The tired athlete was resting",
+          "english_components": {
+            "subject": {
+              "text": "The tired athlete",
+              "role": "subject",
+              "person": "3sg"
+            },
+            "verb": {
+              "text": "was resting",
+              "role": "verb"
+            }
+          },
+          "georgian_verb_form": "ისვენებდა",
+          "person": "3sg",
+          "effective_preverb": ""
         },
         {
-          "georgian": "ძველი ბაბუა ისვენებდნენ",
-          "english": "<strong data-role=\"subject\">The old grandfather</strong> <strong data-role=\"verb\">were resting</strong>",
-          "english_plain": "The old grandfather were resting",
-          "html": "<span data-case=\"nom\" data-role=\"subject\">ძველი ბაბუა</span> <span data-role=\"verb\">ისვენებდნენ</span>",
-          "case_marking": {
+          "georgian": "ძველი ბაბუები ისვენებდნენ",
+          "georgian_components": {
             "subject": {
+              "text": "ძველი ბაბუები",
               "case": "nom",
-              "word": "ბაბუა"
+              "role": "subject"
+            },
+            "verb": {
+              "text": "ისვენებდნენ",
+              "role": "verb"
             }
           },
-          "georgian_verb_form": "ისვენებდნენ"
+          "english": "The old grandfathers were resting",
+          "english_components": {
+            "subject": {
+              "text": "The old grandfathers",
+              "role": "subject",
+              "person": "3pl"
+            },
+            "verb": {
+              "text": "were resting",
+              "role": "verb"
+            }
+          },
+          "georgian_verb_form": "ისვენებდნენ",
+          "person": "3pl",
+          "effective_preverb": ""
         }
       ],
       "future": [
         {
           "georgian": "დავისვენებ",
-          "english": "<strong data-role=\"subject\" data-person=\"1sg\">I</strong> <strong data-role=\"verb\">will rest</strong>",
-          "english_plain": "I will rest",
-          "html": " <span data-role=\"verb\">დავისვენებ</span>",
-          "case_marking": {},
-          "georgian_verb_form": "დავისვენებ"
+          "georgian_components": {
+            "verb": {
+              "text": "დავისვენებ",
+              "role": "verb"
+            }
+          },
+          "english": "I will rest",
+          "english_components": {
+            "subject": {
+              "text": "I",
+              "role": "subject",
+              "person": "1sg"
+            },
+            "verb": {
+              "text": "will rest",
+              "role": "verb"
+            }
+          },
+          "georgian_verb_form": "დავისვენებ",
+          "person": "1sg",
+          "effective_preverb": ""
         },
         {
           "georgian": "დაღლილი სპორტსმენი დაისვენებს",
-          "english": "<strong data-role=\"subject\">The tired athlete</strong> <strong data-role=\"verb\">will rest</strong>",
-          "english_plain": "The tired athlete will rest",
-          "html": "<span data-case=\"nom\" data-role=\"subject\">დაღლილი სპორტსმენი</span> <span data-role=\"verb\">დაისვენებს</span>",
-          "case_marking": {
+          "georgian_components": {
             "subject": {
+              "text": "დაღლილი სპორტსმენი",
               "case": "nom",
-              "word": "სპორტსმენი"
+              "role": "subject"
+            },
+            "verb": {
+              "text": "დაისვენებს",
+              "role": "verb"
             }
           },
-          "georgian_verb_form": "დაისვენებს"
+          "english": "The tired athlete will rest",
+          "english_components": {
+            "subject": {
+              "text": "The tired athlete",
+              "role": "subject",
+              "person": "3sg"
+            },
+            "verb": {
+              "text": "will rest",
+              "role": "verb"
+            }
+          },
+          "georgian_verb_form": "დაისვენებს",
+          "person": "3sg",
+          "effective_preverb": ""
         },
         {
-          "georgian": "ძველი ბაბუა დაისვენებენ",
-          "english": "<strong data-role=\"subject\">The old grandfather</strong> <strong data-role=\"verb\">will rest</strong>",
-          "english_plain": "The old grandfather will rest",
-          "html": "<span data-case=\"nom\" data-role=\"subject\">ძველი ბაბუა</span> <span data-role=\"verb\">დაისვენებენ</span>",
-          "case_marking": {
+          "georgian": "ძველი ბაბუები დაისვენებენ",
+          "georgian_components": {
             "subject": {
+              "text": "ძველი ბაბუები",
               "case": "nom",
-              "word": "ბაბუა"
+              "role": "subject"
+            },
+            "verb": {
+              "text": "დაისვენებენ",
+              "role": "verb"
             }
           },
-          "georgian_verb_form": "დაისვენებენ"
+          "english": "The old grandfathers will rest",
+          "english_components": {
+            "subject": {
+              "text": "The old grandfathers",
+              "role": "subject",
+              "person": "3pl"
+            },
+            "verb": {
+              "text": "will rest",
+              "role": "verb"
+            }
+          },
+          "georgian_verb_form": "დაისვენებენ",
+          "person": "3pl",
+          "effective_preverb": ""
         }
       ],
       "aorist": [
         {
           "georgian": "დავისვენე",
-          "english": "<strong data-role=\"subject\" data-person=\"1sg\">I</strong> <strong data-role=\"verb\">rested</strong>",
-          "english_plain": "I rested",
-          "html": " <span data-role=\"verb\">დავისვენე</span>",
-          "case_marking": {},
-          "georgian_verb_form": "დავისვენე"
+          "georgian_components": {
+            "verb": {
+              "text": "დავისვენე",
+              "role": "verb"
+            }
+          },
+          "english": "I rested",
+          "english_components": {
+            "subject": {
+              "text": "I",
+              "role": "subject",
+              "person": "1sg"
+            },
+            "verb": {
+              "text": "rested",
+              "role": "verb"
+            }
+          },
+          "georgian_verb_form": "დავისვენე",
+          "person": "1sg",
+          "effective_preverb": ""
         },
         {
           "georgian": "დაღლილმა სპორტსმენმა დაისვენა",
-          "english": "<strong data-role=\"subject\">The tired athlete</strong> <strong data-role=\"verb\">rested</strong>",
-          "english_plain": "The tired athlete rested",
-          "html": "<span data-case=\"erg\" data-role=\"subject\">დაღლილმა სპორტსმენმა</span> <span data-role=\"verb\">დაისვენა</span>",
-          "case_marking": {
+          "georgian_components": {
             "subject": {
+              "text": "დაღლილმა სპორტსმენმა",
               "case": "erg",
-              "word": "სპორტსმენმა"
+              "role": "subject"
+            },
+            "verb": {
+              "text": "დაისვენა",
+              "role": "verb"
             }
           },
-          "georgian_verb_form": "დაისვენა"
+          "english": "The tired athlete rested",
+          "english_components": {
+            "subject": {
+              "text": "The tired athlete",
+              "role": "subject",
+              "person": "3sg"
+            },
+            "verb": {
+              "text": "rested",
+              "role": "verb"
+            }
+          },
+          "georgian_verb_form": "დაისვენა",
+          "person": "3sg",
+          "effective_preverb": ""
         },
         {
-          "georgian": "ძველმა ბაბუამ დაისვენეს",
-          "english": "<strong data-role=\"subject\">The old grandfather</strong> <strong data-role=\"verb\">rested</strong>",
-          "english_plain": "The old grandfather rested",
-          "html": "<span data-case=\"erg\" data-role=\"subject\">ძველმა ბაბუამ</span> <span data-role=\"verb\">დაისვენეს</span>",
-          "case_marking": {
+          "georgian": "ძველმა ბაბუებმა დაისვენეს",
+          "georgian_components": {
             "subject": {
+              "text": "ძველმა ბაბუებმა",
               "case": "erg",
-              "word": "ბაბუამ"
+              "role": "subject"
+            },
+            "verb": {
+              "text": "დაისვენეს",
+              "role": "verb"
             }
           },
-          "georgian_verb_form": "დაისვენეს"
+          "english": "The old grandfathers rested",
+          "english_components": {
+            "subject": {
+              "text": "The old grandfathers",
+              "role": "subject",
+              "person": "3pl"
+            },
+            "verb": {
+              "text": "rested",
+              "role": "verb"
+            }
+          },
+          "georgian_verb_form": "დაისვენეს",
+          "person": "3pl",
+          "effective_preverb": ""
         }
       ],
       "optative": [
         {
           "georgian": "უნდა დავისვენო",
-          "english": "<strong data-role=\"subject\" data-person=\"1sg\">I</strong> <strong data-role=\"verb\">should</strong> <strong data-role=\"verb\">rest</strong>",
-          "english_plain": "I should rest",
-          "html": " <span data-role=\"verb\">უნდა დავისვენო</span>",
-          "case_marking": {},
-          "georgian_verb_form": "დავისვენო"
+          "georgian_components": {
+            "verb": {
+              "text": "უნდა დავისვენო",
+              "role": "verb"
+            }
+          },
+          "english": "I should rest",
+          "english_components": {
+            "subject": {
+              "text": "I",
+              "role": "subject",
+              "person": "1sg"
+            },
+            "verb": {
+              "text": "should rest",
+              "role": "verb"
+            }
+          },
+          "georgian_verb_form": "დავისვენო",
+          "person": "1sg",
+          "effective_preverb": ""
         },
         {
           "georgian": "დაღლილმა სპორტსმენმა უნდა დაისვენოს",
-          "english": "<strong data-role=\"subject\">The tired athlete</strong> <strong data-role=\"verb\">should</strong> <strong data-role=\"verb\">rest</strong>",
-          "english_plain": "The tired athlete should rest",
-          "html": "<span data-case=\"erg\" data-role=\"subject\">დაღლილმა სპორტსმენმა</span> <span data-role=\"verb\">უნდა დაისვენოს</span>",
-          "case_marking": {
+          "georgian_components": {
             "subject": {
+              "text": "დაღლილმა სპორტსმენმა",
               "case": "erg",
-              "word": "სპორტსმენმა"
+              "role": "subject"
+            },
+            "verb": {
+              "text": "უნდა დაისვენოს",
+              "role": "verb"
             }
           },
-          "georgian_verb_form": "დაისვენოს"
+          "english": "The tired athlete should rest",
+          "english_components": {
+            "subject": {
+              "text": "The tired athlete",
+              "role": "subject",
+              "person": "3sg"
+            },
+            "verb": {
+              "text": "should rest",
+              "role": "verb"
+            }
+          },
+          "georgian_verb_form": "დაისვენოს",
+          "person": "3sg",
+          "effective_preverb": ""
         },
         {
-          "georgian": "ძველმა ბაბუამ უნდა დაისვენონ",
-          "english": "<strong data-role=\"subject\">The old grandfather</strong> <strong data-role=\"verb\">should</strong> <strong data-role=\"verb\">rest</strong>",
-          "english_plain": "The old grandfather should rest",
-          "html": "<span data-case=\"erg\" data-role=\"subject\">ძველმა ბაბუამ</span> <span data-role=\"verb\">უნდა დაისვენონ</span>",
-          "case_marking": {
+          "georgian": "ძველმა ბაბუებმა უნდა დაისვენონ",
+          "georgian_components": {
             "subject": {
+              "text": "ძველმა ბაბუებმა",
               "case": "erg",
-              "word": "ბაბუამ"
+              "role": "subject"
+            },
+            "verb": {
+              "text": "უნდა დაისვენონ",
+              "role": "verb"
             }
           },
-          "georgian_verb_form": "დაისვენონ"
+          "english": "The old grandfathers should rest",
+          "english_components": {
+            "subject": {
+              "text": "The old grandfathers",
+              "role": "subject",
+              "person": "3pl"
+            },
+            "verb": {
+              "text": "should rest",
+              "role": "verb"
+            }
+          },
+          "georgian_verb_form": "დაისვენონ",
+          "person": "3pl",
+          "effective_preverb": ""
         }
       ],
       "imperative": [
         {
           "georgian": "დაისვენე",
-          "english": "<strong data-role=\"verb\">rest</strong>",
-          "english_plain": "rest",
-          "html": " <span data-role=\"verb\">დაისვენე</span>",
-          "case_marking": {},
-          "georgian_verb_form": "დაისვენე"
+          "georgian_components": {
+            "verb": {
+              "text": "დაისვენე",
+              "role": "verb"
+            }
+          },
+          "english": "You, rest",
+          "english_components": {
+            "subject": {
+              "text": "You,",
+              "role": "subject",
+              "person": "2sg"
+            },
+            "verb": {
+              "text": "rest",
+              "role": "verb"
+            }
+          },
+          "georgian_verb_form": "დაისვენე",
+          "person": "2sg",
+          "effective_preverb": ""
         },
         {
           "georgian": "დაისვენეთ",
-          "english": "<strong data-role=\"verb\">rest</strong>",
-          "english_plain": "rest",
-          "html": " <span data-role=\"verb\">დაისვენეთ</span>",
-          "case_marking": {},
-          "georgian_verb_form": "დაისვენეთ"
+          "georgian_components": {
+            "verb": {
+              "text": "დაისვენეთ",
+              "role": "verb"
+            }
+          },
+          "english": "You all (you formal), rest",
+          "english_components": {
+            "subject": {
+              "text": "You all (you formal),",
+              "role": "subject",
+              "person": "2pl"
+            },
+            "verb": {
+              "text": "rest",
+              "role": "verb"
+            }
+          },
+          "georgian_verb_form": "დაისვენეთ",
+          "person": "2pl",
+          "effective_preverb": ""
         }
       ]
     }
@@ -416,7 +687,7 @@
       }
     },
     "imperfect": {
-      "raw_gloss": "V Act Impf SV <S:Nom>",
+      "raw_gloss": "V Act Impf SV <S> <S:Nom>",
       "structured_gloss": {
         "raw_components": [
           {
@@ -442,6 +713,12 @@
             "component_type": "unknown",
             "color_class": "gloss-default",
             "description": "Subjective Version"
+          },
+          {
+            "text": "<S>",
+            "component_type": "argument_pattern",
+            "color_class": "gloss-argument",
+            "description": "Intransitive absolute"
           },
           {
             "text": "<S:Nom>",
@@ -476,13 +753,19 @@
             "description": "Subjective Version"
           },
           {
+            "text": "<S>",
+            "component_type": "argument_pattern",
+            "color_class": "gloss-argument",
+            "description": "Intransitive absolute"
+          },
+          {
             "text": "<S:Nom>",
             "component_type": "case_spec",
             "color_class": "gloss-subject",
             "description": "Nominative subject"
           }
         ],
-        "argument_pattern": null,
+        "argument_pattern": "<S>",
         "case_specifications": [
           "<S:Nom>"
         ]
@@ -744,7 +1027,7 @@
       }
     },
     "imperative": {
-      "raw_gloss": "V Act Impf SV <S:Erg>",
+      "raw_gloss": "V Act Impf SV <S> <S:Erg>",
       "structured_gloss": {
         "raw_components": [
           {
@@ -770,6 +1053,12 @@
             "component_type": "unknown",
             "color_class": "gloss-default",
             "description": "Subjective Version"
+          },
+          {
+            "text": "<S>",
+            "component_type": "argument_pattern",
+            "color_class": "gloss-argument",
+            "description": "Intransitive absolute"
           },
           {
             "text": "<S:Erg>",
@@ -804,13 +1093,19 @@
             "description": "Subjective Version"
           },
           {
+            "text": "<S>",
+            "component_type": "argument_pattern",
+            "color_class": "gloss-argument",
+            "description": "Intransitive absolute"
+          },
+          {
             "text": "<S:Erg>",
             "component_type": "case_spec",
             "color_class": "gloss-subject",
             "description": "Ergative subject"
           }
         ],
-        "argument_pattern": null,
+        "argument_pattern": "<S>",
         "case_specifications": [
           "<S:Erg>"
         ]

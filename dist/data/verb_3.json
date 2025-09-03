@@ -145,278 +145,628 @@
   },
   "preverb_rules": {},
   "examples": {
-    "null": {
+    "default": {
       "present": [
         {
-          "georgian": "გრძელ წერილს ვგზავნი",
-          "english": "<strong data-role=\"subject\" data-person=\"1sg\">I</strong> <strong data-role=\"verb\">send</strong> <strong data-role=\"direct-object\">the long letter</strong>",
-          "english_plain": "I send the long letter",
-          "html": "<span data-case=\"dat\" data-role=\"direct-object\">გრძელ წერილს</span> <span data-role=\"verb\">ვგზავნი</span>",
-          "case_marking": {
-            "direct_object": {
-              "case": "dat",
-              "word": "წერილს"
-            }
-          },
-          "georgian_verb_form": "ვგზავნი"
-        },
-        {
-          "georgian": "მოსიყვარულე დედა განსაკუთრებულ საჩუქარს გზავნის",
-          "english": "<strong data-role=\"subject\">The loving mother</strong> <strong data-role=\"verb\">sends</strong> <strong data-role=\"direct-object\">the special gift</strong>",
-          "english_plain": "The loving mother sends the special gift",
-          "html": "<span data-case=\"nom\" data-role=\"subject\">მოსიყვარულე დედა</span> <span data-case=\"dat\" data-role=\"direct-object\">განსაკუთრებულ საჩუქარს</span> <span data-role=\"verb\">გზავნის</span>",
-          "case_marking": {
-            "subject": {
-              "case": "nom",
-              "word": "დედა"
+          "georgian": "ვგზავნი გრძელ წერილს",
+          "georgian_components": {
+            "verb": {
+              "text": "ვგზავნი",
+              "role": "verb"
             },
             "direct_object": {
+              "text": "გრძელ წერილს",
               "case": "dat",
-              "word": "საჩუქარს"
+              "role": "direct_object"
             }
           },
-          "georgian_verb_form": "გზავნის"
-        },
-        {
-          "georgian": "კარგი მეგობარი ახალ წიგნს გზავნიან",
-          "english": "<strong data-role=\"subject\">The good friend</strong> <strong data-role=\"verb\">send</strong> <strong data-role=\"direct-object\">the new book</strong>",
-          "english_plain": "The good friend send the new book",
-          "html": "<span data-case=\"nom\" data-role=\"subject\">კარგი მეგობარი</span> <span data-case=\"dat\" data-role=\"direct-object\">ახალ წიგნს</span> <span data-role=\"verb\">გზავნიან</span>",
-          "case_marking": {
+          "english": "I send the long letter",
+          "english_components": {
             "subject": {
-              "case": "nom",
-              "word": "მეგობარი"
+              "text": "I",
+              "role": "subject",
+              "person": "1sg"
+            },
+            "verb": {
+              "text": "send",
+              "role": "verb"
             },
             "direct_object": {
-              "case": "dat",
-              "word": "წიგნს"
+              "text": "the long letter",
+              "role": "direct_object"
             }
           },
-          "georgian_verb_form": "გზავნიან"
+          "georgian_verb_form": "ვგზავნი",
+          "person": "1sg",
+          "effective_preverb": ""
+        },
+        {
+          "georgian": "მოსიყვარულე დედა გზავნის განსაკუთრებულ საჩუქარს",
+          "georgian_components": {
+            "subject": {
+              "text": "მოსიყვარულე დედა",
+              "case": "nom",
+              "role": "subject"
+            },
+            "verb": {
+              "text": "გზავნის",
+              "role": "verb"
+            },
+            "direct_object": {
+              "text": "განსაკუთრებულ საჩუქარს",
+              "case": "dat",
+              "role": "direct_object"
+            }
+          },
+          "english": "The loving mother sends the special gift",
+          "english_components": {
+            "subject": {
+              "text": "The loving mother",
+              "role": "subject",
+              "person": "3sg"
+            },
+            "verb": {
+              "text": "sends",
+              "role": "verb"
+            },
+            "direct_object": {
+              "text": "the special gift",
+              "role": "direct_object"
+            }
+          },
+          "georgian_verb_form": "გზავნის",
+          "person": "3sg",
+          "effective_preverb": ""
+        },
+        {
+          "georgian": "კარგი მეგობრები გზავნიან ახალ წიგნს",
+          "georgian_components": {
+            "subject": {
+              "text": "კარგი მეგობრები",
+              "case": "nom",
+              "role": "subject"
+            },
+            "verb": {
+              "text": "გზავნიან",
+              "role": "verb"
+            },
+            "direct_object": {
+              "text": "ახალ წიგნს",
+              "case": "dat",
+              "role": "direct_object"
+            }
+          },
+          "english": "The good friends send the new book",
+          "english_components": {
+            "subject": {
+              "text": "The good friends",
+              "role": "subject",
+              "person": "3pl"
+            },
+            "verb": {
+              "text": "send",
+              "role": "verb"
+            },
+            "direct_object": {
+              "text": "the new book",
+              "role": "direct_object"
+            }
+          },
+          "georgian_verb_form": "გზავნიან",
+          "person": "3pl",
+          "effective_preverb": ""
         }
       ],
       "imperfect": [
         {
-          "georgian": "გრძელ წერილს ვგზავნიდი",
-          "english": "<strong data-role=\"subject\" data-person=\"1sg\">I</strong> <strong data-role=\"verb\">was sending</strong> <strong data-role=\"direct-object\">the long letter</strong>",
-          "english_plain": "I was sending the long letter",
-          "html": "<span data-case=\"dat\" data-role=\"direct-object\">გრძელ წერილს</span> <span data-role=\"verb\">ვგზავნიდი</span>",
-          "case_marking": {
-            "direct_object": {
-              "case": "dat",
-              "word": "წერილს"
-            }
-          },
-          "georgian_verb_form": "ვგზავნიდი"
-        },
-        {
-          "georgian": "მოსიყვარულე დედა განსაკუთრებულ საჩუქარს გზავნიდა",
-          "english": "<strong data-role=\"subject\">The loving mother</strong> <strong data-role=\"verb\">was sending</strong> <strong data-role=\"direct-object\">the special gift</strong>",
-          "english_plain": "The loving mother was sending the special gift",
-          "html": "<span data-case=\"nom\" data-role=\"subject\">მოსიყვარულე დედა</span> <span data-case=\"dat\" data-role=\"direct-object\">განსაკუთრებულ საჩუქარს</span> <span data-role=\"verb\">გზავნიდა</span>",
-          "case_marking": {
-            "subject": {
-              "case": "nom",
-              "word": "დედა"
+          "georgian": "ვგზავნიდი გრძელ წერილს",
+          "georgian_components": {
+            "verb": {
+              "text": "ვგზავნიდი",
+              "role": "verb"
             },
             "direct_object": {
+              "text": "გრძელ წერილს",
               "case": "dat",
-              "word": "საჩუქარს"
+              "role": "direct_object"
             }
           },
-          "georgian_verb_form": "გზავნიდა"
-        },
-        {
-          "georgian": "კარგი მეგობარი ახალ წიგნს გზავნიდნენ",
-          "english": "<strong data-role=\"subject\">The good friend</strong> <strong data-role=\"verb\">were sending</strong> <strong data-role=\"direct-object\">the new book</strong>",
-          "english_plain": "The good friend were sending the new book",
-          "html": "<span data-case=\"nom\" data-role=\"subject\">კარგი მეგობარი</span> <span data-case=\"dat\" data-role=\"direct-object\">ახალ წიგნს</span> <span data-role=\"verb\">გზავნიდნენ</span>",
-          "case_marking": {
+          "english": "I was sending the long letter",
+          "english_components": {
             "subject": {
-              "case": "nom",
-              "word": "მეგობარი"
+              "text": "I",
+              "role": "subject",
+              "person": "1sg"
+            },
+            "verb": {
+              "text": "was sending",
+              "role": "verb"
             },
             "direct_object": {
-              "case": "dat",
-              "word": "წიგნს"
+              "text": "the long letter",
+              "role": "direct_object"
             }
           },
-          "georgian_verb_form": "გზავნიდნენ"
+          "georgian_verb_form": "ვგზავნიდი",
+          "person": "1sg",
+          "effective_preverb": ""
+        },
+        {
+          "georgian": "მოსიყვარულე დედა გზავნიდა განსაკუთრებულ საჩუქარს",
+          "georgian_components": {
+            "subject": {
+              "text": "მოსიყვარულე დედა",
+              "case": "nom",
+              "role": "subject"
+            },
+            "verb": {
+              "text": "გზავნიდა",
+              "role": "verb"
+            },
+            "direct_object": {
+              "text": "განსაკუთრებულ საჩუქარს",
+              "case": "dat",
+              "role": "direct_object"
+            }
+          },
+          "english": "The loving mother was sending the special gift",
+          "english_components": {
+            "subject": {
+              "text": "The loving mother",
+              "role": "subject",
+              "person": "3sg"
+            },
+            "verb": {
+              "text": "was sending",
+              "role": "verb"
+            },
+            "direct_object": {
+              "text": "the special gift",
+              "role": "direct_object"
+            }
+          },
+          "georgian_verb_form": "გზავნიდა",
+          "person": "3sg",
+          "effective_preverb": ""
+        },
+        {
+          "georgian": "კარგი მეგობრები გზავნიდნენ ახალ წიგნს",
+          "georgian_components": {
+            "subject": {
+              "text": "კარგი მეგობრები",
+              "case": "nom",
+              "role": "subject"
+            },
+            "verb": {
+              "text": "გზავნიდნენ",
+              "role": "verb"
+            },
+            "direct_object": {
+              "text": "ახალ წიგნს",
+              "case": "dat",
+              "role": "direct_object"
+            }
+          },
+          "english": "The good friends were sending the new book",
+          "english_components": {
+            "subject": {
+              "text": "The good friends",
+              "role": "subject",
+              "person": "3pl"
+            },
+            "verb": {
+              "text": "were sending",
+              "role": "verb"
+            },
+            "direct_object": {
+              "text": "the new book",
+              "role": "direct_object"
+            }
+          },
+          "georgian_verb_form": "გზავნიდნენ",
+          "person": "3pl",
+          "effective_preverb": ""
         }
       ],
       "future": [
         {
-          "georgian": "გრძელ წერილს გავგზავნი",
-          "english": "<strong data-role=\"subject\" data-person=\"1sg\">I</strong> <strong data-role=\"verb\">will send</strong> <strong data-role=\"direct-object\">the long letter</strong>",
-          "english_plain": "I will send the long letter",
-          "html": "<span data-case=\"dat\" data-role=\"direct-object\">გრძელ წერილს</span> <span data-role=\"verb\">გავგზავნი</span>",
-          "case_marking": {
-            "direct_object": {
-              "case": "dat",
-              "word": "წერილს"
-            }
-          },
-          "georgian_verb_form": "გავგზავნი"
-        },
-        {
-          "georgian": "მოსიყვარულე დედა განსაკუთრებულ საჩუქარს გაგზავნის",
-          "english": "<strong data-role=\"subject\">The loving mother</strong> <strong data-role=\"verb\">will send</strong> <strong data-role=\"direct-object\">the special gift</strong>",
-          "english_plain": "The loving mother will send the special gift",
-          "html": "<span data-case=\"nom\" data-role=\"subject\">მოსიყვარულე დედა</span> <span data-case=\"dat\" data-role=\"direct-object\">განსაკუთრებულ საჩუქარს</span> <span data-role=\"verb\">გაგზავნის</span>",
-          "case_marking": {
-            "subject": {
-              "case": "nom",
-              "word": "დედა"
+          "georgian": "გავგზავნი გრძელ წერილს",
+          "georgian_components": {
+            "verb": {
+              "text": "გავგზავნი",
+              "role": "verb"
             },
             "direct_object": {
+              "text": "გრძელ წერილს",
               "case": "dat",
-              "word": "საჩუქარს"
+              "role": "direct_object"
             }
           },
-          "georgian_verb_form": "გაგზავნის"
-        },
-        {
-          "georgian": "კარგი მეგობარი ახალ წიგნს გაგზავნიან",
-          "english": "<strong data-role=\"subject\">The good friend</strong> <strong data-role=\"verb\">will send</strong> <strong data-role=\"direct-object\">the new book</strong>",
-          "english_plain": "The good friend will send the new book",
-          "html": "<span data-case=\"nom\" data-role=\"subject\">კარგი მეგობარი</span> <span data-case=\"dat\" data-role=\"direct-object\">ახალ წიგნს</span> <span data-role=\"verb\">გაგზავნიან</span>",
-          "case_marking": {
+          "english": "I will send the long letter",
+          "english_components": {
             "subject": {
-              "case": "nom",
-              "word": "მეგობარი"
+              "text": "I",
+              "role": "subject",
+              "person": "1sg"
+            },
+            "verb": {
+              "text": "will send",
+              "role": "verb"
             },
             "direct_object": {
-              "case": "dat",
-              "word": "წიგნს"
+              "text": "the long letter",
+              "role": "direct_object"
             }
           },
-          "georgian_verb_form": "გაგზავნიან"
+          "georgian_verb_form": "გავგზავნი",
+          "person": "1sg",
+          "effective_preverb": ""
+        },
+        {
+          "georgian": "მოსიყვარულე დედა გაგზავნის განსაკუთრებულ საჩუქარს",
+          "georgian_components": {
+            "subject": {
+              "text": "მოსიყვარულე დედა",
+              "case": "nom",
+              "role": "subject"
+            },
+            "verb": {
+              "text": "გაგზავნის",
+              "role": "verb"
+            },
+            "direct_object": {
+              "text": "განსაკუთრებულ საჩუქარს",
+              "case": "dat",
+              "role": "direct_object"
+            }
+          },
+          "english": "The loving mother will send the special gift",
+          "english_components": {
+            "subject": {
+              "text": "The loving mother",
+              "role": "subject",
+              "person": "3sg"
+            },
+            "verb": {
+              "text": "will send",
+              "role": "verb"
+            },
+            "direct_object": {
+              "text": "the special gift",
+              "role": "direct_object"
+            }
+          },
+          "georgian_verb_form": "გაგზავნის",
+          "person": "3sg",
+          "effective_preverb": ""
+        },
+        {
+          "georgian": "კარგი მეგობრები გაგზავნიან ახალ წიგნს",
+          "georgian_components": {
+            "subject": {
+              "text": "კარგი მეგობრები",
+              "case": "nom",
+              "role": "subject"
+            },
+            "verb": {
+              "text": "გაგზავნიან",
+              "role": "verb"
+            },
+            "direct_object": {
+              "text": "ახალ წიგნს",
+              "case": "dat",
+              "role": "direct_object"
+            }
+          },
+          "english": "The good friends will send the new book",
+          "english_components": {
+            "subject": {
+              "text": "The good friends",
+              "role": "subject",
+              "person": "3pl"
+            },
+            "verb": {
+              "text": "will send",
+              "role": "verb"
+            },
+            "direct_object": {
+              "text": "the new book",
+              "role": "direct_object"
+            }
+          },
+          "georgian_verb_form": "გაგზავნიან",
+          "person": "3pl",
+          "effective_preverb": ""
         }
       ],
       "aorist": [
         {
-          "georgian": "გრძელი წერილი გავგზავნე",
-          "english": "<strong data-role=\"subject\" data-person=\"1sg\">I</strong> <strong data-role=\"verb\">sent</strong> <strong data-role=\"direct-object\">the long letter</strong>",
-          "english_plain": "I sent the long letter",
-          "html": "<span data-case=\"nom\" data-role=\"direct-object\">გრძელი წერილი</span> <span data-role=\"verb\">გავგზავნე</span>",
-          "case_marking": {
-            "direct_object": {
-              "case": "nom",
-              "word": "წერილი"
-            }
-          },
-          "georgian_verb_form": "გავგზავნე"
-        },
-        {
-          "georgian": "მოსიყვარულე დედამ განსაკუთრებული საჩუქარი გაგზავნა",
-          "english": "<strong data-role=\"subject\">The loving mother</strong> <strong data-role=\"verb\">sent</strong> <strong data-role=\"direct-object\">the special gift</strong>",
-          "english_plain": "The loving mother sent the special gift",
-          "html": "<span data-case=\"erg\" data-role=\"subject\">მოსიყვარულე დედამ</span> <span data-case=\"nom\" data-role=\"direct-object\">განსაკუთრებული საჩუქარი</span> <span data-role=\"verb\">გაგზავნა</span>",
-          "case_marking": {
-            "subject": {
-              "case": "erg",
-              "word": "დედამ"
+          "georgian": "გავგზავნე გრძელი წერილი",
+          "georgian_components": {
+            "verb": {
+              "text": "გავგზავნე",
+              "role": "verb"
             },
             "direct_object": {
+              "text": "გრძელი წერილი",
               "case": "nom",
-              "word": "საჩუქარი"
+              "role": "direct_object"
             }
           },
-          "georgian_verb_form": "გაგზავნა"
-        },
-        {
-          "georgian": "კარგმა მეგობარმა ახალი წიგნი გაგზავნეს",
-          "english": "<strong data-role=\"subject\">The good friend</strong> <strong data-role=\"verb\">sent</strong> <strong data-role=\"direct-object\">the new book</strong>",
-          "english_plain": "The good friend sent the new book",
-          "html": "<span data-case=\"erg\" data-role=\"subject\">კარგმა მეგობარმა</span> <span data-case=\"nom\" data-role=\"direct-object\">ახალი წიგნი</span> <span data-role=\"verb\">გაგზავნეს</span>",
-          "case_marking": {
+          "english": "I sent the long letter",
+          "english_components": {
             "subject": {
-              "case": "erg",
-              "word": "მეგობარმა"
+              "text": "I",
+              "role": "subject",
+              "person": "1sg"
+            },
+            "verb": {
+              "text": "sent",
+              "role": "verb"
             },
             "direct_object": {
-              "case": "nom",
-              "word": "წიგნი"
+              "text": "the long letter",
+              "role": "direct_object"
             }
           },
-          "georgian_verb_form": "გაგზავნეს"
+          "georgian_verb_form": "გავგზავნე",
+          "person": "1sg",
+          "effective_preverb": ""
+        },
+        {
+          "georgian": "მოსიყვარულე დედამ გაგზავნა განსაკუთრებული საჩუქარი",
+          "georgian_components": {
+            "subject": {
+              "text": "მოსიყვარულე დედამ",
+              "case": "erg",
+              "role": "subject"
+            },
+            "verb": {
+              "text": "გაგზავნა",
+              "role": "verb"
+            },
+            "direct_object": {
+              "text": "განსაკუთრებული საჩუქარი",
+              "case": "nom",
+              "role": "direct_object"
+            }
+          },
+          "english": "The loving mother sent the special gift",
+          "english_components": {
+            "subject": {
+              "text": "The loving mother",
+              "role": "subject",
+              "person": "3sg"
+            },
+            "verb": {
+              "text": "sent",
+              "role": "verb"
+            },
+            "direct_object": {
+              "text": "the special gift",
+              "role": "direct_object"
+            }
+          },
+          "georgian_verb_form": "გაგზავნა",
+          "person": "3sg",
+          "effective_preverb": ""
+        },
+        {
+          "georgian": "კარგმა მეგობრებმა გაგზავნეს ახალი წიგნი",
+          "georgian_components": {
+            "subject": {
+              "text": "კარგმა მეგობრებმა",
+              "case": "erg",
+              "role": "subject"
+            },
+            "verb": {
+              "text": "გაგზავნეს",
+              "role": "verb"
+            },
+            "direct_object": {
+              "text": "ახალი წიგნი",
+              "case": "nom",
+              "role": "direct_object"
+            }
+          },
+          "english": "The good friends sent the new book",
+          "english_components": {
+            "subject": {
+              "text": "The good friends",
+              "role": "subject",
+              "person": "3pl"
+            },
+            "verb": {
+              "text": "sent",
+              "role": "verb"
+            },
+            "direct_object": {
+              "text": "the new book",
+              "role": "direct_object"
+            }
+          },
+          "georgian_verb_form": "გაგზავნეს",
+          "person": "3pl",
+          "effective_preverb": ""
         }
       ],
       "optative": [
         {
-          "georgian": "გრძელი წერილი უნდა გავგზავნო",
-          "english": "<strong data-role=\"subject\" data-person=\"1sg\">I</strong> <strong data-role=\"verb\">should</strong> <strong data-role=\"verb\">send</strong> <strong data-role=\"direct-object\">the long letter</strong>",
-          "english_plain": "I should send the long letter",
-          "html": "<span data-case=\"nom\" data-role=\"direct-object\">გრძელი წერილი</span> <span data-role=\"verb\">უნდა გავგზავნო</span>",
-          "case_marking": {
-            "direct_object": {
-              "case": "nom",
-              "word": "წერილი"
-            }
-          },
-          "georgian_verb_form": "გავგზავნო"
-        },
-        {
-          "georgian": "მოსიყვარულე დედამ განსაკუთრებული საჩუქარი უნდა გაგზავნოს",
-          "english": "<strong data-role=\"subject\">The loving mother</strong> <strong data-role=\"verb\">should</strong> <strong data-role=\"verb\">send</strong> <strong data-role=\"direct-object\">the special gift</strong>",
-          "english_plain": "The loving mother should send the special gift",
-          "html": "<span data-case=\"erg\" data-role=\"subject\">მოსიყვარულე დედამ</span> <span data-case=\"nom\" data-role=\"direct-object\">განსაკუთრებული საჩუქარი</span> <span data-role=\"verb\">უნდა გაგზავნოს</span>",
-          "case_marking": {
-            "subject": {
-              "case": "erg",
-              "word": "დედამ"
+          "georgian": "უნდა გავგზავნო გრძელი წერილი",
+          "georgian_components": {
+            "verb": {
+              "text": "უნდა გავგზავნო",
+              "role": "verb"
             },
             "direct_object": {
+              "text": "გრძელი წერილი",
               "case": "nom",
-              "word": "საჩუქარი"
+              "role": "direct_object"
             }
           },
-          "georgian_verb_form": "გაგზავნოს"
-        },
-        {
-          "georgian": "კარგმა მეგობარმა ახალი წიგნი უნდა გაგზავნონ",
-          "english": "<strong data-role=\"subject\">The good friend</strong> <strong data-role=\"verb\">should</strong> <strong data-role=\"verb\">send</strong> <strong data-role=\"direct-object\">the new book</strong>",
-          "english_plain": "The good friend should send the new book",
-          "html": "<span data-case=\"erg\" data-role=\"subject\">კარგმა მეგობარმა</span> <span data-case=\"nom\" data-role=\"direct-object\">ახალი წიგნი</span> <span data-role=\"verb\">უნდა გაგზავნონ</span>",
-          "case_marking": {
+          "english": "I should send the long letter",
+          "english_components": {
             "subject": {
-              "case": "erg",
-              "word": "მეგობარმა"
+              "text": "I",
+              "role": "subject",
+              "person": "1sg"
+            },
+            "verb": {
+              "text": "should send",
+              "role": "verb"
             },
             "direct_object": {
-              "case": "nom",
-              "word": "წიგნი"
+              "text": "the long letter",
+              "role": "direct_object"
             }
           },
-          "georgian_verb_form": "გაგზავნონ"
+          "georgian_verb_form": "გავგზავნო",
+          "person": "1sg",
+          "effective_preverb": ""
+        },
+        {
+          "georgian": "მოსიყვარულე დედამ უნდა გაგზავნოს განსაკუთრებული საჩუქარი",
+          "georgian_components": {
+            "subject": {
+              "text": "მოსიყვარულე დედამ",
+              "case": "erg",
+              "role": "subject"
+            },
+            "verb": {
+              "text": "უნდა გაგზავნოს",
+              "role": "verb"
+            },
+            "direct_object": {
+              "text": "განსაკუთრებული საჩუქარი",
+              "case": "nom",
+              "role": "direct_object"
+            }
+          },
+          "english": "The loving mother should send the special gift",
+          "english_components": {
+            "subject": {
+              "text": "The loving mother",
+              "role": "subject",
+              "person": "3sg"
+            },
+            "verb": {
+              "text": "should send",
+              "role": "verb"
+            },
+            "direct_object": {
+              "text": "the special gift",
+              "role": "direct_object"
+            }
+          },
+          "georgian_verb_form": "გაგზავნოს",
+          "person": "3sg",
+          "effective_preverb": ""
+        },
+        {
+          "georgian": "კარგმა მეგობრებმა უნდა გაგზავნონ ახალი წიგნი",
+          "georgian_components": {
+            "subject": {
+              "text": "კარგმა მეგობრებმა",
+              "case": "erg",
+              "role": "subject"
+            },
+            "verb": {
+              "text": "უნდა გაგზავნონ",
+              "role": "verb"
+            },
+            "direct_object": {
+              "text": "ახალი წიგნი",
+              "case": "nom",
+              "role": "direct_object"
+            }
+          },
+          "english": "The good friends should send the new book",
+          "english_components": {
+            "subject": {
+              "text": "The good friends",
+              "role": "subject",
+              "person": "3pl"
+            },
+            "verb": {
+              "text": "should send",
+              "role": "verb"
+            },
+            "direct_object": {
+              "text": "the new book",
+              "role": "direct_object"
+            }
+          },
+          "georgian_verb_form": "გაგზავნონ",
+          "person": "3pl",
+          "effective_preverb": ""
         }
       ],
       "imperative": [
         {
-          "georgian": "პატარა პაკეტი გაგზავნე",
-          "english": "<strong data-role=\"verb\">send</strong> <strong data-role=\"direct-object\">the small package</strong>",
-          "english_plain": "send the small package",
-          "html": "<span data-case=\"nom\" data-role=\"direct-object\">პატარა პაკეტი</span> <span data-role=\"verb\">გაგზავნე</span>",
-          "case_marking": {
+          "georgian": "გაგზავნე პატარა პაკეტი",
+          "georgian_components": {
+            "verb": {
+              "text": "გაგზავნე",
+              "role": "verb"
+            },
             "direct_object": {
+              "text": "პატარა პაკეტი",
               "case": "nom",
-              "word": "პაკეტი"
+              "role": "direct_object"
             }
           },
-          "georgian_verb_form": "გაგზავნე"
+          "english": "You, send the small package",
+          "english_components": {
+            "subject": {
+              "text": "You,",
+              "role": "subject",
+              "person": "2sg"
+            },
+            "verb": {
+              "text": "send",
+              "role": "verb"
+            },
+            "direct_object": {
+              "text": "the small package",
+              "role": "direct_object"
+            }
+          },
+          "georgian_verb_form": "გაგზავნე",
+          "person": "2sg",
+          "effective_preverb": ""
         },
         {
-          "georgian": "მნიშვნელოვანი შეტყობინება გაგზავნეთ",
-          "english": "<strong data-role=\"verb\">send</strong> <strong data-role=\"direct-object\">the important message</strong>",
-          "english_plain": "send the important message",
-          "html": "<span data-case=\"nom\" data-role=\"direct-object\">მნიშვნელოვანი შეტყობინება</span> <span data-role=\"verb\">გაგზავნეთ</span>",
-          "case_marking": {
+          "georgian": "გაგზავნეთ მნიშვნელოვანი შეტყობინება",
+          "georgian_components": {
+            "verb": {
+              "text": "გაგზავნეთ",
+              "role": "verb"
+            },
             "direct_object": {
+              "text": "მნიშვნელოვანი შეტყობინება",
               "case": "nom",
-              "word": "შეტყობინება"
+              "role": "direct_object"
             }
           },
-          "georgian_verb_form": "გაგზავნეთ"
+          "english": "You all (you formal), send the important message",
+          "english_components": {
+            "subject": {
+              "text": "You all (you formal),",
+              "role": "subject",
+              "person": "2pl"
+            },
+            "verb": {
+              "text": "send",
+              "role": "verb"
+            },
+            "direct_object": {
+              "text": "the important message",
+              "role": "direct_object"
+            }
+          },
+          "georgian_verb_form": "გაგზავნეთ",
+          "person": "2pl",
+          "effective_preverb": ""
         }
       ]
     }

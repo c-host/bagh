@@ -150,282 +150,631 @@
   "preverb_rules": {
     "default": "",
     "replacements": {},
-    "tense_specific_fallbacks": {},
-    "english_fallbacks": {}
+    "tense_specific_fallbacks": {}
   },
   "examples": {
-    "null": {
+    "default": {
       "present": [
         {
-          "georgian": "დაკარგულ გასაღებს ვპოულობ",
-          "english": "<strong data-role=\"subject\" data-person=\"1sg\">I</strong> <strong data-role=\"verb\">find</strong> <strong data-role=\"direct-object\">the lost key</strong>",
-          "english_plain": "I find the lost key",
-          "html": "<span data-case=\"dat\" data-role=\"direct-object\">დაკარგულ გასაღებს</span> <span data-role=\"verb\">ვპოულობ</span>",
-          "case_marking": {
-            "direct_object": {
-              "case": "dat",
-              "word": "გასაღებს"
-            }
-          },
-          "georgian_verb_form": "ვპოულობ"
-        },
-        {
-          "georgian": "ჭკვიანი დეტექტივი დამალულ საგანძურს პოულობს",
-          "english": "<strong data-role=\"subject\">The clever detective</strong> <strong data-role=\"verb\">finds</strong> <strong data-role=\"direct-object\">the hidden treasure</strong>",
-          "english_plain": "The clever detective finds the hidden treasure",
-          "html": "<span data-case=\"nom\" data-role=\"subject\">ჭკვიანი დეტექტივი</span> <span data-case=\"dat\" data-role=\"direct-object\">დამალულ საგანძურს</span> <span data-role=\"verb\">პოულობს</span>",
-          "case_marking": {
-            "subject": {
-              "case": "nom",
-              "word": "დეტექტივი"
+          "georgian": "ვპოულობ დაკარგულ გასაღებს",
+          "georgian_components": {
+            "verb": {
+              "text": "ვპოულობ",
+              "role": "verb"
             },
             "direct_object": {
+              "text": "დაკარგულ გასაღებს",
               "case": "dat",
-              "word": "საგანძურს"
+              "role": "direct_object"
             }
           },
-          "georgian_verb_form": "პოულობს"
-        },
-        {
-          "georgian": "ბედნიერი ქალი ძვირფას ბეჭედს პოულობენ",
-          "english": "<strong data-role=\"subject\">The happy woman</strong> <strong data-role=\"verb\">find</strong> <strong data-role=\"direct-object\">the precious ring</strong>",
-          "english_plain": "The happy woman find the precious ring",
-          "html": "<span data-case=\"nom\" data-role=\"subject\">ბედნიერი ქალი</span> <span data-case=\"dat\" data-role=\"direct-object\">ძვირფას ბეჭედს</span> <span data-role=\"verb\">პოულობენ</span>",
-          "case_marking": {
+          "english": "I find the lost key",
+          "english_components": {
             "subject": {
-              "case": "nom",
-              "word": "ქალი"
+              "text": "I",
+              "role": "subject",
+              "person": "1sg"
+            },
+            "verb": {
+              "text": "find",
+              "role": "verb"
             },
             "direct_object": {
-              "case": "dat",
-              "word": "ბეჭედს"
+              "text": "the lost key",
+              "role": "direct_object"
             }
           },
-          "georgian_verb_form": "პოულობენ"
+          "georgian_verb_form": "ვპოულობ",
+          "person": "1sg",
+          "effective_preverb": ""
+        },
+        {
+          "georgian": "ჭკვიანი დეტექტივი პოულობს დამალულ საგანძურს",
+          "georgian_components": {
+            "subject": {
+              "text": "ჭკვიანი დეტექტივი",
+              "case": "nom",
+              "role": "subject"
+            },
+            "verb": {
+              "text": "პოულობს",
+              "role": "verb"
+            },
+            "direct_object": {
+              "text": "დამალულ საგანძურს",
+              "case": "dat",
+              "role": "direct_object"
+            }
+          },
+          "english": "The clever detective finds the hidden treasure",
+          "english_components": {
+            "subject": {
+              "text": "The clever detective",
+              "role": "subject",
+              "person": "3sg"
+            },
+            "verb": {
+              "text": "finds",
+              "role": "verb"
+            },
+            "direct_object": {
+              "text": "the hidden treasure",
+              "role": "direct_object"
+            }
+          },
+          "georgian_verb_form": "პოულობს",
+          "person": "3sg",
+          "effective_preverb": ""
+        },
+        {
+          "georgian": "ბედნიერი ქალები პოულობენ ძვირფას ბეჭედს",
+          "georgian_components": {
+            "subject": {
+              "text": "ბედნიერი ქალები",
+              "case": "nom",
+              "role": "subject"
+            },
+            "verb": {
+              "text": "პოულობენ",
+              "role": "verb"
+            },
+            "direct_object": {
+              "text": "ძვირფას ბეჭედს",
+              "case": "dat",
+              "role": "direct_object"
+            }
+          },
+          "english": "The happy women find the precious ring",
+          "english_components": {
+            "subject": {
+              "text": "The happy women",
+              "role": "subject",
+              "person": "3pl"
+            },
+            "verb": {
+              "text": "find",
+              "role": "verb"
+            },
+            "direct_object": {
+              "text": "the precious ring",
+              "role": "direct_object"
+            }
+          },
+          "georgian_verb_form": "პოულობენ",
+          "person": "3pl",
+          "effective_preverb": ""
         }
       ],
       "imperfect": [
         {
-          "georgian": "დაკარგულ გასაღებს ვპოულობდი",
-          "english": "<strong data-role=\"subject\" data-person=\"1sg\">I</strong> <strong data-role=\"verb\">was finding</strong> <strong data-role=\"direct-object\">the lost key</strong>",
-          "english_plain": "I was finding the lost key",
-          "html": "<span data-case=\"dat\" data-role=\"direct-object\">დაკარგულ გასაღებს</span> <span data-role=\"verb\">ვპოულობდი</span>",
-          "case_marking": {
-            "direct_object": {
-              "case": "dat",
-              "word": "გასაღებს"
-            }
-          },
-          "georgian_verb_form": "ვპოულობდი"
-        },
-        {
-          "georgian": "ჭკვიანი დეტექტივი დამალულ საგანძურს პოულობდა",
-          "english": "<strong data-role=\"subject\">The clever detective</strong> <strong data-role=\"verb\">was finding</strong> <strong data-role=\"direct-object\">the hidden treasure</strong>",
-          "english_plain": "The clever detective was finding the hidden treasure",
-          "html": "<span data-case=\"nom\" data-role=\"subject\">ჭკვიანი დეტექტივი</span> <span data-case=\"dat\" data-role=\"direct-object\">დამალულ საგანძურს</span> <span data-role=\"verb\">პოულობდა</span>",
-          "case_marking": {
-            "subject": {
-              "case": "nom",
-              "word": "დეტექტივი"
+          "georgian": "ვპოულობდი დაკარგულ გასაღებს",
+          "georgian_components": {
+            "verb": {
+              "text": "ვპოულობდი",
+              "role": "verb"
             },
             "direct_object": {
+              "text": "დაკარგულ გასაღებს",
               "case": "dat",
-              "word": "საგანძურს"
+              "role": "direct_object"
             }
           },
-          "georgian_verb_form": "პოულობდა"
-        },
-        {
-          "georgian": "ბედნიერი ქალი ძვირფას ბეჭედს პოულობდნენ",
-          "english": "<strong data-role=\"subject\">The happy woman</strong> <strong data-role=\"verb\">were finding</strong> <strong data-role=\"direct-object\">the precious ring</strong>",
-          "english_plain": "The happy woman were finding the precious ring",
-          "html": "<span data-case=\"nom\" data-role=\"subject\">ბედნიერი ქალი</span> <span data-case=\"dat\" data-role=\"direct-object\">ძვირფას ბეჭედს</span> <span data-role=\"verb\">პოულობდნენ</span>",
-          "case_marking": {
+          "english": "I was finding the lost key",
+          "english_components": {
             "subject": {
-              "case": "nom",
-              "word": "ქალი"
+              "text": "I",
+              "role": "subject",
+              "person": "1sg"
+            },
+            "verb": {
+              "text": "was finding",
+              "role": "verb"
             },
             "direct_object": {
-              "case": "dat",
-              "word": "ბეჭედს"
+              "text": "the lost key",
+              "role": "direct_object"
             }
           },
-          "georgian_verb_form": "პოულობდნენ"
+          "georgian_verb_form": "ვპოულობდი",
+          "person": "1sg",
+          "effective_preverb": ""
+        },
+        {
+          "georgian": "ჭკვიანი დეტექტივი პოულობდა დამალულ საგანძურს",
+          "georgian_components": {
+            "subject": {
+              "text": "ჭკვიანი დეტექტივი",
+              "case": "nom",
+              "role": "subject"
+            },
+            "verb": {
+              "text": "პოულობდა",
+              "role": "verb"
+            },
+            "direct_object": {
+              "text": "დამალულ საგანძურს",
+              "case": "dat",
+              "role": "direct_object"
+            }
+          },
+          "english": "The clever detective was finding the hidden treasure",
+          "english_components": {
+            "subject": {
+              "text": "The clever detective",
+              "role": "subject",
+              "person": "3sg"
+            },
+            "verb": {
+              "text": "was finding",
+              "role": "verb"
+            },
+            "direct_object": {
+              "text": "the hidden treasure",
+              "role": "direct_object"
+            }
+          },
+          "georgian_verb_form": "პოულობდა",
+          "person": "3sg",
+          "effective_preverb": ""
+        },
+        {
+          "georgian": "ბედნიერი ქალები პოულობდნენ ძვირფას ბეჭედს",
+          "georgian_components": {
+            "subject": {
+              "text": "ბედნიერი ქალები",
+              "case": "nom",
+              "role": "subject"
+            },
+            "verb": {
+              "text": "პოულობდნენ",
+              "role": "verb"
+            },
+            "direct_object": {
+              "text": "ძვირფას ბეჭედს",
+              "case": "dat",
+              "role": "direct_object"
+            }
+          },
+          "english": "The happy women were finding the precious ring",
+          "english_components": {
+            "subject": {
+              "text": "The happy women",
+              "role": "subject",
+              "person": "3pl"
+            },
+            "verb": {
+              "text": "were finding",
+              "role": "verb"
+            },
+            "direct_object": {
+              "text": "the precious ring",
+              "role": "direct_object"
+            }
+          },
+          "georgian_verb_form": "პოულობდნენ",
+          "person": "3pl",
+          "effective_preverb": ""
         }
       ],
       "future": [
         {
-          "georgian": "დაკარგულ გასაღებს ვიპოვი",
-          "english": "<strong data-role=\"subject\" data-person=\"1sg\">I</strong> <strong data-role=\"verb\">will find</strong> <strong data-role=\"direct-object\">the lost key</strong>",
-          "english_plain": "I will find the lost key",
-          "html": "<span data-case=\"dat\" data-role=\"direct-object\">დაკარგულ გასაღებს</span> <span data-role=\"verb\">ვიპოვი</span>",
-          "case_marking": {
-            "direct_object": {
-              "case": "dat",
-              "word": "გასაღებს"
-            }
-          },
-          "georgian_verb_form": "ვიპოვი"
-        },
-        {
-          "georgian": "ჭკვიანი დეტექტივი დამალულ საგანძურს იპოვის",
-          "english": "<strong data-role=\"subject\">The clever detective</strong> <strong data-role=\"verb\">will find</strong> <strong data-role=\"direct-object\">the hidden treasure</strong>",
-          "english_plain": "The clever detective will find the hidden treasure",
-          "html": "<span data-case=\"nom\" data-role=\"subject\">ჭკვიანი დეტექტივი</span> <span data-case=\"dat\" data-role=\"direct-object\">დამალულ საგანძურს</span> <span data-role=\"verb\">იპოვის</span>",
-          "case_marking": {
-            "subject": {
-              "case": "nom",
-              "word": "დეტექტივი"
+          "georgian": "ვიპოვი დაკარგულ გასაღებს",
+          "georgian_components": {
+            "verb": {
+              "text": "ვიპოვი",
+              "role": "verb"
             },
             "direct_object": {
+              "text": "დაკარგულ გასაღებს",
               "case": "dat",
-              "word": "საგანძურს"
+              "role": "direct_object"
             }
           },
-          "georgian_verb_form": "იპოვის"
-        },
-        {
-          "georgian": "ბედნიერი ქალი ძვირფას ბეჭედს იპოვიან",
-          "english": "<strong data-role=\"subject\">The happy woman</strong> <strong data-role=\"verb\">will find</strong> <strong data-role=\"direct-object\">the precious ring</strong>",
-          "english_plain": "The happy woman will find the precious ring",
-          "html": "<span data-case=\"nom\" data-role=\"subject\">ბედნიერი ქალი</span> <span data-case=\"dat\" data-role=\"direct-object\">ძვირფას ბეჭედს</span> <span data-role=\"verb\">იპოვიან</span>",
-          "case_marking": {
+          "english": "I will find the lost key",
+          "english_components": {
             "subject": {
-              "case": "nom",
-              "word": "ქალი"
+              "text": "I",
+              "role": "subject",
+              "person": "1sg"
+            },
+            "verb": {
+              "text": "will find",
+              "role": "verb"
             },
             "direct_object": {
-              "case": "dat",
-              "word": "ბეჭედს"
+              "text": "the lost key",
+              "role": "direct_object"
             }
           },
-          "georgian_verb_form": "იპოვიან"
+          "georgian_verb_form": "ვიპოვი",
+          "person": "1sg",
+          "effective_preverb": ""
+        },
+        {
+          "georgian": "ჭკვიანი დეტექტივი იპოვის დამალულ საგანძურს",
+          "georgian_components": {
+            "subject": {
+              "text": "ჭკვიანი დეტექტივი",
+              "case": "nom",
+              "role": "subject"
+            },
+            "verb": {
+              "text": "იპოვის",
+              "role": "verb"
+            },
+            "direct_object": {
+              "text": "დამალულ საგანძურს",
+              "case": "dat",
+              "role": "direct_object"
+            }
+          },
+          "english": "The clever detective will find the hidden treasure",
+          "english_components": {
+            "subject": {
+              "text": "The clever detective",
+              "role": "subject",
+              "person": "3sg"
+            },
+            "verb": {
+              "text": "will find",
+              "role": "verb"
+            },
+            "direct_object": {
+              "text": "the hidden treasure",
+              "role": "direct_object"
+            }
+          },
+          "georgian_verb_form": "იპოვის",
+          "person": "3sg",
+          "effective_preverb": ""
+        },
+        {
+          "georgian": "ბედნიერი ქალები იპოვიან ძვირფას ბეჭედს",
+          "georgian_components": {
+            "subject": {
+              "text": "ბედნიერი ქალები",
+              "case": "nom",
+              "role": "subject"
+            },
+            "verb": {
+              "text": "იპოვიან",
+              "role": "verb"
+            },
+            "direct_object": {
+              "text": "ძვირფას ბეჭედს",
+              "case": "dat",
+              "role": "direct_object"
+            }
+          },
+          "english": "The happy women will find the precious ring",
+          "english_components": {
+            "subject": {
+              "text": "The happy women",
+              "role": "subject",
+              "person": "3pl"
+            },
+            "verb": {
+              "text": "will find",
+              "role": "verb"
+            },
+            "direct_object": {
+              "text": "the precious ring",
+              "role": "direct_object"
+            }
+          },
+          "georgian_verb_form": "იპოვიან",
+          "person": "3pl",
+          "effective_preverb": ""
         }
       ],
       "aorist": [
         {
-          "georgian": "დაკარგული გასაღები ვიპოვე",
-          "english": "<strong data-role=\"subject\" data-person=\"1sg\">I</strong> <strong data-role=\"verb\">found</strong> <strong data-role=\"direct-object\">the lost key</strong>",
-          "english_plain": "I found the lost key",
-          "html": "<span data-case=\"nom\" data-role=\"direct-object\">დაკარგული გასაღები</span> <span data-role=\"verb\">ვიპოვე</span>",
-          "case_marking": {
-            "direct_object": {
-              "case": "nom",
-              "word": "გასაღები"
-            }
-          },
-          "georgian_verb_form": "ვიპოვე"
-        },
-        {
-          "georgian": "ჭკვიანმა დეტექტივმა დამალული საგანძური იპოვა",
-          "english": "<strong data-role=\"subject\">The clever detective</strong> <strong data-role=\"verb\">found</strong> <strong data-role=\"direct-object\">the hidden treasure</strong>",
-          "english_plain": "The clever detective found the hidden treasure",
-          "html": "<span data-case=\"erg\" data-role=\"subject\">ჭკვიანმა დეტექტივმა</span> <span data-case=\"nom\" data-role=\"direct-object\">დამალული საგანძური</span> <span data-role=\"verb\">იპოვა</span>",
-          "case_marking": {
-            "subject": {
-              "case": "erg",
-              "word": "დეტექტივმა"
+          "georgian": "ვიპოვე დაკარგული გასაღები",
+          "georgian_components": {
+            "verb": {
+              "text": "ვიპოვე",
+              "role": "verb"
             },
             "direct_object": {
+              "text": "დაკარგული გასაღები",
               "case": "nom",
-              "word": "საგანძური"
+              "role": "direct_object"
             }
           },
-          "georgian_verb_form": "იპოვა"
-        },
-        {
-          "georgian": "ბედნიერმა ქალმა ძვირფასი ბეჭედი იპოვეს",
-          "english": "<strong data-role=\"subject\">The happy woman</strong> <strong data-role=\"verb\">found</strong> <strong data-role=\"direct-object\">the precious ring</strong>",
-          "english_plain": "The happy woman found the precious ring",
-          "html": "<span data-case=\"erg\" data-role=\"subject\">ბედნიერმა ქალმა</span> <span data-case=\"nom\" data-role=\"direct-object\">ძვირფასი ბეჭედი</span> <span data-role=\"verb\">იპოვეს</span>",
-          "case_marking": {
+          "english": "I found the lost key",
+          "english_components": {
             "subject": {
-              "case": "erg",
-              "word": "ქალმა"
+              "text": "I",
+              "role": "subject",
+              "person": "1sg"
+            },
+            "verb": {
+              "text": "found",
+              "role": "verb"
             },
             "direct_object": {
-              "case": "nom",
-              "word": "ბეჭედი"
+              "text": "the lost key",
+              "role": "direct_object"
             }
           },
-          "georgian_verb_form": "იპოვეს"
+          "georgian_verb_form": "ვიპოვე",
+          "person": "1sg",
+          "effective_preverb": ""
+        },
+        {
+          "georgian": "ჭკვიანმა დეტექტივმა იპოვა დამალული საგანძური",
+          "georgian_components": {
+            "subject": {
+              "text": "ჭკვიანმა დეტექტივმა",
+              "case": "erg",
+              "role": "subject"
+            },
+            "verb": {
+              "text": "იპოვა",
+              "role": "verb"
+            },
+            "direct_object": {
+              "text": "დამალული საგანძური",
+              "case": "nom",
+              "role": "direct_object"
+            }
+          },
+          "english": "The clever detective found the hidden treasure",
+          "english_components": {
+            "subject": {
+              "text": "The clever detective",
+              "role": "subject",
+              "person": "3sg"
+            },
+            "verb": {
+              "text": "found",
+              "role": "verb"
+            },
+            "direct_object": {
+              "text": "the hidden treasure",
+              "role": "direct_object"
+            }
+          },
+          "georgian_verb_form": "იპოვა",
+          "person": "3sg",
+          "effective_preverb": ""
+        },
+        {
+          "georgian": "ბედნიერმა ქალებმა იპოვეს ძვირფასი ბეჭედი",
+          "georgian_components": {
+            "subject": {
+              "text": "ბედნიერმა ქალებმა",
+              "case": "erg",
+              "role": "subject"
+            },
+            "verb": {
+              "text": "იპოვეს",
+              "role": "verb"
+            },
+            "direct_object": {
+              "text": "ძვირფასი ბეჭედი",
+              "case": "nom",
+              "role": "direct_object"
+            }
+          },
+          "english": "The happy women found the precious ring",
+          "english_components": {
+            "subject": {
+              "text": "The happy women",
+              "role": "subject",
+              "person": "3pl"
+            },
+            "verb": {
+              "text": "found",
+              "role": "verb"
+            },
+            "direct_object": {
+              "text": "the precious ring",
+              "role": "direct_object"
+            }
+          },
+          "georgian_verb_form": "იპოვეს",
+          "person": "3pl",
+          "effective_preverb": ""
         }
       ],
       "optative": [
         {
-          "georgian": "დაკარგული გასაღები უნდა ვიპოვო",
-          "english": "<strong data-role=\"subject\" data-person=\"1sg\">I</strong> <strong data-role=\"verb\">should</strong> <strong data-role=\"verb\">find</strong> <strong data-role=\"direct-object\">the lost key</strong>",
-          "english_plain": "I should find the lost key",
-          "html": "<span data-case=\"nom\" data-role=\"direct-object\">დაკარგული გასაღები</span> <span data-role=\"verb\">უნდა ვიპოვო</span>",
-          "case_marking": {
-            "direct_object": {
-              "case": "nom",
-              "word": "გასაღები"
-            }
-          },
-          "georgian_verb_form": "ვიპოვო"
-        },
-        {
-          "georgian": "ჭკვიანმა დეტექტივმა დამალული საგანძური უნდა იპოვოს",
-          "english": "<strong data-role=\"subject\">The clever detective</strong> <strong data-role=\"verb\">should</strong> <strong data-role=\"verb\">find</strong> <strong data-role=\"direct-object\">the hidden treasure</strong>",
-          "english_plain": "The clever detective should find the hidden treasure",
-          "html": "<span data-case=\"erg\" data-role=\"subject\">ჭკვიანმა დეტექტივმა</span> <span data-case=\"nom\" data-role=\"direct-object\">დამალული საგანძური</span> <span data-role=\"verb\">უნდა იპოვოს</span>",
-          "case_marking": {
-            "subject": {
-              "case": "erg",
-              "word": "დეტექტივმა"
+          "georgian": "უნდა ვიპოვო დაკარგული გასაღები",
+          "georgian_components": {
+            "verb": {
+              "text": "უნდა ვიპოვო",
+              "role": "verb"
             },
             "direct_object": {
+              "text": "დაკარგული გასაღები",
               "case": "nom",
-              "word": "საგანძური"
+              "role": "direct_object"
             }
           },
-          "georgian_verb_form": "იპოვოს"
-        },
-        {
-          "georgian": "ბედნიერმა ქალმა ძვირფასი ბეჭედი უნდა იპოვონ",
-          "english": "<strong data-role=\"subject\">The happy woman</strong> <strong data-role=\"verb\">should</strong> <strong data-role=\"verb\">find</strong> <strong data-role=\"direct-object\">the precious ring</strong>",
-          "english_plain": "The happy woman should find the precious ring",
-          "html": "<span data-case=\"erg\" data-role=\"subject\">ბედნიერმა ქალმა</span> <span data-case=\"nom\" data-role=\"direct-object\">ძვირფასი ბეჭედი</span> <span data-role=\"verb\">უნდა იპოვონ</span>",
-          "case_marking": {
+          "english": "I should find the lost key",
+          "english_components": {
             "subject": {
-              "case": "erg",
-              "word": "ქალმა"
+              "text": "I",
+              "role": "subject",
+              "person": "1sg"
+            },
+            "verb": {
+              "text": "should find",
+              "role": "verb"
             },
             "direct_object": {
-              "case": "nom",
-              "word": "ბეჭედი"
+              "text": "the lost key",
+              "role": "direct_object"
             }
           },
-          "georgian_verb_form": "იპოვონ"
+          "georgian_verb_form": "ვიპოვო",
+          "person": "1sg",
+          "effective_preverb": ""
+        },
+        {
+          "georgian": "ჭკვიანმა დეტექტივმა უნდა იპოვოს დამალული საგანძური",
+          "georgian_components": {
+            "subject": {
+              "text": "ჭკვიანმა დეტექტივმა",
+              "case": "erg",
+              "role": "subject"
+            },
+            "verb": {
+              "text": "უნდა იპოვოს",
+              "role": "verb"
+            },
+            "direct_object": {
+              "text": "დამალული საგანძური",
+              "case": "nom",
+              "role": "direct_object"
+            }
+          },
+          "english": "The clever detective should find the hidden treasure",
+          "english_components": {
+            "subject": {
+              "text": "The clever detective",
+              "role": "subject",
+              "person": "3sg"
+            },
+            "verb": {
+              "text": "should find",
+              "role": "verb"
+            },
+            "direct_object": {
+              "text": "the hidden treasure",
+              "role": "direct_object"
+            }
+          },
+          "georgian_verb_form": "იპოვოს",
+          "person": "3sg",
+          "effective_preverb": ""
+        },
+        {
+          "georgian": "ბედნიერმა ქალებმა უნდა იპოვონ ძვირფასი ბეჭედი",
+          "georgian_components": {
+            "subject": {
+              "text": "ბედნიერმა ქალებმა",
+              "case": "erg",
+              "role": "subject"
+            },
+            "verb": {
+              "text": "უნდა იპოვონ",
+              "role": "verb"
+            },
+            "direct_object": {
+              "text": "ძვირფასი ბეჭედი",
+              "case": "nom",
+              "role": "direct_object"
+            }
+          },
+          "english": "The happy women should find the precious ring",
+          "english_components": {
+            "subject": {
+              "text": "The happy women",
+              "role": "subject",
+              "person": "3pl"
+            },
+            "verb": {
+              "text": "should find",
+              "role": "verb"
+            },
+            "direct_object": {
+              "text": "the precious ring",
+              "role": "direct_object"
+            }
+          },
+          "georgian_verb_form": "იპოვონ",
+          "person": "3pl",
+          "effective_preverb": ""
         }
       ],
       "imperative": [
         {
-          "georgian": "ძველი წიგნი იპოვე",
-          "english": "<strong data-role=\"verb\">find</strong> <strong data-role=\"direct-object\">the old book</strong>",
-          "english_plain": "find the old book",
-          "html": "<span data-case=\"nom\" data-role=\"direct-object\">ძველი წიგნი</span> <span data-role=\"verb\">იპოვე</span>",
-          "case_marking": {
+          "georgian": "იპოვე ძველი წიგნი",
+          "georgian_components": {
+            "verb": {
+              "text": "იპოვე",
+              "role": "verb"
+            },
             "direct_object": {
+              "text": "ძველი წიგნი",
               "case": "nom",
-              "word": "წიგნი"
+              "role": "direct_object"
             }
           },
-          "georgian_verb_form": "იპოვე"
+          "english": "You, find the old book",
+          "english_components": {
+            "subject": {
+              "text": "You,",
+              "role": "subject",
+              "person": "2sg"
+            },
+            "verb": {
+              "text": "find",
+              "role": "verb"
+            },
+            "direct_object": {
+              "text": "the old book",
+              "role": "direct_object"
+            }
+          },
+          "georgian_verb_form": "იპოვე",
+          "person": "2sg",
+          "effective_preverb": ""
         },
         {
-          "georgian": "დაკარგული ტელეფონი იპოვეთ",
-          "english": "<strong data-role=\"verb\">find</strong> <strong data-role=\"direct-object\">the missing phone</strong>",
-          "english_plain": "find the missing phone",
-          "html": "<span data-case=\"nom\" data-role=\"direct-object\">დაკარგული ტელეფონი</span> <span data-role=\"verb\">იპოვეთ</span>",
-          "case_marking": {
+          "georgian": "იპოვეთ დაკარგული ტელეფონი",
+          "georgian_components": {
+            "verb": {
+              "text": "იპოვეთ",
+              "role": "verb"
+            },
             "direct_object": {
+              "text": "დაკარგული ტელეფონი",
               "case": "nom",
-              "word": "ტელეფონი"
+              "role": "direct_object"
             }
           },
-          "georgian_verb_form": "იპოვეთ"
+          "english": "You all (you formal), find the missing phone",
+          "english_components": {
+            "subject": {
+              "text": "You all (you formal),",
+              "role": "subject",
+              "person": "2pl"
+            },
+            "verb": {
+              "text": "find",
+              "role": "verb"
+            },
+            "direct_object": {
+              "text": "the missing phone",
+              "role": "direct_object"
+            }
+          },
+          "georgian_verb_form": "იპოვეთ",
+          "person": "2pl",
+          "effective_preverb": ""
         }
       ]
     }

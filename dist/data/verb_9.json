@@ -152,282 +152,631 @@
   "preverb_rules": {
     "default": "",
     "replacements": {},
-    "tense_specific_fallbacks": {},
-    "english_fallbacks": {}
+    "tense_specific_fallbacks": {}
   },
   "examples": {
-    "null": {
+    "default": {
       "present": [
         {
-          "georgian": "ძვირ ანგარიშს ვიხდი",
-          "english": "<strong data-role=\"subject\" data-person=\"1sg\">I</strong> <strong data-role=\"verb\">pay</strong> <strong data-role=\"direct-object\">for the expensive bill</strong>",
-          "english_plain": "I pay for the expensive bill",
-          "html": "<span data-case=\"dat\" data-role=\"direct-object\">ძვირ ანგარიშს</span> <span data-role=\"verb\">ვიხდი</span>",
-          "case_marking": {
-            "direct_object": {
-              "case": "dat",
-              "word": "ანგარიშს"
-            }
-          },
-          "georgian_verb_form": "ვიხდი"
-        },
-        {
-          "georgian": "მდიდარი მომხმარებელი ძვირ საჭმელს იხდის",
-          "english": "<strong data-role=\"subject\">The rich customer</strong> <strong data-role=\"verb\">pays</strong> <strong data-role=\"direct-object\">for the expensive food</strong>",
-          "english_plain": "The rich customer pays for the expensive food",
-          "html": "<span data-case=\"nom\" data-role=\"subject\">მდიდარი მომხმარებელი</span> <span data-case=\"dat\" data-role=\"direct-object\">ძვირ საჭმელს</span> <span data-role=\"verb\">იხდის</span>",
-          "case_marking": {
-            "subject": {
-              "case": "nom",
-              "word": "მომხმარებელი"
+          "georgian": "ვიხდი ძვირ ანგარიშს",
+          "georgian_components": {
+            "verb": {
+              "text": "ვიხდი",
+              "role": "verb"
             },
             "direct_object": {
+              "text": "ძვირ ანგარიშს",
               "case": "dat",
-              "word": "საჭმელს"
+              "role": "direct_object"
             }
           },
-          "georgian_verb_form": "იხდის"
-        },
-        {
-          "georgian": "კეთილი ძმა ახალ ტანსაცმელს იხდიან",
-          "english": "<strong data-role=\"subject\">The kind brother</strong> <strong data-role=\"verb\">pay</strong> <strong data-role=\"direct-object\">for the new clothes</strong>",
-          "english_plain": "The kind brother pay for the new clothes",
-          "html": "<span data-case=\"nom\" data-role=\"subject\">კეთილი ძმა</span> <span data-case=\"dat\" data-role=\"direct-object\">ახალ ტანსაცმელს</span> <span data-role=\"verb\">იხდიან</span>",
-          "case_marking": {
+          "english": "I pay for the expensive bill",
+          "english_components": {
             "subject": {
-              "case": "nom",
-              "word": "ძმა"
+              "text": "I",
+              "role": "subject",
+              "person": "1sg"
+            },
+            "verb": {
+              "text": "pay",
+              "role": "verb"
             },
             "direct_object": {
-              "case": "dat",
-              "word": "ტანსაცმელს"
+              "text": "for the expensive bill",
+              "role": "direct_object"
             }
           },
-          "georgian_verb_form": "იხდიან"
+          "georgian_verb_form": "ვიხდი",
+          "person": "1sg",
+          "effective_preverb": "გადა"
+        },
+        {
+          "georgian": "მდიდარი მომხმარებელი იხდის ძვირ საჭმელს",
+          "georgian_components": {
+            "subject": {
+              "text": "მდიდარი მომხმარებელი",
+              "case": "nom",
+              "role": "subject"
+            },
+            "verb": {
+              "text": "იხდის",
+              "role": "verb"
+            },
+            "direct_object": {
+              "text": "ძვირ საჭმელს",
+              "case": "dat",
+              "role": "direct_object"
+            }
+          },
+          "english": "The rich customer pays for the expensive food",
+          "english_components": {
+            "subject": {
+              "text": "The rich customer",
+              "role": "subject",
+              "person": "3sg"
+            },
+            "verb": {
+              "text": "pays",
+              "role": "verb"
+            },
+            "direct_object": {
+              "text": "for the expensive food",
+              "role": "direct_object"
+            }
+          },
+          "georgian_verb_form": "იხდის",
+          "person": "3sg",
+          "effective_preverb": "გადა"
+        },
+        {
+          "georgian": "კეთილი ძმები იხდიან ახალ ტანსაცმელს",
+          "georgian_components": {
+            "subject": {
+              "text": "კეთილი ძმები",
+              "case": "nom",
+              "role": "subject"
+            },
+            "verb": {
+              "text": "იხდიან",
+              "role": "verb"
+            },
+            "direct_object": {
+              "text": "ახალ ტანსაცმელს",
+              "case": "dat",
+              "role": "direct_object"
+            }
+          },
+          "english": "The kind brothers pay for the new clothes",
+          "english_components": {
+            "subject": {
+              "text": "The kind brothers",
+              "role": "subject",
+              "person": "3pl"
+            },
+            "verb": {
+              "text": "pay",
+              "role": "verb"
+            },
+            "direct_object": {
+              "text": "for the new clothes",
+              "role": "direct_object"
+            }
+          },
+          "georgian_verb_form": "იხდიან",
+          "person": "3pl",
+          "effective_preverb": "გადა"
         }
       ],
       "imperfect": [
         {
-          "georgian": "ძვირ ანგარიშს ვიხდიდი",
-          "english": "<strong data-role=\"subject\" data-person=\"1sg\">I</strong> <strong data-role=\"verb\">was paying</strong> <strong data-role=\"direct-object\">for the expensive bill</strong>",
-          "english_plain": "I was paying for the expensive bill",
-          "html": "<span data-case=\"dat\" data-role=\"direct-object\">ძვირ ანგარიშს</span> <span data-role=\"verb\">ვიხდიდი</span>",
-          "case_marking": {
-            "direct_object": {
-              "case": "dat",
-              "word": "ანგარიშს"
-            }
-          },
-          "georgian_verb_form": "ვიხდიდი"
-        },
-        {
-          "georgian": "მდიდარი მომხმარებელი ძვირ საჭმელს იხდიდა",
-          "english": "<strong data-role=\"subject\">The rich customer</strong> <strong data-role=\"verb\">was paying</strong> <strong data-role=\"direct-object\">for the expensive food</strong>",
-          "english_plain": "The rich customer was paying for the expensive food",
-          "html": "<span data-case=\"nom\" data-role=\"subject\">მდიდარი მომხმარებელი</span> <span data-case=\"dat\" data-role=\"direct-object\">ძვირ საჭმელს</span> <span data-role=\"verb\">იხდიდა</span>",
-          "case_marking": {
-            "subject": {
-              "case": "nom",
-              "word": "მომხმარებელი"
+          "georgian": "ვიხდიდი ძვირ ანგარიშს",
+          "georgian_components": {
+            "verb": {
+              "text": "ვიხდიდი",
+              "role": "verb"
             },
             "direct_object": {
+              "text": "ძვირ ანგარიშს",
               "case": "dat",
-              "word": "საჭმელს"
+              "role": "direct_object"
             }
           },
-          "georgian_verb_form": "იხდიდა"
-        },
-        {
-          "georgian": "კეთილი ძმა ახალ ტანსაცმელს იხდიდნენ",
-          "english": "<strong data-role=\"subject\">The kind brother</strong> <strong data-role=\"verb\">were paying</strong> <strong data-role=\"direct-object\">for the new clothes</strong>",
-          "english_plain": "The kind brother were paying for the new clothes",
-          "html": "<span data-case=\"nom\" data-role=\"subject\">კეთილი ძმა</span> <span data-case=\"dat\" data-role=\"direct-object\">ახალ ტანსაცმელს</span> <span data-role=\"verb\">იხდიდნენ</span>",
-          "case_marking": {
+          "english": "I was paying for the expensive bill",
+          "english_components": {
             "subject": {
-              "case": "nom",
-              "word": "ძმა"
+              "text": "I",
+              "role": "subject",
+              "person": "1sg"
+            },
+            "verb": {
+              "text": "was paying",
+              "role": "verb"
             },
             "direct_object": {
-              "case": "dat",
-              "word": "ტანსაცმელს"
+              "text": "for the expensive bill",
+              "role": "direct_object"
             }
           },
-          "georgian_verb_form": "იხდიდნენ"
+          "georgian_verb_form": "ვიხდიდი",
+          "person": "1sg",
+          "effective_preverb": "გადა"
+        },
+        {
+          "georgian": "მდიდარი მომხმარებელი იხდიდა ძვირ საჭმელს",
+          "georgian_components": {
+            "subject": {
+              "text": "მდიდარი მომხმარებელი",
+              "case": "nom",
+              "role": "subject"
+            },
+            "verb": {
+              "text": "იხდიდა",
+              "role": "verb"
+            },
+            "direct_object": {
+              "text": "ძვირ საჭმელს",
+              "case": "dat",
+              "role": "direct_object"
+            }
+          },
+          "english": "The rich customer was paying for the expensive food",
+          "english_components": {
+            "subject": {
+              "text": "The rich customer",
+              "role": "subject",
+              "person": "3sg"
+            },
+            "verb": {
+              "text": "was paying",
+              "role": "verb"
+            },
+            "direct_object": {
+              "text": "for the expensive food",
+              "role": "direct_object"
+            }
+          },
+          "georgian_verb_form": "იხდიდა",
+          "person": "3sg",
+          "effective_preverb": "გადა"
+        },
+        {
+          "georgian": "კეთილი ძმები იხდიდნენ ახალ ტანსაცმელს",
+          "georgian_components": {
+            "subject": {
+              "text": "კეთილი ძმები",
+              "case": "nom",
+              "role": "subject"
+            },
+            "verb": {
+              "text": "იხდიდნენ",
+              "role": "verb"
+            },
+            "direct_object": {
+              "text": "ახალ ტანსაცმელს",
+              "case": "dat",
+              "role": "direct_object"
+            }
+          },
+          "english": "The kind brothers were paying for the new clothes",
+          "english_components": {
+            "subject": {
+              "text": "The kind brothers",
+              "role": "subject",
+              "person": "3pl"
+            },
+            "verb": {
+              "text": "were paying",
+              "role": "verb"
+            },
+            "direct_object": {
+              "text": "for the new clothes",
+              "role": "direct_object"
+            }
+          },
+          "georgian_verb_form": "იხდიდნენ",
+          "person": "3pl",
+          "effective_preverb": "გადა"
         }
       ],
       "future": [
         {
-          "georgian": "ძვირ ანგარიშს გადავიხდი",
-          "english": "<strong data-role=\"subject\" data-person=\"1sg\">I</strong> <strong data-role=\"verb\">will pay</strong> <strong data-role=\"direct-object\">for the expensive bill</strong>",
-          "english_plain": "I will pay for the expensive bill",
-          "html": "<span data-case=\"dat\" data-role=\"direct-object\">ძვირ ანგარიშს</span> <span data-role=\"verb\">გადავიხდი</span>",
-          "case_marking": {
-            "direct_object": {
-              "case": "dat",
-              "word": "ანგარიშს"
-            }
-          },
-          "georgian_verb_form": "გადავიხდი"
-        },
-        {
-          "georgian": "მდიდარი მომხმარებელი ძვირ საჭმელს გადაიხდის",
-          "english": "<strong data-role=\"subject\">The rich customer</strong> <strong data-role=\"verb\">will pay</strong> <strong data-role=\"direct-object\">for the expensive food</strong>",
-          "english_plain": "The rich customer will pay for the expensive food",
-          "html": "<span data-case=\"nom\" data-role=\"subject\">მდიდარი მომხმარებელი</span> <span data-case=\"dat\" data-role=\"direct-object\">ძვირ საჭმელს</span> <span data-role=\"verb\">გადაიხდის</span>",
-          "case_marking": {
-            "subject": {
-              "case": "nom",
-              "word": "მომხმარებელი"
+          "georgian": "გადავიხდი ძვირ ანგარიშს",
+          "georgian_components": {
+            "verb": {
+              "text": "გადავიხდი",
+              "role": "verb"
             },
             "direct_object": {
+              "text": "ძვირ ანგარიშს",
               "case": "dat",
-              "word": "საჭმელს"
+              "role": "direct_object"
             }
           },
-          "georgian_verb_form": "გადაიხდის"
-        },
-        {
-          "georgian": "კეთილი ძმა ახალ ტანსაცმელს გადაიხდიან",
-          "english": "<strong data-role=\"subject\">The kind brother</strong> <strong data-role=\"verb\">will pay</strong> <strong data-role=\"direct-object\">for the new clothes</strong>",
-          "english_plain": "The kind brother will pay for the new clothes",
-          "html": "<span data-case=\"nom\" data-role=\"subject\">კეთილი ძმა</span> <span data-case=\"dat\" data-role=\"direct-object\">ახალ ტანსაცმელს</span> <span data-role=\"verb\">გადაიხდიან</span>",
-          "case_marking": {
+          "english": "I will pay for the expensive bill",
+          "english_components": {
             "subject": {
-              "case": "nom",
-              "word": "ძმა"
+              "text": "I",
+              "role": "subject",
+              "person": "1sg"
+            },
+            "verb": {
+              "text": "will pay",
+              "role": "verb"
             },
             "direct_object": {
-              "case": "dat",
-              "word": "ტანსაცმელს"
+              "text": "for the expensive bill",
+              "role": "direct_object"
             }
           },
-          "georgian_verb_form": "გადაიხდიან"
+          "georgian_verb_form": "გადავიხდი",
+          "person": "1sg",
+          "effective_preverb": "გადა"
+        },
+        {
+          "georgian": "მდიდარი მომხმარებელი გადაიხდის ძვირ საჭმელს",
+          "georgian_components": {
+            "subject": {
+              "text": "მდიდარი მომხმარებელი",
+              "case": "nom",
+              "role": "subject"
+            },
+            "verb": {
+              "text": "გადაიხდის",
+              "role": "verb"
+            },
+            "direct_object": {
+              "text": "ძვირ საჭმელს",
+              "case": "dat",
+              "role": "direct_object"
+            }
+          },
+          "english": "The rich customer will pay for the expensive food",
+          "english_components": {
+            "subject": {
+              "text": "The rich customer",
+              "role": "subject",
+              "person": "3sg"
+            },
+            "verb": {
+              "text": "will pay",
+              "role": "verb"
+            },
+            "direct_object": {
+              "text": "for the expensive food",
+              "role": "direct_object"
+            }
+          },
+          "georgian_verb_form": "გადაიხდის",
+          "person": "3sg",
+          "effective_preverb": "გადა"
+        },
+        {
+          "georgian": "კეთილი ძმები გადაიხდიან ახალ ტანსაცმელს",
+          "georgian_components": {
+            "subject": {
+              "text": "კეთილი ძმები",
+              "case": "nom",
+              "role": "subject"
+            },
+            "verb": {
+              "text": "გადაიხდიან",
+              "role": "verb"
+            },
+            "direct_object": {
+              "text": "ახალ ტანსაცმელს",
+              "case": "dat",
+              "role": "direct_object"
+            }
+          },
+          "english": "The kind brothers will pay for the new clothes",
+          "english_components": {
+            "subject": {
+              "text": "The kind brothers",
+              "role": "subject",
+              "person": "3pl"
+            },
+            "verb": {
+              "text": "will pay",
+              "role": "verb"
+            },
+            "direct_object": {
+              "text": "for the new clothes",
+              "role": "direct_object"
+            }
+          },
+          "georgian_verb_form": "გადაიხდიან",
+          "person": "3pl",
+          "effective_preverb": "გადა"
         }
       ],
       "aorist": [
         {
-          "georgian": "ძვირი ანგარიში გადავიხადე",
-          "english": "<strong data-role=\"subject\" data-person=\"1sg\">I</strong> <strong data-role=\"verb\">paid</strong> <strong data-role=\"direct-object\">for the expensive bill</strong>",
-          "english_plain": "I paid for the expensive bill",
-          "html": "<span data-case=\"nom\" data-role=\"direct-object\">ძვირი ანგარიში</span> <span data-role=\"verb\">გადავიხადე</span>",
-          "case_marking": {
-            "direct_object": {
-              "case": "nom",
-              "word": "ანგარიში"
-            }
-          },
-          "georgian_verb_form": "გადავიხადე"
-        },
-        {
-          "georgian": "მდიდარმა მომხმარებელმა ძვირი საჭმელი გადაიხადა",
-          "english": "<strong data-role=\"subject\">The rich customer</strong> <strong data-role=\"verb\">paid</strong> <strong data-role=\"direct-object\">for the expensive food</strong>",
-          "english_plain": "The rich customer paid for the expensive food",
-          "html": "<span data-case=\"erg\" data-role=\"subject\">მდიდარმა მომხმარებელმა</span> <span data-case=\"nom\" data-role=\"direct-object\">ძვირი საჭმელი</span> <span data-role=\"verb\">გადაიხადა</span>",
-          "case_marking": {
-            "subject": {
-              "case": "erg",
-              "word": "მომხმარებელმა"
+          "georgian": "გადავიხადე ძვირი ანგარიში",
+          "georgian_components": {
+            "verb": {
+              "text": "გადავიხადე",
+              "role": "verb"
             },
             "direct_object": {
+              "text": "ძვირი ანგარიში",
               "case": "nom",
-              "word": "საჭმელი"
+              "role": "direct_object"
             }
           },
-          "georgian_verb_form": "გადაიხადა"
-        },
-        {
-          "georgian": "კეთილმა ძმამ ახალი ტანსაცმელი გადაიხადეს",
-          "english": "<strong data-role=\"subject\">The kind brother</strong> <strong data-role=\"verb\">paid</strong> <strong data-role=\"direct-object\">for the new clothes</strong>",
-          "english_plain": "The kind brother paid for the new clothes",
-          "html": "<span data-case=\"erg\" data-role=\"subject\">კეთილმა ძმამ</span> <span data-case=\"nom\" data-role=\"direct-object\">ახალი ტანსაცმელი</span> <span data-role=\"verb\">გადაიხადეს</span>",
-          "case_marking": {
+          "english": "I paid for the expensive bill",
+          "english_components": {
             "subject": {
-              "case": "erg",
-              "word": "ძმამ"
+              "text": "I",
+              "role": "subject",
+              "person": "1sg"
+            },
+            "verb": {
+              "text": "paid",
+              "role": "verb"
             },
             "direct_object": {
-              "case": "nom",
-              "word": "ტანსაცმელი"
+              "text": "for the expensive bill",
+              "role": "direct_object"
             }
           },
-          "georgian_verb_form": "გადაიხადეს"
+          "georgian_verb_form": "გადავიხადე",
+          "person": "1sg",
+          "effective_preverb": "გადა"
+        },
+        {
+          "georgian": "მდიდარმა მომხმარებელმა გადაიხადა ძვირი საჭმელი",
+          "georgian_components": {
+            "subject": {
+              "text": "მდიდარმა მომხმარებელმა",
+              "case": "erg",
+              "role": "subject"
+            },
+            "verb": {
+              "text": "გადაიხადა",
+              "role": "verb"
+            },
+            "direct_object": {
+              "text": "ძვირი საჭმელი",
+              "case": "nom",
+              "role": "direct_object"
+            }
+          },
+          "english": "The rich customer paid for the expensive food",
+          "english_components": {
+            "subject": {
+              "text": "The rich customer",
+              "role": "subject",
+              "person": "3sg"
+            },
+            "verb": {
+              "text": "paid",
+              "role": "verb"
+            },
+            "direct_object": {
+              "text": "for the expensive food",
+              "role": "direct_object"
+            }
+          },
+          "georgian_verb_form": "გადაიხადა",
+          "person": "3sg",
+          "effective_preverb": "გადა"
+        },
+        {
+          "georgian": "კეთილმა ძმებმა გადაიხადეს ახალი ტანსაცმელი",
+          "georgian_components": {
+            "subject": {
+              "text": "კეთილმა ძმებმა",
+              "case": "erg",
+              "role": "subject"
+            },
+            "verb": {
+              "text": "გადაიხადეს",
+              "role": "verb"
+            },
+            "direct_object": {
+              "text": "ახალი ტანსაცმელი",
+              "case": "nom",
+              "role": "direct_object"
+            }
+          },
+          "english": "The kind brothers paid for the new clothes",
+          "english_components": {
+            "subject": {
+              "text": "The kind brothers",
+              "role": "subject",
+              "person": "3pl"
+            },
+            "verb": {
+              "text": "paid",
+              "role": "verb"
+            },
+            "direct_object": {
+              "text": "for the new clothes",
+              "role": "direct_object"
+            }
+          },
+          "georgian_verb_form": "გადაიხადეს",
+          "person": "3pl",
+          "effective_preverb": "გადა"
         }
       ],
       "optative": [
         {
-          "georgian": "ძვირი ანგარიში უნდა გადავიხადო",
-          "english": "<strong data-role=\"subject\" data-person=\"1sg\">I</strong> <strong data-role=\"verb\">should</strong> <strong data-role=\"verb\">pay</strong> <strong data-role=\"direct-object\">for the expensive bill</strong>",
-          "english_plain": "I should pay for the expensive bill",
-          "html": "<span data-case=\"nom\" data-role=\"direct-object\">ძვირი ანგარიში</span> <span data-role=\"verb\">უნდა გადავიხადო</span>",
-          "case_marking": {
-            "direct_object": {
-              "case": "nom",
-              "word": "ანგარიში"
-            }
-          },
-          "georgian_verb_form": "გადავიხადო"
-        },
-        {
-          "georgian": "მდიდარმა მომხმარებელმა ძვირი საჭმელი უნდა გადაიხადოს",
-          "english": "<strong data-role=\"subject\">The rich customer</strong> <strong data-role=\"verb\">should</strong> <strong data-role=\"verb\">pay</strong> <strong data-role=\"direct-object\">for the expensive food</strong>",
-          "english_plain": "The rich customer should pay for the expensive food",
-          "html": "<span data-case=\"erg\" data-role=\"subject\">მდიდარმა მომხმარებელმა</span> <span data-case=\"nom\" data-role=\"direct-object\">ძვირი საჭმელი</span> <span data-role=\"verb\">უნდა გადაიხადოს</span>",
-          "case_marking": {
-            "subject": {
-              "case": "erg",
-              "word": "მომხმარებელმა"
+          "georgian": "უნდა გადავიხადო ძვირი ანგარიში",
+          "georgian_components": {
+            "verb": {
+              "text": "უნდა გადავიხადო",
+              "role": "verb"
             },
             "direct_object": {
+              "text": "ძვირი ანგარიში",
               "case": "nom",
-              "word": "საჭმელი"
+              "role": "direct_object"
             }
           },
-          "georgian_verb_form": "გადაიხადოს"
-        },
-        {
-          "georgian": "კეთილმა ძმამ ახალი ტანსაცმელი უნდა გადაიხადონ",
-          "english": "<strong data-role=\"subject\">The kind brother</strong> <strong data-role=\"verb\">should</strong> <strong data-role=\"verb\">pay</strong> <strong data-role=\"direct-object\">for the new clothes</strong>",
-          "english_plain": "The kind brother should pay for the new clothes",
-          "html": "<span data-case=\"erg\" data-role=\"subject\">კეთილმა ძმამ</span> <span data-case=\"nom\" data-role=\"direct-object\">ახალი ტანსაცმელი</span> <span data-role=\"verb\">უნდა გადაიხადონ</span>",
-          "case_marking": {
+          "english": "I should pay for the expensive bill",
+          "english_components": {
             "subject": {
-              "case": "erg",
-              "word": "ძმამ"
+              "text": "I",
+              "role": "subject",
+              "person": "1sg"
+            },
+            "verb": {
+              "text": "should pay",
+              "role": "verb"
             },
             "direct_object": {
-              "case": "nom",
-              "word": "ტანსაცმელი"
+              "text": "for the expensive bill",
+              "role": "direct_object"
             }
           },
-          "georgian_verb_form": "გადაიხადონ"
+          "georgian_verb_form": "გადავიხადო",
+          "person": "1sg",
+          "effective_preverb": "გადა"
+        },
+        {
+          "georgian": "მდიდარმა მომხმარებელმა უნდა გადაიხადოს ძვირი საჭმელი",
+          "georgian_components": {
+            "subject": {
+              "text": "მდიდარმა მომხმარებელმა",
+              "case": "erg",
+              "role": "subject"
+            },
+            "verb": {
+              "text": "უნდა გადაიხადოს",
+              "role": "verb"
+            },
+            "direct_object": {
+              "text": "ძვირი საჭმელი",
+              "case": "nom",
+              "role": "direct_object"
+            }
+          },
+          "english": "The rich customer should pay for the expensive food",
+          "english_components": {
+            "subject": {
+              "text": "The rich customer",
+              "role": "subject",
+              "person": "3sg"
+            },
+            "verb": {
+              "text": "should pay",
+              "role": "verb"
+            },
+            "direct_object": {
+              "text": "for the expensive food",
+              "role": "direct_object"
+            }
+          },
+          "georgian_verb_form": "გადაიხადოს",
+          "person": "3sg",
+          "effective_preverb": "გადა"
+        },
+        {
+          "georgian": "კეთილმა ძმებმა უნდა გადაიხადონ ახალი ტანსაცმელი",
+          "georgian_components": {
+            "subject": {
+              "text": "კეთილმა ძმებმა",
+              "case": "erg",
+              "role": "subject"
+            },
+            "verb": {
+              "text": "უნდა გადაიხადონ",
+              "role": "verb"
+            },
+            "direct_object": {
+              "text": "ახალი ტანსაცმელი",
+              "case": "nom",
+              "role": "direct_object"
+            }
+          },
+          "english": "The kind brothers should pay for the new clothes",
+          "english_components": {
+            "subject": {
+              "text": "The kind brothers",
+              "role": "subject",
+              "person": "3pl"
+            },
+            "verb": {
+              "text": "should pay",
+              "role": "verb"
+            },
+            "direct_object": {
+              "text": "for the new clothes",
+              "role": "direct_object"
+            }
+          },
+          "georgian_verb_form": "გადაიხადონ",
+          "person": "3pl",
+          "effective_preverb": "გადა"
         }
       ],
       "imperative": [
         {
-          "georgian": "ყოველთვიური ქირა გადაიხადე",
-          "english": "<strong data-role=\"verb\">pay</strong> <strong data-role=\"direct-object\">for the monthly rent</strong>",
-          "english_plain": "pay for the monthly rent",
-          "html": "<span data-case=\"nom\" data-role=\"direct-object\">ყოველთვიური ქირა</span> <span data-role=\"verb\">გადაიხადე</span>",
-          "case_marking": {
+          "georgian": "გადაიხადე ყოველთვიური ქირა",
+          "georgian_components": {
+            "verb": {
+              "text": "გადაიხადე",
+              "role": "verb"
+            },
             "direct_object": {
+              "text": "ყოველთვიური ქირა",
               "case": "nom",
-              "word": "ქირა"
+              "role": "direct_object"
             }
           },
-          "georgian_verb_form": "გადაიხადე"
+          "english": "You, pay for the monthly rent",
+          "english_components": {
+            "subject": {
+              "text": "You,",
+              "role": "subject",
+              "person": "2sg"
+            },
+            "verb": {
+              "text": "pay",
+              "role": "verb"
+            },
+            "direct_object": {
+              "text": "for the monthly rent",
+              "role": "direct_object"
+            }
+          },
+          "georgian_verb_form": "გადაიხადე",
+          "person": "2sg",
+          "effective_preverb": "გადა"
         },
         {
-          "georgian": "კარგი მომსახურება გადაიხადეთ",
-          "english": "<strong data-role=\"verb\">pay</strong> <strong data-role=\"direct-object\">for the good service</strong>",
-          "english_plain": "pay for the good service",
-          "html": "<span data-case=\"nom\" data-role=\"direct-object\">კარგი მომსახურება</span> <span data-role=\"verb\">გადაიხადეთ</span>",
-          "case_marking": {
+          "georgian": "გადაიხადეთ კარგი მომსახურება",
+          "georgian_components": {
+            "verb": {
+              "text": "გადაიხადეთ",
+              "role": "verb"
+            },
             "direct_object": {
+              "text": "კარგი მომსახურება",
               "case": "nom",
-              "word": "მომსახურება"
+              "role": "direct_object"
             }
           },
-          "georgian_verb_form": "გადაიხადეთ"
+          "english": "You all (you formal), pay for the good service",
+          "english_components": {
+            "subject": {
+              "text": "You all (you formal),",
+              "role": "subject",
+              "person": "2pl"
+            },
+            "verb": {
+              "text": "pay",
+              "role": "verb"
+            },
+            "direct_object": {
+              "text": "for the good service",
+              "role": "direct_object"
+            }
+          },
+          "georgian_verb_form": "გადაიხადეთ",
+          "person": "2pl",
+          "effective_preverb": "გადა"
         }
       ]
     }

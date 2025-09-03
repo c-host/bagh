@@ -152,282 +152,631 @@
   "preverb_rules": {
     "default": "",
     "replacements": {},
-    "tense_specific_fallbacks": {},
-    "english_fallbacks": {}
+    "tense_specific_fallbacks": {}
   },
   "examples": {
-    "null": {
+    "default": {
       "present": [
         {
-          "georgian": "ლამაზ სურათს ვხატავ",
-          "english": "<strong data-role=\"subject\" data-person=\"1sg\">I</strong> <strong data-role=\"verb\">draw</strong> <strong data-role=\"direct-object\">the beautiful picture</strong>",
-          "english_plain": "I draw the beautiful picture",
-          "html": "<span data-case=\"dat\" data-role=\"direct-object\">ლამაზ სურათს</span> <span data-role=\"verb\">ვხატავ</span>",
-          "case_marking": {
-            "direct_object": {
-              "case": "dat",
-              "word": "სურათს"
-            }
-          },
-          "georgian_verb_form": "ვხატავ"
-        },
-        {
-          "georgian": "ნიჭიერი ხელოვანი დიდ სახლს ხატავს",
-          "english": "<strong data-role=\"subject\">The talented artist</strong> <strong data-role=\"verb\">draws</strong> <strong data-role=\"direct-object\">the big house</strong>",
-          "english_plain": "The talented artist draws the big house",
-          "html": "<span data-case=\"nom\" data-role=\"subject\">ნიჭიერი ხელოვანი</span> <span data-case=\"dat\" data-role=\"direct-object\">დიდ სახლს</span> <span data-role=\"verb\">ხატავს</span>",
-          "case_marking": {
-            "subject": {
-              "case": "nom",
-              "word": "ხელოვანი"
+          "georgian": "ვხატავ ლამაზ სურათს",
+          "georgian_components": {
+            "verb": {
+              "text": "ვხატავ",
+              "role": "verb"
             },
             "direct_object": {
+              "text": "ლამაზ სურათს",
               "case": "dat",
-              "word": "სახლს"
+              "role": "direct_object"
             }
           },
-          "georgian_verb_form": "ხატავს"
-        },
-        {
-          "georgian": "ახალგაზრდა სტუდენტი დიდ მთას ხატავენ",
-          "english": "<strong data-role=\"subject\">The young student</strong> <strong data-role=\"verb\">draw</strong> <strong data-role=\"direct-object\">the big mountain</strong>",
-          "english_plain": "The young student draw the big mountain",
-          "html": "<span data-case=\"nom\" data-role=\"subject\">ახალგაზრდა სტუდენტი</span> <span data-case=\"dat\" data-role=\"direct-object\">დიდ მთას</span> <span data-role=\"verb\">ხატავენ</span>",
-          "case_marking": {
+          "english": "I draw the beautiful picture",
+          "english_components": {
             "subject": {
-              "case": "nom",
-              "word": "სტუდენტი"
+              "text": "I",
+              "role": "subject",
+              "person": "1sg"
+            },
+            "verb": {
+              "text": "draw",
+              "role": "verb"
             },
             "direct_object": {
-              "case": "dat",
-              "word": "მთას"
+              "text": "the beautiful picture",
+              "role": "direct_object"
             }
           },
-          "georgian_verb_form": "ხატავენ"
+          "georgian_verb_form": "ვხატავ",
+          "person": "1sg",
+          "effective_preverb": "და"
+        },
+        {
+          "georgian": "ნიჭიერი ხელოვანი ხატავს დიდ სახლს",
+          "georgian_components": {
+            "subject": {
+              "text": "ნიჭიერი ხელოვანი",
+              "case": "nom",
+              "role": "subject"
+            },
+            "verb": {
+              "text": "ხატავს",
+              "role": "verb"
+            },
+            "direct_object": {
+              "text": "დიდ სახლს",
+              "case": "dat",
+              "role": "direct_object"
+            }
+          },
+          "english": "The talented artist draws the big house",
+          "english_components": {
+            "subject": {
+              "text": "The talented artist",
+              "role": "subject",
+              "person": "3sg"
+            },
+            "verb": {
+              "text": "draws",
+              "role": "verb"
+            },
+            "direct_object": {
+              "text": "the big house",
+              "role": "direct_object"
+            }
+          },
+          "georgian_verb_form": "ხატავს",
+          "person": "3sg",
+          "effective_preverb": "და"
+        },
+        {
+          "georgian": "ახალგაზრდა სტუდენტები ხატავენ დიდ მთას",
+          "georgian_components": {
+            "subject": {
+              "text": "ახალგაზრდა სტუდენტები",
+              "case": "nom",
+              "role": "subject"
+            },
+            "verb": {
+              "text": "ხატავენ",
+              "role": "verb"
+            },
+            "direct_object": {
+              "text": "დიდ მთას",
+              "case": "dat",
+              "role": "direct_object"
+            }
+          },
+          "english": "The young students draw the big mountain",
+          "english_components": {
+            "subject": {
+              "text": "The young students",
+              "role": "subject",
+              "person": "3pl"
+            },
+            "verb": {
+              "text": "draw",
+              "role": "verb"
+            },
+            "direct_object": {
+              "text": "the big mountain",
+              "role": "direct_object"
+            }
+          },
+          "georgian_verb_form": "ხატავენ",
+          "person": "3pl",
+          "effective_preverb": "და"
         }
       ],
       "imperfect": [
         {
-          "georgian": "ლამაზ სურათს ვხატავდი",
-          "english": "<strong data-role=\"subject\" data-person=\"1sg\">I</strong> <strong data-role=\"verb\">was drawing</strong> <strong data-role=\"direct-object\">the beautiful picture</strong>",
-          "english_plain": "I was drawing the beautiful picture",
-          "html": "<span data-case=\"dat\" data-role=\"direct-object\">ლამაზ სურათს</span> <span data-role=\"verb\">ვხატავდი</span>",
-          "case_marking": {
-            "direct_object": {
-              "case": "dat",
-              "word": "სურათს"
-            }
-          },
-          "georgian_verb_form": "ვხატავდი"
-        },
-        {
-          "georgian": "ნიჭიერი ხელოვანი დიდ სახლს ხატავდა",
-          "english": "<strong data-role=\"subject\">The talented artist</strong> <strong data-role=\"verb\">was drawing</strong> <strong data-role=\"direct-object\">the big house</strong>",
-          "english_plain": "The talented artist was drawing the big house",
-          "html": "<span data-case=\"nom\" data-role=\"subject\">ნიჭიერი ხელოვანი</span> <span data-case=\"dat\" data-role=\"direct-object\">დიდ სახლს</span> <span data-role=\"verb\">ხატავდა</span>",
-          "case_marking": {
-            "subject": {
-              "case": "nom",
-              "word": "ხელოვანი"
+          "georgian": "ვხატავდი ლამაზ სურათს",
+          "georgian_components": {
+            "verb": {
+              "text": "ვხატავდი",
+              "role": "verb"
             },
             "direct_object": {
+              "text": "ლამაზ სურათს",
               "case": "dat",
-              "word": "სახლს"
+              "role": "direct_object"
             }
           },
-          "georgian_verb_form": "ხატავდა"
-        },
-        {
-          "georgian": "ახალგაზრდა სტუდენტი დიდ მთას ხატავდნენ",
-          "english": "<strong data-role=\"subject\">The young student</strong> <strong data-role=\"verb\">were drawing</strong> <strong data-role=\"direct-object\">the big mountain</strong>",
-          "english_plain": "The young student were drawing the big mountain",
-          "html": "<span data-case=\"nom\" data-role=\"subject\">ახალგაზრდა სტუდენტი</span> <span data-case=\"dat\" data-role=\"direct-object\">დიდ მთას</span> <span data-role=\"verb\">ხატავდნენ</span>",
-          "case_marking": {
+          "english": "I was drawing the beautiful picture",
+          "english_components": {
             "subject": {
-              "case": "nom",
-              "word": "სტუდენტი"
+              "text": "I",
+              "role": "subject",
+              "person": "1sg"
+            },
+            "verb": {
+              "text": "was drawing",
+              "role": "verb"
             },
             "direct_object": {
-              "case": "dat",
-              "word": "მთას"
+              "text": "the beautiful picture",
+              "role": "direct_object"
             }
           },
-          "georgian_verb_form": "ხატავდნენ"
+          "georgian_verb_form": "ვხატავდი",
+          "person": "1sg",
+          "effective_preverb": "და"
+        },
+        {
+          "georgian": "ნიჭიერი ხელოვანი ხატავდა დიდ სახლს",
+          "georgian_components": {
+            "subject": {
+              "text": "ნიჭიერი ხელოვანი",
+              "case": "nom",
+              "role": "subject"
+            },
+            "verb": {
+              "text": "ხატავდა",
+              "role": "verb"
+            },
+            "direct_object": {
+              "text": "დიდ სახლს",
+              "case": "dat",
+              "role": "direct_object"
+            }
+          },
+          "english": "The talented artist was drawing the big house",
+          "english_components": {
+            "subject": {
+              "text": "The talented artist",
+              "role": "subject",
+              "person": "3sg"
+            },
+            "verb": {
+              "text": "was drawing",
+              "role": "verb"
+            },
+            "direct_object": {
+              "text": "the big house",
+              "role": "direct_object"
+            }
+          },
+          "georgian_verb_form": "ხატავდა",
+          "person": "3sg",
+          "effective_preverb": "და"
+        },
+        {
+          "georgian": "ახალგაზრდა სტუდენტები ხატავდნენ დიდ მთას",
+          "georgian_components": {
+            "subject": {
+              "text": "ახალგაზრდა სტუდენტები",
+              "case": "nom",
+              "role": "subject"
+            },
+            "verb": {
+              "text": "ხატავდნენ",
+              "role": "verb"
+            },
+            "direct_object": {
+              "text": "დიდ მთას",
+              "case": "dat",
+              "role": "direct_object"
+            }
+          },
+          "english": "The young students were drawing the big mountain",
+          "english_components": {
+            "subject": {
+              "text": "The young students",
+              "role": "subject",
+              "person": "3pl"
+            },
+            "verb": {
+              "text": "were drawing",
+              "role": "verb"
+            },
+            "direct_object": {
+              "text": "the big mountain",
+              "role": "direct_object"
+            }
+          },
+          "georgian_verb_form": "ხატავდნენ",
+          "person": "3pl",
+          "effective_preverb": "და"
         }
       ],
       "future": [
         {
-          "georgian": "ლამაზ სურათს დავხატავ",
-          "english": "<strong data-role=\"subject\" data-person=\"1sg\">I</strong> <strong data-role=\"verb\">will draw</strong> <strong data-role=\"direct-object\">the beautiful picture</strong>",
-          "english_plain": "I will draw the beautiful picture",
-          "html": "<span data-case=\"dat\" data-role=\"direct-object\">ლამაზ სურათს</span> <span data-role=\"verb\">დავხატავ</span>",
-          "case_marking": {
-            "direct_object": {
-              "case": "dat",
-              "word": "სურათს"
-            }
-          },
-          "georgian_verb_form": "დავხატავ"
-        },
-        {
-          "georgian": "ნიჭიერი ხელოვანი დიდ სახლს დახატავს",
-          "english": "<strong data-role=\"subject\">The talented artist</strong> <strong data-role=\"verb\">will draw</strong> <strong data-role=\"direct-object\">the big house</strong>",
-          "english_plain": "The talented artist will draw the big house",
-          "html": "<span data-case=\"nom\" data-role=\"subject\">ნიჭიერი ხელოვანი</span> <span data-case=\"dat\" data-role=\"direct-object\">დიდ სახლს</span> <span data-role=\"verb\">დახატავს</span>",
-          "case_marking": {
-            "subject": {
-              "case": "nom",
-              "word": "ხელოვანი"
+          "georgian": "დავხატავ ლამაზ სურათს",
+          "georgian_components": {
+            "verb": {
+              "text": "დავხატავ",
+              "role": "verb"
             },
             "direct_object": {
+              "text": "ლამაზ სურათს",
               "case": "dat",
-              "word": "სახლს"
+              "role": "direct_object"
             }
           },
-          "georgian_verb_form": "დახატავს"
-        },
-        {
-          "georgian": "ახალგაზრდა სტუდენტი დიდ მთას დახატავენ",
-          "english": "<strong data-role=\"subject\">The young student</strong> <strong data-role=\"verb\">will draw</strong> <strong data-role=\"direct-object\">the big mountain</strong>",
-          "english_plain": "The young student will draw the big mountain",
-          "html": "<span data-case=\"nom\" data-role=\"subject\">ახალგაზრდა სტუდენტი</span> <span data-case=\"dat\" data-role=\"direct-object\">დიდ მთას</span> <span data-role=\"verb\">დახატავენ</span>",
-          "case_marking": {
+          "english": "I will draw the beautiful picture",
+          "english_components": {
             "subject": {
-              "case": "nom",
-              "word": "სტუდენტი"
+              "text": "I",
+              "role": "subject",
+              "person": "1sg"
+            },
+            "verb": {
+              "text": "will draw",
+              "role": "verb"
             },
             "direct_object": {
-              "case": "dat",
-              "word": "მთას"
+              "text": "the beautiful picture",
+              "role": "direct_object"
             }
           },
-          "georgian_verb_form": "დახატავენ"
+          "georgian_verb_form": "დავხატავ",
+          "person": "1sg",
+          "effective_preverb": "და"
+        },
+        {
+          "georgian": "ნიჭიერი ხელოვანი დახატავს დიდ სახლს",
+          "georgian_components": {
+            "subject": {
+              "text": "ნიჭიერი ხელოვანი",
+              "case": "nom",
+              "role": "subject"
+            },
+            "verb": {
+              "text": "დახატავს",
+              "role": "verb"
+            },
+            "direct_object": {
+              "text": "დიდ სახლს",
+              "case": "dat",
+              "role": "direct_object"
+            }
+          },
+          "english": "The talented artist will draw the big house",
+          "english_components": {
+            "subject": {
+              "text": "The talented artist",
+              "role": "subject",
+              "person": "3sg"
+            },
+            "verb": {
+              "text": "will draw",
+              "role": "verb"
+            },
+            "direct_object": {
+              "text": "the big house",
+              "role": "direct_object"
+            }
+          },
+          "georgian_verb_form": "დახატავს",
+          "person": "3sg",
+          "effective_preverb": "და"
+        },
+        {
+          "georgian": "ახალგაზრდა სტუდენტები დახატავენ დიდ მთას",
+          "georgian_components": {
+            "subject": {
+              "text": "ახალგაზრდა სტუდენტები",
+              "case": "nom",
+              "role": "subject"
+            },
+            "verb": {
+              "text": "დახატავენ",
+              "role": "verb"
+            },
+            "direct_object": {
+              "text": "დიდ მთას",
+              "case": "dat",
+              "role": "direct_object"
+            }
+          },
+          "english": "The young students will draw the big mountain",
+          "english_components": {
+            "subject": {
+              "text": "The young students",
+              "role": "subject",
+              "person": "3pl"
+            },
+            "verb": {
+              "text": "will draw",
+              "role": "verb"
+            },
+            "direct_object": {
+              "text": "the big mountain",
+              "role": "direct_object"
+            }
+          },
+          "georgian_verb_form": "დახატავენ",
+          "person": "3pl",
+          "effective_preverb": "და"
         }
       ],
       "aorist": [
         {
-          "georgian": "ლამაზი სურათი დავხატე",
-          "english": "<strong data-role=\"subject\" data-person=\"1sg\">I</strong> <strong data-role=\"verb\">drew</strong> <strong data-role=\"direct-object\">the beautiful picture</strong>",
-          "english_plain": "I drew the beautiful picture",
-          "html": "<span data-case=\"nom\" data-role=\"direct-object\">ლამაზი სურათი</span> <span data-role=\"verb\">დავხატე</span>",
-          "case_marking": {
-            "direct_object": {
-              "case": "nom",
-              "word": "სურათი"
-            }
-          },
-          "georgian_verb_form": "დავხატე"
-        },
-        {
-          "georgian": "ნიჭიერმა ხელოვანმა დიდი სახლი დახატა",
-          "english": "<strong data-role=\"subject\">The talented artist</strong> <strong data-role=\"verb\">drew</strong> <strong data-role=\"direct-object\">the big house</strong>",
-          "english_plain": "The talented artist drew the big house",
-          "html": "<span data-case=\"erg\" data-role=\"subject\">ნიჭიერმა ხელოვანმა</span> <span data-case=\"nom\" data-role=\"direct-object\">დიდი სახლი</span> <span data-role=\"verb\">დახატა</span>",
-          "case_marking": {
-            "subject": {
-              "case": "erg",
-              "word": "ხელოვანმა"
+          "georgian": "დავხატე ლამაზი სურათი",
+          "georgian_components": {
+            "verb": {
+              "text": "დავხატე",
+              "role": "verb"
             },
             "direct_object": {
+              "text": "ლამაზი სურათი",
               "case": "nom",
-              "word": "სახლი"
+              "role": "direct_object"
             }
           },
-          "georgian_verb_form": "დახატა"
-        },
-        {
-          "georgian": "ახალგაზრდა სტუდენტმა დიდი მთა დახატეს",
-          "english": "<strong data-role=\"subject\">The young student</strong> <strong data-role=\"verb\">drew</strong> <strong data-role=\"direct-object\">the big mountain</strong>",
-          "english_plain": "The young student drew the big mountain",
-          "html": "<span data-case=\"erg\" data-role=\"subject\">ახალგაზრდა სტუდენტმა</span> <span data-case=\"nom\" data-role=\"direct-object\">დიდი მთა</span> <span data-role=\"verb\">დახატეს</span>",
-          "case_marking": {
+          "english": "I drew the beautiful picture",
+          "english_components": {
             "subject": {
-              "case": "erg",
-              "word": "სტუდენტმა"
+              "text": "I",
+              "role": "subject",
+              "person": "1sg"
+            },
+            "verb": {
+              "text": "drew",
+              "role": "verb"
             },
             "direct_object": {
-              "case": "nom",
-              "word": "მთა"
+              "text": "the beautiful picture",
+              "role": "direct_object"
             }
           },
-          "georgian_verb_form": "დახატეს"
+          "georgian_verb_form": "დავხატე",
+          "person": "1sg",
+          "effective_preverb": "და"
+        },
+        {
+          "georgian": "ნიჭიერმა ხელოვანმა დახატა დიდი სახლი",
+          "georgian_components": {
+            "subject": {
+              "text": "ნიჭიერმა ხელოვანმა",
+              "case": "erg",
+              "role": "subject"
+            },
+            "verb": {
+              "text": "დახატა",
+              "role": "verb"
+            },
+            "direct_object": {
+              "text": "დიდი სახლი",
+              "case": "nom",
+              "role": "direct_object"
+            }
+          },
+          "english": "The talented artist drew the big house",
+          "english_components": {
+            "subject": {
+              "text": "The talented artist",
+              "role": "subject",
+              "person": "3sg"
+            },
+            "verb": {
+              "text": "drew",
+              "role": "verb"
+            },
+            "direct_object": {
+              "text": "the big house",
+              "role": "direct_object"
+            }
+          },
+          "georgian_verb_form": "დახატა",
+          "person": "3sg",
+          "effective_preverb": "და"
+        },
+        {
+          "georgian": "ახალგაზრდა სტუდენტებმა დახატეს დიდი მთა",
+          "georgian_components": {
+            "subject": {
+              "text": "ახალგაზრდა სტუდენტებმა",
+              "case": "erg",
+              "role": "subject"
+            },
+            "verb": {
+              "text": "დახატეს",
+              "role": "verb"
+            },
+            "direct_object": {
+              "text": "დიდი მთა",
+              "case": "nom",
+              "role": "direct_object"
+            }
+          },
+          "english": "The young students drew the big mountain",
+          "english_components": {
+            "subject": {
+              "text": "The young students",
+              "role": "subject",
+              "person": "3pl"
+            },
+            "verb": {
+              "text": "drew",
+              "role": "verb"
+            },
+            "direct_object": {
+              "text": "the big mountain",
+              "role": "direct_object"
+            }
+          },
+          "georgian_verb_form": "დახატეს",
+          "person": "3pl",
+          "effective_preverb": "და"
         }
       ],
       "optative": [
         {
-          "georgian": "ლამაზი სურათი უნდა დავხატო",
-          "english": "<strong data-role=\"subject\" data-person=\"1sg\">I</strong> <strong data-role=\"verb\">should</strong> <strong data-role=\"verb\">draw</strong> <strong data-role=\"direct-object\">the beautiful picture</strong>",
-          "english_plain": "I should draw the beautiful picture",
-          "html": "<span data-case=\"nom\" data-role=\"direct-object\">ლამაზი სურათი</span> <span data-role=\"verb\">უნდა დავხატო</span>",
-          "case_marking": {
-            "direct_object": {
-              "case": "nom",
-              "word": "სურათი"
-            }
-          },
-          "georgian_verb_form": "დავხატო"
-        },
-        {
-          "georgian": "ნიჭიერმა ხელოვანმა დიდი სახლი უნდა დახატოს",
-          "english": "<strong data-role=\"subject\">The talented artist</strong> <strong data-role=\"verb\">should</strong> <strong data-role=\"verb\">draw</strong> <strong data-role=\"direct-object\">the big house</strong>",
-          "english_plain": "The talented artist should draw the big house",
-          "html": "<span data-case=\"erg\" data-role=\"subject\">ნიჭიერმა ხელოვანმა</span> <span data-case=\"nom\" data-role=\"direct-object\">დიდი სახლი</span> <span data-role=\"verb\">უნდა დახატოს</span>",
-          "case_marking": {
-            "subject": {
-              "case": "erg",
-              "word": "ხელოვანმა"
+          "georgian": "უნდა დავხატო ლამაზი სურათი",
+          "georgian_components": {
+            "verb": {
+              "text": "უნდა დავხატო",
+              "role": "verb"
             },
             "direct_object": {
+              "text": "ლამაზი სურათი",
               "case": "nom",
-              "word": "სახლი"
+              "role": "direct_object"
             }
           },
-          "georgian_verb_form": "დახატოს"
-        },
-        {
-          "georgian": "ახალგაზრდა სტუდენტმა დიდი მთა უნდა დახატონ",
-          "english": "<strong data-role=\"subject\">The young student</strong> <strong data-role=\"verb\">should</strong> <strong data-role=\"verb\">draw</strong> <strong data-role=\"direct-object\">the big mountain</strong>",
-          "english_plain": "The young student should draw the big mountain",
-          "html": "<span data-case=\"erg\" data-role=\"subject\">ახალგაზრდა სტუდენტმა</span> <span data-case=\"nom\" data-role=\"direct-object\">დიდი მთა</span> <span data-role=\"verb\">უნდა დახატონ</span>",
-          "case_marking": {
+          "english": "I should draw the beautiful picture",
+          "english_components": {
             "subject": {
-              "case": "erg",
-              "word": "სტუდენტმა"
+              "text": "I",
+              "role": "subject",
+              "person": "1sg"
+            },
+            "verb": {
+              "text": "should draw",
+              "role": "verb"
             },
             "direct_object": {
-              "case": "nom",
-              "word": "მთა"
+              "text": "the beautiful picture",
+              "role": "direct_object"
             }
           },
-          "georgian_verb_form": "დახატონ"
+          "georgian_verb_form": "დავხატო",
+          "person": "1sg",
+          "effective_preverb": "და"
+        },
+        {
+          "georgian": "ნიჭიერმა ხელოვანმა უნდა დახატოს დიდი სახლი",
+          "georgian_components": {
+            "subject": {
+              "text": "ნიჭიერმა ხელოვანმა",
+              "case": "erg",
+              "role": "subject"
+            },
+            "verb": {
+              "text": "უნდა დახატოს",
+              "role": "verb"
+            },
+            "direct_object": {
+              "text": "დიდი სახლი",
+              "case": "nom",
+              "role": "direct_object"
+            }
+          },
+          "english": "The talented artist should draw the big house",
+          "english_components": {
+            "subject": {
+              "text": "The talented artist",
+              "role": "subject",
+              "person": "3sg"
+            },
+            "verb": {
+              "text": "should draw",
+              "role": "verb"
+            },
+            "direct_object": {
+              "text": "the big house",
+              "role": "direct_object"
+            }
+          },
+          "georgian_verb_form": "დახატოს",
+          "person": "3sg",
+          "effective_preverb": "და"
+        },
+        {
+          "georgian": "ახალგაზრდა სტუდენტებმა უნდა დახატონ დიდი მთა",
+          "georgian_components": {
+            "subject": {
+              "text": "ახალგაზრდა სტუდენტებმა",
+              "case": "erg",
+              "role": "subject"
+            },
+            "verb": {
+              "text": "უნდა დახატონ",
+              "role": "verb"
+            },
+            "direct_object": {
+              "text": "დიდი მთა",
+              "case": "nom",
+              "role": "direct_object"
+            }
+          },
+          "english": "The young students should draw the big mountain",
+          "english_components": {
+            "subject": {
+              "text": "The young students",
+              "role": "subject",
+              "person": "3pl"
+            },
+            "verb": {
+              "text": "should draw",
+              "role": "verb"
+            },
+            "direct_object": {
+              "text": "the big mountain",
+              "role": "direct_object"
+            }
+          },
+          "georgian_verb_form": "დახატონ",
+          "person": "3pl",
+          "effective_preverb": "და"
         }
       ],
       "imperative": [
         {
-          "georgian": "წითელი ყვავილი დახატე",
-          "english": "<strong data-role=\"verb\">draw</strong> <strong data-role=\"direct-object\">the red flower</strong>",
-          "english_plain": "draw the red flower",
-          "html": "<span data-case=\"nom\" data-role=\"direct-object\">წითელი ყვავილი</span> <span data-role=\"verb\">დახატე</span>",
-          "case_marking": {
+          "georgian": "დახატე წითელი ყვავილი",
+          "georgian_components": {
+            "verb": {
+              "text": "დახატე",
+              "role": "verb"
+            },
             "direct_object": {
+              "text": "წითელი ყვავილი",
               "case": "nom",
-              "word": "ყვავილი"
+              "role": "direct_object"
             }
           },
-          "georgian_verb_form": "დახატე"
+          "english": "You, draw the red flower",
+          "english_components": {
+            "subject": {
+              "text": "You,",
+              "role": "subject",
+              "person": "2sg"
+            },
+            "verb": {
+              "text": "draw",
+              "role": "verb"
+            },
+            "direct_object": {
+              "text": "the red flower",
+              "role": "direct_object"
+            }
+          },
+          "georgian_verb_form": "დახატე",
+          "person": "2sg",
+          "effective_preverb": "და"
         },
         {
-          "georgian": "ნათელი მზე დახატეთ",
-          "english": "<strong data-role=\"verb\">draw</strong> <strong data-role=\"direct-object\">the bright sun</strong>",
-          "english_plain": "draw the bright sun",
-          "html": "<span data-case=\"nom\" data-role=\"direct-object\">ნათელი მზე</span> <span data-role=\"verb\">დახატეთ</span>",
-          "case_marking": {
+          "georgian": "დახატეთ ნათელი მზე",
+          "georgian_components": {
+            "verb": {
+              "text": "დახატეთ",
+              "role": "verb"
+            },
             "direct_object": {
+              "text": "ნათელი მზე",
               "case": "nom",
-              "word": "მზე"
+              "role": "direct_object"
             }
           },
-          "georgian_verb_form": "დახატეთ"
+          "english": "You all (you formal), draw the bright sun",
+          "english_components": {
+            "subject": {
+              "text": "You all (you formal),",
+              "role": "subject",
+              "person": "2pl"
+            },
+            "verb": {
+              "text": "draw",
+              "role": "verb"
+            },
+            "direct_object": {
+              "text": "the bright sun",
+              "role": "direct_object"
+            }
+          },
+          "georgian_verb_form": "დახატეთ",
+          "person": "2pl",
+          "effective_preverb": "და"
         }
       ]
     }

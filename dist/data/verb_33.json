@@ -124,207 +124,478 @@
   "preverb_rules": {
     "default": "",
     "replacements": {},
-    "tense_specific_fallbacks": {},
-    "english_fallbacks": {}
+    "tense_specific_fallbacks": {}
   },
   "examples": {
-    "null": {
+    "default": {
       "present": [
         {
           "georgian": "ვმოგზაურობ",
-          "english": "<strong data-role=\"subject\" data-person=\"1sg\">I</strong> <strong data-role=\"verb\">travel</strong>",
-          "english_plain": "I travel",
-          "html": " <span data-role=\"verb\">ვმოგზაურობ</span>",
-          "case_marking": {},
-          "georgian_verb_form": "ვმოგზაურობ"
+          "georgian_components": {
+            "verb": {
+              "text": "ვმოგზაურობ",
+              "role": "verb"
+            }
+          },
+          "english": "I travel",
+          "english_components": {
+            "subject": {
+              "text": "I",
+              "role": "subject",
+              "person": "1sg"
+            },
+            "verb": {
+              "text": "travel",
+              "role": "verb"
+            }
+          },
+          "georgian_verb_form": "ვმოგზაურობ",
+          "person": "1sg",
+          "effective_preverb": ""
         },
         {
           "georgian": "დაკავებული მეწარმე მოგზაურობს",
-          "english": "<strong data-role=\"subject\">The busy entrepreneur</strong> <strong data-role=\"verb\">travels</strong>",
-          "english_plain": "The busy entrepreneur travels",
-          "html": "<span data-case=\"nom\" data-role=\"subject\">დაკავებული მეწარმე</span> <span data-role=\"verb\">მოგზაურობს</span>",
-          "case_marking": {
+          "georgian_components": {
             "subject": {
+              "text": "დაკავებული მეწარმე",
               "case": "nom",
-              "word": "მეწარმე"
+              "role": "subject"
+            },
+            "verb": {
+              "text": "მოგზაურობს",
+              "role": "verb"
             }
           },
-          "georgian_verb_form": "მოგზაურობს"
+          "english": "The busy businessman travels",
+          "english_components": {
+            "subject": {
+              "text": "The busy businessman",
+              "role": "subject",
+              "person": "3sg"
+            },
+            "verb": {
+              "text": "travels",
+              "role": "verb"
+            }
+          },
+          "georgian_verb_form": "მოგზაურობს",
+          "person": "3sg",
+          "effective_preverb": ""
         },
         {
-          "georgian": "ბედნიერი ოჯახი მოგზაურობენ",
-          "english": "<strong data-role=\"subject\">The happy family</strong> <strong data-role=\"verb\">travel</strong>",
-          "english_plain": "The happy family travel",
-          "html": "<span data-case=\"nom\" data-role=\"subject\">ბედნიერი ოჯახი</span> <span data-role=\"verb\">მოგზაურობენ</span>",
-          "case_marking": {
+          "georgian": "ბედნიერი ოჯახები მოგზაურობენ",
+          "georgian_components": {
             "subject": {
+              "text": "ბედნიერი ოჯახები",
               "case": "nom",
-              "word": "ოჯახი"
+              "role": "subject"
+            },
+            "verb": {
+              "text": "მოგზაურობენ",
+              "role": "verb"
             }
           },
-          "georgian_verb_form": "მოგზაურობენ"
+          "english": "The happy families travel",
+          "english_components": {
+            "subject": {
+              "text": "The happy families",
+              "role": "subject",
+              "person": "3pl"
+            },
+            "verb": {
+              "text": "travel",
+              "role": "verb"
+            }
+          },
+          "georgian_verb_form": "მოგზაურობენ",
+          "person": "3pl",
+          "effective_preverb": ""
         }
       ],
       "imperfect": [
         {
           "georgian": "ვმოგზაურობდი",
-          "english": "<strong data-role=\"subject\" data-person=\"1sg\">I</strong> <strong data-role=\"verb\">was traveling</strong>",
-          "english_plain": "I was traveling",
-          "html": " <span data-role=\"verb\">ვმოგზაურობდი</span>",
-          "case_marking": {},
-          "georgian_verb_form": "ვმოგზაურობდი"
+          "georgian_components": {
+            "verb": {
+              "text": "ვმოგზაურობდი",
+              "role": "verb"
+            }
+          },
+          "english": "I was traveling",
+          "english_components": {
+            "subject": {
+              "text": "I",
+              "role": "subject",
+              "person": "1sg"
+            },
+            "verb": {
+              "text": "was traveling",
+              "role": "verb"
+            }
+          },
+          "georgian_verb_form": "ვმოგზაურობდი",
+          "person": "1sg",
+          "effective_preverb": ""
         },
         {
           "georgian": "დაკავებული მეწარმე მოგზაურობდა",
-          "english": "<strong data-role=\"subject\">The busy entrepreneur</strong> <strong data-role=\"verb\">was traveling</strong>",
-          "english_plain": "The busy entrepreneur was traveling",
-          "html": "<span data-case=\"nom\" data-role=\"subject\">დაკავებული მეწარმე</span> <span data-role=\"verb\">მოგზაურობდა</span>",
-          "case_marking": {
+          "georgian_components": {
             "subject": {
+              "text": "დაკავებული მეწარმე",
               "case": "nom",
-              "word": "მეწარმე"
+              "role": "subject"
+            },
+            "verb": {
+              "text": "მოგზაურობდა",
+              "role": "verb"
             }
           },
-          "georgian_verb_form": "მოგზაურობდა"
+          "english": "The busy businessman was traveling",
+          "english_components": {
+            "subject": {
+              "text": "The busy businessman",
+              "role": "subject",
+              "person": "3sg"
+            },
+            "verb": {
+              "text": "was traveling",
+              "role": "verb"
+            }
+          },
+          "georgian_verb_form": "მოგზაურობდა",
+          "person": "3sg",
+          "effective_preverb": ""
         },
         {
-          "georgian": "ბედნიერი ოჯახი მოგზაურობდნენ",
-          "english": "<strong data-role=\"subject\">The happy family</strong> <strong data-role=\"verb\">were traveling</strong>",
-          "english_plain": "The happy family were traveling",
-          "html": "<span data-case=\"nom\" data-role=\"subject\">ბედნიერი ოჯახი</span> <span data-role=\"verb\">მოგზაურობდნენ</span>",
-          "case_marking": {
+          "georgian": "ბედნიერი ოჯახები მოგზაურობდნენ",
+          "georgian_components": {
             "subject": {
+              "text": "ბედნიერი ოჯახები",
               "case": "nom",
-              "word": "ოჯახი"
+              "role": "subject"
+            },
+            "verb": {
+              "text": "მოგზაურობდნენ",
+              "role": "verb"
             }
           },
-          "georgian_verb_form": "მოგზაურობდნენ"
+          "english": "The happy families were traveling",
+          "english_components": {
+            "subject": {
+              "text": "The happy families",
+              "role": "subject",
+              "person": "3pl"
+            },
+            "verb": {
+              "text": "were traveling",
+              "role": "verb"
+            }
+          },
+          "georgian_verb_form": "მოგზაურობდნენ",
+          "person": "3pl",
+          "effective_preverb": ""
         }
       ],
       "future": [
         {
           "georgian": "ვიმოგზაურებ",
-          "english": "<strong data-role=\"subject\" data-person=\"1sg\">I</strong> <strong data-role=\"verb\">will travel</strong>",
-          "english_plain": "I will travel",
-          "html": " <span data-role=\"verb\">ვიმოგზაურებ</span>",
-          "case_marking": {},
-          "georgian_verb_form": "ვიმოგზაურებ"
+          "georgian_components": {
+            "verb": {
+              "text": "ვიმოგზაურებ",
+              "role": "verb"
+            }
+          },
+          "english": "I will travel",
+          "english_components": {
+            "subject": {
+              "text": "I",
+              "role": "subject",
+              "person": "1sg"
+            },
+            "verb": {
+              "text": "will travel",
+              "role": "verb"
+            }
+          },
+          "georgian_verb_form": "ვიმოგზაურებ",
+          "person": "1sg",
+          "effective_preverb": ""
         },
         {
           "georgian": "დაკავებული მეწარმე იმოგზაურებს",
-          "english": "<strong data-role=\"subject\">The busy entrepreneur</strong> <strong data-role=\"verb\">will travel</strong>",
-          "english_plain": "The busy entrepreneur will travel",
-          "html": "<span data-case=\"nom\" data-role=\"subject\">დაკავებული მეწარმე</span> <span data-role=\"verb\">იმოგზაურებს</span>",
-          "case_marking": {
+          "georgian_components": {
             "subject": {
+              "text": "დაკავებული მეწარმე",
               "case": "nom",
-              "word": "მეწარმე"
+              "role": "subject"
+            },
+            "verb": {
+              "text": "იმოგზაურებს",
+              "role": "verb"
             }
           },
-          "georgian_verb_form": "იმოგზაურებს"
+          "english": "The busy businessman will travel",
+          "english_components": {
+            "subject": {
+              "text": "The busy businessman",
+              "role": "subject",
+              "person": "3sg"
+            },
+            "verb": {
+              "text": "will travel",
+              "role": "verb"
+            }
+          },
+          "georgian_verb_form": "იმოგზაურებს",
+          "person": "3sg",
+          "effective_preverb": ""
         },
         {
-          "georgian": "ბედნიერი ოჯახი იმოგზაურებენ",
-          "english": "<strong data-role=\"subject\">The happy family</strong> <strong data-role=\"verb\">will travel</strong>",
-          "english_plain": "The happy family will travel",
-          "html": "<span data-case=\"nom\" data-role=\"subject\">ბედნიერი ოჯახი</span> <span data-role=\"verb\">იმოგზაურებენ</span>",
-          "case_marking": {
+          "georgian": "ბედნიერი ოჯახები იმოგზაურებენ",
+          "georgian_components": {
             "subject": {
+              "text": "ბედნიერი ოჯახები",
               "case": "nom",
-              "word": "ოჯახი"
+              "role": "subject"
+            },
+            "verb": {
+              "text": "იმოგზაურებენ",
+              "role": "verb"
             }
           },
-          "georgian_verb_form": "იმოგზაურებენ"
+          "english": "The happy families will travel",
+          "english_components": {
+            "subject": {
+              "text": "The happy families",
+              "role": "subject",
+              "person": "3pl"
+            },
+            "verb": {
+              "text": "will travel",
+              "role": "verb"
+            }
+          },
+          "georgian_verb_form": "იმოგზაურებენ",
+          "person": "3pl",
+          "effective_preverb": ""
         }
       ],
       "aorist": [
         {
           "georgian": "ვიმოგზაურე",
-          "english": "<strong data-role=\"subject\" data-person=\"1sg\">I</strong> <strong data-role=\"verb\">traveled</strong>",
-          "english_plain": "I traveled",
-          "html": " <span data-role=\"verb\">ვიმოგზაურე</span>",
-          "case_marking": {},
-          "georgian_verb_form": "ვიმოგზაურე"
+          "georgian_components": {
+            "verb": {
+              "text": "ვიმოგზაურე",
+              "role": "verb"
+            }
+          },
+          "english": "I traveled",
+          "english_components": {
+            "subject": {
+              "text": "I",
+              "role": "subject",
+              "person": "1sg"
+            },
+            "verb": {
+              "text": "traveled",
+              "role": "verb"
+            }
+          },
+          "georgian_verb_form": "ვიმოგზაურე",
+          "person": "1sg",
+          "effective_preverb": ""
         },
         {
           "georgian": "დაკავებულმა მეწარმემ იმოგზაურა",
-          "english": "<strong data-role=\"subject\">The busy entrepreneur</strong> <strong data-role=\"verb\">traveled</strong>",
-          "english_plain": "The busy entrepreneur traveled",
-          "html": "<span data-case=\"erg\" data-role=\"subject\">დაკავებულმა მეწარმემ</span> <span data-role=\"verb\">იმოგზაურა</span>",
-          "case_marking": {
+          "georgian_components": {
             "subject": {
+              "text": "დაკავებულმა მეწარმემ",
               "case": "erg",
-              "word": "მეწარმემ"
+              "role": "subject"
+            },
+            "verb": {
+              "text": "იმოგზაურა",
+              "role": "verb"
             }
           },
-          "georgian_verb_form": "იმოგზაურა"
+          "english": "The busy businessman traveled",
+          "english_components": {
+            "subject": {
+              "text": "The busy businessman",
+              "role": "subject",
+              "person": "3sg"
+            },
+            "verb": {
+              "text": "traveled",
+              "role": "verb"
+            }
+          },
+          "georgian_verb_form": "იმოგზაურა",
+          "person": "3sg",
+          "effective_preverb": ""
         },
         {
-          "georgian": "ბედნიერმა ოჯახმა იმოგზაურეს",
-          "english": "<strong data-role=\"subject\">The happy family</strong> <strong data-role=\"verb\">traveled</strong>",
-          "english_plain": "The happy family traveled",
-          "html": "<span data-case=\"erg\" data-role=\"subject\">ბედნიერმა ოჯახმა</span> <span data-role=\"verb\">იმოგზაურეს</span>",
-          "case_marking": {
+          "georgian": "ბედნიერმა ოჯახებმა იმოგზაურეს",
+          "georgian_components": {
             "subject": {
+              "text": "ბედნიერმა ოჯახებმა",
               "case": "erg",
-              "word": "ოჯახმა"
+              "role": "subject"
+            },
+            "verb": {
+              "text": "იმოგზაურეს",
+              "role": "verb"
             }
           },
-          "georgian_verb_form": "იმოგზაურეს"
+          "english": "The happy families traveled",
+          "english_components": {
+            "subject": {
+              "text": "The happy families",
+              "role": "subject",
+              "person": "3pl"
+            },
+            "verb": {
+              "text": "traveled",
+              "role": "verb"
+            }
+          },
+          "georgian_verb_form": "იმოგზაურეს",
+          "person": "3pl",
+          "effective_preverb": ""
         }
       ],
       "optative": [
         {
           "georgian": "უნდა ვიმოგზაურო",
-          "english": "<strong data-role=\"subject\" data-person=\"1sg\">I</strong> <strong data-role=\"verb\">should</strong> <strong data-role=\"verb\">travel</strong>",
-          "english_plain": "I should travel",
-          "html": " <span data-role=\"verb\">უნდა ვიმოგზაურო</span>",
-          "case_marking": {},
-          "georgian_verb_form": "ვიმოგზაურო"
+          "georgian_components": {
+            "verb": {
+              "text": "უნდა ვიმოგზაურო",
+              "role": "verb"
+            }
+          },
+          "english": "I should travel",
+          "english_components": {
+            "subject": {
+              "text": "I",
+              "role": "subject",
+              "person": "1sg"
+            },
+            "verb": {
+              "text": "should travel",
+              "role": "verb"
+            }
+          },
+          "georgian_verb_form": "ვიმოგზაურო",
+          "person": "1sg",
+          "effective_preverb": ""
         },
         {
           "georgian": "დაკავებულმა მეწარმემ უნდა იმოგზაუროს",
-          "english": "<strong data-role=\"subject\">The busy entrepreneur</strong> <strong data-role=\"verb\">should</strong> <strong data-role=\"verb\">travel</strong>",
-          "english_plain": "The busy entrepreneur should travel",
-          "html": "<span data-case=\"erg\" data-role=\"subject\">დაკავებულმა მეწარმემ</span> <span data-role=\"verb\">უნდა იმოგზაუროს</span>",
-          "case_marking": {
+          "georgian_components": {
             "subject": {
+              "text": "დაკავებულმა მეწარმემ",
               "case": "erg",
-              "word": "მეწარმემ"
+              "role": "subject"
+            },
+            "verb": {
+              "text": "უნდა იმოგზაუროს",
+              "role": "verb"
             }
           },
-          "georgian_verb_form": "იმოგზაუროს"
+          "english": "The busy businessman should travel",
+          "english_components": {
+            "subject": {
+              "text": "The busy businessman",
+              "role": "subject",
+              "person": "3sg"
+            },
+            "verb": {
+              "text": "should travel",
+              "role": "verb"
+            }
+          },
+          "georgian_verb_form": "იმოგზაუროს",
+          "person": "3sg",
+          "effective_preverb": ""
         },
         {
-          "georgian": "ბედნიერმა ოჯახმა უნდა იმოგზაურონ",
-          "english": "<strong data-role=\"subject\">The happy family</strong> <strong data-role=\"verb\">should</strong> <strong data-role=\"verb\">travel</strong>",
-          "english_plain": "The happy family should travel",
-          "html": "<span data-case=\"erg\" data-role=\"subject\">ბედნიერმა ოჯახმა</span> <span data-role=\"verb\">უნდა იმოგზაურონ</span>",
-          "case_marking": {
+          "georgian": "ბედნიერმა ოჯახებმა უნდა იმოგზაურონ",
+          "georgian_components": {
             "subject": {
+              "text": "ბედნიერმა ოჯახებმა",
               "case": "erg",
-              "word": "ოჯახმა"
+              "role": "subject"
+            },
+            "verb": {
+              "text": "უნდა იმოგზაურონ",
+              "role": "verb"
             }
           },
-          "georgian_verb_form": "იმოგზაურონ"
+          "english": "The happy families should travel",
+          "english_components": {
+            "subject": {
+              "text": "The happy families",
+              "role": "subject",
+              "person": "3pl"
+            },
+            "verb": {
+              "text": "should travel",
+              "role": "verb"
+            }
+          },
+          "georgian_verb_form": "იმოგზაურონ",
+          "person": "3pl",
+          "effective_preverb": ""
         }
       ],
       "imperative": [
         {
           "georgian": "იმოგზაურე",
-          "english": "<strong data-role=\"verb\">travel</strong>",
-          "english_plain": "travel",
-          "html": " <span data-role=\"verb\">იმოგზაურე</span>",
-          "case_marking": {},
-          "georgian_verb_form": "იმოგზაურე"
+          "georgian_components": {
+            "verb": {
+              "text": "იმოგზაურე",
+              "role": "verb"
+            }
+          },
+          "english": "You, travel",
+          "english_components": {
+            "subject": {
+              "text": "You,",
+              "role": "subject",
+              "person": "2sg"
+            },
+            "verb": {
+              "text": "travel",
+              "role": "verb"
+            }
+          },
+          "georgian_verb_form": "იმოგზაურე",
+          "person": "2sg",
+          "effective_preverb": ""
         },
         {
           "georgian": "იმოგზაურეთ",
-          "english": "<strong data-role=\"verb\">travel</strong>",
-          "english_plain": "travel",
-          "html": " <span data-role=\"verb\">იმოგზაურეთ</span>",
-          "case_marking": {},
-          "georgian_verb_form": "იმოგზაურეთ"
+          "georgian_components": {
+            "verb": {
+              "text": "იმოგზაურეთ",
+              "role": "verb"
+            }
+          },
+          "english": "You all (you formal), travel",
+          "english_components": {
+            "subject": {
+              "text": "You all (you formal),",
+              "role": "subject",
+              "person": "2pl"
+            },
+            "verb": {
+              "text": "travel",
+              "role": "verb"
+            }
+          },
+          "georgian_verb_form": "იმოგზაურეთ",
+          "person": "2pl",
+          "effective_preverb": ""
         }
       ]
     }

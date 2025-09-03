@@ -124,207 +124,478 @@
   "preverb_rules": {
     "default": "",
     "replacements": {},
-    "tense_specific_fallbacks": {},
-    "english_fallbacks": {}
+    "tense_specific_fallbacks": {}
   },
   "examples": {
-    "null": {
+    "default": {
       "present": [
         {
           "georgian": "ვიბრძვი",
-          "english": "<strong data-role=\"subject\" data-person=\"1sg\">I</strong> <strong data-role=\"verb\">fight</strong>",
-          "english_plain": "I fight",
-          "html": " <span data-role=\"verb\">ვიბრძვი</span>",
-          "case_marking": {},
-          "georgian_verb_form": "ვიბრძვი"
+          "georgian_components": {
+            "verb": {
+              "text": "ვიბრძვი",
+              "role": "verb"
+            }
+          },
+          "english": "I fight",
+          "english_components": {
+            "subject": {
+              "text": "I",
+              "role": "subject",
+              "person": "1sg"
+            },
+            "verb": {
+              "text": "fight",
+              "role": "verb"
+            }
+          },
+          "georgian_verb_form": "ვიბრძვი",
+          "person": "1sg",
+          "effective_preverb": ""
         },
         {
           "georgian": "მამაცი ჯარისკაცი იბრძვის",
-          "english": "<strong data-role=\"subject\">The brave soldier</strong> <strong data-role=\"verb\">fights</strong>",
-          "english_plain": "The brave soldier fights",
-          "html": "<span data-case=\"nom\" data-role=\"subject\">მამაცი ჯარისკაცი</span> <span data-role=\"verb\">იბრძვის</span>",
-          "case_marking": {
+          "georgian_components": {
             "subject": {
+              "text": "მამაცი ჯარისკაცი",
               "case": "nom",
-              "word": "ჯარისკაცი"
+              "role": "subject"
+            },
+            "verb": {
+              "text": "იბრძვის",
+              "role": "verb"
             }
           },
-          "georgian_verb_form": "იბრძვის"
+          "english": "The brave soldier fights",
+          "english_components": {
+            "subject": {
+              "text": "The brave soldier",
+              "role": "subject",
+              "person": "3sg"
+            },
+            "verb": {
+              "text": "fights",
+              "role": "verb"
+            }
+          },
+          "georgian_verb_form": "იბრძვის",
+          "person": "3sg",
+          "effective_preverb": ""
         },
         {
-          "georgian": "ძლიერი მოკრივე იბრძვიან",
-          "english": "<strong data-role=\"subject\">The strong boxer</strong> <strong data-role=\"verb\">fight</strong>",
-          "english_plain": "The strong boxer fight",
-          "html": "<span data-case=\"nom\" data-role=\"subject\">ძლიერი მოკრივე</span> <span data-role=\"verb\">იბრძვიან</span>",
-          "case_marking": {
+          "georgian": "ძლიერი მოკრივეები იბრძვიან",
+          "georgian_components": {
             "subject": {
+              "text": "ძლიერი მოკრივეები",
               "case": "nom",
-              "word": "მოკრივე"
+              "role": "subject"
+            },
+            "verb": {
+              "text": "იბრძვიან",
+              "role": "verb"
             }
           },
-          "georgian_verb_form": "იბრძვიან"
+          "english": "The strong boxers fight",
+          "english_components": {
+            "subject": {
+              "text": "The strong boxers",
+              "role": "subject",
+              "person": "3pl"
+            },
+            "verb": {
+              "text": "fight",
+              "role": "verb"
+            }
+          },
+          "georgian_verb_form": "იბრძვიან",
+          "person": "3pl",
+          "effective_preverb": ""
         }
       ],
       "imperfect": [
         {
           "georgian": "ვიბრძოდი",
-          "english": "<strong data-role=\"subject\" data-person=\"1sg\">I</strong> <strong data-role=\"verb\">was fighting</strong>",
-          "english_plain": "I was fighting",
-          "html": " <span data-role=\"verb\">ვიბრძოდი</span>",
-          "case_marking": {},
-          "georgian_verb_form": "ვიბრძოდი"
+          "georgian_components": {
+            "verb": {
+              "text": "ვიბრძოდი",
+              "role": "verb"
+            }
+          },
+          "english": "I was fighting",
+          "english_components": {
+            "subject": {
+              "text": "I",
+              "role": "subject",
+              "person": "1sg"
+            },
+            "verb": {
+              "text": "was fighting",
+              "role": "verb"
+            }
+          },
+          "georgian_verb_form": "ვიბრძოდი",
+          "person": "1sg",
+          "effective_preverb": ""
         },
         {
           "georgian": "მამაცი ჯარისკაცი იბრძოდა",
-          "english": "<strong data-role=\"subject\">The brave soldier</strong> <strong data-role=\"verb\">was fighting</strong>",
-          "english_plain": "The brave soldier was fighting",
-          "html": "<span data-case=\"nom\" data-role=\"subject\">მამაცი ჯარისკაცი</span> <span data-role=\"verb\">იბრძოდა</span>",
-          "case_marking": {
+          "georgian_components": {
             "subject": {
+              "text": "მამაცი ჯარისკაცი",
               "case": "nom",
-              "word": "ჯარისკაცი"
+              "role": "subject"
+            },
+            "verb": {
+              "text": "იბრძოდა",
+              "role": "verb"
             }
           },
-          "georgian_verb_form": "იბრძოდა"
+          "english": "The brave soldier was fighting",
+          "english_components": {
+            "subject": {
+              "text": "The brave soldier",
+              "role": "subject",
+              "person": "3sg"
+            },
+            "verb": {
+              "text": "was fighting",
+              "role": "verb"
+            }
+          },
+          "georgian_verb_form": "იბრძოდა",
+          "person": "3sg",
+          "effective_preverb": ""
         },
         {
-          "georgian": "ძლიერი მოკრივე იბრძოდნენ",
-          "english": "<strong data-role=\"subject\">The strong boxer</strong> <strong data-role=\"verb\">were fighting</strong>",
-          "english_plain": "The strong boxer were fighting",
-          "html": "<span data-case=\"nom\" data-role=\"subject\">ძლიერი მოკრივე</span> <span data-role=\"verb\">იბრძოდნენ</span>",
-          "case_marking": {
+          "georgian": "ძლიერი მოკრივეები იბრძოდნენ",
+          "georgian_components": {
             "subject": {
+              "text": "ძლიერი მოკრივეები",
               "case": "nom",
-              "word": "მოკრივე"
+              "role": "subject"
+            },
+            "verb": {
+              "text": "იბრძოდნენ",
+              "role": "verb"
             }
           },
-          "georgian_verb_form": "იბრძოდნენ"
+          "english": "The strong boxers were fighting",
+          "english_components": {
+            "subject": {
+              "text": "The strong boxers",
+              "role": "subject",
+              "person": "3pl"
+            },
+            "verb": {
+              "text": "were fighting",
+              "role": "verb"
+            }
+          },
+          "georgian_verb_form": "იბრძოდნენ",
+          "person": "3pl",
+          "effective_preverb": ""
         }
       ],
       "future": [
         {
           "georgian": "ვიბრძოლებ",
-          "english": "<strong data-role=\"subject\" data-person=\"1sg\">I</strong> <strong data-role=\"verb\">will fight</strong>",
-          "english_plain": "I will fight",
-          "html": " <span data-role=\"verb\">ვიბრძოლებ</span>",
-          "case_marking": {},
-          "georgian_verb_form": "ვიბრძოლებ"
+          "georgian_components": {
+            "verb": {
+              "text": "ვიბრძოლებ",
+              "role": "verb"
+            }
+          },
+          "english": "I will fight",
+          "english_components": {
+            "subject": {
+              "text": "I",
+              "role": "subject",
+              "person": "1sg"
+            },
+            "verb": {
+              "text": "will fight",
+              "role": "verb"
+            }
+          },
+          "georgian_verb_form": "ვიბრძოლებ",
+          "person": "1sg",
+          "effective_preverb": ""
         },
         {
           "georgian": "მამაცი ჯარისკაცი იბრძოლებს",
-          "english": "<strong data-role=\"subject\">The brave soldier</strong> <strong data-role=\"verb\">will fight</strong>",
-          "english_plain": "The brave soldier will fight",
-          "html": "<span data-case=\"nom\" data-role=\"subject\">მამაცი ჯარისკაცი</span> <span data-role=\"verb\">იბრძოლებს</span>",
-          "case_marking": {
+          "georgian_components": {
             "subject": {
+              "text": "მამაცი ჯარისკაცი",
               "case": "nom",
-              "word": "ჯარისკაცი"
+              "role": "subject"
+            },
+            "verb": {
+              "text": "იბრძოლებს",
+              "role": "verb"
             }
           },
-          "georgian_verb_form": "იბრძოლებს"
+          "english": "The brave soldier will fight",
+          "english_components": {
+            "subject": {
+              "text": "The brave soldier",
+              "role": "subject",
+              "person": "3sg"
+            },
+            "verb": {
+              "text": "will fight",
+              "role": "verb"
+            }
+          },
+          "georgian_verb_form": "იბრძოლებს",
+          "person": "3sg",
+          "effective_preverb": ""
         },
         {
-          "georgian": "ძლიერი მოკრივე იბრძოლებენ",
-          "english": "<strong data-role=\"subject\">The strong boxer</strong> <strong data-role=\"verb\">will fight</strong>",
-          "english_plain": "The strong boxer will fight",
-          "html": "<span data-case=\"nom\" data-role=\"subject\">ძლიერი მოკრივე</span> <span data-role=\"verb\">იბრძოლებენ</span>",
-          "case_marking": {
+          "georgian": "ძლიერი მოკრივეები იბრძოლებენ",
+          "georgian_components": {
             "subject": {
+              "text": "ძლიერი მოკრივეები",
               "case": "nom",
-              "word": "მოკრივე"
+              "role": "subject"
+            },
+            "verb": {
+              "text": "იბრძოლებენ",
+              "role": "verb"
             }
           },
-          "georgian_verb_form": "იბრძოლებენ"
+          "english": "The strong boxers will fight",
+          "english_components": {
+            "subject": {
+              "text": "The strong boxers",
+              "role": "subject",
+              "person": "3pl"
+            },
+            "verb": {
+              "text": "will fight",
+              "role": "verb"
+            }
+          },
+          "georgian_verb_form": "იბრძოლებენ",
+          "person": "3pl",
+          "effective_preverb": ""
         }
       ],
       "aorist": [
         {
           "georgian": "ვიბრძოლე",
-          "english": "<strong data-role=\"subject\" data-person=\"1sg\">I</strong> <strong data-role=\"verb\">fought</strong>",
-          "english_plain": "I fought",
-          "html": " <span data-role=\"verb\">ვიბრძოლე</span>",
-          "case_marking": {},
-          "georgian_verb_form": "ვიბრძოლე"
+          "georgian_components": {
+            "verb": {
+              "text": "ვიბრძოლე",
+              "role": "verb"
+            }
+          },
+          "english": "I fought",
+          "english_components": {
+            "subject": {
+              "text": "I",
+              "role": "subject",
+              "person": "1sg"
+            },
+            "verb": {
+              "text": "fought",
+              "role": "verb"
+            }
+          },
+          "georgian_verb_form": "ვიბრძოლე",
+          "person": "1sg",
+          "effective_preverb": ""
         },
         {
           "georgian": "მამაცმა ჯარისკაცმა იბრძოლა",
-          "english": "<strong data-role=\"subject\">The brave soldier</strong> <strong data-role=\"verb\">fought</strong>",
-          "english_plain": "The brave soldier fought",
-          "html": "<span data-case=\"erg\" data-role=\"subject\">მამაცმა ჯარისკაცმა</span> <span data-role=\"verb\">იბრძოლა</span>",
-          "case_marking": {
+          "georgian_components": {
             "subject": {
+              "text": "მამაცმა ჯარისკაცმა",
               "case": "erg",
-              "word": "ჯარისკაცმა"
+              "role": "subject"
+            },
+            "verb": {
+              "text": "იბრძოლა",
+              "role": "verb"
             }
           },
-          "georgian_verb_form": "იბრძოლა"
+          "english": "The brave soldier fought",
+          "english_components": {
+            "subject": {
+              "text": "The brave soldier",
+              "role": "subject",
+              "person": "3sg"
+            },
+            "verb": {
+              "text": "fought",
+              "role": "verb"
+            }
+          },
+          "georgian_verb_form": "იბრძოლა",
+          "person": "3sg",
+          "effective_preverb": ""
         },
         {
-          "georgian": "ძლიერმა მოკრივემ იბრძოლეს",
-          "english": "<strong data-role=\"subject\">The strong boxer</strong> <strong data-role=\"verb\">fought</strong>",
-          "english_plain": "The strong boxer fought",
-          "html": "<span data-case=\"erg\" data-role=\"subject\">ძლიერმა მოკრივემ</span> <span data-role=\"verb\">იბრძოლეს</span>",
-          "case_marking": {
+          "georgian": "ძლიერმა მოკრივეებმა იბრძოლეს",
+          "georgian_components": {
             "subject": {
+              "text": "ძლიერმა მოკრივეებმა",
               "case": "erg",
-              "word": "მოკრივემ"
+              "role": "subject"
+            },
+            "verb": {
+              "text": "იბრძოლეს",
+              "role": "verb"
             }
           },
-          "georgian_verb_form": "იბრძოლეს"
+          "english": "The strong boxers fought",
+          "english_components": {
+            "subject": {
+              "text": "The strong boxers",
+              "role": "subject",
+              "person": "3pl"
+            },
+            "verb": {
+              "text": "fought",
+              "role": "verb"
+            }
+          },
+          "georgian_verb_form": "იბრძოლეს",
+          "person": "3pl",
+          "effective_preverb": ""
         }
       ],
       "optative": [
         {
           "georgian": "უნდა ვიბრძოლო",
-          "english": "<strong data-role=\"subject\" data-person=\"1sg\">I</strong> <strong data-role=\"verb\">should</strong> <strong data-role=\"verb\">fight</strong>",
-          "english_plain": "I should fight",
-          "html": " <span data-role=\"verb\">უნდა ვიბრძოლო</span>",
-          "case_marking": {},
-          "georgian_verb_form": "ვიბრძოლო"
+          "georgian_components": {
+            "verb": {
+              "text": "უნდა ვიბრძოლო",
+              "role": "verb"
+            }
+          },
+          "english": "I should fight",
+          "english_components": {
+            "subject": {
+              "text": "I",
+              "role": "subject",
+              "person": "1sg"
+            },
+            "verb": {
+              "text": "should fight",
+              "role": "verb"
+            }
+          },
+          "georgian_verb_form": "ვიბრძოლო",
+          "person": "1sg",
+          "effective_preverb": ""
         },
         {
           "georgian": "მამაცმა ჯარისკაცმა უნდა იბრძოლოს",
-          "english": "<strong data-role=\"subject\">The brave soldier</strong> <strong data-role=\"verb\">should</strong> <strong data-role=\"verb\">fight</strong>",
-          "english_plain": "The brave soldier should fight",
-          "html": "<span data-case=\"erg\" data-role=\"subject\">მამაცმა ჯარისკაცმა</span> <span data-role=\"verb\">უნდა იბრძოლოს</span>",
-          "case_marking": {
+          "georgian_components": {
             "subject": {
+              "text": "მამაცმა ჯარისკაცმა",
               "case": "erg",
-              "word": "ჯარისკაცმა"
+              "role": "subject"
+            },
+            "verb": {
+              "text": "უნდა იბრძოლოს",
+              "role": "verb"
             }
           },
-          "georgian_verb_form": "იბრძოლოს"
+          "english": "The brave soldier should fight",
+          "english_components": {
+            "subject": {
+              "text": "The brave soldier",
+              "role": "subject",
+              "person": "3sg"
+            },
+            "verb": {
+              "text": "should fight",
+              "role": "verb"
+            }
+          },
+          "georgian_verb_form": "იბრძოლოს",
+          "person": "3sg",
+          "effective_preverb": ""
         },
         {
-          "georgian": "ძლიერმა მოკრივემ უნდა იბრძოლონ",
-          "english": "<strong data-role=\"subject\">The strong boxer</strong> <strong data-role=\"verb\">should</strong> <strong data-role=\"verb\">fight</strong>",
-          "english_plain": "The strong boxer should fight",
-          "html": "<span data-case=\"erg\" data-role=\"subject\">ძლიერმა მოკრივემ</span> <span data-role=\"verb\">უნდა იბრძოლონ</span>",
-          "case_marking": {
+          "georgian": "ძლიერმა მოკრივეებმა უნდა იბრძოლონ",
+          "georgian_components": {
             "subject": {
+              "text": "ძლიერმა მოკრივეებმა",
               "case": "erg",
-              "word": "მოკრივემ"
+              "role": "subject"
+            },
+            "verb": {
+              "text": "უნდა იბრძოლონ",
+              "role": "verb"
             }
           },
-          "georgian_verb_form": "იბრძოლონ"
+          "english": "The strong boxers should fight",
+          "english_components": {
+            "subject": {
+              "text": "The strong boxers",
+              "role": "subject",
+              "person": "3pl"
+            },
+            "verb": {
+              "text": "should fight",
+              "role": "verb"
+            }
+          },
+          "georgian_verb_form": "იბრძოლონ",
+          "person": "3pl",
+          "effective_preverb": ""
         }
       ],
       "imperative": [
         {
           "georgian": "იბრძოლე",
-          "english": "<strong data-role=\"verb\">fight</strong>",
-          "english_plain": "fight",
-          "html": " <span data-role=\"verb\">იბრძოლე</span>",
-          "case_marking": {},
-          "georgian_verb_form": "იბრძოლე"
+          "georgian_components": {
+            "verb": {
+              "text": "იბრძოლე",
+              "role": "verb"
+            }
+          },
+          "english": "You, fight",
+          "english_components": {
+            "subject": {
+              "text": "You,",
+              "role": "subject",
+              "person": "2sg"
+            },
+            "verb": {
+              "text": "fight",
+              "role": "verb"
+            }
+          },
+          "georgian_verb_form": "იბრძოლე",
+          "person": "2sg",
+          "effective_preverb": ""
         },
         {
           "georgian": "იბრძოლეთ",
-          "english": "<strong data-role=\"verb\">fight</strong>",
-          "english_plain": "fight",
-          "html": " <span data-role=\"verb\">იბრძოლეთ</span>",
-          "case_marking": {},
-          "georgian_verb_form": "იბრძოლეთ"
+          "georgian_components": {
+            "verb": {
+              "text": "იბრძოლეთ",
+              "role": "verb"
+            }
+          },
+          "english": "You all (you formal), fight",
+          "english_components": {
+            "subject": {
+              "text": "You all (you formal),",
+              "role": "subject",
+              "person": "2pl"
+            },
+            "verb": {
+              "text": "fight",
+              "role": "verb"
+            }
+          },
+          "georgian_verb_form": "იბრძოლეთ",
+          "person": "2pl",
+          "effective_preverb": ""
         }
       ]
     }

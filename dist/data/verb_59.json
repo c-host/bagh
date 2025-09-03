@@ -152,282 +152,631 @@
   "preverb_rules": {
     "default": "და",
     "replacements": {},
-    "tense_specific_fallbacks": {},
-    "english_fallbacks": {}
+    "tense_specific_fallbacks": {}
   },
   "examples": {
-    "null": {
+    "default": {
       "present": [
         {
-          "georgian": "ჭუჭყიან ხელს ვბან",
-          "english": "<strong data-role=\"subject\" data-person=\"1sg\">I</strong> <strong data-role=\"verb\">bath</strong> <strong data-role=\"direct-object\">the dirty hand</strong>",
-          "english_plain": "I bath the dirty hand",
-          "html": "<span data-case=\"dat\" data-role=\"direct-object\">ჭუჭყიან ხელს</span> <span data-role=\"verb\">ვბან</span>",
-          "case_marking": {
-            "direct_object": {
-              "case": "dat",
-              "word": "ხელს"
-            }
-          },
-          "georgian_verb_form": "ვბან"
-        },
-        {
-          "georgian": "კეთილი დედა პატარა ბავშვს ბანს",
-          "english": "<strong data-role=\"subject\">The kind mother</strong> <strong data-role=\"verb\">baths</strong> <strong data-role=\"direct-object\">the small baby</strong>",
-          "english_plain": "The kind mother baths the small baby",
-          "html": "<span data-case=\"nom\" data-role=\"subject\">კეთილი დედა</span> <span data-case=\"dat\" data-role=\"direct-object\">პატარა ბავშვს</span> <span data-role=\"verb\">ბანს</span>",
-          "case_marking": {
-            "subject": {
-              "case": "nom",
-              "word": "დედა"
+          "georgian": "ვბან ჭუჭყიან ხელს",
+          "georgian_components": {
+            "verb": {
+              "text": "ვბან",
+              "role": "verb"
             },
             "direct_object": {
+              "text": "ჭუჭყიან ხელს",
               "case": "dat",
-              "word": "ბავშვს"
+              "role": "direct_object"
             }
           },
-          "georgian_verb_form": "ბანს"
-        },
-        {
-          "georgian": "ფრთხილი ვეტერინარი დიდ ძაღლს ბანენ",
-          "english": "<strong data-role=\"subject\">The careful veterinarian</strong> <strong data-role=\"verb\">bath</strong> <strong data-role=\"direct-object\">the big dog</strong>",
-          "english_plain": "The careful veterinarian bath the big dog",
-          "html": "<span data-case=\"nom\" data-role=\"subject\">ფრთხილი ვეტერინარი</span> <span data-case=\"dat\" data-role=\"direct-object\">დიდ ძაღლს</span> <span data-role=\"verb\">ბანენ</span>",
-          "case_marking": {
+          "english": "I bath the dirty hand",
+          "english_components": {
             "subject": {
-              "case": "nom",
-              "word": "ვეტერინარი"
+              "text": "I",
+              "role": "subject",
+              "person": "1sg"
+            },
+            "verb": {
+              "text": "bath",
+              "role": "verb"
             },
             "direct_object": {
-              "case": "dat",
-              "word": "ძაღლს"
+              "text": "the dirty hand",
+              "role": "direct_object"
             }
           },
-          "georgian_verb_form": "ბანენ"
+          "georgian_verb_form": "ვბან",
+          "person": "1sg",
+          "effective_preverb": "და"
+        },
+        {
+          "georgian": "კეთილი დედა ბანს პატარა ბავშვს",
+          "georgian_components": {
+            "subject": {
+              "text": "კეთილი დედა",
+              "case": "nom",
+              "role": "subject"
+            },
+            "verb": {
+              "text": "ბანს",
+              "role": "verb"
+            },
+            "direct_object": {
+              "text": "პატარა ბავშვს",
+              "case": "dat",
+              "role": "direct_object"
+            }
+          },
+          "english": "The kind mother baths the small baby",
+          "english_components": {
+            "subject": {
+              "text": "The kind mother",
+              "role": "subject",
+              "person": "3sg"
+            },
+            "verb": {
+              "text": "baths",
+              "role": "verb"
+            },
+            "direct_object": {
+              "text": "the small baby",
+              "role": "direct_object"
+            }
+          },
+          "georgian_verb_form": "ბანს",
+          "person": "3sg",
+          "effective_preverb": "და"
+        },
+        {
+          "georgian": "ფრთხილი ვეტერინარები ბანენ დიდ ძაღლს",
+          "georgian_components": {
+            "subject": {
+              "text": "ფრთხილი ვეტერინარები",
+              "case": "nom",
+              "role": "subject"
+            },
+            "verb": {
+              "text": "ბანენ",
+              "role": "verb"
+            },
+            "direct_object": {
+              "text": "დიდ ძაღლს",
+              "case": "dat",
+              "role": "direct_object"
+            }
+          },
+          "english": "The careful veterinarians bath the big dog",
+          "english_components": {
+            "subject": {
+              "text": "The careful veterinarians",
+              "role": "subject",
+              "person": "3pl"
+            },
+            "verb": {
+              "text": "bath",
+              "role": "verb"
+            },
+            "direct_object": {
+              "text": "the big dog",
+              "role": "direct_object"
+            }
+          },
+          "georgian_verb_form": "ბანენ",
+          "person": "3pl",
+          "effective_preverb": "და"
         }
       ],
       "imperfect": [
         {
-          "georgian": "ჭუჭყიან ხელს ვბანდი",
-          "english": "<strong data-role=\"subject\" data-person=\"1sg\">I</strong> <strong data-role=\"verb\">was bathing</strong> <strong data-role=\"direct-object\">the dirty hand</strong>",
-          "english_plain": "I was bathing the dirty hand",
-          "html": "<span data-case=\"dat\" data-role=\"direct-object\">ჭუჭყიან ხელს</span> <span data-role=\"verb\">ვბანდი</span>",
-          "case_marking": {
-            "direct_object": {
-              "case": "dat",
-              "word": "ხელს"
-            }
-          },
-          "georgian_verb_form": "ვბანდი"
-        },
-        {
-          "georgian": "კეთილი დედა პატარა ბავშვს ბანდა",
-          "english": "<strong data-role=\"subject\">The kind mother</strong> <strong data-role=\"verb\">was bathing</strong> <strong data-role=\"direct-object\">the small baby</strong>",
-          "english_plain": "The kind mother was bathing the small baby",
-          "html": "<span data-case=\"nom\" data-role=\"subject\">კეთილი დედა</span> <span data-case=\"dat\" data-role=\"direct-object\">პატარა ბავშვს</span> <span data-role=\"verb\">ბანდა</span>",
-          "case_marking": {
-            "subject": {
-              "case": "nom",
-              "word": "დედა"
+          "georgian": "ვბანდი ჭუჭყიან ხელს",
+          "georgian_components": {
+            "verb": {
+              "text": "ვბანდი",
+              "role": "verb"
             },
             "direct_object": {
+              "text": "ჭუჭყიან ხელს",
               "case": "dat",
-              "word": "ბავშვს"
+              "role": "direct_object"
             }
           },
-          "georgian_verb_form": "ბანდა"
-        },
-        {
-          "georgian": "ფრთხილი ვეტერინარი დიდ ძაღლს ბანდნენ",
-          "english": "<strong data-role=\"subject\">The careful veterinarian</strong> <strong data-role=\"verb\">were bathing</strong> <strong data-role=\"direct-object\">the big dog</strong>",
-          "english_plain": "The careful veterinarian were bathing the big dog",
-          "html": "<span data-case=\"nom\" data-role=\"subject\">ფრთხილი ვეტერინარი</span> <span data-case=\"dat\" data-role=\"direct-object\">დიდ ძაღლს</span> <span data-role=\"verb\">ბანდნენ</span>",
-          "case_marking": {
+          "english": "I was bathing the dirty hand",
+          "english_components": {
             "subject": {
-              "case": "nom",
-              "word": "ვეტერინარი"
+              "text": "I",
+              "role": "subject",
+              "person": "1sg"
+            },
+            "verb": {
+              "text": "was bathing",
+              "role": "verb"
             },
             "direct_object": {
-              "case": "dat",
-              "word": "ძაღლს"
+              "text": "the dirty hand",
+              "role": "direct_object"
             }
           },
-          "georgian_verb_form": "ბანდნენ"
+          "georgian_verb_form": "ვბანდი",
+          "person": "1sg",
+          "effective_preverb": "და"
+        },
+        {
+          "georgian": "კეთილი დედა ბანდა პატარა ბავშვს",
+          "georgian_components": {
+            "subject": {
+              "text": "კეთილი დედა",
+              "case": "nom",
+              "role": "subject"
+            },
+            "verb": {
+              "text": "ბანდა",
+              "role": "verb"
+            },
+            "direct_object": {
+              "text": "პატარა ბავშვს",
+              "case": "dat",
+              "role": "direct_object"
+            }
+          },
+          "english": "The kind mother was bathing the small baby",
+          "english_components": {
+            "subject": {
+              "text": "The kind mother",
+              "role": "subject",
+              "person": "3sg"
+            },
+            "verb": {
+              "text": "was bathing",
+              "role": "verb"
+            },
+            "direct_object": {
+              "text": "the small baby",
+              "role": "direct_object"
+            }
+          },
+          "georgian_verb_form": "ბანდა",
+          "person": "3sg",
+          "effective_preverb": "და"
+        },
+        {
+          "georgian": "ფრთხილი ვეტერინარები ბანდნენ დიდ ძაღლს",
+          "georgian_components": {
+            "subject": {
+              "text": "ფრთხილი ვეტერინარები",
+              "case": "nom",
+              "role": "subject"
+            },
+            "verb": {
+              "text": "ბანდნენ",
+              "role": "verb"
+            },
+            "direct_object": {
+              "text": "დიდ ძაღლს",
+              "case": "dat",
+              "role": "direct_object"
+            }
+          },
+          "english": "The careful veterinarians were bathing the big dog",
+          "english_components": {
+            "subject": {
+              "text": "The careful veterinarians",
+              "role": "subject",
+              "person": "3pl"
+            },
+            "verb": {
+              "text": "were bathing",
+              "role": "verb"
+            },
+            "direct_object": {
+              "text": "the big dog",
+              "role": "direct_object"
+            }
+          },
+          "georgian_verb_form": "ბანდნენ",
+          "person": "3pl",
+          "effective_preverb": "და"
         }
       ],
       "future": [
         {
-          "georgian": "ჭუჭყიან ხელს დავბან",
-          "english": "<strong data-role=\"subject\" data-person=\"1sg\">I</strong> <strong data-role=\"verb\">will bath</strong> <strong data-role=\"direct-object\">the dirty hand</strong>",
-          "english_plain": "I will bath the dirty hand",
-          "html": "<span data-case=\"dat\" data-role=\"direct-object\">ჭუჭყიან ხელს</span> <span data-role=\"verb\">დავბან</span>",
-          "case_marking": {
-            "direct_object": {
-              "case": "dat",
-              "word": "ხელს"
-            }
-          },
-          "georgian_verb_form": "დავბან"
-        },
-        {
-          "georgian": "კეთილი დედა პატარა ბავშვს დაბანს",
-          "english": "<strong data-role=\"subject\">The kind mother</strong> <strong data-role=\"verb\">will bath</strong> <strong data-role=\"direct-object\">the small baby</strong>",
-          "english_plain": "The kind mother will bath the small baby",
-          "html": "<span data-case=\"nom\" data-role=\"subject\">კეთილი დედა</span> <span data-case=\"dat\" data-role=\"direct-object\">პატარა ბავშვს</span> <span data-role=\"verb\">დაბანს</span>",
-          "case_marking": {
-            "subject": {
-              "case": "nom",
-              "word": "დედა"
+          "georgian": "დავბან ჭუჭყიან ხელს",
+          "georgian_components": {
+            "verb": {
+              "text": "დავბან",
+              "role": "verb"
             },
             "direct_object": {
+              "text": "ჭუჭყიან ხელს",
               "case": "dat",
-              "word": "ბავშვს"
+              "role": "direct_object"
             }
           },
-          "georgian_verb_form": "დაბანს"
-        },
-        {
-          "georgian": "ფრთხილი ვეტერინარი დიდ ძაღლს დაბანენ",
-          "english": "<strong data-role=\"subject\">The careful veterinarian</strong> <strong data-role=\"verb\">will bath</strong> <strong data-role=\"direct-object\">the big dog</strong>",
-          "english_plain": "The careful veterinarian will bath the big dog",
-          "html": "<span data-case=\"nom\" data-role=\"subject\">ფრთხილი ვეტერინარი</span> <span data-case=\"dat\" data-role=\"direct-object\">დიდ ძაღლს</span> <span data-role=\"verb\">დაბანენ</span>",
-          "case_marking": {
+          "english": "I will bath the dirty hand",
+          "english_components": {
             "subject": {
-              "case": "nom",
-              "word": "ვეტერინარი"
+              "text": "I",
+              "role": "subject",
+              "person": "1sg"
+            },
+            "verb": {
+              "text": "will bath",
+              "role": "verb"
             },
             "direct_object": {
-              "case": "dat",
-              "word": "ძაღლს"
+              "text": "the dirty hand",
+              "role": "direct_object"
             }
           },
-          "georgian_verb_form": "დაბანენ"
+          "georgian_verb_form": "დავბან",
+          "person": "1sg",
+          "effective_preverb": "და"
+        },
+        {
+          "georgian": "კეთილი დედა დაბანს პატარა ბავშვს",
+          "georgian_components": {
+            "subject": {
+              "text": "კეთილი დედა",
+              "case": "nom",
+              "role": "subject"
+            },
+            "verb": {
+              "text": "დაბანს",
+              "role": "verb"
+            },
+            "direct_object": {
+              "text": "პატარა ბავშვს",
+              "case": "dat",
+              "role": "direct_object"
+            }
+          },
+          "english": "The kind mother will bath the small baby",
+          "english_components": {
+            "subject": {
+              "text": "The kind mother",
+              "role": "subject",
+              "person": "3sg"
+            },
+            "verb": {
+              "text": "will bath",
+              "role": "verb"
+            },
+            "direct_object": {
+              "text": "the small baby",
+              "role": "direct_object"
+            }
+          },
+          "georgian_verb_form": "დაბანს",
+          "person": "3sg",
+          "effective_preverb": "და"
+        },
+        {
+          "georgian": "ფრთხილი ვეტერინარები დაბანენ დიდ ძაღლს",
+          "georgian_components": {
+            "subject": {
+              "text": "ფრთხილი ვეტერინარები",
+              "case": "nom",
+              "role": "subject"
+            },
+            "verb": {
+              "text": "დაბანენ",
+              "role": "verb"
+            },
+            "direct_object": {
+              "text": "დიდ ძაღლს",
+              "case": "dat",
+              "role": "direct_object"
+            }
+          },
+          "english": "The careful veterinarians will bath the big dog",
+          "english_components": {
+            "subject": {
+              "text": "The careful veterinarians",
+              "role": "subject",
+              "person": "3pl"
+            },
+            "verb": {
+              "text": "will bath",
+              "role": "verb"
+            },
+            "direct_object": {
+              "text": "the big dog",
+              "role": "direct_object"
+            }
+          },
+          "georgian_verb_form": "დაბანენ",
+          "person": "3pl",
+          "effective_preverb": "და"
         }
       ],
       "aorist": [
         {
-          "georgian": "ჭუჭყიანი ხელი დავბანე",
-          "english": "<strong data-role=\"subject\" data-person=\"1sg\">I</strong> <strong data-role=\"verb\">bathed</strong> <strong data-role=\"direct-object\">the dirty hand</strong>",
-          "english_plain": "I bathed the dirty hand",
-          "html": "<span data-case=\"nom\" data-role=\"direct-object\">ჭუჭყიანი ხელი</span> <span data-role=\"verb\">დავბანე</span>",
-          "case_marking": {
-            "direct_object": {
-              "case": "nom",
-              "word": "ხელი"
-            }
-          },
-          "georgian_verb_form": "დავბანე"
-        },
-        {
-          "georgian": "კეთილმა დედამ პატარა ბავშვი დაბანა",
-          "english": "<strong data-role=\"subject\">The kind mother</strong> <strong data-role=\"verb\">bathed</strong> <strong data-role=\"direct-object\">the small baby</strong>",
-          "english_plain": "The kind mother bathed the small baby",
-          "html": "<span data-case=\"erg\" data-role=\"subject\">კეთილმა დედამ</span> <span data-case=\"nom\" data-role=\"direct-object\">პატარა ბავშვი</span> <span data-role=\"verb\">დაბანა</span>",
-          "case_marking": {
-            "subject": {
-              "case": "erg",
-              "word": "დედამ"
+          "georgian": "დავბანე ჭუჭყიანი ხელი",
+          "georgian_components": {
+            "verb": {
+              "text": "დავბანე",
+              "role": "verb"
             },
             "direct_object": {
+              "text": "ჭუჭყიანი ხელი",
               "case": "nom",
-              "word": "ბავშვი"
+              "role": "direct_object"
             }
           },
-          "georgian_verb_form": "დაბანა"
-        },
-        {
-          "georgian": "ფრთხილმა ვეტერინარმა დიდი ძაღლი დაბანეს",
-          "english": "<strong data-role=\"subject\">The careful veterinarian</strong> <strong data-role=\"verb\">bathed</strong> <strong data-role=\"direct-object\">the big dog</strong>",
-          "english_plain": "The careful veterinarian bathed the big dog",
-          "html": "<span data-case=\"erg\" data-role=\"subject\">ფრთხილმა ვეტერინარმა</span> <span data-case=\"nom\" data-role=\"direct-object\">დიდი ძაღლი</span> <span data-role=\"verb\">დაბანეს</span>",
-          "case_marking": {
+          "english": "I bathed the dirty hand",
+          "english_components": {
             "subject": {
-              "case": "erg",
-              "word": "ვეტერინარმა"
+              "text": "I",
+              "role": "subject",
+              "person": "1sg"
+            },
+            "verb": {
+              "text": "bathed",
+              "role": "verb"
             },
             "direct_object": {
-              "case": "nom",
-              "word": "ძაღლი"
+              "text": "the dirty hand",
+              "role": "direct_object"
             }
           },
-          "georgian_verb_form": "დაბანეს"
+          "georgian_verb_form": "დავბანე",
+          "person": "1sg",
+          "effective_preverb": "და"
+        },
+        {
+          "georgian": "კეთილმა დედამ დაბანა პატარა ბავშვი",
+          "georgian_components": {
+            "subject": {
+              "text": "კეთილმა დედამ",
+              "case": "erg",
+              "role": "subject"
+            },
+            "verb": {
+              "text": "დაბანა",
+              "role": "verb"
+            },
+            "direct_object": {
+              "text": "პატარა ბავშვი",
+              "case": "nom",
+              "role": "direct_object"
+            }
+          },
+          "english": "The kind mother bathed the small baby",
+          "english_components": {
+            "subject": {
+              "text": "The kind mother",
+              "role": "subject",
+              "person": "3sg"
+            },
+            "verb": {
+              "text": "bathed",
+              "role": "verb"
+            },
+            "direct_object": {
+              "text": "the small baby",
+              "role": "direct_object"
+            }
+          },
+          "georgian_verb_form": "დაბანა",
+          "person": "3sg",
+          "effective_preverb": "და"
+        },
+        {
+          "georgian": "ფრთხილმა ვეტერინარებმა დაბანეს დიდი ძაღლი",
+          "georgian_components": {
+            "subject": {
+              "text": "ფრთხილმა ვეტერინარებმა",
+              "case": "erg",
+              "role": "subject"
+            },
+            "verb": {
+              "text": "დაბანეს",
+              "role": "verb"
+            },
+            "direct_object": {
+              "text": "დიდი ძაღლი",
+              "case": "nom",
+              "role": "direct_object"
+            }
+          },
+          "english": "The careful veterinarians bathed the big dog",
+          "english_components": {
+            "subject": {
+              "text": "The careful veterinarians",
+              "role": "subject",
+              "person": "3pl"
+            },
+            "verb": {
+              "text": "bathed",
+              "role": "verb"
+            },
+            "direct_object": {
+              "text": "the big dog",
+              "role": "direct_object"
+            }
+          },
+          "georgian_verb_form": "დაბანეს",
+          "person": "3pl",
+          "effective_preverb": "და"
         }
       ],
       "optative": [
         {
-          "georgian": "ჭუჭყიანი ხელი უნდა დავბანო",
-          "english": "<strong data-role=\"subject\" data-person=\"1sg\">I</strong> <strong data-role=\"verb\">should</strong> <strong data-role=\"verb\">bath</strong> <strong data-role=\"direct-object\">the dirty hand</strong>",
-          "english_plain": "I should bath the dirty hand",
-          "html": "<span data-case=\"nom\" data-role=\"direct-object\">ჭუჭყიანი ხელი</span> <span data-role=\"verb\">უნდა დავბანო</span>",
-          "case_marking": {
-            "direct_object": {
-              "case": "nom",
-              "word": "ხელი"
-            }
-          },
-          "georgian_verb_form": "დავბანო"
-        },
-        {
-          "georgian": "კეთილმა დედამ პატარა ბავშვი უნდა დაბანოს",
-          "english": "<strong data-role=\"subject\">The kind mother</strong> <strong data-role=\"verb\">should</strong> <strong data-role=\"verb\">bath</strong> <strong data-role=\"direct-object\">the small baby</strong>",
-          "english_plain": "The kind mother should bath the small baby",
-          "html": "<span data-case=\"erg\" data-role=\"subject\">კეთილმა დედამ</span> <span data-case=\"nom\" data-role=\"direct-object\">პატარა ბავშვი</span> <span data-role=\"verb\">უნდა დაბანოს</span>",
-          "case_marking": {
-            "subject": {
-              "case": "erg",
-              "word": "დედამ"
+          "georgian": "უნდა დავბანო ჭუჭყიანი ხელი",
+          "georgian_components": {
+            "verb": {
+              "text": "უნდა დავბანო",
+              "role": "verb"
             },
             "direct_object": {
+              "text": "ჭუჭყიანი ხელი",
               "case": "nom",
-              "word": "ბავშვი"
+              "role": "direct_object"
             }
           },
-          "georgian_verb_form": "დაბანოს"
-        },
-        {
-          "georgian": "ფრთხილმა ვეტერინარმა დიდი ძაღლი უნდა დაბანონ",
-          "english": "<strong data-role=\"subject\">The careful veterinarian</strong> <strong data-role=\"verb\">should</strong> <strong data-role=\"verb\">bath</strong> <strong data-role=\"direct-object\">the big dog</strong>",
-          "english_plain": "The careful veterinarian should bath the big dog",
-          "html": "<span data-case=\"erg\" data-role=\"subject\">ფრთხილმა ვეტერინარმა</span> <span data-case=\"nom\" data-role=\"direct-object\">დიდი ძაღლი</span> <span data-role=\"verb\">უნდა დაბანონ</span>",
-          "case_marking": {
+          "english": "I should bath the dirty hand",
+          "english_components": {
             "subject": {
-              "case": "erg",
-              "word": "ვეტერინარმა"
+              "text": "I",
+              "role": "subject",
+              "person": "1sg"
+            },
+            "verb": {
+              "text": "should bath",
+              "role": "verb"
             },
             "direct_object": {
-              "case": "nom",
-              "word": "ძაღლი"
+              "text": "the dirty hand",
+              "role": "direct_object"
             }
           },
-          "georgian_verb_form": "დაბანონ"
+          "georgian_verb_form": "დავბანო",
+          "person": "1sg",
+          "effective_preverb": "და"
+        },
+        {
+          "georgian": "კეთილმა დედამ უნდა დაბანოს პატარა ბავშვი",
+          "georgian_components": {
+            "subject": {
+              "text": "კეთილმა დედამ",
+              "case": "erg",
+              "role": "subject"
+            },
+            "verb": {
+              "text": "უნდა დაბანოს",
+              "role": "verb"
+            },
+            "direct_object": {
+              "text": "პატარა ბავშვი",
+              "case": "nom",
+              "role": "direct_object"
+            }
+          },
+          "english": "The kind mother should bath the small baby",
+          "english_components": {
+            "subject": {
+              "text": "The kind mother",
+              "role": "subject",
+              "person": "3sg"
+            },
+            "verb": {
+              "text": "should bath",
+              "role": "verb"
+            },
+            "direct_object": {
+              "text": "the small baby",
+              "role": "direct_object"
+            }
+          },
+          "georgian_verb_form": "დაბანოს",
+          "person": "3sg",
+          "effective_preverb": "და"
+        },
+        {
+          "georgian": "ფრთხილმა ვეტერინარებმა უნდა დაბანონ დიდი ძაღლი",
+          "georgian_components": {
+            "subject": {
+              "text": "ფრთხილმა ვეტერინარებმა",
+              "case": "erg",
+              "role": "subject"
+            },
+            "verb": {
+              "text": "უნდა დაბანონ",
+              "role": "verb"
+            },
+            "direct_object": {
+              "text": "დიდი ძაღლი",
+              "case": "nom",
+              "role": "direct_object"
+            }
+          },
+          "english": "The careful veterinarians should bath the big dog",
+          "english_components": {
+            "subject": {
+              "text": "The careful veterinarians",
+              "role": "subject",
+              "person": "3pl"
+            },
+            "verb": {
+              "text": "should bath",
+              "role": "verb"
+            },
+            "direct_object": {
+              "text": "the big dog",
+              "role": "direct_object"
+            }
+          },
+          "georgian_verb_form": "დაბანონ",
+          "person": "3pl",
+          "effective_preverb": "და"
         }
       ],
       "imperative": [
         {
-          "georgian": "ზეთოვანი სახე დაბანე",
-          "english": "<strong data-role=\"verb\">bath</strong> <strong data-role=\"direct-object\">the oily face</strong>",
-          "english_plain": "bath the oily face",
-          "html": "<span data-case=\"nom\" data-role=\"direct-object\">ზეთოვანი სახე</span> <span data-role=\"verb\">დაბანე</span>",
-          "case_marking": {
+          "georgian": "დაბანე ზეთოვანი სახე",
+          "georgian_components": {
+            "verb": {
+              "text": "დაბანე",
+              "role": "verb"
+            },
             "direct_object": {
+              "text": "ზეთოვანი სახე",
               "case": "nom",
-              "word": "სახე"
+              "role": "direct_object"
             }
           },
-          "georgian_verb_form": "დაბანე"
+          "english": "You, bath the oily face",
+          "english_components": {
+            "subject": {
+              "text": "You,",
+              "role": "subject",
+              "person": "2sg"
+            },
+            "verb": {
+              "text": "bath",
+              "role": "verb"
+            },
+            "direct_object": {
+              "text": "the oily face",
+              "role": "direct_object"
+            }
+          },
+          "georgian_verb_form": "დაბანე",
+          "person": "2sg",
+          "effective_preverb": "და"
         },
         {
-          "georgian": "მშრალი ფეხი დაბანეთ",
-          "english": "<strong data-role=\"verb\">bath</strong> <strong data-role=\"direct-object\">the dry foot</strong>",
-          "english_plain": "bath the dry foot",
-          "html": "<span data-case=\"nom\" data-role=\"direct-object\">მშრალი ფეხი</span> <span data-role=\"verb\">დაბანეთ</span>",
-          "case_marking": {
+          "georgian": "დაბანეთ მშრალი ფეხი",
+          "georgian_components": {
+            "verb": {
+              "text": "დაბანეთ",
+              "role": "verb"
+            },
             "direct_object": {
+              "text": "მშრალი ფეხი",
               "case": "nom",
-              "word": "ფეხი"
+              "role": "direct_object"
             }
           },
-          "georgian_verb_form": "დაბანეთ"
+          "english": "You all (you formal), bath the dry foot",
+          "english_components": {
+            "subject": {
+              "text": "You all (you formal),",
+              "role": "subject",
+              "person": "2pl"
+            },
+            "verb": {
+              "text": "bath",
+              "role": "verb"
+            },
+            "direct_object": {
+              "text": "the dry foot",
+              "role": "direct_object"
+            }
+          },
+          "georgian_verb_form": "დაბანეთ",
+          "person": "2pl",
+          "effective_preverb": "და"
         }
       ]
     }

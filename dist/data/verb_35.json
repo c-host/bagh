@@ -152,282 +152,631 @@
   "preverb_rules": {
     "default": "",
     "replacements": {},
-    "tense_specific_fallbacks": {},
-    "english_fallbacks": {}
+    "tense_specific_fallbacks": {}
   },
   "examples": {
-    "null": {
+    "default": {
       "present": [
         {
-          "georgian": "ძველ წიგნს ვყიდი",
-          "english": "<strong data-role=\"subject\" data-person=\"1sg\">I</strong> <strong data-role=\"verb\">sell</strong> <strong data-role=\"direct-object\">the old book</strong>",
-          "english_plain": "I sell the old book",
-          "html": "<span data-case=\"dat\" data-role=\"direct-object\">ძველ წიგნს</span> <span data-role=\"verb\">ვყიდი</span>",
-          "case_marking": {
-            "direct_object": {
-              "case": "dat",
-              "word": "წიგნს"
-            }
-          },
-          "georgian_verb_form": "ვყიდი"
-        },
-        {
-          "georgian": "მეგობრული მცხობელი ცხელ პურს ყიდის",
-          "english": "<strong data-role=\"subject\">The friendly baker</strong> <strong data-role=\"verb\">sells</strong> <strong data-role=\"direct-object\">the hot bread</strong>",
-          "english_plain": "The friendly baker sells the hot bread",
-          "html": "<span data-case=\"nom\" data-role=\"subject\">მეგობრული მცხობელი</span> <span data-case=\"dat\" data-role=\"direct-object\">ცხელ პურს</span> <span data-role=\"verb\">ყიდის</span>",
-          "case_marking": {
-            "subject": {
-              "case": "nom",
-              "word": "მცხობელი"
+          "georgian": "ვყიდი ძველ წიგნს",
+          "georgian_components": {
+            "verb": {
+              "text": "ვყიდი",
+              "role": "verb"
             },
             "direct_object": {
+              "text": "ძველ წიგნს",
               "case": "dat",
-              "word": "პურს"
+              "role": "direct_object"
             }
           },
-          "georgian_verb_form": "ყიდის"
-        },
-        {
-          "georgian": "დაკავებული ბაზარი ტკბილ ხილს ყიდიან",
-          "english": "<strong data-role=\"subject\">The busy market</strong> <strong data-role=\"verb\">sell</strong> <strong data-role=\"direct-object\">the sweet fruit</strong>",
-          "english_plain": "The busy market sell the sweet fruit",
-          "html": "<span data-case=\"nom\" data-role=\"subject\">დაკავებული ბაზარი</span> <span data-case=\"dat\" data-role=\"direct-object\">ტკბილ ხილს</span> <span data-role=\"verb\">ყიდიან</span>",
-          "case_marking": {
+          "english": "I sell the old book",
+          "english_components": {
             "subject": {
-              "case": "nom",
-              "word": "ბაზარი"
+              "text": "I",
+              "role": "subject",
+              "person": "1sg"
+            },
+            "verb": {
+              "text": "sell",
+              "role": "verb"
             },
             "direct_object": {
-              "case": "dat",
-              "word": "ხილს"
+              "text": "the old book",
+              "role": "direct_object"
             }
           },
-          "georgian_verb_form": "ყიდიან"
+          "georgian_verb_form": "ვყიდი",
+          "person": "1sg",
+          "effective_preverb": "გა"
+        },
+        {
+          "georgian": "მეგობრული მცხობელი ყიდის ცხელ პურს",
+          "georgian_components": {
+            "subject": {
+              "text": "მეგობრული მცხობელი",
+              "case": "nom",
+              "role": "subject"
+            },
+            "verb": {
+              "text": "ყიდის",
+              "role": "verb"
+            },
+            "direct_object": {
+              "text": "ცხელ პურს",
+              "case": "dat",
+              "role": "direct_object"
+            }
+          },
+          "english": "The friendly baker sells the hot bread",
+          "english_components": {
+            "subject": {
+              "text": "The friendly baker",
+              "role": "subject",
+              "person": "3sg"
+            },
+            "verb": {
+              "text": "sells",
+              "role": "verb"
+            },
+            "direct_object": {
+              "text": "the hot bread",
+              "role": "direct_object"
+            }
+          },
+          "georgian_verb_form": "ყიდის",
+          "person": "3sg",
+          "effective_preverb": "გა"
+        },
+        {
+          "georgian": "დაკავებული ბაზრები ყიდიან ტკბილ ხილს",
+          "georgian_components": {
+            "subject": {
+              "text": "დაკავებული ბაზრები",
+              "case": "nom",
+              "role": "subject"
+            },
+            "verb": {
+              "text": "ყიდიან",
+              "role": "verb"
+            },
+            "direct_object": {
+              "text": "ტკბილ ხილს",
+              "case": "dat",
+              "role": "direct_object"
+            }
+          },
+          "english": "The busy markets sell the sweet fruit",
+          "english_components": {
+            "subject": {
+              "text": "The busy markets",
+              "role": "subject",
+              "person": "3pl"
+            },
+            "verb": {
+              "text": "sell",
+              "role": "verb"
+            },
+            "direct_object": {
+              "text": "the sweet fruit",
+              "role": "direct_object"
+            }
+          },
+          "georgian_verb_form": "ყიდიან",
+          "person": "3pl",
+          "effective_preverb": "გა"
         }
       ],
       "imperfect": [
         {
-          "georgian": "ძველ წიგნს ვყიდდი",
-          "english": "<strong data-role=\"subject\" data-person=\"1sg\">I</strong> <strong data-role=\"verb\">was selling</strong> <strong data-role=\"direct-object\">the old book</strong>",
-          "english_plain": "I was selling the old book",
-          "html": "<span data-case=\"dat\" data-role=\"direct-object\">ძველ წიგნს</span> <span data-role=\"verb\">ვყიდდი</span>",
-          "case_marking": {
-            "direct_object": {
-              "case": "dat",
-              "word": "წიგნს"
-            }
-          },
-          "georgian_verb_form": "ვყიდდი"
-        },
-        {
-          "georgian": "მეგობრული მცხობელი ცხელ პურს ყიდდა",
-          "english": "<strong data-role=\"subject\">The friendly baker</strong> <strong data-role=\"verb\">was selling</strong> <strong data-role=\"direct-object\">the hot bread</strong>",
-          "english_plain": "The friendly baker was selling the hot bread",
-          "html": "<span data-case=\"nom\" data-role=\"subject\">მეგობრული მცხობელი</span> <span data-case=\"dat\" data-role=\"direct-object\">ცხელ პურს</span> <span data-role=\"verb\">ყიდდა</span>",
-          "case_marking": {
-            "subject": {
-              "case": "nom",
-              "word": "მცხობელი"
+          "georgian": "ვყიდდი ძველ წიგნს",
+          "georgian_components": {
+            "verb": {
+              "text": "ვყიდდი",
+              "role": "verb"
             },
             "direct_object": {
+              "text": "ძველ წიგნს",
               "case": "dat",
-              "word": "პურს"
+              "role": "direct_object"
             }
           },
-          "georgian_verb_form": "ყიდდა"
-        },
-        {
-          "georgian": "დაკავებული ბაზარი ტკბილ ხილს ყიდდნენ",
-          "english": "<strong data-role=\"subject\">The busy market</strong> <strong data-role=\"verb\">were selling</strong> <strong data-role=\"direct-object\">the sweet fruit</strong>",
-          "english_plain": "The busy market were selling the sweet fruit",
-          "html": "<span data-case=\"nom\" data-role=\"subject\">დაკავებული ბაზარი</span> <span data-case=\"dat\" data-role=\"direct-object\">ტკბილ ხილს</span> <span data-role=\"verb\">ყიდდნენ</span>",
-          "case_marking": {
+          "english": "I was selling the old book",
+          "english_components": {
             "subject": {
-              "case": "nom",
-              "word": "ბაზარი"
+              "text": "I",
+              "role": "subject",
+              "person": "1sg"
+            },
+            "verb": {
+              "text": "was selling",
+              "role": "verb"
             },
             "direct_object": {
-              "case": "dat",
-              "word": "ხილს"
+              "text": "the old book",
+              "role": "direct_object"
             }
           },
-          "georgian_verb_form": "ყიდდნენ"
+          "georgian_verb_form": "ვყიდდი",
+          "person": "1sg",
+          "effective_preverb": "გა"
+        },
+        {
+          "georgian": "მეგობრული მცხობელი ყიდდა ცხელ პურს",
+          "georgian_components": {
+            "subject": {
+              "text": "მეგობრული მცხობელი",
+              "case": "nom",
+              "role": "subject"
+            },
+            "verb": {
+              "text": "ყიდდა",
+              "role": "verb"
+            },
+            "direct_object": {
+              "text": "ცხელ პურს",
+              "case": "dat",
+              "role": "direct_object"
+            }
+          },
+          "english": "The friendly baker was selling the hot bread",
+          "english_components": {
+            "subject": {
+              "text": "The friendly baker",
+              "role": "subject",
+              "person": "3sg"
+            },
+            "verb": {
+              "text": "was selling",
+              "role": "verb"
+            },
+            "direct_object": {
+              "text": "the hot bread",
+              "role": "direct_object"
+            }
+          },
+          "georgian_verb_form": "ყიდდა",
+          "person": "3sg",
+          "effective_preverb": "გა"
+        },
+        {
+          "georgian": "დაკავებული ბაზრები ყიდდნენ ტკბილ ხილს",
+          "georgian_components": {
+            "subject": {
+              "text": "დაკავებული ბაზრები",
+              "case": "nom",
+              "role": "subject"
+            },
+            "verb": {
+              "text": "ყიდდნენ",
+              "role": "verb"
+            },
+            "direct_object": {
+              "text": "ტკბილ ხილს",
+              "case": "dat",
+              "role": "direct_object"
+            }
+          },
+          "english": "The busy markets were selling the sweet fruit",
+          "english_components": {
+            "subject": {
+              "text": "The busy markets",
+              "role": "subject",
+              "person": "3pl"
+            },
+            "verb": {
+              "text": "were selling",
+              "role": "verb"
+            },
+            "direct_object": {
+              "text": "the sweet fruit",
+              "role": "direct_object"
+            }
+          },
+          "georgian_verb_form": "ყიდდნენ",
+          "person": "3pl",
+          "effective_preverb": "გა"
         }
       ],
       "future": [
         {
-          "georgian": "ძველ წიგნს გავყიდი",
-          "english": "<strong data-role=\"subject\" data-person=\"1sg\">I</strong> <strong data-role=\"verb\">will sell</strong> <strong data-role=\"direct-object\">the old book</strong>",
-          "english_plain": "I will sell the old book",
-          "html": "<span data-case=\"dat\" data-role=\"direct-object\">ძველ წიგნს</span> <span data-role=\"verb\">გავყიდი</span>",
-          "case_marking": {
-            "direct_object": {
-              "case": "dat",
-              "word": "წიგნს"
-            }
-          },
-          "georgian_verb_form": "გავყიდი"
-        },
-        {
-          "georgian": "მეგობრული მცხობელი ცხელ პურს გაყიდის",
-          "english": "<strong data-role=\"subject\">The friendly baker</strong> <strong data-role=\"verb\">will sell</strong> <strong data-role=\"direct-object\">the hot bread</strong>",
-          "english_plain": "The friendly baker will sell the hot bread",
-          "html": "<span data-case=\"nom\" data-role=\"subject\">მეგობრული მცხობელი</span> <span data-case=\"dat\" data-role=\"direct-object\">ცხელ პურს</span> <span data-role=\"verb\">გაყიდის</span>",
-          "case_marking": {
-            "subject": {
-              "case": "nom",
-              "word": "მცხობელი"
+          "georgian": "გავყიდი ძველ წიგნს",
+          "georgian_components": {
+            "verb": {
+              "text": "გავყიდი",
+              "role": "verb"
             },
             "direct_object": {
+              "text": "ძველ წიგნს",
               "case": "dat",
-              "word": "პურს"
+              "role": "direct_object"
             }
           },
-          "georgian_verb_form": "გაყიდის"
-        },
-        {
-          "georgian": "დაკავებული ბაზარი ტკბილ ხილს გაყიდიან",
-          "english": "<strong data-role=\"subject\">The busy market</strong> <strong data-role=\"verb\">will sell</strong> <strong data-role=\"direct-object\">the sweet fruit</strong>",
-          "english_plain": "The busy market will sell the sweet fruit",
-          "html": "<span data-case=\"nom\" data-role=\"subject\">დაკავებული ბაზარი</span> <span data-case=\"dat\" data-role=\"direct-object\">ტკბილ ხილს</span> <span data-role=\"verb\">გაყიდიან</span>",
-          "case_marking": {
+          "english": "I will sell the old book",
+          "english_components": {
             "subject": {
-              "case": "nom",
-              "word": "ბაზარი"
+              "text": "I",
+              "role": "subject",
+              "person": "1sg"
+            },
+            "verb": {
+              "text": "will sell",
+              "role": "verb"
             },
             "direct_object": {
-              "case": "dat",
-              "word": "ხილს"
+              "text": "the old book",
+              "role": "direct_object"
             }
           },
-          "georgian_verb_form": "გაყიდიან"
+          "georgian_verb_form": "გავყიდი",
+          "person": "1sg",
+          "effective_preverb": "გა"
+        },
+        {
+          "georgian": "მეგობრული მცხობელი გაყიდის ცხელ პურს",
+          "georgian_components": {
+            "subject": {
+              "text": "მეგობრული მცხობელი",
+              "case": "nom",
+              "role": "subject"
+            },
+            "verb": {
+              "text": "გაყიდის",
+              "role": "verb"
+            },
+            "direct_object": {
+              "text": "ცხელ პურს",
+              "case": "dat",
+              "role": "direct_object"
+            }
+          },
+          "english": "The friendly baker will sell the hot bread",
+          "english_components": {
+            "subject": {
+              "text": "The friendly baker",
+              "role": "subject",
+              "person": "3sg"
+            },
+            "verb": {
+              "text": "will sell",
+              "role": "verb"
+            },
+            "direct_object": {
+              "text": "the hot bread",
+              "role": "direct_object"
+            }
+          },
+          "georgian_verb_form": "გაყიდის",
+          "person": "3sg",
+          "effective_preverb": "გა"
+        },
+        {
+          "georgian": "დაკავებული ბაზრები გაყიდიან ტკბილ ხილს",
+          "georgian_components": {
+            "subject": {
+              "text": "დაკავებული ბაზრები",
+              "case": "nom",
+              "role": "subject"
+            },
+            "verb": {
+              "text": "გაყიდიან",
+              "role": "verb"
+            },
+            "direct_object": {
+              "text": "ტკბილ ხილს",
+              "case": "dat",
+              "role": "direct_object"
+            }
+          },
+          "english": "The busy markets will sell the sweet fruit",
+          "english_components": {
+            "subject": {
+              "text": "The busy markets",
+              "role": "subject",
+              "person": "3pl"
+            },
+            "verb": {
+              "text": "will sell",
+              "role": "verb"
+            },
+            "direct_object": {
+              "text": "the sweet fruit",
+              "role": "direct_object"
+            }
+          },
+          "georgian_verb_form": "გაყიდიან",
+          "person": "3pl",
+          "effective_preverb": "გა"
         }
       ],
       "aorist": [
         {
-          "georgian": "ძველი წიგნი გავყიდე",
-          "english": "<strong data-role=\"subject\" data-person=\"1sg\">I</strong> <strong data-role=\"verb\">sold</strong> <strong data-role=\"direct-object\">the old book</strong>",
-          "english_plain": "I sold the old book",
-          "html": "<span data-case=\"nom\" data-role=\"direct-object\">ძველი წიგნი</span> <span data-role=\"verb\">გავყიდე</span>",
-          "case_marking": {
-            "direct_object": {
-              "case": "nom",
-              "word": "წიგნი"
-            }
-          },
-          "georgian_verb_form": "გავყიდე"
-        },
-        {
-          "georgian": "მეგობრულმა მცხობელმა ცხელი პური გაყიდა",
-          "english": "<strong data-role=\"subject\">The friendly baker</strong> <strong data-role=\"verb\">sold</strong> <strong data-role=\"direct-object\">the hot bread</strong>",
-          "english_plain": "The friendly baker sold the hot bread",
-          "html": "<span data-case=\"erg\" data-role=\"subject\">მეგობრულმა მცხობელმა</span> <span data-case=\"nom\" data-role=\"direct-object\">ცხელი პური</span> <span data-role=\"verb\">გაყიდა</span>",
-          "case_marking": {
-            "subject": {
-              "case": "erg",
-              "word": "მცხობელმა"
+          "georgian": "გავყიდე ძველი წიგნი",
+          "georgian_components": {
+            "verb": {
+              "text": "გავყიდე",
+              "role": "verb"
             },
             "direct_object": {
+              "text": "ძველი წიგნი",
               "case": "nom",
-              "word": "პური"
+              "role": "direct_object"
             }
           },
-          "georgian_verb_form": "გაყიდა"
-        },
-        {
-          "georgian": "დაკავებულმა ბაზარმა ტკბილი ხილი გაყიდეს",
-          "english": "<strong data-role=\"subject\">The busy market</strong> <strong data-role=\"verb\">sold</strong> <strong data-role=\"direct-object\">the sweet fruit</strong>",
-          "english_plain": "The busy market sold the sweet fruit",
-          "html": "<span data-case=\"erg\" data-role=\"subject\">დაკავებულმა ბაზარმა</span> <span data-case=\"nom\" data-role=\"direct-object\">ტკბილი ხილი</span> <span data-role=\"verb\">გაყიდეს</span>",
-          "case_marking": {
+          "english": "I sold the old book",
+          "english_components": {
             "subject": {
-              "case": "erg",
-              "word": "ბაზარმა"
+              "text": "I",
+              "role": "subject",
+              "person": "1sg"
+            },
+            "verb": {
+              "text": "sold",
+              "role": "verb"
             },
             "direct_object": {
-              "case": "nom",
-              "word": "ხილი"
+              "text": "the old book",
+              "role": "direct_object"
             }
           },
-          "georgian_verb_form": "გაყიდეს"
+          "georgian_verb_form": "გავყიდე",
+          "person": "1sg",
+          "effective_preverb": "გა"
+        },
+        {
+          "georgian": "მეგობრულმა მცხობელმა გაყიდა ცხელი პური",
+          "georgian_components": {
+            "subject": {
+              "text": "მეგობრულმა მცხობელმა",
+              "case": "erg",
+              "role": "subject"
+            },
+            "verb": {
+              "text": "გაყიდა",
+              "role": "verb"
+            },
+            "direct_object": {
+              "text": "ცხელი პური",
+              "case": "nom",
+              "role": "direct_object"
+            }
+          },
+          "english": "The friendly baker sold the hot bread",
+          "english_components": {
+            "subject": {
+              "text": "The friendly baker",
+              "role": "subject",
+              "person": "3sg"
+            },
+            "verb": {
+              "text": "sold",
+              "role": "verb"
+            },
+            "direct_object": {
+              "text": "the hot bread",
+              "role": "direct_object"
+            }
+          },
+          "georgian_verb_form": "გაყიდა",
+          "person": "3sg",
+          "effective_preverb": "გა"
+        },
+        {
+          "georgian": "დაკავებულმა ბაზრებმა გაყიდეს ტკბილი ხილი",
+          "georgian_components": {
+            "subject": {
+              "text": "დაკავებულმა ბაზრებმა",
+              "case": "erg",
+              "role": "subject"
+            },
+            "verb": {
+              "text": "გაყიდეს",
+              "role": "verb"
+            },
+            "direct_object": {
+              "text": "ტკბილი ხილი",
+              "case": "nom",
+              "role": "direct_object"
+            }
+          },
+          "english": "The busy markets sold the sweet fruit",
+          "english_components": {
+            "subject": {
+              "text": "The busy markets",
+              "role": "subject",
+              "person": "3pl"
+            },
+            "verb": {
+              "text": "sold",
+              "role": "verb"
+            },
+            "direct_object": {
+              "text": "the sweet fruit",
+              "role": "direct_object"
+            }
+          },
+          "georgian_verb_form": "გაყიდეს",
+          "person": "3pl",
+          "effective_preverb": "გა"
         }
       ],
       "optative": [
         {
-          "georgian": "ძველი წიგნი უნდა გავყიდო",
-          "english": "<strong data-role=\"subject\" data-person=\"1sg\">I</strong> <strong data-role=\"verb\">should</strong> <strong data-role=\"verb\">sell</strong> <strong data-role=\"direct-object\">the old book</strong>",
-          "english_plain": "I should sell the old book",
-          "html": "<span data-case=\"nom\" data-role=\"direct-object\">ძველი წიგნი</span> <span data-role=\"verb\">უნდა გავყიდო</span>",
-          "case_marking": {
-            "direct_object": {
-              "case": "nom",
-              "word": "წიგნი"
-            }
-          },
-          "georgian_verb_form": "გავყიდო"
-        },
-        {
-          "georgian": "მეგობრულმა მცხობელმა ცხელი პური უნდა გაყიდოს",
-          "english": "<strong data-role=\"subject\">The friendly baker</strong> <strong data-role=\"verb\">should</strong> <strong data-role=\"verb\">sell</strong> <strong data-role=\"direct-object\">the hot bread</strong>",
-          "english_plain": "The friendly baker should sell the hot bread",
-          "html": "<span data-case=\"erg\" data-role=\"subject\">მეგობრულმა მცხობელმა</span> <span data-case=\"nom\" data-role=\"direct-object\">ცხელი პური</span> <span data-role=\"verb\">უნდა გაყიდოს</span>",
-          "case_marking": {
-            "subject": {
-              "case": "erg",
-              "word": "მცხობელმა"
+          "georgian": "უნდა გავყიდო ძველი წიგნი",
+          "georgian_components": {
+            "verb": {
+              "text": "უნდა გავყიდო",
+              "role": "verb"
             },
             "direct_object": {
+              "text": "ძველი წიგნი",
               "case": "nom",
-              "word": "პური"
+              "role": "direct_object"
             }
           },
-          "georgian_verb_form": "გაყიდოს"
-        },
-        {
-          "georgian": "დაკავებულმა ბაზარმა ტკბილი ხილი უნდა გაყიდონ",
-          "english": "<strong data-role=\"subject\">The busy market</strong> <strong data-role=\"verb\">should</strong> <strong data-role=\"verb\">sell</strong> <strong data-role=\"direct-object\">the sweet fruit</strong>",
-          "english_plain": "The busy market should sell the sweet fruit",
-          "html": "<span data-case=\"erg\" data-role=\"subject\">დაკავებულმა ბაზარმა</span> <span data-case=\"nom\" data-role=\"direct-object\">ტკბილი ხილი</span> <span data-role=\"verb\">უნდა გაყიდონ</span>",
-          "case_marking": {
+          "english": "I should sell the old book",
+          "english_components": {
             "subject": {
-              "case": "erg",
-              "word": "ბაზარმა"
+              "text": "I",
+              "role": "subject",
+              "person": "1sg"
+            },
+            "verb": {
+              "text": "should sell",
+              "role": "verb"
             },
             "direct_object": {
-              "case": "nom",
-              "word": "ხილი"
+              "text": "the old book",
+              "role": "direct_object"
             }
           },
-          "georgian_verb_form": "გაყიდონ"
+          "georgian_verb_form": "გავყიდო",
+          "person": "1sg",
+          "effective_preverb": "გა"
+        },
+        {
+          "georgian": "მეგობრულმა მცხობელმა უნდა გაყიდოს ცხელი პური",
+          "georgian_components": {
+            "subject": {
+              "text": "მეგობრულმა მცხობელმა",
+              "case": "erg",
+              "role": "subject"
+            },
+            "verb": {
+              "text": "უნდა გაყიდოს",
+              "role": "verb"
+            },
+            "direct_object": {
+              "text": "ცხელი პური",
+              "case": "nom",
+              "role": "direct_object"
+            }
+          },
+          "english": "The friendly baker should sell the hot bread",
+          "english_components": {
+            "subject": {
+              "text": "The friendly baker",
+              "role": "subject",
+              "person": "3sg"
+            },
+            "verb": {
+              "text": "should sell",
+              "role": "verb"
+            },
+            "direct_object": {
+              "text": "the hot bread",
+              "role": "direct_object"
+            }
+          },
+          "georgian_verb_form": "გაყიდოს",
+          "person": "3sg",
+          "effective_preverb": "გა"
+        },
+        {
+          "georgian": "დაკავებულმა ბაზრებმა უნდა გაყიდონ ტკბილი ხილი",
+          "georgian_components": {
+            "subject": {
+              "text": "დაკავებულმა ბაზრებმა",
+              "case": "erg",
+              "role": "subject"
+            },
+            "verb": {
+              "text": "უნდა გაყიდონ",
+              "role": "verb"
+            },
+            "direct_object": {
+              "text": "ტკბილი ხილი",
+              "case": "nom",
+              "role": "direct_object"
+            }
+          },
+          "english": "The busy markets should sell the sweet fruit",
+          "english_components": {
+            "subject": {
+              "text": "The busy markets",
+              "role": "subject",
+              "person": "3pl"
+            },
+            "verb": {
+              "text": "should sell",
+              "role": "verb"
+            },
+            "direct_object": {
+              "text": "the sweet fruit",
+              "role": "direct_object"
+            }
+          },
+          "georgian_verb_form": "გაყიდონ",
+          "person": "3pl",
+          "effective_preverb": "გა"
         }
       ],
       "imperative": [
         {
-          "georgian": "გამოყენებული მანქანა გაყიდე",
-          "english": "<strong data-role=\"verb\">sell</strong> <strong data-role=\"direct-object\">the used car</strong>",
-          "english_plain": "sell the used car",
-          "html": "<span data-case=\"nom\" data-role=\"direct-object\">გამოყენებული მანქანა</span> <span data-role=\"verb\">გაყიდე</span>",
-          "case_marking": {
+          "georgian": "გაყიდე გამოყენებული მანქანა",
+          "georgian_components": {
+            "verb": {
+              "text": "გაყიდე",
+              "role": "verb"
+            },
             "direct_object": {
+              "text": "გამოყენებული მანქანა",
               "case": "nom",
-              "word": "მანქანა"
+              "role": "direct_object"
             }
           },
-          "georgian_verb_form": "გაყიდე"
+          "english": "You, sell the used car",
+          "english_components": {
+            "subject": {
+              "text": "You,",
+              "role": "subject",
+              "person": "2sg"
+            },
+            "verb": {
+              "text": "sell",
+              "role": "verb"
+            },
+            "direct_object": {
+              "text": "the used car",
+              "role": "direct_object"
+            }
+          },
+          "georgian_verb_form": "გაყიდე",
+          "person": "2sg",
+          "effective_preverb": "გა"
         },
         {
-          "georgian": "ახალი ტელეფონი გაყიდეთ",
-          "english": "<strong data-role=\"verb\">sell</strong> <strong data-role=\"direct-object\">the new phone</strong>",
-          "english_plain": "sell the new phone",
-          "html": "<span data-case=\"nom\" data-role=\"direct-object\">ახალი ტელეფონი</span> <span data-role=\"verb\">გაყიდეთ</span>",
-          "case_marking": {
+          "georgian": "გაყიდეთ ახალი ტელეფონი",
+          "georgian_components": {
+            "verb": {
+              "text": "გაყიდეთ",
+              "role": "verb"
+            },
             "direct_object": {
+              "text": "ახალი ტელეფონი",
               "case": "nom",
-              "word": "ტელეფონი"
+              "role": "direct_object"
             }
           },
-          "georgian_verb_form": "გაყიდეთ"
+          "english": "You all (you formal), sell the new phone",
+          "english_components": {
+            "subject": {
+              "text": "You all (you formal),",
+              "role": "subject",
+              "person": "2pl"
+            },
+            "verb": {
+              "text": "sell",
+              "role": "verb"
+            },
+            "direct_object": {
+              "text": "the new phone",
+              "role": "direct_object"
+            }
+          },
+          "georgian_verb_form": "გაყიდეთ",
+          "person": "2pl",
+          "effective_preverb": "გა"
         }
       ]
     }

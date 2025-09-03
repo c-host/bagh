@@ -21,7 +21,7 @@ tools/
 │   └── example_generation/                     # Example generation sub-module
 │       ├── __init__.py
 │       ├── argument_processor.py               # Unified argument parsing and resolution
-│       └── example_generator.py                # Pedagogical example generation
+│       └── example_generator.py                # Example sentence data composition and generation
 ├── output_generation/                          # Stage 3: Output Generation
 │   ├── __init__.py
 │   ├── html_generator.py                       # HTML generation and formatting
@@ -61,7 +61,7 @@ tools/
   - `ProcessedDataManager`: Manages processed data throughout the pipeline
   - **Example Generation**:
     - `ArgumentProcessor`: Unified argument parsing and resolution (merged from argument_parser.py and argument_resolver.py)
-    - `PedagogicalExampleGenerator`: Generates pedagogical examples with argument processing
+    - `ExampleGenerator`: Generates examples with argument processing
 - **Usage**: Core data transformation stage, prepares data for output generation
 
 ### Stage 3: Output Generation (`output_generation/`)

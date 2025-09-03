@@ -150,282 +150,631 @@
   "preverb_rules": {
     "default": "",
     "replacements": {},
-    "tense_specific_fallbacks": {},
-    "english_fallbacks": {}
+    "tense_specific_fallbacks": {}
   },
   "examples": {
-    "null": {
+    "default": {
       "present": [
         {
-          "georgian": "ახალ ტელეფონს ვდებ",
-          "english": "<strong data-role=\"subject\" data-person=\"1sg\">I</strong> <strong data-role=\"verb\">put</strong> <strong data-role=\"direct-object\">the new phone</strong>",
-          "english_plain": "I put the new phone",
-          "html": "<span data-case=\"dat\" data-role=\"direct-object\">ახალ ტელეფონს</span> <span data-role=\"verb\">ვდებ</span>",
-          "case_marking": {
-            "direct_object": {
-              "case": "dat",
-              "word": "ტელეფონს"
-            }
-          },
-          "georgian_verb_form": "ვდებ"
-        },
-        {
-          "georgian": "ფრთხილი დედა მძიმე წიგნს დებს",
-          "english": "<strong data-role=\"subject\">The careful mother</strong> <strong data-role=\"verb\">puts</strong> <strong data-role=\"direct-object\">the heavy book</strong>",
-          "english_plain": "The careful mother puts the heavy book",
-          "html": "<span data-case=\"nom\" data-role=\"subject\">ფრთხილი დედა</span> <span data-case=\"dat\" data-role=\"direct-object\">მძიმე წიგნს</span> <span data-role=\"verb\">დებს</span>",
-          "case_marking": {
-            "subject": {
-              "case": "nom",
-              "word": "დედა"
+          "georgian": "ვდებ ახალ ტელეფონს",
+          "georgian_components": {
+            "verb": {
+              "text": "ვდებ",
+              "role": "verb"
             },
             "direct_object": {
+              "text": "ახალ ტელეფონს",
               "case": "dat",
-              "word": "წიგნს"
+              "role": "direct_object"
             }
           },
-          "georgian_verb_form": "დებს"
-        },
-        {
-          "georgian": "ახალგაზრდა ბავშვი პატარა სათამაშოს დებენ",
-          "english": "<strong data-role=\"subject\">The young child</strong> <strong data-role=\"verb\">put</strong> <strong data-role=\"direct-object\">the small toy</strong>",
-          "english_plain": "The young child put the small toy",
-          "html": "<span data-case=\"nom\" data-role=\"subject\">ახალგაზრდა ბავშვი</span> <span data-case=\"dat\" data-role=\"direct-object\">პატარა სათამაშოს</span> <span data-role=\"verb\">დებენ</span>",
-          "case_marking": {
+          "english": "I put the new phone",
+          "english_components": {
             "subject": {
-              "case": "nom",
-              "word": "ბავშვი"
+              "text": "I",
+              "role": "subject",
+              "person": "1sg"
+            },
+            "verb": {
+              "text": "put",
+              "role": "verb"
             },
             "direct_object": {
-              "case": "dat",
-              "word": "სათამაშოს"
+              "text": "the new phone",
+              "role": "direct_object"
             }
           },
-          "georgian_verb_form": "დებენ"
+          "georgian_verb_form": "ვდებ",
+          "person": "1sg",
+          "effective_preverb": ""
+        },
+        {
+          "georgian": "ფრთხილი დედა დებს მძიმე წიგნს",
+          "georgian_components": {
+            "subject": {
+              "text": "ფრთხილი დედა",
+              "case": "nom",
+              "role": "subject"
+            },
+            "verb": {
+              "text": "დებს",
+              "role": "verb"
+            },
+            "direct_object": {
+              "text": "მძიმე წიგნს",
+              "case": "dat",
+              "role": "direct_object"
+            }
+          },
+          "english": "The careful mother puts the heavy book",
+          "english_components": {
+            "subject": {
+              "text": "The careful mother",
+              "role": "subject",
+              "person": "3sg"
+            },
+            "verb": {
+              "text": "puts",
+              "role": "verb"
+            },
+            "direct_object": {
+              "text": "the heavy book",
+              "role": "direct_object"
+            }
+          },
+          "georgian_verb_form": "დებს",
+          "person": "3sg",
+          "effective_preverb": ""
+        },
+        {
+          "georgian": "ახალგაზრდა ბავშვები დებენ პატარა სათამაშოს",
+          "georgian_components": {
+            "subject": {
+              "text": "ახალგაზრდა ბავშვები",
+              "case": "nom",
+              "role": "subject"
+            },
+            "verb": {
+              "text": "დებენ",
+              "role": "verb"
+            },
+            "direct_object": {
+              "text": "პატარა სათამაშოს",
+              "case": "dat",
+              "role": "direct_object"
+            }
+          },
+          "english": "The young children put the small toy",
+          "english_components": {
+            "subject": {
+              "text": "The young children",
+              "role": "subject",
+              "person": "3pl"
+            },
+            "verb": {
+              "text": "put",
+              "role": "verb"
+            },
+            "direct_object": {
+              "text": "the small toy",
+              "role": "direct_object"
+            }
+          },
+          "georgian_verb_form": "დებენ",
+          "person": "3pl",
+          "effective_preverb": ""
         }
       ],
       "imperfect": [
         {
-          "georgian": "ახალ ტელეფონს ვდებდი",
-          "english": "<strong data-role=\"subject\" data-person=\"1sg\">I</strong> <strong data-role=\"verb\">was putting</strong> <strong data-role=\"direct-object\">the new phone</strong>",
-          "english_plain": "I was putting the new phone",
-          "html": "<span data-case=\"dat\" data-role=\"direct-object\">ახალ ტელეფონს</span> <span data-role=\"verb\">ვდებდი</span>",
-          "case_marking": {
-            "direct_object": {
-              "case": "dat",
-              "word": "ტელეფონს"
-            }
-          },
-          "georgian_verb_form": "ვდებდი"
-        },
-        {
-          "georgian": "ფრთხილი დედა მძიმე წიგნს დებდა",
-          "english": "<strong data-role=\"subject\">The careful mother</strong> <strong data-role=\"verb\">was putting</strong> <strong data-role=\"direct-object\">the heavy book</strong>",
-          "english_plain": "The careful mother was putting the heavy book",
-          "html": "<span data-case=\"nom\" data-role=\"subject\">ფრთხილი დედა</span> <span data-case=\"dat\" data-role=\"direct-object\">მძიმე წიგნს</span> <span data-role=\"verb\">დებდა</span>",
-          "case_marking": {
-            "subject": {
-              "case": "nom",
-              "word": "დედა"
+          "georgian": "ვდებდი ახალ ტელეფონს",
+          "georgian_components": {
+            "verb": {
+              "text": "ვდებდი",
+              "role": "verb"
             },
             "direct_object": {
+              "text": "ახალ ტელეფონს",
               "case": "dat",
-              "word": "წიგნს"
+              "role": "direct_object"
             }
           },
-          "georgian_verb_form": "დებდა"
-        },
-        {
-          "georgian": "ახალგაზრდა ბავშვი პატარა სათამაშოს დებდნენ",
-          "english": "<strong data-role=\"subject\">The young child</strong> <strong data-role=\"verb\">were putting</strong> <strong data-role=\"direct-object\">the small toy</strong>",
-          "english_plain": "The young child were putting the small toy",
-          "html": "<span data-case=\"nom\" data-role=\"subject\">ახალგაზრდა ბავშვი</span> <span data-case=\"dat\" data-role=\"direct-object\">პატარა სათამაშოს</span> <span data-role=\"verb\">დებდნენ</span>",
-          "case_marking": {
+          "english": "I was putting the new phone",
+          "english_components": {
             "subject": {
-              "case": "nom",
-              "word": "ბავშვი"
+              "text": "I",
+              "role": "subject",
+              "person": "1sg"
+            },
+            "verb": {
+              "text": "was putting",
+              "role": "verb"
             },
             "direct_object": {
-              "case": "dat",
-              "word": "სათამაშოს"
+              "text": "the new phone",
+              "role": "direct_object"
             }
           },
-          "georgian_verb_form": "დებდნენ"
+          "georgian_verb_form": "ვდებდი",
+          "person": "1sg",
+          "effective_preverb": ""
+        },
+        {
+          "georgian": "ფრთხილი დედა დებდა მძიმე წიგნს",
+          "georgian_components": {
+            "subject": {
+              "text": "ფრთხილი დედა",
+              "case": "nom",
+              "role": "subject"
+            },
+            "verb": {
+              "text": "დებდა",
+              "role": "verb"
+            },
+            "direct_object": {
+              "text": "მძიმე წიგნს",
+              "case": "dat",
+              "role": "direct_object"
+            }
+          },
+          "english": "The careful mother was putting the heavy book",
+          "english_components": {
+            "subject": {
+              "text": "The careful mother",
+              "role": "subject",
+              "person": "3sg"
+            },
+            "verb": {
+              "text": "was putting",
+              "role": "verb"
+            },
+            "direct_object": {
+              "text": "the heavy book",
+              "role": "direct_object"
+            }
+          },
+          "georgian_verb_form": "დებდა",
+          "person": "3sg",
+          "effective_preverb": ""
+        },
+        {
+          "georgian": "ახალგაზრდა ბავშვები დებდნენ პატარა სათამაშოს",
+          "georgian_components": {
+            "subject": {
+              "text": "ახალგაზრდა ბავშვები",
+              "case": "nom",
+              "role": "subject"
+            },
+            "verb": {
+              "text": "დებდნენ",
+              "role": "verb"
+            },
+            "direct_object": {
+              "text": "პატარა სათამაშოს",
+              "case": "dat",
+              "role": "direct_object"
+            }
+          },
+          "english": "The young children were putting the small toy",
+          "english_components": {
+            "subject": {
+              "text": "The young children",
+              "role": "subject",
+              "person": "3pl"
+            },
+            "verb": {
+              "text": "were putting",
+              "role": "verb"
+            },
+            "direct_object": {
+              "text": "the small toy",
+              "role": "direct_object"
+            }
+          },
+          "georgian_verb_form": "დებდნენ",
+          "person": "3pl",
+          "effective_preverb": ""
         }
       ],
       "future": [
         {
-          "georgian": "ახალ ტელეფონს დავდებ",
-          "english": "<strong data-role=\"subject\" data-person=\"1sg\">I</strong> <strong data-role=\"verb\">will put</strong> <strong data-role=\"direct-object\">the new phone</strong>",
-          "english_plain": "I will put the new phone",
-          "html": "<span data-case=\"dat\" data-role=\"direct-object\">ახალ ტელეფონს</span> <span data-role=\"verb\">დავდებ</span>",
-          "case_marking": {
-            "direct_object": {
-              "case": "dat",
-              "word": "ტელეფონს"
-            }
-          },
-          "georgian_verb_form": "დავდებ"
-        },
-        {
-          "georgian": "ფრთხილი დედა მძიმე წიგნს დადებს",
-          "english": "<strong data-role=\"subject\">The careful mother</strong> <strong data-role=\"verb\">will put</strong> <strong data-role=\"direct-object\">the heavy book</strong>",
-          "english_plain": "The careful mother will put the heavy book",
-          "html": "<span data-case=\"nom\" data-role=\"subject\">ფრთხილი დედა</span> <span data-case=\"dat\" data-role=\"direct-object\">მძიმე წიგნს</span> <span data-role=\"verb\">დადებს</span>",
-          "case_marking": {
-            "subject": {
-              "case": "nom",
-              "word": "დედა"
+          "georgian": "დავდებ ახალ ტელეფონს",
+          "georgian_components": {
+            "verb": {
+              "text": "დავდებ",
+              "role": "verb"
             },
             "direct_object": {
+              "text": "ახალ ტელეფონს",
               "case": "dat",
-              "word": "წიგნს"
+              "role": "direct_object"
             }
           },
-          "georgian_verb_form": "დადებს"
-        },
-        {
-          "georgian": "ახალგაზრდა ბავშვი პატარა სათამაშოს დადებენ",
-          "english": "<strong data-role=\"subject\">The young child</strong> <strong data-role=\"verb\">will put</strong> <strong data-role=\"direct-object\">the small toy</strong>",
-          "english_plain": "The young child will put the small toy",
-          "html": "<span data-case=\"nom\" data-role=\"subject\">ახალგაზრდა ბავშვი</span> <span data-case=\"dat\" data-role=\"direct-object\">პატარა სათამაშოს</span> <span data-role=\"verb\">დადებენ</span>",
-          "case_marking": {
+          "english": "I will put the new phone",
+          "english_components": {
             "subject": {
-              "case": "nom",
-              "word": "ბავშვი"
+              "text": "I",
+              "role": "subject",
+              "person": "1sg"
+            },
+            "verb": {
+              "text": "will put",
+              "role": "verb"
             },
             "direct_object": {
-              "case": "dat",
-              "word": "სათამაშოს"
+              "text": "the new phone",
+              "role": "direct_object"
             }
           },
-          "georgian_verb_form": "დადებენ"
+          "georgian_verb_form": "დავდებ",
+          "person": "1sg",
+          "effective_preverb": ""
+        },
+        {
+          "georgian": "ფრთხილი დედა დადებს მძიმე წიგნს",
+          "georgian_components": {
+            "subject": {
+              "text": "ფრთხილი დედა",
+              "case": "nom",
+              "role": "subject"
+            },
+            "verb": {
+              "text": "დადებს",
+              "role": "verb"
+            },
+            "direct_object": {
+              "text": "მძიმე წიგნს",
+              "case": "dat",
+              "role": "direct_object"
+            }
+          },
+          "english": "The careful mother will put the heavy book",
+          "english_components": {
+            "subject": {
+              "text": "The careful mother",
+              "role": "subject",
+              "person": "3sg"
+            },
+            "verb": {
+              "text": "will put",
+              "role": "verb"
+            },
+            "direct_object": {
+              "text": "the heavy book",
+              "role": "direct_object"
+            }
+          },
+          "georgian_verb_form": "დადებს",
+          "person": "3sg",
+          "effective_preverb": ""
+        },
+        {
+          "georgian": "ახალგაზრდა ბავშვები დადებენ პატარა სათამაშოს",
+          "georgian_components": {
+            "subject": {
+              "text": "ახალგაზრდა ბავშვები",
+              "case": "nom",
+              "role": "subject"
+            },
+            "verb": {
+              "text": "დადებენ",
+              "role": "verb"
+            },
+            "direct_object": {
+              "text": "პატარა სათამაშოს",
+              "case": "dat",
+              "role": "direct_object"
+            }
+          },
+          "english": "The young children will put the small toy",
+          "english_components": {
+            "subject": {
+              "text": "The young children",
+              "role": "subject",
+              "person": "3pl"
+            },
+            "verb": {
+              "text": "will put",
+              "role": "verb"
+            },
+            "direct_object": {
+              "text": "the small toy",
+              "role": "direct_object"
+            }
+          },
+          "georgian_verb_form": "დადებენ",
+          "person": "3pl",
+          "effective_preverb": ""
         }
       ],
       "aorist": [
         {
-          "georgian": "ახალი ტელეფონი დავდე",
-          "english": "<strong data-role=\"subject\" data-person=\"1sg\">I</strong> <strong data-role=\"verb\">put</strong> <strong data-role=\"direct-object\">the new phone</strong>",
-          "english_plain": "I put the new phone",
-          "html": "<span data-case=\"nom\" data-role=\"direct-object\">ახალი ტელეფონი</span> <span data-role=\"verb\">დავდე</span>",
-          "case_marking": {
-            "direct_object": {
-              "case": "nom",
-              "word": "ტელეფონი"
-            }
-          },
-          "georgian_verb_form": "დავდე"
-        },
-        {
-          "georgian": "ფრთხილმა დედამ მძიმე წიგნი დადო",
-          "english": "<strong data-role=\"subject\">The careful mother</strong> <strong data-role=\"verb\">put</strong> <strong data-role=\"direct-object\">the heavy book</strong>",
-          "english_plain": "The careful mother put the heavy book",
-          "html": "<span data-case=\"erg\" data-role=\"subject\">ფრთხილმა დედამ</span> <span data-case=\"nom\" data-role=\"direct-object\">მძიმე წიგნი</span> <span data-role=\"verb\">დადო</span>",
-          "case_marking": {
-            "subject": {
-              "case": "erg",
-              "word": "დედამ"
+          "georgian": "დავდე ახალი ტელეფონი",
+          "georgian_components": {
+            "verb": {
+              "text": "დავდე",
+              "role": "verb"
             },
             "direct_object": {
+              "text": "ახალი ტელეფონი",
               "case": "nom",
-              "word": "წიგნი"
+              "role": "direct_object"
             }
           },
-          "georgian_verb_form": "დადო"
-        },
-        {
-          "georgian": "ახალგაზრდა ბავშვმა პატარა სათამაშო დადეს",
-          "english": "<strong data-role=\"subject\">The young child</strong> <strong data-role=\"verb\">put</strong> <strong data-role=\"direct-object\">the small toy</strong>",
-          "english_plain": "The young child put the small toy",
-          "html": "<span data-case=\"erg\" data-role=\"subject\">ახალგაზრდა ბავშვმა</span> <span data-case=\"nom\" data-role=\"direct-object\">პატარა სათამაშო</span> <span data-role=\"verb\">დადეს</span>",
-          "case_marking": {
+          "english": "I put the new phone",
+          "english_components": {
             "subject": {
-              "case": "erg",
-              "word": "ბავშვმა"
+              "text": "I",
+              "role": "subject",
+              "person": "1sg"
+            },
+            "verb": {
+              "text": "put",
+              "role": "verb"
             },
             "direct_object": {
-              "case": "nom",
-              "word": "სათამაშო"
+              "text": "the new phone",
+              "role": "direct_object"
             }
           },
-          "georgian_verb_form": "დადეს"
+          "georgian_verb_form": "დავდე",
+          "person": "1sg",
+          "effective_preverb": ""
+        },
+        {
+          "georgian": "ფრთხილმა დედამ დადო მძიმე წიგნი",
+          "georgian_components": {
+            "subject": {
+              "text": "ფრთხილმა დედამ",
+              "case": "erg",
+              "role": "subject"
+            },
+            "verb": {
+              "text": "დადო",
+              "role": "verb"
+            },
+            "direct_object": {
+              "text": "მძიმე წიგნი",
+              "case": "nom",
+              "role": "direct_object"
+            }
+          },
+          "english": "The careful mother put the heavy book",
+          "english_components": {
+            "subject": {
+              "text": "The careful mother",
+              "role": "subject",
+              "person": "3sg"
+            },
+            "verb": {
+              "text": "put",
+              "role": "verb"
+            },
+            "direct_object": {
+              "text": "the heavy book",
+              "role": "direct_object"
+            }
+          },
+          "georgian_verb_form": "დადო",
+          "person": "3sg",
+          "effective_preverb": ""
+        },
+        {
+          "georgian": "ახალგაზრდა ბავშვებმა დადეს პატარა სათამაშო",
+          "georgian_components": {
+            "subject": {
+              "text": "ახალგაზრდა ბავშვებმა",
+              "case": "erg",
+              "role": "subject"
+            },
+            "verb": {
+              "text": "დადეს",
+              "role": "verb"
+            },
+            "direct_object": {
+              "text": "პატარა სათამაშო",
+              "case": "nom",
+              "role": "direct_object"
+            }
+          },
+          "english": "The young children put the small toy",
+          "english_components": {
+            "subject": {
+              "text": "The young children",
+              "role": "subject",
+              "person": "3pl"
+            },
+            "verb": {
+              "text": "put",
+              "role": "verb"
+            },
+            "direct_object": {
+              "text": "the small toy",
+              "role": "direct_object"
+            }
+          },
+          "georgian_verb_form": "დადეს",
+          "person": "3pl",
+          "effective_preverb": ""
         }
       ],
       "optative": [
         {
-          "georgian": "ახალი ტელეფონი უნდა დავდო",
-          "english": "<strong data-role=\"subject\" data-person=\"1sg\">I</strong> <strong data-role=\"verb\">should put</strong> <strong data-role=\"direct-object\">the new phone</strong>",
-          "english_plain": "I should put the new phone",
-          "html": "<span data-case=\"nom\" data-role=\"direct-object\">ახალი ტელეფონი</span> <span data-role=\"verb\">უნდა დავდო</span>",
-          "case_marking": {
-            "direct_object": {
-              "case": "nom",
-              "word": "ტელეფონი"
-            }
-          },
-          "georgian_verb_form": "დავდო"
-        },
-        {
-          "georgian": "ფრთხილმა დედამ მძიმე წიგნი უნდა დადოს",
-          "english": "<strong data-role=\"subject\">The careful mother</strong> <strong data-role=\"verb\">should put</strong> <strong data-role=\"direct-object\">the heavy book</strong>",
-          "english_plain": "The careful mother should put the heavy book",
-          "html": "<span data-case=\"erg\" data-role=\"subject\">ფრთხილმა დედამ</span> <span data-case=\"nom\" data-role=\"direct-object\">მძიმე წიგნი</span> <span data-role=\"verb\">უნდა დადოს</span>",
-          "case_marking": {
-            "subject": {
-              "case": "erg",
-              "word": "დედამ"
+          "georgian": "უნდა დავდო ახალი ტელეფონი",
+          "georgian_components": {
+            "verb": {
+              "text": "უნდა დავდო",
+              "role": "verb"
             },
             "direct_object": {
+              "text": "ახალი ტელეფონი",
               "case": "nom",
-              "word": "წიგნი"
+              "role": "direct_object"
             }
           },
-          "georgian_verb_form": "დადოს"
-        },
-        {
-          "georgian": "ახალგაზრდა ბავშვმა პატარა სათამაშო უნდა დადონ",
-          "english": "<strong data-role=\"subject\">The young child</strong> <strong data-role=\"verb\">should put</strong> <strong data-role=\"direct-object\">the small toy</strong>",
-          "english_plain": "The young child should put the small toy",
-          "html": "<span data-case=\"erg\" data-role=\"subject\">ახალგაზრდა ბავშვმა</span> <span data-case=\"nom\" data-role=\"direct-object\">პატარა სათამაშო</span> <span data-role=\"verb\">უნდა დადონ</span>",
-          "case_marking": {
+          "english": "I should should put the new phone",
+          "english_components": {
             "subject": {
-              "case": "erg",
-              "word": "ბავშვმა"
+              "text": "I",
+              "role": "subject",
+              "person": "1sg"
+            },
+            "verb": {
+              "text": "should should put",
+              "role": "verb"
             },
             "direct_object": {
-              "case": "nom",
-              "word": "სათამაშო"
+              "text": "the new phone",
+              "role": "direct_object"
             }
           },
-          "georgian_verb_form": "დადონ"
+          "georgian_verb_form": "დავდო",
+          "person": "1sg",
+          "effective_preverb": ""
+        },
+        {
+          "georgian": "ფრთხილმა დედამ უნდა დადოს მძიმე წიგნი",
+          "georgian_components": {
+            "subject": {
+              "text": "ფრთხილმა დედამ",
+              "case": "erg",
+              "role": "subject"
+            },
+            "verb": {
+              "text": "უნდა დადოს",
+              "role": "verb"
+            },
+            "direct_object": {
+              "text": "მძიმე წიგნი",
+              "case": "nom",
+              "role": "direct_object"
+            }
+          },
+          "english": "The careful mother should should put the heavy book",
+          "english_components": {
+            "subject": {
+              "text": "The careful mother",
+              "role": "subject",
+              "person": "3sg"
+            },
+            "verb": {
+              "text": "should should put",
+              "role": "verb"
+            },
+            "direct_object": {
+              "text": "the heavy book",
+              "role": "direct_object"
+            }
+          },
+          "georgian_verb_form": "დადოს",
+          "person": "3sg",
+          "effective_preverb": ""
+        },
+        {
+          "georgian": "ახალგაზრდა ბავშვებმა უნდა დადონ პატარა სათამაშო",
+          "georgian_components": {
+            "subject": {
+              "text": "ახალგაზრდა ბავშვებმა",
+              "case": "erg",
+              "role": "subject"
+            },
+            "verb": {
+              "text": "უნდა დადონ",
+              "role": "verb"
+            },
+            "direct_object": {
+              "text": "პატარა სათამაშო",
+              "case": "nom",
+              "role": "direct_object"
+            }
+          },
+          "english": "The young children should should put the small toy",
+          "english_components": {
+            "subject": {
+              "text": "The young children",
+              "role": "subject",
+              "person": "3pl"
+            },
+            "verb": {
+              "text": "should should put",
+              "role": "verb"
+            },
+            "direct_object": {
+              "text": "the small toy",
+              "role": "direct_object"
+            }
+          },
+          "georgian_verb_form": "დადონ",
+          "person": "3pl",
+          "effective_preverb": ""
         }
       ],
       "imperative": [
         {
-          "georgian": "მნიშვნელოვანი გასაღები დადე",
-          "english": "<strong data-role=\"verb\">put</strong> <strong data-role=\"direct-object\">the important key</strong>",
-          "english_plain": "put the important key",
-          "html": "<span data-case=\"nom\" data-role=\"direct-object\">მნიშვნელოვანი გასაღები</span> <span data-role=\"verb\">დადე</span>",
-          "case_marking": {
+          "georgian": "დადე მნიშვნელოვანი გასაღები",
+          "georgian_components": {
+            "verb": {
+              "text": "დადე",
+              "role": "verb"
+            },
             "direct_object": {
+              "text": "მნიშვნელოვანი გასაღები",
               "case": "nom",
-              "word": "გასაღები"
+              "role": "direct_object"
             }
           },
-          "georgian_verb_form": "დადე"
+          "english": "You, put the important key",
+          "english_components": {
+            "subject": {
+              "text": "You,",
+              "role": "subject",
+              "person": "2sg"
+            },
+            "verb": {
+              "text": "put",
+              "role": "verb"
+            },
+            "direct_object": {
+              "text": "the important key",
+              "role": "direct_object"
+            }
+          },
+          "georgian_verb_form": "დადე",
+          "person": "2sg",
+          "effective_preverb": ""
         },
         {
-          "georgian": "სუფთა ჭიქა დადეთ",
-          "english": "<strong data-role=\"verb\">put</strong> <strong data-role=\"direct-object\">the clean cup</strong>",
-          "english_plain": "put the clean cup",
-          "html": "<span data-case=\"nom\" data-role=\"direct-object\">სუფთა ჭიქა</span> <span data-role=\"verb\">დადეთ</span>",
-          "case_marking": {
+          "georgian": "დადეთ სუფთა ჭიქა",
+          "georgian_components": {
+            "verb": {
+              "text": "დადეთ",
+              "role": "verb"
+            },
             "direct_object": {
+              "text": "სუფთა ჭიქა",
               "case": "nom",
-              "word": "ჭიქა"
+              "role": "direct_object"
             }
           },
-          "georgian_verb_form": "დადეთ"
+          "english": "You all (you formal), put the clean cup",
+          "english_components": {
+            "subject": {
+              "text": "You all (you formal),",
+              "role": "subject",
+              "person": "2pl"
+            },
+            "verb": {
+              "text": "put",
+              "role": "verb"
+            },
+            "direct_object": {
+              "text": "the clean cup",
+              "role": "direct_object"
+            }
+          },
+          "georgian_verb_form": "დადეთ",
+          "person": "2pl",
+          "effective_preverb": ""
         }
       ]
     }

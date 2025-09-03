@@ -152,282 +152,631 @@
   "preverb_rules": {
     "default": "",
     "replacements": {},
-    "tense_specific_fallbacks": {},
-    "english_fallbacks": {}
+    "tense_specific_fallbacks": {}
   },
   "examples": {
-    "null": {
+    "default": {
       "present": [
         {
-          "georgian": "გემრიელ ხილს ვჭამ",
-          "english": "<strong data-role=\"subject\" data-person=\"1sg\">I</strong> <strong data-role=\"verb\">eat</strong> <strong data-role=\"direct-object\">the delicious fruit</strong>",
-          "english_plain": "I eat the delicious fruit",
-          "html": "<span data-case=\"dat\" data-role=\"direct-object\">გემრიელ ხილს</span> <span data-role=\"verb\">ვჭამ</span>",
-          "case_marking": {
-            "direct_object": {
-              "case": "dat",
-              "word": "ხილს"
-            }
-          },
-          "georgian_verb_form": "ვჭამ"
-        },
-        {
-          "georgian": "დიდი ოჯახი დიდ კვებას ჭამს",
-          "english": "<strong data-role=\"subject\">The big family</strong> <strong data-role=\"verb\">eats</strong> <strong data-role=\"direct-object\">the big meal</strong>",
-          "english_plain": "The big family eats the big meal",
-          "html": "<span data-case=\"nom\" data-role=\"subject\">დიდი ოჯახი</span> <span data-case=\"dat\" data-role=\"direct-object\">დიდ კვებას</span> <span data-role=\"verb\">ჭამს</span>",
-          "case_marking": {
-            "subject": {
-              "case": "nom",
-              "word": "ოჯახი"
+          "georgian": "ვჭამ გემრიელ ხილს",
+          "georgian_components": {
+            "verb": {
+              "text": "ვჭამ",
+              "role": "verb"
             },
             "direct_object": {
+              "text": "გემრიელ ხილს",
               "case": "dat",
-              "word": "კვებას"
+              "role": "direct_object"
             }
           },
-          "georgian_verb_form": "ჭამს"
-        },
-        {
-          "georgian": "მშიერი მუშა ცხელ პურს ჭამენ",
-          "english": "<strong data-role=\"subject\">The hungry worker</strong> <strong data-role=\"verb\">eat</strong> <strong data-role=\"direct-object\">the hot bread</strong>",
-          "english_plain": "The hungry worker eat the hot bread",
-          "html": "<span data-case=\"nom\" data-role=\"subject\">მშიერი მუშა</span> <span data-case=\"dat\" data-role=\"direct-object\">ცხელ პურს</span> <span data-role=\"verb\">ჭამენ</span>",
-          "case_marking": {
+          "english": "I eat the delicious fruit",
+          "english_components": {
             "subject": {
-              "case": "nom",
-              "word": "მუშა"
+              "text": "I",
+              "role": "subject",
+              "person": "1sg"
+            },
+            "verb": {
+              "text": "eat",
+              "role": "verb"
             },
             "direct_object": {
-              "case": "dat",
-              "word": "პურს"
+              "text": "the delicious fruit",
+              "role": "direct_object"
             }
           },
-          "georgian_verb_form": "ჭამენ"
+          "georgian_verb_form": "ვჭამ",
+          "person": "1sg",
+          "effective_preverb": "შე"
+        },
+        {
+          "georgian": "დიდი ოჯახი ჭამს დიდ კვებას",
+          "georgian_components": {
+            "subject": {
+              "text": "დიდი ოჯახი",
+              "case": "nom",
+              "role": "subject"
+            },
+            "verb": {
+              "text": "ჭამს",
+              "role": "verb"
+            },
+            "direct_object": {
+              "text": "დიდ კვებას",
+              "case": "dat",
+              "role": "direct_object"
+            }
+          },
+          "english": "The big family eats the big meal",
+          "english_components": {
+            "subject": {
+              "text": "The big family",
+              "role": "subject",
+              "person": "3sg"
+            },
+            "verb": {
+              "text": "eats",
+              "role": "verb"
+            },
+            "direct_object": {
+              "text": "the big meal",
+              "role": "direct_object"
+            }
+          },
+          "georgian_verb_form": "ჭამს",
+          "person": "3sg",
+          "effective_preverb": "შე"
+        },
+        {
+          "georgian": "მშიერი მუშები ჭამენ ცხელ პურს",
+          "georgian_components": {
+            "subject": {
+              "text": "მშიერი მუშები",
+              "case": "nom",
+              "role": "subject"
+            },
+            "verb": {
+              "text": "ჭამენ",
+              "role": "verb"
+            },
+            "direct_object": {
+              "text": "ცხელ პურს",
+              "case": "dat",
+              "role": "direct_object"
+            }
+          },
+          "english": "The hungry workers eat the hot bread",
+          "english_components": {
+            "subject": {
+              "text": "The hungry workers",
+              "role": "subject",
+              "person": "3pl"
+            },
+            "verb": {
+              "text": "eat",
+              "role": "verb"
+            },
+            "direct_object": {
+              "text": "the hot bread",
+              "role": "direct_object"
+            }
+          },
+          "georgian_verb_form": "ჭამენ",
+          "person": "3pl",
+          "effective_preverb": "შე"
         }
       ],
       "imperfect": [
         {
-          "georgian": "გემრიელ ხილს ვჭამდი",
-          "english": "<strong data-role=\"subject\" data-person=\"1sg\">I</strong> <strong data-role=\"verb\">was eating</strong> <strong data-role=\"direct-object\">the delicious fruit</strong>",
-          "english_plain": "I was eating the delicious fruit",
-          "html": "<span data-case=\"dat\" data-role=\"direct-object\">გემრიელ ხილს</span> <span data-role=\"verb\">ვჭამდი</span>",
-          "case_marking": {
-            "direct_object": {
-              "case": "dat",
-              "word": "ხილს"
-            }
-          },
-          "georgian_verb_form": "ვჭამდი"
-        },
-        {
-          "georgian": "დიდი ოჯახი დიდ კვებას ჭამდა",
-          "english": "<strong data-role=\"subject\">The big family</strong> <strong data-role=\"verb\">was eating</strong> <strong data-role=\"direct-object\">the big meal</strong>",
-          "english_plain": "The big family was eating the big meal",
-          "html": "<span data-case=\"nom\" data-role=\"subject\">დიდი ოჯახი</span> <span data-case=\"dat\" data-role=\"direct-object\">დიდ კვებას</span> <span data-role=\"verb\">ჭამდა</span>",
-          "case_marking": {
-            "subject": {
-              "case": "nom",
-              "word": "ოჯახი"
+          "georgian": "ვჭამდი გემრიელ ხილს",
+          "georgian_components": {
+            "verb": {
+              "text": "ვჭამდი",
+              "role": "verb"
             },
             "direct_object": {
+              "text": "გემრიელ ხილს",
               "case": "dat",
-              "word": "კვებას"
+              "role": "direct_object"
             }
           },
-          "georgian_verb_form": "ჭამდა"
-        },
-        {
-          "georgian": "მშიერი მუშა ცხელ პურს ჭამდნენ",
-          "english": "<strong data-role=\"subject\">The hungry worker</strong> <strong data-role=\"verb\">were eating</strong> <strong data-role=\"direct-object\">the hot bread</strong>",
-          "english_plain": "The hungry worker were eating the hot bread",
-          "html": "<span data-case=\"nom\" data-role=\"subject\">მშიერი მუშა</span> <span data-case=\"dat\" data-role=\"direct-object\">ცხელ პურს</span> <span data-role=\"verb\">ჭამდნენ</span>",
-          "case_marking": {
+          "english": "I was eating the delicious fruit",
+          "english_components": {
             "subject": {
-              "case": "nom",
-              "word": "მუშა"
+              "text": "I",
+              "role": "subject",
+              "person": "1sg"
+            },
+            "verb": {
+              "text": "was eating",
+              "role": "verb"
             },
             "direct_object": {
-              "case": "dat",
-              "word": "პურს"
+              "text": "the delicious fruit",
+              "role": "direct_object"
             }
           },
-          "georgian_verb_form": "ჭამდნენ"
+          "georgian_verb_form": "ვჭამდი",
+          "person": "1sg",
+          "effective_preverb": "შე"
+        },
+        {
+          "georgian": "დიდი ოჯახი ჭამდა დიდ კვებას",
+          "georgian_components": {
+            "subject": {
+              "text": "დიდი ოჯახი",
+              "case": "nom",
+              "role": "subject"
+            },
+            "verb": {
+              "text": "ჭამდა",
+              "role": "verb"
+            },
+            "direct_object": {
+              "text": "დიდ კვებას",
+              "case": "dat",
+              "role": "direct_object"
+            }
+          },
+          "english": "The big family was eating the big meal",
+          "english_components": {
+            "subject": {
+              "text": "The big family",
+              "role": "subject",
+              "person": "3sg"
+            },
+            "verb": {
+              "text": "was eating",
+              "role": "verb"
+            },
+            "direct_object": {
+              "text": "the big meal",
+              "role": "direct_object"
+            }
+          },
+          "georgian_verb_form": "ჭამდა",
+          "person": "3sg",
+          "effective_preverb": "შე"
+        },
+        {
+          "georgian": "მშიერი მუშები ჭამდნენ ცხელ პურს",
+          "georgian_components": {
+            "subject": {
+              "text": "მშიერი მუშები",
+              "case": "nom",
+              "role": "subject"
+            },
+            "verb": {
+              "text": "ჭამდნენ",
+              "role": "verb"
+            },
+            "direct_object": {
+              "text": "ცხელ პურს",
+              "case": "dat",
+              "role": "direct_object"
+            }
+          },
+          "english": "The hungry workers were eating the hot bread",
+          "english_components": {
+            "subject": {
+              "text": "The hungry workers",
+              "role": "subject",
+              "person": "3pl"
+            },
+            "verb": {
+              "text": "were eating",
+              "role": "verb"
+            },
+            "direct_object": {
+              "text": "the hot bread",
+              "role": "direct_object"
+            }
+          },
+          "georgian_verb_form": "ჭამდნენ",
+          "person": "3pl",
+          "effective_preverb": "შე"
         }
       ],
       "future": [
         {
-          "georgian": "გემრიელ ხილს შევჭამ",
-          "english": "<strong data-role=\"subject\" data-person=\"1sg\">I</strong> <strong data-role=\"verb\">will eat</strong> <strong data-role=\"direct-object\">the delicious fruit</strong>",
-          "english_plain": "I will eat the delicious fruit",
-          "html": "<span data-case=\"dat\" data-role=\"direct-object\">გემრიელ ხილს</span> <span data-role=\"verb\">შევჭამ</span>",
-          "case_marking": {
-            "direct_object": {
-              "case": "dat",
-              "word": "ხილს"
-            }
-          },
-          "georgian_verb_form": "შევჭამ"
-        },
-        {
-          "georgian": "დიდი ოჯახი დიდ კვებას შეჭამს",
-          "english": "<strong data-role=\"subject\">The big family</strong> <strong data-role=\"verb\">will eat</strong> <strong data-role=\"direct-object\">the big meal</strong>",
-          "english_plain": "The big family will eat the big meal",
-          "html": "<span data-case=\"nom\" data-role=\"subject\">დიდი ოჯახი</span> <span data-case=\"dat\" data-role=\"direct-object\">დიდ კვებას</span> <span data-role=\"verb\">შეჭამს</span>",
-          "case_marking": {
-            "subject": {
-              "case": "nom",
-              "word": "ოჯახი"
+          "georgian": "შევჭამ გემრიელ ხილს",
+          "georgian_components": {
+            "verb": {
+              "text": "შევჭამ",
+              "role": "verb"
             },
             "direct_object": {
+              "text": "გემრიელ ხილს",
               "case": "dat",
-              "word": "კვებას"
+              "role": "direct_object"
             }
           },
-          "georgian_verb_form": "შეჭამს"
-        },
-        {
-          "georgian": "მშიერი მუშა ცხელ პურს შეჭამენ",
-          "english": "<strong data-role=\"subject\">The hungry worker</strong> <strong data-role=\"verb\">will eat</strong> <strong data-role=\"direct-object\">the hot bread</strong>",
-          "english_plain": "The hungry worker will eat the hot bread",
-          "html": "<span data-case=\"nom\" data-role=\"subject\">მშიერი მუშა</span> <span data-case=\"dat\" data-role=\"direct-object\">ცხელ პურს</span> <span data-role=\"verb\">შეჭამენ</span>",
-          "case_marking": {
+          "english": "I will eat the delicious fruit",
+          "english_components": {
             "subject": {
-              "case": "nom",
-              "word": "მუშა"
+              "text": "I",
+              "role": "subject",
+              "person": "1sg"
+            },
+            "verb": {
+              "text": "will eat",
+              "role": "verb"
             },
             "direct_object": {
-              "case": "dat",
-              "word": "პურს"
+              "text": "the delicious fruit",
+              "role": "direct_object"
             }
           },
-          "georgian_verb_form": "შეჭამენ"
+          "georgian_verb_form": "შევჭამ",
+          "person": "1sg",
+          "effective_preverb": "შე"
+        },
+        {
+          "georgian": "დიდი ოჯახი შეჭამს დიდ კვებას",
+          "georgian_components": {
+            "subject": {
+              "text": "დიდი ოჯახი",
+              "case": "nom",
+              "role": "subject"
+            },
+            "verb": {
+              "text": "შეჭამს",
+              "role": "verb"
+            },
+            "direct_object": {
+              "text": "დიდ კვებას",
+              "case": "dat",
+              "role": "direct_object"
+            }
+          },
+          "english": "The big family will eat the big meal",
+          "english_components": {
+            "subject": {
+              "text": "The big family",
+              "role": "subject",
+              "person": "3sg"
+            },
+            "verb": {
+              "text": "will eat",
+              "role": "verb"
+            },
+            "direct_object": {
+              "text": "the big meal",
+              "role": "direct_object"
+            }
+          },
+          "georgian_verb_form": "შეჭამს",
+          "person": "3sg",
+          "effective_preverb": "შე"
+        },
+        {
+          "georgian": "მშიერი მუშები შეჭამენ ცხელ პურს",
+          "georgian_components": {
+            "subject": {
+              "text": "მშიერი მუშები",
+              "case": "nom",
+              "role": "subject"
+            },
+            "verb": {
+              "text": "შეჭამენ",
+              "role": "verb"
+            },
+            "direct_object": {
+              "text": "ცხელ პურს",
+              "case": "dat",
+              "role": "direct_object"
+            }
+          },
+          "english": "The hungry workers will eat the hot bread",
+          "english_components": {
+            "subject": {
+              "text": "The hungry workers",
+              "role": "subject",
+              "person": "3pl"
+            },
+            "verb": {
+              "text": "will eat",
+              "role": "verb"
+            },
+            "direct_object": {
+              "text": "the hot bread",
+              "role": "direct_object"
+            }
+          },
+          "georgian_verb_form": "შეჭამენ",
+          "person": "3pl",
+          "effective_preverb": "შე"
         }
       ],
       "aorist": [
         {
-          "georgian": "გემრიელი ხილი შევჭამე",
-          "english": "<strong data-role=\"subject\" data-person=\"1sg\">I</strong> <strong data-role=\"verb\">ate</strong> <strong data-role=\"direct-object\">the delicious fruit</strong>",
-          "english_plain": "I ate the delicious fruit",
-          "html": "<span data-case=\"nom\" data-role=\"direct-object\">გემრიელი ხილი</span> <span data-role=\"verb\">შევჭამე</span>",
-          "case_marking": {
-            "direct_object": {
-              "case": "nom",
-              "word": "ხილი"
-            }
-          },
-          "georgian_verb_form": "შევჭამე"
-        },
-        {
-          "georgian": "დიდმა ოჯახმა დიდი კვება შეჭამა",
-          "english": "<strong data-role=\"subject\">The big family</strong> <strong data-role=\"verb\">ate</strong> <strong data-role=\"direct-object\">the big meal</strong>",
-          "english_plain": "The big family ate the big meal",
-          "html": "<span data-case=\"erg\" data-role=\"subject\">დიდმა ოჯახმა</span> <span data-case=\"nom\" data-role=\"direct-object\">დიდი კვება</span> <span data-role=\"verb\">შეჭამა</span>",
-          "case_marking": {
-            "subject": {
-              "case": "erg",
-              "word": "ოჯახმა"
+          "georgian": "შევჭამე გემრიელი ხილი",
+          "georgian_components": {
+            "verb": {
+              "text": "შევჭამე",
+              "role": "verb"
             },
             "direct_object": {
+              "text": "გემრიელი ხილი",
               "case": "nom",
-              "word": "კვება"
+              "role": "direct_object"
             }
           },
-          "georgian_verb_form": "შეჭამა"
-        },
-        {
-          "georgian": "მშიერმა მუშამ ცხელი პური შეჭამეს",
-          "english": "<strong data-role=\"subject\">The hungry worker</strong> <strong data-role=\"verb\">ate</strong> <strong data-role=\"direct-object\">the hot bread</strong>",
-          "english_plain": "The hungry worker ate the hot bread",
-          "html": "<span data-case=\"erg\" data-role=\"subject\">მშიერმა მუშამ</span> <span data-case=\"nom\" data-role=\"direct-object\">ცხელი პური</span> <span data-role=\"verb\">შეჭამეს</span>",
-          "case_marking": {
+          "english": "I ate the delicious fruit",
+          "english_components": {
             "subject": {
-              "case": "erg",
-              "word": "მუშამ"
+              "text": "I",
+              "role": "subject",
+              "person": "1sg"
+            },
+            "verb": {
+              "text": "ate",
+              "role": "verb"
             },
             "direct_object": {
-              "case": "nom",
-              "word": "პური"
+              "text": "the delicious fruit",
+              "role": "direct_object"
             }
           },
-          "georgian_verb_form": "შეჭამეს"
+          "georgian_verb_form": "შევჭამე",
+          "person": "1sg",
+          "effective_preverb": "შე"
+        },
+        {
+          "georgian": "დიდმა ოჯახმა შეჭამა დიდი კვება",
+          "georgian_components": {
+            "subject": {
+              "text": "დიდმა ოჯახმა",
+              "case": "erg",
+              "role": "subject"
+            },
+            "verb": {
+              "text": "შეჭამა",
+              "role": "verb"
+            },
+            "direct_object": {
+              "text": "დიდი კვება",
+              "case": "nom",
+              "role": "direct_object"
+            }
+          },
+          "english": "The big family ate the big meal",
+          "english_components": {
+            "subject": {
+              "text": "The big family",
+              "role": "subject",
+              "person": "3sg"
+            },
+            "verb": {
+              "text": "ate",
+              "role": "verb"
+            },
+            "direct_object": {
+              "text": "the big meal",
+              "role": "direct_object"
+            }
+          },
+          "georgian_verb_form": "შეჭამა",
+          "person": "3sg",
+          "effective_preverb": "შე"
+        },
+        {
+          "georgian": "მშიერმა მუშებმა შეჭამეს ცხელი პური",
+          "georgian_components": {
+            "subject": {
+              "text": "მშიერმა მუშებმა",
+              "case": "erg",
+              "role": "subject"
+            },
+            "verb": {
+              "text": "შეჭამეს",
+              "role": "verb"
+            },
+            "direct_object": {
+              "text": "ცხელი პური",
+              "case": "nom",
+              "role": "direct_object"
+            }
+          },
+          "english": "The hungry workers ate the hot bread",
+          "english_components": {
+            "subject": {
+              "text": "The hungry workers",
+              "role": "subject",
+              "person": "3pl"
+            },
+            "verb": {
+              "text": "ate",
+              "role": "verb"
+            },
+            "direct_object": {
+              "text": "the hot bread",
+              "role": "direct_object"
+            }
+          },
+          "georgian_verb_form": "შეჭამეს",
+          "person": "3pl",
+          "effective_preverb": "შე"
         }
       ],
       "optative": [
         {
-          "georgian": "გემრიელი ხილი უნდა შევჭამო",
-          "english": "<strong data-role=\"subject\" data-person=\"1sg\">I</strong> <strong data-role=\"verb\">should</strong> <strong data-role=\"verb\">eat</strong> <strong data-role=\"direct-object\">the delicious fruit</strong>",
-          "english_plain": "I should eat the delicious fruit",
-          "html": "<span data-case=\"nom\" data-role=\"direct-object\">გემრიელი ხილი</span> <span data-role=\"verb\">უნდა შევჭამო</span>",
-          "case_marking": {
-            "direct_object": {
-              "case": "nom",
-              "word": "ხილი"
-            }
-          },
-          "georgian_verb_form": "შევჭამო"
-        },
-        {
-          "georgian": "დიდმა ოჯახმა დიდი კვება უნდა შეჭამოს",
-          "english": "<strong data-role=\"subject\">The big family</strong> <strong data-role=\"verb\">should</strong> <strong data-role=\"verb\">eat</strong> <strong data-role=\"direct-object\">the big meal</strong>",
-          "english_plain": "The big family should eat the big meal",
-          "html": "<span data-case=\"erg\" data-role=\"subject\">დიდმა ოჯახმა</span> <span data-case=\"nom\" data-role=\"direct-object\">დიდი კვება</span> <span data-role=\"verb\">უნდა შეჭამოს</span>",
-          "case_marking": {
-            "subject": {
-              "case": "erg",
-              "word": "ოჯახმა"
+          "georgian": "უნდა შევჭამო გემრიელი ხილი",
+          "georgian_components": {
+            "verb": {
+              "text": "უნდა შევჭამო",
+              "role": "verb"
             },
             "direct_object": {
+              "text": "გემრიელი ხილი",
               "case": "nom",
-              "word": "კვება"
+              "role": "direct_object"
             }
           },
-          "georgian_verb_form": "შეჭამოს"
-        },
-        {
-          "georgian": "მშიერმა მუშამ ცხელი პური უნდა შეჭამონ",
-          "english": "<strong data-role=\"subject\">The hungry worker</strong> <strong data-role=\"verb\">should</strong> <strong data-role=\"verb\">eat</strong> <strong data-role=\"direct-object\">the hot bread</strong>",
-          "english_plain": "The hungry worker should eat the hot bread",
-          "html": "<span data-case=\"erg\" data-role=\"subject\">მშიერმა მუშამ</span> <span data-case=\"nom\" data-role=\"direct-object\">ცხელი პური</span> <span data-role=\"verb\">უნდა შეჭამონ</span>",
-          "case_marking": {
+          "english": "I should eat the delicious fruit",
+          "english_components": {
             "subject": {
-              "case": "erg",
-              "word": "მუშამ"
+              "text": "I",
+              "role": "subject",
+              "person": "1sg"
+            },
+            "verb": {
+              "text": "should eat",
+              "role": "verb"
             },
             "direct_object": {
-              "case": "nom",
-              "word": "პური"
+              "text": "the delicious fruit",
+              "role": "direct_object"
             }
           },
-          "georgian_verb_form": "შეჭამონ"
+          "georgian_verb_form": "შევჭამო",
+          "person": "1sg",
+          "effective_preverb": "შე"
+        },
+        {
+          "georgian": "დიდმა ოჯახმა უნდა შეჭამოს დიდი კვება",
+          "georgian_components": {
+            "subject": {
+              "text": "დიდმა ოჯახმა",
+              "case": "erg",
+              "role": "subject"
+            },
+            "verb": {
+              "text": "უნდა შეჭამოს",
+              "role": "verb"
+            },
+            "direct_object": {
+              "text": "დიდი კვება",
+              "case": "nom",
+              "role": "direct_object"
+            }
+          },
+          "english": "The big family should eat the big meal",
+          "english_components": {
+            "subject": {
+              "text": "The big family",
+              "role": "subject",
+              "person": "3sg"
+            },
+            "verb": {
+              "text": "should eat",
+              "role": "verb"
+            },
+            "direct_object": {
+              "text": "the big meal",
+              "role": "direct_object"
+            }
+          },
+          "georgian_verb_form": "შეჭამოს",
+          "person": "3sg",
+          "effective_preverb": "შე"
+        },
+        {
+          "georgian": "მშიერმა მუშებმა უნდა შეჭამონ ცხელი პური",
+          "georgian_components": {
+            "subject": {
+              "text": "მშიერმა მუშებმა",
+              "case": "erg",
+              "role": "subject"
+            },
+            "verb": {
+              "text": "უნდა შეჭამონ",
+              "role": "verb"
+            },
+            "direct_object": {
+              "text": "ცხელი პური",
+              "case": "nom",
+              "role": "direct_object"
+            }
+          },
+          "english": "The hungry workers should eat the hot bread",
+          "english_components": {
+            "subject": {
+              "text": "The hungry workers",
+              "role": "subject",
+              "person": "3pl"
+            },
+            "verb": {
+              "text": "should eat",
+              "role": "verb"
+            },
+            "direct_object": {
+              "text": "the hot bread",
+              "role": "direct_object"
+            }
+          },
+          "georgian_verb_form": "შეჭამონ",
+          "person": "3pl",
+          "effective_preverb": "შე"
         }
       ],
       "imperative": [
         {
-          "georgian": "წითელი ვაშლი შეჭამე",
-          "english": "<strong data-role=\"verb\">eat</strong> <strong data-role=\"direct-object\">the red apple</strong>",
-          "english_plain": "eat the red apple",
-          "html": "<span data-case=\"nom\" data-role=\"direct-object\">წითელი ვაშლი</span> <span data-role=\"verb\">შეჭამე</span>",
-          "case_marking": {
+          "georgian": "შეჭამე წითელი ვაშლი",
+          "georgian_components": {
+            "verb": {
+              "text": "შეჭამე",
+              "role": "verb"
+            },
             "direct_object": {
+              "text": "წითელი ვაშლი",
               "case": "nom",
-              "word": "ვაშლი"
+              "role": "direct_object"
             }
           },
-          "georgian_verb_form": "შეჭამე"
+          "english": "You, eat the red apple",
+          "english_components": {
+            "subject": {
+              "text": "You,",
+              "role": "subject",
+              "person": "2sg"
+            },
+            "verb": {
+              "text": "eat",
+              "role": "verb"
+            },
+            "direct_object": {
+              "text": "the red apple",
+              "role": "direct_object"
+            }
+          },
+          "georgian_verb_form": "შეჭამე",
+          "person": "2sg",
+          "effective_preverb": "შე"
         },
         {
-          "georgian": "შემწვარი ქათამი შეჭამეთ",
-          "english": "<strong data-role=\"verb\">eat</strong> <strong data-role=\"direct-object\">the fried chicken</strong>",
-          "english_plain": "eat the fried chicken",
-          "html": "<span data-case=\"nom\" data-role=\"direct-object\">შემწვარი ქათამი</span> <span data-role=\"verb\">შეჭამეთ</span>",
-          "case_marking": {
+          "georgian": "შეჭამეთ შემწვარი ქათამი",
+          "georgian_components": {
+            "verb": {
+              "text": "შეჭამეთ",
+              "role": "verb"
+            },
             "direct_object": {
+              "text": "შემწვარი ქათამი",
               "case": "nom",
-              "word": "ქათამი"
+              "role": "direct_object"
             }
           },
-          "georgian_verb_form": "შეჭამეთ"
+          "english": "You all (you formal), eat the fried chicken",
+          "english_components": {
+            "subject": {
+              "text": "You all (you formal),",
+              "role": "subject",
+              "person": "2pl"
+            },
+            "verb": {
+              "text": "eat",
+              "role": "verb"
+            },
+            "direct_object": {
+              "text": "the fried chicken",
+              "role": "direct_object"
+            }
+          },
+          "georgian_verb_form": "შეჭამეთ",
+          "person": "2pl",
+          "effective_preverb": "შე"
         }
       ]
     }

@@ -152,282 +152,631 @@
   "preverb_rules": {
     "default": "",
     "replacements": {},
-    "tense_specific_fallbacks": {},
-    "english_fallbacks": {}
+    "tense_specific_fallbacks": {}
   },
   "examples": {
-    "null": {
+    "default": {
       "present": [
         {
-          "georgian": "გრძელ წერილს ვწერ",
-          "english": "<strong data-role=\"subject\" data-person=\"1sg\">I</strong> <strong data-role=\"verb\">write</strong> <strong data-role=\"direct-object\">the long letter</strong>",
-          "english_plain": "I write the long letter",
-          "html": "<span data-case=\"dat\" data-role=\"direct-object\">გრძელ წერილს</span> <span data-role=\"verb\">ვწერ</span>",
-          "case_marking": {
-            "direct_object": {
-              "case": "dat",
-              "word": "წერილს"
-            }
-          },
-          "georgian_verb_form": "ვწერ"
-        },
-        {
-          "georgian": "ცნობილი ავტორი საინტერესო რომანს წერს",
-          "english": "<strong data-role=\"subject\">The famous author</strong> <strong data-role=\"verb\">writes</strong> <strong data-role=\"direct-object\">the interesting novel</strong>",
-          "english_plain": "The famous author writes the interesting novel",
-          "html": "<span data-case=\"nom\" data-role=\"subject\">ცნობილი ავტორი</span> <span data-case=\"dat\" data-role=\"direct-object\">საინტერესო რომანს</span> <span data-role=\"verb\">წერს</span>",
-          "case_marking": {
-            "subject": {
-              "case": "nom",
-              "word": "ავტორი"
+          "georgian": "ვწერ გრძელ წერილს",
+          "georgian_components": {
+            "verb": {
+              "text": "ვწერ",
+              "role": "verb"
             },
             "direct_object": {
+              "text": "გრძელ წერილს",
               "case": "dat",
-              "word": "რომანს"
+              "role": "direct_object"
             }
           },
-          "georgian_verb_form": "წერს"
-        },
-        {
-          "georgian": "გამოცდილი ჟურნალისტი დეტალურ ანგარიშს წერენ",
-          "english": "<strong data-role=\"subject\">The experienced journalist</strong> <strong data-role=\"verb\">write</strong> <strong data-role=\"direct-object\">the detailed report</strong>",
-          "english_plain": "The experienced journalist write the detailed report",
-          "html": "<span data-case=\"nom\" data-role=\"subject\">გამოცდილი ჟურნალისტი</span> <span data-case=\"dat\" data-role=\"direct-object\">დეტალურ ანგარიშს</span> <span data-role=\"verb\">წერენ</span>",
-          "case_marking": {
+          "english": "I write the long letter",
+          "english_components": {
             "subject": {
-              "case": "nom",
-              "word": "ჟურნალისტი"
+              "text": "I",
+              "role": "subject",
+              "person": "1sg"
+            },
+            "verb": {
+              "text": "write",
+              "role": "verb"
             },
             "direct_object": {
-              "case": "dat",
-              "word": "ანგარიშს"
+              "text": "the long letter",
+              "role": "direct_object"
             }
           },
-          "georgian_verb_form": "წერენ"
+          "georgian_verb_form": "ვწერ",
+          "person": "1sg",
+          "effective_preverb": "და"
+        },
+        {
+          "georgian": "ცნობილი ავტორი წერს საინტერესო რომანს",
+          "georgian_components": {
+            "subject": {
+              "text": "ცნობილი ავტორი",
+              "case": "nom",
+              "role": "subject"
+            },
+            "verb": {
+              "text": "წერს",
+              "role": "verb"
+            },
+            "direct_object": {
+              "text": "საინტერესო რომანს",
+              "case": "dat",
+              "role": "direct_object"
+            }
+          },
+          "english": "The famous author writes the interesting novel",
+          "english_components": {
+            "subject": {
+              "text": "The famous author",
+              "role": "subject",
+              "person": "3sg"
+            },
+            "verb": {
+              "text": "writes",
+              "role": "verb"
+            },
+            "direct_object": {
+              "text": "the interesting novel",
+              "role": "direct_object"
+            }
+          },
+          "georgian_verb_form": "წერს",
+          "person": "3sg",
+          "effective_preverb": "და"
+        },
+        {
+          "georgian": "გამოცდილი ჟურნალისტები წერენ დეტალურ ანგარიშს",
+          "georgian_components": {
+            "subject": {
+              "text": "გამოცდილი ჟურნალისტები",
+              "case": "nom",
+              "role": "subject"
+            },
+            "verb": {
+              "text": "წერენ",
+              "role": "verb"
+            },
+            "direct_object": {
+              "text": "დეტალურ ანგარიშს",
+              "case": "dat",
+              "role": "direct_object"
+            }
+          },
+          "english": "The experienced journalists write the detailed report",
+          "english_components": {
+            "subject": {
+              "text": "The experienced journalists",
+              "role": "subject",
+              "person": "3pl"
+            },
+            "verb": {
+              "text": "write",
+              "role": "verb"
+            },
+            "direct_object": {
+              "text": "the detailed report",
+              "role": "direct_object"
+            }
+          },
+          "georgian_verb_form": "წერენ",
+          "person": "3pl",
+          "effective_preverb": "და"
         }
       ],
       "imperfect": [
         {
-          "georgian": "გრძელ წერილს ვწერდი",
-          "english": "<strong data-role=\"subject\" data-person=\"1sg\">I</strong> <strong data-role=\"verb\">was writing</strong> <strong data-role=\"direct-object\">the long letter</strong>",
-          "english_plain": "I was writing the long letter",
-          "html": "<span data-case=\"dat\" data-role=\"direct-object\">გრძელ წერილს</span> <span data-role=\"verb\">ვწერდი</span>",
-          "case_marking": {
-            "direct_object": {
-              "case": "dat",
-              "word": "წერილს"
-            }
-          },
-          "georgian_verb_form": "ვწერდი"
-        },
-        {
-          "georgian": "ცნობილი ავტორი საინტერესო რომანს წერდა",
-          "english": "<strong data-role=\"subject\">The famous author</strong> <strong data-role=\"verb\">was writing</strong> <strong data-role=\"direct-object\">the interesting novel</strong>",
-          "english_plain": "The famous author was writing the interesting novel",
-          "html": "<span data-case=\"nom\" data-role=\"subject\">ცნობილი ავტორი</span> <span data-case=\"dat\" data-role=\"direct-object\">საინტერესო რომანს</span> <span data-role=\"verb\">წერდა</span>",
-          "case_marking": {
-            "subject": {
-              "case": "nom",
-              "word": "ავტორი"
+          "georgian": "ვწერდი გრძელ წერილს",
+          "georgian_components": {
+            "verb": {
+              "text": "ვწერდი",
+              "role": "verb"
             },
             "direct_object": {
+              "text": "გრძელ წერილს",
               "case": "dat",
-              "word": "რომანს"
+              "role": "direct_object"
             }
           },
-          "georgian_verb_form": "წერდა"
-        },
-        {
-          "georgian": "გამოცდილი ჟურნალისტი დეტალურ ანგარიშს წერდნენ",
-          "english": "<strong data-role=\"subject\">The experienced journalist</strong> <strong data-role=\"verb\">were writing</strong> <strong data-role=\"direct-object\">the detailed report</strong>",
-          "english_plain": "The experienced journalist were writing the detailed report",
-          "html": "<span data-case=\"nom\" data-role=\"subject\">გამოცდილი ჟურნალისტი</span> <span data-case=\"dat\" data-role=\"direct-object\">დეტალურ ანგარიშს</span> <span data-role=\"verb\">წერდნენ</span>",
-          "case_marking": {
+          "english": "I was writing the long letter",
+          "english_components": {
             "subject": {
-              "case": "nom",
-              "word": "ჟურნალისტი"
+              "text": "I",
+              "role": "subject",
+              "person": "1sg"
+            },
+            "verb": {
+              "text": "was writing",
+              "role": "verb"
             },
             "direct_object": {
-              "case": "dat",
-              "word": "ანგარიშს"
+              "text": "the long letter",
+              "role": "direct_object"
             }
           },
-          "georgian_verb_form": "წერდნენ"
+          "georgian_verb_form": "ვწერდი",
+          "person": "1sg",
+          "effective_preverb": "და"
+        },
+        {
+          "georgian": "ცნობილი ავტორი წერდა საინტერესო რომანს",
+          "georgian_components": {
+            "subject": {
+              "text": "ცნობილი ავტორი",
+              "case": "nom",
+              "role": "subject"
+            },
+            "verb": {
+              "text": "წერდა",
+              "role": "verb"
+            },
+            "direct_object": {
+              "text": "საინტერესო რომანს",
+              "case": "dat",
+              "role": "direct_object"
+            }
+          },
+          "english": "The famous author was writing the interesting novel",
+          "english_components": {
+            "subject": {
+              "text": "The famous author",
+              "role": "subject",
+              "person": "3sg"
+            },
+            "verb": {
+              "text": "was writing",
+              "role": "verb"
+            },
+            "direct_object": {
+              "text": "the interesting novel",
+              "role": "direct_object"
+            }
+          },
+          "georgian_verb_form": "წერდა",
+          "person": "3sg",
+          "effective_preverb": "და"
+        },
+        {
+          "georgian": "გამოცდილი ჟურნალისტები წერდნენ დეტალურ ანგარიშს",
+          "georgian_components": {
+            "subject": {
+              "text": "გამოცდილი ჟურნალისტები",
+              "case": "nom",
+              "role": "subject"
+            },
+            "verb": {
+              "text": "წერდნენ",
+              "role": "verb"
+            },
+            "direct_object": {
+              "text": "დეტალურ ანგარიშს",
+              "case": "dat",
+              "role": "direct_object"
+            }
+          },
+          "english": "The experienced journalists were writing the detailed report",
+          "english_components": {
+            "subject": {
+              "text": "The experienced journalists",
+              "role": "subject",
+              "person": "3pl"
+            },
+            "verb": {
+              "text": "were writing",
+              "role": "verb"
+            },
+            "direct_object": {
+              "text": "the detailed report",
+              "role": "direct_object"
+            }
+          },
+          "georgian_verb_form": "წერდნენ",
+          "person": "3pl",
+          "effective_preverb": "და"
         }
       ],
       "future": [
         {
-          "georgian": "გრძელ წერილს დავწერ",
-          "english": "<strong data-role=\"subject\" data-person=\"1sg\">I</strong> <strong data-role=\"verb\">will write</strong> <strong data-role=\"direct-object\">the long letter</strong>",
-          "english_plain": "I will write the long letter",
-          "html": "<span data-case=\"dat\" data-role=\"direct-object\">გრძელ წერილს</span> <span data-role=\"verb\">დავწერ</span>",
-          "case_marking": {
-            "direct_object": {
-              "case": "dat",
-              "word": "წერილს"
-            }
-          },
-          "georgian_verb_form": "დავწერ"
-        },
-        {
-          "georgian": "ცნობილი ავტორი საინტერესო რომანს დაწერს",
-          "english": "<strong data-role=\"subject\">The famous author</strong> <strong data-role=\"verb\">will write</strong> <strong data-role=\"direct-object\">the interesting novel</strong>",
-          "english_plain": "The famous author will write the interesting novel",
-          "html": "<span data-case=\"nom\" data-role=\"subject\">ცნობილი ავტორი</span> <span data-case=\"dat\" data-role=\"direct-object\">საინტერესო რომანს</span> <span data-role=\"verb\">დაწერს</span>",
-          "case_marking": {
-            "subject": {
-              "case": "nom",
-              "word": "ავტორი"
+          "georgian": "დავწერ გრძელ წერილს",
+          "georgian_components": {
+            "verb": {
+              "text": "დავწერ",
+              "role": "verb"
             },
             "direct_object": {
+              "text": "გრძელ წერილს",
               "case": "dat",
-              "word": "რომანს"
+              "role": "direct_object"
             }
           },
-          "georgian_verb_form": "დაწერს"
-        },
-        {
-          "georgian": "გამოცდილი ჟურნალისტი დეტალურ ანგარიშს დაწერენ",
-          "english": "<strong data-role=\"subject\">The experienced journalist</strong> <strong data-role=\"verb\">will write</strong> <strong data-role=\"direct-object\">the detailed report</strong>",
-          "english_plain": "The experienced journalist will write the detailed report",
-          "html": "<span data-case=\"nom\" data-role=\"subject\">გამოცდილი ჟურნალისტი</span> <span data-case=\"dat\" data-role=\"direct-object\">დეტალურ ანგარიშს</span> <span data-role=\"verb\">დაწერენ</span>",
-          "case_marking": {
+          "english": "I will write the long letter",
+          "english_components": {
             "subject": {
-              "case": "nom",
-              "word": "ჟურნალისტი"
+              "text": "I",
+              "role": "subject",
+              "person": "1sg"
+            },
+            "verb": {
+              "text": "will write",
+              "role": "verb"
             },
             "direct_object": {
-              "case": "dat",
-              "word": "ანგარიშს"
+              "text": "the long letter",
+              "role": "direct_object"
             }
           },
-          "georgian_verb_form": "დაწერენ"
+          "georgian_verb_form": "დავწერ",
+          "person": "1sg",
+          "effective_preverb": "და"
+        },
+        {
+          "georgian": "ცნობილი ავტორი დაწერს საინტერესო რომანს",
+          "georgian_components": {
+            "subject": {
+              "text": "ცნობილი ავტორი",
+              "case": "nom",
+              "role": "subject"
+            },
+            "verb": {
+              "text": "დაწერს",
+              "role": "verb"
+            },
+            "direct_object": {
+              "text": "საინტერესო რომანს",
+              "case": "dat",
+              "role": "direct_object"
+            }
+          },
+          "english": "The famous author will write the interesting novel",
+          "english_components": {
+            "subject": {
+              "text": "The famous author",
+              "role": "subject",
+              "person": "3sg"
+            },
+            "verb": {
+              "text": "will write",
+              "role": "verb"
+            },
+            "direct_object": {
+              "text": "the interesting novel",
+              "role": "direct_object"
+            }
+          },
+          "georgian_verb_form": "დაწერს",
+          "person": "3sg",
+          "effective_preverb": "და"
+        },
+        {
+          "georgian": "გამოცდილი ჟურნალისტები დაწერენ დეტალურ ანგარიშს",
+          "georgian_components": {
+            "subject": {
+              "text": "გამოცდილი ჟურნალისტები",
+              "case": "nom",
+              "role": "subject"
+            },
+            "verb": {
+              "text": "დაწერენ",
+              "role": "verb"
+            },
+            "direct_object": {
+              "text": "დეტალურ ანგარიშს",
+              "case": "dat",
+              "role": "direct_object"
+            }
+          },
+          "english": "The experienced journalists will write the detailed report",
+          "english_components": {
+            "subject": {
+              "text": "The experienced journalists",
+              "role": "subject",
+              "person": "3pl"
+            },
+            "verb": {
+              "text": "will write",
+              "role": "verb"
+            },
+            "direct_object": {
+              "text": "the detailed report",
+              "role": "direct_object"
+            }
+          },
+          "georgian_verb_form": "დაწერენ",
+          "person": "3pl",
+          "effective_preverb": "და"
         }
       ],
       "aorist": [
         {
-          "georgian": "გრძელი წერილი დავწერე",
-          "english": "<strong data-role=\"subject\" data-person=\"1sg\">I</strong> <strong data-role=\"verb\">wrote</strong> <strong data-role=\"direct-object\">the long letter</strong>",
-          "english_plain": "I wrote the long letter",
-          "html": "<span data-case=\"nom\" data-role=\"direct-object\">გრძელი წერილი</span> <span data-role=\"verb\">დავწერე</span>",
-          "case_marking": {
-            "direct_object": {
-              "case": "nom",
-              "word": "წერილი"
-            }
-          },
-          "georgian_verb_form": "დავწერე"
-        },
-        {
-          "georgian": "ცნობილმა ავტორმა საინტერესო რომანი დაწერა",
-          "english": "<strong data-role=\"subject\">The famous author</strong> <strong data-role=\"verb\">wrote</strong> <strong data-role=\"direct-object\">the interesting novel</strong>",
-          "english_plain": "The famous author wrote the interesting novel",
-          "html": "<span data-case=\"erg\" data-role=\"subject\">ცნობილმა ავტორმა</span> <span data-case=\"nom\" data-role=\"direct-object\">საინტერესო რომანი</span> <span data-role=\"verb\">დაწერა</span>",
-          "case_marking": {
-            "subject": {
-              "case": "erg",
-              "word": "ავტორმა"
+          "georgian": "დავწერე გრძელი წერილი",
+          "georgian_components": {
+            "verb": {
+              "text": "დავწერე",
+              "role": "verb"
             },
             "direct_object": {
+              "text": "გრძელი წერილი",
               "case": "nom",
-              "word": "რომანი"
+              "role": "direct_object"
             }
           },
-          "georgian_verb_form": "დაწერა"
-        },
-        {
-          "georgian": "გამოცდილმა ჟურნალისტმა დეტალური ანგარიში დაწერეს",
-          "english": "<strong data-role=\"subject\">The experienced journalist</strong> <strong data-role=\"verb\">wrote</strong> <strong data-role=\"direct-object\">the detailed report</strong>",
-          "english_plain": "The experienced journalist wrote the detailed report",
-          "html": "<span data-case=\"erg\" data-role=\"subject\">გამოცდილმა ჟურნალისტმა</span> <span data-case=\"nom\" data-role=\"direct-object\">დეტალური ანგარიში</span> <span data-role=\"verb\">დაწერეს</span>",
-          "case_marking": {
+          "english": "I wrote the long letter",
+          "english_components": {
             "subject": {
-              "case": "erg",
-              "word": "ჟურნალისტმა"
+              "text": "I",
+              "role": "subject",
+              "person": "1sg"
+            },
+            "verb": {
+              "text": "wrote",
+              "role": "verb"
             },
             "direct_object": {
-              "case": "nom",
-              "word": "ანგარიში"
+              "text": "the long letter",
+              "role": "direct_object"
             }
           },
-          "georgian_verb_form": "დაწერეს"
+          "georgian_verb_form": "დავწერე",
+          "person": "1sg",
+          "effective_preverb": "და"
+        },
+        {
+          "georgian": "ცნობილმა ავტორმა დაწერა საინტერესო რომანი",
+          "georgian_components": {
+            "subject": {
+              "text": "ცნობილმა ავტორმა",
+              "case": "erg",
+              "role": "subject"
+            },
+            "verb": {
+              "text": "დაწერა",
+              "role": "verb"
+            },
+            "direct_object": {
+              "text": "საინტერესო რომანი",
+              "case": "nom",
+              "role": "direct_object"
+            }
+          },
+          "english": "The famous author wrote the interesting novel",
+          "english_components": {
+            "subject": {
+              "text": "The famous author",
+              "role": "subject",
+              "person": "3sg"
+            },
+            "verb": {
+              "text": "wrote",
+              "role": "verb"
+            },
+            "direct_object": {
+              "text": "the interesting novel",
+              "role": "direct_object"
+            }
+          },
+          "georgian_verb_form": "დაწერა",
+          "person": "3sg",
+          "effective_preverb": "და"
+        },
+        {
+          "georgian": "გამოცდილმა ჟურნალისტებმა დაწერეს დეტალური ანგარიში",
+          "georgian_components": {
+            "subject": {
+              "text": "გამოცდილმა ჟურნალისტებმა",
+              "case": "erg",
+              "role": "subject"
+            },
+            "verb": {
+              "text": "დაწერეს",
+              "role": "verb"
+            },
+            "direct_object": {
+              "text": "დეტალური ანგარიში",
+              "case": "nom",
+              "role": "direct_object"
+            }
+          },
+          "english": "The experienced journalists wrote the detailed report",
+          "english_components": {
+            "subject": {
+              "text": "The experienced journalists",
+              "role": "subject",
+              "person": "3pl"
+            },
+            "verb": {
+              "text": "wrote",
+              "role": "verb"
+            },
+            "direct_object": {
+              "text": "the detailed report",
+              "role": "direct_object"
+            }
+          },
+          "georgian_verb_form": "დაწერეს",
+          "person": "3pl",
+          "effective_preverb": "და"
         }
       ],
       "optative": [
         {
-          "georgian": "გრძელი წერილი უნდა დავწერო",
-          "english": "<strong data-role=\"subject\" data-person=\"1sg\">I</strong> <strong data-role=\"verb\">should</strong> <strong data-role=\"verb\">write</strong> <strong data-role=\"direct-object\">the long letter</strong>",
-          "english_plain": "I should write the long letter",
-          "html": "<span data-case=\"nom\" data-role=\"direct-object\">გრძელი წერილი</span> <span data-role=\"verb\">უნდა დავწერო</span>",
-          "case_marking": {
-            "direct_object": {
-              "case": "nom",
-              "word": "წერილი"
-            }
-          },
-          "georgian_verb_form": "დავწერო"
-        },
-        {
-          "georgian": "ცნობილმა ავტორმა საინტერესო რომანი უნდა დაწეროს",
-          "english": "<strong data-role=\"subject\">The famous author</strong> <strong data-role=\"verb\">should</strong> <strong data-role=\"verb\">write</strong> <strong data-role=\"direct-object\">the interesting novel</strong>",
-          "english_plain": "The famous author should write the interesting novel",
-          "html": "<span data-case=\"erg\" data-role=\"subject\">ცნობილმა ავტორმა</span> <span data-case=\"nom\" data-role=\"direct-object\">საინტერესო რომანი</span> <span data-role=\"verb\">უნდა დაწეროს</span>",
-          "case_marking": {
-            "subject": {
-              "case": "erg",
-              "word": "ავტორმა"
+          "georgian": "უნდა დავწერო გრძელი წერილი",
+          "georgian_components": {
+            "verb": {
+              "text": "უნდა დავწერო",
+              "role": "verb"
             },
             "direct_object": {
+              "text": "გრძელი წერილი",
               "case": "nom",
-              "word": "რომანი"
+              "role": "direct_object"
             }
           },
-          "georgian_verb_form": "დაწეროს"
-        },
-        {
-          "georgian": "გამოცდილმა ჟურნალისტმა დეტალური ანგარიში უნდა დაწერონ",
-          "english": "<strong data-role=\"subject\">The experienced journalist</strong> <strong data-role=\"verb\">should</strong> <strong data-role=\"verb\">write</strong> <strong data-role=\"direct-object\">the detailed report</strong>",
-          "english_plain": "The experienced journalist should write the detailed report",
-          "html": "<span data-case=\"erg\" data-role=\"subject\">გამოცდილმა ჟურნალისტმა</span> <span data-case=\"nom\" data-role=\"direct-object\">დეტალური ანგარიში</span> <span data-role=\"verb\">უნდა დაწერონ</span>",
-          "case_marking": {
+          "english": "I should write the long letter",
+          "english_components": {
             "subject": {
-              "case": "erg",
-              "word": "ჟურნალისტმა"
+              "text": "I",
+              "role": "subject",
+              "person": "1sg"
+            },
+            "verb": {
+              "text": "should write",
+              "role": "verb"
             },
             "direct_object": {
-              "case": "nom",
-              "word": "ანგარიში"
+              "text": "the long letter",
+              "role": "direct_object"
             }
           },
-          "georgian_verb_form": "დაწერონ"
+          "georgian_verb_form": "დავწერო",
+          "person": "1sg",
+          "effective_preverb": "და"
+        },
+        {
+          "georgian": "ცნობილმა ავტორმა უნდა დაწეროს საინტერესო რომანი",
+          "georgian_components": {
+            "subject": {
+              "text": "ცნობილმა ავტორმა",
+              "case": "erg",
+              "role": "subject"
+            },
+            "verb": {
+              "text": "უნდა დაწეროს",
+              "role": "verb"
+            },
+            "direct_object": {
+              "text": "საინტერესო რომანი",
+              "case": "nom",
+              "role": "direct_object"
+            }
+          },
+          "english": "The famous author should write the interesting novel",
+          "english_components": {
+            "subject": {
+              "text": "The famous author",
+              "role": "subject",
+              "person": "3sg"
+            },
+            "verb": {
+              "text": "should write",
+              "role": "verb"
+            },
+            "direct_object": {
+              "text": "the interesting novel",
+              "role": "direct_object"
+            }
+          },
+          "georgian_verb_form": "დაწეროს",
+          "person": "3sg",
+          "effective_preverb": "და"
+        },
+        {
+          "georgian": "გამოცდილმა ჟურნალისტებმა უნდა დაწერონ დეტალური ანგარიში",
+          "georgian_components": {
+            "subject": {
+              "text": "გამოცდილმა ჟურნალისტებმა",
+              "case": "erg",
+              "role": "subject"
+            },
+            "verb": {
+              "text": "უნდა დაწერონ",
+              "role": "verb"
+            },
+            "direct_object": {
+              "text": "დეტალური ანგარიში",
+              "case": "nom",
+              "role": "direct_object"
+            }
+          },
+          "english": "The experienced journalists should write the detailed report",
+          "english_components": {
+            "subject": {
+              "text": "The experienced journalists",
+              "role": "subject",
+              "person": "3pl"
+            },
+            "verb": {
+              "text": "should write",
+              "role": "verb"
+            },
+            "direct_object": {
+              "text": "the detailed report",
+              "role": "direct_object"
+            }
+          },
+          "georgian_verb_form": "დაწერონ",
+          "person": "3pl",
+          "effective_preverb": "და"
         }
       ],
       "imperative": [
         {
-          "georgian": "მნიშვნელოვანი ელფოსტა დაწერე",
-          "english": "<strong data-role=\"verb\">write</strong> <strong data-role=\"direct-object\">the important email</strong>",
-          "english_plain": "write the important email",
-          "html": "<span data-case=\"nom\" data-role=\"direct-object\">მნიშვნელოვანი ელფოსტა</span> <span data-role=\"verb\">დაწერე</span>",
-          "case_marking": {
+          "georgian": "დაწერე მნიშვნელოვანი ელფოსტა",
+          "georgian_components": {
+            "verb": {
+              "text": "დაწერე",
+              "role": "verb"
+            },
             "direct_object": {
+              "text": "მნიშვნელოვანი ელფოსტა",
               "case": "nom",
-              "word": "ელფოსტა"
+              "role": "direct_object"
             }
           },
-          "georgian_verb_form": "დაწერე"
+          "english": "You, write the important email",
+          "english_components": {
+            "subject": {
+              "text": "You,",
+              "role": "subject",
+              "person": "2sg"
+            },
+            "verb": {
+              "text": "write",
+              "role": "verb"
+            },
+            "direct_object": {
+              "text": "the important email",
+              "role": "direct_object"
+            }
+          },
+          "georgian_verb_form": "დაწერე",
+          "person": "2sg",
+          "effective_preverb": "და"
         },
         {
-          "georgian": "სწრაფი შეტყობინება დაწერეთ",
-          "english": "<strong data-role=\"verb\">write</strong> <strong data-role=\"direct-object\">the quick message</strong>",
-          "english_plain": "write the quick message",
-          "html": "<span data-case=\"nom\" data-role=\"direct-object\">სწრაფი შეტყობინება</span> <span data-role=\"verb\">დაწერეთ</span>",
-          "case_marking": {
+          "georgian": "დაწერეთ სწრაფი შეტყობინება",
+          "georgian_components": {
+            "verb": {
+              "text": "დაწერეთ",
+              "role": "verb"
+            },
             "direct_object": {
+              "text": "სწრაფი შეტყობინება",
               "case": "nom",
-              "word": "შეტყობინება"
+              "role": "direct_object"
             }
           },
-          "georgian_verb_form": "დაწერეთ"
+          "english": "You all (you formal), write the quick message",
+          "english_components": {
+            "subject": {
+              "text": "You all (you formal),",
+              "role": "subject",
+              "person": "2pl"
+            },
+            "verb": {
+              "text": "write",
+              "role": "verb"
+            },
+            "direct_object": {
+              "text": "the quick message",
+              "role": "direct_object"
+            }
+          },
+          "georgian_verb_form": "დაწერეთ",
+          "person": "2pl",
+          "effective_preverb": "და"
         }
       ]
     }

@@ -56,7 +56,7 @@
       "examples": []
     },
     "imperfect": {
-      "raw_gloss": "V MedAct Impf <S:Nom>",
+      "raw_gloss": "V MedAct Impf <S> <S:Nom>",
       "forms": {
         "1sg": "ვლაპარაკობდი",
         "2sg": "ლაპარაკობდი",
@@ -104,7 +104,7 @@
       "examples": []
     },
     "imperative": {
-      "raw_gloss": "V MedAct Impf <S:Erg>",
+      "raw_gloss": "V MedAct Impf <S> <S:Erg>",
       "forms": {
         "1sg": "-",
         "2sg": "ილაპარაკე",
@@ -124,207 +124,478 @@
   "preverb_rules": {
     "default": "",
     "replacements": {},
-    "tense_specific_fallbacks": {},
-    "english_fallbacks": {}
+    "tense_specific_fallbacks": {}
   },
   "examples": {
-    "null": {
+    "default": {
       "present": [
         {
           "georgian": "ვლაპარაკობ",
-          "english": "<strong data-role=\"subject\" data-person=\"1sg\">I</strong> <strong data-role=\"verb\">speak</strong>",
-          "english_plain": "I speak",
-          "html": " <span data-role=\"verb\">ვლაპარაკობ</span>",
-          "case_marking": {},
-          "georgian_verb_form": "ვლაპარაკობ"
+          "georgian_components": {
+            "verb": {
+              "text": "ვლაპარაკობ",
+              "role": "verb"
+            }
+          },
+          "english": "I speak",
+          "english_components": {
+            "subject": {
+              "text": "I",
+              "role": "subject",
+              "person": "1sg"
+            },
+            "verb": {
+              "text": "speak",
+              "role": "verb"
+            }
+          },
+          "georgian_verb_form": "ვლაპარაკობ",
+          "person": "1sg",
+          "effective_preverb": ""
         },
         {
           "georgian": "მეგობრული რეპორტიორი ლაპარაკობს",
-          "english": "<strong data-role=\"subject\">The friendly reporter</strong> <strong data-role=\"verb\">speaks</strong>",
-          "english_plain": "The friendly reporter speaks",
-          "html": "<span data-case=\"nom\" data-role=\"subject\">მეგობრული რეპორტიორი</span> <span data-role=\"verb\">ლაპარაკობს</span>",
-          "case_marking": {
+          "georgian_components": {
             "subject": {
+              "text": "მეგობრული რეპორტიორი",
               "case": "nom",
-              "word": "რეპორტიორი"
+              "role": "subject"
+            },
+            "verb": {
+              "text": "ლაპარაკობს",
+              "role": "verb"
             }
           },
-          "georgian_verb_form": "ლაპარაკობს"
+          "english": "The friendly reporter speaks",
+          "english_components": {
+            "subject": {
+              "text": "The friendly reporter",
+              "role": "subject",
+              "person": "3sg"
+            },
+            "verb": {
+              "text": "speaks",
+              "role": "verb"
+            }
+          },
+          "georgian_verb_form": "ლაპარაკობს",
+          "person": "3sg",
+          "effective_preverb": ""
         },
         {
-          "georgian": "დამხმარე მეზობელი ლაპარაკობენ",
-          "english": "<strong data-role=\"subject\">The helpful neighbor</strong> <strong data-role=\"verb\">speak</strong>",
-          "english_plain": "The helpful neighbor speak",
-          "html": "<span data-case=\"nom\" data-role=\"subject\">დამხმარე მეზობელი</span> <span data-role=\"verb\">ლაპარაკობენ</span>",
-          "case_marking": {
+          "georgian": "დამხმარე მეზობლები ლაპარაკობენ",
+          "georgian_components": {
             "subject": {
+              "text": "დამხმარე მეზობლები",
               "case": "nom",
-              "word": "მეზობელი"
+              "role": "subject"
+            },
+            "verb": {
+              "text": "ლაპარაკობენ",
+              "role": "verb"
             }
           },
-          "georgian_verb_form": "ლაპარაკობენ"
+          "english": "The helpful neighbors speak",
+          "english_components": {
+            "subject": {
+              "text": "The helpful neighbors",
+              "role": "subject",
+              "person": "3pl"
+            },
+            "verb": {
+              "text": "speak",
+              "role": "verb"
+            }
+          },
+          "georgian_verb_form": "ლაპარაკობენ",
+          "person": "3pl",
+          "effective_preverb": ""
         }
       ],
       "imperfect": [
         {
           "georgian": "ვლაპარაკობდი",
-          "english": "<strong data-role=\"subject\" data-person=\"1sg\">I</strong> <strong data-role=\"verb\">was speaking</strong>",
-          "english_plain": "I was speaking",
-          "html": " <span data-role=\"verb\">ვლაპარაკობდი</span>",
-          "case_marking": {},
-          "georgian_verb_form": "ვლაპარაკობდი"
+          "georgian_components": {
+            "verb": {
+              "text": "ვლაპარაკობდი",
+              "role": "verb"
+            }
+          },
+          "english": "I was speaking",
+          "english_components": {
+            "subject": {
+              "text": "I",
+              "role": "subject",
+              "person": "1sg"
+            },
+            "verb": {
+              "text": "was speaking",
+              "role": "verb"
+            }
+          },
+          "georgian_verb_form": "ვლაპარაკობდი",
+          "person": "1sg",
+          "effective_preverb": ""
         },
         {
           "georgian": "მეგობრული რეპორტიორი ლაპარაკობდა",
-          "english": "<strong data-role=\"subject\">The friendly reporter</strong> <strong data-role=\"verb\">was speaking</strong>",
-          "english_plain": "The friendly reporter was speaking",
-          "html": "<span data-case=\"nom\" data-role=\"subject\">მეგობრული რეპორტიორი</span> <span data-role=\"verb\">ლაპარაკობდა</span>",
-          "case_marking": {
+          "georgian_components": {
             "subject": {
+              "text": "მეგობრული რეპორტიორი",
               "case": "nom",
-              "word": "რეპორტიორი"
+              "role": "subject"
+            },
+            "verb": {
+              "text": "ლაპარაკობდა",
+              "role": "verb"
             }
           },
-          "georgian_verb_form": "ლაპარაკობდა"
+          "english": "The friendly reporter was speaking",
+          "english_components": {
+            "subject": {
+              "text": "The friendly reporter",
+              "role": "subject",
+              "person": "3sg"
+            },
+            "verb": {
+              "text": "was speaking",
+              "role": "verb"
+            }
+          },
+          "georgian_verb_form": "ლაპარაკობდა",
+          "person": "3sg",
+          "effective_preverb": ""
         },
         {
-          "georgian": "დამხმარე მეზობელი ლაპარაკობდნენ",
-          "english": "<strong data-role=\"subject\">The helpful neighbor</strong> <strong data-role=\"verb\">were speaking</strong>",
-          "english_plain": "The helpful neighbor were speaking",
-          "html": "<span data-case=\"nom\" data-role=\"subject\">დამხმარე მეზობელი</span> <span data-role=\"verb\">ლაპარაკობდნენ</span>",
-          "case_marking": {
+          "georgian": "დამხმარე მეზობლები ლაპარაკობდნენ",
+          "georgian_components": {
             "subject": {
+              "text": "დამხმარე მეზობლები",
               "case": "nom",
-              "word": "მეზობელი"
+              "role": "subject"
+            },
+            "verb": {
+              "text": "ლაპარაკობდნენ",
+              "role": "verb"
             }
           },
-          "georgian_verb_form": "ლაპარაკობდნენ"
+          "english": "The helpful neighbors were speaking",
+          "english_components": {
+            "subject": {
+              "text": "The helpful neighbors",
+              "role": "subject",
+              "person": "3pl"
+            },
+            "verb": {
+              "text": "were speaking",
+              "role": "verb"
+            }
+          },
+          "georgian_verb_form": "ლაპარაკობდნენ",
+          "person": "3pl",
+          "effective_preverb": ""
         }
       ],
       "future": [
         {
           "georgian": "ვილაპარაკებ",
-          "english": "<strong data-role=\"subject\" data-person=\"1sg\">I</strong> <strong data-role=\"verb\">will speak</strong>",
-          "english_plain": "I will speak",
-          "html": " <span data-role=\"verb\">ვილაპარაკებ</span>",
-          "case_marking": {},
-          "georgian_verb_form": "ვილაპარაკებ"
+          "georgian_components": {
+            "verb": {
+              "text": "ვილაპარაკებ",
+              "role": "verb"
+            }
+          },
+          "english": "I will speak",
+          "english_components": {
+            "subject": {
+              "text": "I",
+              "role": "subject",
+              "person": "1sg"
+            },
+            "verb": {
+              "text": "will speak",
+              "role": "verb"
+            }
+          },
+          "georgian_verb_form": "ვილაპარაკებ",
+          "person": "1sg",
+          "effective_preverb": ""
         },
         {
           "georgian": "მეგობრული რეპორტიორი ილაპარაკებს",
-          "english": "<strong data-role=\"subject\">The friendly reporter</strong> <strong data-role=\"verb\">will speak</strong>",
-          "english_plain": "The friendly reporter will speak",
-          "html": "<span data-case=\"nom\" data-role=\"subject\">მეგობრული რეპორტიორი</span> <span data-role=\"verb\">ილაპარაკებს</span>",
-          "case_marking": {
+          "georgian_components": {
             "subject": {
+              "text": "მეგობრული რეპორტიორი",
               "case": "nom",
-              "word": "რეპორტიორი"
+              "role": "subject"
+            },
+            "verb": {
+              "text": "ილაპარაკებს",
+              "role": "verb"
             }
           },
-          "georgian_verb_form": "ილაპარაკებს"
+          "english": "The friendly reporter will speak",
+          "english_components": {
+            "subject": {
+              "text": "The friendly reporter",
+              "role": "subject",
+              "person": "3sg"
+            },
+            "verb": {
+              "text": "will speak",
+              "role": "verb"
+            }
+          },
+          "georgian_verb_form": "ილაპარაკებს",
+          "person": "3sg",
+          "effective_preverb": ""
         },
         {
-          "georgian": "დამხმარე მეზობელი ილაპარაკებენ",
-          "english": "<strong data-role=\"subject\">The helpful neighbor</strong> <strong data-role=\"verb\">will speak</strong>",
-          "english_plain": "The helpful neighbor will speak",
-          "html": "<span data-case=\"nom\" data-role=\"subject\">დამხმარე მეზობელი</span> <span data-role=\"verb\">ილაპარაკებენ</span>",
-          "case_marking": {
+          "georgian": "დამხმარე მეზობლები ილაპარაკებენ",
+          "georgian_components": {
             "subject": {
+              "text": "დამხმარე მეზობლები",
               "case": "nom",
-              "word": "მეზობელი"
+              "role": "subject"
+            },
+            "verb": {
+              "text": "ილაპარაკებენ",
+              "role": "verb"
             }
           },
-          "georgian_verb_form": "ილაპარაკებენ"
+          "english": "The helpful neighbors will speak",
+          "english_components": {
+            "subject": {
+              "text": "The helpful neighbors",
+              "role": "subject",
+              "person": "3pl"
+            },
+            "verb": {
+              "text": "will speak",
+              "role": "verb"
+            }
+          },
+          "georgian_verb_form": "ილაპარაკებენ",
+          "person": "3pl",
+          "effective_preverb": ""
         }
       ],
       "aorist": [
         {
           "georgian": "ვილაპარაკე",
-          "english": "<strong data-role=\"subject\" data-person=\"1sg\">I</strong> <strong data-role=\"verb\">spoke</strong>",
-          "english_plain": "I spoke",
-          "html": " <span data-role=\"verb\">ვილაპარაკე</span>",
-          "case_marking": {},
-          "georgian_verb_form": "ვილაპარაკე"
+          "georgian_components": {
+            "verb": {
+              "text": "ვილაპარაკე",
+              "role": "verb"
+            }
+          },
+          "english": "I spoke",
+          "english_components": {
+            "subject": {
+              "text": "I",
+              "role": "subject",
+              "person": "1sg"
+            },
+            "verb": {
+              "text": "spoke",
+              "role": "verb"
+            }
+          },
+          "georgian_verb_form": "ვილაპარაკე",
+          "person": "1sg",
+          "effective_preverb": ""
         },
         {
           "georgian": "მეგობრულმა რეპორტიორმა ილაპარაკა",
-          "english": "<strong data-role=\"subject\">The friendly reporter</strong> <strong data-role=\"verb\">spoke</strong>",
-          "english_plain": "The friendly reporter spoke",
-          "html": "<span data-case=\"erg\" data-role=\"subject\">მეგობრულმა რეპორტიორმა</span> <span data-role=\"verb\">ილაპარაკა</span>",
-          "case_marking": {
+          "georgian_components": {
             "subject": {
+              "text": "მეგობრულმა რეპორტიორმა",
               "case": "erg",
-              "word": "რეპორტიორმა"
+              "role": "subject"
+            },
+            "verb": {
+              "text": "ილაპარაკა",
+              "role": "verb"
             }
           },
-          "georgian_verb_form": "ილაპარაკა"
+          "english": "The friendly reporter spoke",
+          "english_components": {
+            "subject": {
+              "text": "The friendly reporter",
+              "role": "subject",
+              "person": "3sg"
+            },
+            "verb": {
+              "text": "spoke",
+              "role": "verb"
+            }
+          },
+          "georgian_verb_form": "ილაპარაკა",
+          "person": "3sg",
+          "effective_preverb": ""
         },
         {
-          "georgian": "დამხმარე მეზობელმა ილაპარაკეს",
-          "english": "<strong data-role=\"subject\">The helpful neighbor</strong> <strong data-role=\"verb\">spoke</strong>",
-          "english_plain": "The helpful neighbor spoke",
-          "html": "<span data-case=\"erg\" data-role=\"subject\">დამხმარე მეზობელმა</span> <span data-role=\"verb\">ილაპარაკეს</span>",
-          "case_marking": {
+          "georgian": "დამხმარე მეზობლებმა ილაპარაკეს",
+          "georgian_components": {
             "subject": {
+              "text": "დამხმარე მეზობლებმა",
               "case": "erg",
-              "word": "მეზობელმა"
+              "role": "subject"
+            },
+            "verb": {
+              "text": "ილაპარაკეს",
+              "role": "verb"
             }
           },
-          "georgian_verb_form": "ილაპარაკეს"
+          "english": "The helpful neighbors spoke",
+          "english_components": {
+            "subject": {
+              "text": "The helpful neighbors",
+              "role": "subject",
+              "person": "3pl"
+            },
+            "verb": {
+              "text": "spoke",
+              "role": "verb"
+            }
+          },
+          "georgian_verb_form": "ილაპარაკეს",
+          "person": "3pl",
+          "effective_preverb": ""
         }
       ],
       "optative": [
         {
           "georgian": "უნდა ვილაპარაკო",
-          "english": "<strong data-role=\"subject\" data-person=\"1sg\">I</strong> <strong data-role=\"verb\">should</strong> <strong data-role=\"verb\">speak</strong>",
-          "english_plain": "I should speak",
-          "html": " <span data-role=\"verb\">უნდა ვილაპარაკო</span>",
-          "case_marking": {},
-          "georgian_verb_form": "ვილაპარაკო"
+          "georgian_components": {
+            "verb": {
+              "text": "უნდა ვილაპარაკო",
+              "role": "verb"
+            }
+          },
+          "english": "I should speak",
+          "english_components": {
+            "subject": {
+              "text": "I",
+              "role": "subject",
+              "person": "1sg"
+            },
+            "verb": {
+              "text": "should speak",
+              "role": "verb"
+            }
+          },
+          "georgian_verb_form": "ვილაპარაკო",
+          "person": "1sg",
+          "effective_preverb": ""
         },
         {
           "georgian": "მეგობრულმა რეპორტიორმა უნდა ილაპარაკოს",
-          "english": "<strong data-role=\"subject\">The friendly reporter</strong> <strong data-role=\"verb\">should</strong> <strong data-role=\"verb\">speak</strong>",
-          "english_plain": "The friendly reporter should speak",
-          "html": "<span data-case=\"erg\" data-role=\"subject\">მეგობრულმა რეპორტიორმა</span> <span data-role=\"verb\">უნდა ილაპარაკოს</span>",
-          "case_marking": {
+          "georgian_components": {
             "subject": {
+              "text": "მეგობრულმა რეპორტიორმა",
               "case": "erg",
-              "word": "რეპორტიორმა"
+              "role": "subject"
+            },
+            "verb": {
+              "text": "უნდა ილაპარაკოს",
+              "role": "verb"
             }
           },
-          "georgian_verb_form": "ილაპარაკოს"
+          "english": "The friendly reporter should speak",
+          "english_components": {
+            "subject": {
+              "text": "The friendly reporter",
+              "role": "subject",
+              "person": "3sg"
+            },
+            "verb": {
+              "text": "should speak",
+              "role": "verb"
+            }
+          },
+          "georgian_verb_form": "ილაპარაკოს",
+          "person": "3sg",
+          "effective_preverb": ""
         },
         {
-          "georgian": "დამხმარე მეზობელმა უნდა ილაპარაკონ",
-          "english": "<strong data-role=\"subject\">The helpful neighbor</strong> <strong data-role=\"verb\">should</strong> <strong data-role=\"verb\">speak</strong>",
-          "english_plain": "The helpful neighbor should speak",
-          "html": "<span data-case=\"erg\" data-role=\"subject\">დამხმარე მეზობელმა</span> <span data-role=\"verb\">უნდა ილაპარაკონ</span>",
-          "case_marking": {
+          "georgian": "დამხმარე მეზობლებმა უნდა ილაპარაკონ",
+          "georgian_components": {
             "subject": {
+              "text": "დამხმარე მეზობლებმა",
               "case": "erg",
-              "word": "მეზობელმა"
+              "role": "subject"
+            },
+            "verb": {
+              "text": "უნდა ილაპარაკონ",
+              "role": "verb"
             }
           },
-          "georgian_verb_form": "ილაპარაკონ"
+          "english": "The helpful neighbors should speak",
+          "english_components": {
+            "subject": {
+              "text": "The helpful neighbors",
+              "role": "subject",
+              "person": "3pl"
+            },
+            "verb": {
+              "text": "should speak",
+              "role": "verb"
+            }
+          },
+          "georgian_verb_form": "ილაპარაკონ",
+          "person": "3pl",
+          "effective_preverb": ""
         }
       ],
       "imperative": [
         {
           "georgian": "ილაპარაკე",
-          "english": "<strong data-role=\"verb\">speak</strong>",
-          "english_plain": "speak",
-          "html": " <span data-role=\"verb\">ილაპარაკე</span>",
-          "case_marking": {},
-          "georgian_verb_form": "ილაპარაკე"
+          "georgian_components": {
+            "verb": {
+              "text": "ილაპარაკე",
+              "role": "verb"
+            }
+          },
+          "english": "You, speak",
+          "english_components": {
+            "subject": {
+              "text": "You,",
+              "role": "subject",
+              "person": "2sg"
+            },
+            "verb": {
+              "text": "speak",
+              "role": "verb"
+            }
+          },
+          "georgian_verb_form": "ილაპარაკე",
+          "person": "2sg",
+          "effective_preverb": ""
         },
         {
           "georgian": "ილაპარაკეთ",
-          "english": "<strong data-role=\"verb\">speak</strong>",
-          "english_plain": "speak",
-          "html": " <span data-role=\"verb\">ილაპარაკეთ</span>",
-          "case_marking": {},
-          "georgian_verb_form": "ილაპარაკეთ"
+          "georgian_components": {
+            "verb": {
+              "text": "ილაპარაკეთ",
+              "role": "verb"
+            }
+          },
+          "english": "You all (you formal), speak",
+          "english_components": {
+            "subject": {
+              "text": "You all (you formal),",
+              "role": "subject",
+              "person": "2pl"
+            },
+            "verb": {
+              "text": "speak",
+              "role": "verb"
+            }
+          },
+          "georgian_verb_form": "ილაპარაკეთ",
+          "person": "2pl",
+          "effective_preverb": ""
         }
       ]
     }
@@ -404,7 +675,7 @@
       }
     },
     "imperfect": {
-      "raw_gloss": "V MedAct Impf <S:Nom>",
+      "raw_gloss": "V MedAct Impf <S> <S:Nom>",
       "structured_gloss": {
         "raw_components": [
           {
@@ -424,6 +695,12 @@
             "component_type": "tense",
             "color_class": "gloss-tense",
             "description": "Imperfect"
+          },
+          {
+            "text": "<S>",
+            "component_type": "argument_pattern",
+            "color_class": "gloss-argument",
+            "description": "Intransitive absolute"
           },
           {
             "text": "<S:Nom>",
@@ -452,13 +729,19 @@
             "description": "Imperfect"
           },
           {
+            "text": "<S>",
+            "component_type": "argument_pattern",
+            "color_class": "gloss-argument",
+            "description": "Intransitive absolute"
+          },
+          {
             "text": "<S:Nom>",
             "component_type": "case_spec",
             "color_class": "gloss-subject",
             "description": "Nominative subject"
           }
         ],
-        "argument_pattern": null,
+        "argument_pattern": "<S>",
         "case_specifications": [
           "<S:Nom>"
         ]
@@ -684,7 +967,7 @@
       }
     },
     "imperative": {
-      "raw_gloss": "V MedAct Impf <S:Erg>",
+      "raw_gloss": "V MedAct Impf <S> <S:Erg>",
       "structured_gloss": {
         "raw_components": [
           {
@@ -704,6 +987,12 @@
             "component_type": "tense",
             "color_class": "gloss-tense",
             "description": "Imperfect"
+          },
+          {
+            "text": "<S>",
+            "component_type": "argument_pattern",
+            "color_class": "gloss-argument",
+            "description": "Intransitive absolute"
           },
           {
             "text": "<S:Erg>",
@@ -732,13 +1021,19 @@
             "description": "Imperfect"
           },
           {
+            "text": "<S>",
+            "component_type": "argument_pattern",
+            "color_class": "gloss-argument",
+            "description": "Intransitive absolute"
+          },
+          {
             "text": "<S:Erg>",
             "component_type": "case_spec",
             "color_class": "gloss-subject",
             "description": "Ergative subject"
           }
         ],
-        "argument_pattern": null,
+        "argument_pattern": "<S>",
         "case_specifications": [
           "<S:Erg>"
         ]

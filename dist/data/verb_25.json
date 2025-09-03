@@ -152,282 +152,631 @@
   "preverb_rules": {
     "default": "",
     "replacements": {},
-    "tense_specific_fallbacks": {},
-    "english_fallbacks": {}
+    "tense_specific_fallbacks": {}
   },
   "examples": {
-    "null": {
+    "default": {
       "present": [
         {
-          "georgian": "ყოველდღიურ სავარჯიშოს ვაკეთებ",
-          "english": "<strong data-role=\"subject\" data-person=\"1sg\">I</strong> <strong data-role=\"verb\">do</strong> <strong data-role=\"direct-object\">the daily exercise</strong>",
-          "english_plain": "I do the daily exercise",
-          "html": "<span data-case=\"dat\" data-role=\"direct-object\">ყოველდღიურ სავარჯიშოს</span> <span data-role=\"verb\">ვაკეთებ</span>",
-          "case_marking": {
-            "direct_object": {
-              "case": "dat",
-              "word": "სავარჯიშოს"
-            }
-          },
-          "georgian_verb_form": "ვაკეთებ"
-        },
-        {
-          "georgian": "შრომისმოყვარე მუშა მნიშვნელოვან სამუშაოს აკეთებს",
-          "english": "<strong data-role=\"subject\">The diligent worker</strong> <strong data-role=\"verb\">does</strong> <strong data-role=\"direct-object\">the important work</strong>",
-          "english_plain": "The diligent worker does the important work",
-          "html": "<span data-case=\"nom\" data-role=\"subject\">შრომისმოყვარე მუშა</span> <span data-case=\"dat\" data-role=\"direct-object\">მნიშვნელოვან სამუშაოს</span> <span data-role=\"verb\">აკეთებს</span>",
-          "case_marking": {
-            "subject": {
-              "case": "nom",
-              "word": "მუშა"
+          "georgian": "ვაკეთებ ყოველდღიურ სავარჯიშოს",
+          "georgian_components": {
+            "verb": {
+              "text": "ვაკეთებ",
+              "role": "verb"
             },
             "direct_object": {
+              "text": "ყოველდღიურ სავარჯიშოს",
               "case": "dat",
-              "word": "სამუშაოს"
+              "role": "direct_object"
             }
           },
-          "georgian_verb_form": "აკეთებს"
-        },
-        {
-          "georgian": "ფრთხილი მკვლევარი სამეცნიერო კვლევას აკეთებენ",
-          "english": "<strong data-role=\"subject\">The careful researcher</strong> <strong data-role=\"verb\">do</strong> <strong data-role=\"direct-object\">the scientific research</strong>",
-          "english_plain": "The careful researcher do the scientific research",
-          "html": "<span data-case=\"nom\" data-role=\"subject\">ფრთხილი მკვლევარი</span> <span data-case=\"dat\" data-role=\"direct-object\">სამეცნიერო კვლევას</span> <span data-role=\"verb\">აკეთებენ</span>",
-          "case_marking": {
+          "english": "I do the daily exercise",
+          "english_components": {
             "subject": {
-              "case": "nom",
-              "word": "მკვლევარი"
+              "text": "I",
+              "role": "subject",
+              "person": "1sg"
+            },
+            "verb": {
+              "text": "do",
+              "role": "verb"
             },
             "direct_object": {
-              "case": "dat",
-              "word": "კვლევას"
+              "text": "the daily exercise",
+              "role": "direct_object"
             }
           },
-          "georgian_verb_form": "აკეთებენ"
+          "georgian_verb_form": "ვაკეთებ",
+          "person": "1sg",
+          "effective_preverb": "გა"
+        },
+        {
+          "georgian": "შრომისმოყვარე მუშა აკეთებს მნიშვნელოვან სამუშაოს",
+          "georgian_components": {
+            "subject": {
+              "text": "შრომისმოყვარე მუშა",
+              "case": "nom",
+              "role": "subject"
+            },
+            "verb": {
+              "text": "აკეთებს",
+              "role": "verb"
+            },
+            "direct_object": {
+              "text": "მნიშვნელოვან სამუშაოს",
+              "case": "dat",
+              "role": "direct_object"
+            }
+          },
+          "english": "The diligent worker does the important work",
+          "english_components": {
+            "subject": {
+              "text": "The diligent worker",
+              "role": "subject",
+              "person": "3sg"
+            },
+            "verb": {
+              "text": "does",
+              "role": "verb"
+            },
+            "direct_object": {
+              "text": "the important work",
+              "role": "direct_object"
+            }
+          },
+          "georgian_verb_form": "აკეთებს",
+          "person": "3sg",
+          "effective_preverb": "გა"
+        },
+        {
+          "georgian": "ფრთხილი მკვლევრები აკეთებენ სამეცნიერო კვლევას",
+          "georgian_components": {
+            "subject": {
+              "text": "ფრთხილი მკვლევრები",
+              "case": "nom",
+              "role": "subject"
+            },
+            "verb": {
+              "text": "აკეთებენ",
+              "role": "verb"
+            },
+            "direct_object": {
+              "text": "სამეცნიერო კვლევას",
+              "case": "dat",
+              "role": "direct_object"
+            }
+          },
+          "english": "The careful researchers do the scientific research",
+          "english_components": {
+            "subject": {
+              "text": "The careful researchers",
+              "role": "subject",
+              "person": "3pl"
+            },
+            "verb": {
+              "text": "do",
+              "role": "verb"
+            },
+            "direct_object": {
+              "text": "the scientific research",
+              "role": "direct_object"
+            }
+          },
+          "georgian_verb_form": "აკეთებენ",
+          "person": "3pl",
+          "effective_preverb": "გა"
         }
       ],
       "imperfect": [
         {
-          "georgian": "ყოველდღიურ სავარჯიშოს ვაკეთებდი",
-          "english": "<strong data-role=\"subject\" data-person=\"1sg\">I</strong> <strong data-role=\"verb\">was doing</strong> <strong data-role=\"direct-object\">the daily exercise</strong>",
-          "english_plain": "I was doing the daily exercise",
-          "html": "<span data-case=\"dat\" data-role=\"direct-object\">ყოველდღიურ სავარჯიშოს</span> <span data-role=\"verb\">ვაკეთებდი</span>",
-          "case_marking": {
-            "direct_object": {
-              "case": "dat",
-              "word": "სავარჯიშოს"
-            }
-          },
-          "georgian_verb_form": "ვაკეთებდი"
-        },
-        {
-          "georgian": "შრომისმოყვარე მუშა მნიშვნელოვან სამუშაოს აკეთებდა",
-          "english": "<strong data-role=\"subject\">The diligent worker</strong> <strong data-role=\"verb\">was doing</strong> <strong data-role=\"direct-object\">the important work</strong>",
-          "english_plain": "The diligent worker was doing the important work",
-          "html": "<span data-case=\"nom\" data-role=\"subject\">შრომისმოყვარე მუშა</span> <span data-case=\"dat\" data-role=\"direct-object\">მნიშვნელოვან სამუშაოს</span> <span data-role=\"verb\">აკეთებდა</span>",
-          "case_marking": {
-            "subject": {
-              "case": "nom",
-              "word": "მუშა"
+          "georgian": "ვაკეთებდი ყოველდღიურ სავარჯიშოს",
+          "georgian_components": {
+            "verb": {
+              "text": "ვაკეთებდი",
+              "role": "verb"
             },
             "direct_object": {
+              "text": "ყოველდღიურ სავარჯიშოს",
               "case": "dat",
-              "word": "სამუშაოს"
+              "role": "direct_object"
             }
           },
-          "georgian_verb_form": "აკეთებდა"
-        },
-        {
-          "georgian": "ფრთხილი მკვლევარი სამეცნიერო კვლევას აკეთებდნენ",
-          "english": "<strong data-role=\"subject\">The careful researcher</strong> <strong data-role=\"verb\">were doing</strong> <strong data-role=\"direct-object\">the scientific research</strong>",
-          "english_plain": "The careful researcher were doing the scientific research",
-          "html": "<span data-case=\"nom\" data-role=\"subject\">ფრთხილი მკვლევარი</span> <span data-case=\"dat\" data-role=\"direct-object\">სამეცნიერო კვლევას</span> <span data-role=\"verb\">აკეთებდნენ</span>",
-          "case_marking": {
+          "english": "I was doing the daily exercise",
+          "english_components": {
             "subject": {
-              "case": "nom",
-              "word": "მკვლევარი"
+              "text": "I",
+              "role": "subject",
+              "person": "1sg"
+            },
+            "verb": {
+              "text": "was doing",
+              "role": "verb"
             },
             "direct_object": {
-              "case": "dat",
-              "word": "კვლევას"
+              "text": "the daily exercise",
+              "role": "direct_object"
             }
           },
-          "georgian_verb_form": "აკეთებდნენ"
+          "georgian_verb_form": "ვაკეთებდი",
+          "person": "1sg",
+          "effective_preverb": "გა"
+        },
+        {
+          "georgian": "შრომისმოყვარე მუშა აკეთებდა მნიშვნელოვან სამუშაოს",
+          "georgian_components": {
+            "subject": {
+              "text": "შრომისმოყვარე მუშა",
+              "case": "nom",
+              "role": "subject"
+            },
+            "verb": {
+              "text": "აკეთებდა",
+              "role": "verb"
+            },
+            "direct_object": {
+              "text": "მნიშვნელოვან სამუშაოს",
+              "case": "dat",
+              "role": "direct_object"
+            }
+          },
+          "english": "The diligent worker was doing the important work",
+          "english_components": {
+            "subject": {
+              "text": "The diligent worker",
+              "role": "subject",
+              "person": "3sg"
+            },
+            "verb": {
+              "text": "was doing",
+              "role": "verb"
+            },
+            "direct_object": {
+              "text": "the important work",
+              "role": "direct_object"
+            }
+          },
+          "georgian_verb_form": "აკეთებდა",
+          "person": "3sg",
+          "effective_preverb": "გა"
+        },
+        {
+          "georgian": "ფრთხილი მკვლევრები აკეთებდნენ სამეცნიერო კვლევას",
+          "georgian_components": {
+            "subject": {
+              "text": "ფრთხილი მკვლევრები",
+              "case": "nom",
+              "role": "subject"
+            },
+            "verb": {
+              "text": "აკეთებდნენ",
+              "role": "verb"
+            },
+            "direct_object": {
+              "text": "სამეცნიერო კვლევას",
+              "case": "dat",
+              "role": "direct_object"
+            }
+          },
+          "english": "The careful researchers were doing the scientific research",
+          "english_components": {
+            "subject": {
+              "text": "The careful researchers",
+              "role": "subject",
+              "person": "3pl"
+            },
+            "verb": {
+              "text": "were doing",
+              "role": "verb"
+            },
+            "direct_object": {
+              "text": "the scientific research",
+              "role": "direct_object"
+            }
+          },
+          "georgian_verb_form": "აკეთებდნენ",
+          "person": "3pl",
+          "effective_preverb": "გა"
         }
       ],
       "future": [
         {
-          "georgian": "ყოველდღიურ სავარჯიშოს გავაკეთებ",
-          "english": "<strong data-role=\"subject\" data-person=\"1sg\">I</strong> <strong data-role=\"verb\">will do</strong> <strong data-role=\"direct-object\">the daily exercise</strong>",
-          "english_plain": "I will do the daily exercise",
-          "html": "<span data-case=\"dat\" data-role=\"direct-object\">ყოველდღიურ სავარჯიშოს</span> <span data-role=\"verb\">გავაკეთებ</span>",
-          "case_marking": {
-            "direct_object": {
-              "case": "dat",
-              "word": "სავარჯიშოს"
-            }
-          },
-          "georgian_verb_form": "გავაკეთებ"
-        },
-        {
-          "georgian": "შრომისმოყვარე მუშა მნიშვნელოვან სამუშაოს გააკეთებს",
-          "english": "<strong data-role=\"subject\">The diligent worker</strong> <strong data-role=\"verb\">will do</strong> <strong data-role=\"direct-object\">the important work</strong>",
-          "english_plain": "The diligent worker will do the important work",
-          "html": "<span data-case=\"nom\" data-role=\"subject\">შრომისმოყვარე მუშა</span> <span data-case=\"dat\" data-role=\"direct-object\">მნიშვნელოვან სამუშაოს</span> <span data-role=\"verb\">გააკეთებს</span>",
-          "case_marking": {
-            "subject": {
-              "case": "nom",
-              "word": "მუშა"
+          "georgian": "გავაკეთებ ყოველდღიურ სავარჯიშოს",
+          "georgian_components": {
+            "verb": {
+              "text": "გავაკეთებ",
+              "role": "verb"
             },
             "direct_object": {
+              "text": "ყოველდღიურ სავარჯიშოს",
               "case": "dat",
-              "word": "სამუშაოს"
+              "role": "direct_object"
             }
           },
-          "georgian_verb_form": "გააკეთებს"
-        },
-        {
-          "georgian": "ფრთხილი მკვლევარი სამეცნიერო კვლევას გააკეთებენ",
-          "english": "<strong data-role=\"subject\">The careful researcher</strong> <strong data-role=\"verb\">will do</strong> <strong data-role=\"direct-object\">the scientific research</strong>",
-          "english_plain": "The careful researcher will do the scientific research",
-          "html": "<span data-case=\"nom\" data-role=\"subject\">ფრთხილი მკვლევარი</span> <span data-case=\"dat\" data-role=\"direct-object\">სამეცნიერო კვლევას</span> <span data-role=\"verb\">გააკეთებენ</span>",
-          "case_marking": {
+          "english": "I will do the daily exercise",
+          "english_components": {
             "subject": {
-              "case": "nom",
-              "word": "მკვლევარი"
+              "text": "I",
+              "role": "subject",
+              "person": "1sg"
+            },
+            "verb": {
+              "text": "will do",
+              "role": "verb"
             },
             "direct_object": {
-              "case": "dat",
-              "word": "კვლევას"
+              "text": "the daily exercise",
+              "role": "direct_object"
             }
           },
-          "georgian_verb_form": "გააკეთებენ"
+          "georgian_verb_form": "გავაკეთებ",
+          "person": "1sg",
+          "effective_preverb": "გა"
+        },
+        {
+          "georgian": "შრომისმოყვარე მუშა გააკეთებს მნიშვნელოვან სამუშაოს",
+          "georgian_components": {
+            "subject": {
+              "text": "შრომისმოყვარე მუშა",
+              "case": "nom",
+              "role": "subject"
+            },
+            "verb": {
+              "text": "გააკეთებს",
+              "role": "verb"
+            },
+            "direct_object": {
+              "text": "მნიშვნელოვან სამუშაოს",
+              "case": "dat",
+              "role": "direct_object"
+            }
+          },
+          "english": "The diligent worker will do the important work",
+          "english_components": {
+            "subject": {
+              "text": "The diligent worker",
+              "role": "subject",
+              "person": "3sg"
+            },
+            "verb": {
+              "text": "will do",
+              "role": "verb"
+            },
+            "direct_object": {
+              "text": "the important work",
+              "role": "direct_object"
+            }
+          },
+          "georgian_verb_form": "გააკეთებს",
+          "person": "3sg",
+          "effective_preverb": "გა"
+        },
+        {
+          "georgian": "ფრთხილი მკვლევრები გააკეთებენ სამეცნიერო კვლევას",
+          "georgian_components": {
+            "subject": {
+              "text": "ფრთხილი მკვლევრები",
+              "case": "nom",
+              "role": "subject"
+            },
+            "verb": {
+              "text": "გააკეთებენ",
+              "role": "verb"
+            },
+            "direct_object": {
+              "text": "სამეცნიერო კვლევას",
+              "case": "dat",
+              "role": "direct_object"
+            }
+          },
+          "english": "The careful researchers will do the scientific research",
+          "english_components": {
+            "subject": {
+              "text": "The careful researchers",
+              "role": "subject",
+              "person": "3pl"
+            },
+            "verb": {
+              "text": "will do",
+              "role": "verb"
+            },
+            "direct_object": {
+              "text": "the scientific research",
+              "role": "direct_object"
+            }
+          },
+          "georgian_verb_form": "გააკეთებენ",
+          "person": "3pl",
+          "effective_preverb": "გა"
         }
       ],
       "aorist": [
         {
-          "georgian": "ყოველდღიური სავარჯიშო გავაკეთე",
-          "english": "<strong data-role=\"subject\" data-person=\"1sg\">I</strong> <strong data-role=\"verb\">did</strong> <strong data-role=\"direct-object\">the daily exercise</strong>",
-          "english_plain": "I did the daily exercise",
-          "html": "<span data-case=\"nom\" data-role=\"direct-object\">ყოველდღიური სავარჯიშო</span> <span data-role=\"verb\">გავაკეთე</span>",
-          "case_marking": {
-            "direct_object": {
-              "case": "nom",
-              "word": "სავარჯიშო"
-            }
-          },
-          "georgian_verb_form": "გავაკეთე"
-        },
-        {
-          "georgian": "შრომისმოყვარე მუშამ მნიშვნელოვანი სამუშაო გააკეთა",
-          "english": "<strong data-role=\"subject\">The diligent worker</strong> <strong data-role=\"verb\">did</strong> <strong data-role=\"direct-object\">the important work</strong>",
-          "english_plain": "The diligent worker did the important work",
-          "html": "<span data-case=\"erg\" data-role=\"subject\">შრომისმოყვარე მუშამ</span> <span data-case=\"nom\" data-role=\"direct-object\">მნიშვნელოვანი სამუშაო</span> <span data-role=\"verb\">გააკეთა</span>",
-          "case_marking": {
-            "subject": {
-              "case": "erg",
-              "word": "მუშამ"
+          "georgian": "გავაკეთე ყოველდღიური სავარჯიშო",
+          "georgian_components": {
+            "verb": {
+              "text": "გავაკეთე",
+              "role": "verb"
             },
             "direct_object": {
+              "text": "ყოველდღიური სავარჯიშო",
               "case": "nom",
-              "word": "სამუშაო"
+              "role": "direct_object"
             }
           },
-          "georgian_verb_form": "გააკეთა"
-        },
-        {
-          "georgian": "ფრთხილმა მკვლევარმა სამეცნიერო კვლევა გააკეთეს",
-          "english": "<strong data-role=\"subject\">The careful researcher</strong> <strong data-role=\"verb\">did</strong> <strong data-role=\"direct-object\">the scientific research</strong>",
-          "english_plain": "The careful researcher did the scientific research",
-          "html": "<span data-case=\"erg\" data-role=\"subject\">ფრთხილმა მკვლევარმა</span> <span data-case=\"nom\" data-role=\"direct-object\">სამეცნიერო კვლევა</span> <span data-role=\"verb\">გააკეთეს</span>",
-          "case_marking": {
+          "english": "I did the daily exercise",
+          "english_components": {
             "subject": {
-              "case": "erg",
-              "word": "მკვლევარმა"
+              "text": "I",
+              "role": "subject",
+              "person": "1sg"
+            },
+            "verb": {
+              "text": "did",
+              "role": "verb"
             },
             "direct_object": {
-              "case": "nom",
-              "word": "კვლევა"
+              "text": "the daily exercise",
+              "role": "direct_object"
             }
           },
-          "georgian_verb_form": "გააკეთეს"
+          "georgian_verb_form": "გავაკეთე",
+          "person": "1sg",
+          "effective_preverb": "გა"
+        },
+        {
+          "georgian": "შრომისმოყვარე მუშამ გააკეთა მნიშვნელოვანი სამუშაო",
+          "georgian_components": {
+            "subject": {
+              "text": "შრომისმოყვარე მუშამ",
+              "case": "erg",
+              "role": "subject"
+            },
+            "verb": {
+              "text": "გააკეთა",
+              "role": "verb"
+            },
+            "direct_object": {
+              "text": "მნიშვნელოვანი სამუშაო",
+              "case": "nom",
+              "role": "direct_object"
+            }
+          },
+          "english": "The diligent worker did the important work",
+          "english_components": {
+            "subject": {
+              "text": "The diligent worker",
+              "role": "subject",
+              "person": "3sg"
+            },
+            "verb": {
+              "text": "did",
+              "role": "verb"
+            },
+            "direct_object": {
+              "text": "the important work",
+              "role": "direct_object"
+            }
+          },
+          "georgian_verb_form": "გააკეთა",
+          "person": "3sg",
+          "effective_preverb": "გა"
+        },
+        {
+          "georgian": "ფრთხილმა მკვლევრებმა გააკეთეს სამეცნიერო კვლევა",
+          "georgian_components": {
+            "subject": {
+              "text": "ფრთხილმა მკვლევრებმა",
+              "case": "erg",
+              "role": "subject"
+            },
+            "verb": {
+              "text": "გააკეთეს",
+              "role": "verb"
+            },
+            "direct_object": {
+              "text": "სამეცნიერო კვლევა",
+              "case": "nom",
+              "role": "direct_object"
+            }
+          },
+          "english": "The careful researchers did the scientific research",
+          "english_components": {
+            "subject": {
+              "text": "The careful researchers",
+              "role": "subject",
+              "person": "3pl"
+            },
+            "verb": {
+              "text": "did",
+              "role": "verb"
+            },
+            "direct_object": {
+              "text": "the scientific research",
+              "role": "direct_object"
+            }
+          },
+          "georgian_verb_form": "გააკეთეს",
+          "person": "3pl",
+          "effective_preverb": "გა"
         }
       ],
       "optative": [
         {
-          "georgian": "ყოველდღიური სავარჯიშო უნდა გავაკეთო",
-          "english": "<strong data-role=\"subject\" data-person=\"1sg\">I</strong> <strong data-role=\"verb\">should</strong> <strong data-role=\"verb\">do</strong> <strong data-role=\"direct-object\">the daily exercise</strong>",
-          "english_plain": "I should do the daily exercise",
-          "html": "<span data-case=\"nom\" data-role=\"direct-object\">ყოველდღიური სავარჯიშო</span> <span data-role=\"verb\">უნდა გავაკეთო</span>",
-          "case_marking": {
-            "direct_object": {
-              "case": "nom",
-              "word": "სავარჯიშო"
-            }
-          },
-          "georgian_verb_form": "გავაკეთო"
-        },
-        {
-          "georgian": "შრომისმოყვარე მუშამ მნიშვნელოვანი სამუშაო უნდა გააკეთოს",
-          "english": "<strong data-role=\"subject\">The diligent worker</strong> <strong data-role=\"verb\">should</strong> <strong data-role=\"verb\">do</strong> <strong data-role=\"direct-object\">the important work</strong>",
-          "english_plain": "The diligent worker should do the important work",
-          "html": "<span data-case=\"erg\" data-role=\"subject\">შრომისმოყვარე მუშამ</span> <span data-case=\"nom\" data-role=\"direct-object\">მნიშვნელოვანი სამუშაო</span> <span data-role=\"verb\">უნდა გააკეთოს</span>",
-          "case_marking": {
-            "subject": {
-              "case": "erg",
-              "word": "მუშამ"
+          "georgian": "უნდა გავაკეთო ყოველდღიური სავარჯიშო",
+          "georgian_components": {
+            "verb": {
+              "text": "უნდა გავაკეთო",
+              "role": "verb"
             },
             "direct_object": {
+              "text": "ყოველდღიური სავარჯიშო",
               "case": "nom",
-              "word": "სამუშაო"
+              "role": "direct_object"
             }
           },
-          "georgian_verb_form": "გააკეთოს"
-        },
-        {
-          "georgian": "ფრთხილმა მკვლევარმა სამეცნიერო კვლევა უნდა გააკეთონ",
-          "english": "<strong data-role=\"subject\">The careful researcher</strong> <strong data-role=\"verb\">should</strong> <strong data-role=\"verb\">do</strong> <strong data-role=\"direct-object\">the scientific research</strong>",
-          "english_plain": "The careful researcher should do the scientific research",
-          "html": "<span data-case=\"erg\" data-role=\"subject\">ფრთხილმა მკვლევარმა</span> <span data-case=\"nom\" data-role=\"direct-object\">სამეცნიერო კვლევა</span> <span data-role=\"verb\">უნდა გააკეთონ</span>",
-          "case_marking": {
+          "english": "I should do the daily exercise",
+          "english_components": {
             "subject": {
-              "case": "erg",
-              "word": "მკვლევარმა"
+              "text": "I",
+              "role": "subject",
+              "person": "1sg"
+            },
+            "verb": {
+              "text": "should do",
+              "role": "verb"
             },
             "direct_object": {
-              "case": "nom",
-              "word": "კვლევა"
+              "text": "the daily exercise",
+              "role": "direct_object"
             }
           },
-          "georgian_verb_form": "გააკეთონ"
+          "georgian_verb_form": "გავაკეთო",
+          "person": "1sg",
+          "effective_preverb": "გა"
+        },
+        {
+          "georgian": "შრომისმოყვარე მუშამ უნდა გააკეთოს მნიშვნელოვანი სამუშაო",
+          "georgian_components": {
+            "subject": {
+              "text": "შრომისმოყვარე მუშამ",
+              "case": "erg",
+              "role": "subject"
+            },
+            "verb": {
+              "text": "უნდა გააკეთოს",
+              "role": "verb"
+            },
+            "direct_object": {
+              "text": "მნიშვნელოვანი სამუშაო",
+              "case": "nom",
+              "role": "direct_object"
+            }
+          },
+          "english": "The diligent worker should do the important work",
+          "english_components": {
+            "subject": {
+              "text": "The diligent worker",
+              "role": "subject",
+              "person": "3sg"
+            },
+            "verb": {
+              "text": "should do",
+              "role": "verb"
+            },
+            "direct_object": {
+              "text": "the important work",
+              "role": "direct_object"
+            }
+          },
+          "georgian_verb_form": "გააკეთოს",
+          "person": "3sg",
+          "effective_preverb": "გა"
+        },
+        {
+          "georgian": "ფრთხილმა მკვლევრებმა უნდა გააკეთონ სამეცნიერო კვლევა",
+          "georgian_components": {
+            "subject": {
+              "text": "ფრთხილმა მკვლევრებმა",
+              "case": "erg",
+              "role": "subject"
+            },
+            "verb": {
+              "text": "უნდა გააკეთონ",
+              "role": "verb"
+            },
+            "direct_object": {
+              "text": "სამეცნიერო კვლევა",
+              "case": "nom",
+              "role": "direct_object"
+            }
+          },
+          "english": "The careful researchers should do the scientific research",
+          "english_components": {
+            "subject": {
+              "text": "The careful researchers",
+              "role": "subject",
+              "person": "3pl"
+            },
+            "verb": {
+              "text": "should do",
+              "role": "verb"
+            },
+            "direct_object": {
+              "text": "the scientific research",
+              "role": "direct_object"
+            }
+          },
+          "georgian_verb_form": "გააკეთონ",
+          "person": "3pl",
+          "effective_preverb": "გა"
         }
       ],
       "imperative": [
         {
-          "georgian": "რთული საშინაო დავალება გააკეთე",
-          "english": "<strong data-role=\"verb\">do</strong> <strong data-role=\"direct-object\">the difficult homework</strong>",
-          "english_plain": "do the difficult homework",
-          "html": "<span data-case=\"nom\" data-role=\"direct-object\">რთული საშინაო დავალება</span> <span data-role=\"verb\">გააკეთე</span>",
-          "case_marking": {
+          "georgian": "გააკეთე რთული საშინაო დავალება",
+          "georgian_components": {
+            "verb": {
+              "text": "გააკეთე",
+              "role": "verb"
+            },
             "direct_object": {
+              "text": "რთული საშინაო დავალება",
               "case": "nom",
-              "word": "საშინაო დავალება"
+              "role": "direct_object"
             }
           },
-          "georgian_verb_form": "გააკეთე"
+          "english": "You, do the difficult homework",
+          "english_components": {
+            "subject": {
+              "text": "You,",
+              "role": "subject",
+              "person": "2sg"
+            },
+            "verb": {
+              "text": "do",
+              "role": "verb"
+            },
+            "direct_object": {
+              "text": "the difficult homework",
+              "role": "direct_object"
+            }
+          },
+          "georgian_verb_form": "გააკეთე",
+          "person": "2sg",
+          "effective_preverb": "გა"
         },
         {
-          "georgian": "მარტივი საქმე გააკეთეთ",
-          "english": "<strong data-role=\"verb\">do</strong> <strong data-role=\"direct-object\">the simple task</strong>",
-          "english_plain": "do the simple task",
-          "html": "<span data-case=\"nom\" data-role=\"direct-object\">მარტივი საქმე</span> <span data-role=\"verb\">გააკეთეთ</span>",
-          "case_marking": {
+          "georgian": "გააკეთეთ მარტივი საქმე",
+          "georgian_components": {
+            "verb": {
+              "text": "გააკეთეთ",
+              "role": "verb"
+            },
             "direct_object": {
+              "text": "მარტივი საქმე",
               "case": "nom",
-              "word": "საქმე"
+              "role": "direct_object"
             }
           },
-          "georgian_verb_form": "გააკეთეთ"
+          "english": "You all (you formal), do the simple task",
+          "english_components": {
+            "subject": {
+              "text": "You all (you formal),",
+              "role": "subject",
+              "person": "2pl"
+            },
+            "verb": {
+              "text": "do",
+              "role": "verb"
+            },
+            "direct_object": {
+              "text": "the simple task",
+              "role": "direct_object"
+            }
+          },
+          "georgian_verb_form": "გააკეთეთ",
+          "person": "2pl",
+          "effective_preverb": "გა"
         }
       ]
     }

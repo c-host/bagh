@@ -150,282 +150,631 @@
   "preverb_rules": {
     "default": "",
     "replacements": {},
-    "tense_specific_fallbacks": {},
-    "english_fallbacks": {}
+    "tense_specific_fallbacks": {}
   },
   "examples": {
-    "null": {
+    "default": {
       "present": [
         {
-          "georgian": "მთელ სახელს ვამბობ",
-          "english": "<strong data-role=\"subject\" data-person=\"1sg\">I</strong> <strong data-role=\"verb\">say</strong> <strong data-role=\"direct-object\">the whole name</strong>",
-          "english_plain": "I say the whole name",
-          "html": "<span data-case=\"dat\" data-role=\"direct-object\">მთელ სახელს</span> <span data-role=\"verb\">ვამბობ</span>",
-          "case_marking": {
-            "direct_object": {
-              "case": "dat",
-              "word": "სახელს"
-            }
-          },
-          "georgian_verb_form": "ვამბობ"
-        },
-        {
-          "georgian": "ახალგაზრდა რეპორტიორი მნიშვნელოვან სიმართლეს ამბობს",
-          "english": "<strong data-role=\"subject\">The young reporter</strong> <strong data-role=\"verb\">says</strong> <strong data-role=\"direct-object\">the important truth</strong>",
-          "english_plain": "The young reporter says the important truth",
-          "html": "<span data-case=\"nom\" data-role=\"subject\">ახალგაზრდა რეპორტიორი</span> <span data-case=\"dat\" data-role=\"direct-object\">მნიშვნელოვან სიმართლეს</span> <span data-role=\"verb\">ამბობს</span>",
-          "case_marking": {
-            "subject": {
-              "case": "nom",
-              "word": "რეპორტიორი"
+          "georgian": "ვამბობ მთელ სახელს",
+          "georgian_components": {
+            "verb": {
+              "text": "ვამბობ",
+              "role": "verb"
             },
             "direct_object": {
+              "text": "მთელ სახელს",
               "case": "dat",
-              "word": "სიმართლეს"
+              "role": "direct_object"
             }
           },
-          "georgian_verb_form": "ამბობს"
-        },
-        {
-          "georgian": "პატიოსანი მოწმე სრულ ამბავს ამბობენ",
-          "english": "<strong data-role=\"subject\">The honest witness</strong> <strong data-role=\"verb\">say</strong> <strong data-role=\"direct-object\">the complete story</strong>",
-          "english_plain": "The honest witness say the complete story",
-          "html": "<span data-case=\"nom\" data-role=\"subject\">პატიოსანი მოწმე</span> <span data-case=\"dat\" data-role=\"direct-object\">სრულ ამბავს</span> <span data-role=\"verb\">ამბობენ</span>",
-          "case_marking": {
+          "english": "I say the whole name",
+          "english_components": {
             "subject": {
-              "case": "nom",
-              "word": "მოწმე"
+              "text": "I",
+              "role": "subject",
+              "person": "1sg"
+            },
+            "verb": {
+              "text": "say",
+              "role": "verb"
             },
             "direct_object": {
-              "case": "dat",
-              "word": "ამბავს"
+              "text": "the whole name",
+              "role": "direct_object"
             }
           },
-          "georgian_verb_form": "ამბობენ"
+          "georgian_verb_form": "ვამბობ",
+          "person": "1sg",
+          "effective_preverb": ""
+        },
+        {
+          "georgian": "ახალგაზრდა რეპორტიორი ამბობს მნიშვნელოვან სიმართლეს",
+          "georgian_components": {
+            "subject": {
+              "text": "ახალგაზრდა რეპორტიორი",
+              "case": "nom",
+              "role": "subject"
+            },
+            "verb": {
+              "text": "ამბობს",
+              "role": "verb"
+            },
+            "direct_object": {
+              "text": "მნიშვნელოვან სიმართლეს",
+              "case": "dat",
+              "role": "direct_object"
+            }
+          },
+          "english": "The young reporter says the important truth",
+          "english_components": {
+            "subject": {
+              "text": "The young reporter",
+              "role": "subject",
+              "person": "3sg"
+            },
+            "verb": {
+              "text": "says",
+              "role": "verb"
+            },
+            "direct_object": {
+              "text": "the important truth",
+              "role": "direct_object"
+            }
+          },
+          "georgian_verb_form": "ამბობს",
+          "person": "3sg",
+          "effective_preverb": ""
+        },
+        {
+          "georgian": "პატიოსანი მოწმეები ამბობენ სრულ ამბავს",
+          "georgian_components": {
+            "subject": {
+              "text": "პატიოსანი მოწმეები",
+              "case": "nom",
+              "role": "subject"
+            },
+            "verb": {
+              "text": "ამბობენ",
+              "role": "verb"
+            },
+            "direct_object": {
+              "text": "სრულ ამბავს",
+              "case": "dat",
+              "role": "direct_object"
+            }
+          },
+          "english": "The honest witnesses say the complete story",
+          "english_components": {
+            "subject": {
+              "text": "The honest witnesses",
+              "role": "subject",
+              "person": "3pl"
+            },
+            "verb": {
+              "text": "say",
+              "role": "verb"
+            },
+            "direct_object": {
+              "text": "the complete story",
+              "role": "direct_object"
+            }
+          },
+          "georgian_verb_form": "ამბობენ",
+          "person": "3pl",
+          "effective_preverb": ""
         }
       ],
       "imperfect": [
         {
-          "georgian": "მთელ სახელს ვამბობდი",
-          "english": "<strong data-role=\"subject\" data-person=\"1sg\">I</strong> <strong data-role=\"verb\">was saying</strong> <strong data-role=\"direct-object\">the whole name</strong>",
-          "english_plain": "I was saying the whole name",
-          "html": "<span data-case=\"dat\" data-role=\"direct-object\">მთელ სახელს</span> <span data-role=\"verb\">ვამბობდი</span>",
-          "case_marking": {
-            "direct_object": {
-              "case": "dat",
-              "word": "სახელს"
-            }
-          },
-          "georgian_verb_form": "ვამბობდი"
-        },
-        {
-          "georgian": "ახალგაზრდა რეპორტიორი მნიშვნელოვან სიმართლეს ამბობდა",
-          "english": "<strong data-role=\"subject\">The young reporter</strong> <strong data-role=\"verb\">was saying</strong> <strong data-role=\"direct-object\">the important truth</strong>",
-          "english_plain": "The young reporter was saying the important truth",
-          "html": "<span data-case=\"nom\" data-role=\"subject\">ახალგაზრდა რეპორტიორი</span> <span data-case=\"dat\" data-role=\"direct-object\">მნიშვნელოვან სიმართლეს</span> <span data-role=\"verb\">ამბობდა</span>",
-          "case_marking": {
-            "subject": {
-              "case": "nom",
-              "word": "რეპორტიორი"
+          "georgian": "ვამბობდი მთელ სახელს",
+          "georgian_components": {
+            "verb": {
+              "text": "ვამბობდი",
+              "role": "verb"
             },
             "direct_object": {
+              "text": "მთელ სახელს",
               "case": "dat",
-              "word": "სიმართლეს"
+              "role": "direct_object"
             }
           },
-          "georgian_verb_form": "ამბობდა"
-        },
-        {
-          "georgian": "პატიოსანი მოწმე სრულ ამბავს ამბობდნენ",
-          "english": "<strong data-role=\"subject\">The honest witness</strong> <strong data-role=\"verb\">were saying</strong> <strong data-role=\"direct-object\">the complete story</strong>",
-          "english_plain": "The honest witness were saying the complete story",
-          "html": "<span data-case=\"nom\" data-role=\"subject\">პატიოსანი მოწმე</span> <span data-case=\"dat\" data-role=\"direct-object\">სრულ ამბავს</span> <span data-role=\"verb\">ამბობდნენ</span>",
-          "case_marking": {
+          "english": "I was saying the whole name",
+          "english_components": {
             "subject": {
-              "case": "nom",
-              "word": "მოწმე"
+              "text": "I",
+              "role": "subject",
+              "person": "1sg"
+            },
+            "verb": {
+              "text": "was saying",
+              "role": "verb"
             },
             "direct_object": {
-              "case": "dat",
-              "word": "ამბავს"
+              "text": "the whole name",
+              "role": "direct_object"
             }
           },
-          "georgian_verb_form": "ამბობდნენ"
+          "georgian_verb_form": "ვამბობდი",
+          "person": "1sg",
+          "effective_preverb": ""
+        },
+        {
+          "georgian": "ახალგაზრდა რეპორტიორი ამბობდა მნიშვნელოვან სიმართლეს",
+          "georgian_components": {
+            "subject": {
+              "text": "ახალგაზრდა რეპორტიორი",
+              "case": "nom",
+              "role": "subject"
+            },
+            "verb": {
+              "text": "ამბობდა",
+              "role": "verb"
+            },
+            "direct_object": {
+              "text": "მნიშვნელოვან სიმართლეს",
+              "case": "dat",
+              "role": "direct_object"
+            }
+          },
+          "english": "The young reporter was saying the important truth",
+          "english_components": {
+            "subject": {
+              "text": "The young reporter",
+              "role": "subject",
+              "person": "3sg"
+            },
+            "verb": {
+              "text": "was saying",
+              "role": "verb"
+            },
+            "direct_object": {
+              "text": "the important truth",
+              "role": "direct_object"
+            }
+          },
+          "georgian_verb_form": "ამბობდა",
+          "person": "3sg",
+          "effective_preverb": ""
+        },
+        {
+          "georgian": "პატიოსანი მოწმეები ამბობდნენ სრულ ამბავს",
+          "georgian_components": {
+            "subject": {
+              "text": "პატიოსანი მოწმეები",
+              "case": "nom",
+              "role": "subject"
+            },
+            "verb": {
+              "text": "ამბობდნენ",
+              "role": "verb"
+            },
+            "direct_object": {
+              "text": "სრულ ამბავს",
+              "case": "dat",
+              "role": "direct_object"
+            }
+          },
+          "english": "The honest witnesses were saying the complete story",
+          "english_components": {
+            "subject": {
+              "text": "The honest witnesses",
+              "role": "subject",
+              "person": "3pl"
+            },
+            "verb": {
+              "text": "were saying",
+              "role": "verb"
+            },
+            "direct_object": {
+              "text": "the complete story",
+              "role": "direct_object"
+            }
+          },
+          "georgian_verb_form": "ამბობდნენ",
+          "person": "3pl",
+          "effective_preverb": ""
         }
       ],
       "future": [
         {
-          "georgian": "მთელ სახელს ვიტყვი",
-          "english": "<strong data-role=\"subject\" data-person=\"1sg\">I</strong> <strong data-role=\"verb\">will say</strong> <strong data-role=\"direct-object\">the whole name</strong>",
-          "english_plain": "I will say the whole name",
-          "html": "<span data-case=\"dat\" data-role=\"direct-object\">მთელ სახელს</span> <span data-role=\"verb\">ვიტყვი</span>",
-          "case_marking": {
-            "direct_object": {
-              "case": "dat",
-              "word": "სახელს"
-            }
-          },
-          "georgian_verb_form": "ვიტყვი"
-        },
-        {
-          "georgian": "ახალგაზრდა რეპორტიორი მნიშვნელოვან სიმართლეს იტყვის",
-          "english": "<strong data-role=\"subject\">The young reporter</strong> <strong data-role=\"verb\">will say</strong> <strong data-role=\"direct-object\">the important truth</strong>",
-          "english_plain": "The young reporter will say the important truth",
-          "html": "<span data-case=\"nom\" data-role=\"subject\">ახალგაზრდა რეპორტიორი</span> <span data-case=\"dat\" data-role=\"direct-object\">მნიშვნელოვან სიმართლეს</span> <span data-role=\"verb\">იტყვის</span>",
-          "case_marking": {
-            "subject": {
-              "case": "nom",
-              "word": "რეპორტიორი"
+          "georgian": "ვიტყვი მთელ სახელს",
+          "georgian_components": {
+            "verb": {
+              "text": "ვიტყვი",
+              "role": "verb"
             },
             "direct_object": {
+              "text": "მთელ სახელს",
               "case": "dat",
-              "word": "სიმართლეს"
+              "role": "direct_object"
             }
           },
-          "georgian_verb_form": "იტყვის"
-        },
-        {
-          "georgian": "პატიოსანი მოწმე სრულ ამბავს იტყვიან",
-          "english": "<strong data-role=\"subject\">The honest witness</strong> <strong data-role=\"verb\">will say</strong> <strong data-role=\"direct-object\">the complete story</strong>",
-          "english_plain": "The honest witness will say the complete story",
-          "html": "<span data-case=\"nom\" data-role=\"subject\">პატიოსანი მოწმე</span> <span data-case=\"dat\" data-role=\"direct-object\">სრულ ამბავს</span> <span data-role=\"verb\">იტყვიან</span>",
-          "case_marking": {
+          "english": "I will say the whole name",
+          "english_components": {
             "subject": {
-              "case": "nom",
-              "word": "მოწმე"
+              "text": "I",
+              "role": "subject",
+              "person": "1sg"
+            },
+            "verb": {
+              "text": "will say",
+              "role": "verb"
             },
             "direct_object": {
-              "case": "dat",
-              "word": "ამბავს"
+              "text": "the whole name",
+              "role": "direct_object"
             }
           },
-          "georgian_verb_form": "იტყვიან"
+          "georgian_verb_form": "ვიტყვი",
+          "person": "1sg",
+          "effective_preverb": ""
+        },
+        {
+          "georgian": "ახალგაზრდა რეპორტიორი იტყვის მნიშვნელოვან სიმართლეს",
+          "georgian_components": {
+            "subject": {
+              "text": "ახალგაზრდა რეპორტიორი",
+              "case": "nom",
+              "role": "subject"
+            },
+            "verb": {
+              "text": "იტყვის",
+              "role": "verb"
+            },
+            "direct_object": {
+              "text": "მნიშვნელოვან სიმართლეს",
+              "case": "dat",
+              "role": "direct_object"
+            }
+          },
+          "english": "The young reporter will say the important truth",
+          "english_components": {
+            "subject": {
+              "text": "The young reporter",
+              "role": "subject",
+              "person": "3sg"
+            },
+            "verb": {
+              "text": "will say",
+              "role": "verb"
+            },
+            "direct_object": {
+              "text": "the important truth",
+              "role": "direct_object"
+            }
+          },
+          "georgian_verb_form": "იტყვის",
+          "person": "3sg",
+          "effective_preverb": ""
+        },
+        {
+          "georgian": "პატიოსანი მოწმეები იტყვიან სრულ ამბავს",
+          "georgian_components": {
+            "subject": {
+              "text": "პატიოსანი მოწმეები",
+              "case": "nom",
+              "role": "subject"
+            },
+            "verb": {
+              "text": "იტყვიან",
+              "role": "verb"
+            },
+            "direct_object": {
+              "text": "სრულ ამბავს",
+              "case": "dat",
+              "role": "direct_object"
+            }
+          },
+          "english": "The honest witnesses will say the complete story",
+          "english_components": {
+            "subject": {
+              "text": "The honest witnesses",
+              "role": "subject",
+              "person": "3pl"
+            },
+            "verb": {
+              "text": "will say",
+              "role": "verb"
+            },
+            "direct_object": {
+              "text": "the complete story",
+              "role": "direct_object"
+            }
+          },
+          "georgian_verb_form": "იტყვიან",
+          "person": "3pl",
+          "effective_preverb": ""
         }
       ],
       "aorist": [
         {
-          "georgian": "მთელი სახელი ვთქვი",
-          "english": "<strong data-role=\"subject\" data-person=\"1sg\">I</strong> <strong data-role=\"verb\">said</strong> <strong data-role=\"direct-object\">the whole name</strong>",
-          "english_plain": "I said the whole name",
-          "html": "<span data-case=\"nom\" data-role=\"direct-object\">მთელი სახელი</span> <span data-role=\"verb\">ვთქვი</span>",
-          "case_marking": {
-            "direct_object": {
-              "case": "nom",
-              "word": "სახელი"
-            }
-          },
-          "georgian_verb_form": "ვთქვი"
-        },
-        {
-          "georgian": "ახალგაზრდა რეპორტიორმა მნიშვნელოვანი სიმართლე თქვა",
-          "english": "<strong data-role=\"subject\">The young reporter</strong> <strong data-role=\"verb\">said</strong> <strong data-role=\"direct-object\">the important truth</strong>",
-          "english_plain": "The young reporter said the important truth",
-          "html": "<span data-case=\"erg\" data-role=\"subject\">ახალგაზრდა რეპორტიორმა</span> <span data-case=\"nom\" data-role=\"direct-object\">მნიშვნელოვანი სიმართლე</span> <span data-role=\"verb\">თქვა</span>",
-          "case_marking": {
-            "subject": {
-              "case": "erg",
-              "word": "რეპორტიორმა"
+          "georgian": "ვთქვი მთელი სახელი",
+          "georgian_components": {
+            "verb": {
+              "text": "ვთქვი",
+              "role": "verb"
             },
             "direct_object": {
+              "text": "მთელი სახელი",
               "case": "nom",
-              "word": "სიმართლე"
+              "role": "direct_object"
             }
           },
-          "georgian_verb_form": "თქვა"
-        },
-        {
-          "georgian": "პატიოსანმა მოწმემ სრული ამბავი თქვეს",
-          "english": "<strong data-role=\"subject\">The honest witness</strong> <strong data-role=\"verb\">said</strong> <strong data-role=\"direct-object\">the complete story</strong>",
-          "english_plain": "The honest witness said the complete story",
-          "html": "<span data-case=\"erg\" data-role=\"subject\">პატიოსანმა მოწმემ</span> <span data-case=\"nom\" data-role=\"direct-object\">სრული ამბავი</span> <span data-role=\"verb\">თქვეს</span>",
-          "case_marking": {
+          "english": "I said the whole name",
+          "english_components": {
             "subject": {
-              "case": "erg",
-              "word": "მოწმემ"
+              "text": "I",
+              "role": "subject",
+              "person": "1sg"
+            },
+            "verb": {
+              "text": "said",
+              "role": "verb"
             },
             "direct_object": {
-              "case": "nom",
-              "word": "ამბავი"
+              "text": "the whole name",
+              "role": "direct_object"
             }
           },
-          "georgian_verb_form": "თქვეს"
+          "georgian_verb_form": "ვთქვი",
+          "person": "1sg",
+          "effective_preverb": ""
+        },
+        {
+          "georgian": "ახალგაზრდა რეპორტიორმა თქვა მნიშვნელოვანი სიმართლე",
+          "georgian_components": {
+            "subject": {
+              "text": "ახალგაზრდა რეპორტიორმა",
+              "case": "erg",
+              "role": "subject"
+            },
+            "verb": {
+              "text": "თქვა",
+              "role": "verb"
+            },
+            "direct_object": {
+              "text": "მნიშვნელოვანი სიმართლე",
+              "case": "nom",
+              "role": "direct_object"
+            }
+          },
+          "english": "The young reporter said the important truth",
+          "english_components": {
+            "subject": {
+              "text": "The young reporter",
+              "role": "subject",
+              "person": "3sg"
+            },
+            "verb": {
+              "text": "said",
+              "role": "verb"
+            },
+            "direct_object": {
+              "text": "the important truth",
+              "role": "direct_object"
+            }
+          },
+          "georgian_verb_form": "თქვა",
+          "person": "3sg",
+          "effective_preverb": ""
+        },
+        {
+          "georgian": "პატიოსანმა მოწმეებმა თქვეს სრული ამბავი",
+          "georgian_components": {
+            "subject": {
+              "text": "პატიოსანმა მოწმეებმა",
+              "case": "erg",
+              "role": "subject"
+            },
+            "verb": {
+              "text": "თქვეს",
+              "role": "verb"
+            },
+            "direct_object": {
+              "text": "სრული ამბავი",
+              "case": "nom",
+              "role": "direct_object"
+            }
+          },
+          "english": "The honest witnesses said the complete story",
+          "english_components": {
+            "subject": {
+              "text": "The honest witnesses",
+              "role": "subject",
+              "person": "3pl"
+            },
+            "verb": {
+              "text": "said",
+              "role": "verb"
+            },
+            "direct_object": {
+              "text": "the complete story",
+              "role": "direct_object"
+            }
+          },
+          "georgian_verb_form": "თქვეს",
+          "person": "3pl",
+          "effective_preverb": ""
         }
       ],
       "optative": [
         {
-          "georgian": "მთელი სახელი უნდა ვთქვა",
-          "english": "<strong data-role=\"subject\" data-person=\"1sg\">I</strong> <strong data-role=\"verb\">should</strong> <strong data-role=\"verb\">say</strong> <strong data-role=\"direct-object\">the whole name</strong>",
-          "english_plain": "I should say the whole name",
-          "html": "<span data-case=\"nom\" data-role=\"direct-object\">მთელი სახელი</span> <span data-role=\"verb\">უნდა ვთქვა</span>",
-          "case_marking": {
-            "direct_object": {
-              "case": "nom",
-              "word": "სახელი"
-            }
-          },
-          "georgian_verb_form": "ვთქვა"
-        },
-        {
-          "georgian": "ახალგაზრდა რეპორტიორმა მნიშვნელოვანი სიმართლე უნდა თქვას",
-          "english": "<strong data-role=\"subject\">The young reporter</strong> <strong data-role=\"verb\">should</strong> <strong data-role=\"verb\">say</strong> <strong data-role=\"direct-object\">the important truth</strong>",
-          "english_plain": "The young reporter should say the important truth",
-          "html": "<span data-case=\"erg\" data-role=\"subject\">ახალგაზრდა რეპორტიორმა</span> <span data-case=\"nom\" data-role=\"direct-object\">მნიშვნელოვანი სიმართლე</span> <span data-role=\"verb\">უნდა თქვას</span>",
-          "case_marking": {
-            "subject": {
-              "case": "erg",
-              "word": "რეპორტიორმა"
+          "georgian": "უნდა ვთქვა მთელი სახელი",
+          "georgian_components": {
+            "verb": {
+              "text": "უნდა ვთქვა",
+              "role": "verb"
             },
             "direct_object": {
+              "text": "მთელი სახელი",
               "case": "nom",
-              "word": "სიმართლე"
+              "role": "direct_object"
             }
           },
-          "georgian_verb_form": "თქვას"
-        },
-        {
-          "georgian": "პატიოსანმა მოწმემ სრული ამბავი უნდა თქვან",
-          "english": "<strong data-role=\"subject\">The honest witness</strong> <strong data-role=\"verb\">should</strong> <strong data-role=\"verb\">say</strong> <strong data-role=\"direct-object\">the complete story</strong>",
-          "english_plain": "The honest witness should say the complete story",
-          "html": "<span data-case=\"erg\" data-role=\"subject\">პატიოსანმა მოწმემ</span> <span data-case=\"nom\" data-role=\"direct-object\">სრული ამბავი</span> <span data-role=\"verb\">უნდა თქვან</span>",
-          "case_marking": {
+          "english": "I should say the whole name",
+          "english_components": {
             "subject": {
-              "case": "erg",
-              "word": "მოწმემ"
+              "text": "I",
+              "role": "subject",
+              "person": "1sg"
+            },
+            "verb": {
+              "text": "should say",
+              "role": "verb"
             },
             "direct_object": {
-              "case": "nom",
-              "word": "ამბავი"
+              "text": "the whole name",
+              "role": "direct_object"
             }
           },
-          "georgian_verb_form": "თქვან"
+          "georgian_verb_form": "ვთქვა",
+          "person": "1sg",
+          "effective_preverb": ""
+        },
+        {
+          "georgian": "ახალგაზრდა რეპორტიორმა უნდა თქვას მნიშვნელოვანი სიმართლე",
+          "georgian_components": {
+            "subject": {
+              "text": "ახალგაზრდა რეპორტიორმა",
+              "case": "erg",
+              "role": "subject"
+            },
+            "verb": {
+              "text": "უნდა თქვას",
+              "role": "verb"
+            },
+            "direct_object": {
+              "text": "მნიშვნელოვანი სიმართლე",
+              "case": "nom",
+              "role": "direct_object"
+            }
+          },
+          "english": "The young reporter should say the important truth",
+          "english_components": {
+            "subject": {
+              "text": "The young reporter",
+              "role": "subject",
+              "person": "3sg"
+            },
+            "verb": {
+              "text": "should say",
+              "role": "verb"
+            },
+            "direct_object": {
+              "text": "the important truth",
+              "role": "direct_object"
+            }
+          },
+          "georgian_verb_form": "თქვას",
+          "person": "3sg",
+          "effective_preverb": ""
+        },
+        {
+          "georgian": "პატიოსანმა მოწმეებმა უნდა თქვან სრული ამბავი",
+          "georgian_components": {
+            "subject": {
+              "text": "პატიოსანმა მოწმეებმა",
+              "case": "erg",
+              "role": "subject"
+            },
+            "verb": {
+              "text": "უნდა თქვან",
+              "role": "verb"
+            },
+            "direct_object": {
+              "text": "სრული ამბავი",
+              "case": "nom",
+              "role": "direct_object"
+            }
+          },
+          "english": "The honest witnesses should say the complete story",
+          "english_components": {
+            "subject": {
+              "text": "The honest witnesses",
+              "role": "subject",
+              "person": "3pl"
+            },
+            "verb": {
+              "text": "should say",
+              "role": "verb"
+            },
+            "direct_object": {
+              "text": "the complete story",
+              "role": "direct_object"
+            }
+          },
+          "georgian_verb_form": "თქვან",
+          "person": "3pl",
+          "effective_preverb": ""
         }
       ],
       "imperative": [
         {
-          "georgian": "სწორი მისამართი თქვი",
-          "english": "<strong data-role=\"verb\">say</strong> <strong data-role=\"direct-object\">the correct address</strong>",
-          "english_plain": "say the correct address",
-          "html": "<span data-case=\"nom\" data-role=\"direct-object\">სწორი მისამართი</span> <span data-role=\"verb\">თქვი</span>",
-          "case_marking": {
+          "georgian": "თქვი სწორი მისამართი",
+          "georgian_components": {
+            "verb": {
+              "text": "თქვი",
+              "role": "verb"
+            },
             "direct_object": {
+              "text": "სწორი მისამართი",
               "case": "nom",
-              "word": "მისამართი"
+              "role": "direct_object"
             }
           },
-          "georgian_verb_form": "თქვი"
+          "english": "You, say the correct address",
+          "english_components": {
+            "subject": {
+              "text": "You,",
+              "role": "subject",
+              "person": "2sg"
+            },
+            "verb": {
+              "text": "say",
+              "role": "verb"
+            },
+            "direct_object": {
+              "text": "the correct address",
+              "role": "direct_object"
+            }
+          },
+          "georgian_verb_form": "თქვი",
+          "person": "2sg",
+          "effective_preverb": ""
         },
         {
-          "georgian": "დაბალი პასუხი თქვით",
-          "english": "<strong data-role=\"verb\">say</strong> <strong data-role=\"direct-object\">the short answer</strong>",
-          "english_plain": "say the short answer",
-          "html": "<span data-case=\"nom\" data-role=\"direct-object\">დაბალი პასუხი</span> <span data-role=\"verb\">თქვით</span>",
-          "case_marking": {
+          "georgian": "თქვით დაბალი პასუხი",
+          "georgian_components": {
+            "verb": {
+              "text": "თქვით",
+              "role": "verb"
+            },
             "direct_object": {
+              "text": "დაბალი პასუხი",
               "case": "nom",
-              "word": "პასუხი"
+              "role": "direct_object"
             }
           },
-          "georgian_verb_form": "თქვით"
+          "english": "You all (you formal), say the short answer",
+          "english_components": {
+            "subject": {
+              "text": "You all (you formal),",
+              "role": "subject",
+              "person": "2pl"
+            },
+            "verb": {
+              "text": "say",
+              "role": "verb"
+            },
+            "direct_object": {
+              "text": "the short answer",
+              "role": "direct_object"
+            }
+          },
+          "georgian_verb_form": "თქვით",
+          "person": "2pl",
+          "effective_preverb": ""
         }
       ]
     }
