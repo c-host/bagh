@@ -27,8 +27,8 @@ force_utf8_environment()
 from tools.data_processing.verb_data_processor import VerbDataProcessor
 from tools.data_processing.processed_data_manager import ProcessedDataManager
 from tools.output_generation.html_generator import HTMLGenerator
-from tools.output_generation.external_data_generator_pipeline import (
-    ExternalDataGeneratorPipeline,
+from tools.output_generation.external_data_generator import (
+    ExternalDataGenerator,
 )
 from tools.data_extraction.verb_data_loader import VerbDataLoader
 from tools.output_generation.asset_manager import AssetManager
@@ -250,7 +250,7 @@ def run_output_generation_pipeline(config_manager: ConfigManager, build_mode: st
             print("🔧 VerbDataLoader initialized successfully")
 
             print("🔧 About to initialize HTMLGenerator...")
-            html_generator = HTMLGenerator(project_root, data_loader)
+            html_generator = HTMLGenerator(project_root)
             print("🔧 HTMLGenerator initialized successfully")
 
             print("🔧 About to generate HTML content...")
@@ -271,9 +271,9 @@ def run_output_generation_pipeline(config_manager: ConfigManager, build_mode: st
         print("🔧 About to generate external data...")
         logger.info("Generating external data...")
         try:
-            print("🔧 About to initialize ExternalDataGeneratorPipeline...")
-            external_generator = ExternalDataGeneratorPipeline(project_root)
-            print("🔧 ExternalDataGeneratorPipeline initialized successfully")
+            print("🔧 About to initialize ExternalDataGenerator...")
+            external_generator = ExternalDataGenerator(project_root)
+            print("🔧 ExternalDataGenerator initialized successfully")
 
             print("🔧 About to generate external data from processed verbs...")
             external_success = (

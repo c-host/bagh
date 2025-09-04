@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html lang="en-ka">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ბაღ</title>
+
+    <!-- Favicon -->
+
+    <link rel="icon" type="image/svg+xml" href="assets/favicon.svg">
+    <link rel="alternate icon" href="assets/favicon.svg">
+
+    <script>
+        (function () {
+            {
+                const savedTheme = localStorage.getItem('theme') || 'light';
+                const savedFont = localStorage.getItem('font') || 'default';
+                document.documentElement.setAttribute('data-theme', savedTheme);
+                document.documentElement.setAttribute('data-font', savedFont);
+            }
+        })();
+    </script>
+
+
+    <link rel="stylesheet" href="styles/main.css">
+    <script type="module" src="scripts/main.js"></script>
+
+    <!-- Google Fonts for Georgian and English -->
+    <link
+        href="https://fonts.googleapis.com/css2?family=Noto+Sans+Georgian:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet">
+
+    <!-- Font loading script to prevent flash -->
+    <script>
+        // Immediately apply saved font to prevent flash
+        (function () {
+            {
+                const savedFont = localStorage.getItem('font') || 'default';
+                document.documentElement.setAttribute('data-font', savedFont);
+                if (savedFont !== 'default') {
+                    {
+                        // For custom fonts, let the CSS handle it with font-display: block
+                        // This prevents the flash while fonts load
+                    }
+                }
+            }
+        })();
+    </script>
+
+    <!-- Font Awesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+
+</head>
+
+<body>
+    <!-- Sidebar Toggle - Top Left -->
+    <button id="sidebar-toggle" class="sidebar-toggle" title="Toggle Table of Contents">
+        <i class="fas fa-list"></i>
+    </button>
+
+    <!-- Theme Toggle - Top Right -->
+    <div class="floating-controls">
+        <button id="theme-toggle" class="theme-toggle" title="Toggle Dark/Light Mode">
+            <i class="fas fa-moon"></i>
+        </button>
+    </div>
+    </div>
+
+    <!-- Font Selector - Bottom Right -->
+    <button id="font-select" class="font-select" title="Choose Font (Use ←/→ arrow keys to scroll)">
+        <i class="fas fa-font"></i>
+    </button>
+
+    <!-- Font Selector Dropdown (Hidden) -->
+    <div id="font-select-dropdown" class="font-select-dropdown">
+        <div class="font-option" data-font="default">
+            <span class="font-icon">🔤</span>
+            <span class="font-name">Default (Noto Sans)</span>
+        </div>
+        <div class="font-option" data-font="k_gorga">
+            <span class="font-icon">🎨</span>
+            <span class="font-name">k_gorga</span>
+        </div>
+        <div class="font-option" data-font="k_grigol">
+            <span class="font-icon">✍️</span>
+            <span class="font-name">k_grigol</span>
+        </div>
+        <div class="font-option" data-font="k_kalig">
+            <span class="font-icon">📝</span>
+            <span class="font-name">k_kalig</span>
+        </div>
+        <div class="font-option" data-font="k_lortki">
+            <span class="font-icon">🖋️</span>
+            <span class="font-name">k_lortki</span>
+        </div>
+        <div class="font-option" data-font="sonata">
+            <span class="font-icon">🎵</span>
+            <span class="font-name">SonataNo5</span>
+        </div>
+        <div class="font-option" data-font="neueimpakt">
+            <span class="font-icon">💪</span>
+            <span class="font-name">NeueImpakt</span>
+        </div>
+    </div>
+
+    <!-- Help Button - Bottom Left (above notepad) -->
+    <button id="help-toggle" class="help-toggle" title="Help & Features">
+        <i class="fas fa-question-circle"></i>
+    </button>
+
+    <!-- Notepad Button - Bottom Left -->
+    <button id="notepad-toggle" class="notepad-toggle" title="Open Notepad">
+        <i class="fas fa-sticky-note"></i>
+    </button>
+
+
+    <!-- Sidebar Modal -->
+    <div id="sidebar-modal" class="sidebar-modal">
+        <div class="sidebar-overlay" id="sidebar-overlay"></div>
+        <div class="sidebar-content">
+            <div class="sidebar-header">
+                <h3>Table of Contents</h3>
+                <button id="sidebar-close" class="sidebar-close">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+            <div class="sidebar-sticky-header">
+                <div class="search-container">
+                    <input type="text" id="search-input" class="search-input"
+                        placeholder="Search verbs (↑↓ to navigate, Enter to select)"
+                        title="Search by Georgian or English name. Use ↑↓ arrows to navigate, Enter to select">
+                    <div class="search-icon">
+                        <i class="fas fa-search"></i>
+                    </div>
+                </div>
+            </div>
+            <div class="sidebar-body">
+                <div class="toc-content-container">
+                    {{TOC_CONTENT}}
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Notepad Modal -->
+    <div id="notepad-modal" class="notepad-modal">
+        <div class="notepad-overlay" id="notepad-overlay"></div>
+        <div class="notepad-content">
+            <div class="notepad-header">
+                <h3>Notepad</h3>
+                <div class="notepad-controls">
+                    <select id="font-size-select" class="font-size-select" title="Font Size">
+                        <option value="12">12px</option>
+                        <option value="14">14px</option>
+                        <option value="16" selected>16px</option>
+                        <option value="18">18px</option>
+                        <option value="20">20px</option>
+                        <option value="24">24px</option>
+                        <option value="28">28px</option>
+                        <option value="32">32px</option>
+                    </select>
+                    <button id="notepad-close" class="notepad-close">
+                        <i class="fas fa-times"></i>
+                    </button>
+                </div>
+            </div>
+            <div class="notepad-body">
+                <textarea id="notepad-textarea" class="notepad-textarea" placeholder="Start typing here..."></textarea>
+            </div>
+        </div>
+    </div>
+
+    <!-- Help Modal -->
+    <div id="help-modal" class="help-modal">
+        <div class="help-overlay" id="help-overlay"></div>
+        <div class="help-content">
+            <div class="help-header">
+                <h3>Help & Features</h3>
+                <button id="help-close" class="help-close">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+            <div class="help-body">
+                <div class="help-disclaimer">
+                    <p><strong>⚠️ Work in Progress:</strong> This website is a personal study resource and under
+                        semi-active development. It contains several mistakes, inconsistencies, and incomplete features.
+                        Please do not treat this as a definitive source for Georgian verb conjugations.</p>
+                </div>
+                <div class="help-section">
+                    <h4>🎯 Core Features</h4>
+                    <ul>
+                        <li><strong>Interactive Verb Tables:</strong> Tables for common conjugations of 30+ Georgian
+                            verbs</li>
+                        <li><strong>Theme Toggle:</strong> Switch between light and dark themes</li>
+                        <li><strong>Font Selection:</strong> Choose from 7 Georgian fonts with left and right arrow key
+                            navigation</li>
+                        <li><strong>Search Functionality:</strong> Real-time search through verbs with keyboard
+                            shortcuts</li>
+                        <li><strong>Notepad:</strong> Built-in notepad with local storage</li>
+                    </ul>
+                </div>
+                <div class="help-section">
+                    <h4>⌨️ Keyboard Shortcuts</h4>
+                    <ul>
+                        <li><strong>Ctrl/Cmd + K:</strong> Open search sidebar</li>
+                        <li><strong>↑/↓:</strong> Navigate search results</li>
+                        <li><strong>Enter:</strong> Select highlighted verb</li>
+                        <li><strong>←/→:</strong> Switch fonts (when notepad is closed)</li>
+                        <li><strong>ESC:</strong> Close active modal</li>
+                    </ul>
+                </div>
+                <div class="help-section">
+                    <h4>🔍 How to Use</h4>
+                    <ul>
+                        <li><strong>Browse Verbs:</strong> Use the table of contents (top-left button) to navigate
+                            between verbs</li>
+                        <li><strong>Search:</strong> Click the search icon or press Ctrl+K to find specific verbs</li>
+                        <li><strong>Take Notes:</strong> Click the notepad button (bottom-left) to open a writing area
+                        </li>
+                        <li><strong>Change Appearance:</strong> Use the theme toggle and font selector to customize your
+                            experience</li>
+                    </ul>
+                </div>
+                <div class="help-section">
+                    <h4>📚 Verb Information</h4>
+                    <ul>
+                        <li><strong>Conjugation Tables:</strong> See verb forms across 6 common tenses</li>
+                        <li><strong>Examples:</strong> View example sentences showing how verbs are used in context</li>
+                        <li><strong>Case Markings:</strong> Understand subject/object argument structure with case
+                            glosses</li>
+                        <li><strong>Preverbs:</strong> Explore how preverbs change verb meanings</li>
+                        <li><strong>English Translations:</strong> The definite article "the" is used in English
+                            translations because Georgian doesn't have common definite or indefinite articles. This
+                            makes the English clearer and less ambiguous.</li>
+                    </ul>
+                </div>
+                <div class="help-section">
+                    <h4>🎨 Fonts Available</h4>
+                    <ul>
+                        <li><strong>Default:</strong> Noto Sans Georgian (clear and readable)</li>
+                        <li><strong>k_gorga:</strong> Traditional Georgian font</li>
+                        <li><strong>k_grigol:</strong> Classical Georgian font</li>
+                        <li><strong>k_kalig:</strong> Calligraphic Georgian font</li>
+                        <li><strong>k_lortki:</strong> Handwritten Georgian font</li>
+                        <li><strong>SonataNo5:</strong> Thin curved style font</li>
+                        <li><strong>NeueImpakt:</strong> Bold, impactful font</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Main Content -->
+    <div class="container">
+        <header>
+            <h1>ბაღ</h1>
+        </header>
+
+        <div class="main-content">
+            {{VERB_SECTIONS}}
+        </div>
+    </div>
+</body>
+
+</html>

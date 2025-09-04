@@ -71,58 +71,84 @@ class RobustGlossProcessor(BaseGlossParser):
             component_type = self._classify_component(component)
             color_class = self.color_mapping.get(component_type, "gloss-default")
 
+            # Fix preverb color to match voice color (same as "Act")
+            if component_type == "preverb":
+                color_class = "gloss-voice"  # Same as "Act"
+
             # Get description
             description = self._get_component_description(
                 component, component_type, preverb
             )
 
-            # Create raw component
-            raw_comp = GlossComponent(
-                text=component,
-                component_type=component_type,
-                color_class=color_class,
-                description=description,
-            )
-            raw_components.append(raw_comp)
+            # Handle special cases for components that need splitting
+            if self._is_argument_pattern(component):
+                # Split compound argument pattern into multiple components for raw section
+                split_components = self._split_argument_pattern(component)
 
-            # Handle special cases for expanded components
-            if component.startswith("<") and component.endswith(">"):
-                if self._is_case_specification(component):
-                    # Case specification like <S:Nom>
-                    case_specs.append(component)
-                    expanded_comp = GlossComponent(
-                        text=component,
-                        component_type="case_spec",
-                        color_class=self._get_case_color(component),
-                        description=description,
-                    )
-                elif self._is_argument_pattern(component):
-                    # Argument pattern like <S-DO>
-                    argument_pattern = component
-                    expanded_comp = GlossComponent(
-                        text=component,
-                        component_type="argument_pattern",
-                        color_class="gloss-argument",
-                        description=description,
-                    )
+                # Create a grouped component for the argument pattern
+                grouped_component = {
+                    "type": "argument_pattern_group",
+                    "original_text": component,
+                    "description": description,
+                    "components": split_components,
+                }
+                raw_components.append(grouped_component)
+
+                # For expanded section, also create a grouped component for consistency
+                expanded_grouped_component = {
+                    "type": "argument_pattern_group",
+                    "original_text": component,
+                    "description": description,
+                    "components": split_components,
+                }
+                expanded_components.append(expanded_grouped_component)
+
+                # Track the argument pattern
+                argument_pattern = component
+            else:
+                # Create raw component
+                raw_comp = GlossComponent(
+                    text=component,
+                    component_type=component_type,
+                    color_class=color_class,
+                    description=description,
+                )
+                raw_components.append(raw_comp)
+
+                # Handle special cases for expanded components
+                if component.startswith("<") and component.endswith(">"):
+                    if self._is_case_specification(component):
+                        # Case specification like <S:Nom> - use semantic colors in both raw and expanded
+                        case_specs.append(component)
+                        semantic_color = self._get_case_color(component)
+
+                        # Update raw component to use semantic color
+                        raw_comp.color_class = semantic_color
+
+                        expanded_comp = GlossComponent(
+                            text=component,
+                            component_type="case_spec",
+                            color_class=semantic_color,
+                            description=description,
+                        )
+                    else:
+                        # Other special components (auxiliary, modifiers)
+                        expanded_comp = GlossComponent(
+                            text=component,
+                            component_type=component_type,
+                            color_class=color_class,
+                            description=description,
+                        )
+                    expanded_components.append(expanded_comp)
                 else:
-                    # Other special components (auxiliary, modifiers)
+                    # Regular component
                     expanded_comp = GlossComponent(
                         text=component,
                         component_type=component_type,
                         color_class=color_class,
                         description=description,
                     )
-                expanded_components.append(expanded_comp)
-            else:
-                # Regular component
-                expanded_comp = GlossComponent(
-                    text=component,
-                    component_type=component_type,
-                    color_class=color_class,
-                    description=description,
-                )
-                expanded_components.append(expanded_comp)
+                    expanded_components.append(expanded_comp)
 
         return GlossData(
             raw_components=raw_components,
@@ -183,6 +209,79 @@ class RobustGlossProcessor(BaseGlossParser):
 
         return component
 
+    def _split_argument_pattern(self, component: str) -> List[GlossComponent]:
+        """
+        Split compound argument patterns like <S-DO-IO> into multiple components
+        with mixed colors: brackets and dashes use voice color, letters use semantic colors.
+
+        This method dynamically parses any argument pattern format.
+
+        Args:
+            component: The compound argument pattern (e.g., "<S-DO-IO>", "<S-DO>", "<S>")
+
+        Returns:
+            List of GlossComponent objects with appropriate colors
+        """
+        if not (component.startswith("<") and component.endswith(">")):
+            # Not an argument pattern - return as single component
+            return [
+                GlossComponent(
+                    component, "argument_pattern", "gloss-argument", "Argument pattern"
+                )
+            ]
+
+        # Remove the outer brackets
+        inner_content = component[1:-1]  # Remove < and >
+
+        # Split by dashes to get individual argument types
+        argument_types = inner_content.split("-")
+
+        components = []
+
+        # Add opening bracket
+        components.append(GlossComponent("<", "punctuation", "gloss-voice", ""))
+
+        # Process each argument type
+        for i, arg_type in enumerate(argument_types):
+            if i > 0:  # Add dash separator before each argument (except the first)
+                components.append(GlossComponent("-", "punctuation", "gloss-voice", ""))
+
+            # Get color for this argument type (no description for individual components)
+            color_class, _ = self._get_argument_type_color_and_description(arg_type)
+            components.append(GlossComponent(arg_type, "argument", color_class, ""))
+
+        # Add closing bracket
+        components.append(GlossComponent(">", "punctuation", "gloss-voice", ""))
+
+        return components
+
+    def _get_argument_type_color_and_description(
+        self, arg_type: str
+    ) -> tuple[str, str]:
+        """
+        Get the appropriate color class and description for an argument type.
+
+        Args:
+            arg_type: The argument type (e.g., "S", "DO", "IO")
+
+        Returns:
+            Tuple of (color_class, description)
+        """
+        argument_mapping = {
+            "S": ("gloss-subject", "Subject"),
+            "DO": ("gloss-direct-object", "Direct Object"),
+            "IO": ("gloss-indirect-object", "Indirect Object"),
+            # Add more argument types as needed
+            "A": ("gloss-agent", "Agent"),
+            "P": ("gloss-patient", "Patient"),
+            "T": ("gloss-theme", "Theme"),
+            "R": ("gloss-recipient", "Recipient"),
+        }
+
+        return argument_mapping.get(
+            arg_type, ("gloss-argument", f"{arg_type} argument")
+        )
+
 
 def create_gloss_data_structure(raw_gloss: str, preverb: str = None) -> Dict:
     """
@@ -199,24 +298,44 @@ def create_gloss_data_structure(raw_gloss: str, preverb: str = None) -> Dict:
     gloss_data = processor.parse_raw_gloss(raw_gloss, preverb)
 
     # Convert to serializable format
+    def serialize_component(comp):
+        """Convert a component to serializable format, handling both GlossComponent objects and dictionaries."""
+        if isinstance(comp, dict):
+            # Already a dictionary (grouped component)
+            if comp.get("type") == "argument_pattern_group":
+                # Recursively serialize the components within the group
+                serialized_components = [
+                    {
+                        "text": sub_comp.text,
+                        "component_type": sub_comp.component_type,
+                        "color_class": sub_comp.color_class,
+                        "description": sub_comp.description,
+                    }
+                    for sub_comp in comp.get("components", [])
+                ]
+                return {
+                    "type": "argument_pattern_group",
+                    "original_text": comp.get("original_text"),
+                    "description": comp.get("description"),
+                    "components": serialized_components,
+                }
+            else:
+                return comp
+        else:
+            # GlossComponent object
+            return {
+                "text": comp.text,
+                "component_type": comp.component_type,
+                "color_class": comp.color_class,
+                "description": comp.description,
+            }
+
     return {
         "raw_components": [
-            {
-                "text": comp.text,
-                "component_type": comp.component_type,
-                "color_class": comp.color_class,
-                "description": comp.description,
-            }
-            for comp in gloss_data.raw_components
+            serialize_component(comp) for comp in gloss_data.raw_components
         ],
         "expanded_components": [
-            {
-                "text": comp.text,
-                "component_type": comp.component_type,
-                "color_class": comp.color_class,
-                "description": comp.description,
-            }
-            for comp in gloss_data.expanded_components
+            serialize_component(comp) for comp in gloss_data.expanded_components
         ],
         "argument_pattern": gloss_data.argument_pattern,
         "case_specifications": gloss_data.case_specifications or [],

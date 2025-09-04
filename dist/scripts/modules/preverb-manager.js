@@ -267,16 +267,16 @@ export class PreverbManager {
                 hasExamples: !!verbData.examples,
                 hasGlossAnalyses: !!verbData.gloss_analysis,
                 hasPreverbConfig: !!verbData.preverb_config,
-                hasPreverbForms: !!verbData.preverb_forms,
+                hasPreverbContent: !!verbData.preverb_content,
                 examplesKeys: verbData.examples ? Object.keys(verbData.examples) : 'none',
                 glossKeys: verbData.gloss_analysis ? Object.keys(verbData.gloss_analysis) : 'none',
-                preverbFormsKeys: verbData.preverb_forms ? Object.keys(verbData.preverb_forms) : 'none'
+                preverbContentKeys: verbData.preverb_content ? Object.keys(verbData.preverb_content) : 'none'
             });
 
             // Get pre-calculated conjugations (no complex calculation needed)
             const conjugations = this.verbDataManager.getConjugationsForPreverb(
                 verbData.conjugations,
-                verbData.preverb_rules,
+                verbData.preverb_config,
                 preverb,
                 verbData
             );

@@ -544,8 +544,8 @@ export class VerbDataManager {
 
             // Get conjugations for the default preverb using the new structure
             const conjugations = this.getConjugationsForPreverb(
-                verbData.conjugations,
-                verbData.preverb_rules,
+                null, // No base conjugations in external data
+                verbData.preverb_config,
                 defaultPreverb,
                 verbData
             );
@@ -607,8 +607,7 @@ export class VerbDataManager {
 
         // Check if this is a multi-preverb verb
         const isMultiPreverb = preverbConfig &&
-            preverbConfig.replacements &&
-            Object.keys(preverbConfig.replacements).length > 1;
+            preverbConfig.has_multiple_preverbs === true;
 
         if (!isMultiPreverb) {
             console.log(`[PREVERB_SWITCH] Single-preverb verb, returning original conjugations`);
@@ -618,18 +617,19 @@ export class VerbDataManager {
         console.log(`[PREVERB_SWITCH] Processing multi-preverb verb`);
 
         // Use pre-calculated forms from build pipeline
-        if (verbData && verbData.preverb_forms && verbData.preverb_forms[targetPreverb]) {
+        if (verbData && verbData.preverb_content && verbData.preverb_content[targetPreverb]) {
             console.log(`[PREVERB_SWITCH] Using pre-calculated forms for ${targetPreverb}`);
 
-            const preverbForms = verbData.preverb_forms[targetPreverb];
+            const preverbContent = verbData.preverb_content[targetPreverb];
+            const preverbConjugations = preverbContent.conjugations || {};
             const result = {};
 
             // Restructure to match expected format
-            for (const [tense, tenseForms] of Object.entries(preverbForms)) {
+            for (const [tense, tenseForms] of Object.entries(preverbConjugations)) {
                 result[tense] = {
                     forms: tenseForms,
-                    gloss: verbData.gloss_analysis?.[targetPreverb]?.[tense] || {},
-                    examples: verbData.examples?.[targetPreverb]?.[tense] || []
+                    gloss: preverbContent.gloss_analysis?.[tense] || {},
+                    examples: preverbContent.examples?.[tense] || []
                 };
             }
 
@@ -733,18 +733,18 @@ export class VerbDataManager {
         let examplesHtml = '';
         let glossHtml = '';
 
-        // Check if this is a multi-preverb verb by looking at the replacements
-        const isMultiPreverb = verbData.preverb_rules &&
-            verbData.preverb_rules.replacements &&
-            Object.keys(verbData.preverb_rules.replacements).length > 1;
+        // Check if this is a multi-preverb verb by looking at the preverb config
+        const isMultiPreverb = verbData.preverb_config &&
+            verbData.preverb_config.has_multiple_preverbs === true;
 
         console.log(`[JS] isMultiPreverb: ${isMultiPreverb}`);
 
         if (isMultiPreverb) {
             // Multi-preverb verb: get examples for the specific preverb from external data
             const normalizedPreverb = selectedPreverb.replace('-', '');
-            const preverbExamples = verbData.examples[normalizedPreverb] || {};
-            const preverbGloss = verbData.gloss_analysis[normalizedPreverb] || {};
+            const preverbContent = verbData.preverb_content[normalizedPreverb] || {};
+            const preverbExamples = preverbContent.examples || {};
+            const preverbGloss = preverbContent.gloss_analysis || {};
 
             console.log(`[JS] Multi-preverb data: examples=${!!preverbExamples[tense]}, gloss=${!!preverbGloss[tense]}`);
             console.log(`[JS] Preverb examples keys: ${Object.keys(preverbExamples)}`);
@@ -933,20 +933,28 @@ export class VerbDataManager {
             return '';
         }
 
-        let examplesHtml = '<div class="examples"><h4>Examples</h4>';
+        let examplesHtml = '<div class="examples"><h4>Examples';
+        if (preverb) {
+            examplesHtml += ` (${preverb})`;
+        }
+        examplesHtml += ':</h4><ul>';
 
         for (const example of tenseExamples) {
-            if (example.georgian && example.english) {
+            if (example.html) {
+                // Use pre-generated HTML with color coding directly (no additional wrapping)
+                examplesHtml += example.html;
+            } else if (example.georgian && example.english) {
+                // Fallback to plain text if no HTML available
                 examplesHtml += `
-                    <div class="example">
-                        <div class="georgian-text">${example.georgian}</div>
-                        <div class="english-text">${example.english}</div>
-                    </div>
+                    <li class="example-item">
+                        <div class="georgian georgian-text">${example.georgian}</div>
+                        <div class="translation english-text">${example.english}</div>
+                    </li>
                 `;
             }
         }
 
-        examplesHtml += '</div>';
+        examplesHtml += '</ul></div>';
         return examplesHtml;
     }
 
@@ -956,38 +964,51 @@ export class VerbDataManager {
      * @returns {string} Gloss HTML
      */
     generateGlossHtmlForTense(tenseGloss) {
-        console.log(`[GLOSS_GEN] Input:`, { tenseGloss, type: typeof tenseGloss, hasStructuredGloss: !!tenseGloss?.structured_gloss });
-        if (!tenseGloss || !tenseGloss.structured_gloss) {
-            console.log(`[GLOSS_GEN] Returning empty string - validation failed`);
+        console.log(`[GLOSS_GEN] Input:`, { tenseGloss, type: typeof tenseGloss, hasHtml: !!tenseGloss?.html });
+        if (!tenseGloss) {
+            console.log(`[GLOSS_GEN] Returning empty string - no tense gloss data`);
             return '';
         }
 
-        const structuredGloss = tenseGloss.structured_gloss;
-        let glossHtml = '<div class="case-gloss"><h4>Verb Gloss Analysis</h4>';
-
-        // Raw gloss
-        if (tenseGloss.raw_gloss) {
-            // Escape HTML characters to prevent interpretation as HTML tags
-            const escapedRawGloss = tenseGloss.raw_gloss
-                .replace(/&/g, '&amp;')
-                .replace(/</g, '&lt;')
-                .replace(/>/g, '&gt;')
-                .replace(/"/g, '&quot;')
-                .replace(/'/g, '&#39;');
-            glossHtml += `<div class="gloss-section"><strong>Raw:</strong> ${escapedRawGloss}</div>`;
+        // Use pre-generated HTML if available
+        if (tenseGloss.html) {
+            console.log(`[GLOSS_GEN] Using pre-generated HTML`);
+            return tenseGloss.html;
         }
 
-        // Expanded gloss
-        if (structuredGloss.expanded_components && structuredGloss.expanded_components.length > 0) {
-            glossHtml += '<div class="gloss-section"><strong>Expanded:</strong> ';
-            glossHtml += structuredGloss.expanded_components.map(component =>
-                `<span class="${component.color_class || ''}" title="${component.description || ''}">${component.text}</span>`
-            ).join(' ');
+        // Fallback to building HTML from components (for backward compatibility)
+        if (tenseGloss.structured_gloss) {
+            console.log(`[GLOSS_GEN] Building HTML from structured gloss components`);
+            const structuredGloss = tenseGloss.structured_gloss;
+            let glossHtml = '<div class="case-gloss"><h4>Verb Gloss Analysis</h4>';
+
+            // Raw gloss
+            if (tenseGloss.raw_gloss) {
+                // Escape HTML characters to prevent interpretation as HTML tags
+                const escapedRawGloss = tenseGloss.raw_gloss
+                    .replace(/&/g, '&amp;')
+                    .replace(/</g, '&lt;')
+                    .replace(/>/g, '&gt;')
+                    .replace(/"/g, '&quot;')
+                    .replace(/'/g, '&#39;');
+                glossHtml += `<div class="gloss-section"><strong>Raw:</strong> ${escapedRawGloss}</div>`;
+            }
+
+            // Expanded gloss
+            if (structuredGloss.expanded_components && structuredGloss.expanded_components.length > 0) {
+                glossHtml += '<div class="gloss-section"><strong>Expanded:</strong> ';
+                glossHtml += structuredGloss.expanded_components.map(component =>
+                    `<span class="${component.color_class || ''}" title="${component.description || ''}">${component.text}</span>`
+                ).join(' ');
+                glossHtml += '</div>';
+            }
+
             glossHtml += '</div>';
+            return glossHtml;
         }
 
-        glossHtml += '</div>';
-        return glossHtml;
+        console.log(`[GLOSS_GEN] No valid gloss data found`);
+        return '';
     }
 
     /**
