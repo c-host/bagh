@@ -6,6 +6,9 @@ import logging
 from typing import Dict, List, Optional
 from tools.data_processing.example_generation.example_generator import generate_examples
 from tools.data_processing.gloss_processor import create_gloss_data_structure
+from tools.data_processing.example_generation.example_generator import (
+    get_effective_preverb,
+)
 from tools.data_processing.verb_conjugation import calculate_preverb_forms
 from tools.utils.unicode_console import safe_log
 
@@ -355,9 +358,13 @@ class VerbDataProcessor:
             preverbs = self._safe_get_available_preverbs(verb)
             return self._generate_gloss_analysis_batch(verb, preverbs)
         else:
+            # For single-preverb verbs, use the default_preverb
+            default_preverb = preverb_config.get("default_preverb", "")
             return self._process_all_tenses(
                 verb,
-                lambda v, t: self._generate_gloss_for_preverb_tense_cached(v, "", t),
+                lambda v, t: self._generate_gloss_for_preverb_tense_cached(
+                    v, default_preverb, t
+                ),
             )
 
     def _generate_gloss_analysis_batch(self, verb: Dict, preverbs: List[str]) -> Dict:
@@ -388,8 +395,11 @@ class VerbDataProcessor:
             if not raw_gloss:
                 return {"raw_gloss": "", "structured_gloss": {}}
 
-            # Use cached gloss data if available
-            structured_gloss = self._get_cached_gloss(raw_gloss, preverb)
+            # Calculate effective preverb (handles fallback rules)
+            effective_preverb = get_effective_preverb(verb, preverb, tense)
+
+            # Use cached gloss data if available, with effective preverb
+            structured_gloss = self._get_cached_gloss(raw_gloss, effective_preverb)
 
             return {"raw_gloss": raw_gloss, "structured_gloss": structured_gloss}
 

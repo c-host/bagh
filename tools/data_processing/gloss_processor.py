@@ -14,6 +14,10 @@ from typing import Dict, List, Optional
 
 from tools.utils.shared_gloss_utils import BaseGlossParser, GlossComponent, GlossData
 from tools.utils.config_manager import ConfigManager
+from tools.utils.unicode_console import setup_unicode_console, safe_log
+
+# Set up unicode console for proper output
+setup_unicode_console()
 
 logger = logging.getLogger(__name__)
 
@@ -54,6 +58,7 @@ class RobustGlossProcessor(BaseGlossParser):
         Returns:
             GlossData object with structured components
         """
+
         if not raw_gloss:
             return GlossData(raw_components=[], expanded_components=[])
 
@@ -73,7 +78,7 @@ class RobustGlossProcessor(BaseGlossParser):
 
             # Fix preverb color to match voice color (same as "Act")
             if component_type == "preverb":
-                color_class = "gloss-voice"  # Same as "Act"
+                color_class = "gloss-default"  # Same as "Act"
 
             # Get description
             description = self._get_component_description(
@@ -161,8 +166,12 @@ class RobustGlossProcessor(BaseGlossParser):
         self, component: str, component_type: str, preverb: str = None
     ) -> str:
         """Get human-readable description for a component."""
+
         # Check if there is a direct match in the gloss reference
-        if component in self.gloss_reference:
+        # Special handling for Pv component - use dynamic preverb value instead of static reference
+        if component == "Pv" and preverb and preverb.strip():
+            return preverb
+        elif component in self.gloss_reference:
             return self.gloss_reference[component]
 
         # Fallback descriptions for basic components
@@ -180,7 +189,7 @@ class RobustGlossProcessor(BaseGlossParser):
             "Opt": "Optative",
             "Impv": "Imperative",
             "Inv": "Inverted",
-            "Pv": f"Preverb ({preverb})" if preverb else "Preverb",
+            "Pv": preverb if preverb else "Preverb",
             "AuxIntr": "Auxiliary Intransitive",
             "AuxTrans": "Auxiliary Transitive",
             "AuxTransHum": "Auxiliary Transitive Human",
@@ -239,19 +248,21 @@ class RobustGlossProcessor(BaseGlossParser):
         components = []
 
         # Add opening bracket
-        components.append(GlossComponent("<", "punctuation", "gloss-voice", ""))
+        components.append(GlossComponent("<", "punctuation", "gloss-default", ""))
 
         # Process each argument type
         for i, arg_type in enumerate(argument_types):
             if i > 0:  # Add dash separator before each argument (except the first)
-                components.append(GlossComponent("-", "punctuation", "gloss-voice", ""))
+                components.append(
+                    GlossComponent("-", "punctuation", "gloss-default", "")
+                )
 
             # Get color for this argument type (no description for individual components)
             color_class, _ = self._get_argument_type_color_and_description(arg_type)
             components.append(GlossComponent(arg_type, "argument", color_class, ""))
 
         # Add closing bracket
-        components.append(GlossComponent(">", "punctuation", "gloss-voice", ""))
+        components.append(GlossComponent(">", "punctuation", "gloss-default", ""))
 
         return components
 
@@ -294,6 +305,7 @@ def create_gloss_data_structure(raw_gloss: str, preverb: str = None) -> Dict:
     Returns:
         Dictionary with structured gloss data
     """
+
     processor = RobustGlossProcessor()
     gloss_data = processor.parse_raw_gloss(raw_gloss, preverb)
 

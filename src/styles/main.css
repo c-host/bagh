@@ -101,12 +101,12 @@
     --filter-active-border: #047857;
 
     /* Role-based color coding for examples */
+    --role-default-color: #9bda1c;
     --role-subject-color: #059669;
-    --role-direct-object-color: #d97706;
-    --role-indirect-object-color: #0891b2;
+    --role-direct-object-color: #dc2626;
+    --role-indirect-object-color: #ea580c;
     --role-verb-color: #2563eb;
-    --role-voice-color: #d97706;
-    --role-tense-color: #0891b2;
+    --role-tense-color: #1d4ed8;
     --role-argument-color: #059669;
     --role-case-color: #dc2626;
 
@@ -179,14 +179,20 @@
     --filter-active-border: #059669;
 
     /* Dark mode role-based color coding for examples */
+    --role-default-color: #79806b;
     --role-subject-color: #10b981;
-    --role-direct-object-color: #f50b0b;
-    --role-indirect-object-color: #06b6d4;
+    --role-direct-object-color: #ef4444;
+    --role-indirect-object-color: #fb923c;
     --role-verb-color: #3b82f6;
     --role-voice-color: #f59e0b;
-    --role-tense-color: #06b6d4;
+    --role-tense-color: #60a5fa;
     --role-argument-color: #10b981;
     --role-case-color: #ef4444;
+
+    /* Dark mode header styling */
+    header {
+        background-color: rgba(15, 23, 42, 0.8);
+    }
 }
 
 /* Reset and base styles */
@@ -214,12 +220,24 @@ h4 {
     font-family: var(--font-stack);
 }
 
+header {
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    background-color: rgba(255, 255, 255, 0.8);
+    border-bottom: 1px solid var(--border-color);
+    margin-bottom: var(--spacing-sm);
+    backdrop-filter: blur(5px);
+    -webkit-backdrop-filter: blur(5px);
+}
+
 h1 {
     color: var(--text-primary);
     text-align: center;
     border-bottom: 3px solid var(--accent-primary);
-    padding-bottom: var(--spacing-lg);
-    margin-bottom: var(--spacing-xl);
+    padding-top: var(--spacing-lg);
+    padding-bottom: var(--spacing-md);
+    margin-bottom: 0;
     font-size: 2.2em;
 }
 
@@ -463,8 +481,8 @@ tr:nth-child(even) {
     font-weight: bold;
 }
 
-.gloss-voice {
-    color: var(--role-voice-color);
+.gloss-default {
+    color: var(--role-default-color);
     font-weight: bold;
 }
 
@@ -1680,6 +1698,10 @@ tr:nth-child(even) {
 
 .category-control-btn i {
     font-size: 12px;
+}
+
+.container {
+    margin: 0;
 }
 
 /* Main content wrapper */

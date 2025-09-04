@@ -42,19 +42,21 @@ class BaseGlossParser:
         # Define color mappings for different component types - using existing CSS classes
         self.color_mapping = {
             "verb": "gloss-verb",  # Blue
-            "voice": "gloss-voice",  # Orange
+            "voice": "gloss-default",  # Default color
             "tense": "gloss-tense",  # Light Blue
             "argument_pattern": "gloss-argument",  # Green
             "case_spec": "gloss-case",  # Red/Green based on role
-            "preverb": "gloss-preverb",  # Purple
+            "preverb": "gloss-default",  # Default color
             "auxiliary": "gloss-auxiliary",  # Yellow
+            "unknown": "gloss-default",  # Default color
+            "punctuation": "gloss-default",  # Default color
         }
 
         # Component type detection patterns
         self.component_patterns = {
             "verb": ["V"],
             "voice": ["Act", "Med", "Pass", "MedAct", "MedPass"],
-            "tense": ["Pres", "Impf", "Fut", "Aor", "Opt", "Impv", "Inv"],
+            "tense": ["Pres", "Impf", "Fut", "Aor", "Opt", "Impv"],
             "preverb": ["Pv"],
             "auxiliary": ["AuxIntr", "AuxTrans", "AuxTransHum"],
         }

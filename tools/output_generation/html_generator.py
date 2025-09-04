@@ -144,7 +144,6 @@ class HTMLGenerator:
             selector_html += f'<option value="{preverb}" {selected}>{preverb}</option>'
 
         selector_html += "</select></div>"
-
         return selector_html
 
     def create_toc(
@@ -295,7 +294,6 @@ class HTMLGenerator:
         semantic_key = verb.get("semantic_key", "")
 
         # Create anchor ID for this section using primary verb with smart disambiguation
-        verb_id = verb.get("id", "")
         anchor_id = self.create_safe_anchor_id(
             f"verb-{verb_id}-{georgian.replace(' ', '-').replace('/', '-')}"
         )
@@ -379,7 +377,6 @@ class HTMLGenerator:
         semantic_key = verb.get("semantic_key", "")
 
         # Create anchor ID for this section using primary verb with smart disambiguation
-        verb_id = verb.get("id", "")
         anchor_id = self.create_safe_anchor_id(
             f"verb-{verb_id}-{georgian.replace(' ', '-').replace('/', '-')}"
         )
@@ -871,7 +868,7 @@ class HTMLGenerator:
             conjugations = verb.get("conjugations", {})
             if tense in conjugations:
                 forms = conjugations[tense].get("forms", {})
-            return forms.get(person, "-")
+                return forms.get(person, "-")
 
             return "-"
 
@@ -1157,12 +1154,11 @@ class HTMLGenerator:
                 else:
                     text = component.get("text", "")
                     color_class = component.get("color_class", "gloss-default")
-
-                # Escape angle brackets so they display as literal text
-                escaped_text = text.replace("<", "&lt;").replace(">", "&gt;")
-                colored_parts.append(
-                    f'<span class="{color_class}">{escaped_text}</span>'
-                )
+                    # Escape angle brackets so they display as literal text
+                    escaped_text = text.replace("<", "&lt;").replace(">", "&gt;")
+                    colored_parts.append(
+                        f'<span class="{color_class}">{escaped_text}</span>'
+                    )
 
         # Join components with spaces for proper formatting
         colored_raw_gloss = " ".join(colored_parts)
@@ -1223,14 +1219,14 @@ class HTMLGenerator:
                     color_class = component.get("color_class", "gloss-default")
                     description = component.get("description", "")
 
-                escaped_text = text.replace("<", "&lt;").replace(">", "&gt;")
-                colored_text = f'<span class="{color_class}">{escaped_text}</span>'
+                    escaped_text = text.replace("<", "&lt;").replace(">", "&gt;")
+                    colored_text = f'<span class="{color_class}">{escaped_text}</span>'
 
-                # Only add description for components that have meaningful descriptions
-                if description and description.strip():
-                    expanded_parts.append(f"{colored_text}: {description}")
-                else:
-                    expanded_parts.append(colored_text)
+            # Only add description for components that have meaningful descriptions
+            if description and description.strip():
+                expanded_parts.append(f"{colored_text}: {description}")
+            else:
+                expanded_parts.append(colored_text)
 
         expanded_gloss = "<br>".join(expanded_parts)
 
