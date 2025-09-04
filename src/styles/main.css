@@ -351,9 +351,9 @@ th {
 /* Make first column narrower in all tables */
 table th:first-child,
 table td:first-child {
-    width: 80px;
-    min-width: 80px;
-    max-width: 80px;
+    width: 65px;
+    min-width: 65px;
+    max-width: 65px;
 }
 
 /* Regular tables */
@@ -374,7 +374,6 @@ table td:first-child {
 /* Desktop */
 @media (min-width: 769px) {
     .table-container.regular-table-container {
-        overflow: visible;
         box-shadow: none;
         background: transparent;
         margin-bottom: 0;
