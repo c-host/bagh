@@ -41,21 +41,14 @@ export class VerbDataManager {
      */
     async initialize() {
         try {
-            console.log('🚀 Initializing VerbDataManager...');
 
             // Start observing multi-preverb verb sections for lazy loading
             this.startObservingVerbSections();
 
             // For non-multi-preverb verbs, no initialization needed as they're static
-            const multiPreverbSections = document.querySelectorAll('.verb-section[data-has-multiple-preverbs="true"]');
 
-            if (multiPreverbSections.length > 0) {
-                // Process sections one by one with yields to prevent blocking
-                await this.processVerbSectionsInChunks(multiPreverbSections);
-            }
 
             this.initialized = true;
-            console.log('✅ VerbDataManager initialized successfully');
             return true;
         } catch (error) {
             console.error('❌ Failed to initialize VerbDataManager:', error);
@@ -103,14 +96,12 @@ export class VerbDataManager {
 
     /**
      * Load all data immediately (fallback for older browsers)
+     * NOTE: This is now disabled to implement true lazy loading
      */
     async loadAllDataImmediately() {
-        try {
-            await this.preloadAllData();
-            this.initializeVerbSections();
-        } catch (error) {
-            // Silent fail for background loading
-        }
+        // Disabled: No longer preload all data to improve initial page load performance
+        // Data will be loaded on-demand when sections come into view
+        this.initializeVerbSections();
     }
 
     /**
@@ -127,12 +118,32 @@ export class VerbDataManager {
         this.loadingVerbs.add(verbId);
 
         try {
+
+            // Load core data if not already loaded (this is now truly on-demand)
+            await this.preloadAllData();
+
             const verbData = await this.getVerbData(verbId);
             if (verbData) {
                 await this.populateVerbSection(verbSection, verbData);
                 verbSection.dataset.dataLoaded = 'true';
                 this.loadedVerbs.add(verbId);
                 this.verbCache.set(verbId, verbData);
+
+                // Stop observing this section since data is now loaded
+                if (this.intersectionObserver) {
+                    this.intersectionObserver.unobserve(verbSection);
+                    delete verbSection.dataset.beingObserved;
+                }
+
+                // Dispatch event for other modules
+                document.dispatchEvent(new CustomEvent('verbDataLoaded', {
+                    detail: { verbId, verbData }
+                }));
+
+                // Notify virtual scroll manager if it exists
+                if (window.app && window.app.virtualScrollManager) {
+                    window.app.virtualScrollManager.updateVerbData(verbId, verbData);
+                }
             }
         } catch (error) {
             this.handleLoadError(verbId, verbSection, error);
@@ -173,19 +184,14 @@ export class VerbDataManager {
         const multiPreverbSections = document.querySelectorAll('.verb-section[data-has-multiple-preverbs="true"]');
 
         multiPreverbSections.forEach(section => {
-            this.intersectionObserver.observe(section);
+            // Only observe if not already being observed
+            if (!section.dataset.beingObserved) {
+                this.intersectionObserver.observe(section);
+                section.dataset.beingObserved = 'true';
+            }
         });
     }
 
-    /**
-     * Stop observing a specific section (after data is loaded)
-     * @param {Element} verbSection - Verb section DOM element
-     */
-    stopObservingSection(verbSection) {
-        if (this.intersectionObserver) {
-            this.intersectionObserver.unobserve(verbSection);
-        }
-    }
 
     /**
      * Clean up resources when needed
@@ -203,29 +209,7 @@ export class VerbDataManager {
         this.retryAttempts.clear();
     }
 
-    /**
-     * Get cache statistics for debugging
-     * @returns {Object} Cache statistics
-     */
-    getCacheStats() {
-        return {
-            loadedVerbs: this.loadedVerbs.size,
-            cachedVerbs: this.verbCache.size,
-            loadingVerbs: this.loadingVerbs.size,
-            retryAttempts: this.retryAttempts.size
-        };
-    }
 
-    /**
-     * Clear cache for a specific verb (useful for testing or data updates)
-     * @param {string} verbId - Verb identifier
-     */
-    clearVerbCache(verbId) {
-        this.verbCache.delete(verbId);
-        this.loadedVerbs.delete(verbId);
-        this.loadingVerbs.delete(verbId);
-        this.retryAttempts.delete(verbId);
-    }
 
     /**
      * Load verb data immediately (for direct navigation)
@@ -274,23 +258,18 @@ export class VerbDataManager {
             return null;
         }
 
-        console.log(`[DATA_LOAD] Starting to load data for verb ${verbId} from new consolidated structure`);
-
         try {
             // Load the consolidated verb data file directly
             const response = await fetch(`data/verb_${verbId}.json`);
 
             if (!response.ok) {
-                console.log(`[DATA_LOAD] Verb ${verbId} data not found (${response.status})`);
                 return null;
             }
 
             const verbData = await response.json();
-            console.log(`[DATA_LOAD] Verb ${verbId} data loaded successfully`);
 
             // Cache the result
             this.verbCache.set(verbId, verbData);
-            console.log(`[CACHE] Verb ${verbId} cached successfully. Cache size: ${this.verbCache.size}`);
             return verbData;
 
         } catch (error) {
@@ -306,17 +285,14 @@ export class VerbDataManager {
     async loadCoreData() {
         if (!this.coreData) {
             if (!this.loadingPromises.coreData) {
-                console.log(`[DATA_LOAD] Loading core data from data/verbs-data.json`);
                 this.loadingPromises.coreData = fetch('data/verbs-data.json')
                     .then(response => {
-                        console.log(`[DATA_LOAD] Core data response status: ${response.status}`);
                         if (!response.ok) {
                             throw new Error(`Failed to load core data: ${response.status}`);
                         }
                         return response.json();
                     })
                     .then(data => {
-                        console.log(`[DATA_LOAD] Core data loaded successfully, verbs count: ${Object.keys(data || {}).length}`);
                         return data;
                     })
                     .catch(error => {
@@ -336,17 +312,14 @@ export class VerbDataManager {
     async loadConjugations() {
         if (!this.conjugations) {
             if (!this.loadingPromises.conjugations) {
-                console.log(`[DATA_LOAD] Loading conjugations from data/conjugations-data.json`);
                 this.loadingPromises.conjugations = fetch('data/conjugations-data.json')
                     .then(response => {
-                        console.log(`[DATA_LOAD] Conjugations response status: ${response.status}`);
                         if (!response.ok) {
                             throw new Error(`Failed to load conjugations: ${response.status}`);
                         }
                         return response.json();
                     })
                     .then(data => {
-                        console.log(`[DATA_LOAD] Conjugations loaded successfully, verbs count: ${Object.keys(data || {}).length}`);
                         return data;
                     })
                     .catch(error => {
@@ -420,7 +393,7 @@ export class VerbDataManager {
     }
 
     /**
-     * Enhanced preloadAllData for non-lazy loading scenarios
+     * Load data on-demand when first needed (true lazy loading)
      * @returns {Promise<void>}
      */
     async preloadAllData() {
@@ -428,7 +401,7 @@ export class VerbDataManager {
             return;
         }
 
-        // Only preload data if there are multi-preverb verbs
+        // Only load data if there are multi-preverb verbs
         const multiPreverbSections = document.querySelectorAll('.verb-section[data-has-multiple-preverbs="true"]');
 
         if (multiPreverbSections.length === 0) {
@@ -437,7 +410,7 @@ export class VerbDataManager {
         }
 
         try {
-            // Preload data files for multi-preverb verbs only
+            // Load data files for multi-preverb verbs only when first needed
             await Promise.all([
                 this.loadCoreData(),
                 this.loadConjugations(),
@@ -447,12 +420,13 @@ export class VerbDataManager {
             ]);
             this.isInitialized = true;
         } catch (error) {
+            console.error('❌ Failed to load verb data:', error);
             throw error;
         }
     }
 
     /**
-     * Enhanced initializeVerbSections with lazy loading
+     * Enhanced initializeVerbSections with true lazy loading
      * @returns {Promise<void>}
      */
     async initializeVerbSections() {
@@ -461,11 +435,6 @@ export class VerbDataManager {
 
         // For non-multi-preverb verbs, no initialization needed as they're static
         const multiPreverbSections = document.querySelectorAll('.verb-section[data-has-multiple-preverbs="true"]');
-
-        if (multiPreverbSections.length > 0) {
-            // Process sections one by one with yields to prevent blocking
-            await this.processVerbSectionsInChunks(multiPreverbSections);
-        }
     }
 
     /**
@@ -489,34 +458,6 @@ export class VerbDataManager {
         document.head.appendChild(style);
     }
 
-    /**
-     * Enhanced processVerbSectionsInChunks with lazy loading
-     * @param {NodeList} sections - Verb sections to process
-     * @returns {Promise<void>}
-     */
-    async processVerbSectionsInChunks(sections) {
-        for (let i = 0; i < sections.length; i++) {
-            const section = sections[i];
-            const verbId = section.dataset.verbId;
-
-            if (verbId) {
-                try {
-                    // Yield control back to main thread every few sections
-                    if (i > 0 && i % 3 === 0) {
-                        await new Promise(resolve => setTimeout(resolve, 0));
-                    }
-
-                    // For lazy loading, we don't load data here - intersection observer will handle it
-                    // Just ensure the section is being observed
-                    if (this.intersectionObserver) {
-                        this.intersectionObserver.observe(section);
-                    }
-                } catch (error) {
-                    this.showErrorState(section);
-                }
-            }
-        }
-    }
 
     /**
      * Populate verb section with data
@@ -525,22 +466,15 @@ export class VerbDataManager {
      * @returns {Promise<void>}
      */
     async populateVerbSection(section, verbData) {
-        console.log(`[POPULATE_SECTION] populateVerbSection called for section:`, section);
-        console.log(`[POPULATE_SECTION] Verb data:`, verbData);
 
         try {
             // Check if verbData is null (non-multi-preverb verb)
             if (!verbData) {
-                console.log(`[POPULATE_SECTION] No verb data, returning early`);
                 return;
             }
 
             // Generate initial conjugation tables - updated for new structure
             const defaultPreverb = verbData.preverb_config?.default_preverb || 'მი';
-            console.log(`[POPULATE_SECTION] Default preverb: ${defaultPreverb}`);
-            console.log(`[POPULATE_SECTION] Preverb config:`, verbData.preverb_config);
-            console.log(`[POPULATE_SECTION] Preverb rules:`, verbData.preverb_rules);
-            console.log(`[POPULATE_SECTION] Conjugations data:`, verbData.conjugations);
 
             // Get conjugations for the default preverb using the new structure
             const conjugations = this.getConjugationsForPreverb(
@@ -550,23 +484,18 @@ export class VerbDataManager {
                 verbData
             );
 
-            console.log(`[POPULATE_SECTION] Processed conjugations:`, conjugations);
 
             // Populate overview table
             const overviewContainer = section.querySelector('.table-container');
             if (overviewContainer) {
-                console.log(`[POPULATE_SECTION] Found overview container, generating table`);
                 overviewContainer.innerHTML = this.generateOverviewTable(conjugations);
             } else {
-                console.log(`[POPULATE_SECTION] No overview container found`);
             }
 
             // Populate each tense column
             const tenseColumns = section.querySelectorAll('.tense-column');
-            console.log(`[POPULATE_SECTION] Found ${tenseColumns.length} tense columns`);
             tenseColumns.forEach(column => {
                 const tense = column.dataset.tense;
-                console.log(`[POPULATE_SECTION] Populating tense column: ${tense}`);
                 this.populateTenseColumn(column, tense, conjugations[tense], verbData, defaultPreverb);
             });
 
@@ -598,10 +527,8 @@ export class VerbDataManager {
      * @returns {Object} Conjugations for the target preverb
      */
     getConjugationsForPreverb(conjugations, preverbConfig, targetPreverb, verbData = null) {
-        console.log(`[PREVERB_SWITCH] getConjugationsForPreverb: targetPreverb=${targetPreverb}`);
 
         if (!preverbConfig) {
-            console.log(`[PREVERB_SWITCH] No preverb config, returning original conjugations`);
             return conjugations;
         }
 
@@ -610,15 +537,12 @@ export class VerbDataManager {
             preverbConfig.has_multiple_preverbs === true;
 
         if (!isMultiPreverb) {
-            console.log(`[PREVERB_SWITCH] Single-preverb verb, returning original conjugations`);
             return conjugations;
         }
 
-        console.log(`[PREVERB_SWITCH] Processing multi-preverb verb`);
 
         // Use pre-calculated forms from build pipeline
         if (verbData && verbData.preverb_content && verbData.preverb_content[targetPreverb]) {
-            console.log(`[PREVERB_SWITCH] Using pre-calculated forms for ${targetPreverb}`);
 
             const preverbContent = verbData.preverb_content[targetPreverb];
             const preverbConjugations = preverbContent.conjugations || {};
@@ -637,7 +561,6 @@ export class VerbDataManager {
         }
 
         // Fallback to original conjugations if no pre-calculated forms
-        console.log(`[PREVERB_SWITCH] No pre-calculated forms, using original conjugations`);
         return conjugations;
     }
 
@@ -647,8 +570,6 @@ export class VerbDataManager {
      * @returns {string} HTML for overview table
      */
     generateOverviewTable(conjugations) {
-        console.log(`[OVERVIEW_TABLE] generateOverviewTable called with conjugations:`, conjugations);
-        console.log(`[OVERVIEW_TABLE] Conjugations keys:`, conjugations ? Object.keys(conjugations) : 'none');
 
         const tenses = ["present", "imperfect", "future", "aorist", "optative", "imperative"];
         const tenseNames = {
@@ -672,14 +593,6 @@ export class VerbDataManager {
             const tenseData = conjugations[tense];
             const forms = tenseData?.forms || {};
 
-            console.log(`[OVERVIEW_TABLE] Processing tense ${tense}:`, {
-                hasTenseData: !!tenseData,
-                tenseDataKeys: tenseData ? Object.keys(tenseData) : 'none',
-                hasForms: !!forms,
-                formsKeys: forms ? Object.keys(forms) : 'none',
-                formsContent: forms
-            });
-
             tableHtml += `
                 <tr class="tense-${tense}">
                     <td>${tenseNames[tense]}</td>
@@ -699,7 +612,6 @@ export class VerbDataManager {
             </div>
         `;
 
-        console.log(`[OVERVIEW_TABLE] Generated HTML length: ${tableHtml.length}`);
         return tableHtml;
     }
 
@@ -712,13 +624,6 @@ export class VerbDataManager {
      * @param {string} selectedPreverb - Selected preverb
      */
     populateTenseColumn(column, tense, tenseData, verbData, selectedPreverb) {
-        console.log(`[JS] populateTenseColumn: tense=${tense}, selectedPreverb=${selectedPreverb}`);
-        console.log(`[PREVERB_SWITCH] populateTenseColumn data:`, {
-            hasTenseData: !!tenseData,
-            hasVerbData: !!verbData,
-            tenseDataKeys: tenseData ? Object.keys(tenseData) : 'none',
-            verbDataKeys: verbData ? Object.keys(verbData) : 'none'
-        });
 
         const tenseNames = {
             "present": "Present Indicative",
@@ -737,7 +642,6 @@ export class VerbDataManager {
         const isMultiPreverb = verbData.preverb_config &&
             verbData.preverb_config.has_multiple_preverbs === true;
 
-        console.log(`[JS] isMultiPreverb: ${isMultiPreverb}`);
 
         if (isMultiPreverb) {
             // Multi-preverb verb: get examples for the specific preverb from external data
@@ -746,11 +650,6 @@ export class VerbDataManager {
             const preverbExamples = preverbContent.examples || {};
             const preverbGloss = preverbContent.gloss_analysis || {};
 
-            console.log(`[JS] Multi-preverb data: examples=${!!preverbExamples[tense]}, gloss=${!!preverbGloss[tense]}`);
-            console.log(`[JS] Preverb examples keys: ${Object.keys(preverbExamples)}`);
-            console.log(`[JS] Preverb gloss keys: ${Object.keys(preverbGloss)}`);
-            console.log(`[JS] Examples data for ${tense}:`, preverbExamples[tense]);
-            console.log(`[JS] Gloss data for ${tense}:`, preverbGloss[tense]);
 
             examplesHtml = this.generateExamplesHtmlForTense(preverbExamples[tense], normalizedPreverb);
             glossHtml = this.generateGlossHtmlForTense(preverbGloss[tense]);
@@ -759,15 +658,12 @@ export class VerbDataManager {
             const examples = verbData.examples || {};
             const glossAnalyses = verbData.gloss_analysis || {};
 
-            console.log(`[JS] Single-preverb data: examples=${!!examples[tense]}, gloss=${!!glossAnalyses[tense]}`);
 
             examplesHtml = this.generateExamplesHtmlForTense(examples[tense]);
             glossHtml = this.generateGlossHtmlForTense(glossAnalyses[tense]);
         }
 
-        console.log(`[JS] Generated HTML lengths: examples=${examplesHtml.length}, gloss=${glossHtml.length}`);
         if (glossHtml) {
-            console.log(`[JS] Gloss HTML preview: ${glossHtml.substring(0, 200)}...`);
         }
 
         // Generate conjugation table for this tense
@@ -787,7 +683,6 @@ export class VerbDataManager {
      * @param {string} glossHtml - Gloss HTML
      */
     updateColumnContent(column, tense, tenseDisplay, conjugationTableHtml, examplesHtml, glossHtml) {
-        console.log(`[JS] updateColumnContent: tense=${tense}, examplesLength=${examplesHtml.length}, glossLength=${glossHtml.length}`);
 
         // First, ensure we have the basic structure
         if (!column.querySelector('h3')) {
@@ -821,15 +716,13 @@ export class VerbDataManager {
             existingExamples.remove();
         }
 
-        // Update gloss section - this is the key fix
+        // Update gloss section
         // Find ALL existing gloss sections and remove them
         const existingGlossSections = column.querySelectorAll('.case-gloss');
-        console.log(`[JS] Found ${existingGlossSections.length} existing gloss sections to replace`);
 
         if (glossHtml) {
             // Remove all existing gloss sections first
             existingGlossSections.forEach(glossSection => {
-                console.log(`[JS] Removing existing gloss section`);
                 glossSection.remove();
             });
 
@@ -839,12 +732,10 @@ export class VerbDataManager {
             const insertAfter = examples || tableContainer;
             if (insertAfter) {
                 insertAfter.insertAdjacentHTML('afterend', glossHtml);
-                console.log(`[JS] Inserted new gloss section after ${insertAfter.className}`);
             }
         } else if (existingGlossSections.length > 0) {
             // Remove all gloss sections if no new one provided
             existingGlossSections.forEach(glossSection => {
-                console.log(`[JS] Removing existing gloss section (no replacement)`);
                 glossSection.remove();
             });
         }
@@ -857,22 +748,10 @@ export class VerbDataManager {
      * @returns {string} HTML for tense conjugation table
      */
     generateTenseConjugationTable(tense, tenseData) {
-        console.log(`[TENSE_TABLE] generateTenseConjugationTable called for tense ${tense}:`, {
-            hasTenseData: !!tenseData,
-            tenseDataKeys: tenseData ? Object.keys(tenseData) : 'none',
-            tenseDataContent: tenseData
-        });
-
         const forms = tenseData?.forms || {};
-        console.log(`[TENSE_TABLE] Forms extracted for ${tense}:`, {
-            hasForms: !!forms,
-            formsKeys: forms ? Object.keys(forms) : 'none',
-            formsContent: forms
-        });
 
         // Check if any forms are available
         if (!forms || Object.keys(forms).length === 0) {
-            console.log(`[TENSE_TABLE] No forms available for ${tense}, returning fallback message`);
             return '<div class="table-container regular-table-container"><p>No conjugation data available</p></div>';
         }
 
@@ -899,7 +778,6 @@ export class VerbDataManager {
         for (const person of persons) {
             const singularForm = forms[person.sg] || '-';
             const pluralForm = forms[person.pl] || '-';
-            console.log(`[TENSE_TABLE] ${tense} ${person.name}: sg="${singularForm}", pl="${pluralForm}"`);
 
             tableHtml += `
                 <tr>
@@ -916,7 +794,6 @@ export class VerbDataManager {
             </div>
         `;
 
-        console.log(`[TENSE_TABLE] Generated table HTML length for ${tense}: ${tableHtml.length}`);
         return tableHtml;
     }
 
@@ -927,9 +804,7 @@ export class VerbDataManager {
      * @returns {string} Examples HTML
      */
     generateExamplesHtmlForTense(tenseExamples, preverb) {
-        console.log(`[EXAMPLES_GEN] Input:`, { tenseExamples, preverb, type: typeof tenseExamples, isArray: Array.isArray(tenseExamples) });
         if (!tenseExamples || !Array.isArray(tenseExamples) || tenseExamples.length === 0) {
-            console.log(`[EXAMPLES_GEN] Returning empty string - validation failed`);
             return '';
         }
 
@@ -964,21 +839,17 @@ export class VerbDataManager {
      * @returns {string} Gloss HTML
      */
     generateGlossHtmlForTense(tenseGloss) {
-        console.log(`[GLOSS_GEN] Input:`, { tenseGloss, type: typeof tenseGloss, hasHtml: !!tenseGloss?.html });
         if (!tenseGloss) {
-            console.log(`[GLOSS_GEN] Returning empty string - no tense gloss data`);
             return '';
         }
 
         // Use pre-generated HTML if available
         if (tenseGloss.html) {
-            console.log(`[GLOSS_GEN] Using pre-generated HTML`);
             return tenseGloss.html;
         }
 
         // Fallback to building HTML from components (for backward compatibility)
         if (tenseGloss.structured_gloss) {
-            console.log(`[GLOSS_GEN] Building HTML from structured gloss components`);
             const structuredGloss = tenseGloss.structured_gloss;
             let glossHtml = '<div class="case-gloss"><h4>Verb Gloss Analysis</h4>';
 
@@ -1007,7 +878,6 @@ export class VerbDataManager {
             return glossHtml;
         }
 
-        console.log(`[GLOSS_GEN] No valid gloss data found`);
         return '';
     }
 

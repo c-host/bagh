@@ -4,6 +4,7 @@
  */
 
 import { STORAGE_KEYS, ELEMENT_IDS } from '../shared/constants.js';
+import { storageManager } from '../shared/storage-manager.js';
 
 
 /**
@@ -67,8 +68,8 @@ export class NotepadManager {
      * Load saved notepad data from localStorage
      */
     loadSavedData() {
-        this.savedContent = localStorage.getItem(STORAGE_KEYS.NOTEPAD_CONTENT) || '';
-        this.savedFontSize = localStorage.getItem(STORAGE_KEYS.NOTEPAD_SIZE) || '16';
+        this.savedContent = storageManager.get(STORAGE_KEYS.NOTEPAD_CONTENT, '');
+        this.savedFontSize = storageManager.get(STORAGE_KEYS.NOTEPAD_SIZE, '16');
 
         // Apply saved content and font size
         const notepadTextarea = this.domManager.getElement(ELEMENT_IDS.NOTEPAD_TEXTAREA);
@@ -175,7 +176,7 @@ export class NotepadManager {
         if (!notepadTextarea) return;
 
         const content = notepadTextarea.value;
-        localStorage.setItem(STORAGE_KEYS.NOTEPAD_CONTENT, content);
+        storageManager.set(STORAGE_KEYS.NOTEPAD_CONTENT, content);
         this.savedContent = content;
     }
 
@@ -192,7 +193,7 @@ export class NotepadManager {
             notepadTextarea.style.fontSize = fontSize + 'px';
         }
 
-        localStorage.setItem(STORAGE_KEYS.NOTEPAD_SIZE, fontSize);
+        storageManager.set(STORAGE_KEYS.NOTEPAD_SIZE, fontSize);
         this.savedFontSize = fontSize;
     }
 

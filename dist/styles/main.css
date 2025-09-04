@@ -591,6 +591,94 @@ tr:nth-child(even) {
     transform: scale(0.95);
 } */
 
+/* Virtual Scroll Styles */
+.virtual-scroll-container {
+    position: relative;
+    width: 100%;
+}
+
+.virtual-scroll-viewport {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 100%;
+}
+
+.virtual-scroll-item {
+    position: absolute;
+    left: 0;
+    right: 0;
+    height: 400px;
+    contain: layout style;
+}
+
+.verb-section-loading {
+    margin-bottom: 40px;
+    padding: var(--spacing-xl);
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius-lg);
+    background-color: var(--bg-primary);
+    min-height: 300px;
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-lg);
+}
+
+.loading-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-bottom: var(--spacing-md);
+    border-bottom: 1px solid var(--border-color);
+}
+
+.loading-spinner {
+    width: 20px;
+    height: 20px;
+    border: 2px solid var(--border-color);
+    border-top: 2px solid var(--accent-primary);
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+    0% {
+        transform: rotate(0deg);
+    }
+
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+.loading-content {
+    display: flex;
+    gap: var(--spacing-xl);
+}
+
+.loading-table {
+    flex: 1;
+    height: 200px;
+    background: linear-gradient(90deg,
+            var(--bg-secondary) 25%,
+            var(--bg-tertiary) 50%,
+            var(--bg-secondary) 75%);
+    background-size: 200% 100%;
+    animation: shimmer 2s infinite;
+    border-radius: var(--radius-md);
+}
+
+@keyframes shimmer {
+    0% {
+        background-position: -200% 0;
+    }
+
+    100% {
+        background-position: 200% 0;
+    }
+}
+
 /* Verb Section Styles */
 .verb-section {
     margin-bottom: 40px;
@@ -598,6 +686,10 @@ tr:nth-child(even) {
     border: 1px solid var(--border-color);
     border-radius: var(--radius-lg);
     background-color: var(--bg-primary);
+
+    /* CSS Containment for performance optimization */
+    contain: layout style;
+    will-change: transform;
 }
 
 .tense-pair {
@@ -609,6 +701,9 @@ tr:nth-child(even) {
 .tense-column {
     flex: 1;
     min-width: 0;
+
+    /* CSS Containment for performance optimization */
+    contain: layout style;
 }
 
 .tense-column .regular-table {
@@ -1623,6 +1718,9 @@ tr:nth-child(even) {
 
 .category-container {
     position: relative;
+
+    /* CSS Containment for performance optimization */
+    contain: layout style;
 }
 
 .category-content {

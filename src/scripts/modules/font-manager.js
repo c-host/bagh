@@ -4,6 +4,7 @@
  */
 
 import { FONTS, FONTS_TO_PRELOAD, STORAGE_KEYS, TIMING, ELEMENT_IDS } from '../shared/constants.js';
+import { storageManager } from '../shared/storage-manager.js';
 
 
 /**
@@ -40,8 +41,8 @@ export class FontManager {
      */
     initialize() {
         try {
-            // Load saved font from localStorage
-            const savedFont = localStorage.getItem(STORAGE_KEYS.FONT) || FONTS.DEFAULT;
+            // Load saved font from centralized storage manager
+            const savedFont = storageManager.get(STORAGE_KEYS.FONT, FONTS.DEFAULT);
 
             // Apply saved font
             this.setFont(savedFont);
@@ -146,9 +147,17 @@ export class FontManager {
      * Start font preloading
      */
     startFontPreloading() {
-        setTimeout(() => {
-            this.preloadFonts();
-        }, TIMING.FONT_PRELOAD_DELAY);
+        // Use requestIdleCallback for non-blocking font preloading
+        if (window.requestIdleCallback) {
+            requestIdleCallback(() => {
+                this.preloadFonts();
+            }, { timeout: 2000 }); // Fallback after 2 seconds
+        } else {
+            // Fallback for browsers without requestIdleCallback
+            setTimeout(() => {
+                this.preloadFonts();
+            }, TIMING.FONT_PRELOAD_DELAY);
+        }
     }
 
     /**
@@ -157,7 +166,7 @@ export class FontManager {
     preloadFonts() {
         // Check if Font Loading API is available
         if (document.fonts && document.fonts.load) {
-            // Use Promise.all to load fonts in parallel
+            // Use Promise.all to load fonts in parallel with lower priority
             Promise.all(FONTS_TO_PRELOAD.map(fontFamily =>
                 document.fonts.load(`12px "${fontFamily}"`).catch(() => {
                     // Font preloading failed, continue without it
@@ -169,6 +178,9 @@ export class FontManager {
                 // Overall font preloading failed, continue without it
                 console.warn('Font preloading failed');
             });
+        } else {
+            // Mark as preloaded even if API not available
+            this.fontsPreloaded = true;
         }
     }
 
@@ -250,9 +262,9 @@ export class FontManager {
         // Update current font
         this.currentFont = fontName;
 
-        // Save to storage if needed
+        // Save to storage if needed (batched for performance)
         if (saveToStorage) {
-            localStorage.setItem(STORAGE_KEYS.FONT, fontName);
+            storageManager.set(STORAGE_KEYS.FONT, fontName);
         }
 
         // Load font in background without blocking UI

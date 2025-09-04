@@ -4,6 +4,7 @@
  */
 
 import { THEMES, STORAGE_KEYS, TIMING, ELEMENT_IDS } from '../shared/constants.js';
+import { storageManager } from '../shared/storage-manager.js';
 
 
 /**
@@ -31,8 +32,8 @@ export class ThemeManager {
      */
     initialize() {
         try {
-            // Load saved theme from localStorage
-            const savedTheme = localStorage.getItem(STORAGE_KEYS.THEME) || THEMES.LIGHT;
+            // Load saved theme from centralized storage manager
+            const savedTheme = storageManager.get(STORAGE_KEYS.THEME, THEMES.LIGHT);
 
             // Apply saved theme
             this.setTheme(savedTheme);
@@ -94,8 +95,8 @@ export class ThemeManager {
             // Update theme icon
             this.updateThemeIcon(theme);
 
-            // Save to localStorage
-            localStorage.setItem(STORAGE_KEYS.THEME, theme);
+            // Save to storage (batched for performance)
+            storageManager.set(STORAGE_KEYS.THEME, theme);
 
             // Re-enable transitions after a brief moment
             setTimeout(() => {

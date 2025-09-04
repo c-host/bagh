@@ -211,16 +211,8 @@ export class EventManager {
 
 
 
-        // Listen for verb data loading
-        if (this.managers.verbDataManager) {
-            document.addEventListener('verbDataLoaded', (event) => {
-                console.log('Verb data loaded:', event.detail);
-                // The preverb manager will handle enabling selectors
-                if (this.managers.preverbManager?.isInitialized()) {
-                    this.managers.preverbManager.enablePreverbSelector(event.detail.verbId);
-                }
-            });
-        }
+        // Note: PreverbManager already listens for verbDataLoaded events
+        // No need to duplicate the event handling here
 
         // Listen for preverb changes
         if (this.managers.preverbManager) {

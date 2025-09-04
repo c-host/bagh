@@ -13,6 +13,7 @@
 
 // Import shared modules
 import { DOMManager } from './shared/dom-manager.js';
+import { storageManager } from './shared/storage-manager.js';
 
 // Import feature modules
 import { ThemeManager } from './modules/theme-manager.js';
@@ -25,8 +26,7 @@ import { EventManager } from './modules/event-manager.js';
 import { HelpManager } from './modules/help-manager.js';
 
 // Import new missing functionality modules
-import { CategoryManager } from './modules/category-manager.js';
-import { StickyHeaderManager } from './modules/sticky-header-manager.js';
+import { VirtualScrollManager } from './modules/virtual-scroll-manager.js';
 
 
 /**
@@ -59,11 +59,12 @@ class App {
         /** @type {Object} Help Manager instance */
         this.helpManager = null;
 
-        /** @type {Object} Category Manager instance */
-        this.categoryManager = null;
 
         /** @type {Object} Sticky Header Manager instance */
         this.stickyHeaderManager = null;
+
+        /** @type {Object} Virtual Scroll Manager instance */
+        this.virtualScrollManager = null;
 
         /** @type {boolean} Whether app is initialized */
         this.initialized = false;
@@ -267,7 +268,13 @@ class App {
         try {
             console.log('🚀 Initializing Bagh application...');
 
-            // Initialize DOM Manager first
+            // Initialize Storage Manager first (for optimized localStorage operations)
+            if (!(await storageManager.initialize())) {
+                throw new Error('Failed to initialize Storage Manager');
+            }
+            console.log('✅ Storage Manager initialized');
+
+            // Initialize DOM Manager
             this.domManager = new DOMManager();
             if (!this.domManager.initializeElements()) {
                 throw new Error('Failed to initialize DOM Manager');
@@ -311,6 +318,7 @@ class App {
             }
             console.log('✅ Verb Data Manager initialized');
 
+
             // Initialize Preverb Manager
             this.preverbManager = new PreverbManager(this.verbDataManager);
             if (!(await this.preverbManager.initialize())) {
@@ -334,25 +342,23 @@ class App {
 
 
 
-            // Initialize Category Manager
-            this.categoryManager = new CategoryManager();
-            if (!(await this.categoryManager.initialize())) {
-                throw new Error('Failed to initialize Category Manager');
-            }
-            console.log('✅ Category Manager initialized');
 
-            // Initialize Sticky Header Manager
-            this.stickyHeaderManager = new StickyHeaderManager();
-            if (!(await this.stickyHeaderManager.initialize())) {
-                throw new Error('Failed to initialize Sticky Header Manager');
+            // Initialize Virtual Scroll Manager (after verb data is loaded)
+            this.virtualScrollManager = new VirtualScrollManager();
+            if (!(await this.virtualScrollManager.initialize())) {
+                throw new Error('Failed to initialize Virtual Scroll Manager');
             }
-            console.log('✅ Sticky Header Manager initialized');
+            console.log('✅ Virtual Scroll Manager initialized');
+
 
             // Set up cross-module communication
             this.setupCrossModuleCommunication();
 
             this.initialized = true;
             console.log('🎉 Bagh application initialized successfully!');
+
+            // Make app instance available globally for cross-module communication
+            window.app = this;
 
 
 
@@ -399,16 +405,8 @@ class App {
 
 
 
-        // Verb data changes should update preverb manager
-        if (this.verbDataManager && this.preverbManager) {
-            // When verb data is loaded, enable preverb selectors
-            document.addEventListener('verbDataLoaded', (event) => {
-                if (this.preverbManager && this.preverbManager.isInitialized()) {
-                    console.log('Verb data loaded:', event.detail);
-                    // The preverb manager will handle enabling selectors
-                }
-            });
-        }
+        // Note: PreverbManager already listens for verbDataLoaded events
+        // No need to duplicate the event handling here
 
         // Preverb changes should update verb display
         if (this.preverbManager && this.verbDataManager) {
@@ -469,8 +467,8 @@ class App {
             preverbManager: this.preverbManager?.isInitialized() || false,
             eventManager: this.eventManager?.isInitialized() || false,
             helpManager: this.helpManager?.isInitialized() || false,
-            categoryManager: this.categoryManager?.isInitialized() || false,
-            stickyHeaderManager: this.stickyHeaderManager?.isInitialized() || false
+            stickyHeaderManager: this.stickyHeaderManager?.isInitialized() || false,
+            virtualScrollManager: this.virtualScrollManager?.isInitialized() || false
         };
     }
 
@@ -489,8 +487,8 @@ class App {
             preverbManager: this.preverbManager,
             eventManager: this.eventManager,
             helpManager: this.helpManager,
-            categoryManager: this.categoryManager,
-            stickyHeaderManager: this.stickyHeaderManager
+            stickyHeaderManager: this.stickyHeaderManager,
+            virtualScrollManager: this.virtualScrollManager
         };
     }
 
@@ -526,11 +524,11 @@ class App {
             this.helpManager.destroy();
         }
 
-        if (this.categoryManager) {
-            this.categoryManager.destroy();
-        }
         if (this.stickyHeaderManager) {
             this.stickyHeaderManager.destroy();
+        }
+        if (this.virtualScrollManager) {
+            this.virtualScrollManager.destroy();
         }
 
         this.initialized = false;

@@ -3,6 +3,7 @@
  * Handles sidebar functionality matching the original main.js implementation
  */
 import { STORAGE_KEYS, ELEMENT_IDS } from '../shared/constants.js';
+import { storageManager } from '../shared/storage-manager.js';
 
 
 /**
@@ -23,8 +24,6 @@ export class SidebarManager {
         /** @type {number} Current search index */
         this.currentSearchIndex = -1;
 
-
-
         /** @type {boolean} Whether manager is initialized */
         this.initialized = false;
 
@@ -39,6 +38,15 @@ export class SidebarManager {
 
         /** @type {boolean} Whether scroll update is pending */
         this.scrollUpdatePending = false;
+
+        /** @type {Object} Cached DOM references */
+        this.domCache = {
+            verbSections: null,
+            tocItems: null,
+            tocContainer: null,
+            lastCacheTime: 0,
+            cacheTimeout: 1000 // Cache for 1 second
+        };
     }
 
     /**
@@ -62,7 +70,7 @@ export class SidebarManager {
      */
     loadSavedState() {
         try {
-            const savedState = localStorage.getItem(STORAGE_KEYS.SIDEBAR_STATE);
+            const savedState = storageManager.get(STORAGE_KEYS.SIDEBAR_STATE);
             if (savedState) {
                 const state = JSON.parse(savedState);
                 // Load any saved sidebar state if needed in the future
@@ -80,7 +88,7 @@ export class SidebarManager {
             const state = {
                 // Save any sidebar state if needed in the future
             };
-            localStorage.setItem(STORAGE_KEYS.SIDEBAR_STATE, JSON.stringify(state));
+            storageManager.set(STORAGE_KEYS.SIDEBAR_STATE, JSON.stringify(state));
         } catch (error) {
             console.warn('Failed to save sidebar state:', error);
         }
@@ -186,16 +194,113 @@ export class SidebarManager {
     }
 
     /**
-     * Set up scroll handler for active TOC item updates
+     * Get cached DOM elements or query and cache them
+     * @param {string} selector - CSS selector
+     * @param {string} cacheKey - Cache key
+     * @param {boolean} all - Whether to use querySelectorAll
+     * @returns {Element|NodeList} DOM element(s)
      */
-    setupScrollHandler() {
-        // Create throttled scroll handler
-        this.throttledUpdateActiveTocItem = this.throttle(this.updateActiveTocItem.bind(this), 16); // ~60fps
-        window.addEventListener('scroll', this.throttledUpdateActiveTocItem);
+    getCachedElement(selector, cacheKey, all = false) {
+        const now = Date.now();
+
+        // Check if cache is still valid
+        if (this.domCache[cacheKey] && (now - this.domCache.lastCacheTime) < this.domCache.cacheTimeout) {
+            return this.domCache[cacheKey];
+        }
+
+        // Query and cache
+        const element = all ? document.querySelectorAll(selector) : document.querySelector(selector);
+        this.domCache[cacheKey] = element;
+        this.domCache.lastCacheTime = now;
+
+        return element;
     }
 
     /**
-     * Throttle function (copied from original main.js)
+     * Clear DOM cache
+     */
+    clearDomCache() {
+        this.domCache.verbSections = null;
+        this.domCache.tocItems = null;
+        this.domCache.tocContainer = null;
+        this.domCache.lastCacheTime = 0;
+    }
+
+    /**
+     * Set up scroll handler for active TOC item updates
+     */
+    setupScrollHandler() {
+        // Use IntersectionObserver for better performance instead of scroll events
+        this.setupIntersectionObserver();
+    }
+
+    /**
+     * Set up IntersectionObserver for active TOC item updates
+     */
+    setupIntersectionObserver() {
+        // Create IntersectionObserver for better performance
+        this.intersectionObserver = new IntersectionObserver((entries) => {
+            // Use requestAnimationFrame to batch updates
+            requestAnimationFrame(() => {
+                this.updateActiveTocItemFromIntersection(entries);
+            });
+        }, {
+            root: null, // Use viewport as root
+            rootMargin: '-100px 0px -50% 0px', // Trigger when section is in upper portion of viewport
+            threshold: 0.1 // Trigger when 10% of section is visible
+        });
+
+        // Observe all verb sections
+        this.observeVerbSections();
+    }
+
+    /**
+     * Observe all verb sections for intersection
+     */
+    observeVerbSections() {
+        const verbSections = this.getCachedElement('.verb-section', 'verbSections', true);
+        verbSections.forEach(section => {
+            this.intersectionObserver.observe(section);
+        });
+    }
+
+    /**
+     * Update active TOC item based on intersection entries
+     * @param {Array} entries - IntersectionObserver entries
+     */
+    updateActiveTocItemFromIntersection(entries) {
+        const tocItems = this.getCachedElement('.toc-item', 'tocItems', true);
+        if (tocItems.length === 0) return;
+
+        // Find the section that's most visible in the upper portion of viewport
+        let mostVisibleSection = null;
+        let maxVisibility = 0;
+
+        entries.forEach(entry => {
+            if (entry.isIntersecting && entry.intersectionRatio > maxVisibility) {
+                maxVisibility = entry.intersectionRatio;
+                mostVisibleSection = entry.target;
+            }
+        });
+
+        if (mostVisibleSection) {
+            // Find corresponding TOC item
+            const sectionId = mostVisibleSection.id;
+            const correspondingTocItem = Array.from(tocItems).find(item => {
+                const verbSection = document.getElementById(sectionId);
+                return verbSection && item.getAttribute('data-semantic-key') === verbSection.getAttribute('data-semantic-key');
+            });
+
+            if (correspondingTocItem) {
+                // Update active state
+                tocItems.forEach(item => item.classList.remove('active'));
+                correspondingTocItem.classList.add('active');
+            }
+        }
+    }
+
+    /**
+     * Throttle function (kept for backward compatibility)
      */
     throttle(func, limit) {
         let inThrottle;
@@ -214,10 +319,10 @@ export class SidebarManager {
      * Populate table of contents - matches original main.js implementation
      */
     populateTableOfContents() {
-        const tocContainer = document.querySelector('.toc-content-container');
+        const tocContainer = this.getCachedElement('.toc-content-container', 'tocContainer');
         if (!tocContainer) return;
 
-        const verbSections = document.querySelectorAll('.verb-section');
+        const verbSections = this.getCachedElement('.verb-section', 'verbSections', true);
         tocContainer.innerHTML = '';
         this.allTocItems = []; // Reset the array
 
@@ -346,7 +451,7 @@ export class SidebarManager {
         this.filteredItems = [];
 
         // Get all items including category headers
-        const tocContainer = document.querySelector('.toc-content-container');
+        const tocContainer = this.getCachedElement('.toc-content-container', 'tocContainer');
         if (!tocContainer) return;
 
         const allItems = tocContainer.querySelectorAll('.toc-item, .category-header, .toc-category-header');
@@ -447,7 +552,8 @@ export class SidebarManager {
      * Update search selection highlighting
      */
     updateSearchSelection() {
-        document.querySelectorAll('.toc-item').forEach(item => {
+        const tocItems = this.getCachedElement('.toc-item', 'tocItems', true);
+        tocItems.forEach(item => {
             item.classList.remove('search-selected');
         });
 
@@ -689,9 +795,19 @@ export class SidebarManager {
      * Clean up event listeners
      */
     destroy() {
+        // Clean up IntersectionObserver
+        if (this.intersectionObserver) {
+            this.intersectionObserver.disconnect();
+            this.intersectionObserver = null;
+        }
+
+        // Clean up throttled scroll handler (if still exists)
         if (this.throttledUpdateActiveTocItem) {
             window.removeEventListener('scroll', this.throttledUpdateActiveTocItem);
         }
+
+        // Clear DOM cache
+        this.clearDomCache();
 
         this.eventListeners.forEach(({ element, event, handler }) => {
             if (element && element.removeEventListener) {
