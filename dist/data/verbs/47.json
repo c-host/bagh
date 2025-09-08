@@ -1,0 +1,1348 @@
+{
+  "base_data": {
+    "id": 47,
+    "georgian": "დასვენება",
+    "description": "To Rest",
+    "category": "Daily Activities",
+    "class": "Class-I",
+    "semantic_key": "rest",
+    "notes": "",
+    "url": "https://lingua.ge/verbs/%e1%83%93%e1%83%90%e1%83%a1%e1%83%95%e1%83%94%e1%83%9c%e1%83%94%e1%83%91%e1%83%90/",
+    "global_argument_pattern": "<S>",
+    "valency": {
+      "default": "<S>",
+      "alternatives": []
+    },
+    "syntax": {
+      "arguments": {
+        "subject": {
+          "3sg": {
+            "noun": "athlete",
+            "adjective": "tired"
+          },
+          "3pl": {
+            "noun": "grandfather",
+            "adjective": "old"
+          }
+        }
+      },
+      "prepositions": {
+        "subject": "the",
+        "direct_object": "",
+        "indirect_object": ""
+      },
+      "preverb_overrides": {}
+    },
+    "english_translations": {
+      "default": {
+        "present": "rest",
+        "imperfect": "was resting",
+        "future": "will rest",
+        "aorist": "rested",
+        "optative": "rest",
+        "imperative": "rest"
+      }
+    },
+    "conjugations": {
+      "present": {
+        "raw_gloss": "V Act Pres SV <S> <S:Nom>",
+        "forms": {
+          "1sg": "ვისვენებ",
+          "2sg": "ისვენებ",
+          "3sg": "ისვენებს",
+          "1pl": "ვისვენებთ",
+          "2pl": "ისვენებთ",
+          "3pl": "ისვენებენ"
+        },
+        "examples": []
+      },
+      "imperfect": {
+        "raw_gloss": "V Act Impf SV <S> <S:Nom>",
+        "forms": {
+          "1sg": "ვისვენებდი",
+          "2sg": "ისვენებდი",
+          "3sg": "ისვენებდა",
+          "1pl": "ვისვენებდით",
+          "2pl": "ისვენებდით",
+          "3pl": "ისვენებდნენ"
+        },
+        "examples": []
+      },
+      "future": {
+        "raw_gloss": "V Act Fut SV <S> <S:Nom>",
+        "forms": {
+          "1sg": "დავისვენებ",
+          "2sg": "დაისვენებ",
+          "3sg": "დაისვენებს",
+          "1pl": "დავისვენებთ",
+          "2pl": "დაისვენებთ",
+          "3pl": "დაისვენებენ"
+        },
+        "examples": []
+      },
+      "aorist": {
+        "raw_gloss": "V Act Aor SV <S> <S:Erg>",
+        "forms": {
+          "1sg": "დავისვენე",
+          "2sg": "დაისვენე",
+          "3sg": "დაისვენა",
+          "1pl": "დავისვენეთ",
+          "2pl": "დაისვენეთ",
+          "3pl": "დაისვენეს"
+        },
+        "examples": []
+      },
+      "optative": {
+        "raw_gloss": "V Act Opt SV <S> <S:Erg>",
+        "forms": {
+          "1sg": "დავისვენო",
+          "2sg": "დაისვენო",
+          "3sg": "დაისვენოს",
+          "1pl": "დავისვენოთ",
+          "2pl": "დაისვენოთ",
+          "3pl": "დაისვენონ"
+        },
+        "examples": []
+      },
+      "imperative": {
+        "raw_gloss": "V Act Impf SV <S> <S:Erg>",
+        "forms": {
+          "1sg": "-",
+          "2sg": "დაისვენე",
+          "3sg": "-",
+          "1pl": "-",
+          "2pl": "დაისვენეთ",
+          "3pl": "-"
+        },
+        "examples": []
+      }
+    },
+    "preverb_config": {
+      "has_multiple_preverbs": false,
+      "default_preverb": "",
+      "available_preverbs": []
+    },
+    "preverb_rules": {
+      "default": "",
+      "replacements": {},
+      "tense_specific_fallbacks": {}
+    }
+  },
+  "generated_data": {
+    "examples": {
+      "default": {
+        "present": [
+          {
+            "georgian": "ვისვენებ",
+            "georgian_components": {
+              "verb": {
+                "text": "ვისვენებ",
+                "role": "verb"
+              }
+            },
+            "english": "I rest",
+            "english_components": {
+              "subject": {
+                "text": "I",
+                "role": "subject",
+                "person": "1sg"
+              },
+              "verb": {
+                "text": "rest",
+                "role": "verb"
+              }
+            },
+            "georgian_verb_form": "ვისვენებ",
+            "person": "1sg",
+            "effective_preverb": ""
+          },
+          {
+            "georgian": "დაღლილი სპორტსმენი ისვენებს",
+            "georgian_components": {
+              "subject": {
+                "text": "დაღლილი სპორტსმენი",
+                "case": "nom",
+                "role": "subject"
+              },
+              "verb": {
+                "text": "ისვენებს",
+                "role": "verb"
+              }
+            },
+            "english": "The tired athlete rests",
+            "english_components": {
+              "subject": {
+                "text": "The tired athlete",
+                "role": "subject",
+                "person": "3sg"
+              },
+              "verb": {
+                "text": "rests",
+                "role": "verb"
+              }
+            },
+            "georgian_verb_form": "ისვენებს",
+            "person": "3sg",
+            "effective_preverb": ""
+          },
+          {
+            "georgian": "ძველი ბაბუები ისვენებენ",
+            "georgian_components": {
+              "subject": {
+                "text": "ძველი ბაბუები",
+                "case": "nom",
+                "role": "subject"
+              },
+              "verb": {
+                "text": "ისვენებენ",
+                "role": "verb"
+              }
+            },
+            "english": "The old grandfathers rest",
+            "english_components": {
+              "subject": {
+                "text": "The old grandfathers",
+                "role": "subject",
+                "person": "3pl"
+              },
+              "verb": {
+                "text": "rest",
+                "role": "verb"
+              }
+            },
+            "georgian_verb_form": "ისვენებენ",
+            "person": "3pl",
+            "effective_preverb": ""
+          }
+        ],
+        "imperfect": [
+          {
+            "georgian": "ვისვენებდი",
+            "georgian_components": {
+              "verb": {
+                "text": "ვისვენებდი",
+                "role": "verb"
+              }
+            },
+            "english": "I was resting",
+            "english_components": {
+              "subject": {
+                "text": "I",
+                "role": "subject",
+                "person": "1sg"
+              },
+              "verb": {
+                "text": "was resting",
+                "role": "verb"
+              }
+            },
+            "georgian_verb_form": "ვისვენებდი",
+            "person": "1sg",
+            "effective_preverb": ""
+          },
+          {
+            "georgian": "დაღლილი სპორტსმენი ისვენებდა",
+            "georgian_components": {
+              "subject": {
+                "text": "დაღლილი სპორტსმენი",
+                "case": "nom",
+                "role": "subject"
+              },
+              "verb": {
+                "text": "ისვენებდა",
+                "role": "verb"
+              }
+            },
+            "english": "The tired athlete was resting",
+            "english_components": {
+              "subject": {
+                "text": "The tired athlete",
+                "role": "subject",
+                "person": "3sg"
+              },
+              "verb": {
+                "text": "was resting",
+                "role": "verb"
+              }
+            },
+            "georgian_verb_form": "ისვენებდა",
+            "person": "3sg",
+            "effective_preverb": ""
+          },
+          {
+            "georgian": "ძველი ბაბუები ისვენებდნენ",
+            "georgian_components": {
+              "subject": {
+                "text": "ძველი ბაბუები",
+                "case": "nom",
+                "role": "subject"
+              },
+              "verb": {
+                "text": "ისვენებდნენ",
+                "role": "verb"
+              }
+            },
+            "english": "The old grandfathers were resting",
+            "english_components": {
+              "subject": {
+                "text": "The old grandfathers",
+                "role": "subject",
+                "person": "3pl"
+              },
+              "verb": {
+                "text": "were resting",
+                "role": "verb"
+              }
+            },
+            "georgian_verb_form": "ისვენებდნენ",
+            "person": "3pl",
+            "effective_preverb": ""
+          }
+        ],
+        "future": [
+          {
+            "georgian": "დავისვენებ",
+            "georgian_components": {
+              "verb": {
+                "text": "დავისვენებ",
+                "role": "verb"
+              }
+            },
+            "english": "I will rest",
+            "english_components": {
+              "subject": {
+                "text": "I",
+                "role": "subject",
+                "person": "1sg"
+              },
+              "verb": {
+                "text": "will rest",
+                "role": "verb"
+              }
+            },
+            "georgian_verb_form": "დავისვენებ",
+            "person": "1sg",
+            "effective_preverb": ""
+          },
+          {
+            "georgian": "დაღლილი სპორტსმენი დაისვენებს",
+            "georgian_components": {
+              "subject": {
+                "text": "დაღლილი სპორტსმენი",
+                "case": "nom",
+                "role": "subject"
+              },
+              "verb": {
+                "text": "დაისვენებს",
+                "role": "verb"
+              }
+            },
+            "english": "The tired athlete will rest",
+            "english_components": {
+              "subject": {
+                "text": "The tired athlete",
+                "role": "subject",
+                "person": "3sg"
+              },
+              "verb": {
+                "text": "will rest",
+                "role": "verb"
+              }
+            },
+            "georgian_verb_form": "დაისვენებს",
+            "person": "3sg",
+            "effective_preverb": ""
+          },
+          {
+            "georgian": "ძველი ბაბუები დაისვენებენ",
+            "georgian_components": {
+              "subject": {
+                "text": "ძველი ბაბუები",
+                "case": "nom",
+                "role": "subject"
+              },
+              "verb": {
+                "text": "დაისვენებენ",
+                "role": "verb"
+              }
+            },
+            "english": "The old grandfathers will rest",
+            "english_components": {
+              "subject": {
+                "text": "The old grandfathers",
+                "role": "subject",
+                "person": "3pl"
+              },
+              "verb": {
+                "text": "will rest",
+                "role": "verb"
+              }
+            },
+            "georgian_verb_form": "დაისვენებენ",
+            "person": "3pl",
+            "effective_preverb": ""
+          }
+        ],
+        "aorist": [
+          {
+            "georgian": "დავისვენე",
+            "georgian_components": {
+              "verb": {
+                "text": "დავისვენე",
+                "role": "verb"
+              }
+            },
+            "english": "I rested",
+            "english_components": {
+              "subject": {
+                "text": "I",
+                "role": "subject",
+                "person": "1sg"
+              },
+              "verb": {
+                "text": "rested",
+                "role": "verb"
+              }
+            },
+            "georgian_verb_form": "დავისვენე",
+            "person": "1sg",
+            "effective_preverb": ""
+          },
+          {
+            "georgian": "დაღლილმა სპორტსმენმა დაისვენა",
+            "georgian_components": {
+              "subject": {
+                "text": "დაღლილმა სპორტსმენმა",
+                "case": "erg",
+                "role": "subject"
+              },
+              "verb": {
+                "text": "დაისვენა",
+                "role": "verb"
+              }
+            },
+            "english": "The tired athlete rested",
+            "english_components": {
+              "subject": {
+                "text": "The tired athlete",
+                "role": "subject",
+                "person": "3sg"
+              },
+              "verb": {
+                "text": "rested",
+                "role": "verb"
+              }
+            },
+            "georgian_verb_form": "დაისვენა",
+            "person": "3sg",
+            "effective_preverb": ""
+          },
+          {
+            "georgian": "ძველმა ბაბუებმა დაისვენეს",
+            "georgian_components": {
+              "subject": {
+                "text": "ძველმა ბაბუებმა",
+                "case": "erg",
+                "role": "subject"
+              },
+              "verb": {
+                "text": "დაისვენეს",
+                "role": "verb"
+              }
+            },
+            "english": "The old grandfathers rested",
+            "english_components": {
+              "subject": {
+                "text": "The old grandfathers",
+                "role": "subject",
+                "person": "3pl"
+              },
+              "verb": {
+                "text": "rested",
+                "role": "verb"
+              }
+            },
+            "georgian_verb_form": "დაისვენეს",
+            "person": "3pl",
+            "effective_preverb": ""
+          }
+        ],
+        "optative": [
+          {
+            "georgian": "უნდა დავისვენო",
+            "georgian_components": {
+              "verb": {
+                "text": "უნდა დავისვენო",
+                "role": "verb"
+              }
+            },
+            "english": "I should rest",
+            "english_components": {
+              "subject": {
+                "text": "I",
+                "role": "subject",
+                "person": "1sg"
+              },
+              "verb": {
+                "text": "should rest",
+                "role": "verb"
+              }
+            },
+            "georgian_verb_form": "დავისვენო",
+            "person": "1sg",
+            "effective_preverb": ""
+          },
+          {
+            "georgian": "დაღლილმა სპორტსმენმა უნდა დაისვენოს",
+            "georgian_components": {
+              "subject": {
+                "text": "დაღლილმა სპორტსმენმა",
+                "case": "erg",
+                "role": "subject"
+              },
+              "verb": {
+                "text": "უნდა დაისვენოს",
+                "role": "verb"
+              }
+            },
+            "english": "The tired athlete should rest",
+            "english_components": {
+              "subject": {
+                "text": "The tired athlete",
+                "role": "subject",
+                "person": "3sg"
+              },
+              "verb": {
+                "text": "should rest",
+                "role": "verb"
+              }
+            },
+            "georgian_verb_form": "დაისვენოს",
+            "person": "3sg",
+            "effective_preverb": ""
+          },
+          {
+            "georgian": "ძველმა ბაბუებმა უნდა დაისვენონ",
+            "georgian_components": {
+              "subject": {
+                "text": "ძველმა ბაბუებმა",
+                "case": "erg",
+                "role": "subject"
+              },
+              "verb": {
+                "text": "უნდა დაისვენონ",
+                "role": "verb"
+              }
+            },
+            "english": "The old grandfathers should rest",
+            "english_components": {
+              "subject": {
+                "text": "The old grandfathers",
+                "role": "subject",
+                "person": "3pl"
+              },
+              "verb": {
+                "text": "should rest",
+                "role": "verb"
+              }
+            },
+            "georgian_verb_form": "დაისვენონ",
+            "person": "3pl",
+            "effective_preverb": ""
+          }
+        ],
+        "imperative": [
+          {
+            "georgian": "დაისვენე",
+            "georgian_components": {
+              "verb": {
+                "text": "დაისვენე",
+                "role": "verb"
+              }
+            },
+            "english": "You, rest",
+            "english_components": {
+              "subject": {
+                "text": "You,",
+                "role": "subject",
+                "person": "2sg"
+              },
+              "verb": {
+                "text": "rest",
+                "role": "verb"
+              }
+            },
+            "georgian_verb_form": "დაისვენე",
+            "person": "2sg",
+            "effective_preverb": ""
+          },
+          {
+            "georgian": "დაისვენეთ",
+            "georgian_components": {
+              "verb": {
+                "text": "დაისვენეთ",
+                "role": "verb"
+              }
+            },
+            "english": "You all (you formal), rest",
+            "english_components": {
+              "subject": {
+                "text": "You all (you formal),",
+                "role": "subject",
+                "person": "2pl"
+              },
+              "verb": {
+                "text": "rest",
+                "role": "verb"
+              }
+            },
+            "georgian_verb_form": "დაისვენეთ",
+            "person": "2pl",
+            "effective_preverb": ""
+          }
+        ]
+      }
+    },
+    "gloss_analysis": {
+      "present": {
+        "raw_gloss": "V Act Pres SV <S> <S:Nom>",
+        "structured_gloss": {
+          "raw_components": [
+            {
+              "text": "V",
+              "component_type": "verb",
+              "color_class": "gloss-verb",
+              "description": "Verb"
+            },
+            {
+              "text": "Act",
+              "component_type": "voice",
+              "color_class": "gloss-default",
+              "description": "Active"
+            },
+            {
+              "text": "Pres",
+              "component_type": "tense",
+              "color_class": "gloss-tense",
+              "description": "Present"
+            },
+            {
+              "text": "SV",
+              "component_type": "unknown",
+              "color_class": "gloss-default",
+              "description": "Subjective Version"
+            },
+            {
+              "type": "argument_pattern_group",
+              "original_text": "<S>",
+              "description": "Intransitive absolute",
+              "components": [
+                {
+                  "text": "<",
+                  "component_type": "punctuation",
+                  "color_class": "gloss-default",
+                  "description": ""
+                },
+                {
+                  "text": "S",
+                  "component_type": "argument",
+                  "color_class": "gloss-subject",
+                  "description": ""
+                },
+                {
+                  "text": ">",
+                  "component_type": "punctuation",
+                  "color_class": "gloss-default",
+                  "description": ""
+                }
+              ]
+            },
+            {
+              "text": "<S:Nom>",
+              "component_type": "case_spec",
+              "color_class": "gloss-subject",
+              "description": "Nominative subject"
+            }
+          ],
+          "expanded_components": [
+            {
+              "text": "V",
+              "component_type": "verb",
+              "color_class": "gloss-verb",
+              "description": "Verb"
+            },
+            {
+              "text": "Act",
+              "component_type": "voice",
+              "color_class": "gloss-default",
+              "description": "Active"
+            },
+            {
+              "text": "Pres",
+              "component_type": "tense",
+              "color_class": "gloss-tense",
+              "description": "Present"
+            },
+            {
+              "text": "SV",
+              "component_type": "unknown",
+              "color_class": "gloss-default",
+              "description": "Subjective Version"
+            },
+            {
+              "type": "argument_pattern_group",
+              "original_text": "<S>",
+              "description": "Intransitive absolute",
+              "components": [
+                {
+                  "text": "<",
+                  "component_type": "punctuation",
+                  "color_class": "gloss-default",
+                  "description": ""
+                },
+                {
+                  "text": "S",
+                  "component_type": "argument",
+                  "color_class": "gloss-subject",
+                  "description": ""
+                },
+                {
+                  "text": ">",
+                  "component_type": "punctuation",
+                  "color_class": "gloss-default",
+                  "description": ""
+                }
+              ]
+            },
+            {
+              "text": "<S:Nom>",
+              "component_type": "case_spec",
+              "color_class": "gloss-subject",
+              "description": "Nominative subject"
+            }
+          ],
+          "argument_pattern": "<S>",
+          "case_specifications": [
+            "<S:Nom>"
+          ]
+        }
+      },
+      "imperfect": {
+        "raw_gloss": "V Act Impf SV <S> <S:Nom>",
+        "structured_gloss": {
+          "raw_components": [
+            {
+              "text": "V",
+              "component_type": "verb",
+              "color_class": "gloss-verb",
+              "description": "Verb"
+            },
+            {
+              "text": "Act",
+              "component_type": "voice",
+              "color_class": "gloss-default",
+              "description": "Active"
+            },
+            {
+              "text": "Impf",
+              "component_type": "tense",
+              "color_class": "gloss-tense",
+              "description": "Imperfect"
+            },
+            {
+              "text": "SV",
+              "component_type": "unknown",
+              "color_class": "gloss-default",
+              "description": "Subjective Version"
+            },
+            {
+              "type": "argument_pattern_group",
+              "original_text": "<S>",
+              "description": "Intransitive absolute",
+              "components": [
+                {
+                  "text": "<",
+                  "component_type": "punctuation",
+                  "color_class": "gloss-default",
+                  "description": ""
+                },
+                {
+                  "text": "S",
+                  "component_type": "argument",
+                  "color_class": "gloss-subject",
+                  "description": ""
+                },
+                {
+                  "text": ">",
+                  "component_type": "punctuation",
+                  "color_class": "gloss-default",
+                  "description": ""
+                }
+              ]
+            },
+            {
+              "text": "<S:Nom>",
+              "component_type": "case_spec",
+              "color_class": "gloss-subject",
+              "description": "Nominative subject"
+            }
+          ],
+          "expanded_components": [
+            {
+              "text": "V",
+              "component_type": "verb",
+              "color_class": "gloss-verb",
+              "description": "Verb"
+            },
+            {
+              "text": "Act",
+              "component_type": "voice",
+              "color_class": "gloss-default",
+              "description": "Active"
+            },
+            {
+              "text": "Impf",
+              "component_type": "tense",
+              "color_class": "gloss-tense",
+              "description": "Imperfect"
+            },
+            {
+              "text": "SV",
+              "component_type": "unknown",
+              "color_class": "gloss-default",
+              "description": "Subjective Version"
+            },
+            {
+              "type": "argument_pattern_group",
+              "original_text": "<S>",
+              "description": "Intransitive absolute",
+              "components": [
+                {
+                  "text": "<",
+                  "component_type": "punctuation",
+                  "color_class": "gloss-default",
+                  "description": ""
+                },
+                {
+                  "text": "S",
+                  "component_type": "argument",
+                  "color_class": "gloss-subject",
+                  "description": ""
+                },
+                {
+                  "text": ">",
+                  "component_type": "punctuation",
+                  "color_class": "gloss-default",
+                  "description": ""
+                }
+              ]
+            },
+            {
+              "text": "<S:Nom>",
+              "component_type": "case_spec",
+              "color_class": "gloss-subject",
+              "description": "Nominative subject"
+            }
+          ],
+          "argument_pattern": "<S>",
+          "case_specifications": [
+            "<S:Nom>"
+          ]
+        }
+      },
+      "future": {
+        "raw_gloss": "V Act Fut SV <S> <S:Nom>",
+        "structured_gloss": {
+          "raw_components": [
+            {
+              "text": "V",
+              "component_type": "verb",
+              "color_class": "gloss-verb",
+              "description": "Verb"
+            },
+            {
+              "text": "Act",
+              "component_type": "voice",
+              "color_class": "gloss-default",
+              "description": "Active"
+            },
+            {
+              "text": "Fut",
+              "component_type": "tense",
+              "color_class": "gloss-tense",
+              "description": "Future"
+            },
+            {
+              "text": "SV",
+              "component_type": "unknown",
+              "color_class": "gloss-default",
+              "description": "Subjective Version"
+            },
+            {
+              "type": "argument_pattern_group",
+              "original_text": "<S>",
+              "description": "Intransitive absolute",
+              "components": [
+                {
+                  "text": "<",
+                  "component_type": "punctuation",
+                  "color_class": "gloss-default",
+                  "description": ""
+                },
+                {
+                  "text": "S",
+                  "component_type": "argument",
+                  "color_class": "gloss-subject",
+                  "description": ""
+                },
+                {
+                  "text": ">",
+                  "component_type": "punctuation",
+                  "color_class": "gloss-default",
+                  "description": ""
+                }
+              ]
+            },
+            {
+              "text": "<S:Nom>",
+              "component_type": "case_spec",
+              "color_class": "gloss-subject",
+              "description": "Nominative subject"
+            }
+          ],
+          "expanded_components": [
+            {
+              "text": "V",
+              "component_type": "verb",
+              "color_class": "gloss-verb",
+              "description": "Verb"
+            },
+            {
+              "text": "Act",
+              "component_type": "voice",
+              "color_class": "gloss-default",
+              "description": "Active"
+            },
+            {
+              "text": "Fut",
+              "component_type": "tense",
+              "color_class": "gloss-tense",
+              "description": "Future"
+            },
+            {
+              "text": "SV",
+              "component_type": "unknown",
+              "color_class": "gloss-default",
+              "description": "Subjective Version"
+            },
+            {
+              "type": "argument_pattern_group",
+              "original_text": "<S>",
+              "description": "Intransitive absolute",
+              "components": [
+                {
+                  "text": "<",
+                  "component_type": "punctuation",
+                  "color_class": "gloss-default",
+                  "description": ""
+                },
+                {
+                  "text": "S",
+                  "component_type": "argument",
+                  "color_class": "gloss-subject",
+                  "description": ""
+                },
+                {
+                  "text": ">",
+                  "component_type": "punctuation",
+                  "color_class": "gloss-default",
+                  "description": ""
+                }
+              ]
+            },
+            {
+              "text": "<S:Nom>",
+              "component_type": "case_spec",
+              "color_class": "gloss-subject",
+              "description": "Nominative subject"
+            }
+          ],
+          "argument_pattern": "<S>",
+          "case_specifications": [
+            "<S:Nom>"
+          ]
+        }
+      },
+      "aorist": {
+        "raw_gloss": "V Act Aor SV <S> <S:Erg>",
+        "structured_gloss": {
+          "raw_components": [
+            {
+              "text": "V",
+              "component_type": "verb",
+              "color_class": "gloss-verb",
+              "description": "Verb"
+            },
+            {
+              "text": "Act",
+              "component_type": "voice",
+              "color_class": "gloss-default",
+              "description": "Active"
+            },
+            {
+              "text": "Aor",
+              "component_type": "tense",
+              "color_class": "gloss-tense",
+              "description": "Aorist"
+            },
+            {
+              "text": "SV",
+              "component_type": "unknown",
+              "color_class": "gloss-default",
+              "description": "Subjective Version"
+            },
+            {
+              "type": "argument_pattern_group",
+              "original_text": "<S>",
+              "description": "Intransitive absolute",
+              "components": [
+                {
+                  "text": "<",
+                  "component_type": "punctuation",
+                  "color_class": "gloss-default",
+                  "description": ""
+                },
+                {
+                  "text": "S",
+                  "component_type": "argument",
+                  "color_class": "gloss-subject",
+                  "description": ""
+                },
+                {
+                  "text": ">",
+                  "component_type": "punctuation",
+                  "color_class": "gloss-default",
+                  "description": ""
+                }
+              ]
+            },
+            {
+              "text": "<S:Erg>",
+              "component_type": "case_spec",
+              "color_class": "gloss-subject",
+              "description": "Ergative subject"
+            }
+          ],
+          "expanded_components": [
+            {
+              "text": "V",
+              "component_type": "verb",
+              "color_class": "gloss-verb",
+              "description": "Verb"
+            },
+            {
+              "text": "Act",
+              "component_type": "voice",
+              "color_class": "gloss-default",
+              "description": "Active"
+            },
+            {
+              "text": "Aor",
+              "component_type": "tense",
+              "color_class": "gloss-tense",
+              "description": "Aorist"
+            },
+            {
+              "text": "SV",
+              "component_type": "unknown",
+              "color_class": "gloss-default",
+              "description": "Subjective Version"
+            },
+            {
+              "type": "argument_pattern_group",
+              "original_text": "<S>",
+              "description": "Intransitive absolute",
+              "components": [
+                {
+                  "text": "<",
+                  "component_type": "punctuation",
+                  "color_class": "gloss-default",
+                  "description": ""
+                },
+                {
+                  "text": "S",
+                  "component_type": "argument",
+                  "color_class": "gloss-subject",
+                  "description": ""
+                },
+                {
+                  "text": ">",
+                  "component_type": "punctuation",
+                  "color_class": "gloss-default",
+                  "description": ""
+                }
+              ]
+            },
+            {
+              "text": "<S:Erg>",
+              "component_type": "case_spec",
+              "color_class": "gloss-subject",
+              "description": "Ergative subject"
+            }
+          ],
+          "argument_pattern": "<S>",
+          "case_specifications": [
+            "<S:Erg>"
+          ]
+        }
+      },
+      "optative": {
+        "raw_gloss": "V Act Opt SV <S> <S:Erg>",
+        "structured_gloss": {
+          "raw_components": [
+            {
+              "text": "V",
+              "component_type": "verb",
+              "color_class": "gloss-verb",
+              "description": "Verb"
+            },
+            {
+              "text": "Act",
+              "component_type": "voice",
+              "color_class": "gloss-default",
+              "description": "Active"
+            },
+            {
+              "text": "Opt",
+              "component_type": "tense",
+              "color_class": "gloss-tense",
+              "description": "Optative"
+            },
+            {
+              "text": "SV",
+              "component_type": "unknown",
+              "color_class": "gloss-default",
+              "description": "Subjective Version"
+            },
+            {
+              "type": "argument_pattern_group",
+              "original_text": "<S>",
+              "description": "Intransitive absolute",
+              "components": [
+                {
+                  "text": "<",
+                  "component_type": "punctuation",
+                  "color_class": "gloss-default",
+                  "description": ""
+                },
+                {
+                  "text": "S",
+                  "component_type": "argument",
+                  "color_class": "gloss-subject",
+                  "description": ""
+                },
+                {
+                  "text": ">",
+                  "component_type": "punctuation",
+                  "color_class": "gloss-default",
+                  "description": ""
+                }
+              ]
+            },
+            {
+              "text": "<S:Erg>",
+              "component_type": "case_spec",
+              "color_class": "gloss-subject",
+              "description": "Ergative subject"
+            }
+          ],
+          "expanded_components": [
+            {
+              "text": "V",
+              "component_type": "verb",
+              "color_class": "gloss-verb",
+              "description": "Verb"
+            },
+            {
+              "text": "Act",
+              "component_type": "voice",
+              "color_class": "gloss-default",
+              "description": "Active"
+            },
+            {
+              "text": "Opt",
+              "component_type": "tense",
+              "color_class": "gloss-tense",
+              "description": "Optative"
+            },
+            {
+              "text": "SV",
+              "component_type": "unknown",
+              "color_class": "gloss-default",
+              "description": "Subjective Version"
+            },
+            {
+              "type": "argument_pattern_group",
+              "original_text": "<S>",
+              "description": "Intransitive absolute",
+              "components": [
+                {
+                  "text": "<",
+                  "component_type": "punctuation",
+                  "color_class": "gloss-default",
+                  "description": ""
+                },
+                {
+                  "text": "S",
+                  "component_type": "argument",
+                  "color_class": "gloss-subject",
+                  "description": ""
+                },
+                {
+                  "text": ">",
+                  "component_type": "punctuation",
+                  "color_class": "gloss-default",
+                  "description": ""
+                }
+              ]
+            },
+            {
+              "text": "<S:Erg>",
+              "component_type": "case_spec",
+              "color_class": "gloss-subject",
+              "description": "Ergative subject"
+            }
+          ],
+          "argument_pattern": "<S>",
+          "case_specifications": [
+            "<S:Erg>"
+          ]
+        }
+      },
+      "imperative": {
+        "raw_gloss": "V Act Impf SV <S> <S:Erg>",
+        "structured_gloss": {
+          "raw_components": [
+            {
+              "text": "V",
+              "component_type": "verb",
+              "color_class": "gloss-verb",
+              "description": "Verb"
+            },
+            {
+              "text": "Act",
+              "component_type": "voice",
+              "color_class": "gloss-default",
+              "description": "Active"
+            },
+            {
+              "text": "Impf",
+              "component_type": "tense",
+              "color_class": "gloss-tense",
+              "description": "Imperfect"
+            },
+            {
+              "text": "SV",
+              "component_type": "unknown",
+              "color_class": "gloss-default",
+              "description": "Subjective Version"
+            },
+            {
+              "type": "argument_pattern_group",
+              "original_text": "<S>",
+              "description": "Intransitive absolute",
+              "components": [
+                {
+                  "text": "<",
+                  "component_type": "punctuation",
+                  "color_class": "gloss-default",
+                  "description": ""
+                },
+                {
+                  "text": "S",
+                  "component_type": "argument",
+                  "color_class": "gloss-subject",
+                  "description": ""
+                },
+                {
+                  "text": ">",
+                  "component_type": "punctuation",
+                  "color_class": "gloss-default",
+                  "description": ""
+                }
+              ]
+            },
+            {
+              "text": "<S:Erg>",
+              "component_type": "case_spec",
+              "color_class": "gloss-subject",
+              "description": "Ergative subject"
+            }
+          ],
+          "expanded_components": [
+            {
+              "text": "V",
+              "component_type": "verb",
+              "color_class": "gloss-verb",
+              "description": "Verb"
+            },
+            {
+              "text": "Act",
+              "component_type": "voice",
+              "color_class": "gloss-default",
+              "description": "Active"
+            },
+            {
+              "text": "Impf",
+              "component_type": "tense",
+              "color_class": "gloss-tense",
+              "description": "Imperfect"
+            },
+            {
+              "text": "SV",
+              "component_type": "unknown",
+              "color_class": "gloss-default",
+              "description": "Subjective Version"
+            },
+            {
+              "type": "argument_pattern_group",
+              "original_text": "<S>",
+              "description": "Intransitive absolute",
+              "components": [
+                {
+                  "text": "<",
+                  "component_type": "punctuation",
+                  "color_class": "gloss-default",
+                  "description": ""
+                },
+                {
+                  "text": "S",
+                  "component_type": "argument",
+                  "color_class": "gloss-subject",
+                  "description": ""
+                },
+                {
+                  "text": ">",
+                  "component_type": "punctuation",
+                  "color_class": "gloss-default",
+                  "description": ""
+                }
+              ]
+            },
+            {
+              "text": "<S:Erg>",
+              "component_type": "case_spec",
+              "color_class": "gloss-subject",
+              "description": "Ergative subject"
+            }
+          ],
+          "argument_pattern": "<S>",
+          "case_specifications": [
+            "<S:Erg>"
+          ]
+        }
+      }
+    },
+    "preverb_forms": {}
+  }
+}

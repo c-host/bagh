@@ -50,7 +50,6 @@ export class HelpManager {
         const helpClose = this.domManager.getElement(ELEMENT_IDS.HELP_CLOSE);
 
         if (!helpToggle || !helpModal || !helpOverlay) {
-            console.warn('Help elements not found');
             return;
         }
 
@@ -72,14 +71,23 @@ export class HelpManager {
             this.closeHelp();
         };
 
+        // Handle ESC key
+        const handleEscapeKey = (event) => {
+            if (event.key === 'Escape' && this.isOpen) {
+                this.closeHelp();
+            }
+        };
+
         // Add event listeners
         helpToggle.addEventListener('click', toggleHelp);
         if (helpOverlay) helpOverlay.addEventListener('click', closeHelp);
         if (helpClose) helpClose.addEventListener('click', closeHelp);
+        document.addEventListener('keydown', handleEscapeKey);
 
         // Store listeners for cleanup
         this.eventListeners = [
-            { element: helpToggle, event: 'click', handler: toggleHelp }
+            { element: helpToggle, event: 'click', handler: toggleHelp },
+            { element: document, event: 'keydown', handler: handleEscapeKey }
         ];
 
         if (helpOverlay) {

@@ -1,0 +1,1799 @@
+{
+  "base_data": {
+    "id": 19,
+    "georgian": "წარმოდგენა",
+    "description": "To Imagine",
+    "category": "Mental Activities & Cognition",
+    "class": "Class-I",
+    "semantic_key": "imagine",
+    "notes": "",
+    "url": "https://lingua.ge/verbs/%e1%83%ac%e1%83%90%e1%83%a0%e1%83%9b%e1%83%9d%e1%83%93%e1%83%92%e1%83%94%e1%83%9c%e1%83%90-2/",
+    "global_argument_pattern": "<S-DO>",
+    "valency": {
+      "default": "<S-DO>",
+      "alternatives": []
+    },
+    "syntax": {
+      "arguments": {
+        "subject": {
+          "3sg": {
+            "noun": "writer",
+            "adjective": "creative"
+          },
+          "3pl": {
+            "noun": "scientist",
+            "adjective": "smart"
+          }
+        },
+        "direct_object": {
+          "1sg": {
+            "noun": "story",
+            "adjective": "amazing"
+          },
+          "2sg": {
+            "noun": "world",
+            "adjective": "ideal"
+          },
+          "3sg": {
+            "noun": "future",
+            "adjective": "bright"
+          },
+          "1pl": {
+            "noun": "solution",
+            "adjective": "simple"
+          },
+          "2pl": {
+            "noun": "map",
+            "adjective": "new"
+          },
+          "3pl": {
+            "noun": "planet",
+            "adjective": "distant"
+          }
+        }
+      },
+      "prepositions": {
+        "subject": "the",
+        "direct_object": "the",
+        "indirect_object": ""
+      },
+      "preverb_overrides": {}
+    },
+    "english_translations": {
+      "default": {
+        "present": "imagine",
+        "imperfect": "was imagining",
+        "future": "will imagine",
+        "aorist": "imagined",
+        "optative": "imagine",
+        "imperative": "imagine"
+      }
+    },
+    "conjugations": {
+      "present": {
+        "raw_gloss": "V Act Pres SV <S-DO> <S:Nom> <DO:Dat>",
+        "forms": {
+          "1sg": "ვიდგენ",
+          "2sg": "იდგენ",
+          "3sg": "იდგენს",
+          "1pl": "ვიდგენთ",
+          "2pl": "იდგენთ",
+          "3pl": "იდგენენ"
+        },
+        "examples": []
+      },
+      "imperfect": {
+        "raw_gloss": "V Act Impf SV <S-DO> <S:Nom> <DO:Dat>",
+        "forms": {
+          "1sg": "ვიდგენდი",
+          "2sg": "იდგენდი",
+          "3sg": "იდგენდა",
+          "1pl": "ვიდგენდით",
+          "2pl": "იდგენდით",
+          "3pl": "იდგენდნენ"
+        },
+        "examples": []
+      },
+      "future": {
+        "raw_gloss": "V Act Fut Pv SV <S-DO> <S:Nom> <DO:Dat>",
+        "forms": {
+          "1sg": "წარმოვიდგენ",
+          "2sg": "წარმოიდგენ",
+          "3sg": "წარმოიდგენს",
+          "1pl": "წარმოვიდგენთ",
+          "2pl": "წარმოიდგენთ",
+          "3pl": "წარმოიდგენენ"
+        },
+        "examples": []
+      },
+      "aorist": {
+        "raw_gloss": "V Act Aor Pv SV <S-DO> <S:Erg> <DO:Nom>",
+        "forms": {
+          "1sg": "წარმოვიდგინე",
+          "2sg": "წარმოიდგინე",
+          "3sg": "წარმოიდგინა",
+          "1pl": "წარმოვიდგინეთ",
+          "2pl": "წარმოიდგინეთ",
+          "3pl": "წარმოიდგინეს"
+        },
+        "examples": []
+      },
+      "optative": {
+        "raw_gloss": "V Act Opt Pv SV <S-DO> <S:Erg> <DO:Nom>",
+        "forms": {
+          "1sg": "წარმოვიდგინო",
+          "2sg": "წარმოიდგინო",
+          "3sg": "წარმოიდგინოს",
+          "1pl": "წარმოვიდგინოთ",
+          "2pl": "წარმოიდგინოთ",
+          "3pl": "წარმოიდგინონ"
+        },
+        "examples": []
+      },
+      "imperative": {
+        "raw_gloss": "V Act Impv SV PV <S-DO> <S:Erg> <DO:Nom>",
+        "forms": {
+          "1sg": "-",
+          "2sg": "წარმოიდგინე",
+          "3sg": "-",
+          "1pl": "-",
+          "2pl": "წარმოიდგინეთ",
+          "3pl": "-"
+        },
+        "examples": []
+      }
+    },
+    "preverb_config": {
+      "has_multiple_preverbs": false,
+      "default_preverb": "წარმო",
+      "available_preverbs": [
+        "წარმო"
+      ]
+    },
+    "preverb_rules": {
+      "default": "",
+      "replacements": {},
+      "tense_specific_fallbacks": {}
+    }
+  },
+  "generated_data": {
+    "examples": {
+      "default": {
+        "present": [
+          {
+            "georgian": "ვიდგენ გასაოცარ ამბავს",
+            "georgian_components": {
+              "verb": {
+                "text": "ვიდგენ",
+                "role": "verb"
+              },
+              "direct_object": {
+                "text": "გასაოცარ ამბავს",
+                "case": "dat",
+                "role": "direct_object"
+              }
+            },
+            "english": "I imagine the amazing story",
+            "english_components": {
+              "subject": {
+                "text": "I",
+                "role": "subject",
+                "person": "1sg"
+              },
+              "verb": {
+                "text": "imagine",
+                "role": "verb"
+              },
+              "direct_object": {
+                "text": "the amazing story",
+                "role": "direct_object"
+              }
+            },
+            "georgian_verb_form": "ვიდგენ",
+            "person": "1sg",
+            "effective_preverb": "წარმო"
+          },
+          {
+            "georgian": "შემოქმედებითი მწერალი იდგენს ნათელ მომავალს",
+            "georgian_components": {
+              "subject": {
+                "text": "შემოქმედებითი მწერალი",
+                "case": "nom",
+                "role": "subject"
+              },
+              "verb": {
+                "text": "იდგენს",
+                "role": "verb"
+              },
+              "direct_object": {
+                "text": "ნათელ მომავალს",
+                "case": "dat",
+                "role": "direct_object"
+              }
+            },
+            "english": "The creative writer imagines the bright future",
+            "english_components": {
+              "subject": {
+                "text": "The creative writer",
+                "role": "subject",
+                "person": "3sg"
+              },
+              "verb": {
+                "text": "imagines",
+                "role": "verb"
+              },
+              "direct_object": {
+                "text": "the bright future",
+                "role": "direct_object"
+              }
+            },
+            "georgian_verb_form": "იდგენს",
+            "person": "3sg",
+            "effective_preverb": "წარმო"
+          },
+          {
+            "georgian": "ჭკვიანი მეცნიერები იდგენენ შორეულ პლანეტას",
+            "georgian_components": {
+              "subject": {
+                "text": "ჭკვიანი მეცნიერები",
+                "case": "nom",
+                "role": "subject"
+              },
+              "verb": {
+                "text": "იდგენენ",
+                "role": "verb"
+              },
+              "direct_object": {
+                "text": "შორეულ პლანეტას",
+                "case": "dat",
+                "role": "direct_object"
+              }
+            },
+            "english": "The smart scientists imagine the distant planet",
+            "english_components": {
+              "subject": {
+                "text": "The smart scientists",
+                "role": "subject",
+                "person": "3pl"
+              },
+              "verb": {
+                "text": "imagine",
+                "role": "verb"
+              },
+              "direct_object": {
+                "text": "the distant planet",
+                "role": "direct_object"
+              }
+            },
+            "georgian_verb_form": "იდგენენ",
+            "person": "3pl",
+            "effective_preverb": "წარმო"
+          }
+        ],
+        "imperfect": [
+          {
+            "georgian": "ვიდგენდი გასაოცარ ამბავს",
+            "georgian_components": {
+              "verb": {
+                "text": "ვიდგენდი",
+                "role": "verb"
+              },
+              "direct_object": {
+                "text": "გასაოცარ ამბავს",
+                "case": "dat",
+                "role": "direct_object"
+              }
+            },
+            "english": "I was imagining the amazing story",
+            "english_components": {
+              "subject": {
+                "text": "I",
+                "role": "subject",
+                "person": "1sg"
+              },
+              "verb": {
+                "text": "was imagining",
+                "role": "verb"
+              },
+              "direct_object": {
+                "text": "the amazing story",
+                "role": "direct_object"
+              }
+            },
+            "georgian_verb_form": "ვიდგენდი",
+            "person": "1sg",
+            "effective_preverb": "წარმო"
+          },
+          {
+            "georgian": "შემოქმედებითი მწერალი იდგენდა ნათელ მომავალს",
+            "georgian_components": {
+              "subject": {
+                "text": "შემოქმედებითი მწერალი",
+                "case": "nom",
+                "role": "subject"
+              },
+              "verb": {
+                "text": "იდგენდა",
+                "role": "verb"
+              },
+              "direct_object": {
+                "text": "ნათელ მომავალს",
+                "case": "dat",
+                "role": "direct_object"
+              }
+            },
+            "english": "The creative writer was imagining the bright future",
+            "english_components": {
+              "subject": {
+                "text": "The creative writer",
+                "role": "subject",
+                "person": "3sg"
+              },
+              "verb": {
+                "text": "was imagining",
+                "role": "verb"
+              },
+              "direct_object": {
+                "text": "the bright future",
+                "role": "direct_object"
+              }
+            },
+            "georgian_verb_form": "იდგენდა",
+            "person": "3sg",
+            "effective_preverb": "წარმო"
+          },
+          {
+            "georgian": "ჭკვიანი მეცნიერები იდგენდნენ შორეულ პლანეტას",
+            "georgian_components": {
+              "subject": {
+                "text": "ჭკვიანი მეცნიერები",
+                "case": "nom",
+                "role": "subject"
+              },
+              "verb": {
+                "text": "იდგენდნენ",
+                "role": "verb"
+              },
+              "direct_object": {
+                "text": "შორეულ პლანეტას",
+                "case": "dat",
+                "role": "direct_object"
+              }
+            },
+            "english": "The smart scientists were imagining the distant planet",
+            "english_components": {
+              "subject": {
+                "text": "The smart scientists",
+                "role": "subject",
+                "person": "3pl"
+              },
+              "verb": {
+                "text": "were imagining",
+                "role": "verb"
+              },
+              "direct_object": {
+                "text": "the distant planet",
+                "role": "direct_object"
+              }
+            },
+            "georgian_verb_form": "იდგენდნენ",
+            "person": "3pl",
+            "effective_preverb": "წარმო"
+          }
+        ],
+        "future": [
+          {
+            "georgian": "წარმოვიდგენ გასაოცარ ამბავს",
+            "georgian_components": {
+              "verb": {
+                "text": "წარმოვიდგენ",
+                "role": "verb"
+              },
+              "direct_object": {
+                "text": "გასაოცარ ამბავს",
+                "case": "dat",
+                "role": "direct_object"
+              }
+            },
+            "english": "I will imagine the amazing story",
+            "english_components": {
+              "subject": {
+                "text": "I",
+                "role": "subject",
+                "person": "1sg"
+              },
+              "verb": {
+                "text": "will imagine",
+                "role": "verb"
+              },
+              "direct_object": {
+                "text": "the amazing story",
+                "role": "direct_object"
+              }
+            },
+            "georgian_verb_form": "წარმოვიდგენ",
+            "person": "1sg",
+            "effective_preverb": "წარმო"
+          },
+          {
+            "georgian": "შემოქმედებითი მწერალი წარმოიდგენს ნათელ მომავალს",
+            "georgian_components": {
+              "subject": {
+                "text": "შემოქმედებითი მწერალი",
+                "case": "nom",
+                "role": "subject"
+              },
+              "verb": {
+                "text": "წარმოიდგენს",
+                "role": "verb"
+              },
+              "direct_object": {
+                "text": "ნათელ მომავალს",
+                "case": "dat",
+                "role": "direct_object"
+              }
+            },
+            "english": "The creative writer will imagine the bright future",
+            "english_components": {
+              "subject": {
+                "text": "The creative writer",
+                "role": "subject",
+                "person": "3sg"
+              },
+              "verb": {
+                "text": "will imagine",
+                "role": "verb"
+              },
+              "direct_object": {
+                "text": "the bright future",
+                "role": "direct_object"
+              }
+            },
+            "georgian_verb_form": "წარმოიდგენს",
+            "person": "3sg",
+            "effective_preverb": "წარმო"
+          },
+          {
+            "georgian": "ჭკვიანი მეცნიერები წარმოიდგენენ შორეულ პლანეტას",
+            "georgian_components": {
+              "subject": {
+                "text": "ჭკვიანი მეცნიერები",
+                "case": "nom",
+                "role": "subject"
+              },
+              "verb": {
+                "text": "წარმოიდგენენ",
+                "role": "verb"
+              },
+              "direct_object": {
+                "text": "შორეულ პლანეტას",
+                "case": "dat",
+                "role": "direct_object"
+              }
+            },
+            "english": "The smart scientists will imagine the distant planet",
+            "english_components": {
+              "subject": {
+                "text": "The smart scientists",
+                "role": "subject",
+                "person": "3pl"
+              },
+              "verb": {
+                "text": "will imagine",
+                "role": "verb"
+              },
+              "direct_object": {
+                "text": "the distant planet",
+                "role": "direct_object"
+              }
+            },
+            "georgian_verb_form": "წარმოიდგენენ",
+            "person": "3pl",
+            "effective_preverb": "წარმო"
+          }
+        ],
+        "aorist": [
+          {
+            "georgian": "წარმოვიდგინე გასაოცარი ამბავი",
+            "georgian_components": {
+              "verb": {
+                "text": "წარმოვიდგინე",
+                "role": "verb"
+              },
+              "direct_object": {
+                "text": "გასაოცარი ამბავი",
+                "case": "nom",
+                "role": "direct_object"
+              }
+            },
+            "english": "I imagined the amazing story",
+            "english_components": {
+              "subject": {
+                "text": "I",
+                "role": "subject",
+                "person": "1sg"
+              },
+              "verb": {
+                "text": "imagined",
+                "role": "verb"
+              },
+              "direct_object": {
+                "text": "the amazing story",
+                "role": "direct_object"
+              }
+            },
+            "georgian_verb_form": "წარმოვიდგინე",
+            "person": "1sg",
+            "effective_preverb": "წარმო"
+          },
+          {
+            "georgian": "შემოქმედებითმა მწერალმა წარმოიდგინა ნათელი მომავალი",
+            "georgian_components": {
+              "subject": {
+                "text": "შემოქმედებითმა მწერალმა",
+                "case": "erg",
+                "role": "subject"
+              },
+              "verb": {
+                "text": "წარმოიდგინა",
+                "role": "verb"
+              },
+              "direct_object": {
+                "text": "ნათელი მომავალი",
+                "case": "nom",
+                "role": "direct_object"
+              }
+            },
+            "english": "The creative writer imagined the bright future",
+            "english_components": {
+              "subject": {
+                "text": "The creative writer",
+                "role": "subject",
+                "person": "3sg"
+              },
+              "verb": {
+                "text": "imagined",
+                "role": "verb"
+              },
+              "direct_object": {
+                "text": "the bright future",
+                "role": "direct_object"
+              }
+            },
+            "georgian_verb_form": "წარმოიდგინა",
+            "person": "3sg",
+            "effective_preverb": "წარმო"
+          },
+          {
+            "georgian": "ჭკვიანმა მეცნიერებმა წარმოიდგინეს შორეული პლანეტა",
+            "georgian_components": {
+              "subject": {
+                "text": "ჭკვიანმა მეცნიერებმა",
+                "case": "erg",
+                "role": "subject"
+              },
+              "verb": {
+                "text": "წარმოიდგინეს",
+                "role": "verb"
+              },
+              "direct_object": {
+                "text": "შორეული პლანეტა",
+                "case": "nom",
+                "role": "direct_object"
+              }
+            },
+            "english": "The smart scientists imagined the distant planet",
+            "english_components": {
+              "subject": {
+                "text": "The smart scientists",
+                "role": "subject",
+                "person": "3pl"
+              },
+              "verb": {
+                "text": "imagined",
+                "role": "verb"
+              },
+              "direct_object": {
+                "text": "the distant planet",
+                "role": "direct_object"
+              }
+            },
+            "georgian_verb_form": "წარმოიდგინეს",
+            "person": "3pl",
+            "effective_preverb": "წარმო"
+          }
+        ],
+        "optative": [
+          {
+            "georgian": "უნდა წარმოვიდგინო გასაოცარი ამბავი",
+            "georgian_components": {
+              "verb": {
+                "text": "უნდა წარმოვიდგინო",
+                "role": "verb"
+              },
+              "direct_object": {
+                "text": "გასაოცარი ამბავი",
+                "case": "nom",
+                "role": "direct_object"
+              }
+            },
+            "english": "I should imagine the amazing story",
+            "english_components": {
+              "subject": {
+                "text": "I",
+                "role": "subject",
+                "person": "1sg"
+              },
+              "verb": {
+                "text": "should imagine",
+                "role": "verb"
+              },
+              "direct_object": {
+                "text": "the amazing story",
+                "role": "direct_object"
+              }
+            },
+            "georgian_verb_form": "წარმოვიდგინო",
+            "person": "1sg",
+            "effective_preverb": "წარმო"
+          },
+          {
+            "georgian": "შემოქმედებითმა მწერალმა უნდა წარმოიდგინოს ნათელი მომავალი",
+            "georgian_components": {
+              "subject": {
+                "text": "შემოქმედებითმა მწერალმა",
+                "case": "erg",
+                "role": "subject"
+              },
+              "verb": {
+                "text": "უნდა წარმოიდგინოს",
+                "role": "verb"
+              },
+              "direct_object": {
+                "text": "ნათელი მომავალი",
+                "case": "nom",
+                "role": "direct_object"
+              }
+            },
+            "english": "The creative writer should imagine the bright future",
+            "english_components": {
+              "subject": {
+                "text": "The creative writer",
+                "role": "subject",
+                "person": "3sg"
+              },
+              "verb": {
+                "text": "should imagine",
+                "role": "verb"
+              },
+              "direct_object": {
+                "text": "the bright future",
+                "role": "direct_object"
+              }
+            },
+            "georgian_verb_form": "წარმოიდგინოს",
+            "person": "3sg",
+            "effective_preverb": "წარმო"
+          },
+          {
+            "georgian": "ჭკვიანმა მეცნიერებმა უნდა წარმოიდგინონ შორეული პლანეტა",
+            "georgian_components": {
+              "subject": {
+                "text": "ჭკვიანმა მეცნიერებმა",
+                "case": "erg",
+                "role": "subject"
+              },
+              "verb": {
+                "text": "უნდა წარმოიდგინონ",
+                "role": "verb"
+              },
+              "direct_object": {
+                "text": "შორეული პლანეტა",
+                "case": "nom",
+                "role": "direct_object"
+              }
+            },
+            "english": "The smart scientists should imagine the distant planet",
+            "english_components": {
+              "subject": {
+                "text": "The smart scientists",
+                "role": "subject",
+                "person": "3pl"
+              },
+              "verb": {
+                "text": "should imagine",
+                "role": "verb"
+              },
+              "direct_object": {
+                "text": "the distant planet",
+                "role": "direct_object"
+              }
+            },
+            "georgian_verb_form": "წარმოიდგინონ",
+            "person": "3pl",
+            "effective_preverb": "წარმო"
+          }
+        ],
+        "imperative": [
+          {
+            "georgian": "წარმოიდგინე იდეალური სამყარო",
+            "georgian_components": {
+              "verb": {
+                "text": "წარმოიდგინე",
+                "role": "verb"
+              },
+              "direct_object": {
+                "text": "იდეალური სამყარო",
+                "case": "nom",
+                "role": "direct_object"
+              }
+            },
+            "english": "You, imagine the ideal world",
+            "english_components": {
+              "subject": {
+                "text": "You,",
+                "role": "subject",
+                "person": "2sg"
+              },
+              "verb": {
+                "text": "imagine",
+                "role": "verb"
+              },
+              "direct_object": {
+                "text": "the ideal world",
+                "role": "direct_object"
+              }
+            },
+            "georgian_verb_form": "წარმოიდგინე",
+            "person": "2sg",
+            "effective_preverb": "წარმო"
+          },
+          {
+            "georgian": "წარმოიდგინეთ ახალი რუკა",
+            "georgian_components": {
+              "verb": {
+                "text": "წარმოიდგინეთ",
+                "role": "verb"
+              },
+              "direct_object": {
+                "text": "ახალი რუკა",
+                "case": "nom",
+                "role": "direct_object"
+              }
+            },
+            "english": "You all (you formal), imagine the new map",
+            "english_components": {
+              "subject": {
+                "text": "You all (you formal),",
+                "role": "subject",
+                "person": "2pl"
+              },
+              "verb": {
+                "text": "imagine",
+                "role": "verb"
+              },
+              "direct_object": {
+                "text": "the new map",
+                "role": "direct_object"
+              }
+            },
+            "georgian_verb_form": "წარმოიდგინეთ",
+            "person": "2pl",
+            "effective_preverb": "წარმო"
+          }
+        ]
+      }
+    },
+    "gloss_analysis": {
+      "present": {
+        "raw_gloss": "V Act Pres SV <S-DO> <S:Nom> <DO:Dat>",
+        "structured_gloss": {
+          "raw_components": [
+            {
+              "text": "V",
+              "component_type": "verb",
+              "color_class": "gloss-verb",
+              "description": "Verb"
+            },
+            {
+              "text": "Act",
+              "component_type": "voice",
+              "color_class": "gloss-default",
+              "description": "Active"
+            },
+            {
+              "text": "Pres",
+              "component_type": "tense",
+              "color_class": "gloss-tense",
+              "description": "Present"
+            },
+            {
+              "text": "SV",
+              "component_type": "unknown",
+              "color_class": "gloss-default",
+              "description": "Subjective Version"
+            },
+            {
+              "type": "argument_pattern_group",
+              "original_text": "<S-DO>",
+              "description": "Transitive absolute",
+              "components": [
+                {
+                  "text": "<",
+                  "component_type": "punctuation",
+                  "color_class": "gloss-default",
+                  "description": ""
+                },
+                {
+                  "text": "S",
+                  "component_type": "argument",
+                  "color_class": "gloss-subject",
+                  "description": ""
+                },
+                {
+                  "text": "-",
+                  "component_type": "punctuation",
+                  "color_class": "gloss-default",
+                  "description": ""
+                },
+                {
+                  "text": "DO",
+                  "component_type": "argument",
+                  "color_class": "gloss-direct-object",
+                  "description": ""
+                },
+                {
+                  "text": ">",
+                  "component_type": "punctuation",
+                  "color_class": "gloss-default",
+                  "description": ""
+                }
+              ]
+            },
+            {
+              "text": "<S:Nom>",
+              "component_type": "case_spec",
+              "color_class": "gloss-subject",
+              "description": "Nominative subject"
+            },
+            {
+              "text": "<DO:Dat>",
+              "component_type": "case_spec",
+              "color_class": "gloss-direct-object",
+              "description": "Dative direct object"
+            }
+          ],
+          "expanded_components": [
+            {
+              "text": "V",
+              "component_type": "verb",
+              "color_class": "gloss-verb",
+              "description": "Verb"
+            },
+            {
+              "text": "Act",
+              "component_type": "voice",
+              "color_class": "gloss-default",
+              "description": "Active"
+            },
+            {
+              "text": "Pres",
+              "component_type": "tense",
+              "color_class": "gloss-tense",
+              "description": "Present"
+            },
+            {
+              "text": "SV",
+              "component_type": "unknown",
+              "color_class": "gloss-default",
+              "description": "Subjective Version"
+            },
+            {
+              "type": "argument_pattern_group",
+              "original_text": "<S-DO>",
+              "description": "Transitive absolute",
+              "components": [
+                {
+                  "text": "<",
+                  "component_type": "punctuation",
+                  "color_class": "gloss-default",
+                  "description": ""
+                },
+                {
+                  "text": "S",
+                  "component_type": "argument",
+                  "color_class": "gloss-subject",
+                  "description": ""
+                },
+                {
+                  "text": "-",
+                  "component_type": "punctuation",
+                  "color_class": "gloss-default",
+                  "description": ""
+                },
+                {
+                  "text": "DO",
+                  "component_type": "argument",
+                  "color_class": "gloss-direct-object",
+                  "description": ""
+                },
+                {
+                  "text": ">",
+                  "component_type": "punctuation",
+                  "color_class": "gloss-default",
+                  "description": ""
+                }
+              ]
+            },
+            {
+              "text": "<S:Nom>",
+              "component_type": "case_spec",
+              "color_class": "gloss-subject",
+              "description": "Nominative subject"
+            },
+            {
+              "text": "<DO:Dat>",
+              "component_type": "case_spec",
+              "color_class": "gloss-direct-object",
+              "description": "Dative direct object"
+            }
+          ],
+          "argument_pattern": "<S-DO>",
+          "case_specifications": [
+            "<S:Nom>",
+            "<DO:Dat>"
+          ]
+        }
+      },
+      "imperfect": {
+        "raw_gloss": "V Act Impf SV <S-DO> <S:Nom> <DO:Dat>",
+        "structured_gloss": {
+          "raw_components": [
+            {
+              "text": "V",
+              "component_type": "verb",
+              "color_class": "gloss-verb",
+              "description": "Verb"
+            },
+            {
+              "text": "Act",
+              "component_type": "voice",
+              "color_class": "gloss-default",
+              "description": "Active"
+            },
+            {
+              "text": "Impf",
+              "component_type": "tense",
+              "color_class": "gloss-tense",
+              "description": "Imperfect"
+            },
+            {
+              "text": "SV",
+              "component_type": "unknown",
+              "color_class": "gloss-default",
+              "description": "Subjective Version"
+            },
+            {
+              "type": "argument_pattern_group",
+              "original_text": "<S-DO>",
+              "description": "Transitive absolute",
+              "components": [
+                {
+                  "text": "<",
+                  "component_type": "punctuation",
+                  "color_class": "gloss-default",
+                  "description": ""
+                },
+                {
+                  "text": "S",
+                  "component_type": "argument",
+                  "color_class": "gloss-subject",
+                  "description": ""
+                },
+                {
+                  "text": "-",
+                  "component_type": "punctuation",
+                  "color_class": "gloss-default",
+                  "description": ""
+                },
+                {
+                  "text": "DO",
+                  "component_type": "argument",
+                  "color_class": "gloss-direct-object",
+                  "description": ""
+                },
+                {
+                  "text": ">",
+                  "component_type": "punctuation",
+                  "color_class": "gloss-default",
+                  "description": ""
+                }
+              ]
+            },
+            {
+              "text": "<S:Nom>",
+              "component_type": "case_spec",
+              "color_class": "gloss-subject",
+              "description": "Nominative subject"
+            },
+            {
+              "text": "<DO:Dat>",
+              "component_type": "case_spec",
+              "color_class": "gloss-direct-object",
+              "description": "Dative direct object"
+            }
+          ],
+          "expanded_components": [
+            {
+              "text": "V",
+              "component_type": "verb",
+              "color_class": "gloss-verb",
+              "description": "Verb"
+            },
+            {
+              "text": "Act",
+              "component_type": "voice",
+              "color_class": "gloss-default",
+              "description": "Active"
+            },
+            {
+              "text": "Impf",
+              "component_type": "tense",
+              "color_class": "gloss-tense",
+              "description": "Imperfect"
+            },
+            {
+              "text": "SV",
+              "component_type": "unknown",
+              "color_class": "gloss-default",
+              "description": "Subjective Version"
+            },
+            {
+              "type": "argument_pattern_group",
+              "original_text": "<S-DO>",
+              "description": "Transitive absolute",
+              "components": [
+                {
+                  "text": "<",
+                  "component_type": "punctuation",
+                  "color_class": "gloss-default",
+                  "description": ""
+                },
+                {
+                  "text": "S",
+                  "component_type": "argument",
+                  "color_class": "gloss-subject",
+                  "description": ""
+                },
+                {
+                  "text": "-",
+                  "component_type": "punctuation",
+                  "color_class": "gloss-default",
+                  "description": ""
+                },
+                {
+                  "text": "DO",
+                  "component_type": "argument",
+                  "color_class": "gloss-direct-object",
+                  "description": ""
+                },
+                {
+                  "text": ">",
+                  "component_type": "punctuation",
+                  "color_class": "gloss-default",
+                  "description": ""
+                }
+              ]
+            },
+            {
+              "text": "<S:Nom>",
+              "component_type": "case_spec",
+              "color_class": "gloss-subject",
+              "description": "Nominative subject"
+            },
+            {
+              "text": "<DO:Dat>",
+              "component_type": "case_spec",
+              "color_class": "gloss-direct-object",
+              "description": "Dative direct object"
+            }
+          ],
+          "argument_pattern": "<S-DO>",
+          "case_specifications": [
+            "<S:Nom>",
+            "<DO:Dat>"
+          ]
+        }
+      },
+      "future": {
+        "raw_gloss": "V Act Fut Pv SV <S-DO> <S:Nom> <DO:Dat>",
+        "structured_gloss": {
+          "raw_components": [
+            {
+              "text": "V",
+              "component_type": "verb",
+              "color_class": "gloss-verb",
+              "description": "Verb"
+            },
+            {
+              "text": "Act",
+              "component_type": "voice",
+              "color_class": "gloss-default",
+              "description": "Active"
+            },
+            {
+              "text": "Fut",
+              "component_type": "tense",
+              "color_class": "gloss-tense",
+              "description": "Future"
+            },
+            {
+              "text": "Pv",
+              "component_type": "preverb",
+              "color_class": "gloss-default",
+              "description": "წარმო"
+            },
+            {
+              "text": "SV",
+              "component_type": "unknown",
+              "color_class": "gloss-default",
+              "description": "Subjective Version"
+            },
+            {
+              "type": "argument_pattern_group",
+              "original_text": "<S-DO>",
+              "description": "Transitive absolute",
+              "components": [
+                {
+                  "text": "<",
+                  "component_type": "punctuation",
+                  "color_class": "gloss-default",
+                  "description": ""
+                },
+                {
+                  "text": "S",
+                  "component_type": "argument",
+                  "color_class": "gloss-subject",
+                  "description": ""
+                },
+                {
+                  "text": "-",
+                  "component_type": "punctuation",
+                  "color_class": "gloss-default",
+                  "description": ""
+                },
+                {
+                  "text": "DO",
+                  "component_type": "argument",
+                  "color_class": "gloss-direct-object",
+                  "description": ""
+                },
+                {
+                  "text": ">",
+                  "component_type": "punctuation",
+                  "color_class": "gloss-default",
+                  "description": ""
+                }
+              ]
+            },
+            {
+              "text": "<S:Nom>",
+              "component_type": "case_spec",
+              "color_class": "gloss-subject",
+              "description": "Nominative subject"
+            },
+            {
+              "text": "<DO:Dat>",
+              "component_type": "case_spec",
+              "color_class": "gloss-direct-object",
+              "description": "Dative direct object"
+            }
+          ],
+          "expanded_components": [
+            {
+              "text": "V",
+              "component_type": "verb",
+              "color_class": "gloss-verb",
+              "description": "Verb"
+            },
+            {
+              "text": "Act",
+              "component_type": "voice",
+              "color_class": "gloss-default",
+              "description": "Active"
+            },
+            {
+              "text": "Fut",
+              "component_type": "tense",
+              "color_class": "gloss-tense",
+              "description": "Future"
+            },
+            {
+              "text": "Pv",
+              "component_type": "preverb",
+              "color_class": "gloss-default",
+              "description": "წარმო"
+            },
+            {
+              "text": "SV",
+              "component_type": "unknown",
+              "color_class": "gloss-default",
+              "description": "Subjective Version"
+            },
+            {
+              "type": "argument_pattern_group",
+              "original_text": "<S-DO>",
+              "description": "Transitive absolute",
+              "components": [
+                {
+                  "text": "<",
+                  "component_type": "punctuation",
+                  "color_class": "gloss-default",
+                  "description": ""
+                },
+                {
+                  "text": "S",
+                  "component_type": "argument",
+                  "color_class": "gloss-subject",
+                  "description": ""
+                },
+                {
+                  "text": "-",
+                  "component_type": "punctuation",
+                  "color_class": "gloss-default",
+                  "description": ""
+                },
+                {
+                  "text": "DO",
+                  "component_type": "argument",
+                  "color_class": "gloss-direct-object",
+                  "description": ""
+                },
+                {
+                  "text": ">",
+                  "component_type": "punctuation",
+                  "color_class": "gloss-default",
+                  "description": ""
+                }
+              ]
+            },
+            {
+              "text": "<S:Nom>",
+              "component_type": "case_spec",
+              "color_class": "gloss-subject",
+              "description": "Nominative subject"
+            },
+            {
+              "text": "<DO:Dat>",
+              "component_type": "case_spec",
+              "color_class": "gloss-direct-object",
+              "description": "Dative direct object"
+            }
+          ],
+          "argument_pattern": "<S-DO>",
+          "case_specifications": [
+            "<S:Nom>",
+            "<DO:Dat>"
+          ]
+        }
+      },
+      "aorist": {
+        "raw_gloss": "V Act Aor Pv SV <S-DO> <S:Erg> <DO:Nom>",
+        "structured_gloss": {
+          "raw_components": [
+            {
+              "text": "V",
+              "component_type": "verb",
+              "color_class": "gloss-verb",
+              "description": "Verb"
+            },
+            {
+              "text": "Act",
+              "component_type": "voice",
+              "color_class": "gloss-default",
+              "description": "Active"
+            },
+            {
+              "text": "Aor",
+              "component_type": "tense",
+              "color_class": "gloss-tense",
+              "description": "Aorist"
+            },
+            {
+              "text": "Pv",
+              "component_type": "preverb",
+              "color_class": "gloss-default",
+              "description": "წარმო"
+            },
+            {
+              "text": "SV",
+              "component_type": "unknown",
+              "color_class": "gloss-default",
+              "description": "Subjective Version"
+            },
+            {
+              "type": "argument_pattern_group",
+              "original_text": "<S-DO>",
+              "description": "Transitive absolute",
+              "components": [
+                {
+                  "text": "<",
+                  "component_type": "punctuation",
+                  "color_class": "gloss-default",
+                  "description": ""
+                },
+                {
+                  "text": "S",
+                  "component_type": "argument",
+                  "color_class": "gloss-subject",
+                  "description": ""
+                },
+                {
+                  "text": "-",
+                  "component_type": "punctuation",
+                  "color_class": "gloss-default",
+                  "description": ""
+                },
+                {
+                  "text": "DO",
+                  "component_type": "argument",
+                  "color_class": "gloss-direct-object",
+                  "description": ""
+                },
+                {
+                  "text": ">",
+                  "component_type": "punctuation",
+                  "color_class": "gloss-default",
+                  "description": ""
+                }
+              ]
+            },
+            {
+              "text": "<S:Erg>",
+              "component_type": "case_spec",
+              "color_class": "gloss-subject",
+              "description": "Ergative subject"
+            },
+            {
+              "text": "<DO:Nom>",
+              "component_type": "case_spec",
+              "color_class": "gloss-direct-object",
+              "description": "Nominative direct object"
+            }
+          ],
+          "expanded_components": [
+            {
+              "text": "V",
+              "component_type": "verb",
+              "color_class": "gloss-verb",
+              "description": "Verb"
+            },
+            {
+              "text": "Act",
+              "component_type": "voice",
+              "color_class": "gloss-default",
+              "description": "Active"
+            },
+            {
+              "text": "Aor",
+              "component_type": "tense",
+              "color_class": "gloss-tense",
+              "description": "Aorist"
+            },
+            {
+              "text": "Pv",
+              "component_type": "preverb",
+              "color_class": "gloss-default",
+              "description": "წარმო"
+            },
+            {
+              "text": "SV",
+              "component_type": "unknown",
+              "color_class": "gloss-default",
+              "description": "Subjective Version"
+            },
+            {
+              "type": "argument_pattern_group",
+              "original_text": "<S-DO>",
+              "description": "Transitive absolute",
+              "components": [
+                {
+                  "text": "<",
+                  "component_type": "punctuation",
+                  "color_class": "gloss-default",
+                  "description": ""
+                },
+                {
+                  "text": "S",
+                  "component_type": "argument",
+                  "color_class": "gloss-subject",
+                  "description": ""
+                },
+                {
+                  "text": "-",
+                  "component_type": "punctuation",
+                  "color_class": "gloss-default",
+                  "description": ""
+                },
+                {
+                  "text": "DO",
+                  "component_type": "argument",
+                  "color_class": "gloss-direct-object",
+                  "description": ""
+                },
+                {
+                  "text": ">",
+                  "component_type": "punctuation",
+                  "color_class": "gloss-default",
+                  "description": ""
+                }
+              ]
+            },
+            {
+              "text": "<S:Erg>",
+              "component_type": "case_spec",
+              "color_class": "gloss-subject",
+              "description": "Ergative subject"
+            },
+            {
+              "text": "<DO:Nom>",
+              "component_type": "case_spec",
+              "color_class": "gloss-direct-object",
+              "description": "Nominative direct object"
+            }
+          ],
+          "argument_pattern": "<S-DO>",
+          "case_specifications": [
+            "<S:Erg>",
+            "<DO:Nom>"
+          ]
+        }
+      },
+      "optative": {
+        "raw_gloss": "V Act Opt Pv SV <S-DO> <S:Erg> <DO:Nom>",
+        "structured_gloss": {
+          "raw_components": [
+            {
+              "text": "V",
+              "component_type": "verb",
+              "color_class": "gloss-verb",
+              "description": "Verb"
+            },
+            {
+              "text": "Act",
+              "component_type": "voice",
+              "color_class": "gloss-default",
+              "description": "Active"
+            },
+            {
+              "text": "Opt",
+              "component_type": "tense",
+              "color_class": "gloss-tense",
+              "description": "Optative"
+            },
+            {
+              "text": "Pv",
+              "component_type": "preverb",
+              "color_class": "gloss-default",
+              "description": "წარმო"
+            },
+            {
+              "text": "SV",
+              "component_type": "unknown",
+              "color_class": "gloss-default",
+              "description": "Subjective Version"
+            },
+            {
+              "type": "argument_pattern_group",
+              "original_text": "<S-DO>",
+              "description": "Transitive absolute",
+              "components": [
+                {
+                  "text": "<",
+                  "component_type": "punctuation",
+                  "color_class": "gloss-default",
+                  "description": ""
+                },
+                {
+                  "text": "S",
+                  "component_type": "argument",
+                  "color_class": "gloss-subject",
+                  "description": ""
+                },
+                {
+                  "text": "-",
+                  "component_type": "punctuation",
+                  "color_class": "gloss-default",
+                  "description": ""
+                },
+                {
+                  "text": "DO",
+                  "component_type": "argument",
+                  "color_class": "gloss-direct-object",
+                  "description": ""
+                },
+                {
+                  "text": ">",
+                  "component_type": "punctuation",
+                  "color_class": "gloss-default",
+                  "description": ""
+                }
+              ]
+            },
+            {
+              "text": "<S:Erg>",
+              "component_type": "case_spec",
+              "color_class": "gloss-subject",
+              "description": "Ergative subject"
+            },
+            {
+              "text": "<DO:Nom>",
+              "component_type": "case_spec",
+              "color_class": "gloss-direct-object",
+              "description": "Nominative direct object"
+            }
+          ],
+          "expanded_components": [
+            {
+              "text": "V",
+              "component_type": "verb",
+              "color_class": "gloss-verb",
+              "description": "Verb"
+            },
+            {
+              "text": "Act",
+              "component_type": "voice",
+              "color_class": "gloss-default",
+              "description": "Active"
+            },
+            {
+              "text": "Opt",
+              "component_type": "tense",
+              "color_class": "gloss-tense",
+              "description": "Optative"
+            },
+            {
+              "text": "Pv",
+              "component_type": "preverb",
+              "color_class": "gloss-default",
+              "description": "წარმო"
+            },
+            {
+              "text": "SV",
+              "component_type": "unknown",
+              "color_class": "gloss-default",
+              "description": "Subjective Version"
+            },
+            {
+              "type": "argument_pattern_group",
+              "original_text": "<S-DO>",
+              "description": "Transitive absolute",
+              "components": [
+                {
+                  "text": "<",
+                  "component_type": "punctuation",
+                  "color_class": "gloss-default",
+                  "description": ""
+                },
+                {
+                  "text": "S",
+                  "component_type": "argument",
+                  "color_class": "gloss-subject",
+                  "description": ""
+                },
+                {
+                  "text": "-",
+                  "component_type": "punctuation",
+                  "color_class": "gloss-default",
+                  "description": ""
+                },
+                {
+                  "text": "DO",
+                  "component_type": "argument",
+                  "color_class": "gloss-direct-object",
+                  "description": ""
+                },
+                {
+                  "text": ">",
+                  "component_type": "punctuation",
+                  "color_class": "gloss-default",
+                  "description": ""
+                }
+              ]
+            },
+            {
+              "text": "<S:Erg>",
+              "component_type": "case_spec",
+              "color_class": "gloss-subject",
+              "description": "Ergative subject"
+            },
+            {
+              "text": "<DO:Nom>",
+              "component_type": "case_spec",
+              "color_class": "gloss-direct-object",
+              "description": "Nominative direct object"
+            }
+          ],
+          "argument_pattern": "<S-DO>",
+          "case_specifications": [
+            "<S:Erg>",
+            "<DO:Nom>"
+          ]
+        }
+      },
+      "imperative": {
+        "raw_gloss": "V Act Impv SV PV <S-DO> <S:Erg> <DO:Nom>",
+        "structured_gloss": {
+          "raw_components": [
+            {
+              "text": "V",
+              "component_type": "verb",
+              "color_class": "gloss-verb",
+              "description": "Verb"
+            },
+            {
+              "text": "Act",
+              "component_type": "voice",
+              "color_class": "gloss-default",
+              "description": "Active"
+            },
+            {
+              "text": "Impv",
+              "component_type": "tense",
+              "color_class": "gloss-tense",
+              "description": "Imperative"
+            },
+            {
+              "text": "SV",
+              "component_type": "unknown",
+              "color_class": "gloss-default",
+              "description": "Subjective Version"
+            },
+            {
+              "text": "PV",
+              "component_type": "unknown",
+              "color_class": "gloss-default",
+              "description": "PV"
+            },
+            {
+              "type": "argument_pattern_group",
+              "original_text": "<S-DO>",
+              "description": "Transitive absolute",
+              "components": [
+                {
+                  "text": "<",
+                  "component_type": "punctuation",
+                  "color_class": "gloss-default",
+                  "description": ""
+                },
+                {
+                  "text": "S",
+                  "component_type": "argument",
+                  "color_class": "gloss-subject",
+                  "description": ""
+                },
+                {
+                  "text": "-",
+                  "component_type": "punctuation",
+                  "color_class": "gloss-default",
+                  "description": ""
+                },
+                {
+                  "text": "DO",
+                  "component_type": "argument",
+                  "color_class": "gloss-direct-object",
+                  "description": ""
+                },
+                {
+                  "text": ">",
+                  "component_type": "punctuation",
+                  "color_class": "gloss-default",
+                  "description": ""
+                }
+              ]
+            },
+            {
+              "text": "<S:Erg>",
+              "component_type": "case_spec",
+              "color_class": "gloss-subject",
+              "description": "Ergative subject"
+            },
+            {
+              "text": "<DO:Nom>",
+              "component_type": "case_spec",
+              "color_class": "gloss-direct-object",
+              "description": "Nominative direct object"
+            }
+          ],
+          "expanded_components": [
+            {
+              "text": "V",
+              "component_type": "verb",
+              "color_class": "gloss-verb",
+              "description": "Verb"
+            },
+            {
+              "text": "Act",
+              "component_type": "voice",
+              "color_class": "gloss-default",
+              "description": "Active"
+            },
+            {
+              "text": "Impv",
+              "component_type": "tense",
+              "color_class": "gloss-tense",
+              "description": "Imperative"
+            },
+            {
+              "text": "SV",
+              "component_type": "unknown",
+              "color_class": "gloss-default",
+              "description": "Subjective Version"
+            },
+            {
+              "text": "PV",
+              "component_type": "unknown",
+              "color_class": "gloss-default",
+              "description": "PV"
+            },
+            {
+              "type": "argument_pattern_group",
+              "original_text": "<S-DO>",
+              "description": "Transitive absolute",
+              "components": [
+                {
+                  "text": "<",
+                  "component_type": "punctuation",
+                  "color_class": "gloss-default",
+                  "description": ""
+                },
+                {
+                  "text": "S",
+                  "component_type": "argument",
+                  "color_class": "gloss-subject",
+                  "description": ""
+                },
+                {
+                  "text": "-",
+                  "component_type": "punctuation",
+                  "color_class": "gloss-default",
+                  "description": ""
+                },
+                {
+                  "text": "DO",
+                  "component_type": "argument",
+                  "color_class": "gloss-direct-object",
+                  "description": ""
+                },
+                {
+                  "text": ">",
+                  "component_type": "punctuation",
+                  "color_class": "gloss-default",
+                  "description": ""
+                }
+              ]
+            },
+            {
+              "text": "<S:Erg>",
+              "component_type": "case_spec",
+              "color_class": "gloss-subject",
+              "description": "Ergative subject"
+            },
+            {
+              "text": "<DO:Nom>",
+              "component_type": "case_spec",
+              "color_class": "gloss-direct-object",
+              "description": "Nominative direct object"
+            }
+          ],
+          "argument_pattern": "<S-DO>",
+          "case_specifications": [
+            "<S:Erg>",
+            "<DO:Nom>"
+          ]
+        }
+      }
+    },
+    "preverb_forms": {}
+  }
+}

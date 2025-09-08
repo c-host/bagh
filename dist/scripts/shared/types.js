@@ -93,7 +93,7 @@
  * @property {Object} notepadManager - Notepad manager instance
  * @property {Object} filterManager - Filter manager instance
  * @property {Object} sidebarManager - Sidebar manager instance
- * @property {Object} verbDataManager - Verb data manager instance
+ * @property {Object} enhancedVerbLoader - Dynamic verb loader instance
  * @property {Object} preverbManager - Preverb manager instance
  * @property {Object} eventManager - Event manager instance
  * @property {Object} helpManager - Help manager instance

@@ -1,0 +1,1030 @@
+{
+  "base_data": {
+    "id": 30,
+    "georgian": "ნდომა",
+    "description": "To Want",
+    "category": "Mental Activities & Cognition",
+    "class": "Class-III",
+    "semantic_key": "want",
+    "notes": "",
+    "url": "https://lingua.ge/verbs/%e1%83%9c%e1%83%93%e1%83%9d%e1%83%9b%e1%83%90/",
+    "global_argument_pattern": "<S-DO>",
+    "valency": {
+      "default": "<S-DO>",
+      "alternatives": []
+    },
+    "syntax": {
+      "arguments": {
+        "subject": {
+          "3sg": {
+            "noun": "child",
+            "adjective": "hungry"
+          },
+          "3pl": {
+            "noun": "tourist",
+            "adjective": "curious"
+          }
+        },
+        "direct_object": {
+          "1sg": {
+            "noun": "pizza",
+            "adjective": "delicious"
+          },
+          "2sg": {
+            "noun": "coffee",
+            "adjective": "hot"
+          },
+          "3sg": {
+            "noun": "ice cream",
+            "adjective": "sweet"
+          },
+          "1pl": {
+            "noun": "adventure",
+            "adjective": "exciting"
+          },
+          "2pl": {
+            "noun": "rest",
+            "adjective": "peaceful"
+          },
+          "3pl": {
+            "noun": "experience",
+            "adjective": "new"
+          }
+        }
+      },
+      "prepositions": {
+        "subject": "the",
+        "direct_object": "the",
+        "indirect_object": ""
+      },
+      "preverb_overrides": {}
+    },
+    "english_translations": {
+      "default": {
+        "present": "want",
+        "imperfect": "wanted",
+        "future": "will want",
+        "aorist": "wanted",
+        "optative": "want",
+        "imperative": "want"
+      }
+    },
+    "conjugations": {
+      "present": {
+        "raw_gloss": "V MedPass Inv Pres OV <S-DO> <S:Dat> <DO:Nom>",
+        "forms": {
+          "1sg": "მინდა",
+          "2sg": "გინდა",
+          "3sg": "უნდა",
+          "1pl": "გვინდა",
+          "2pl": "გინდათ",
+          "3pl": "უნდათ"
+        },
+        "examples": []
+      },
+      "imperfect": {
+        "raw_gloss": "V MedPass Inv Impf OV <S-DO> <S:Dat> <DO:Nom>",
+        "forms": {
+          "1sg": "მინდოდა",
+          "2sg": "გინდოდა",
+          "3sg": "უნდოდა",
+          "1pl": "გვინდოდა",
+          "2pl": "გინდოდათ",
+          "3pl": "უნდოდათ"
+        },
+        "examples": []
+      },
+      "future": {
+        "raw_gloss": "V MedPass Inv Fut OV <S-DO> <S:Dat> <DO:Nom>",
+        "forms": {
+          "1sg": "მენდომება",
+          "2sg": "გენდომება",
+          "3sg": "ენდომება",
+          "1pl": "გვენდომება",
+          "2pl": "გენდომებათ",
+          "3pl": "ენდომებათ"
+        },
+        "examples": []
+      },
+      "aorist": {
+        "raw_gloss": "",
+        "forms": {
+          "1sg": "-",
+          "2sg": "-",
+          "3sg": "-",
+          "1pl": "-",
+          "2pl": "-",
+          "3pl": "-"
+        },
+        "examples": []
+      },
+      "optative": {
+        "raw_gloss": "",
+        "forms": {
+          "1sg": "-",
+          "2sg": "-",
+          "3sg": "-",
+          "1pl": "-",
+          "2pl": "-",
+          "3pl": "-"
+        },
+        "examples": []
+      },
+      "imperative": {
+        "raw_gloss": "",
+        "forms": {
+          "1sg": "-",
+          "2sg": "-",
+          "3sg": "-",
+          "1pl": "-",
+          "2pl": "-",
+          "3pl": "-"
+        },
+        "examples": []
+      }
+    },
+    "preverb_config": {
+      "has_multiple_preverbs": false,
+      "default_preverb": "",
+      "available_preverbs": []
+    },
+    "preverb_rules": {
+      "default": "",
+      "replacements": {},
+      "tense_specific_fallbacks": {}
+    }
+  },
+  "generated_data": {
+    "examples": {
+      "default": {
+        "present": [
+          {
+            "georgian": "მინდა გემრიელი პიცა",
+            "georgian_components": {
+              "verb": {
+                "text": "მინდა",
+                "role": "verb"
+              },
+              "direct_object": {
+                "text": "გემრიელი პიცა",
+                "case": "nom",
+                "role": "direct_object"
+              }
+            },
+            "english": "I want the delicious pizza",
+            "english_components": {
+              "subject": {
+                "text": "I",
+                "role": "subject",
+                "person": "1sg"
+              },
+              "verb": {
+                "text": "want",
+                "role": "verb"
+              },
+              "direct_object": {
+                "text": "the delicious pizza",
+                "role": "direct_object"
+              }
+            },
+            "georgian_verb_form": "მინდა",
+            "person": "1sg",
+            "effective_preverb": ""
+          },
+          {
+            "georgian": "მშიერ ბავშვს უნდა ტკბილი ყინულის ნაყინი",
+            "georgian_components": {
+              "subject": {
+                "text": "მშიერ ბავშვს",
+                "case": "dat",
+                "role": "subject"
+              },
+              "verb": {
+                "text": "უნდა",
+                "role": "verb"
+              },
+              "direct_object": {
+                "text": "ტკბილი ყინულის ნაყინი",
+                "case": "nom",
+                "role": "direct_object"
+              }
+            },
+            "english": "The hungry child wants the sweet ice cream",
+            "english_components": {
+              "subject": {
+                "text": "The hungry child",
+                "role": "subject",
+                "person": "3sg"
+              },
+              "verb": {
+                "text": "wants",
+                "role": "verb"
+              },
+              "direct_object": {
+                "text": "the sweet ice cream",
+                "role": "direct_object"
+              }
+            },
+            "georgian_verb_form": "უნდა",
+            "person": "3sg",
+            "effective_preverb": ""
+          },
+          {
+            "georgian": "ცნობისმოყვარე ტურისტებს უნდათ ახალი გამოცდილება",
+            "georgian_components": {
+              "subject": {
+                "text": "ცნობისმოყვარე ტურისტებს",
+                "case": "dat",
+                "role": "subject"
+              },
+              "verb": {
+                "text": "უნდათ",
+                "role": "verb"
+              },
+              "direct_object": {
+                "text": "ახალი გამოცდილება",
+                "case": "nom",
+                "role": "direct_object"
+              }
+            },
+            "english": "The curious tourists want the new experience",
+            "english_components": {
+              "subject": {
+                "text": "The curious tourists",
+                "role": "subject",
+                "person": "3pl"
+              },
+              "verb": {
+                "text": "want",
+                "role": "verb"
+              },
+              "direct_object": {
+                "text": "the new experience",
+                "role": "direct_object"
+              }
+            },
+            "georgian_verb_form": "უნდათ",
+            "person": "3pl",
+            "effective_preverb": ""
+          }
+        ],
+        "imperfect": [
+          {
+            "georgian": "მინდოდა გემრიელი პიცა",
+            "georgian_components": {
+              "verb": {
+                "text": "მინდოდა",
+                "role": "verb"
+              },
+              "direct_object": {
+                "text": "გემრიელი პიცა",
+                "case": "nom",
+                "role": "direct_object"
+              }
+            },
+            "english": "I wanted the delicious pizza",
+            "english_components": {
+              "subject": {
+                "text": "I",
+                "role": "subject",
+                "person": "1sg"
+              },
+              "verb": {
+                "text": "wanted",
+                "role": "verb"
+              },
+              "direct_object": {
+                "text": "the delicious pizza",
+                "role": "direct_object"
+              }
+            },
+            "georgian_verb_form": "მინდოდა",
+            "person": "1sg",
+            "effective_preverb": ""
+          },
+          {
+            "georgian": "მშიერ ბავშვს უნდოდა ტკბილი ყინულის ნაყინი",
+            "georgian_components": {
+              "subject": {
+                "text": "მშიერ ბავშვს",
+                "case": "dat",
+                "role": "subject"
+              },
+              "verb": {
+                "text": "უნდოდა",
+                "role": "verb"
+              },
+              "direct_object": {
+                "text": "ტკბილი ყინულის ნაყინი",
+                "case": "nom",
+                "role": "direct_object"
+              }
+            },
+            "english": "The hungry child wanted the sweet ice cream",
+            "english_components": {
+              "subject": {
+                "text": "The hungry child",
+                "role": "subject",
+                "person": "3sg"
+              },
+              "verb": {
+                "text": "wanted",
+                "role": "verb"
+              },
+              "direct_object": {
+                "text": "the sweet ice cream",
+                "role": "direct_object"
+              }
+            },
+            "georgian_verb_form": "უნდოდა",
+            "person": "3sg",
+            "effective_preverb": ""
+          },
+          {
+            "georgian": "ცნობისმოყვარე ტურისტებს უნდოდათ ახალი გამოცდილება",
+            "georgian_components": {
+              "subject": {
+                "text": "ცნობისმოყვარე ტურისტებს",
+                "case": "dat",
+                "role": "subject"
+              },
+              "verb": {
+                "text": "უნდოდათ",
+                "role": "verb"
+              },
+              "direct_object": {
+                "text": "ახალი გამოცდილება",
+                "case": "nom",
+                "role": "direct_object"
+              }
+            },
+            "english": "The curious tourists wanted the new experience",
+            "english_components": {
+              "subject": {
+                "text": "The curious tourists",
+                "role": "subject",
+                "person": "3pl"
+              },
+              "verb": {
+                "text": "wanted",
+                "role": "verb"
+              },
+              "direct_object": {
+                "text": "the new experience",
+                "role": "direct_object"
+              }
+            },
+            "georgian_verb_form": "უნდოდათ",
+            "person": "3pl",
+            "effective_preverb": ""
+          }
+        ],
+        "future": [
+          {
+            "georgian": "მენდომება გემრიელი პიცა",
+            "georgian_components": {
+              "verb": {
+                "text": "მენდომება",
+                "role": "verb"
+              },
+              "direct_object": {
+                "text": "გემრიელი პიცა",
+                "case": "nom",
+                "role": "direct_object"
+              }
+            },
+            "english": "I will want the delicious pizza",
+            "english_components": {
+              "subject": {
+                "text": "I",
+                "role": "subject",
+                "person": "1sg"
+              },
+              "verb": {
+                "text": "will want",
+                "role": "verb"
+              },
+              "direct_object": {
+                "text": "the delicious pizza",
+                "role": "direct_object"
+              }
+            },
+            "georgian_verb_form": "მენდომება",
+            "person": "1sg",
+            "effective_preverb": ""
+          },
+          {
+            "georgian": "მშიერ ბავშვს ენდომება ტკბილი ყინულის ნაყინი",
+            "georgian_components": {
+              "subject": {
+                "text": "მშიერ ბავშვს",
+                "case": "dat",
+                "role": "subject"
+              },
+              "verb": {
+                "text": "ენდომება",
+                "role": "verb"
+              },
+              "direct_object": {
+                "text": "ტკბილი ყინულის ნაყინი",
+                "case": "nom",
+                "role": "direct_object"
+              }
+            },
+            "english": "The hungry child will want the sweet ice cream",
+            "english_components": {
+              "subject": {
+                "text": "The hungry child",
+                "role": "subject",
+                "person": "3sg"
+              },
+              "verb": {
+                "text": "will want",
+                "role": "verb"
+              },
+              "direct_object": {
+                "text": "the sweet ice cream",
+                "role": "direct_object"
+              }
+            },
+            "georgian_verb_form": "ენდომება",
+            "person": "3sg",
+            "effective_preverb": ""
+          },
+          {
+            "georgian": "ცნობისმოყვარე ტურისტებს ენდომებათ ახალი გამოცდილება",
+            "georgian_components": {
+              "subject": {
+                "text": "ცნობისმოყვარე ტურისტებს",
+                "case": "dat",
+                "role": "subject"
+              },
+              "verb": {
+                "text": "ენდომებათ",
+                "role": "verb"
+              },
+              "direct_object": {
+                "text": "ახალი გამოცდილება",
+                "case": "nom",
+                "role": "direct_object"
+              }
+            },
+            "english": "The curious tourists will want the new experience",
+            "english_components": {
+              "subject": {
+                "text": "The curious tourists",
+                "role": "subject",
+                "person": "3pl"
+              },
+              "verb": {
+                "text": "will want",
+                "role": "verb"
+              },
+              "direct_object": {
+                "text": "the new experience",
+                "role": "direct_object"
+              }
+            },
+            "georgian_verb_form": "ენდომებათ",
+            "person": "3pl",
+            "effective_preverb": ""
+          }
+        ],
+        "aorist": [],
+        "optative": [],
+        "imperative": []
+      }
+    },
+    "gloss_analysis": {
+      "present": {
+        "raw_gloss": "V MedPass Inv Pres OV <S-DO> <S:Dat> <DO:Nom>",
+        "structured_gloss": {
+          "raw_components": [
+            {
+              "text": "V",
+              "component_type": "verb",
+              "color_class": "gloss-verb",
+              "description": "Verb"
+            },
+            {
+              "text": "MedPass",
+              "component_type": "voice",
+              "color_class": "gloss-default",
+              "description": "Mediopassive"
+            },
+            {
+              "text": "Inv",
+              "component_type": "unknown",
+              "color_class": "gloss-default",
+              "description": "Inverted"
+            },
+            {
+              "text": "Pres",
+              "component_type": "tense",
+              "color_class": "gloss-tense",
+              "description": "Present"
+            },
+            {
+              "text": "OV",
+              "component_type": "unknown",
+              "color_class": "gloss-default",
+              "description": "Objective Version"
+            },
+            {
+              "type": "argument_pattern_group",
+              "original_text": "<S-DO>",
+              "description": "Transitive absolute",
+              "components": [
+                {
+                  "text": "<",
+                  "component_type": "punctuation",
+                  "color_class": "gloss-default",
+                  "description": ""
+                },
+                {
+                  "text": "S",
+                  "component_type": "argument",
+                  "color_class": "gloss-subject",
+                  "description": ""
+                },
+                {
+                  "text": "-",
+                  "component_type": "punctuation",
+                  "color_class": "gloss-default",
+                  "description": ""
+                },
+                {
+                  "text": "DO",
+                  "component_type": "argument",
+                  "color_class": "gloss-direct-object",
+                  "description": ""
+                },
+                {
+                  "text": ">",
+                  "component_type": "punctuation",
+                  "color_class": "gloss-default",
+                  "description": ""
+                }
+              ]
+            },
+            {
+              "text": "<S:Dat>",
+              "component_type": "case_spec",
+              "color_class": "gloss-subject",
+              "description": "Dative subject"
+            },
+            {
+              "text": "<DO:Nom>",
+              "component_type": "case_spec",
+              "color_class": "gloss-direct-object",
+              "description": "Nominative direct object"
+            }
+          ],
+          "expanded_components": [
+            {
+              "text": "V",
+              "component_type": "verb",
+              "color_class": "gloss-verb",
+              "description": "Verb"
+            },
+            {
+              "text": "MedPass",
+              "component_type": "voice",
+              "color_class": "gloss-default",
+              "description": "Mediopassive"
+            },
+            {
+              "text": "Inv",
+              "component_type": "unknown",
+              "color_class": "gloss-default",
+              "description": "Inverted"
+            },
+            {
+              "text": "Pres",
+              "component_type": "tense",
+              "color_class": "gloss-tense",
+              "description": "Present"
+            },
+            {
+              "text": "OV",
+              "component_type": "unknown",
+              "color_class": "gloss-default",
+              "description": "Objective Version"
+            },
+            {
+              "type": "argument_pattern_group",
+              "original_text": "<S-DO>",
+              "description": "Transitive absolute",
+              "components": [
+                {
+                  "text": "<",
+                  "component_type": "punctuation",
+                  "color_class": "gloss-default",
+                  "description": ""
+                },
+                {
+                  "text": "S",
+                  "component_type": "argument",
+                  "color_class": "gloss-subject",
+                  "description": ""
+                },
+                {
+                  "text": "-",
+                  "component_type": "punctuation",
+                  "color_class": "gloss-default",
+                  "description": ""
+                },
+                {
+                  "text": "DO",
+                  "component_type": "argument",
+                  "color_class": "gloss-direct-object",
+                  "description": ""
+                },
+                {
+                  "text": ">",
+                  "component_type": "punctuation",
+                  "color_class": "gloss-default",
+                  "description": ""
+                }
+              ]
+            },
+            {
+              "text": "<S:Dat>",
+              "component_type": "case_spec",
+              "color_class": "gloss-subject",
+              "description": "Dative subject"
+            },
+            {
+              "text": "<DO:Nom>",
+              "component_type": "case_spec",
+              "color_class": "gloss-direct-object",
+              "description": "Nominative direct object"
+            }
+          ],
+          "argument_pattern": "<S-DO>",
+          "case_specifications": [
+            "<S:Dat>",
+            "<DO:Nom>"
+          ]
+        }
+      },
+      "imperfect": {
+        "raw_gloss": "V MedPass Inv Impf OV <S-DO> <S:Dat> <DO:Nom>",
+        "structured_gloss": {
+          "raw_components": [
+            {
+              "text": "V",
+              "component_type": "verb",
+              "color_class": "gloss-verb",
+              "description": "Verb"
+            },
+            {
+              "text": "MedPass",
+              "component_type": "voice",
+              "color_class": "gloss-default",
+              "description": "Mediopassive"
+            },
+            {
+              "text": "Inv",
+              "component_type": "unknown",
+              "color_class": "gloss-default",
+              "description": "Inverted"
+            },
+            {
+              "text": "Impf",
+              "component_type": "tense",
+              "color_class": "gloss-tense",
+              "description": "Imperfect"
+            },
+            {
+              "text": "OV",
+              "component_type": "unknown",
+              "color_class": "gloss-default",
+              "description": "Objective Version"
+            },
+            {
+              "type": "argument_pattern_group",
+              "original_text": "<S-DO>",
+              "description": "Transitive absolute",
+              "components": [
+                {
+                  "text": "<",
+                  "component_type": "punctuation",
+                  "color_class": "gloss-default",
+                  "description": ""
+                },
+                {
+                  "text": "S",
+                  "component_type": "argument",
+                  "color_class": "gloss-subject",
+                  "description": ""
+                },
+                {
+                  "text": "-",
+                  "component_type": "punctuation",
+                  "color_class": "gloss-default",
+                  "description": ""
+                },
+                {
+                  "text": "DO",
+                  "component_type": "argument",
+                  "color_class": "gloss-direct-object",
+                  "description": ""
+                },
+                {
+                  "text": ">",
+                  "component_type": "punctuation",
+                  "color_class": "gloss-default",
+                  "description": ""
+                }
+              ]
+            },
+            {
+              "text": "<S:Dat>",
+              "component_type": "case_spec",
+              "color_class": "gloss-subject",
+              "description": "Dative subject"
+            },
+            {
+              "text": "<DO:Nom>",
+              "component_type": "case_spec",
+              "color_class": "gloss-direct-object",
+              "description": "Nominative direct object"
+            }
+          ],
+          "expanded_components": [
+            {
+              "text": "V",
+              "component_type": "verb",
+              "color_class": "gloss-verb",
+              "description": "Verb"
+            },
+            {
+              "text": "MedPass",
+              "component_type": "voice",
+              "color_class": "gloss-default",
+              "description": "Mediopassive"
+            },
+            {
+              "text": "Inv",
+              "component_type": "unknown",
+              "color_class": "gloss-default",
+              "description": "Inverted"
+            },
+            {
+              "text": "Impf",
+              "component_type": "tense",
+              "color_class": "gloss-tense",
+              "description": "Imperfect"
+            },
+            {
+              "text": "OV",
+              "component_type": "unknown",
+              "color_class": "gloss-default",
+              "description": "Objective Version"
+            },
+            {
+              "type": "argument_pattern_group",
+              "original_text": "<S-DO>",
+              "description": "Transitive absolute",
+              "components": [
+                {
+                  "text": "<",
+                  "component_type": "punctuation",
+                  "color_class": "gloss-default",
+                  "description": ""
+                },
+                {
+                  "text": "S",
+                  "component_type": "argument",
+                  "color_class": "gloss-subject",
+                  "description": ""
+                },
+                {
+                  "text": "-",
+                  "component_type": "punctuation",
+                  "color_class": "gloss-default",
+                  "description": ""
+                },
+                {
+                  "text": "DO",
+                  "component_type": "argument",
+                  "color_class": "gloss-direct-object",
+                  "description": ""
+                },
+                {
+                  "text": ">",
+                  "component_type": "punctuation",
+                  "color_class": "gloss-default",
+                  "description": ""
+                }
+              ]
+            },
+            {
+              "text": "<S:Dat>",
+              "component_type": "case_spec",
+              "color_class": "gloss-subject",
+              "description": "Dative subject"
+            },
+            {
+              "text": "<DO:Nom>",
+              "component_type": "case_spec",
+              "color_class": "gloss-direct-object",
+              "description": "Nominative direct object"
+            }
+          ],
+          "argument_pattern": "<S-DO>",
+          "case_specifications": [
+            "<S:Dat>",
+            "<DO:Nom>"
+          ]
+        }
+      },
+      "future": {
+        "raw_gloss": "V MedPass Inv Fut OV <S-DO> <S:Dat> <DO:Nom>",
+        "structured_gloss": {
+          "raw_components": [
+            {
+              "text": "V",
+              "component_type": "verb",
+              "color_class": "gloss-verb",
+              "description": "Verb"
+            },
+            {
+              "text": "MedPass",
+              "component_type": "voice",
+              "color_class": "gloss-default",
+              "description": "Mediopassive"
+            },
+            {
+              "text": "Inv",
+              "component_type": "unknown",
+              "color_class": "gloss-default",
+              "description": "Inverted"
+            },
+            {
+              "text": "Fut",
+              "component_type": "tense",
+              "color_class": "gloss-tense",
+              "description": "Future"
+            },
+            {
+              "text": "OV",
+              "component_type": "unknown",
+              "color_class": "gloss-default",
+              "description": "Objective Version"
+            },
+            {
+              "type": "argument_pattern_group",
+              "original_text": "<S-DO>",
+              "description": "Transitive absolute",
+              "components": [
+                {
+                  "text": "<",
+                  "component_type": "punctuation",
+                  "color_class": "gloss-default",
+                  "description": ""
+                },
+                {
+                  "text": "S",
+                  "component_type": "argument",
+                  "color_class": "gloss-subject",
+                  "description": ""
+                },
+                {
+                  "text": "-",
+                  "component_type": "punctuation",
+                  "color_class": "gloss-default",
+                  "description": ""
+                },
+                {
+                  "text": "DO",
+                  "component_type": "argument",
+                  "color_class": "gloss-direct-object",
+                  "description": ""
+                },
+                {
+                  "text": ">",
+                  "component_type": "punctuation",
+                  "color_class": "gloss-default",
+                  "description": ""
+                }
+              ]
+            },
+            {
+              "text": "<S:Dat>",
+              "component_type": "case_spec",
+              "color_class": "gloss-subject",
+              "description": "Dative subject"
+            },
+            {
+              "text": "<DO:Nom>",
+              "component_type": "case_spec",
+              "color_class": "gloss-direct-object",
+              "description": "Nominative direct object"
+            }
+          ],
+          "expanded_components": [
+            {
+              "text": "V",
+              "component_type": "verb",
+              "color_class": "gloss-verb",
+              "description": "Verb"
+            },
+            {
+              "text": "MedPass",
+              "component_type": "voice",
+              "color_class": "gloss-default",
+              "description": "Mediopassive"
+            },
+            {
+              "text": "Inv",
+              "component_type": "unknown",
+              "color_class": "gloss-default",
+              "description": "Inverted"
+            },
+            {
+              "text": "Fut",
+              "component_type": "tense",
+              "color_class": "gloss-tense",
+              "description": "Future"
+            },
+            {
+              "text": "OV",
+              "component_type": "unknown",
+              "color_class": "gloss-default",
+              "description": "Objective Version"
+            },
+            {
+              "type": "argument_pattern_group",
+              "original_text": "<S-DO>",
+              "description": "Transitive absolute",
+              "components": [
+                {
+                  "text": "<",
+                  "component_type": "punctuation",
+                  "color_class": "gloss-default",
+                  "description": ""
+                },
+                {
+                  "text": "S",
+                  "component_type": "argument",
+                  "color_class": "gloss-subject",
+                  "description": ""
+                },
+                {
+                  "text": "-",
+                  "component_type": "punctuation",
+                  "color_class": "gloss-default",
+                  "description": ""
+                },
+                {
+                  "text": "DO",
+                  "component_type": "argument",
+                  "color_class": "gloss-direct-object",
+                  "description": ""
+                },
+                {
+                  "text": ">",
+                  "component_type": "punctuation",
+                  "color_class": "gloss-default",
+                  "description": ""
+                }
+              ]
+            },
+            {
+              "text": "<S:Dat>",
+              "component_type": "case_spec",
+              "color_class": "gloss-subject",
+              "description": "Dative subject"
+            },
+            {
+              "text": "<DO:Nom>",
+              "component_type": "case_spec",
+              "color_class": "gloss-direct-object",
+              "description": "Nominative direct object"
+            }
+          ],
+          "argument_pattern": "<S-DO>",
+          "case_specifications": [
+            "<S:Dat>",
+            "<DO:Nom>"
+          ]
+        }
+      },
+      "aorist": {
+        "raw_gloss": "",
+        "structured_gloss": {}
+      },
+      "optative": {
+        "raw_gloss": "",
+        "structured_gloss": {}
+      },
+      "imperative": {
+        "raw_gloss": "",
+        "structured_gloss": {}
+      }
+    },
+    "preverb_forms": {}
+  }
+}

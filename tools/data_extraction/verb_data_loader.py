@@ -22,14 +22,14 @@ class VerbDataLoader:
         self.data_dir = self.config.get_path("src_dir") / "data"
         self.verbs_file = self.config.get_path("verbs_json")
 
-        # Simplified caching - only cache the main data
+        # Simple caching for main data
         self._cached_data = None
         self._last_modified = None
 
     def load_json_data(self) -> Tuple[List[Dict], Dict]:
         """
         Load verb data from JSON file and return processed data.
-        Uses simple caching for improved performance.
+        Uses simple caching for performance.
 
         Returns:
             Tuple of (verbs_list, duplicate_primary_verbs_dict)

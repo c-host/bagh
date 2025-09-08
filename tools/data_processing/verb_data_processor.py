@@ -23,9 +23,8 @@ class VerbDataProcessor:
     - Errors: Missing argument configuration, malformed data → Build fails
 
     Preverb Fallback System:
-    - When preverb forms fall back (e.g., წა uses მი forms for present/imperfect),
-      English translations are automatically copied to maintain consistency
-    - No manual english_fallbacks configuration needed - the system handles this automatically
+    - Handles preverb form fallbacks with automatic English translation copying
+    - Maintains consistency when preverbs use alternative forms
     """
 
     # Class constants for consistent tense handling
@@ -64,7 +63,7 @@ class VerbDataProcessor:
         self._example_cache = {}
 
     def process_verb(self, raw_verb: Dict) -> Dict:
-        """Process a single verb through the pipeline - now just orchestrates other methods."""
+        """Process a single verb through the pipeline."""
         verb_id = raw_verb.get("id", "unknown")
 
         try:
@@ -180,7 +179,7 @@ class VerbDataProcessor:
         else:
             preverbs = [None]  # Single preverb case
 
-        # Use batch processing with caching for better performance
+        # Use batch processing with caching
         return self._generate_examples_batch(verb, preverbs)
 
     def _generate_examples_batch(
@@ -221,7 +220,7 @@ class VerbDataProcessor:
                 )
                 return cached_examples
 
-        # Generate new examples
+        # Generate examples
         examples = self._generate_examples_for_tense_preverb(verb, tense, preverb)
 
         # Cache the result (if caching is enabled)
@@ -344,7 +343,7 @@ class VerbDataProcessor:
                         examples or []
                     )  # Return empty list if no examples (warning case)
 
-            # If we get here, no matching preverb was found
+            # No matching preverb found
             raise ValueError(
                 f"Preverb '{preverb}' not found in examples data: {examples_result}"
             )
@@ -690,12 +689,12 @@ class VerbDataProcessor:
         fallback_data["english_translation_source"] = fallback_preverb
 
     def _get_cached_gloss(self, raw_gloss: str, preverb: str) -> Dict:
-        """Get cached gloss data or generate new."""
+        """Get cached gloss data or generate."""
         cache_key = f"{raw_gloss}:{preverb}"
         if cache_key in self._gloss_cache:
             return self._gloss_cache[cache_key]
 
-        # Generate new gloss data and cache it
+        # Generate gloss data and cache it
         self._gloss_cache[cache_key] = create_gloss_data_structure(raw_gloss, preverb)
         return self._gloss_cache[cache_key]
 

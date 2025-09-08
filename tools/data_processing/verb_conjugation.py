@@ -2,7 +2,7 @@
 """
 Verb Conjugation Module - Handles verb conjugation and preverb form calculations
 
-This module provides clean, maintainable conjugation processing with proper fallback
+This module provides conjugation processing with proper fallback
 handling for tenses that legitimately have no forms (e.g., verb 2's future tense).
 """
 
@@ -34,7 +34,7 @@ class ConjugationRequest:
 
 class VerbConjugationProcessor:
     """
-    Clean, maintainable verb conjugation processor.
+    Verb conjugation processor.
 
     Handles both single and multi-preverb verbs with proper fallback logic
     for tenses that legitimately have no forms.
@@ -95,7 +95,7 @@ class VerbConjugationProcessor:
         has_multiple_preverbs = preverb_config.get("has_multiple_preverbs", False)
         default_preverb = preverb_config.get("default_preverb", "")
 
-        # Assume new structure - fail fast if data is malformed
+        # Assume structure - fail fast if data is malformed
         conjugations = verb.get("conjugations", {})
         if not isinstance(conjugations, dict):
             raise ValueError(
@@ -104,7 +104,7 @@ class VerbConjugationProcessor:
 
         return VerbStructure(
             has_multiple_preverbs=has_multiple_preverbs,
-            has_forms_structure=True,  # Assume new structure
+            has_forms_structure=True,  # Assume structure
             default_preverb=default_preverb,
         )
 
@@ -190,7 +190,7 @@ class VerbConjugationProcessor:
         if normalized_target == normalized_default:
             return base_form
 
-        # Extract the stem (remove the default preverb) and apply the new preverb
+        # Extract the stem (remove the default preverb) and apply the target preverb
         if base_form.startswith(normalized_default):
             stem = base_form[len(normalized_default) :]
             return replacement + stem
@@ -218,7 +218,7 @@ def calculate_preverb_forms(
     """
     Calculate preverb forms based on preverb rules.
 
-    This function is kept for backward compatibility but delegates to the new processor.
+    This function is kept for backward compatibility but delegates to the processor. [LEGACY]
 
     Args:
         forms: Dictionary of conjugation forms with default preverb
@@ -257,7 +257,7 @@ def get_conjugation_form(
     """
     Get verb form with preverb handling - backward compatibility wrapper.
 
-    This function is kept for backward compatibility but delegates to the new processor.
+    This function is kept for backward compatibility but delegates to the processor. [LEGACY]
     """
     processor = VerbConjugationProcessor()
     return processor.get_conjugation_form(verb, tense, person, preverb)
@@ -336,12 +336,12 @@ def get_english_translation(
     if not isinstance(tense_data, dict):
         return ""
 
-    # Check for raw_gloss in the new structure
+    # Check for raw_gloss in the structure
     if "raw_gloss" in tense_data:
         raw_gloss = tense_data["raw_gloss"]
         if raw_gloss:
             # Extract the base translation from the raw gloss
-            # This is a simplified approach - could be enhanced with more sophisticated parsing
+            # Simplified approach for extracting translation
             return raw_gloss
 
     return ""
@@ -429,7 +429,7 @@ def get_verb_gloss(verb: Dict, tense: str) -> Optional[Dict[str, str]]:
     conjugations = verb.get("conjugations", {})
     tense_data = conjugations.get(tense, {})
 
-    # New structure with raw_gloss
+    # Structure with raw_gloss
     if isinstance(tense_data, dict) and "raw_gloss" in tense_data:
         raw_gloss = tense_data["raw_gloss"]
         if raw_gloss:
@@ -452,7 +452,7 @@ def get_verb_examples(verb: Dict, tense: str) -> List[Dict[str, Any]]:
     conjugations = verb.get("conjugations", {})
     tense_data = conjugations.get(tense, {})
 
-    # New structure with examples in conjugations
+    # Structure with examples in conjugations
     if isinstance(tense_data, dict) and "examples" in tense_data:
         return tense_data["examples"]
 

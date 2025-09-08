@@ -1,0 +1,1799 @@
+{
+  "base_data": {
+    "id": 42,
+    "georgian": "გაღვიძება",
+    "description": "To Wake",
+    "category": "Daily Activities",
+    "class": "Class-I",
+    "semantic_key": "wake",
+    "notes": "",
+    "url": "https://lingua.ge/verbs/%e1%83%92%e1%83%90%e1%83%a6%e1%83%95%e1%83%98%e1%83%ab%e1%83%94%e1%83%91%e1%83%90/",
+    "global_argument_pattern": "<S-DO>",
+    "valency": {
+      "default": "<S-DO>",
+      "alternatives": []
+    },
+    "syntax": {
+      "arguments": {
+        "subject": {
+          "3sg": {
+            "noun": "child",
+            "adjective": "active"
+          },
+          "3pl": {
+            "noun": "child",
+            "adjective": "brave"
+          }
+        },
+        "direct_object": {
+          "1sg": {
+            "noun": "baby",
+            "adjective": "small"
+          },
+          "2sg": {
+            "noun": "child",
+            "adjective": "young"
+          },
+          "3sg": {
+            "noun": "student",
+            "adjective": "sleepy"
+          },
+          "1pl": {
+            "noun": "friend",
+            "adjective": "good"
+          },
+          "2pl": {
+            "noun": "guest",
+            "adjective": "new"
+          },
+          "3pl": {
+            "noun": "parent",
+            "adjective": "tired"
+          }
+        }
+      },
+      "prepositions": {
+        "subject": "the",
+        "direct_object": "up the",
+        "indirect_object": ""
+      },
+      "preverb_overrides": {}
+    },
+    "english_translations": {
+      "default": {
+        "present": "wake",
+        "imperfect": "was waking",
+        "future": "will wake",
+        "aorist": "woke",
+        "optative": "wake",
+        "imperative": "wake"
+      }
+    },
+    "conjugations": {
+      "present": {
+        "raw_gloss": "V Act Pres SV <S-DO> <S:Nom> <DO:Dat>",
+        "forms": {
+          "1sg": "ვიღვიძებ",
+          "2sg": "იღვიძებ",
+          "3sg": "იღვიძებს",
+          "1pl": "ვიღვიძებთ",
+          "2pl": "იღვიძებთ",
+          "3pl": "იღვიძებენ"
+        },
+        "examples": []
+      },
+      "imperfect": {
+        "raw_gloss": "V Act Impf SV <S-DO> <S:Nom> <DO:Dat>",
+        "forms": {
+          "1sg": "ვიღვიძებდი",
+          "2sg": "იღვიძებდი",
+          "3sg": "იღვიძებდა",
+          "1pl": "ვიღვიძებდით",
+          "2pl": "იღვიძებდით",
+          "3pl": "იღვიძებდნენ"
+        },
+        "examples": []
+      },
+      "future": {
+        "raw_gloss": "V Act Fut Pv SV <S-DO> <S:Nom> <DO:Dat>",
+        "forms": {
+          "1sg": "გავიღვიძებ",
+          "2sg": "გაიღვიძებ",
+          "3sg": "გაიღვიძებს",
+          "1pl": "გავიღვიძებთ",
+          "2pl": "გაიღვიძებთ",
+          "3pl": "გაიღვიძებენ"
+        },
+        "examples": []
+      },
+      "aorist": {
+        "raw_gloss": "V Act Aor Pv SV <S-DO> <S:Erg> <DO:Nom>",
+        "forms": {
+          "1sg": "გავიღვიძე",
+          "2sg": "გაიღვიძე",
+          "3sg": "გაიღვიძა",
+          "1pl": "გავიღვიძეთ",
+          "2pl": "გაიღვიძეთ",
+          "3pl": "გაიღვიძეს"
+        },
+        "examples": []
+      },
+      "optative": {
+        "raw_gloss": "V Act Opt Pv SV <S-DO> <S:Erg> <DO:Nom>",
+        "forms": {
+          "1sg": "გავიღვიძო",
+          "2sg": "გაიღვიძო",
+          "3sg": "გაიღვიძოს",
+          "1pl": "გავიღვიძოთ",
+          "2pl": "გაიღვიძოთ",
+          "3pl": "გაიღვიძონ"
+        },
+        "examples": []
+      },
+      "imperative": {
+        "raw_gloss": "V Act Impv SV Pv <S-DO> <S:Erg> <DO:Nom>",
+        "forms": {
+          "1sg": "-",
+          "2sg": "გაიღვიძე",
+          "3sg": "-",
+          "1pl": "-",
+          "2pl": "გაიღვიძეთ",
+          "3pl": "-"
+        },
+        "examples": []
+      }
+    },
+    "preverb_config": {
+      "has_multiple_preverbs": false,
+      "default_preverb": "გა",
+      "available_preverbs": [
+        "გა"
+      ]
+    },
+    "preverb_rules": {
+      "default": "",
+      "replacements": {},
+      "tense_specific_fallbacks": {}
+    }
+  },
+  "generated_data": {
+    "examples": {
+      "default": {
+        "present": [
+          {
+            "georgian": "ვიღვიძებ პატარა ბავშვს",
+            "georgian_components": {
+              "verb": {
+                "text": "ვიღვიძებ",
+                "role": "verb"
+              },
+              "direct_object": {
+                "text": "პატარა ბავშვს",
+                "case": "dat",
+                "role": "direct_object"
+              }
+            },
+            "english": "I wake up the small baby",
+            "english_components": {
+              "subject": {
+                "text": "I",
+                "role": "subject",
+                "person": "1sg"
+              },
+              "verb": {
+                "text": "wake",
+                "role": "verb"
+              },
+              "direct_object": {
+                "text": "up the small baby",
+                "role": "direct_object"
+              }
+            },
+            "georgian_verb_form": "ვიღვიძებ",
+            "person": "1sg",
+            "effective_preverb": "გა"
+          },
+          {
+            "georgian": "აქტიური ბავშვი იღვიძებს მძინარე სტუდენტს",
+            "georgian_components": {
+              "subject": {
+                "text": "აქტიური ბავშვი",
+                "case": "nom",
+                "role": "subject"
+              },
+              "verb": {
+                "text": "იღვიძებს",
+                "role": "verb"
+              },
+              "direct_object": {
+                "text": "მძინარე სტუდენტს",
+                "case": "dat",
+                "role": "direct_object"
+              }
+            },
+            "english": "The active child wakes up the sleepy student",
+            "english_components": {
+              "subject": {
+                "text": "The active child",
+                "role": "subject",
+                "person": "3sg"
+              },
+              "verb": {
+                "text": "wakes",
+                "role": "verb"
+              },
+              "direct_object": {
+                "text": "up the sleepy student",
+                "role": "direct_object"
+              }
+            },
+            "georgian_verb_form": "იღვიძებს",
+            "person": "3sg",
+            "effective_preverb": "გა"
+          },
+          {
+            "georgian": "მამაცი ბავშვები იღვიძებენ დაღლილ მშობელს",
+            "georgian_components": {
+              "subject": {
+                "text": "მამაცი ბავშვები",
+                "case": "nom",
+                "role": "subject"
+              },
+              "verb": {
+                "text": "იღვიძებენ",
+                "role": "verb"
+              },
+              "direct_object": {
+                "text": "დაღლილ მშობელს",
+                "case": "dat",
+                "role": "direct_object"
+              }
+            },
+            "english": "The brave children wake up the tired parent",
+            "english_components": {
+              "subject": {
+                "text": "The brave children",
+                "role": "subject",
+                "person": "3pl"
+              },
+              "verb": {
+                "text": "wake",
+                "role": "verb"
+              },
+              "direct_object": {
+                "text": "up the tired parent",
+                "role": "direct_object"
+              }
+            },
+            "georgian_verb_form": "იღვიძებენ",
+            "person": "3pl",
+            "effective_preverb": "გა"
+          }
+        ],
+        "imperfect": [
+          {
+            "georgian": "ვიღვიძებდი პატარა ბავშვს",
+            "georgian_components": {
+              "verb": {
+                "text": "ვიღვიძებდი",
+                "role": "verb"
+              },
+              "direct_object": {
+                "text": "პატარა ბავშვს",
+                "case": "dat",
+                "role": "direct_object"
+              }
+            },
+            "english": "I was waking up the small baby",
+            "english_components": {
+              "subject": {
+                "text": "I",
+                "role": "subject",
+                "person": "1sg"
+              },
+              "verb": {
+                "text": "was waking",
+                "role": "verb"
+              },
+              "direct_object": {
+                "text": "up the small baby",
+                "role": "direct_object"
+              }
+            },
+            "georgian_verb_form": "ვიღვიძებდი",
+            "person": "1sg",
+            "effective_preverb": "გა"
+          },
+          {
+            "georgian": "აქტიური ბავშვი იღვიძებდა მძინარე სტუდენტს",
+            "georgian_components": {
+              "subject": {
+                "text": "აქტიური ბავშვი",
+                "case": "nom",
+                "role": "subject"
+              },
+              "verb": {
+                "text": "იღვიძებდა",
+                "role": "verb"
+              },
+              "direct_object": {
+                "text": "მძინარე სტუდენტს",
+                "case": "dat",
+                "role": "direct_object"
+              }
+            },
+            "english": "The active child was waking up the sleepy student",
+            "english_components": {
+              "subject": {
+                "text": "The active child",
+                "role": "subject",
+                "person": "3sg"
+              },
+              "verb": {
+                "text": "was waking",
+                "role": "verb"
+              },
+              "direct_object": {
+                "text": "up the sleepy student",
+                "role": "direct_object"
+              }
+            },
+            "georgian_verb_form": "იღვიძებდა",
+            "person": "3sg",
+            "effective_preverb": "გა"
+          },
+          {
+            "georgian": "მამაცი ბავშვები იღვიძებდნენ დაღლილ მშობელს",
+            "georgian_components": {
+              "subject": {
+                "text": "მამაცი ბავშვები",
+                "case": "nom",
+                "role": "subject"
+              },
+              "verb": {
+                "text": "იღვიძებდნენ",
+                "role": "verb"
+              },
+              "direct_object": {
+                "text": "დაღლილ მშობელს",
+                "case": "dat",
+                "role": "direct_object"
+              }
+            },
+            "english": "The brave children were waking up the tired parent",
+            "english_components": {
+              "subject": {
+                "text": "The brave children",
+                "role": "subject",
+                "person": "3pl"
+              },
+              "verb": {
+                "text": "were waking",
+                "role": "verb"
+              },
+              "direct_object": {
+                "text": "up the tired parent",
+                "role": "direct_object"
+              }
+            },
+            "georgian_verb_form": "იღვიძებდნენ",
+            "person": "3pl",
+            "effective_preverb": "გა"
+          }
+        ],
+        "future": [
+          {
+            "georgian": "გავიღვიძებ პატარა ბავშვს",
+            "georgian_components": {
+              "verb": {
+                "text": "გავიღვიძებ",
+                "role": "verb"
+              },
+              "direct_object": {
+                "text": "პატარა ბავშვს",
+                "case": "dat",
+                "role": "direct_object"
+              }
+            },
+            "english": "I will wake up the small baby",
+            "english_components": {
+              "subject": {
+                "text": "I",
+                "role": "subject",
+                "person": "1sg"
+              },
+              "verb": {
+                "text": "will wake",
+                "role": "verb"
+              },
+              "direct_object": {
+                "text": "up the small baby",
+                "role": "direct_object"
+              }
+            },
+            "georgian_verb_form": "გავიღვიძებ",
+            "person": "1sg",
+            "effective_preverb": "გა"
+          },
+          {
+            "georgian": "აქტიური ბავშვი გაიღვიძებს მძინარე სტუდენტს",
+            "georgian_components": {
+              "subject": {
+                "text": "აქტიური ბავშვი",
+                "case": "nom",
+                "role": "subject"
+              },
+              "verb": {
+                "text": "გაიღვიძებს",
+                "role": "verb"
+              },
+              "direct_object": {
+                "text": "მძინარე სტუდენტს",
+                "case": "dat",
+                "role": "direct_object"
+              }
+            },
+            "english": "The active child will wake up the sleepy student",
+            "english_components": {
+              "subject": {
+                "text": "The active child",
+                "role": "subject",
+                "person": "3sg"
+              },
+              "verb": {
+                "text": "will wake",
+                "role": "verb"
+              },
+              "direct_object": {
+                "text": "up the sleepy student",
+                "role": "direct_object"
+              }
+            },
+            "georgian_verb_form": "გაიღვიძებს",
+            "person": "3sg",
+            "effective_preverb": "გა"
+          },
+          {
+            "georgian": "მამაცი ბავშვები გაიღვიძებენ დაღლილ მშობელს",
+            "georgian_components": {
+              "subject": {
+                "text": "მამაცი ბავშვები",
+                "case": "nom",
+                "role": "subject"
+              },
+              "verb": {
+                "text": "გაიღვიძებენ",
+                "role": "verb"
+              },
+              "direct_object": {
+                "text": "დაღლილ მშობელს",
+                "case": "dat",
+                "role": "direct_object"
+              }
+            },
+            "english": "The brave children will wake up the tired parent",
+            "english_components": {
+              "subject": {
+                "text": "The brave children",
+                "role": "subject",
+                "person": "3pl"
+              },
+              "verb": {
+                "text": "will wake",
+                "role": "verb"
+              },
+              "direct_object": {
+                "text": "up the tired parent",
+                "role": "direct_object"
+              }
+            },
+            "georgian_verb_form": "გაიღვიძებენ",
+            "person": "3pl",
+            "effective_preverb": "გა"
+          }
+        ],
+        "aorist": [
+          {
+            "georgian": "გავიღვიძე პატარა ბავშვი",
+            "georgian_components": {
+              "verb": {
+                "text": "გავიღვიძე",
+                "role": "verb"
+              },
+              "direct_object": {
+                "text": "პატარა ბავშვი",
+                "case": "nom",
+                "role": "direct_object"
+              }
+            },
+            "english": "I woke up the small baby",
+            "english_components": {
+              "subject": {
+                "text": "I",
+                "role": "subject",
+                "person": "1sg"
+              },
+              "verb": {
+                "text": "woke",
+                "role": "verb"
+              },
+              "direct_object": {
+                "text": "up the small baby",
+                "role": "direct_object"
+              }
+            },
+            "georgian_verb_form": "გავიღვიძე",
+            "person": "1sg",
+            "effective_preverb": "გა"
+          },
+          {
+            "georgian": "აქტიურმა ბავშვმა გაიღვიძა მძინარე სტუდენტი",
+            "georgian_components": {
+              "subject": {
+                "text": "აქტიურმა ბავშვმა",
+                "case": "erg",
+                "role": "subject"
+              },
+              "verb": {
+                "text": "გაიღვიძა",
+                "role": "verb"
+              },
+              "direct_object": {
+                "text": "მძინარე სტუდენტი",
+                "case": "nom",
+                "role": "direct_object"
+              }
+            },
+            "english": "The active child woke up the sleepy student",
+            "english_components": {
+              "subject": {
+                "text": "The active child",
+                "role": "subject",
+                "person": "3sg"
+              },
+              "verb": {
+                "text": "woke",
+                "role": "verb"
+              },
+              "direct_object": {
+                "text": "up the sleepy student",
+                "role": "direct_object"
+              }
+            },
+            "georgian_verb_form": "გაიღვიძა",
+            "person": "3sg",
+            "effective_preverb": "გა"
+          },
+          {
+            "georgian": "მამაცმა ბავშვებმა გაიღვიძეს დაღლილი მშობელი",
+            "georgian_components": {
+              "subject": {
+                "text": "მამაცმა ბავშვებმა",
+                "case": "erg",
+                "role": "subject"
+              },
+              "verb": {
+                "text": "გაიღვიძეს",
+                "role": "verb"
+              },
+              "direct_object": {
+                "text": "დაღლილი მშობელი",
+                "case": "nom",
+                "role": "direct_object"
+              }
+            },
+            "english": "The brave children woke up the tired parent",
+            "english_components": {
+              "subject": {
+                "text": "The brave children",
+                "role": "subject",
+                "person": "3pl"
+              },
+              "verb": {
+                "text": "woke",
+                "role": "verb"
+              },
+              "direct_object": {
+                "text": "up the tired parent",
+                "role": "direct_object"
+              }
+            },
+            "georgian_verb_form": "გაიღვიძეს",
+            "person": "3pl",
+            "effective_preverb": "გა"
+          }
+        ],
+        "optative": [
+          {
+            "georgian": "უნდა გავიღვიძო პატარა ბავშვი",
+            "georgian_components": {
+              "verb": {
+                "text": "უნდა გავიღვიძო",
+                "role": "verb"
+              },
+              "direct_object": {
+                "text": "პატარა ბავშვი",
+                "case": "nom",
+                "role": "direct_object"
+              }
+            },
+            "english": "I should wake up the small baby",
+            "english_components": {
+              "subject": {
+                "text": "I",
+                "role": "subject",
+                "person": "1sg"
+              },
+              "verb": {
+                "text": "should wake",
+                "role": "verb"
+              },
+              "direct_object": {
+                "text": "up the small baby",
+                "role": "direct_object"
+              }
+            },
+            "georgian_verb_form": "გავიღვიძო",
+            "person": "1sg",
+            "effective_preverb": "გა"
+          },
+          {
+            "georgian": "აქტიურმა ბავშვმა უნდა გაიღვიძოს მძინარე სტუდენტი",
+            "georgian_components": {
+              "subject": {
+                "text": "აქტიურმა ბავშვმა",
+                "case": "erg",
+                "role": "subject"
+              },
+              "verb": {
+                "text": "უნდა გაიღვიძოს",
+                "role": "verb"
+              },
+              "direct_object": {
+                "text": "მძინარე სტუდენტი",
+                "case": "nom",
+                "role": "direct_object"
+              }
+            },
+            "english": "The active child should wake up the sleepy student",
+            "english_components": {
+              "subject": {
+                "text": "The active child",
+                "role": "subject",
+                "person": "3sg"
+              },
+              "verb": {
+                "text": "should wake",
+                "role": "verb"
+              },
+              "direct_object": {
+                "text": "up the sleepy student",
+                "role": "direct_object"
+              }
+            },
+            "georgian_verb_form": "გაიღვიძოს",
+            "person": "3sg",
+            "effective_preverb": "გა"
+          },
+          {
+            "georgian": "მამაცმა ბავშვებმა უნდა გაიღვიძონ დაღლილი მშობელი",
+            "georgian_components": {
+              "subject": {
+                "text": "მამაცმა ბავშვებმა",
+                "case": "erg",
+                "role": "subject"
+              },
+              "verb": {
+                "text": "უნდა გაიღვიძონ",
+                "role": "verb"
+              },
+              "direct_object": {
+                "text": "დაღლილი მშობელი",
+                "case": "nom",
+                "role": "direct_object"
+              }
+            },
+            "english": "The brave children should wake up the tired parent",
+            "english_components": {
+              "subject": {
+                "text": "The brave children",
+                "role": "subject",
+                "person": "3pl"
+              },
+              "verb": {
+                "text": "should wake",
+                "role": "verb"
+              },
+              "direct_object": {
+                "text": "up the tired parent",
+                "role": "direct_object"
+              }
+            },
+            "georgian_verb_form": "გაიღვიძონ",
+            "person": "3pl",
+            "effective_preverb": "გა"
+          }
+        ],
+        "imperative": [
+          {
+            "georgian": "გაიღვიძე ახალგაზრდა ბავშვი",
+            "georgian_components": {
+              "verb": {
+                "text": "გაიღვიძე",
+                "role": "verb"
+              },
+              "direct_object": {
+                "text": "ახალგაზრდა ბავშვი",
+                "case": "nom",
+                "role": "direct_object"
+              }
+            },
+            "english": "You, wake up the young child",
+            "english_components": {
+              "subject": {
+                "text": "You,",
+                "role": "subject",
+                "person": "2sg"
+              },
+              "verb": {
+                "text": "wake",
+                "role": "verb"
+              },
+              "direct_object": {
+                "text": "up the young child",
+                "role": "direct_object"
+              }
+            },
+            "georgian_verb_form": "გაიღვიძე",
+            "person": "2sg",
+            "effective_preverb": "გა"
+          },
+          {
+            "georgian": "გაიღვიძეთ ახალი სტუმარი",
+            "georgian_components": {
+              "verb": {
+                "text": "გაიღვიძეთ",
+                "role": "verb"
+              },
+              "direct_object": {
+                "text": "ახალი სტუმარი",
+                "case": "nom",
+                "role": "direct_object"
+              }
+            },
+            "english": "You all (you formal), wake up the new guest",
+            "english_components": {
+              "subject": {
+                "text": "You all (you formal),",
+                "role": "subject",
+                "person": "2pl"
+              },
+              "verb": {
+                "text": "wake",
+                "role": "verb"
+              },
+              "direct_object": {
+                "text": "up the new guest",
+                "role": "direct_object"
+              }
+            },
+            "georgian_verb_form": "გაიღვიძეთ",
+            "person": "2pl",
+            "effective_preverb": "გა"
+          }
+        ]
+      }
+    },
+    "gloss_analysis": {
+      "present": {
+        "raw_gloss": "V Act Pres SV <S-DO> <S:Nom> <DO:Dat>",
+        "structured_gloss": {
+          "raw_components": [
+            {
+              "text": "V",
+              "component_type": "verb",
+              "color_class": "gloss-verb",
+              "description": "Verb"
+            },
+            {
+              "text": "Act",
+              "component_type": "voice",
+              "color_class": "gloss-default",
+              "description": "Active"
+            },
+            {
+              "text": "Pres",
+              "component_type": "tense",
+              "color_class": "gloss-tense",
+              "description": "Present"
+            },
+            {
+              "text": "SV",
+              "component_type": "unknown",
+              "color_class": "gloss-default",
+              "description": "Subjective Version"
+            },
+            {
+              "type": "argument_pattern_group",
+              "original_text": "<S-DO>",
+              "description": "Transitive absolute",
+              "components": [
+                {
+                  "text": "<",
+                  "component_type": "punctuation",
+                  "color_class": "gloss-default",
+                  "description": ""
+                },
+                {
+                  "text": "S",
+                  "component_type": "argument",
+                  "color_class": "gloss-subject",
+                  "description": ""
+                },
+                {
+                  "text": "-",
+                  "component_type": "punctuation",
+                  "color_class": "gloss-default",
+                  "description": ""
+                },
+                {
+                  "text": "DO",
+                  "component_type": "argument",
+                  "color_class": "gloss-direct-object",
+                  "description": ""
+                },
+                {
+                  "text": ">",
+                  "component_type": "punctuation",
+                  "color_class": "gloss-default",
+                  "description": ""
+                }
+              ]
+            },
+            {
+              "text": "<S:Nom>",
+              "component_type": "case_spec",
+              "color_class": "gloss-subject",
+              "description": "Nominative subject"
+            },
+            {
+              "text": "<DO:Dat>",
+              "component_type": "case_spec",
+              "color_class": "gloss-direct-object",
+              "description": "Dative direct object"
+            }
+          ],
+          "expanded_components": [
+            {
+              "text": "V",
+              "component_type": "verb",
+              "color_class": "gloss-verb",
+              "description": "Verb"
+            },
+            {
+              "text": "Act",
+              "component_type": "voice",
+              "color_class": "gloss-default",
+              "description": "Active"
+            },
+            {
+              "text": "Pres",
+              "component_type": "tense",
+              "color_class": "gloss-tense",
+              "description": "Present"
+            },
+            {
+              "text": "SV",
+              "component_type": "unknown",
+              "color_class": "gloss-default",
+              "description": "Subjective Version"
+            },
+            {
+              "type": "argument_pattern_group",
+              "original_text": "<S-DO>",
+              "description": "Transitive absolute",
+              "components": [
+                {
+                  "text": "<",
+                  "component_type": "punctuation",
+                  "color_class": "gloss-default",
+                  "description": ""
+                },
+                {
+                  "text": "S",
+                  "component_type": "argument",
+                  "color_class": "gloss-subject",
+                  "description": ""
+                },
+                {
+                  "text": "-",
+                  "component_type": "punctuation",
+                  "color_class": "gloss-default",
+                  "description": ""
+                },
+                {
+                  "text": "DO",
+                  "component_type": "argument",
+                  "color_class": "gloss-direct-object",
+                  "description": ""
+                },
+                {
+                  "text": ">",
+                  "component_type": "punctuation",
+                  "color_class": "gloss-default",
+                  "description": ""
+                }
+              ]
+            },
+            {
+              "text": "<S:Nom>",
+              "component_type": "case_spec",
+              "color_class": "gloss-subject",
+              "description": "Nominative subject"
+            },
+            {
+              "text": "<DO:Dat>",
+              "component_type": "case_spec",
+              "color_class": "gloss-direct-object",
+              "description": "Dative direct object"
+            }
+          ],
+          "argument_pattern": "<S-DO>",
+          "case_specifications": [
+            "<S:Nom>",
+            "<DO:Dat>"
+          ]
+        }
+      },
+      "imperfect": {
+        "raw_gloss": "V Act Impf SV <S-DO> <S:Nom> <DO:Dat>",
+        "structured_gloss": {
+          "raw_components": [
+            {
+              "text": "V",
+              "component_type": "verb",
+              "color_class": "gloss-verb",
+              "description": "Verb"
+            },
+            {
+              "text": "Act",
+              "component_type": "voice",
+              "color_class": "gloss-default",
+              "description": "Active"
+            },
+            {
+              "text": "Impf",
+              "component_type": "tense",
+              "color_class": "gloss-tense",
+              "description": "Imperfect"
+            },
+            {
+              "text": "SV",
+              "component_type": "unknown",
+              "color_class": "gloss-default",
+              "description": "Subjective Version"
+            },
+            {
+              "type": "argument_pattern_group",
+              "original_text": "<S-DO>",
+              "description": "Transitive absolute",
+              "components": [
+                {
+                  "text": "<",
+                  "component_type": "punctuation",
+                  "color_class": "gloss-default",
+                  "description": ""
+                },
+                {
+                  "text": "S",
+                  "component_type": "argument",
+                  "color_class": "gloss-subject",
+                  "description": ""
+                },
+                {
+                  "text": "-",
+                  "component_type": "punctuation",
+                  "color_class": "gloss-default",
+                  "description": ""
+                },
+                {
+                  "text": "DO",
+                  "component_type": "argument",
+                  "color_class": "gloss-direct-object",
+                  "description": ""
+                },
+                {
+                  "text": ">",
+                  "component_type": "punctuation",
+                  "color_class": "gloss-default",
+                  "description": ""
+                }
+              ]
+            },
+            {
+              "text": "<S:Nom>",
+              "component_type": "case_spec",
+              "color_class": "gloss-subject",
+              "description": "Nominative subject"
+            },
+            {
+              "text": "<DO:Dat>",
+              "component_type": "case_spec",
+              "color_class": "gloss-direct-object",
+              "description": "Dative direct object"
+            }
+          ],
+          "expanded_components": [
+            {
+              "text": "V",
+              "component_type": "verb",
+              "color_class": "gloss-verb",
+              "description": "Verb"
+            },
+            {
+              "text": "Act",
+              "component_type": "voice",
+              "color_class": "gloss-default",
+              "description": "Active"
+            },
+            {
+              "text": "Impf",
+              "component_type": "tense",
+              "color_class": "gloss-tense",
+              "description": "Imperfect"
+            },
+            {
+              "text": "SV",
+              "component_type": "unknown",
+              "color_class": "gloss-default",
+              "description": "Subjective Version"
+            },
+            {
+              "type": "argument_pattern_group",
+              "original_text": "<S-DO>",
+              "description": "Transitive absolute",
+              "components": [
+                {
+                  "text": "<",
+                  "component_type": "punctuation",
+                  "color_class": "gloss-default",
+                  "description": ""
+                },
+                {
+                  "text": "S",
+                  "component_type": "argument",
+                  "color_class": "gloss-subject",
+                  "description": ""
+                },
+                {
+                  "text": "-",
+                  "component_type": "punctuation",
+                  "color_class": "gloss-default",
+                  "description": ""
+                },
+                {
+                  "text": "DO",
+                  "component_type": "argument",
+                  "color_class": "gloss-direct-object",
+                  "description": ""
+                },
+                {
+                  "text": ">",
+                  "component_type": "punctuation",
+                  "color_class": "gloss-default",
+                  "description": ""
+                }
+              ]
+            },
+            {
+              "text": "<S:Nom>",
+              "component_type": "case_spec",
+              "color_class": "gloss-subject",
+              "description": "Nominative subject"
+            },
+            {
+              "text": "<DO:Dat>",
+              "component_type": "case_spec",
+              "color_class": "gloss-direct-object",
+              "description": "Dative direct object"
+            }
+          ],
+          "argument_pattern": "<S-DO>",
+          "case_specifications": [
+            "<S:Nom>",
+            "<DO:Dat>"
+          ]
+        }
+      },
+      "future": {
+        "raw_gloss": "V Act Fut Pv SV <S-DO> <S:Nom> <DO:Dat>",
+        "structured_gloss": {
+          "raw_components": [
+            {
+              "text": "V",
+              "component_type": "verb",
+              "color_class": "gloss-verb",
+              "description": "Verb"
+            },
+            {
+              "text": "Act",
+              "component_type": "voice",
+              "color_class": "gloss-default",
+              "description": "Active"
+            },
+            {
+              "text": "Fut",
+              "component_type": "tense",
+              "color_class": "gloss-tense",
+              "description": "Future"
+            },
+            {
+              "text": "Pv",
+              "component_type": "preverb",
+              "color_class": "gloss-default",
+              "description": "გა"
+            },
+            {
+              "text": "SV",
+              "component_type": "unknown",
+              "color_class": "gloss-default",
+              "description": "Subjective Version"
+            },
+            {
+              "type": "argument_pattern_group",
+              "original_text": "<S-DO>",
+              "description": "Transitive absolute",
+              "components": [
+                {
+                  "text": "<",
+                  "component_type": "punctuation",
+                  "color_class": "gloss-default",
+                  "description": ""
+                },
+                {
+                  "text": "S",
+                  "component_type": "argument",
+                  "color_class": "gloss-subject",
+                  "description": ""
+                },
+                {
+                  "text": "-",
+                  "component_type": "punctuation",
+                  "color_class": "gloss-default",
+                  "description": ""
+                },
+                {
+                  "text": "DO",
+                  "component_type": "argument",
+                  "color_class": "gloss-direct-object",
+                  "description": ""
+                },
+                {
+                  "text": ">",
+                  "component_type": "punctuation",
+                  "color_class": "gloss-default",
+                  "description": ""
+                }
+              ]
+            },
+            {
+              "text": "<S:Nom>",
+              "component_type": "case_spec",
+              "color_class": "gloss-subject",
+              "description": "Nominative subject"
+            },
+            {
+              "text": "<DO:Dat>",
+              "component_type": "case_spec",
+              "color_class": "gloss-direct-object",
+              "description": "Dative direct object"
+            }
+          ],
+          "expanded_components": [
+            {
+              "text": "V",
+              "component_type": "verb",
+              "color_class": "gloss-verb",
+              "description": "Verb"
+            },
+            {
+              "text": "Act",
+              "component_type": "voice",
+              "color_class": "gloss-default",
+              "description": "Active"
+            },
+            {
+              "text": "Fut",
+              "component_type": "tense",
+              "color_class": "gloss-tense",
+              "description": "Future"
+            },
+            {
+              "text": "Pv",
+              "component_type": "preverb",
+              "color_class": "gloss-default",
+              "description": "გა"
+            },
+            {
+              "text": "SV",
+              "component_type": "unknown",
+              "color_class": "gloss-default",
+              "description": "Subjective Version"
+            },
+            {
+              "type": "argument_pattern_group",
+              "original_text": "<S-DO>",
+              "description": "Transitive absolute",
+              "components": [
+                {
+                  "text": "<",
+                  "component_type": "punctuation",
+                  "color_class": "gloss-default",
+                  "description": ""
+                },
+                {
+                  "text": "S",
+                  "component_type": "argument",
+                  "color_class": "gloss-subject",
+                  "description": ""
+                },
+                {
+                  "text": "-",
+                  "component_type": "punctuation",
+                  "color_class": "gloss-default",
+                  "description": ""
+                },
+                {
+                  "text": "DO",
+                  "component_type": "argument",
+                  "color_class": "gloss-direct-object",
+                  "description": ""
+                },
+                {
+                  "text": ">",
+                  "component_type": "punctuation",
+                  "color_class": "gloss-default",
+                  "description": ""
+                }
+              ]
+            },
+            {
+              "text": "<S:Nom>",
+              "component_type": "case_spec",
+              "color_class": "gloss-subject",
+              "description": "Nominative subject"
+            },
+            {
+              "text": "<DO:Dat>",
+              "component_type": "case_spec",
+              "color_class": "gloss-direct-object",
+              "description": "Dative direct object"
+            }
+          ],
+          "argument_pattern": "<S-DO>",
+          "case_specifications": [
+            "<S:Nom>",
+            "<DO:Dat>"
+          ]
+        }
+      },
+      "aorist": {
+        "raw_gloss": "V Act Aor Pv SV <S-DO> <S:Erg> <DO:Nom>",
+        "structured_gloss": {
+          "raw_components": [
+            {
+              "text": "V",
+              "component_type": "verb",
+              "color_class": "gloss-verb",
+              "description": "Verb"
+            },
+            {
+              "text": "Act",
+              "component_type": "voice",
+              "color_class": "gloss-default",
+              "description": "Active"
+            },
+            {
+              "text": "Aor",
+              "component_type": "tense",
+              "color_class": "gloss-tense",
+              "description": "Aorist"
+            },
+            {
+              "text": "Pv",
+              "component_type": "preverb",
+              "color_class": "gloss-default",
+              "description": "გა"
+            },
+            {
+              "text": "SV",
+              "component_type": "unknown",
+              "color_class": "gloss-default",
+              "description": "Subjective Version"
+            },
+            {
+              "type": "argument_pattern_group",
+              "original_text": "<S-DO>",
+              "description": "Transitive absolute",
+              "components": [
+                {
+                  "text": "<",
+                  "component_type": "punctuation",
+                  "color_class": "gloss-default",
+                  "description": ""
+                },
+                {
+                  "text": "S",
+                  "component_type": "argument",
+                  "color_class": "gloss-subject",
+                  "description": ""
+                },
+                {
+                  "text": "-",
+                  "component_type": "punctuation",
+                  "color_class": "gloss-default",
+                  "description": ""
+                },
+                {
+                  "text": "DO",
+                  "component_type": "argument",
+                  "color_class": "gloss-direct-object",
+                  "description": ""
+                },
+                {
+                  "text": ">",
+                  "component_type": "punctuation",
+                  "color_class": "gloss-default",
+                  "description": ""
+                }
+              ]
+            },
+            {
+              "text": "<S:Erg>",
+              "component_type": "case_spec",
+              "color_class": "gloss-subject",
+              "description": "Ergative subject"
+            },
+            {
+              "text": "<DO:Nom>",
+              "component_type": "case_spec",
+              "color_class": "gloss-direct-object",
+              "description": "Nominative direct object"
+            }
+          ],
+          "expanded_components": [
+            {
+              "text": "V",
+              "component_type": "verb",
+              "color_class": "gloss-verb",
+              "description": "Verb"
+            },
+            {
+              "text": "Act",
+              "component_type": "voice",
+              "color_class": "gloss-default",
+              "description": "Active"
+            },
+            {
+              "text": "Aor",
+              "component_type": "tense",
+              "color_class": "gloss-tense",
+              "description": "Aorist"
+            },
+            {
+              "text": "Pv",
+              "component_type": "preverb",
+              "color_class": "gloss-default",
+              "description": "გა"
+            },
+            {
+              "text": "SV",
+              "component_type": "unknown",
+              "color_class": "gloss-default",
+              "description": "Subjective Version"
+            },
+            {
+              "type": "argument_pattern_group",
+              "original_text": "<S-DO>",
+              "description": "Transitive absolute",
+              "components": [
+                {
+                  "text": "<",
+                  "component_type": "punctuation",
+                  "color_class": "gloss-default",
+                  "description": ""
+                },
+                {
+                  "text": "S",
+                  "component_type": "argument",
+                  "color_class": "gloss-subject",
+                  "description": ""
+                },
+                {
+                  "text": "-",
+                  "component_type": "punctuation",
+                  "color_class": "gloss-default",
+                  "description": ""
+                },
+                {
+                  "text": "DO",
+                  "component_type": "argument",
+                  "color_class": "gloss-direct-object",
+                  "description": ""
+                },
+                {
+                  "text": ">",
+                  "component_type": "punctuation",
+                  "color_class": "gloss-default",
+                  "description": ""
+                }
+              ]
+            },
+            {
+              "text": "<S:Erg>",
+              "component_type": "case_spec",
+              "color_class": "gloss-subject",
+              "description": "Ergative subject"
+            },
+            {
+              "text": "<DO:Nom>",
+              "component_type": "case_spec",
+              "color_class": "gloss-direct-object",
+              "description": "Nominative direct object"
+            }
+          ],
+          "argument_pattern": "<S-DO>",
+          "case_specifications": [
+            "<S:Erg>",
+            "<DO:Nom>"
+          ]
+        }
+      },
+      "optative": {
+        "raw_gloss": "V Act Opt Pv SV <S-DO> <S:Erg> <DO:Nom>",
+        "structured_gloss": {
+          "raw_components": [
+            {
+              "text": "V",
+              "component_type": "verb",
+              "color_class": "gloss-verb",
+              "description": "Verb"
+            },
+            {
+              "text": "Act",
+              "component_type": "voice",
+              "color_class": "gloss-default",
+              "description": "Active"
+            },
+            {
+              "text": "Opt",
+              "component_type": "tense",
+              "color_class": "gloss-tense",
+              "description": "Optative"
+            },
+            {
+              "text": "Pv",
+              "component_type": "preverb",
+              "color_class": "gloss-default",
+              "description": "გა"
+            },
+            {
+              "text": "SV",
+              "component_type": "unknown",
+              "color_class": "gloss-default",
+              "description": "Subjective Version"
+            },
+            {
+              "type": "argument_pattern_group",
+              "original_text": "<S-DO>",
+              "description": "Transitive absolute",
+              "components": [
+                {
+                  "text": "<",
+                  "component_type": "punctuation",
+                  "color_class": "gloss-default",
+                  "description": ""
+                },
+                {
+                  "text": "S",
+                  "component_type": "argument",
+                  "color_class": "gloss-subject",
+                  "description": ""
+                },
+                {
+                  "text": "-",
+                  "component_type": "punctuation",
+                  "color_class": "gloss-default",
+                  "description": ""
+                },
+                {
+                  "text": "DO",
+                  "component_type": "argument",
+                  "color_class": "gloss-direct-object",
+                  "description": ""
+                },
+                {
+                  "text": ">",
+                  "component_type": "punctuation",
+                  "color_class": "gloss-default",
+                  "description": ""
+                }
+              ]
+            },
+            {
+              "text": "<S:Erg>",
+              "component_type": "case_spec",
+              "color_class": "gloss-subject",
+              "description": "Ergative subject"
+            },
+            {
+              "text": "<DO:Nom>",
+              "component_type": "case_spec",
+              "color_class": "gloss-direct-object",
+              "description": "Nominative direct object"
+            }
+          ],
+          "expanded_components": [
+            {
+              "text": "V",
+              "component_type": "verb",
+              "color_class": "gloss-verb",
+              "description": "Verb"
+            },
+            {
+              "text": "Act",
+              "component_type": "voice",
+              "color_class": "gloss-default",
+              "description": "Active"
+            },
+            {
+              "text": "Opt",
+              "component_type": "tense",
+              "color_class": "gloss-tense",
+              "description": "Optative"
+            },
+            {
+              "text": "Pv",
+              "component_type": "preverb",
+              "color_class": "gloss-default",
+              "description": "გა"
+            },
+            {
+              "text": "SV",
+              "component_type": "unknown",
+              "color_class": "gloss-default",
+              "description": "Subjective Version"
+            },
+            {
+              "type": "argument_pattern_group",
+              "original_text": "<S-DO>",
+              "description": "Transitive absolute",
+              "components": [
+                {
+                  "text": "<",
+                  "component_type": "punctuation",
+                  "color_class": "gloss-default",
+                  "description": ""
+                },
+                {
+                  "text": "S",
+                  "component_type": "argument",
+                  "color_class": "gloss-subject",
+                  "description": ""
+                },
+                {
+                  "text": "-",
+                  "component_type": "punctuation",
+                  "color_class": "gloss-default",
+                  "description": ""
+                },
+                {
+                  "text": "DO",
+                  "component_type": "argument",
+                  "color_class": "gloss-direct-object",
+                  "description": ""
+                },
+                {
+                  "text": ">",
+                  "component_type": "punctuation",
+                  "color_class": "gloss-default",
+                  "description": ""
+                }
+              ]
+            },
+            {
+              "text": "<S:Erg>",
+              "component_type": "case_spec",
+              "color_class": "gloss-subject",
+              "description": "Ergative subject"
+            },
+            {
+              "text": "<DO:Nom>",
+              "component_type": "case_spec",
+              "color_class": "gloss-direct-object",
+              "description": "Nominative direct object"
+            }
+          ],
+          "argument_pattern": "<S-DO>",
+          "case_specifications": [
+            "<S:Erg>",
+            "<DO:Nom>"
+          ]
+        }
+      },
+      "imperative": {
+        "raw_gloss": "V Act Impv SV Pv <S-DO> <S:Erg> <DO:Nom>",
+        "structured_gloss": {
+          "raw_components": [
+            {
+              "text": "V",
+              "component_type": "verb",
+              "color_class": "gloss-verb",
+              "description": "Verb"
+            },
+            {
+              "text": "Act",
+              "component_type": "voice",
+              "color_class": "gloss-default",
+              "description": "Active"
+            },
+            {
+              "text": "Impv",
+              "component_type": "tense",
+              "color_class": "gloss-tense",
+              "description": "Imperative"
+            },
+            {
+              "text": "SV",
+              "component_type": "unknown",
+              "color_class": "gloss-default",
+              "description": "Subjective Version"
+            },
+            {
+              "text": "Pv",
+              "component_type": "preverb",
+              "color_class": "gloss-default",
+              "description": "გა"
+            },
+            {
+              "type": "argument_pattern_group",
+              "original_text": "<S-DO>",
+              "description": "Transitive absolute",
+              "components": [
+                {
+                  "text": "<",
+                  "component_type": "punctuation",
+                  "color_class": "gloss-default",
+                  "description": ""
+                },
+                {
+                  "text": "S",
+                  "component_type": "argument",
+                  "color_class": "gloss-subject",
+                  "description": ""
+                },
+                {
+                  "text": "-",
+                  "component_type": "punctuation",
+                  "color_class": "gloss-default",
+                  "description": ""
+                },
+                {
+                  "text": "DO",
+                  "component_type": "argument",
+                  "color_class": "gloss-direct-object",
+                  "description": ""
+                },
+                {
+                  "text": ">",
+                  "component_type": "punctuation",
+                  "color_class": "gloss-default",
+                  "description": ""
+                }
+              ]
+            },
+            {
+              "text": "<S:Erg>",
+              "component_type": "case_spec",
+              "color_class": "gloss-subject",
+              "description": "Ergative subject"
+            },
+            {
+              "text": "<DO:Nom>",
+              "component_type": "case_spec",
+              "color_class": "gloss-direct-object",
+              "description": "Nominative direct object"
+            }
+          ],
+          "expanded_components": [
+            {
+              "text": "V",
+              "component_type": "verb",
+              "color_class": "gloss-verb",
+              "description": "Verb"
+            },
+            {
+              "text": "Act",
+              "component_type": "voice",
+              "color_class": "gloss-default",
+              "description": "Active"
+            },
+            {
+              "text": "Impv",
+              "component_type": "tense",
+              "color_class": "gloss-tense",
+              "description": "Imperative"
+            },
+            {
+              "text": "SV",
+              "component_type": "unknown",
+              "color_class": "gloss-default",
+              "description": "Subjective Version"
+            },
+            {
+              "text": "Pv",
+              "component_type": "preverb",
+              "color_class": "gloss-default",
+              "description": "გა"
+            },
+            {
+              "type": "argument_pattern_group",
+              "original_text": "<S-DO>",
+              "description": "Transitive absolute",
+              "components": [
+                {
+                  "text": "<",
+                  "component_type": "punctuation",
+                  "color_class": "gloss-default",
+                  "description": ""
+                },
+                {
+                  "text": "S",
+                  "component_type": "argument",
+                  "color_class": "gloss-subject",
+                  "description": ""
+                },
+                {
+                  "text": "-",
+                  "component_type": "punctuation",
+                  "color_class": "gloss-default",
+                  "description": ""
+                },
+                {
+                  "text": "DO",
+                  "component_type": "argument",
+                  "color_class": "gloss-direct-object",
+                  "description": ""
+                },
+                {
+                  "text": ">",
+                  "component_type": "punctuation",
+                  "color_class": "gloss-default",
+                  "description": ""
+                }
+              ]
+            },
+            {
+              "text": "<S:Erg>",
+              "component_type": "case_spec",
+              "color_class": "gloss-subject",
+              "description": "Ergative subject"
+            },
+            {
+              "text": "<DO:Nom>",
+              "component_type": "case_spec",
+              "color_class": "gloss-direct-object",
+              "description": "Nominative direct object"
+            }
+          ],
+          "argument_pattern": "<S-DO>",
+          "case_specifications": [
+            "<S:Erg>",
+            "<DO:Nom>"
+          ]
+        }
+      }
+    },
+    "preverb_forms": {}
+  }
+}

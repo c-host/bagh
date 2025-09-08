@@ -4,6 +4,7 @@
  */
 import { STORAGE_KEYS, ELEMENT_IDS } from '../shared/constants.js';
 import { storageManager } from '../shared/storage-manager.js';
+import { AnimationManager } from './animation-manager.js';
 
 
 /**
@@ -11,9 +12,12 @@ import { storageManager } from '../shared/storage-manager.js';
  * Manages sidebar functionality as implemented in original main.js
  */
 export class SidebarManager {
-    constructor(domManager) {
+    constructor(domManager, enhancedVerbLoader = null) {
         /** @type {Object} DOM Manager instance */
         this.domManager = domManager;
+
+        /** @type {Object} Enhanced Dynamic Verb Loader instance */
+        this.enhancedVerbLoader = enhancedVerbLoader;
 
         /** @type {Array} Table of contents items */
         this.allTocItems = [];
@@ -123,9 +127,9 @@ export class SidebarManager {
         };
 
         // Toggle sidebar
-        const toggleSidebar = () => {
+        const toggleSidebar = async () => {
             // Populate TOC first, then show sidebar to prevent flicker
-            this.populateTableOfContents();
+            await this.populateTableOfContents();
             sidebarModal.classList.add('active');
         };
 
@@ -316,12 +320,94 @@ export class SidebarManager {
     }
 
     /**
-     * Populate table of contents - matches original main.js implementation
+     * Populate table of contents using enhanced verb loader
      */
-    populateTableOfContents() {
+    async populateTableOfContents() {
         const tocContainer = this.getCachedElement('.toc-content-container', 'tocContainer');
         if (!tocContainer) return;
 
+        // Use enhanced verb loader if available
+        if (this.enhancedVerbLoader) {
+            await this.populateTocFromVerbLoader(tocContainer);
+            return;
+        }
+
+        // Fallback to original DOM parsing method
+        this.populateTocFromDOM(tocContainer);
+    }
+
+    /**
+     * Populate TOC from enhanced verb loader
+     */
+    async populateTocFromVerbLoader(tocContainer) {
+        try {
+            const verbIndex = this.enhancedVerbLoader.getVerbIndex();
+            if (!verbIndex || !verbIndex.verbs) {
+                console.error('No verb index available');
+                return;
+            }
+
+            // Clear existing content
+            tocContainer.innerHTML = '';
+            this.allTocItems = [];
+
+            // Generate TOC items from verb index
+            const tocHTML = verbIndex.verbs.map(verb => {
+                return `
+                    <div class="toc-item" data-verb-id="${verb.id}" data-semantic-key="${verb.semantic_key}">
+                        <div class="verb-georgian georgian-text">${verb.georgian}</div>
+                        <div class="verb-description">${verb.description}</div>
+                        <div class="verb-meta">
+                            <span class="verb-category">${verb.category}</span>
+                            <span class="verb-class">${verb.class}</span>
+                        </div>
+                    </div>
+                `;
+            }).join('');
+
+            tocContainer.innerHTML = tocHTML;
+
+            // Add click handlers
+            this.addTocClickHandlers();
+
+            console.log(`Populated TOC with ${verbIndex.verbs.length} verbs from verb loader`);
+        } catch (error) {
+            console.error('Error populating TOC from verb loader:', error);
+            tocContainer.innerHTML = '<div class="error">Error loading verb list</div>';
+        }
+    }
+
+    /**
+     * Add click handlers to TOC items
+     */
+    addTocClickHandlers() {
+        const tocItems = document.querySelectorAll('.toc-item');
+        tocItems.forEach(item => {
+            item.addEventListener('click', () => {
+                const verbId = item.getAttribute('data-verb-id');
+                if (this.enhancedVerbLoader && verbId) {
+                    // Remove active class from all items
+                    document.querySelectorAll('.toc-item').forEach(tocItem => {
+                        tocItem.classList.remove('active');
+                    });
+
+                    // Add active class to clicked item
+                    item.classList.add('active');
+
+                    // Load the verb and update URL
+                    this.enhancedVerbLoader.loadVerbWithURLUpdate(verbId);
+
+                    // Close sidebar
+                    this.closeSidebar();
+                }
+            });
+        });
+    }
+
+    /**
+     * Fallback method to populate TOC from DOM (original implementation)
+     */
+    populateTocFromDOM(tocContainer) {
         const verbSections = this.getCachedElement('.verb-section', 'verbSections', true);
         tocContainer.innerHTML = '';
         this.allTocItems = []; // Reset the array
@@ -412,10 +498,10 @@ export class SidebarManager {
                         // Close sidebar first
                         this.closeSidebar();
 
-                        // Navigate to verb after a brief delay
+                        // Navigate to verb after a brief delay for smooth sidebar close
                         setTimeout(() => {
                             this.navigateToVerbSection(verb.section, verb.section.id, verb.georgian);
-                        }, 100);
+                        }, 150);
                     } else {
                         console.error(`Verb "${verb.georgian}" not found`);
                     }
@@ -666,31 +752,36 @@ export class SidebarManager {
             return false;
         }
 
-        // Check if this is a multi-preverb verb and load data immediately if needed
-        if (verbSection.getAttribute('data-has-multiple-preverbs') === 'true') {
-            const verbId = verbSection.dataset.verbId;
-            if (verbId && window.verbDataManager) {
-                window.verbDataManager.loadVerbDataImmediately(verbId);
-            }
-        }
-
-        // Calculate proper offset accounting for sticky header
-        const stickyHeaderHeight = 80; // Adjust based on actual header height
-        const rect = verbSection.getBoundingClientRect();
-        const targetPosition = window.scrollY + rect.top - stickyHeaderHeight;
 
         // Update URL with primary verb
         if (window.updateURLWithAnchor) {
             window.updateURLWithAnchor(primaryVerb);
         }
 
-        // Navigate instantly
-        window.scrollTo({
-            top: targetPosition,
-            behavior: 'auto'
-        });
+        // Use the same smooth fade-in approach as URL anchor loading
+        this.smoothFadeInVerbSection(verbSection);
+
+        // Only load verb data for multi-preverb verbs that need it
+        if (verbSection.getAttribute('data-has-multiple-preverbs') === 'true') {
+            const verbId = verbSection.dataset.verbId;
+            if (verbId && this.enhancedVerbLoader) {
+                // Load data but don't let it override the smooth fade-in
+                this.enhancedVerbLoader.loadVerbDataImmediately(verbId);
+            }
+        }
 
         return true;
+    }
+
+    /**
+     * Smooth fade-in for verb section (same as URL anchor loading)
+     * @param {Element} verbSection - Verb section element to fade in
+     */
+    async smoothFadeInVerbSection(verbSection) {
+        // Use AnimationManager for consistent fade-in behavior
+        await AnimationManager.fadeInVerbSection(verbSection, {
+            context: 'Sidebar'
+        });
     }
 
     /**
@@ -716,7 +807,17 @@ export class SidebarManager {
         const hash = window.location.hash;
         if (hash && hash.startsWith('#')) {
             const primaryVerb = decodeURIComponent(hash.substring(1));
-            this.scrollToVerb(primaryVerb);
+            console.log(`[SIDEBAR] Handling URL anchor: ${primaryVerb}`);
+
+            // Check if verb exists in static content
+            const verbSection = document.getElementById(primaryVerb);
+            if (verbSection) {
+                console.log(`[SIDEBAR] Verb ${primaryVerb} found in static content, scrolling to it`);
+                this.scrollToVerb(primaryVerb);
+            } else {
+                console.log(`[SIDEBAR] Verb ${primaryVerb} not found in static content`);
+                // Verb not in static content - this will be handled by the main app's URL processing
+            }
         }
     }
 
@@ -752,9 +853,9 @@ export class SidebarManager {
     /**
      * Open sidebar
      */
-    openSidebar() {
+    async openSidebar() {
         if (this.elements.sidebarModal) {
-            this.populateTableOfContents();
+            await this.populateTableOfContents();
             this.elements.sidebarModal.classList.add('active');
         }
     }

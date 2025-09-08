@@ -1,0 +1,1669 @@
+{
+  "base_data": {
+    "id": 3,
+    "georgian": "გაგზავნა",
+    "description": "to send",
+    "category": "Movement & Transport",
+    "class": "Class-I",
+    "semantic_key": "send",
+    "notes": "",
+    "url": "https://lingua.ge/verbs/%e1%83%92%e1%83%90%e1%83%92%e1%83%96%e1%83%90%e1%83%95%e1%83%9c%e1%83%90/",
+    "global_argument_pattern": "<S-DO>",
+    "valency": {
+      "default": "<S-DO>",
+      "alternatives": []
+    },
+    "syntax": {
+      "arguments": {
+        "subject": {
+          "3sg": {
+            "noun": "mother",
+            "adjective": "loving"
+          },
+          "3pl": {
+            "noun": "friend",
+            "adjective": "good"
+          }
+        },
+        "direct_object": {
+          "1sg": {
+            "noun": "letter",
+            "adjective": "long"
+          },
+          "2sg": {
+            "noun": "package",
+            "adjective": "small"
+          },
+          "3sg": {
+            "noun": "gift",
+            "adjective": "special"
+          },
+          "1pl": {
+            "noun": "card",
+            "adjective": "beautiful"
+          },
+          "2pl": {
+            "noun": "message",
+            "adjective": "important"
+          },
+          "3pl": {
+            "noun": "book",
+            "adjective": "new"
+          }
+        }
+      },
+      "prepositions": {
+        "subject": "the",
+        "direct_object": "the",
+        "indirect_object": ""
+      },
+      "preverb_overrides": {}
+    },
+    "english_translations": {
+      "default": {
+        "present": "send",
+        "imperfect": "was sending",
+        "future": "will send",
+        "aorist": "sent",
+        "optative": "send",
+        "imperative": "send"
+      }
+    },
+    "conjugations": {
+      "present": {
+        "raw_gloss": "V Act Pres <S-DO> <S:Nom> <DO:Dat>",
+        "forms": {
+          "1sg": "ვგზავნი",
+          "1pl": "ვგზავნით",
+          "2sg": "გზავნი",
+          "2pl": "გზავნით",
+          "3sg": "გზავნის",
+          "3pl": "გზავნიან"
+        },
+        "examples": []
+      },
+      "imperfect": {
+        "raw_gloss": "V Act Impf <S-DO> <S:Nom> <DO:Dat>",
+        "forms": {
+          "1sg": "ვგზავნიდი",
+          "1pl": "ვგზავნიდით",
+          "2sg": "გზავნიდი",
+          "2pl": "გზავნიდით",
+          "3sg": "გზავნიდა",
+          "3pl": "გზავნიდნენ"
+        },
+        "examples": []
+      },
+      "future": {
+        "raw_gloss": "V Act Fut <S-DO> <S:Nom> <DO:Dat>",
+        "forms": {
+          "1sg": "გავგზავნი",
+          "1pl": "გავგზავნით",
+          "2sg": "გაგზავნი",
+          "2pl": "გაგზავნით",
+          "3sg": "გაგზავნის",
+          "3pl": "გაგზავნიან"
+        },
+        "examples": []
+      },
+      "aorist": {
+        "raw_gloss": "V Act Aor <S-DO> <S:Erg> <DO:Nom>",
+        "forms": {
+          "1sg": "გავგზავნე",
+          "1pl": "გავგზავნეთ",
+          "2sg": "გაგზავნე",
+          "2pl": "გაგზავნეთ",
+          "3sg": "გაგზავნა",
+          "3pl": "გაგზავნეს"
+        },
+        "examples": []
+      },
+      "optative": {
+        "raw_gloss": "V Act Opt <S-DO> <S:Erg> <DO:Nom>",
+        "forms": {
+          "1sg": "გავგზავნო",
+          "1pl": "გავგზავნოთ",
+          "2sg": "გაგზავნო",
+          "2pl": "გაგზავნოთ",
+          "3sg": "გაგზავნოს",
+          "3pl": "გაგზავნონ"
+        },
+        "examples": []
+      },
+      "imperative": {
+        "raw_gloss": "V Act Impv <S-DO> <S:Erg> <DO:Nom>",
+        "forms": {
+          "2sg": "გაგზავნე",
+          "2pl": "გაგზავნეთ"
+        },
+        "examples": []
+      }
+    },
+    "preverb_config": {
+      "has_multiple_preverbs": false,
+      "default_preverb": "",
+      "available_preverbs": []
+    },
+    "preverb_rules": {}
+  },
+  "generated_data": {
+    "examples": {
+      "default": {
+        "present": [
+          {
+            "georgian": "ვგზავნი გრძელ წერილს",
+            "georgian_components": {
+              "verb": {
+                "text": "ვგზავნი",
+                "role": "verb"
+              },
+              "direct_object": {
+                "text": "გრძელ წერილს",
+                "case": "dat",
+                "role": "direct_object"
+              }
+            },
+            "english": "I send the long letter",
+            "english_components": {
+              "subject": {
+                "text": "I",
+                "role": "subject",
+                "person": "1sg"
+              },
+              "verb": {
+                "text": "send",
+                "role": "verb"
+              },
+              "direct_object": {
+                "text": "the long letter",
+                "role": "direct_object"
+              }
+            },
+            "georgian_verb_form": "ვგზავნი",
+            "person": "1sg",
+            "effective_preverb": ""
+          },
+          {
+            "georgian": "მოსიყვარულე დედა გზავნის განსაკუთრებულ საჩუქარს",
+            "georgian_components": {
+              "subject": {
+                "text": "მოსიყვარულე დედა",
+                "case": "nom",
+                "role": "subject"
+              },
+              "verb": {
+                "text": "გზავნის",
+                "role": "verb"
+              },
+              "direct_object": {
+                "text": "განსაკუთრებულ საჩუქარს",
+                "case": "dat",
+                "role": "direct_object"
+              }
+            },
+            "english": "The loving mother sends the special gift",
+            "english_components": {
+              "subject": {
+                "text": "The loving mother",
+                "role": "subject",
+                "person": "3sg"
+              },
+              "verb": {
+                "text": "sends",
+                "role": "verb"
+              },
+              "direct_object": {
+                "text": "the special gift",
+                "role": "direct_object"
+              }
+            },
+            "georgian_verb_form": "გზავნის",
+            "person": "3sg",
+            "effective_preverb": ""
+          },
+          {
+            "georgian": "კარგი მეგობრები გზავნიან ახალ წიგნს",
+            "georgian_components": {
+              "subject": {
+                "text": "კარგი მეგობრები",
+                "case": "nom",
+                "role": "subject"
+              },
+              "verb": {
+                "text": "გზავნიან",
+                "role": "verb"
+              },
+              "direct_object": {
+                "text": "ახალ წიგნს",
+                "case": "dat",
+                "role": "direct_object"
+              }
+            },
+            "english": "The good friends send the new book",
+            "english_components": {
+              "subject": {
+                "text": "The good friends",
+                "role": "subject",
+                "person": "3pl"
+              },
+              "verb": {
+                "text": "send",
+                "role": "verb"
+              },
+              "direct_object": {
+                "text": "the new book",
+                "role": "direct_object"
+              }
+            },
+            "georgian_verb_form": "გზავნიან",
+            "person": "3pl",
+            "effective_preverb": ""
+          }
+        ],
+        "imperfect": [
+          {
+            "georgian": "ვგზავნიდი გრძელ წერილს",
+            "georgian_components": {
+              "verb": {
+                "text": "ვგზავნიდი",
+                "role": "verb"
+              },
+              "direct_object": {
+                "text": "გრძელ წერილს",
+                "case": "dat",
+                "role": "direct_object"
+              }
+            },
+            "english": "I was sending the long letter",
+            "english_components": {
+              "subject": {
+                "text": "I",
+                "role": "subject",
+                "person": "1sg"
+              },
+              "verb": {
+                "text": "was sending",
+                "role": "verb"
+              },
+              "direct_object": {
+                "text": "the long letter",
+                "role": "direct_object"
+              }
+            },
+            "georgian_verb_form": "ვგზავნიდი",
+            "person": "1sg",
+            "effective_preverb": ""
+          },
+          {
+            "georgian": "მოსიყვარულე დედა გზავნიდა განსაკუთრებულ საჩუქარს",
+            "georgian_components": {
+              "subject": {
+                "text": "მოსიყვარულე დედა",
+                "case": "nom",
+                "role": "subject"
+              },
+              "verb": {
+                "text": "გზავნიდა",
+                "role": "verb"
+              },
+              "direct_object": {
+                "text": "განსაკუთრებულ საჩუქარს",
+                "case": "dat",
+                "role": "direct_object"
+              }
+            },
+            "english": "The loving mother was sending the special gift",
+            "english_components": {
+              "subject": {
+                "text": "The loving mother",
+                "role": "subject",
+                "person": "3sg"
+              },
+              "verb": {
+                "text": "was sending",
+                "role": "verb"
+              },
+              "direct_object": {
+                "text": "the special gift",
+                "role": "direct_object"
+              }
+            },
+            "georgian_verb_form": "გზავნიდა",
+            "person": "3sg",
+            "effective_preverb": ""
+          },
+          {
+            "georgian": "კარგი მეგობრები გზავნიდნენ ახალ წიგნს",
+            "georgian_components": {
+              "subject": {
+                "text": "კარგი მეგობრები",
+                "case": "nom",
+                "role": "subject"
+              },
+              "verb": {
+                "text": "გზავნიდნენ",
+                "role": "verb"
+              },
+              "direct_object": {
+                "text": "ახალ წიგნს",
+                "case": "dat",
+                "role": "direct_object"
+              }
+            },
+            "english": "The good friends were sending the new book",
+            "english_components": {
+              "subject": {
+                "text": "The good friends",
+                "role": "subject",
+                "person": "3pl"
+              },
+              "verb": {
+                "text": "were sending",
+                "role": "verb"
+              },
+              "direct_object": {
+                "text": "the new book",
+                "role": "direct_object"
+              }
+            },
+            "georgian_verb_form": "გზავნიდნენ",
+            "person": "3pl",
+            "effective_preverb": ""
+          }
+        ],
+        "future": [
+          {
+            "georgian": "გავგზავნი გრძელ წერილს",
+            "georgian_components": {
+              "verb": {
+                "text": "გავგზავნი",
+                "role": "verb"
+              },
+              "direct_object": {
+                "text": "გრძელ წერილს",
+                "case": "dat",
+                "role": "direct_object"
+              }
+            },
+            "english": "I will send the long letter",
+            "english_components": {
+              "subject": {
+                "text": "I",
+                "role": "subject",
+                "person": "1sg"
+              },
+              "verb": {
+                "text": "will send",
+                "role": "verb"
+              },
+              "direct_object": {
+                "text": "the long letter",
+                "role": "direct_object"
+              }
+            },
+            "georgian_verb_form": "გავგზავნი",
+            "person": "1sg",
+            "effective_preverb": ""
+          },
+          {
+            "georgian": "მოსიყვარულე დედა გაგზავნის განსაკუთრებულ საჩუქარს",
+            "georgian_components": {
+              "subject": {
+                "text": "მოსიყვარულე დედა",
+                "case": "nom",
+                "role": "subject"
+              },
+              "verb": {
+                "text": "გაგზავნის",
+                "role": "verb"
+              },
+              "direct_object": {
+                "text": "განსაკუთრებულ საჩუქარს",
+                "case": "dat",
+                "role": "direct_object"
+              }
+            },
+            "english": "The loving mother will send the special gift",
+            "english_components": {
+              "subject": {
+                "text": "The loving mother",
+                "role": "subject",
+                "person": "3sg"
+              },
+              "verb": {
+                "text": "will send",
+                "role": "verb"
+              },
+              "direct_object": {
+                "text": "the special gift",
+                "role": "direct_object"
+              }
+            },
+            "georgian_verb_form": "გაგზავნის",
+            "person": "3sg",
+            "effective_preverb": ""
+          },
+          {
+            "georgian": "კარგი მეგობრები გაგზავნიან ახალ წიგნს",
+            "georgian_components": {
+              "subject": {
+                "text": "კარგი მეგობრები",
+                "case": "nom",
+                "role": "subject"
+              },
+              "verb": {
+                "text": "გაგზავნიან",
+                "role": "verb"
+              },
+              "direct_object": {
+                "text": "ახალ წიგნს",
+                "case": "dat",
+                "role": "direct_object"
+              }
+            },
+            "english": "The good friends will send the new book",
+            "english_components": {
+              "subject": {
+                "text": "The good friends",
+                "role": "subject",
+                "person": "3pl"
+              },
+              "verb": {
+                "text": "will send",
+                "role": "verb"
+              },
+              "direct_object": {
+                "text": "the new book",
+                "role": "direct_object"
+              }
+            },
+            "georgian_verb_form": "გაგზავნიან",
+            "person": "3pl",
+            "effective_preverb": ""
+          }
+        ],
+        "aorist": [
+          {
+            "georgian": "გავგზავნე გრძელი წერილი",
+            "georgian_components": {
+              "verb": {
+                "text": "გავგზავნე",
+                "role": "verb"
+              },
+              "direct_object": {
+                "text": "გრძელი წერილი",
+                "case": "nom",
+                "role": "direct_object"
+              }
+            },
+            "english": "I sent the long letter",
+            "english_components": {
+              "subject": {
+                "text": "I",
+                "role": "subject",
+                "person": "1sg"
+              },
+              "verb": {
+                "text": "sent",
+                "role": "verb"
+              },
+              "direct_object": {
+                "text": "the long letter",
+                "role": "direct_object"
+              }
+            },
+            "georgian_verb_form": "გავგზავნე",
+            "person": "1sg",
+            "effective_preverb": ""
+          },
+          {
+            "georgian": "მოსიყვარულე დედამ გაგზავნა განსაკუთრებული საჩუქარი",
+            "georgian_components": {
+              "subject": {
+                "text": "მოსიყვარულე დედამ",
+                "case": "erg",
+                "role": "subject"
+              },
+              "verb": {
+                "text": "გაგზავნა",
+                "role": "verb"
+              },
+              "direct_object": {
+                "text": "განსაკუთრებული საჩუქარი",
+                "case": "nom",
+                "role": "direct_object"
+              }
+            },
+            "english": "The loving mother sent the special gift",
+            "english_components": {
+              "subject": {
+                "text": "The loving mother",
+                "role": "subject",
+                "person": "3sg"
+              },
+              "verb": {
+                "text": "sent",
+                "role": "verb"
+              },
+              "direct_object": {
+                "text": "the special gift",
+                "role": "direct_object"
+              }
+            },
+            "georgian_verb_form": "გაგზავნა",
+            "person": "3sg",
+            "effective_preverb": ""
+          },
+          {
+            "georgian": "კარგმა მეგობრებმა გაგზავნეს ახალი წიგნი",
+            "georgian_components": {
+              "subject": {
+                "text": "კარგმა მეგობრებმა",
+                "case": "erg",
+                "role": "subject"
+              },
+              "verb": {
+                "text": "გაგზავნეს",
+                "role": "verb"
+              },
+              "direct_object": {
+                "text": "ახალი წიგნი",
+                "case": "nom",
+                "role": "direct_object"
+              }
+            },
+            "english": "The good friends sent the new book",
+            "english_components": {
+              "subject": {
+                "text": "The good friends",
+                "role": "subject",
+                "person": "3pl"
+              },
+              "verb": {
+                "text": "sent",
+                "role": "verb"
+              },
+              "direct_object": {
+                "text": "the new book",
+                "role": "direct_object"
+              }
+            },
+            "georgian_verb_form": "გაგზავნეს",
+            "person": "3pl",
+            "effective_preverb": ""
+          }
+        ],
+        "optative": [
+          {
+            "georgian": "უნდა გავგზავნო გრძელი წერილი",
+            "georgian_components": {
+              "verb": {
+                "text": "უნდა გავგზავნო",
+                "role": "verb"
+              },
+              "direct_object": {
+                "text": "გრძელი წერილი",
+                "case": "nom",
+                "role": "direct_object"
+              }
+            },
+            "english": "I should send the long letter",
+            "english_components": {
+              "subject": {
+                "text": "I",
+                "role": "subject",
+                "person": "1sg"
+              },
+              "verb": {
+                "text": "should send",
+                "role": "verb"
+              },
+              "direct_object": {
+                "text": "the long letter",
+                "role": "direct_object"
+              }
+            },
+            "georgian_verb_form": "გავგზავნო",
+            "person": "1sg",
+            "effective_preverb": ""
+          },
+          {
+            "georgian": "მოსიყვარულე დედამ უნდა გაგზავნოს განსაკუთრებული საჩუქარი",
+            "georgian_components": {
+              "subject": {
+                "text": "მოსიყვარულე დედამ",
+                "case": "erg",
+                "role": "subject"
+              },
+              "verb": {
+                "text": "უნდა გაგზავნოს",
+                "role": "verb"
+              },
+              "direct_object": {
+                "text": "განსაკუთრებული საჩუქარი",
+                "case": "nom",
+                "role": "direct_object"
+              }
+            },
+            "english": "The loving mother should send the special gift",
+            "english_components": {
+              "subject": {
+                "text": "The loving mother",
+                "role": "subject",
+                "person": "3sg"
+              },
+              "verb": {
+                "text": "should send",
+                "role": "verb"
+              },
+              "direct_object": {
+                "text": "the special gift",
+                "role": "direct_object"
+              }
+            },
+            "georgian_verb_form": "გაგზავნოს",
+            "person": "3sg",
+            "effective_preverb": ""
+          },
+          {
+            "georgian": "კარგმა მეგობრებმა უნდა გაგზავნონ ახალი წიგნი",
+            "georgian_components": {
+              "subject": {
+                "text": "კარგმა მეგობრებმა",
+                "case": "erg",
+                "role": "subject"
+              },
+              "verb": {
+                "text": "უნდა გაგზავნონ",
+                "role": "verb"
+              },
+              "direct_object": {
+                "text": "ახალი წიგნი",
+                "case": "nom",
+                "role": "direct_object"
+              }
+            },
+            "english": "The good friends should send the new book",
+            "english_components": {
+              "subject": {
+                "text": "The good friends",
+                "role": "subject",
+                "person": "3pl"
+              },
+              "verb": {
+                "text": "should send",
+                "role": "verb"
+              },
+              "direct_object": {
+                "text": "the new book",
+                "role": "direct_object"
+              }
+            },
+            "georgian_verb_form": "გაგზავნონ",
+            "person": "3pl",
+            "effective_preverb": ""
+          }
+        ],
+        "imperative": [
+          {
+            "georgian": "გაგზავნე პატარა პაკეტი",
+            "georgian_components": {
+              "verb": {
+                "text": "გაგზავნე",
+                "role": "verb"
+              },
+              "direct_object": {
+                "text": "პატარა პაკეტი",
+                "case": "nom",
+                "role": "direct_object"
+              }
+            },
+            "english": "You, send the small package",
+            "english_components": {
+              "subject": {
+                "text": "You,",
+                "role": "subject",
+                "person": "2sg"
+              },
+              "verb": {
+                "text": "send",
+                "role": "verb"
+              },
+              "direct_object": {
+                "text": "the small package",
+                "role": "direct_object"
+              }
+            },
+            "georgian_verb_form": "გაგზავნე",
+            "person": "2sg",
+            "effective_preverb": ""
+          },
+          {
+            "georgian": "გაგზავნეთ მნიშვნელოვანი შეტყობინება",
+            "georgian_components": {
+              "verb": {
+                "text": "გაგზავნეთ",
+                "role": "verb"
+              },
+              "direct_object": {
+                "text": "მნიშვნელოვანი შეტყობინება",
+                "case": "nom",
+                "role": "direct_object"
+              }
+            },
+            "english": "You all (you formal), send the important message",
+            "english_components": {
+              "subject": {
+                "text": "You all (you formal),",
+                "role": "subject",
+                "person": "2pl"
+              },
+              "verb": {
+                "text": "send",
+                "role": "verb"
+              },
+              "direct_object": {
+                "text": "the important message",
+                "role": "direct_object"
+              }
+            },
+            "georgian_verb_form": "გაგზავნეთ",
+            "person": "2pl",
+            "effective_preverb": ""
+          }
+        ]
+      }
+    },
+    "gloss_analysis": {
+      "present": {
+        "raw_gloss": "V Act Pres <S-DO> <S:Nom> <DO:Dat>",
+        "structured_gloss": {
+          "raw_components": [
+            {
+              "text": "V",
+              "component_type": "verb",
+              "color_class": "gloss-verb",
+              "description": "Verb"
+            },
+            {
+              "text": "Act",
+              "component_type": "voice",
+              "color_class": "gloss-default",
+              "description": "Active"
+            },
+            {
+              "text": "Pres",
+              "component_type": "tense",
+              "color_class": "gloss-tense",
+              "description": "Present"
+            },
+            {
+              "type": "argument_pattern_group",
+              "original_text": "<S-DO>",
+              "description": "Transitive absolute",
+              "components": [
+                {
+                  "text": "<",
+                  "component_type": "punctuation",
+                  "color_class": "gloss-default",
+                  "description": ""
+                },
+                {
+                  "text": "S",
+                  "component_type": "argument",
+                  "color_class": "gloss-subject",
+                  "description": ""
+                },
+                {
+                  "text": "-",
+                  "component_type": "punctuation",
+                  "color_class": "gloss-default",
+                  "description": ""
+                },
+                {
+                  "text": "DO",
+                  "component_type": "argument",
+                  "color_class": "gloss-direct-object",
+                  "description": ""
+                },
+                {
+                  "text": ">",
+                  "component_type": "punctuation",
+                  "color_class": "gloss-default",
+                  "description": ""
+                }
+              ]
+            },
+            {
+              "text": "<S:Nom>",
+              "component_type": "case_spec",
+              "color_class": "gloss-subject",
+              "description": "Nominative subject"
+            },
+            {
+              "text": "<DO:Dat>",
+              "component_type": "case_spec",
+              "color_class": "gloss-direct-object",
+              "description": "Dative direct object"
+            }
+          ],
+          "expanded_components": [
+            {
+              "text": "V",
+              "component_type": "verb",
+              "color_class": "gloss-verb",
+              "description": "Verb"
+            },
+            {
+              "text": "Act",
+              "component_type": "voice",
+              "color_class": "gloss-default",
+              "description": "Active"
+            },
+            {
+              "text": "Pres",
+              "component_type": "tense",
+              "color_class": "gloss-tense",
+              "description": "Present"
+            },
+            {
+              "type": "argument_pattern_group",
+              "original_text": "<S-DO>",
+              "description": "Transitive absolute",
+              "components": [
+                {
+                  "text": "<",
+                  "component_type": "punctuation",
+                  "color_class": "gloss-default",
+                  "description": ""
+                },
+                {
+                  "text": "S",
+                  "component_type": "argument",
+                  "color_class": "gloss-subject",
+                  "description": ""
+                },
+                {
+                  "text": "-",
+                  "component_type": "punctuation",
+                  "color_class": "gloss-default",
+                  "description": ""
+                },
+                {
+                  "text": "DO",
+                  "component_type": "argument",
+                  "color_class": "gloss-direct-object",
+                  "description": ""
+                },
+                {
+                  "text": ">",
+                  "component_type": "punctuation",
+                  "color_class": "gloss-default",
+                  "description": ""
+                }
+              ]
+            },
+            {
+              "text": "<S:Nom>",
+              "component_type": "case_spec",
+              "color_class": "gloss-subject",
+              "description": "Nominative subject"
+            },
+            {
+              "text": "<DO:Dat>",
+              "component_type": "case_spec",
+              "color_class": "gloss-direct-object",
+              "description": "Dative direct object"
+            }
+          ],
+          "argument_pattern": "<S-DO>",
+          "case_specifications": [
+            "<S:Nom>",
+            "<DO:Dat>"
+          ]
+        }
+      },
+      "imperfect": {
+        "raw_gloss": "V Act Impf <S-DO> <S:Nom> <DO:Dat>",
+        "structured_gloss": {
+          "raw_components": [
+            {
+              "text": "V",
+              "component_type": "verb",
+              "color_class": "gloss-verb",
+              "description": "Verb"
+            },
+            {
+              "text": "Act",
+              "component_type": "voice",
+              "color_class": "gloss-default",
+              "description": "Active"
+            },
+            {
+              "text": "Impf",
+              "component_type": "tense",
+              "color_class": "gloss-tense",
+              "description": "Imperfect"
+            },
+            {
+              "type": "argument_pattern_group",
+              "original_text": "<S-DO>",
+              "description": "Transitive absolute",
+              "components": [
+                {
+                  "text": "<",
+                  "component_type": "punctuation",
+                  "color_class": "gloss-default",
+                  "description": ""
+                },
+                {
+                  "text": "S",
+                  "component_type": "argument",
+                  "color_class": "gloss-subject",
+                  "description": ""
+                },
+                {
+                  "text": "-",
+                  "component_type": "punctuation",
+                  "color_class": "gloss-default",
+                  "description": ""
+                },
+                {
+                  "text": "DO",
+                  "component_type": "argument",
+                  "color_class": "gloss-direct-object",
+                  "description": ""
+                },
+                {
+                  "text": ">",
+                  "component_type": "punctuation",
+                  "color_class": "gloss-default",
+                  "description": ""
+                }
+              ]
+            },
+            {
+              "text": "<S:Nom>",
+              "component_type": "case_spec",
+              "color_class": "gloss-subject",
+              "description": "Nominative subject"
+            },
+            {
+              "text": "<DO:Dat>",
+              "component_type": "case_spec",
+              "color_class": "gloss-direct-object",
+              "description": "Dative direct object"
+            }
+          ],
+          "expanded_components": [
+            {
+              "text": "V",
+              "component_type": "verb",
+              "color_class": "gloss-verb",
+              "description": "Verb"
+            },
+            {
+              "text": "Act",
+              "component_type": "voice",
+              "color_class": "gloss-default",
+              "description": "Active"
+            },
+            {
+              "text": "Impf",
+              "component_type": "tense",
+              "color_class": "gloss-tense",
+              "description": "Imperfect"
+            },
+            {
+              "type": "argument_pattern_group",
+              "original_text": "<S-DO>",
+              "description": "Transitive absolute",
+              "components": [
+                {
+                  "text": "<",
+                  "component_type": "punctuation",
+                  "color_class": "gloss-default",
+                  "description": ""
+                },
+                {
+                  "text": "S",
+                  "component_type": "argument",
+                  "color_class": "gloss-subject",
+                  "description": ""
+                },
+                {
+                  "text": "-",
+                  "component_type": "punctuation",
+                  "color_class": "gloss-default",
+                  "description": ""
+                },
+                {
+                  "text": "DO",
+                  "component_type": "argument",
+                  "color_class": "gloss-direct-object",
+                  "description": ""
+                },
+                {
+                  "text": ">",
+                  "component_type": "punctuation",
+                  "color_class": "gloss-default",
+                  "description": ""
+                }
+              ]
+            },
+            {
+              "text": "<S:Nom>",
+              "component_type": "case_spec",
+              "color_class": "gloss-subject",
+              "description": "Nominative subject"
+            },
+            {
+              "text": "<DO:Dat>",
+              "component_type": "case_spec",
+              "color_class": "gloss-direct-object",
+              "description": "Dative direct object"
+            }
+          ],
+          "argument_pattern": "<S-DO>",
+          "case_specifications": [
+            "<S:Nom>",
+            "<DO:Dat>"
+          ]
+        }
+      },
+      "future": {
+        "raw_gloss": "V Act Fut <S-DO> <S:Nom> <DO:Dat>",
+        "structured_gloss": {
+          "raw_components": [
+            {
+              "text": "V",
+              "component_type": "verb",
+              "color_class": "gloss-verb",
+              "description": "Verb"
+            },
+            {
+              "text": "Act",
+              "component_type": "voice",
+              "color_class": "gloss-default",
+              "description": "Active"
+            },
+            {
+              "text": "Fut",
+              "component_type": "tense",
+              "color_class": "gloss-tense",
+              "description": "Future"
+            },
+            {
+              "type": "argument_pattern_group",
+              "original_text": "<S-DO>",
+              "description": "Transitive absolute",
+              "components": [
+                {
+                  "text": "<",
+                  "component_type": "punctuation",
+                  "color_class": "gloss-default",
+                  "description": ""
+                },
+                {
+                  "text": "S",
+                  "component_type": "argument",
+                  "color_class": "gloss-subject",
+                  "description": ""
+                },
+                {
+                  "text": "-",
+                  "component_type": "punctuation",
+                  "color_class": "gloss-default",
+                  "description": ""
+                },
+                {
+                  "text": "DO",
+                  "component_type": "argument",
+                  "color_class": "gloss-direct-object",
+                  "description": ""
+                },
+                {
+                  "text": ">",
+                  "component_type": "punctuation",
+                  "color_class": "gloss-default",
+                  "description": ""
+                }
+              ]
+            },
+            {
+              "text": "<S:Nom>",
+              "component_type": "case_spec",
+              "color_class": "gloss-subject",
+              "description": "Nominative subject"
+            },
+            {
+              "text": "<DO:Dat>",
+              "component_type": "case_spec",
+              "color_class": "gloss-direct-object",
+              "description": "Dative direct object"
+            }
+          ],
+          "expanded_components": [
+            {
+              "text": "V",
+              "component_type": "verb",
+              "color_class": "gloss-verb",
+              "description": "Verb"
+            },
+            {
+              "text": "Act",
+              "component_type": "voice",
+              "color_class": "gloss-default",
+              "description": "Active"
+            },
+            {
+              "text": "Fut",
+              "component_type": "tense",
+              "color_class": "gloss-tense",
+              "description": "Future"
+            },
+            {
+              "type": "argument_pattern_group",
+              "original_text": "<S-DO>",
+              "description": "Transitive absolute",
+              "components": [
+                {
+                  "text": "<",
+                  "component_type": "punctuation",
+                  "color_class": "gloss-default",
+                  "description": ""
+                },
+                {
+                  "text": "S",
+                  "component_type": "argument",
+                  "color_class": "gloss-subject",
+                  "description": ""
+                },
+                {
+                  "text": "-",
+                  "component_type": "punctuation",
+                  "color_class": "gloss-default",
+                  "description": ""
+                },
+                {
+                  "text": "DO",
+                  "component_type": "argument",
+                  "color_class": "gloss-direct-object",
+                  "description": ""
+                },
+                {
+                  "text": ">",
+                  "component_type": "punctuation",
+                  "color_class": "gloss-default",
+                  "description": ""
+                }
+              ]
+            },
+            {
+              "text": "<S:Nom>",
+              "component_type": "case_spec",
+              "color_class": "gloss-subject",
+              "description": "Nominative subject"
+            },
+            {
+              "text": "<DO:Dat>",
+              "component_type": "case_spec",
+              "color_class": "gloss-direct-object",
+              "description": "Dative direct object"
+            }
+          ],
+          "argument_pattern": "<S-DO>",
+          "case_specifications": [
+            "<S:Nom>",
+            "<DO:Dat>"
+          ]
+        }
+      },
+      "aorist": {
+        "raw_gloss": "V Act Aor <S-DO> <S:Erg> <DO:Nom>",
+        "structured_gloss": {
+          "raw_components": [
+            {
+              "text": "V",
+              "component_type": "verb",
+              "color_class": "gloss-verb",
+              "description": "Verb"
+            },
+            {
+              "text": "Act",
+              "component_type": "voice",
+              "color_class": "gloss-default",
+              "description": "Active"
+            },
+            {
+              "text": "Aor",
+              "component_type": "tense",
+              "color_class": "gloss-tense",
+              "description": "Aorist"
+            },
+            {
+              "type": "argument_pattern_group",
+              "original_text": "<S-DO>",
+              "description": "Transitive absolute",
+              "components": [
+                {
+                  "text": "<",
+                  "component_type": "punctuation",
+                  "color_class": "gloss-default",
+                  "description": ""
+                },
+                {
+                  "text": "S",
+                  "component_type": "argument",
+                  "color_class": "gloss-subject",
+                  "description": ""
+                },
+                {
+                  "text": "-",
+                  "component_type": "punctuation",
+                  "color_class": "gloss-default",
+                  "description": ""
+                },
+                {
+                  "text": "DO",
+                  "component_type": "argument",
+                  "color_class": "gloss-direct-object",
+                  "description": ""
+                },
+                {
+                  "text": ">",
+                  "component_type": "punctuation",
+                  "color_class": "gloss-default",
+                  "description": ""
+                }
+              ]
+            },
+            {
+              "text": "<S:Erg>",
+              "component_type": "case_spec",
+              "color_class": "gloss-subject",
+              "description": "Ergative subject"
+            },
+            {
+              "text": "<DO:Nom>",
+              "component_type": "case_spec",
+              "color_class": "gloss-direct-object",
+              "description": "Nominative direct object"
+            }
+          ],
+          "expanded_components": [
+            {
+              "text": "V",
+              "component_type": "verb",
+              "color_class": "gloss-verb",
+              "description": "Verb"
+            },
+            {
+              "text": "Act",
+              "component_type": "voice",
+              "color_class": "gloss-default",
+              "description": "Active"
+            },
+            {
+              "text": "Aor",
+              "component_type": "tense",
+              "color_class": "gloss-tense",
+              "description": "Aorist"
+            },
+            {
+              "type": "argument_pattern_group",
+              "original_text": "<S-DO>",
+              "description": "Transitive absolute",
+              "components": [
+                {
+                  "text": "<",
+                  "component_type": "punctuation",
+                  "color_class": "gloss-default",
+                  "description": ""
+                },
+                {
+                  "text": "S",
+                  "component_type": "argument",
+                  "color_class": "gloss-subject",
+                  "description": ""
+                },
+                {
+                  "text": "-",
+                  "component_type": "punctuation",
+                  "color_class": "gloss-default",
+                  "description": ""
+                },
+                {
+                  "text": "DO",
+                  "component_type": "argument",
+                  "color_class": "gloss-direct-object",
+                  "description": ""
+                },
+                {
+                  "text": ">",
+                  "component_type": "punctuation",
+                  "color_class": "gloss-default",
+                  "description": ""
+                }
+              ]
+            },
+            {
+              "text": "<S:Erg>",
+              "component_type": "case_spec",
+              "color_class": "gloss-subject",
+              "description": "Ergative subject"
+            },
+            {
+              "text": "<DO:Nom>",
+              "component_type": "case_spec",
+              "color_class": "gloss-direct-object",
+              "description": "Nominative direct object"
+            }
+          ],
+          "argument_pattern": "<S-DO>",
+          "case_specifications": [
+            "<S:Erg>",
+            "<DO:Nom>"
+          ]
+        }
+      },
+      "optative": {
+        "raw_gloss": "V Act Opt <S-DO> <S:Erg> <DO:Nom>",
+        "structured_gloss": {
+          "raw_components": [
+            {
+              "text": "V",
+              "component_type": "verb",
+              "color_class": "gloss-verb",
+              "description": "Verb"
+            },
+            {
+              "text": "Act",
+              "component_type": "voice",
+              "color_class": "gloss-default",
+              "description": "Active"
+            },
+            {
+              "text": "Opt",
+              "component_type": "tense",
+              "color_class": "gloss-tense",
+              "description": "Optative"
+            },
+            {
+              "type": "argument_pattern_group",
+              "original_text": "<S-DO>",
+              "description": "Transitive absolute",
+              "components": [
+                {
+                  "text": "<",
+                  "component_type": "punctuation",
+                  "color_class": "gloss-default",
+                  "description": ""
+                },
+                {
+                  "text": "S",
+                  "component_type": "argument",
+                  "color_class": "gloss-subject",
+                  "description": ""
+                },
+                {
+                  "text": "-",
+                  "component_type": "punctuation",
+                  "color_class": "gloss-default",
+                  "description": ""
+                },
+                {
+                  "text": "DO",
+                  "component_type": "argument",
+                  "color_class": "gloss-direct-object",
+                  "description": ""
+                },
+                {
+                  "text": ">",
+                  "component_type": "punctuation",
+                  "color_class": "gloss-default",
+                  "description": ""
+                }
+              ]
+            },
+            {
+              "text": "<S:Erg>",
+              "component_type": "case_spec",
+              "color_class": "gloss-subject",
+              "description": "Ergative subject"
+            },
+            {
+              "text": "<DO:Nom>",
+              "component_type": "case_spec",
+              "color_class": "gloss-direct-object",
+              "description": "Nominative direct object"
+            }
+          ],
+          "expanded_components": [
+            {
+              "text": "V",
+              "component_type": "verb",
+              "color_class": "gloss-verb",
+              "description": "Verb"
+            },
+            {
+              "text": "Act",
+              "component_type": "voice",
+              "color_class": "gloss-default",
+              "description": "Active"
+            },
+            {
+              "text": "Opt",
+              "component_type": "tense",
+              "color_class": "gloss-tense",
+              "description": "Optative"
+            },
+            {
+              "type": "argument_pattern_group",
+              "original_text": "<S-DO>",
+              "description": "Transitive absolute",
+              "components": [
+                {
+                  "text": "<",
+                  "component_type": "punctuation",
+                  "color_class": "gloss-default",
+                  "description": ""
+                },
+                {
+                  "text": "S",
+                  "component_type": "argument",
+                  "color_class": "gloss-subject",
+                  "description": ""
+                },
+                {
+                  "text": "-",
+                  "component_type": "punctuation",
+                  "color_class": "gloss-default",
+                  "description": ""
+                },
+                {
+                  "text": "DO",
+                  "component_type": "argument",
+                  "color_class": "gloss-direct-object",
+                  "description": ""
+                },
+                {
+                  "text": ">",
+                  "component_type": "punctuation",
+                  "color_class": "gloss-default",
+                  "description": ""
+                }
+              ]
+            },
+            {
+              "text": "<S:Erg>",
+              "component_type": "case_spec",
+              "color_class": "gloss-subject",
+              "description": "Ergative subject"
+            },
+            {
+              "text": "<DO:Nom>",
+              "component_type": "case_spec",
+              "color_class": "gloss-direct-object",
+              "description": "Nominative direct object"
+            }
+          ],
+          "argument_pattern": "<S-DO>",
+          "case_specifications": [
+            "<S:Erg>",
+            "<DO:Nom>"
+          ]
+        }
+      },
+      "imperative": {
+        "raw_gloss": "V Act Impv <S-DO> <S:Erg> <DO:Nom>",
+        "structured_gloss": {
+          "raw_components": [
+            {
+              "text": "V",
+              "component_type": "verb",
+              "color_class": "gloss-verb",
+              "description": "Verb"
+            },
+            {
+              "text": "Act",
+              "component_type": "voice",
+              "color_class": "gloss-default",
+              "description": "Active"
+            },
+            {
+              "text": "Impv",
+              "component_type": "tense",
+              "color_class": "gloss-tense",
+              "description": "Imperative"
+            },
+            {
+              "type": "argument_pattern_group",
+              "original_text": "<S-DO>",
+              "description": "Transitive absolute",
+              "components": [
+                {
+                  "text": "<",
+                  "component_type": "punctuation",
+                  "color_class": "gloss-default",
+                  "description": ""
+                },
+                {
+                  "text": "S",
+                  "component_type": "argument",
+                  "color_class": "gloss-subject",
+                  "description": ""
+                },
+                {
+                  "text": "-",
+                  "component_type": "punctuation",
+                  "color_class": "gloss-default",
+                  "description": ""
+                },
+                {
+                  "text": "DO",
+                  "component_type": "argument",
+                  "color_class": "gloss-direct-object",
+                  "description": ""
+                },
+                {
+                  "text": ">",
+                  "component_type": "punctuation",
+                  "color_class": "gloss-default",
+                  "description": ""
+                }
+              ]
+            },
+            {
+              "text": "<S:Erg>",
+              "component_type": "case_spec",
+              "color_class": "gloss-subject",
+              "description": "Ergative subject"
+            },
+            {
+              "text": "<DO:Nom>",
+              "component_type": "case_spec",
+              "color_class": "gloss-direct-object",
+              "description": "Nominative direct object"
+            }
+          ],
+          "expanded_components": [
+            {
+              "text": "V",
+              "component_type": "verb",
+              "color_class": "gloss-verb",
+              "description": "Verb"
+            },
+            {
+              "text": "Act",
+              "component_type": "voice",
+              "color_class": "gloss-default",
+              "description": "Active"
+            },
+            {
+              "text": "Impv",
+              "component_type": "tense",
+              "color_class": "gloss-tense",
+              "description": "Imperative"
+            },
+            {
+              "type": "argument_pattern_group",
+              "original_text": "<S-DO>",
+              "description": "Transitive absolute",
+              "components": [
+                {
+                  "text": "<",
+                  "component_type": "punctuation",
+                  "color_class": "gloss-default",
+                  "description": ""
+                },
+                {
+                  "text": "S",
+                  "component_type": "argument",
+                  "color_class": "gloss-subject",
+                  "description": ""
+                },
+                {
+                  "text": "-",
+                  "component_type": "punctuation",
+                  "color_class": "gloss-default",
+                  "description": ""
+                },
+                {
+                  "text": "DO",
+                  "component_type": "argument",
+                  "color_class": "gloss-direct-object",
+                  "description": ""
+                },
+                {
+                  "text": ">",
+                  "component_type": "punctuation",
+                  "color_class": "gloss-default",
+                  "description": ""
+                }
+              ]
+            },
+            {
+              "text": "<S:Erg>",
+              "component_type": "case_spec",
+              "color_class": "gloss-subject",
+              "description": "Ergative subject"
+            },
+            {
+              "text": "<DO:Nom>",
+              "component_type": "case_spec",
+              "color_class": "gloss-direct-object",
+              "description": "Nominative direct object"
+            }
+          ],
+          "argument_pattern": "<S-DO>",
+          "case_specifications": [
+            "<S:Erg>",
+            "<DO:Nom>"
+          ]
+        }
+      }
+    },
+    "preverb_forms": {}
+  }
+}

@@ -1,0 +1,1727 @@
+{
+  "base_data": {
+    "id": 8,
+    "georgian": "დალოდება",
+    "description": "To Wait",
+    "category": "Daily Activities",
+    "class": "Class-I",
+    "semantic_key": "wait",
+    "notes": "",
+    "url": "https://lingua.ge/verbs/%e1%83%93%e1%83%90%e1%83%9a%e1%83%9d%e1%83%93%e1%83%94%e1%83%91%e1%83%90/",
+    "global_argument_pattern": "<S-IO>",
+    "valency": {
+      "default": "<S-IO>",
+      "alternatives": []
+    },
+    "syntax": {
+      "arguments": {
+        "subject": {
+          "3sg": {
+            "noun": "child",
+            "adjective": "patient"
+          },
+          "3pl": {
+            "noun": "customer",
+            "adjective": "angry"
+          }
+        },
+        "indirect_object": {
+          "1sg": {
+            "noun": "bus",
+            "adjective": "late"
+          },
+          "2sg": {
+            "noun": "friend",
+            "adjective": "best"
+          },
+          "3sg": {
+            "noun": "mother",
+            "adjective": "busy"
+          },
+          "1pl": {
+            "noun": "train",
+            "adjective": "slow"
+          },
+          "2pl": {
+            "noun": "teacher",
+            "adjective": "new"
+          },
+          "3pl": {
+            "noun": "service",
+            "adjective": "slow"
+          }
+        }
+      },
+      "prepositions": {
+        "subject": "the",
+        "direct_object": "",
+        "indirect_object": "for the"
+      },
+      "preverb_overrides": {}
+    },
+    "english_translations": {
+      "default": {
+        "present": "wait",
+        "imperfect": "was waiting",
+        "future": "will wait",
+        "aorist": "waited",
+        "optative": "wait",
+        "imperative": "wait"
+      }
+    },
+    "conjugations": {
+      "present": {
+        "raw_gloss": "V Pass Pres <S-IO> <S:Nom> <IO:Dat>",
+        "forms": {
+          "1sg": "ველოდები",
+          "2sg": "ელოდები",
+          "3sg": "ელოდება",
+          "1pl": "ველოდებით",
+          "2pl": "ელოდებით",
+          "3pl": "ელოდებიან"
+        },
+        "examples": []
+      },
+      "imperfect": {
+        "raw_gloss": "V Pass Impf <S-IO> <S:Nom> <IO:Dat>",
+        "forms": {
+          "1sg": "ველოდებოდი",
+          "2sg": "ელოდებოდი",
+          "3sg": "ელოდებოდა",
+          "1pl": "ველოდებოდით",
+          "2pl": "ელოდებოდით",
+          "3pl": "ელოდებოდნენ"
+        },
+        "examples": []
+      },
+      "future": {
+        "raw_gloss": "V Pass Fut Pv <S-IO> <S:Nom> <IO:Dat>",
+        "forms": {
+          "1sg": "დაველოდები",
+          "2sg": "დაელოდები",
+          "3sg": "დაელოდება",
+          "1pl": "დაველოდებით",
+          "2pl": "დაელოდებით",
+          "3pl": "დაელოდებიან"
+        },
+        "examples": []
+      },
+      "aorist": {
+        "raw_gloss": "V Pass Aor Pv <S-IO> <S:Nom> <IO:Dat>",
+        "forms": {
+          "1sg": "დაველოდე",
+          "2sg": "დაელოდე",
+          "3sg": "დაელოდა",
+          "1pl": "დაველოდეთ",
+          "2pl": "დაელოდეთ",
+          "3pl": "დაელოდეს"
+        },
+        "examples": []
+      },
+      "optative": {
+        "raw_gloss": "V Pass Opt Pv <S-IO> <S:Nom> <IO:Dat>",
+        "forms": {
+          "1sg": "დაველოდო",
+          "2sg": "დაელოდო",
+          "3sg": "დაელოდოს",
+          "1pl": "დაველოდოთ",
+          "2pl": "დაელოდოთ",
+          "3pl": "დაელოდონ"
+        },
+        "examples": []
+      },
+      "imperative": {
+        "raw_gloss": "V Pass Impv Pv <S-IO> <S:Nom> <IO:Dat>",
+        "forms": {
+          "1sg": "-",
+          "2sg": "დაელოდე",
+          "3sg": "-",
+          "1pl": "-",
+          "2pl": "დაელოდეთ",
+          "3pl": "-"
+        },
+        "examples": []
+      }
+    },
+    "preverb_config": {
+      "has_multiple_preverbs": false,
+      "default_preverb": "და",
+      "available_preverbs": [
+        "და"
+      ]
+    },
+    "preverb_rules": {
+      "default": "",
+      "replacements": {},
+      "tense_specific_fallbacks": {}
+    }
+  },
+  "generated_data": {
+    "examples": {
+      "default": {
+        "present": [
+          {
+            "georgian": "ველოდები გვიან ავტობუსს",
+            "georgian_components": {
+              "verb": {
+                "text": "ველოდები",
+                "role": "verb"
+              },
+              "indirect_object": {
+                "text": "გვიან ავტობუსს",
+                "case": "dat",
+                "role": "indirect_object"
+              }
+            },
+            "english": "I wait for the late bus",
+            "english_components": {
+              "subject": {
+                "text": "I",
+                "role": "subject",
+                "person": "1sg"
+              },
+              "verb": {
+                "text": "wait",
+                "role": "verb"
+              },
+              "indirect_object": {
+                "text": "for the late bus",
+                "role": "indirect_object"
+              }
+            },
+            "georgian_verb_form": "ველოდები",
+            "person": "1sg",
+            "effective_preverb": "და"
+          },
+          {
+            "georgian": "მოთმინებული ბავშვი ელოდება დაკავებულ დედას",
+            "georgian_components": {
+              "subject": {
+                "text": "მოთმინებული ბავშვი",
+                "case": "nom",
+                "role": "subject"
+              },
+              "verb": {
+                "text": "ელოდება",
+                "role": "verb"
+              },
+              "indirect_object": {
+                "text": "დაკავებულ დედას",
+                "case": "dat",
+                "role": "indirect_object"
+              }
+            },
+            "english": "The patient child waits for the busy mother",
+            "english_components": {
+              "subject": {
+                "text": "The patient child",
+                "role": "subject",
+                "person": "3sg"
+              },
+              "verb": {
+                "text": "waits",
+                "role": "verb"
+              },
+              "indirect_object": {
+                "text": "for the busy mother",
+                "role": "indirect_object"
+              }
+            },
+            "georgian_verb_form": "ელოდება",
+            "person": "3sg",
+            "effective_preverb": "და"
+          },
+          {
+            "georgian": "გაბრაზებული მომხმარებლები ელოდებიან ნელ მომსახურებას",
+            "georgian_components": {
+              "subject": {
+                "text": "გაბრაზებული მომხმარებლები",
+                "case": "nom",
+                "role": "subject"
+              },
+              "verb": {
+                "text": "ელოდებიან",
+                "role": "verb"
+              },
+              "indirect_object": {
+                "text": "ნელ მომსახურებას",
+                "case": "dat",
+                "role": "indirect_object"
+              }
+            },
+            "english": "The angry customers wait for the slow service",
+            "english_components": {
+              "subject": {
+                "text": "The angry customers",
+                "role": "subject",
+                "person": "3pl"
+              },
+              "verb": {
+                "text": "wait",
+                "role": "verb"
+              },
+              "indirect_object": {
+                "text": "for the slow service",
+                "role": "indirect_object"
+              }
+            },
+            "georgian_verb_form": "ელოდებიან",
+            "person": "3pl",
+            "effective_preverb": "და"
+          }
+        ],
+        "imperfect": [
+          {
+            "georgian": "ველოდებოდი გვიან ავტობუსს",
+            "georgian_components": {
+              "verb": {
+                "text": "ველოდებოდი",
+                "role": "verb"
+              },
+              "indirect_object": {
+                "text": "გვიან ავტობუსს",
+                "case": "dat",
+                "role": "indirect_object"
+              }
+            },
+            "english": "I was waiting for the late bus",
+            "english_components": {
+              "subject": {
+                "text": "I",
+                "role": "subject",
+                "person": "1sg"
+              },
+              "verb": {
+                "text": "was waiting",
+                "role": "verb"
+              },
+              "indirect_object": {
+                "text": "for the late bus",
+                "role": "indirect_object"
+              }
+            },
+            "georgian_verb_form": "ველოდებოდი",
+            "person": "1sg",
+            "effective_preverb": "და"
+          },
+          {
+            "georgian": "მოთმინებული ბავშვი ელოდებოდა დაკავებულ დედას",
+            "georgian_components": {
+              "subject": {
+                "text": "მოთმინებული ბავშვი",
+                "case": "nom",
+                "role": "subject"
+              },
+              "verb": {
+                "text": "ელოდებოდა",
+                "role": "verb"
+              },
+              "indirect_object": {
+                "text": "დაკავებულ დედას",
+                "case": "dat",
+                "role": "indirect_object"
+              }
+            },
+            "english": "The patient child was waiting for the busy mother",
+            "english_components": {
+              "subject": {
+                "text": "The patient child",
+                "role": "subject",
+                "person": "3sg"
+              },
+              "verb": {
+                "text": "was waiting",
+                "role": "verb"
+              },
+              "indirect_object": {
+                "text": "for the busy mother",
+                "role": "indirect_object"
+              }
+            },
+            "georgian_verb_form": "ელოდებოდა",
+            "person": "3sg",
+            "effective_preverb": "და"
+          },
+          {
+            "georgian": "გაბრაზებული მომხმარებლები ელოდებოდნენ ნელ მომსახურებას",
+            "georgian_components": {
+              "subject": {
+                "text": "გაბრაზებული მომხმარებლები",
+                "case": "nom",
+                "role": "subject"
+              },
+              "verb": {
+                "text": "ელოდებოდნენ",
+                "role": "verb"
+              },
+              "indirect_object": {
+                "text": "ნელ მომსახურებას",
+                "case": "dat",
+                "role": "indirect_object"
+              }
+            },
+            "english": "The angry customers were waiting for the slow service",
+            "english_components": {
+              "subject": {
+                "text": "The angry customers",
+                "role": "subject",
+                "person": "3pl"
+              },
+              "verb": {
+                "text": "were waiting",
+                "role": "verb"
+              },
+              "indirect_object": {
+                "text": "for the slow service",
+                "role": "indirect_object"
+              }
+            },
+            "georgian_verb_form": "ელოდებოდნენ",
+            "person": "3pl",
+            "effective_preverb": "და"
+          }
+        ],
+        "future": [
+          {
+            "georgian": "დაველოდები გვიან ავტობუსს",
+            "georgian_components": {
+              "verb": {
+                "text": "დაველოდები",
+                "role": "verb"
+              },
+              "indirect_object": {
+                "text": "გვიან ავტობუსს",
+                "case": "dat",
+                "role": "indirect_object"
+              }
+            },
+            "english": "I will wait for the late bus",
+            "english_components": {
+              "subject": {
+                "text": "I",
+                "role": "subject",
+                "person": "1sg"
+              },
+              "verb": {
+                "text": "will wait",
+                "role": "verb"
+              },
+              "indirect_object": {
+                "text": "for the late bus",
+                "role": "indirect_object"
+              }
+            },
+            "georgian_verb_form": "დაველოდები",
+            "person": "1sg",
+            "effective_preverb": "და"
+          },
+          {
+            "georgian": "მოთმინებული ბავშვი დაელოდება დაკავებულ დედას",
+            "georgian_components": {
+              "subject": {
+                "text": "მოთმინებული ბავშვი",
+                "case": "nom",
+                "role": "subject"
+              },
+              "verb": {
+                "text": "დაელოდება",
+                "role": "verb"
+              },
+              "indirect_object": {
+                "text": "დაკავებულ დედას",
+                "case": "dat",
+                "role": "indirect_object"
+              }
+            },
+            "english": "The patient child will wait for the busy mother",
+            "english_components": {
+              "subject": {
+                "text": "The patient child",
+                "role": "subject",
+                "person": "3sg"
+              },
+              "verb": {
+                "text": "will wait",
+                "role": "verb"
+              },
+              "indirect_object": {
+                "text": "for the busy mother",
+                "role": "indirect_object"
+              }
+            },
+            "georgian_verb_form": "დაელოდება",
+            "person": "3sg",
+            "effective_preverb": "და"
+          },
+          {
+            "georgian": "გაბრაზებული მომხმარებლები დაელოდებიან ნელ მომსახურებას",
+            "georgian_components": {
+              "subject": {
+                "text": "გაბრაზებული მომხმარებლები",
+                "case": "nom",
+                "role": "subject"
+              },
+              "verb": {
+                "text": "დაელოდებიან",
+                "role": "verb"
+              },
+              "indirect_object": {
+                "text": "ნელ მომსახურებას",
+                "case": "dat",
+                "role": "indirect_object"
+              }
+            },
+            "english": "The angry customers will wait for the slow service",
+            "english_components": {
+              "subject": {
+                "text": "The angry customers",
+                "role": "subject",
+                "person": "3pl"
+              },
+              "verb": {
+                "text": "will wait",
+                "role": "verb"
+              },
+              "indirect_object": {
+                "text": "for the slow service",
+                "role": "indirect_object"
+              }
+            },
+            "georgian_verb_form": "დაელოდებიან",
+            "person": "3pl",
+            "effective_preverb": "და"
+          }
+        ],
+        "aorist": [
+          {
+            "georgian": "დაველოდე გვიან ავტობუსს",
+            "georgian_components": {
+              "verb": {
+                "text": "დაველოდე",
+                "role": "verb"
+              },
+              "indirect_object": {
+                "text": "გვიან ავტობუსს",
+                "case": "dat",
+                "role": "indirect_object"
+              }
+            },
+            "english": "I waited for the late bus",
+            "english_components": {
+              "subject": {
+                "text": "I",
+                "role": "subject",
+                "person": "1sg"
+              },
+              "verb": {
+                "text": "waited",
+                "role": "verb"
+              },
+              "indirect_object": {
+                "text": "for the late bus",
+                "role": "indirect_object"
+              }
+            },
+            "georgian_verb_form": "დაველოდე",
+            "person": "1sg",
+            "effective_preverb": "და"
+          },
+          {
+            "georgian": "მოთმინებული ბავშვი დაელოდა დაკავებულ დედას",
+            "georgian_components": {
+              "subject": {
+                "text": "მოთმინებული ბავშვი",
+                "case": "nom",
+                "role": "subject"
+              },
+              "verb": {
+                "text": "დაელოდა",
+                "role": "verb"
+              },
+              "indirect_object": {
+                "text": "დაკავებულ დედას",
+                "case": "dat",
+                "role": "indirect_object"
+              }
+            },
+            "english": "The patient child waited for the busy mother",
+            "english_components": {
+              "subject": {
+                "text": "The patient child",
+                "role": "subject",
+                "person": "3sg"
+              },
+              "verb": {
+                "text": "waited",
+                "role": "verb"
+              },
+              "indirect_object": {
+                "text": "for the busy mother",
+                "role": "indirect_object"
+              }
+            },
+            "georgian_verb_form": "დაელოდა",
+            "person": "3sg",
+            "effective_preverb": "და"
+          },
+          {
+            "georgian": "გაბრაზებული მომხმარებლები დაელოდეს ნელ მომსახურებას",
+            "georgian_components": {
+              "subject": {
+                "text": "გაბრაზებული მომხმარებლები",
+                "case": "nom",
+                "role": "subject"
+              },
+              "verb": {
+                "text": "დაელოდეს",
+                "role": "verb"
+              },
+              "indirect_object": {
+                "text": "ნელ მომსახურებას",
+                "case": "dat",
+                "role": "indirect_object"
+              }
+            },
+            "english": "The angry customers waited for the slow service",
+            "english_components": {
+              "subject": {
+                "text": "The angry customers",
+                "role": "subject",
+                "person": "3pl"
+              },
+              "verb": {
+                "text": "waited",
+                "role": "verb"
+              },
+              "indirect_object": {
+                "text": "for the slow service",
+                "role": "indirect_object"
+              }
+            },
+            "georgian_verb_form": "დაელოდეს",
+            "person": "3pl",
+            "effective_preverb": "და"
+          }
+        ],
+        "optative": [
+          {
+            "georgian": "უნდა დაველოდო გვიან ავტობუსს",
+            "georgian_components": {
+              "verb": {
+                "text": "უნდა დაველოდო",
+                "role": "verb"
+              },
+              "indirect_object": {
+                "text": "გვიან ავტობუსს",
+                "case": "dat",
+                "role": "indirect_object"
+              }
+            },
+            "english": "I should wait for the late bus",
+            "english_components": {
+              "subject": {
+                "text": "I",
+                "role": "subject",
+                "person": "1sg"
+              },
+              "verb": {
+                "text": "should wait",
+                "role": "verb"
+              },
+              "indirect_object": {
+                "text": "for the late bus",
+                "role": "indirect_object"
+              }
+            },
+            "georgian_verb_form": "დაველოდო",
+            "person": "1sg",
+            "effective_preverb": "და"
+          },
+          {
+            "georgian": "მოთმინებული ბავშვი უნდა დაელოდოს დაკავებულ დედას",
+            "georgian_components": {
+              "subject": {
+                "text": "მოთმინებული ბავშვი",
+                "case": "nom",
+                "role": "subject"
+              },
+              "verb": {
+                "text": "უნდა დაელოდოს",
+                "role": "verb"
+              },
+              "indirect_object": {
+                "text": "დაკავებულ დედას",
+                "case": "dat",
+                "role": "indirect_object"
+              }
+            },
+            "english": "The patient child should wait for the busy mother",
+            "english_components": {
+              "subject": {
+                "text": "The patient child",
+                "role": "subject",
+                "person": "3sg"
+              },
+              "verb": {
+                "text": "should wait",
+                "role": "verb"
+              },
+              "indirect_object": {
+                "text": "for the busy mother",
+                "role": "indirect_object"
+              }
+            },
+            "georgian_verb_form": "დაელოდოს",
+            "person": "3sg",
+            "effective_preverb": "და"
+          },
+          {
+            "georgian": "გაბრაზებული მომხმარებლები უნდა დაელოდონ ნელ მომსახურებას",
+            "georgian_components": {
+              "subject": {
+                "text": "გაბრაზებული მომხმარებლები",
+                "case": "nom",
+                "role": "subject"
+              },
+              "verb": {
+                "text": "უნდა დაელოდონ",
+                "role": "verb"
+              },
+              "indirect_object": {
+                "text": "ნელ მომსახურებას",
+                "case": "dat",
+                "role": "indirect_object"
+              }
+            },
+            "english": "The angry customers should wait for the slow service",
+            "english_components": {
+              "subject": {
+                "text": "The angry customers",
+                "role": "subject",
+                "person": "3pl"
+              },
+              "verb": {
+                "text": "should wait",
+                "role": "verb"
+              },
+              "indirect_object": {
+                "text": "for the slow service",
+                "role": "indirect_object"
+              }
+            },
+            "georgian_verb_form": "დაელოდონ",
+            "person": "3pl",
+            "effective_preverb": "და"
+          }
+        ],
+        "imperative": [
+          {
+            "georgian": "დაელოდე საუკეთესო მეგობარს",
+            "georgian_components": {
+              "verb": {
+                "text": "დაელოდე",
+                "role": "verb"
+              },
+              "indirect_object": {
+                "text": "საუკეთესო მეგობარს",
+                "case": "dat",
+                "role": "indirect_object"
+              }
+            },
+            "english": "You, wait for the best friend",
+            "english_components": {
+              "subject": {
+                "text": "You,",
+                "role": "subject",
+                "person": "2sg"
+              },
+              "verb": {
+                "text": "wait",
+                "role": "verb"
+              },
+              "indirect_object": {
+                "text": "for the best friend",
+                "role": "indirect_object"
+              }
+            },
+            "georgian_verb_form": "დაელოდე",
+            "person": "2sg",
+            "effective_preverb": "და"
+          },
+          {
+            "georgian": "დაელოდეთ ახალ მასწავლებელს",
+            "georgian_components": {
+              "verb": {
+                "text": "დაელოდეთ",
+                "role": "verb"
+              },
+              "indirect_object": {
+                "text": "ახალ მასწავლებელს",
+                "case": "dat",
+                "role": "indirect_object"
+              }
+            },
+            "english": "You all (you formal), wait for the new teacher",
+            "english_components": {
+              "subject": {
+                "text": "You all (you formal),",
+                "role": "subject",
+                "person": "2pl"
+              },
+              "verb": {
+                "text": "wait",
+                "role": "verb"
+              },
+              "indirect_object": {
+                "text": "for the new teacher",
+                "role": "indirect_object"
+              }
+            },
+            "georgian_verb_form": "დაელოდეთ",
+            "person": "2pl",
+            "effective_preverb": "და"
+          }
+        ]
+      }
+    },
+    "gloss_analysis": {
+      "present": {
+        "raw_gloss": "V Pass Pres <S-IO> <S:Nom> <IO:Dat>",
+        "structured_gloss": {
+          "raw_components": [
+            {
+              "text": "V",
+              "component_type": "verb",
+              "color_class": "gloss-verb",
+              "description": "Verb"
+            },
+            {
+              "text": "Pass",
+              "component_type": "voice",
+              "color_class": "gloss-default",
+              "description": "Passive"
+            },
+            {
+              "text": "Pres",
+              "component_type": "tense",
+              "color_class": "gloss-tense",
+              "description": "Present"
+            },
+            {
+              "type": "argument_pattern_group",
+              "original_text": "<S-IO>",
+              "description": "Intransitive relative",
+              "components": [
+                {
+                  "text": "<",
+                  "component_type": "punctuation",
+                  "color_class": "gloss-default",
+                  "description": ""
+                },
+                {
+                  "text": "S",
+                  "component_type": "argument",
+                  "color_class": "gloss-subject",
+                  "description": ""
+                },
+                {
+                  "text": "-",
+                  "component_type": "punctuation",
+                  "color_class": "gloss-default",
+                  "description": ""
+                },
+                {
+                  "text": "IO",
+                  "component_type": "argument",
+                  "color_class": "gloss-indirect-object",
+                  "description": ""
+                },
+                {
+                  "text": ">",
+                  "component_type": "punctuation",
+                  "color_class": "gloss-default",
+                  "description": ""
+                }
+              ]
+            },
+            {
+              "text": "<S:Nom>",
+              "component_type": "case_spec",
+              "color_class": "gloss-subject",
+              "description": "Nominative subject"
+            },
+            {
+              "text": "<IO:Dat>",
+              "component_type": "case_spec",
+              "color_class": "gloss-indirect-object",
+              "description": "Dative indirect object"
+            }
+          ],
+          "expanded_components": [
+            {
+              "text": "V",
+              "component_type": "verb",
+              "color_class": "gloss-verb",
+              "description": "Verb"
+            },
+            {
+              "text": "Pass",
+              "component_type": "voice",
+              "color_class": "gloss-default",
+              "description": "Passive"
+            },
+            {
+              "text": "Pres",
+              "component_type": "tense",
+              "color_class": "gloss-tense",
+              "description": "Present"
+            },
+            {
+              "type": "argument_pattern_group",
+              "original_text": "<S-IO>",
+              "description": "Intransitive relative",
+              "components": [
+                {
+                  "text": "<",
+                  "component_type": "punctuation",
+                  "color_class": "gloss-default",
+                  "description": ""
+                },
+                {
+                  "text": "S",
+                  "component_type": "argument",
+                  "color_class": "gloss-subject",
+                  "description": ""
+                },
+                {
+                  "text": "-",
+                  "component_type": "punctuation",
+                  "color_class": "gloss-default",
+                  "description": ""
+                },
+                {
+                  "text": "IO",
+                  "component_type": "argument",
+                  "color_class": "gloss-indirect-object",
+                  "description": ""
+                },
+                {
+                  "text": ">",
+                  "component_type": "punctuation",
+                  "color_class": "gloss-default",
+                  "description": ""
+                }
+              ]
+            },
+            {
+              "text": "<S:Nom>",
+              "component_type": "case_spec",
+              "color_class": "gloss-subject",
+              "description": "Nominative subject"
+            },
+            {
+              "text": "<IO:Dat>",
+              "component_type": "case_spec",
+              "color_class": "gloss-indirect-object",
+              "description": "Dative indirect object"
+            }
+          ],
+          "argument_pattern": "<S-IO>",
+          "case_specifications": [
+            "<S:Nom>",
+            "<IO:Dat>"
+          ]
+        }
+      },
+      "imperfect": {
+        "raw_gloss": "V Pass Impf <S-IO> <S:Nom> <IO:Dat>",
+        "structured_gloss": {
+          "raw_components": [
+            {
+              "text": "V",
+              "component_type": "verb",
+              "color_class": "gloss-verb",
+              "description": "Verb"
+            },
+            {
+              "text": "Pass",
+              "component_type": "voice",
+              "color_class": "gloss-default",
+              "description": "Passive"
+            },
+            {
+              "text": "Impf",
+              "component_type": "tense",
+              "color_class": "gloss-tense",
+              "description": "Imperfect"
+            },
+            {
+              "type": "argument_pattern_group",
+              "original_text": "<S-IO>",
+              "description": "Intransitive relative",
+              "components": [
+                {
+                  "text": "<",
+                  "component_type": "punctuation",
+                  "color_class": "gloss-default",
+                  "description": ""
+                },
+                {
+                  "text": "S",
+                  "component_type": "argument",
+                  "color_class": "gloss-subject",
+                  "description": ""
+                },
+                {
+                  "text": "-",
+                  "component_type": "punctuation",
+                  "color_class": "gloss-default",
+                  "description": ""
+                },
+                {
+                  "text": "IO",
+                  "component_type": "argument",
+                  "color_class": "gloss-indirect-object",
+                  "description": ""
+                },
+                {
+                  "text": ">",
+                  "component_type": "punctuation",
+                  "color_class": "gloss-default",
+                  "description": ""
+                }
+              ]
+            },
+            {
+              "text": "<S:Nom>",
+              "component_type": "case_spec",
+              "color_class": "gloss-subject",
+              "description": "Nominative subject"
+            },
+            {
+              "text": "<IO:Dat>",
+              "component_type": "case_spec",
+              "color_class": "gloss-indirect-object",
+              "description": "Dative indirect object"
+            }
+          ],
+          "expanded_components": [
+            {
+              "text": "V",
+              "component_type": "verb",
+              "color_class": "gloss-verb",
+              "description": "Verb"
+            },
+            {
+              "text": "Pass",
+              "component_type": "voice",
+              "color_class": "gloss-default",
+              "description": "Passive"
+            },
+            {
+              "text": "Impf",
+              "component_type": "tense",
+              "color_class": "gloss-tense",
+              "description": "Imperfect"
+            },
+            {
+              "type": "argument_pattern_group",
+              "original_text": "<S-IO>",
+              "description": "Intransitive relative",
+              "components": [
+                {
+                  "text": "<",
+                  "component_type": "punctuation",
+                  "color_class": "gloss-default",
+                  "description": ""
+                },
+                {
+                  "text": "S",
+                  "component_type": "argument",
+                  "color_class": "gloss-subject",
+                  "description": ""
+                },
+                {
+                  "text": "-",
+                  "component_type": "punctuation",
+                  "color_class": "gloss-default",
+                  "description": ""
+                },
+                {
+                  "text": "IO",
+                  "component_type": "argument",
+                  "color_class": "gloss-indirect-object",
+                  "description": ""
+                },
+                {
+                  "text": ">",
+                  "component_type": "punctuation",
+                  "color_class": "gloss-default",
+                  "description": ""
+                }
+              ]
+            },
+            {
+              "text": "<S:Nom>",
+              "component_type": "case_spec",
+              "color_class": "gloss-subject",
+              "description": "Nominative subject"
+            },
+            {
+              "text": "<IO:Dat>",
+              "component_type": "case_spec",
+              "color_class": "gloss-indirect-object",
+              "description": "Dative indirect object"
+            }
+          ],
+          "argument_pattern": "<S-IO>",
+          "case_specifications": [
+            "<S:Nom>",
+            "<IO:Dat>"
+          ]
+        }
+      },
+      "future": {
+        "raw_gloss": "V Pass Fut Pv <S-IO> <S:Nom> <IO:Dat>",
+        "structured_gloss": {
+          "raw_components": [
+            {
+              "text": "V",
+              "component_type": "verb",
+              "color_class": "gloss-verb",
+              "description": "Verb"
+            },
+            {
+              "text": "Pass",
+              "component_type": "voice",
+              "color_class": "gloss-default",
+              "description": "Passive"
+            },
+            {
+              "text": "Fut",
+              "component_type": "tense",
+              "color_class": "gloss-tense",
+              "description": "Future"
+            },
+            {
+              "text": "Pv",
+              "component_type": "preverb",
+              "color_class": "gloss-default",
+              "description": "და"
+            },
+            {
+              "type": "argument_pattern_group",
+              "original_text": "<S-IO>",
+              "description": "Intransitive relative",
+              "components": [
+                {
+                  "text": "<",
+                  "component_type": "punctuation",
+                  "color_class": "gloss-default",
+                  "description": ""
+                },
+                {
+                  "text": "S",
+                  "component_type": "argument",
+                  "color_class": "gloss-subject",
+                  "description": ""
+                },
+                {
+                  "text": "-",
+                  "component_type": "punctuation",
+                  "color_class": "gloss-default",
+                  "description": ""
+                },
+                {
+                  "text": "IO",
+                  "component_type": "argument",
+                  "color_class": "gloss-indirect-object",
+                  "description": ""
+                },
+                {
+                  "text": ">",
+                  "component_type": "punctuation",
+                  "color_class": "gloss-default",
+                  "description": ""
+                }
+              ]
+            },
+            {
+              "text": "<S:Nom>",
+              "component_type": "case_spec",
+              "color_class": "gloss-subject",
+              "description": "Nominative subject"
+            },
+            {
+              "text": "<IO:Dat>",
+              "component_type": "case_spec",
+              "color_class": "gloss-indirect-object",
+              "description": "Dative indirect object"
+            }
+          ],
+          "expanded_components": [
+            {
+              "text": "V",
+              "component_type": "verb",
+              "color_class": "gloss-verb",
+              "description": "Verb"
+            },
+            {
+              "text": "Pass",
+              "component_type": "voice",
+              "color_class": "gloss-default",
+              "description": "Passive"
+            },
+            {
+              "text": "Fut",
+              "component_type": "tense",
+              "color_class": "gloss-tense",
+              "description": "Future"
+            },
+            {
+              "text": "Pv",
+              "component_type": "preverb",
+              "color_class": "gloss-default",
+              "description": "და"
+            },
+            {
+              "type": "argument_pattern_group",
+              "original_text": "<S-IO>",
+              "description": "Intransitive relative",
+              "components": [
+                {
+                  "text": "<",
+                  "component_type": "punctuation",
+                  "color_class": "gloss-default",
+                  "description": ""
+                },
+                {
+                  "text": "S",
+                  "component_type": "argument",
+                  "color_class": "gloss-subject",
+                  "description": ""
+                },
+                {
+                  "text": "-",
+                  "component_type": "punctuation",
+                  "color_class": "gloss-default",
+                  "description": ""
+                },
+                {
+                  "text": "IO",
+                  "component_type": "argument",
+                  "color_class": "gloss-indirect-object",
+                  "description": ""
+                },
+                {
+                  "text": ">",
+                  "component_type": "punctuation",
+                  "color_class": "gloss-default",
+                  "description": ""
+                }
+              ]
+            },
+            {
+              "text": "<S:Nom>",
+              "component_type": "case_spec",
+              "color_class": "gloss-subject",
+              "description": "Nominative subject"
+            },
+            {
+              "text": "<IO:Dat>",
+              "component_type": "case_spec",
+              "color_class": "gloss-indirect-object",
+              "description": "Dative indirect object"
+            }
+          ],
+          "argument_pattern": "<S-IO>",
+          "case_specifications": [
+            "<S:Nom>",
+            "<IO:Dat>"
+          ]
+        }
+      },
+      "aorist": {
+        "raw_gloss": "V Pass Aor Pv <S-IO> <S:Nom> <IO:Dat>",
+        "structured_gloss": {
+          "raw_components": [
+            {
+              "text": "V",
+              "component_type": "verb",
+              "color_class": "gloss-verb",
+              "description": "Verb"
+            },
+            {
+              "text": "Pass",
+              "component_type": "voice",
+              "color_class": "gloss-default",
+              "description": "Passive"
+            },
+            {
+              "text": "Aor",
+              "component_type": "tense",
+              "color_class": "gloss-tense",
+              "description": "Aorist"
+            },
+            {
+              "text": "Pv",
+              "component_type": "preverb",
+              "color_class": "gloss-default",
+              "description": "და"
+            },
+            {
+              "type": "argument_pattern_group",
+              "original_text": "<S-IO>",
+              "description": "Intransitive relative",
+              "components": [
+                {
+                  "text": "<",
+                  "component_type": "punctuation",
+                  "color_class": "gloss-default",
+                  "description": ""
+                },
+                {
+                  "text": "S",
+                  "component_type": "argument",
+                  "color_class": "gloss-subject",
+                  "description": ""
+                },
+                {
+                  "text": "-",
+                  "component_type": "punctuation",
+                  "color_class": "gloss-default",
+                  "description": ""
+                },
+                {
+                  "text": "IO",
+                  "component_type": "argument",
+                  "color_class": "gloss-indirect-object",
+                  "description": ""
+                },
+                {
+                  "text": ">",
+                  "component_type": "punctuation",
+                  "color_class": "gloss-default",
+                  "description": ""
+                }
+              ]
+            },
+            {
+              "text": "<S:Nom>",
+              "component_type": "case_spec",
+              "color_class": "gloss-subject",
+              "description": "Nominative subject"
+            },
+            {
+              "text": "<IO:Dat>",
+              "component_type": "case_spec",
+              "color_class": "gloss-indirect-object",
+              "description": "Dative indirect object"
+            }
+          ],
+          "expanded_components": [
+            {
+              "text": "V",
+              "component_type": "verb",
+              "color_class": "gloss-verb",
+              "description": "Verb"
+            },
+            {
+              "text": "Pass",
+              "component_type": "voice",
+              "color_class": "gloss-default",
+              "description": "Passive"
+            },
+            {
+              "text": "Aor",
+              "component_type": "tense",
+              "color_class": "gloss-tense",
+              "description": "Aorist"
+            },
+            {
+              "text": "Pv",
+              "component_type": "preverb",
+              "color_class": "gloss-default",
+              "description": "და"
+            },
+            {
+              "type": "argument_pattern_group",
+              "original_text": "<S-IO>",
+              "description": "Intransitive relative",
+              "components": [
+                {
+                  "text": "<",
+                  "component_type": "punctuation",
+                  "color_class": "gloss-default",
+                  "description": ""
+                },
+                {
+                  "text": "S",
+                  "component_type": "argument",
+                  "color_class": "gloss-subject",
+                  "description": ""
+                },
+                {
+                  "text": "-",
+                  "component_type": "punctuation",
+                  "color_class": "gloss-default",
+                  "description": ""
+                },
+                {
+                  "text": "IO",
+                  "component_type": "argument",
+                  "color_class": "gloss-indirect-object",
+                  "description": ""
+                },
+                {
+                  "text": ">",
+                  "component_type": "punctuation",
+                  "color_class": "gloss-default",
+                  "description": ""
+                }
+              ]
+            },
+            {
+              "text": "<S:Nom>",
+              "component_type": "case_spec",
+              "color_class": "gloss-subject",
+              "description": "Nominative subject"
+            },
+            {
+              "text": "<IO:Dat>",
+              "component_type": "case_spec",
+              "color_class": "gloss-indirect-object",
+              "description": "Dative indirect object"
+            }
+          ],
+          "argument_pattern": "<S-IO>",
+          "case_specifications": [
+            "<S:Nom>",
+            "<IO:Dat>"
+          ]
+        }
+      },
+      "optative": {
+        "raw_gloss": "V Pass Opt Pv <S-IO> <S:Nom> <IO:Dat>",
+        "structured_gloss": {
+          "raw_components": [
+            {
+              "text": "V",
+              "component_type": "verb",
+              "color_class": "gloss-verb",
+              "description": "Verb"
+            },
+            {
+              "text": "Pass",
+              "component_type": "voice",
+              "color_class": "gloss-default",
+              "description": "Passive"
+            },
+            {
+              "text": "Opt",
+              "component_type": "tense",
+              "color_class": "gloss-tense",
+              "description": "Optative"
+            },
+            {
+              "text": "Pv",
+              "component_type": "preverb",
+              "color_class": "gloss-default",
+              "description": "და"
+            },
+            {
+              "type": "argument_pattern_group",
+              "original_text": "<S-IO>",
+              "description": "Intransitive relative",
+              "components": [
+                {
+                  "text": "<",
+                  "component_type": "punctuation",
+                  "color_class": "gloss-default",
+                  "description": ""
+                },
+                {
+                  "text": "S",
+                  "component_type": "argument",
+                  "color_class": "gloss-subject",
+                  "description": ""
+                },
+                {
+                  "text": "-",
+                  "component_type": "punctuation",
+                  "color_class": "gloss-default",
+                  "description": ""
+                },
+                {
+                  "text": "IO",
+                  "component_type": "argument",
+                  "color_class": "gloss-indirect-object",
+                  "description": ""
+                },
+                {
+                  "text": ">",
+                  "component_type": "punctuation",
+                  "color_class": "gloss-default",
+                  "description": ""
+                }
+              ]
+            },
+            {
+              "text": "<S:Nom>",
+              "component_type": "case_spec",
+              "color_class": "gloss-subject",
+              "description": "Nominative subject"
+            },
+            {
+              "text": "<IO:Dat>",
+              "component_type": "case_spec",
+              "color_class": "gloss-indirect-object",
+              "description": "Dative indirect object"
+            }
+          ],
+          "expanded_components": [
+            {
+              "text": "V",
+              "component_type": "verb",
+              "color_class": "gloss-verb",
+              "description": "Verb"
+            },
+            {
+              "text": "Pass",
+              "component_type": "voice",
+              "color_class": "gloss-default",
+              "description": "Passive"
+            },
+            {
+              "text": "Opt",
+              "component_type": "tense",
+              "color_class": "gloss-tense",
+              "description": "Optative"
+            },
+            {
+              "text": "Pv",
+              "component_type": "preverb",
+              "color_class": "gloss-default",
+              "description": "და"
+            },
+            {
+              "type": "argument_pattern_group",
+              "original_text": "<S-IO>",
+              "description": "Intransitive relative",
+              "components": [
+                {
+                  "text": "<",
+                  "component_type": "punctuation",
+                  "color_class": "gloss-default",
+                  "description": ""
+                },
+                {
+                  "text": "S",
+                  "component_type": "argument",
+                  "color_class": "gloss-subject",
+                  "description": ""
+                },
+                {
+                  "text": "-",
+                  "component_type": "punctuation",
+                  "color_class": "gloss-default",
+                  "description": ""
+                },
+                {
+                  "text": "IO",
+                  "component_type": "argument",
+                  "color_class": "gloss-indirect-object",
+                  "description": ""
+                },
+                {
+                  "text": ">",
+                  "component_type": "punctuation",
+                  "color_class": "gloss-default",
+                  "description": ""
+                }
+              ]
+            },
+            {
+              "text": "<S:Nom>",
+              "component_type": "case_spec",
+              "color_class": "gloss-subject",
+              "description": "Nominative subject"
+            },
+            {
+              "text": "<IO:Dat>",
+              "component_type": "case_spec",
+              "color_class": "gloss-indirect-object",
+              "description": "Dative indirect object"
+            }
+          ],
+          "argument_pattern": "<S-IO>",
+          "case_specifications": [
+            "<S:Nom>",
+            "<IO:Dat>"
+          ]
+        }
+      },
+      "imperative": {
+        "raw_gloss": "V Pass Impv Pv <S-IO> <S:Nom> <IO:Dat>",
+        "structured_gloss": {
+          "raw_components": [
+            {
+              "text": "V",
+              "component_type": "verb",
+              "color_class": "gloss-verb",
+              "description": "Verb"
+            },
+            {
+              "text": "Pass",
+              "component_type": "voice",
+              "color_class": "gloss-default",
+              "description": "Passive"
+            },
+            {
+              "text": "Impv",
+              "component_type": "tense",
+              "color_class": "gloss-tense",
+              "description": "Imperative"
+            },
+            {
+              "text": "Pv",
+              "component_type": "preverb",
+              "color_class": "gloss-default",
+              "description": "და"
+            },
+            {
+              "type": "argument_pattern_group",
+              "original_text": "<S-IO>",
+              "description": "Intransitive relative",
+              "components": [
+                {
+                  "text": "<",
+                  "component_type": "punctuation",
+                  "color_class": "gloss-default",
+                  "description": ""
+                },
+                {
+                  "text": "S",
+                  "component_type": "argument",
+                  "color_class": "gloss-subject",
+                  "description": ""
+                },
+                {
+                  "text": "-",
+                  "component_type": "punctuation",
+                  "color_class": "gloss-default",
+                  "description": ""
+                },
+                {
+                  "text": "IO",
+                  "component_type": "argument",
+                  "color_class": "gloss-indirect-object",
+                  "description": ""
+                },
+                {
+                  "text": ">",
+                  "component_type": "punctuation",
+                  "color_class": "gloss-default",
+                  "description": ""
+                }
+              ]
+            },
+            {
+              "text": "<S:Nom>",
+              "component_type": "case_spec",
+              "color_class": "gloss-subject",
+              "description": "Nominative subject"
+            },
+            {
+              "text": "<IO:Dat>",
+              "component_type": "case_spec",
+              "color_class": "gloss-indirect-object",
+              "description": "Dative indirect object"
+            }
+          ],
+          "expanded_components": [
+            {
+              "text": "V",
+              "component_type": "verb",
+              "color_class": "gloss-verb",
+              "description": "Verb"
+            },
+            {
+              "text": "Pass",
+              "component_type": "voice",
+              "color_class": "gloss-default",
+              "description": "Passive"
+            },
+            {
+              "text": "Impv",
+              "component_type": "tense",
+              "color_class": "gloss-tense",
+              "description": "Imperative"
+            },
+            {
+              "text": "Pv",
+              "component_type": "preverb",
+              "color_class": "gloss-default",
+              "description": "და"
+            },
+            {
+              "type": "argument_pattern_group",
+              "original_text": "<S-IO>",
+              "description": "Intransitive relative",
+              "components": [
+                {
+                  "text": "<",
+                  "component_type": "punctuation",
+                  "color_class": "gloss-default",
+                  "description": ""
+                },
+                {
+                  "text": "S",
+                  "component_type": "argument",
+                  "color_class": "gloss-subject",
+                  "description": ""
+                },
+                {
+                  "text": "-",
+                  "component_type": "punctuation",
+                  "color_class": "gloss-default",
+                  "description": ""
+                },
+                {
+                  "text": "IO",
+                  "component_type": "argument",
+                  "color_class": "gloss-indirect-object",
+                  "description": ""
+                },
+                {
+                  "text": ">",
+                  "component_type": "punctuation",
+                  "color_class": "gloss-default",
+                  "description": ""
+                }
+              ]
+            },
+            {
+              "text": "<S:Nom>",
+              "component_type": "case_spec",
+              "color_class": "gloss-subject",
+              "description": "Nominative subject"
+            },
+            {
+              "text": "<IO:Dat>",
+              "component_type": "case_spec",
+              "color_class": "gloss-indirect-object",
+              "description": "Dative indirect object"
+            }
+          ],
+          "argument_pattern": "<S-IO>",
+          "case_specifications": [
+            "<S:Nom>",
+            "<IO:Dat>"
+          ]
+        }
+      }
+    },
+    "preverb_forms": {}
+  }
+}

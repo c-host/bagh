@@ -8,13 +8,13 @@ This package contains modules for generating final output:
 - Asset management and copying
 """
 
-from .external_data_generator import ExternalDataGenerator
+from .split_processed_verbs import VerbDataSplitter
 from .html_generator import HTMLGenerator
 from .html_index_file_writer import HTMLIndexFileWriter
 from .asset_manager import AssetManager
 
 __all__ = [
-    "ExternalDataGenerator",
+    "VerbDataSplitter",
     "HTMLGenerator",
     "HTMLIndexFileWriter",
     "AssetManager",

@@ -71,9 +71,8 @@ export class StorageManager {
             data[STORAGE_KEYS.NOTEPAD_SIZE] = localStorage.getItem(STORAGE_KEYS.NOTEPAD_SIZE);
             data[STORAGE_KEYS.SIDEBAR_STATE] = localStorage.getItem(STORAGE_KEYS.SIDEBAR_STATE);
 
-            console.log('📦 Pre-loaded storage data:', Object.keys(data).length, 'items');
         } catch (error) {
-            console.warn('Failed to load storage data:', error);
+            // Failed to load storage data
         }
 
         return data;

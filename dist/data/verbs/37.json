@@ -1,0 +1,970 @@
+{
+  "base_data": {
+    "id": 37,
+    "georgian": "ცოდნა",
+    "description": "To Know",
+    "category": "Mental Activities & Cognition",
+    "class": "Class-I",
+    "semantic_key": "know",
+    "notes": "",
+    "url": "https://lingua.ge/verbs/%e1%83%aa%e1%83%9d%e1%83%93%e1%83%9c%e1%83%90/",
+    "global_argument_pattern": "<S-DO>",
+    "valency": {
+      "default": "<S-DO>",
+      "alternatives": []
+    },
+    "syntax": {
+      "arguments": {
+        "subject": {
+          "3sg": {
+            "noun": "teacher",
+            "adjective": "experienced"
+          },
+          "3pl": {
+            "noun": "child",
+            "adjective": "young"
+          }
+        },
+        "direct_object": {
+          "1sg": {
+            "noun": "answer",
+            "adjective": "correct"
+          },
+          "2sg": {
+            "noun": "word",
+            "adjective": "difficult"
+          },
+          "3sg": {
+            "noun": "history",
+            "adjective": "complete"
+          },
+          "1pl": {
+            "noun": "rule",
+            "adjective": "simple"
+          },
+          "2pl": {
+            "noun": "fact",
+            "adjective": "interesting"
+          },
+          "3pl": {
+            "noun": "story",
+            "adjective": "whole"
+          }
+        }
+      },
+      "prepositions": {
+        "subject": "the",
+        "direct_object": "the",
+        "indirect_object": ""
+      },
+      "preverb_overrides": {}
+    },
+    "english_translations": {
+      "default": {
+        "present": "know",
+        "imperfect": "knew",
+        "future": "will know",
+        "aorist": "knew",
+        "optative": "know",
+        "imperative": "know"
+      }
+    },
+    "conjugations": {
+      "present": {
+        "raw_gloss": "V MedPass Pres <S-DO> <S:Erg> <DO:Nom>",
+        "forms": {
+          "1sg": "ვიცი",
+          "2sg": "იცი",
+          "3sg": "იცის",
+          "1pl": "ვიცით",
+          "2pl": "იცით",
+          "3pl": "იციან"
+        },
+        "examples": []
+      },
+      "imperfect": {
+        "raw_gloss": "V MedPass Impf <S-DO> <S:Erg> <DO:Nom>",
+        "forms": {
+          "1sg": "ვიცოდი",
+          "2sg": "იცოდი",
+          "3sg": "იცოდა",
+          "1pl": "ვიცოდით",
+          "2pl": "იცოდით",
+          "3pl": "იცოდნენ"
+        },
+        "examples": []
+      },
+      "future": {
+        "raw_gloss": "V MedPass Inv Fut <S-DO> <S:Dat> <DO:Nom>",
+        "forms": {
+          "1sg": "მეცოდინება",
+          "2sg": "გეცოდინება",
+          "3sg": "ეცოდინება",
+          "1pl": "გვეცოდინება",
+          "2pl": "გეცოდინებათ",
+          "3pl": "ეცოდინებათ"
+        },
+        "examples": []
+      },
+      "aorist": {
+        "raw_gloss": "",
+        "forms": {
+          "1sg": "-",
+          "2sg": "-",
+          "3sg": "-",
+          "1pl": "-",
+          "2pl": "-",
+          "3pl": "-"
+        },
+        "examples": []
+      },
+      "optative": {
+        "raw_gloss": "",
+        "forms": {
+          "1sg": "-",
+          "2sg": "-",
+          "3sg": "-",
+          "1pl": "-",
+          "2pl": "-",
+          "3pl": "-"
+        },
+        "examples": []
+      },
+      "imperative": {
+        "raw_gloss": "",
+        "forms": {
+          "1sg": "-",
+          "2sg": "-",
+          "3sg": "-",
+          "1pl": "-",
+          "2pl": "-",
+          "3pl": "-"
+        },
+        "examples": []
+      }
+    },
+    "preverb_config": {
+      "has_multiple_preverbs": false,
+      "default_preverb": "",
+      "available_preverbs": []
+    },
+    "preverb_rules": {
+      "default": "",
+      "replacements": {},
+      "tense_specific_fallbacks": {}
+    }
+  },
+  "generated_data": {
+    "examples": {
+      "default": {
+        "present": [
+          {
+            "georgian": "ვიცი სწორი პასუხი",
+            "georgian_components": {
+              "verb": {
+                "text": "ვიცი",
+                "role": "verb"
+              },
+              "direct_object": {
+                "text": "სწორი პასუხი",
+                "case": "nom",
+                "role": "direct_object"
+              }
+            },
+            "english": "I know the correct answer",
+            "english_components": {
+              "subject": {
+                "text": "I",
+                "role": "subject",
+                "person": "1sg"
+              },
+              "verb": {
+                "text": "know",
+                "role": "verb"
+              },
+              "direct_object": {
+                "text": "the correct answer",
+                "role": "direct_object"
+              }
+            },
+            "georgian_verb_form": "ვიცი",
+            "person": "1sg",
+            "effective_preverb": ""
+          },
+          {
+            "georgian": "გამოცდილმა მასწავლებელმა იცის სრული ისტორია",
+            "georgian_components": {
+              "subject": {
+                "text": "გამოცდილმა მასწავლებელმა",
+                "case": "erg",
+                "role": "subject"
+              },
+              "verb": {
+                "text": "იცის",
+                "role": "verb"
+              },
+              "direct_object": {
+                "text": "სრული ისტორია",
+                "case": "nom",
+                "role": "direct_object"
+              }
+            },
+            "english": "The experienced teacher knows the complete history",
+            "english_components": {
+              "subject": {
+                "text": "The experienced teacher",
+                "role": "subject",
+                "person": "3sg"
+              },
+              "verb": {
+                "text": "knows",
+                "role": "verb"
+              },
+              "direct_object": {
+                "text": "the complete history",
+                "role": "direct_object"
+              }
+            },
+            "georgian_verb_form": "იცის",
+            "person": "3sg",
+            "effective_preverb": ""
+          },
+          {
+            "georgian": "ახალგაზრდა ბავშვებმა იციან მთელი ამბავი",
+            "georgian_components": {
+              "subject": {
+                "text": "ახალგაზრდა ბავშვებმა",
+                "case": "erg",
+                "role": "subject"
+              },
+              "verb": {
+                "text": "იციან",
+                "role": "verb"
+              },
+              "direct_object": {
+                "text": "მთელი ამბავი",
+                "case": "nom",
+                "role": "direct_object"
+              }
+            },
+            "english": "The young children know the whole story",
+            "english_components": {
+              "subject": {
+                "text": "The young children",
+                "role": "subject",
+                "person": "3pl"
+              },
+              "verb": {
+                "text": "know",
+                "role": "verb"
+              },
+              "direct_object": {
+                "text": "the whole story",
+                "role": "direct_object"
+              }
+            },
+            "georgian_verb_form": "იციან",
+            "person": "3pl",
+            "effective_preverb": ""
+          }
+        ],
+        "imperfect": [
+          {
+            "georgian": "ვიცოდი სწორი პასუხი",
+            "georgian_components": {
+              "verb": {
+                "text": "ვიცოდი",
+                "role": "verb"
+              },
+              "direct_object": {
+                "text": "სწორი პასუხი",
+                "case": "nom",
+                "role": "direct_object"
+              }
+            },
+            "english": "I knew the correct answer",
+            "english_components": {
+              "subject": {
+                "text": "I",
+                "role": "subject",
+                "person": "1sg"
+              },
+              "verb": {
+                "text": "knew",
+                "role": "verb"
+              },
+              "direct_object": {
+                "text": "the correct answer",
+                "role": "direct_object"
+              }
+            },
+            "georgian_verb_form": "ვიცოდი",
+            "person": "1sg",
+            "effective_preverb": ""
+          },
+          {
+            "georgian": "გამოცდილმა მასწავლებელმა იცოდა სრული ისტორია",
+            "georgian_components": {
+              "subject": {
+                "text": "გამოცდილმა მასწავლებელმა",
+                "case": "erg",
+                "role": "subject"
+              },
+              "verb": {
+                "text": "იცოდა",
+                "role": "verb"
+              },
+              "direct_object": {
+                "text": "სრული ისტორია",
+                "case": "nom",
+                "role": "direct_object"
+              }
+            },
+            "english": "The experienced teacher knew the complete history",
+            "english_components": {
+              "subject": {
+                "text": "The experienced teacher",
+                "role": "subject",
+                "person": "3sg"
+              },
+              "verb": {
+                "text": "knew",
+                "role": "verb"
+              },
+              "direct_object": {
+                "text": "the complete history",
+                "role": "direct_object"
+              }
+            },
+            "georgian_verb_form": "იცოდა",
+            "person": "3sg",
+            "effective_preverb": ""
+          },
+          {
+            "georgian": "ახალგაზრდა ბავშვებმა იცოდნენ მთელი ამბავი",
+            "georgian_components": {
+              "subject": {
+                "text": "ახალგაზრდა ბავშვებმა",
+                "case": "erg",
+                "role": "subject"
+              },
+              "verb": {
+                "text": "იცოდნენ",
+                "role": "verb"
+              },
+              "direct_object": {
+                "text": "მთელი ამბავი",
+                "case": "nom",
+                "role": "direct_object"
+              }
+            },
+            "english": "The young children knew the whole story",
+            "english_components": {
+              "subject": {
+                "text": "The young children",
+                "role": "subject",
+                "person": "3pl"
+              },
+              "verb": {
+                "text": "knew",
+                "role": "verb"
+              },
+              "direct_object": {
+                "text": "the whole story",
+                "role": "direct_object"
+              }
+            },
+            "georgian_verb_form": "იცოდნენ",
+            "person": "3pl",
+            "effective_preverb": ""
+          }
+        ],
+        "future": [
+          {
+            "georgian": "მეცოდინება სწორი პასუხი",
+            "georgian_components": {
+              "verb": {
+                "text": "მეცოდინება",
+                "role": "verb"
+              },
+              "direct_object": {
+                "text": "სწორი პასუხი",
+                "case": "nom",
+                "role": "direct_object"
+              }
+            },
+            "english": "I will know the correct answer",
+            "english_components": {
+              "subject": {
+                "text": "I",
+                "role": "subject",
+                "person": "1sg"
+              },
+              "verb": {
+                "text": "will know",
+                "role": "verb"
+              },
+              "direct_object": {
+                "text": "the correct answer",
+                "role": "direct_object"
+              }
+            },
+            "georgian_verb_form": "მეცოდინება",
+            "person": "1sg",
+            "effective_preverb": ""
+          },
+          {
+            "georgian": "გამოცდილ მასწავლებელს ეცოდინება სრული ისტორია",
+            "georgian_components": {
+              "subject": {
+                "text": "გამოცდილ მასწავლებელს",
+                "case": "dat",
+                "role": "subject"
+              },
+              "verb": {
+                "text": "ეცოდინება",
+                "role": "verb"
+              },
+              "direct_object": {
+                "text": "სრული ისტორია",
+                "case": "nom",
+                "role": "direct_object"
+              }
+            },
+            "english": "The experienced teacher will know the complete history",
+            "english_components": {
+              "subject": {
+                "text": "The experienced teacher",
+                "role": "subject",
+                "person": "3sg"
+              },
+              "verb": {
+                "text": "will know",
+                "role": "verb"
+              },
+              "direct_object": {
+                "text": "the complete history",
+                "role": "direct_object"
+              }
+            },
+            "georgian_verb_form": "ეცოდინება",
+            "person": "3sg",
+            "effective_preverb": ""
+          },
+          {
+            "georgian": "ახალგაზრდა ბავშვებს ეცოდინებათ მთელი ამბავი",
+            "georgian_components": {
+              "subject": {
+                "text": "ახალგაზრდა ბავშვებს",
+                "case": "dat",
+                "role": "subject"
+              },
+              "verb": {
+                "text": "ეცოდინებათ",
+                "role": "verb"
+              },
+              "direct_object": {
+                "text": "მთელი ამბავი",
+                "case": "nom",
+                "role": "direct_object"
+              }
+            },
+            "english": "The young children will know the whole story",
+            "english_components": {
+              "subject": {
+                "text": "The young children",
+                "role": "subject",
+                "person": "3pl"
+              },
+              "verb": {
+                "text": "will know",
+                "role": "verb"
+              },
+              "direct_object": {
+                "text": "the whole story",
+                "role": "direct_object"
+              }
+            },
+            "georgian_verb_form": "ეცოდინებათ",
+            "person": "3pl",
+            "effective_preverb": ""
+          }
+        ],
+        "aorist": [],
+        "optative": [],
+        "imperative": []
+      }
+    },
+    "gloss_analysis": {
+      "present": {
+        "raw_gloss": "V MedPass Pres <S-DO> <S:Erg> <DO:Nom>",
+        "structured_gloss": {
+          "raw_components": [
+            {
+              "text": "V",
+              "component_type": "verb",
+              "color_class": "gloss-verb",
+              "description": "Verb"
+            },
+            {
+              "text": "MedPass",
+              "component_type": "voice",
+              "color_class": "gloss-default",
+              "description": "Mediopassive"
+            },
+            {
+              "text": "Pres",
+              "component_type": "tense",
+              "color_class": "gloss-tense",
+              "description": "Present"
+            },
+            {
+              "type": "argument_pattern_group",
+              "original_text": "<S-DO>",
+              "description": "Transitive absolute",
+              "components": [
+                {
+                  "text": "<",
+                  "component_type": "punctuation",
+                  "color_class": "gloss-default",
+                  "description": ""
+                },
+                {
+                  "text": "S",
+                  "component_type": "argument",
+                  "color_class": "gloss-subject",
+                  "description": ""
+                },
+                {
+                  "text": "-",
+                  "component_type": "punctuation",
+                  "color_class": "gloss-default",
+                  "description": ""
+                },
+                {
+                  "text": "DO",
+                  "component_type": "argument",
+                  "color_class": "gloss-direct-object",
+                  "description": ""
+                },
+                {
+                  "text": ">",
+                  "component_type": "punctuation",
+                  "color_class": "gloss-default",
+                  "description": ""
+                }
+              ]
+            },
+            {
+              "text": "<S:Erg>",
+              "component_type": "case_spec",
+              "color_class": "gloss-subject",
+              "description": "Ergative subject"
+            },
+            {
+              "text": "<DO:Nom>",
+              "component_type": "case_spec",
+              "color_class": "gloss-direct-object",
+              "description": "Nominative direct object"
+            }
+          ],
+          "expanded_components": [
+            {
+              "text": "V",
+              "component_type": "verb",
+              "color_class": "gloss-verb",
+              "description": "Verb"
+            },
+            {
+              "text": "MedPass",
+              "component_type": "voice",
+              "color_class": "gloss-default",
+              "description": "Mediopassive"
+            },
+            {
+              "text": "Pres",
+              "component_type": "tense",
+              "color_class": "gloss-tense",
+              "description": "Present"
+            },
+            {
+              "type": "argument_pattern_group",
+              "original_text": "<S-DO>",
+              "description": "Transitive absolute",
+              "components": [
+                {
+                  "text": "<",
+                  "component_type": "punctuation",
+                  "color_class": "gloss-default",
+                  "description": ""
+                },
+                {
+                  "text": "S",
+                  "component_type": "argument",
+                  "color_class": "gloss-subject",
+                  "description": ""
+                },
+                {
+                  "text": "-",
+                  "component_type": "punctuation",
+                  "color_class": "gloss-default",
+                  "description": ""
+                },
+                {
+                  "text": "DO",
+                  "component_type": "argument",
+                  "color_class": "gloss-direct-object",
+                  "description": ""
+                },
+                {
+                  "text": ">",
+                  "component_type": "punctuation",
+                  "color_class": "gloss-default",
+                  "description": ""
+                }
+              ]
+            },
+            {
+              "text": "<S:Erg>",
+              "component_type": "case_spec",
+              "color_class": "gloss-subject",
+              "description": "Ergative subject"
+            },
+            {
+              "text": "<DO:Nom>",
+              "component_type": "case_spec",
+              "color_class": "gloss-direct-object",
+              "description": "Nominative direct object"
+            }
+          ],
+          "argument_pattern": "<S-DO>",
+          "case_specifications": [
+            "<S:Erg>",
+            "<DO:Nom>"
+          ]
+        }
+      },
+      "imperfect": {
+        "raw_gloss": "V MedPass Impf <S-DO> <S:Erg> <DO:Nom>",
+        "structured_gloss": {
+          "raw_components": [
+            {
+              "text": "V",
+              "component_type": "verb",
+              "color_class": "gloss-verb",
+              "description": "Verb"
+            },
+            {
+              "text": "MedPass",
+              "component_type": "voice",
+              "color_class": "gloss-default",
+              "description": "Mediopassive"
+            },
+            {
+              "text": "Impf",
+              "component_type": "tense",
+              "color_class": "gloss-tense",
+              "description": "Imperfect"
+            },
+            {
+              "type": "argument_pattern_group",
+              "original_text": "<S-DO>",
+              "description": "Transitive absolute",
+              "components": [
+                {
+                  "text": "<",
+                  "component_type": "punctuation",
+                  "color_class": "gloss-default",
+                  "description": ""
+                },
+                {
+                  "text": "S",
+                  "component_type": "argument",
+                  "color_class": "gloss-subject",
+                  "description": ""
+                },
+                {
+                  "text": "-",
+                  "component_type": "punctuation",
+                  "color_class": "gloss-default",
+                  "description": ""
+                },
+                {
+                  "text": "DO",
+                  "component_type": "argument",
+                  "color_class": "gloss-direct-object",
+                  "description": ""
+                },
+                {
+                  "text": ">",
+                  "component_type": "punctuation",
+                  "color_class": "gloss-default",
+                  "description": ""
+                }
+              ]
+            },
+            {
+              "text": "<S:Erg>",
+              "component_type": "case_spec",
+              "color_class": "gloss-subject",
+              "description": "Ergative subject"
+            },
+            {
+              "text": "<DO:Nom>",
+              "component_type": "case_spec",
+              "color_class": "gloss-direct-object",
+              "description": "Nominative direct object"
+            }
+          ],
+          "expanded_components": [
+            {
+              "text": "V",
+              "component_type": "verb",
+              "color_class": "gloss-verb",
+              "description": "Verb"
+            },
+            {
+              "text": "MedPass",
+              "component_type": "voice",
+              "color_class": "gloss-default",
+              "description": "Mediopassive"
+            },
+            {
+              "text": "Impf",
+              "component_type": "tense",
+              "color_class": "gloss-tense",
+              "description": "Imperfect"
+            },
+            {
+              "type": "argument_pattern_group",
+              "original_text": "<S-DO>",
+              "description": "Transitive absolute",
+              "components": [
+                {
+                  "text": "<",
+                  "component_type": "punctuation",
+                  "color_class": "gloss-default",
+                  "description": ""
+                },
+                {
+                  "text": "S",
+                  "component_type": "argument",
+                  "color_class": "gloss-subject",
+                  "description": ""
+                },
+                {
+                  "text": "-",
+                  "component_type": "punctuation",
+                  "color_class": "gloss-default",
+                  "description": ""
+                },
+                {
+                  "text": "DO",
+                  "component_type": "argument",
+                  "color_class": "gloss-direct-object",
+                  "description": ""
+                },
+                {
+                  "text": ">",
+                  "component_type": "punctuation",
+                  "color_class": "gloss-default",
+                  "description": ""
+                }
+              ]
+            },
+            {
+              "text": "<S:Erg>",
+              "component_type": "case_spec",
+              "color_class": "gloss-subject",
+              "description": "Ergative subject"
+            },
+            {
+              "text": "<DO:Nom>",
+              "component_type": "case_spec",
+              "color_class": "gloss-direct-object",
+              "description": "Nominative direct object"
+            }
+          ],
+          "argument_pattern": "<S-DO>",
+          "case_specifications": [
+            "<S:Erg>",
+            "<DO:Nom>"
+          ]
+        }
+      },
+      "future": {
+        "raw_gloss": "V MedPass Inv Fut <S-DO> <S:Dat> <DO:Nom>",
+        "structured_gloss": {
+          "raw_components": [
+            {
+              "text": "V",
+              "component_type": "verb",
+              "color_class": "gloss-verb",
+              "description": "Verb"
+            },
+            {
+              "text": "MedPass",
+              "component_type": "voice",
+              "color_class": "gloss-default",
+              "description": "Mediopassive"
+            },
+            {
+              "text": "Inv",
+              "component_type": "unknown",
+              "color_class": "gloss-default",
+              "description": "Inverted"
+            },
+            {
+              "text": "Fut",
+              "component_type": "tense",
+              "color_class": "gloss-tense",
+              "description": "Future"
+            },
+            {
+              "type": "argument_pattern_group",
+              "original_text": "<S-DO>",
+              "description": "Transitive absolute",
+              "components": [
+                {
+                  "text": "<",
+                  "component_type": "punctuation",
+                  "color_class": "gloss-default",
+                  "description": ""
+                },
+                {
+                  "text": "S",
+                  "component_type": "argument",
+                  "color_class": "gloss-subject",
+                  "description": ""
+                },
+                {
+                  "text": "-",
+                  "component_type": "punctuation",
+                  "color_class": "gloss-default",
+                  "description": ""
+                },
+                {
+                  "text": "DO",
+                  "component_type": "argument",
+                  "color_class": "gloss-direct-object",
+                  "description": ""
+                },
+                {
+                  "text": ">",
+                  "component_type": "punctuation",
+                  "color_class": "gloss-default",
+                  "description": ""
+                }
+              ]
+            },
+            {
+              "text": "<S:Dat>",
+              "component_type": "case_spec",
+              "color_class": "gloss-subject",
+              "description": "Dative subject"
+            },
+            {
+              "text": "<DO:Nom>",
+              "component_type": "case_spec",
+              "color_class": "gloss-direct-object",
+              "description": "Nominative direct object"
+            }
+          ],
+          "expanded_components": [
+            {
+              "text": "V",
+              "component_type": "verb",
+              "color_class": "gloss-verb",
+              "description": "Verb"
+            },
+            {
+              "text": "MedPass",
+              "component_type": "voice",
+              "color_class": "gloss-default",
+              "description": "Mediopassive"
+            },
+            {
+              "text": "Inv",
+              "component_type": "unknown",
+              "color_class": "gloss-default",
+              "description": "Inverted"
+            },
+            {
+              "text": "Fut",
+              "component_type": "tense",
+              "color_class": "gloss-tense",
+              "description": "Future"
+            },
+            {
+              "type": "argument_pattern_group",
+              "original_text": "<S-DO>",
+              "description": "Transitive absolute",
+              "components": [
+                {
+                  "text": "<",
+                  "component_type": "punctuation",
+                  "color_class": "gloss-default",
+                  "description": ""
+                },
+                {
+                  "text": "S",
+                  "component_type": "argument",
+                  "color_class": "gloss-subject",
+                  "description": ""
+                },
+                {
+                  "text": "-",
+                  "component_type": "punctuation",
+                  "color_class": "gloss-default",
+                  "description": ""
+                },
+                {
+                  "text": "DO",
+                  "component_type": "argument",
+                  "color_class": "gloss-direct-object",
+                  "description": ""
+                },
+                {
+                  "text": ">",
+                  "component_type": "punctuation",
+                  "color_class": "gloss-default",
+                  "description": ""
+                }
+              ]
+            },
+            {
+              "text": "<S:Dat>",
+              "component_type": "case_spec",
+              "color_class": "gloss-subject",
+              "description": "Dative subject"
+            },
+            {
+              "text": "<DO:Nom>",
+              "component_type": "case_spec",
+              "color_class": "gloss-direct-object",
+              "description": "Nominative direct object"
+            }
+          ],
+          "argument_pattern": "<S-DO>",
+          "case_specifications": [
+            "<S:Dat>",
+            "<DO:Nom>"
+          ]
+        }
+      },
+      "aorist": {
+        "raw_gloss": "",
+        "structured_gloss": {}
+      },
+      "optative": {
+        "raw_gloss": "",
+        "structured_gloss": {}
+      },
+      "imperative": {
+        "raw_gloss": "",
+        "structured_gloss": {}
+      }
+    },
+    "preverb_forms": {}
+  }
+}

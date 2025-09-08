@@ -1,0 +1,1276 @@
+{
+  "base_data": {
+    "id": 33,
+    "georgian": "მოგზაურობა",
+    "description": "To Travel",
+    "category": "Movement & Transport",
+    "class": "Class-I",
+    "semantic_key": "travel",
+    "notes": "",
+    "url": "https://lingua.ge/verbs/%e1%83%9b%e1%83%9d%e1%83%92%e1%83%96%e1%83%90%e1%83%a3%e1%83%a0%e1%83%9d%e1%83%91%e1%83%90/",
+    "global_argument_pattern": "<S>",
+    "valency": {
+      "default": "<S>",
+      "alternatives": []
+    },
+    "syntax": {
+      "arguments": {
+        "subject": {
+          "3sg": {
+            "noun": "entrepreneur",
+            "adjective": "busy"
+          },
+          "3pl": {
+            "noun": "family",
+            "adjective": "happy"
+          }
+        }
+      },
+      "prepositions": {
+        "subject": "the",
+        "direct_object": "the",
+        "indirect_object": ""
+      },
+      "preverb_overrides": {}
+    },
+    "english_translations": {
+      "default": {
+        "present": "travel",
+        "imperfect": "was traveling",
+        "future": "will travel",
+        "aorist": "traveled",
+        "optative": "travel",
+        "imperative": "travel"
+      }
+    },
+    "conjugations": {
+      "present": {
+        "raw_gloss": "V MedAct Pres <S> <S:Nom>",
+        "forms": {
+          "1sg": "ვმოგზაურობ",
+          "2sg": "მოგზაურობ",
+          "3sg": "მოგზაურობს",
+          "1pl": "ვმოგზაურობთ",
+          "2pl": "მოგზაურობთ",
+          "3pl": "მოგზაურობენ"
+        },
+        "examples": []
+      },
+      "imperfect": {
+        "raw_gloss": "V MedAct Impf <S> <S:Nom>",
+        "forms": {
+          "1sg": "ვმოგზაურობდი",
+          "2sg": "მოგზაურობდი",
+          "3sg": "მოგზაურობდა",
+          "1pl": "ვმოგზაურობდით",
+          "2pl": "მოგზაურობდით",
+          "3pl": "მოგზაურობდნენ"
+        },
+        "examples": []
+      },
+      "future": {
+        "raw_gloss": "V MedAct Fut <S> <S:Nom>",
+        "forms": {
+          "1sg": "ვიმოგზაურებ",
+          "2sg": "იმოგზაურებ",
+          "3sg": "იმოგზაურებს",
+          "1pl": "ვიმოგზაურებთ",
+          "2pl": "იმოგზაურებთ",
+          "3pl": "იმოგზაურებენ"
+        },
+        "examples": []
+      },
+      "aorist": {
+        "raw_gloss": "V MedAct Aor <S> <S:Erg>",
+        "forms": {
+          "1sg": "ვიმოგზაურე",
+          "2sg": "იმოგზაურე",
+          "3sg": "იმოგზაურა",
+          "1pl": "ვიმოგზაურეთ",
+          "2pl": "იმოგზაურეთ",
+          "3pl": "იმოგზაურეს"
+        },
+        "examples": []
+      },
+      "optative": {
+        "raw_gloss": "V MedAct Opt <S> <S:Erg>",
+        "forms": {
+          "1sg": "ვიმოგზაურო",
+          "2sg": "იმოგზაურო",
+          "3sg": "იმოგზაუროს",
+          "1pl": "ვიმოგზაუროთ",
+          "2pl": "იმოგზაუროთ",
+          "3pl": "იმოგზაურონ"
+        },
+        "examples": []
+      },
+      "imperative": {
+        "raw_gloss": "V MedAct Impv <S> <S:Erg>",
+        "forms": {
+          "1sg": "-",
+          "2sg": "იმოგზაურე",
+          "3sg": "-",
+          "1pl": "-",
+          "2pl": "იმოგზაურეთ",
+          "3pl": "-"
+        },
+        "examples": []
+      }
+    },
+    "preverb_config": {
+      "has_multiple_preverbs": false,
+      "default_preverb": "",
+      "available_preverbs": []
+    },
+    "preverb_rules": {
+      "default": "",
+      "replacements": {},
+      "tense_specific_fallbacks": {}
+    }
+  },
+  "generated_data": {
+    "examples": {
+      "default": {
+        "present": [
+          {
+            "georgian": "ვმოგზაურობ",
+            "georgian_components": {
+              "verb": {
+                "text": "ვმოგზაურობ",
+                "role": "verb"
+              }
+            },
+            "english": "I travel",
+            "english_components": {
+              "subject": {
+                "text": "I",
+                "role": "subject",
+                "person": "1sg"
+              },
+              "verb": {
+                "text": "travel",
+                "role": "verb"
+              }
+            },
+            "georgian_verb_form": "ვმოგზაურობ",
+            "person": "1sg",
+            "effective_preverb": ""
+          },
+          {
+            "georgian": "დაკავებული მეწარმე მოგზაურობს",
+            "georgian_components": {
+              "subject": {
+                "text": "დაკავებული მეწარმე",
+                "case": "nom",
+                "role": "subject"
+              },
+              "verb": {
+                "text": "მოგზაურობს",
+                "role": "verb"
+              }
+            },
+            "english": "The busy businessman travels",
+            "english_components": {
+              "subject": {
+                "text": "The busy businessman",
+                "role": "subject",
+                "person": "3sg"
+              },
+              "verb": {
+                "text": "travels",
+                "role": "verb"
+              }
+            },
+            "georgian_verb_form": "მოგზაურობს",
+            "person": "3sg",
+            "effective_preverb": ""
+          },
+          {
+            "georgian": "ბედნიერი ოჯახები მოგზაურობენ",
+            "georgian_components": {
+              "subject": {
+                "text": "ბედნიერი ოჯახები",
+                "case": "nom",
+                "role": "subject"
+              },
+              "verb": {
+                "text": "მოგზაურობენ",
+                "role": "verb"
+              }
+            },
+            "english": "The happy families travel",
+            "english_components": {
+              "subject": {
+                "text": "The happy families",
+                "role": "subject",
+                "person": "3pl"
+              },
+              "verb": {
+                "text": "travel",
+                "role": "verb"
+              }
+            },
+            "georgian_verb_form": "მოგზაურობენ",
+            "person": "3pl",
+            "effective_preverb": ""
+          }
+        ],
+        "imperfect": [
+          {
+            "georgian": "ვმოგზაურობდი",
+            "georgian_components": {
+              "verb": {
+                "text": "ვმოგზაურობდი",
+                "role": "verb"
+              }
+            },
+            "english": "I was traveling",
+            "english_components": {
+              "subject": {
+                "text": "I",
+                "role": "subject",
+                "person": "1sg"
+              },
+              "verb": {
+                "text": "was traveling",
+                "role": "verb"
+              }
+            },
+            "georgian_verb_form": "ვმოგზაურობდი",
+            "person": "1sg",
+            "effective_preverb": ""
+          },
+          {
+            "georgian": "დაკავებული მეწარმე მოგზაურობდა",
+            "georgian_components": {
+              "subject": {
+                "text": "დაკავებული მეწარმე",
+                "case": "nom",
+                "role": "subject"
+              },
+              "verb": {
+                "text": "მოგზაურობდა",
+                "role": "verb"
+              }
+            },
+            "english": "The busy businessman was traveling",
+            "english_components": {
+              "subject": {
+                "text": "The busy businessman",
+                "role": "subject",
+                "person": "3sg"
+              },
+              "verb": {
+                "text": "was traveling",
+                "role": "verb"
+              }
+            },
+            "georgian_verb_form": "მოგზაურობდა",
+            "person": "3sg",
+            "effective_preverb": ""
+          },
+          {
+            "georgian": "ბედნიერი ოჯახები მოგზაურობდნენ",
+            "georgian_components": {
+              "subject": {
+                "text": "ბედნიერი ოჯახები",
+                "case": "nom",
+                "role": "subject"
+              },
+              "verb": {
+                "text": "მოგზაურობდნენ",
+                "role": "verb"
+              }
+            },
+            "english": "The happy families were traveling",
+            "english_components": {
+              "subject": {
+                "text": "The happy families",
+                "role": "subject",
+                "person": "3pl"
+              },
+              "verb": {
+                "text": "were traveling",
+                "role": "verb"
+              }
+            },
+            "georgian_verb_form": "მოგზაურობდნენ",
+            "person": "3pl",
+            "effective_preverb": ""
+          }
+        ],
+        "future": [
+          {
+            "georgian": "ვიმოგზაურებ",
+            "georgian_components": {
+              "verb": {
+                "text": "ვიმოგზაურებ",
+                "role": "verb"
+              }
+            },
+            "english": "I will travel",
+            "english_components": {
+              "subject": {
+                "text": "I",
+                "role": "subject",
+                "person": "1sg"
+              },
+              "verb": {
+                "text": "will travel",
+                "role": "verb"
+              }
+            },
+            "georgian_verb_form": "ვიმოგზაურებ",
+            "person": "1sg",
+            "effective_preverb": ""
+          },
+          {
+            "georgian": "დაკავებული მეწარმე იმოგზაურებს",
+            "georgian_components": {
+              "subject": {
+                "text": "დაკავებული მეწარმე",
+                "case": "nom",
+                "role": "subject"
+              },
+              "verb": {
+                "text": "იმოგზაურებს",
+                "role": "verb"
+              }
+            },
+            "english": "The busy businessman will travel",
+            "english_components": {
+              "subject": {
+                "text": "The busy businessman",
+                "role": "subject",
+                "person": "3sg"
+              },
+              "verb": {
+                "text": "will travel",
+                "role": "verb"
+              }
+            },
+            "georgian_verb_form": "იმოგზაურებს",
+            "person": "3sg",
+            "effective_preverb": ""
+          },
+          {
+            "georgian": "ბედნიერი ოჯახები იმოგზაურებენ",
+            "georgian_components": {
+              "subject": {
+                "text": "ბედნიერი ოჯახები",
+                "case": "nom",
+                "role": "subject"
+              },
+              "verb": {
+                "text": "იმოგზაურებენ",
+                "role": "verb"
+              }
+            },
+            "english": "The happy families will travel",
+            "english_components": {
+              "subject": {
+                "text": "The happy families",
+                "role": "subject",
+                "person": "3pl"
+              },
+              "verb": {
+                "text": "will travel",
+                "role": "verb"
+              }
+            },
+            "georgian_verb_form": "იმოგზაურებენ",
+            "person": "3pl",
+            "effective_preverb": ""
+          }
+        ],
+        "aorist": [
+          {
+            "georgian": "ვიმოგზაურე",
+            "georgian_components": {
+              "verb": {
+                "text": "ვიმოგზაურე",
+                "role": "verb"
+              }
+            },
+            "english": "I traveled",
+            "english_components": {
+              "subject": {
+                "text": "I",
+                "role": "subject",
+                "person": "1sg"
+              },
+              "verb": {
+                "text": "traveled",
+                "role": "verb"
+              }
+            },
+            "georgian_verb_form": "ვიმოგზაურე",
+            "person": "1sg",
+            "effective_preverb": ""
+          },
+          {
+            "georgian": "დაკავებულმა მეწარმემ იმოგზაურა",
+            "georgian_components": {
+              "subject": {
+                "text": "დაკავებულმა მეწარმემ",
+                "case": "erg",
+                "role": "subject"
+              },
+              "verb": {
+                "text": "იმოგზაურა",
+                "role": "verb"
+              }
+            },
+            "english": "The busy businessman traveled",
+            "english_components": {
+              "subject": {
+                "text": "The busy businessman",
+                "role": "subject",
+                "person": "3sg"
+              },
+              "verb": {
+                "text": "traveled",
+                "role": "verb"
+              }
+            },
+            "georgian_verb_form": "იმოგზაურა",
+            "person": "3sg",
+            "effective_preverb": ""
+          },
+          {
+            "georgian": "ბედნიერმა ოჯახებმა იმოგზაურეს",
+            "georgian_components": {
+              "subject": {
+                "text": "ბედნიერმა ოჯახებმა",
+                "case": "erg",
+                "role": "subject"
+              },
+              "verb": {
+                "text": "იმოგზაურეს",
+                "role": "verb"
+              }
+            },
+            "english": "The happy families traveled",
+            "english_components": {
+              "subject": {
+                "text": "The happy families",
+                "role": "subject",
+                "person": "3pl"
+              },
+              "verb": {
+                "text": "traveled",
+                "role": "verb"
+              }
+            },
+            "georgian_verb_form": "იმოგზაურეს",
+            "person": "3pl",
+            "effective_preverb": ""
+          }
+        ],
+        "optative": [
+          {
+            "georgian": "უნდა ვიმოგზაურო",
+            "georgian_components": {
+              "verb": {
+                "text": "უნდა ვიმოგზაურო",
+                "role": "verb"
+              }
+            },
+            "english": "I should travel",
+            "english_components": {
+              "subject": {
+                "text": "I",
+                "role": "subject",
+                "person": "1sg"
+              },
+              "verb": {
+                "text": "should travel",
+                "role": "verb"
+              }
+            },
+            "georgian_verb_form": "ვიმოგზაურო",
+            "person": "1sg",
+            "effective_preverb": ""
+          },
+          {
+            "georgian": "დაკავებულმა მეწარმემ უნდა იმოგზაუროს",
+            "georgian_components": {
+              "subject": {
+                "text": "დაკავებულმა მეწარმემ",
+                "case": "erg",
+                "role": "subject"
+              },
+              "verb": {
+                "text": "უნდა იმოგზაუროს",
+                "role": "verb"
+              }
+            },
+            "english": "The busy businessman should travel",
+            "english_components": {
+              "subject": {
+                "text": "The busy businessman",
+                "role": "subject",
+                "person": "3sg"
+              },
+              "verb": {
+                "text": "should travel",
+                "role": "verb"
+              }
+            },
+            "georgian_verb_form": "იმოგზაუროს",
+            "person": "3sg",
+            "effective_preverb": ""
+          },
+          {
+            "georgian": "ბედნიერმა ოჯახებმა უნდა იმოგზაურონ",
+            "georgian_components": {
+              "subject": {
+                "text": "ბედნიერმა ოჯახებმა",
+                "case": "erg",
+                "role": "subject"
+              },
+              "verb": {
+                "text": "უნდა იმოგზაურონ",
+                "role": "verb"
+              }
+            },
+            "english": "The happy families should travel",
+            "english_components": {
+              "subject": {
+                "text": "The happy families",
+                "role": "subject",
+                "person": "3pl"
+              },
+              "verb": {
+                "text": "should travel",
+                "role": "verb"
+              }
+            },
+            "georgian_verb_form": "იმოგზაურონ",
+            "person": "3pl",
+            "effective_preverb": ""
+          }
+        ],
+        "imperative": [
+          {
+            "georgian": "იმოგზაურე",
+            "georgian_components": {
+              "verb": {
+                "text": "იმოგზაურე",
+                "role": "verb"
+              }
+            },
+            "english": "You, travel",
+            "english_components": {
+              "subject": {
+                "text": "You,",
+                "role": "subject",
+                "person": "2sg"
+              },
+              "verb": {
+                "text": "travel",
+                "role": "verb"
+              }
+            },
+            "georgian_verb_form": "იმოგზაურე",
+            "person": "2sg",
+            "effective_preverb": ""
+          },
+          {
+            "georgian": "იმოგზაურეთ",
+            "georgian_components": {
+              "verb": {
+                "text": "იმოგზაურეთ",
+                "role": "verb"
+              }
+            },
+            "english": "You all (you formal), travel",
+            "english_components": {
+              "subject": {
+                "text": "You all (you formal),",
+                "role": "subject",
+                "person": "2pl"
+              },
+              "verb": {
+                "text": "travel",
+                "role": "verb"
+              }
+            },
+            "georgian_verb_form": "იმოგზაურეთ",
+            "person": "2pl",
+            "effective_preverb": ""
+          }
+        ]
+      }
+    },
+    "gloss_analysis": {
+      "present": {
+        "raw_gloss": "V MedAct Pres <S> <S:Nom>",
+        "structured_gloss": {
+          "raw_components": [
+            {
+              "text": "V",
+              "component_type": "verb",
+              "color_class": "gloss-verb",
+              "description": "Verb"
+            },
+            {
+              "text": "MedAct",
+              "component_type": "voice",
+              "color_class": "gloss-default",
+              "description": "Medioactive"
+            },
+            {
+              "text": "Pres",
+              "component_type": "tense",
+              "color_class": "gloss-tense",
+              "description": "Present"
+            },
+            {
+              "type": "argument_pattern_group",
+              "original_text": "<S>",
+              "description": "Intransitive absolute",
+              "components": [
+                {
+                  "text": "<",
+                  "component_type": "punctuation",
+                  "color_class": "gloss-default",
+                  "description": ""
+                },
+                {
+                  "text": "S",
+                  "component_type": "argument",
+                  "color_class": "gloss-subject",
+                  "description": ""
+                },
+                {
+                  "text": ">",
+                  "component_type": "punctuation",
+                  "color_class": "gloss-default",
+                  "description": ""
+                }
+              ]
+            },
+            {
+              "text": "<S:Nom>",
+              "component_type": "case_spec",
+              "color_class": "gloss-subject",
+              "description": "Nominative subject"
+            }
+          ],
+          "expanded_components": [
+            {
+              "text": "V",
+              "component_type": "verb",
+              "color_class": "gloss-verb",
+              "description": "Verb"
+            },
+            {
+              "text": "MedAct",
+              "component_type": "voice",
+              "color_class": "gloss-default",
+              "description": "Medioactive"
+            },
+            {
+              "text": "Pres",
+              "component_type": "tense",
+              "color_class": "gloss-tense",
+              "description": "Present"
+            },
+            {
+              "type": "argument_pattern_group",
+              "original_text": "<S>",
+              "description": "Intransitive absolute",
+              "components": [
+                {
+                  "text": "<",
+                  "component_type": "punctuation",
+                  "color_class": "gloss-default",
+                  "description": ""
+                },
+                {
+                  "text": "S",
+                  "component_type": "argument",
+                  "color_class": "gloss-subject",
+                  "description": ""
+                },
+                {
+                  "text": ">",
+                  "component_type": "punctuation",
+                  "color_class": "gloss-default",
+                  "description": ""
+                }
+              ]
+            },
+            {
+              "text": "<S:Nom>",
+              "component_type": "case_spec",
+              "color_class": "gloss-subject",
+              "description": "Nominative subject"
+            }
+          ],
+          "argument_pattern": "<S>",
+          "case_specifications": [
+            "<S:Nom>"
+          ]
+        }
+      },
+      "imperfect": {
+        "raw_gloss": "V MedAct Impf <S> <S:Nom>",
+        "structured_gloss": {
+          "raw_components": [
+            {
+              "text": "V",
+              "component_type": "verb",
+              "color_class": "gloss-verb",
+              "description": "Verb"
+            },
+            {
+              "text": "MedAct",
+              "component_type": "voice",
+              "color_class": "gloss-default",
+              "description": "Medioactive"
+            },
+            {
+              "text": "Impf",
+              "component_type": "tense",
+              "color_class": "gloss-tense",
+              "description": "Imperfect"
+            },
+            {
+              "type": "argument_pattern_group",
+              "original_text": "<S>",
+              "description": "Intransitive absolute",
+              "components": [
+                {
+                  "text": "<",
+                  "component_type": "punctuation",
+                  "color_class": "gloss-default",
+                  "description": ""
+                },
+                {
+                  "text": "S",
+                  "component_type": "argument",
+                  "color_class": "gloss-subject",
+                  "description": ""
+                },
+                {
+                  "text": ">",
+                  "component_type": "punctuation",
+                  "color_class": "gloss-default",
+                  "description": ""
+                }
+              ]
+            },
+            {
+              "text": "<S:Nom>",
+              "component_type": "case_spec",
+              "color_class": "gloss-subject",
+              "description": "Nominative subject"
+            }
+          ],
+          "expanded_components": [
+            {
+              "text": "V",
+              "component_type": "verb",
+              "color_class": "gloss-verb",
+              "description": "Verb"
+            },
+            {
+              "text": "MedAct",
+              "component_type": "voice",
+              "color_class": "gloss-default",
+              "description": "Medioactive"
+            },
+            {
+              "text": "Impf",
+              "component_type": "tense",
+              "color_class": "gloss-tense",
+              "description": "Imperfect"
+            },
+            {
+              "type": "argument_pattern_group",
+              "original_text": "<S>",
+              "description": "Intransitive absolute",
+              "components": [
+                {
+                  "text": "<",
+                  "component_type": "punctuation",
+                  "color_class": "gloss-default",
+                  "description": ""
+                },
+                {
+                  "text": "S",
+                  "component_type": "argument",
+                  "color_class": "gloss-subject",
+                  "description": ""
+                },
+                {
+                  "text": ">",
+                  "component_type": "punctuation",
+                  "color_class": "gloss-default",
+                  "description": ""
+                }
+              ]
+            },
+            {
+              "text": "<S:Nom>",
+              "component_type": "case_spec",
+              "color_class": "gloss-subject",
+              "description": "Nominative subject"
+            }
+          ],
+          "argument_pattern": "<S>",
+          "case_specifications": [
+            "<S:Nom>"
+          ]
+        }
+      },
+      "future": {
+        "raw_gloss": "V MedAct Fut <S> <S:Nom>",
+        "structured_gloss": {
+          "raw_components": [
+            {
+              "text": "V",
+              "component_type": "verb",
+              "color_class": "gloss-verb",
+              "description": "Verb"
+            },
+            {
+              "text": "MedAct",
+              "component_type": "voice",
+              "color_class": "gloss-default",
+              "description": "Medioactive"
+            },
+            {
+              "text": "Fut",
+              "component_type": "tense",
+              "color_class": "gloss-tense",
+              "description": "Future"
+            },
+            {
+              "type": "argument_pattern_group",
+              "original_text": "<S>",
+              "description": "Intransitive absolute",
+              "components": [
+                {
+                  "text": "<",
+                  "component_type": "punctuation",
+                  "color_class": "gloss-default",
+                  "description": ""
+                },
+                {
+                  "text": "S",
+                  "component_type": "argument",
+                  "color_class": "gloss-subject",
+                  "description": ""
+                },
+                {
+                  "text": ">",
+                  "component_type": "punctuation",
+                  "color_class": "gloss-default",
+                  "description": ""
+                }
+              ]
+            },
+            {
+              "text": "<S:Nom>",
+              "component_type": "case_spec",
+              "color_class": "gloss-subject",
+              "description": "Nominative subject"
+            }
+          ],
+          "expanded_components": [
+            {
+              "text": "V",
+              "component_type": "verb",
+              "color_class": "gloss-verb",
+              "description": "Verb"
+            },
+            {
+              "text": "MedAct",
+              "component_type": "voice",
+              "color_class": "gloss-default",
+              "description": "Medioactive"
+            },
+            {
+              "text": "Fut",
+              "component_type": "tense",
+              "color_class": "gloss-tense",
+              "description": "Future"
+            },
+            {
+              "type": "argument_pattern_group",
+              "original_text": "<S>",
+              "description": "Intransitive absolute",
+              "components": [
+                {
+                  "text": "<",
+                  "component_type": "punctuation",
+                  "color_class": "gloss-default",
+                  "description": ""
+                },
+                {
+                  "text": "S",
+                  "component_type": "argument",
+                  "color_class": "gloss-subject",
+                  "description": ""
+                },
+                {
+                  "text": ">",
+                  "component_type": "punctuation",
+                  "color_class": "gloss-default",
+                  "description": ""
+                }
+              ]
+            },
+            {
+              "text": "<S:Nom>",
+              "component_type": "case_spec",
+              "color_class": "gloss-subject",
+              "description": "Nominative subject"
+            }
+          ],
+          "argument_pattern": "<S>",
+          "case_specifications": [
+            "<S:Nom>"
+          ]
+        }
+      },
+      "aorist": {
+        "raw_gloss": "V MedAct Aor <S> <S:Erg>",
+        "structured_gloss": {
+          "raw_components": [
+            {
+              "text": "V",
+              "component_type": "verb",
+              "color_class": "gloss-verb",
+              "description": "Verb"
+            },
+            {
+              "text": "MedAct",
+              "component_type": "voice",
+              "color_class": "gloss-default",
+              "description": "Medioactive"
+            },
+            {
+              "text": "Aor",
+              "component_type": "tense",
+              "color_class": "gloss-tense",
+              "description": "Aorist"
+            },
+            {
+              "type": "argument_pattern_group",
+              "original_text": "<S>",
+              "description": "Intransitive absolute",
+              "components": [
+                {
+                  "text": "<",
+                  "component_type": "punctuation",
+                  "color_class": "gloss-default",
+                  "description": ""
+                },
+                {
+                  "text": "S",
+                  "component_type": "argument",
+                  "color_class": "gloss-subject",
+                  "description": ""
+                },
+                {
+                  "text": ">",
+                  "component_type": "punctuation",
+                  "color_class": "gloss-default",
+                  "description": ""
+                }
+              ]
+            },
+            {
+              "text": "<S:Erg>",
+              "component_type": "case_spec",
+              "color_class": "gloss-subject",
+              "description": "Ergative subject"
+            }
+          ],
+          "expanded_components": [
+            {
+              "text": "V",
+              "component_type": "verb",
+              "color_class": "gloss-verb",
+              "description": "Verb"
+            },
+            {
+              "text": "MedAct",
+              "component_type": "voice",
+              "color_class": "gloss-default",
+              "description": "Medioactive"
+            },
+            {
+              "text": "Aor",
+              "component_type": "tense",
+              "color_class": "gloss-tense",
+              "description": "Aorist"
+            },
+            {
+              "type": "argument_pattern_group",
+              "original_text": "<S>",
+              "description": "Intransitive absolute",
+              "components": [
+                {
+                  "text": "<",
+                  "component_type": "punctuation",
+                  "color_class": "gloss-default",
+                  "description": ""
+                },
+                {
+                  "text": "S",
+                  "component_type": "argument",
+                  "color_class": "gloss-subject",
+                  "description": ""
+                },
+                {
+                  "text": ">",
+                  "component_type": "punctuation",
+                  "color_class": "gloss-default",
+                  "description": ""
+                }
+              ]
+            },
+            {
+              "text": "<S:Erg>",
+              "component_type": "case_spec",
+              "color_class": "gloss-subject",
+              "description": "Ergative subject"
+            }
+          ],
+          "argument_pattern": "<S>",
+          "case_specifications": [
+            "<S:Erg>"
+          ]
+        }
+      },
+      "optative": {
+        "raw_gloss": "V MedAct Opt <S> <S:Erg>",
+        "structured_gloss": {
+          "raw_components": [
+            {
+              "text": "V",
+              "component_type": "verb",
+              "color_class": "gloss-verb",
+              "description": "Verb"
+            },
+            {
+              "text": "MedAct",
+              "component_type": "voice",
+              "color_class": "gloss-default",
+              "description": "Medioactive"
+            },
+            {
+              "text": "Opt",
+              "component_type": "tense",
+              "color_class": "gloss-tense",
+              "description": "Optative"
+            },
+            {
+              "type": "argument_pattern_group",
+              "original_text": "<S>",
+              "description": "Intransitive absolute",
+              "components": [
+                {
+                  "text": "<",
+                  "component_type": "punctuation",
+                  "color_class": "gloss-default",
+                  "description": ""
+                },
+                {
+                  "text": "S",
+                  "component_type": "argument",
+                  "color_class": "gloss-subject",
+                  "description": ""
+                },
+                {
+                  "text": ">",
+                  "component_type": "punctuation",
+                  "color_class": "gloss-default",
+                  "description": ""
+                }
+              ]
+            },
+            {
+              "text": "<S:Erg>",
+              "component_type": "case_spec",
+              "color_class": "gloss-subject",
+              "description": "Ergative subject"
+            }
+          ],
+          "expanded_components": [
+            {
+              "text": "V",
+              "component_type": "verb",
+              "color_class": "gloss-verb",
+              "description": "Verb"
+            },
+            {
+              "text": "MedAct",
+              "component_type": "voice",
+              "color_class": "gloss-default",
+              "description": "Medioactive"
+            },
+            {
+              "text": "Opt",
+              "component_type": "tense",
+              "color_class": "gloss-tense",
+              "description": "Optative"
+            },
+            {
+              "type": "argument_pattern_group",
+              "original_text": "<S>",
+              "description": "Intransitive absolute",
+              "components": [
+                {
+                  "text": "<",
+                  "component_type": "punctuation",
+                  "color_class": "gloss-default",
+                  "description": ""
+                },
+                {
+                  "text": "S",
+                  "component_type": "argument",
+                  "color_class": "gloss-subject",
+                  "description": ""
+                },
+                {
+                  "text": ">",
+                  "component_type": "punctuation",
+                  "color_class": "gloss-default",
+                  "description": ""
+                }
+              ]
+            },
+            {
+              "text": "<S:Erg>",
+              "component_type": "case_spec",
+              "color_class": "gloss-subject",
+              "description": "Ergative subject"
+            }
+          ],
+          "argument_pattern": "<S>",
+          "case_specifications": [
+            "<S:Erg>"
+          ]
+        }
+      },
+      "imperative": {
+        "raw_gloss": "V MedAct Impv <S> <S:Erg>",
+        "structured_gloss": {
+          "raw_components": [
+            {
+              "text": "V",
+              "component_type": "verb",
+              "color_class": "gloss-verb",
+              "description": "Verb"
+            },
+            {
+              "text": "MedAct",
+              "component_type": "voice",
+              "color_class": "gloss-default",
+              "description": "Medioactive"
+            },
+            {
+              "text": "Impv",
+              "component_type": "tense",
+              "color_class": "gloss-tense",
+              "description": "Imperative"
+            },
+            {
+              "type": "argument_pattern_group",
+              "original_text": "<S>",
+              "description": "Intransitive absolute",
+              "components": [
+                {
+                  "text": "<",
+                  "component_type": "punctuation",
+                  "color_class": "gloss-default",
+                  "description": ""
+                },
+                {
+                  "text": "S",
+                  "component_type": "argument",
+                  "color_class": "gloss-subject",
+                  "description": ""
+                },
+                {
+                  "text": ">",
+                  "component_type": "punctuation",
+                  "color_class": "gloss-default",
+                  "description": ""
+                }
+              ]
+            },
+            {
+              "text": "<S:Erg>",
+              "component_type": "case_spec",
+              "color_class": "gloss-subject",
+              "description": "Ergative subject"
+            }
+          ],
+          "expanded_components": [
+            {
+              "text": "V",
+              "component_type": "verb",
+              "color_class": "gloss-verb",
+              "description": "Verb"
+            },
+            {
+              "text": "MedAct",
+              "component_type": "voice",
+              "color_class": "gloss-default",
+              "description": "Medioactive"
+            },
+            {
+              "text": "Impv",
+              "component_type": "tense",
+              "color_class": "gloss-tense",
+              "description": "Imperative"
+            },
+            {
+              "type": "argument_pattern_group",
+              "original_text": "<S>",
+              "description": "Intransitive absolute",
+              "components": [
+                {
+                  "text": "<",
+                  "component_type": "punctuation",
+                  "color_class": "gloss-default",
+                  "description": ""
+                },
+                {
+                  "text": "S",
+                  "component_type": "argument",
+                  "color_class": "gloss-subject",
+                  "description": ""
+                },
+                {
+                  "text": ">",
+                  "component_type": "punctuation",
+                  "color_class": "gloss-default",
+                  "description": ""
+                }
+              ]
+            },
+            {
+              "text": "<S:Erg>",
+              "component_type": "case_spec",
+              "color_class": "gloss-subject",
+              "description": "Ergative subject"
+            }
+          ],
+          "argument_pattern": "<S>",
+          "case_specifications": [
+            "<S:Erg>"
+          ]
+        }
+      }
+    },
+    "preverb_forms": {}
+  }
+}

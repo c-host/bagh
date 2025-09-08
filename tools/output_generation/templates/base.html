@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en-ka">
+<html lang="en-ka" data-theme="light">
 
 <head>
     <meta charset="UTF-8">
@@ -11,20 +11,56 @@
     <link rel="icon" type="image/svg+xml" href="assets/favicon.svg">
     <link rel="alternate icon" href="assets/favicon.svg">
 
+
+
+    <!-- Critical CSS for above-the-fold content -->
+    <style>
+        /* Minimal critical styles to prevent FOUC - don't override main CSS */
+
+        /* Basic reset */
+        * {
+            box-sizing: border-box;
+        }
+
+        html {
+            font-size: 16px;
+            -webkit-text-size-adjust: 100%;
+        }
+
+        body {
+            margin: 0;
+            padding: 0;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+    </style>
+
+    <!-- Load main CSS with high priority -->
+    <link rel="stylesheet" href="styles/main.css" media="all">
+
+    <script type="module" src="scripts/main.js" defer></script>
+
+    <!-- Global function for gloss toggle (needed for static HTML) -->
     <script>
-        (function () {
-            {
-                const savedTheme = localStorage.getItem('theme') || 'light';
-                const savedFont = localStorage.getItem('font') || 'default';
-                document.documentElement.setAttribute('data-theme', savedTheme);
-                document.documentElement.setAttribute('data-font', savedFont);
+        window.toggleGlossExpansion = function (button) {
+            const expanded = button.closest('.flat-gloss').querySelector('.flat-gloss-expanded');
+            const icon = button.querySelector('i');
+
+            if (expanded.style.display === 'none') {
+                expanded.style.display = 'block';
+                icon.className = 'fas fa-chevron-up';
+            } else {
+                expanded.style.display = 'none';
+                icon.className = 'fas fa-chevron-down';
             }
-        })();
+        };
     </script>
 
+    <!-- Preconnect to Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
-    <link rel="stylesheet" href="styles/main.css">
-    <script type="module" src="scripts/main.js"></script>
+    <!-- Font preloading handled by Google Fonts CSS -->
 
     <!-- Google Fonts for Georgian and English -->
     <link
@@ -33,23 +69,93 @@
 
     <!-- Font loading script to prevent flash -->
     <script>
-        // Immediately apply saved font to prevent flash
+        // Immediately apply saved font and theme to prevent flash
         (function () {
-            {
-                const savedFont = localStorage.getItem('font') || 'default';
-                document.documentElement.setAttribute('data-font', savedFont);
-                if (savedFont !== 'default') {
-                    {
-                        // For custom fonts, let the CSS handle it with font-display: block
-                        // This prevents the flash while fonts load
+            // Apply theme immediately - check localStorage first
+            const savedTheme = localStorage.getItem('theme');
+            if (savedTheme) {
+                document.documentElement.setAttribute('data-theme', savedTheme);
+            }
+            // If no saved theme, keep the default 'light' from HTML
+
+            // Apply font immediately
+            const savedFont = localStorage.getItem('font') || 'default';
+            document.documentElement.setAttribute('data-font', savedFont);
+
+            // Font loading handled gracefully
+            // Only hide content briefly to prevent flash, then show immediately
+            document.documentElement.style.visibility = 'hidden';
+
+            // Show content quickly
+            setTimeout(() => {
+                document.documentElement.style.visibility = 'visible';
+            }, 20);
+        })();
+    </script>
+
+    <!-- Early URL anchor detection to prevent content flash -->
+    <script>
+        (function () {
+            // Check for URL anchor immediately to prevent static content flash
+            const urlParams = new URLSearchParams(window.location.search);
+            const verbParam = urlParams.get('verb');
+            const hash = window.location.hash;
+
+            if (verbParam || (hash && hash.startsWith('#'))) {
+                const verbId = verbParam || hash.substring(1);
+                console.log('🔗 Early URL anchor detection:', verbId);
+
+                // Hide content immediately with CSS to prevent any flash
+                const style = document.createElement('style');
+                style.textContent = `
+                    .verb-section {
+                        display: none !important;
                     }
-                }
+                    .welcome-content {
+                        display: none !important;
+                    }
+                `;
+                document.head.appendChild(style);
+
+                // Set up content management when DOM is ready
+                document.addEventListener('DOMContentLoaded', function () {
+                    // Create minimal loading container (invisible but detectable by main app)
+                    const mainContent = document.querySelector('.main-content');
+                    if (mainContent) {
+                        // Add loading container without clearing existing content
+                        const loadingContainer = document.createElement('div');
+                        loadingContainer.className = 'verb-loading-container';
+                        loadingContainer.style.display = 'none';
+                        mainContent.appendChild(loadingContainer);
+                    }
+                });
+            }
+
+            // Ensure content is visible after fonts load, even with URL anchors
+            if (document.fonts && document.fonts.ready) {
+                document.fonts.ready.then(() => {
+                    // Only show content if it's not already visible
+                    if (document.documentElement.style.visibility === 'hidden') {
+                        document.documentElement.style.visibility = 'visible';
+                    }
+                });
             }
         })();
     </script>
 
+    <!-- Preconnect to Font Awesome CDN -->
+    <link rel="preconnect" href="https://cdnjs.cloudflare.com">
+
+    <!-- Prefetch critical resources -->
+    <link rel="prefetch" href="scripts/main.js">
+    <link rel="prefetch" href="styles/main.css">
+
     <!-- Font Awesome for icons -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" as="style"
+        onload="this.onload=null;this.rel='stylesheet'">
+    <noscript>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    </noscript>
 
 </head>
 
@@ -60,11 +166,9 @@
     </button>
 
     <!-- Theme Toggle - Top Right -->
-    <div class="floating-controls">
-        <button id="theme-toggle" class="theme-toggle" title="Toggle Dark/Light Mode">
-            <i class="fas fa-moon"></i>
-        </button>
-    </div>
+    <button id="theme-toggle" class="theme-toggle" title="Toggle Dark/Light Mode">
+        <i class="fas fa-moon"></i>
+    </button>
     </div>
 
     <!-- Font Selector - Bottom Right -->
@@ -244,7 +348,7 @@
                         <li><strong>k_kalig:</strong> Calligraphic Georgian font</li>
                         <li><strong>k_lortki:</strong> Handwritten Georgian font</li>
                         <li><strong>SonataNo5:</strong> Thin curved style font</li>
-                        <li><strong>NeueImpakt:</strong> Bold, impactful font</li>
+                        <li><strong>NeueImpakt:</strong> Bold font</li>
                     </ul>
                 </div>
             </div>
@@ -254,7 +358,7 @@
     <!-- Main Content -->
     <div class="container">
         <header>
-            <h1>ბაღ</h1>
+            <h1><a href="index.html" class="header-link">ბაღ</a></h1>
         </header>
 
         <div class="main-content">

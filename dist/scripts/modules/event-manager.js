@@ -31,8 +31,6 @@ export class EventManager {
      */
     async initialize() {
         try {
-            console.log('🚀 Initializing EventManager...');
-
             // Set up global event handlers
             this.setupGlobalEventHandlers();
 
@@ -46,10 +44,8 @@ export class EventManager {
             this.setupCrossModuleEvents();
 
             this.initialized = true;
-            console.log('✅ EventManager initialized successfully');
             return true;
         } catch (error) {
-            console.error('❌ Failed to initialize EventManager:', error);
             return false;
         }
     }
@@ -160,10 +156,7 @@ export class EventManager {
         window.addEventListener('popstate', this.handleURLChange.bind(this));
         this.eventListeners.set('popstate', 'popstate');
 
-        // Check for immediate loading on page load
-        if (this.managers.verbDataManager) {
-            this.managers.verbDataManager.checkForImmediateLoading();
-        }
+        // Check for immediate loading on page load - now handled by main app after module initialization
     }
 
     /**
@@ -172,21 +165,20 @@ export class EventManager {
     setupCrossModuleEvents() {
         // Listen for category events
         document.addEventListener('categoryExpanded', (event) => {
-            console.log('Category expanded:', event.detail);
+            // Handle category expanded
         });
 
         document.addEventListener('categoryCollapsed', (event) => {
-            console.log('Category collapsed:', event.detail);
+            // Handle category collapsed
         });
 
         // Listen for sticky header events
         document.addEventListener('stickyHeaderChanged', (event) => {
-            console.log('Sticky header changed:', event.detail);
+            // Handle sticky header changed
         });
         // Listen for theme changes
         if (this.managers.themeManager) {
             document.addEventListener('themeChanged', (event) => {
-                console.log('Theme changed:', event.detail);
                 // Update notepad font after theme change
                 if (this.managers.notepadManager?.isInitialized()) {
                     setTimeout(() => {
@@ -199,7 +191,6 @@ export class EventManager {
         // Listen for font changes
         if (this.managers.fontManager) {
             document.addEventListener('fontChanged', (event) => {
-                console.log('Font changed:', event.detail);
                 // Update notepad font after font change
                 if (this.managers.notepadManager?.isInitialized()) {
                     setTimeout(() => {
@@ -217,7 +208,6 @@ export class EventManager {
         // Listen for preverb changes
         if (this.managers.preverbManager) {
             document.addEventListener('preverbChanged', (event) => {
-                console.log('Preverb changed:', event.detail);
                 // The preverb manager will handle updating displays
             });
         }
@@ -240,7 +230,6 @@ export class EventManager {
                 !event.altKey) {
 
                 event.preventDefault();
-                console.log(`Keyboard shortcut triggered: ${shortcutName}`);
                 shortcut.handler();
                 break;
             }
@@ -253,7 +242,7 @@ export class EventManager {
      */
     handleEscapeKey(event) {
         if (event.key === 'Escape') {
-            // Use requestAnimationFrame for better performance
+            // Use requestAnimationFrame for better performance and reduced layout thrashing
             requestAnimationFrame(() => {
                 this.handleEscapeKeyActions();
             });
@@ -264,7 +253,27 @@ export class EventManager {
      * Handle ESC key actions in order of priority
      */
     handleEscapeKeyActions() {
-        // Check if any modal is open and close it
+        // Priority order: Font Dropdown → Bottom Sheet Font Dropdown → Bottom Sheet → Help → Notepad → Sidebar
+
+        // Close font dropdown first (highest priority)
+        if (this.managers.fontManager?.isInitialized() && this.managers.fontManager.isDropdownOpen()) {
+            this.managers.fontManager.closeFontDropdown();
+            return;
+        }
+
+        // Close bottom sheet font dropdown if open
+        if (this.managers.bottomSheetManager?.isInitialized() && this.managers.bottomSheetManager.isFontDropdownOpen()) {
+            this.managers.bottomSheetManager.closeFontDropdown();
+            return;
+        }
+
+        // Close bottom sheet if open (high priority for mobile)
+        if (this.managers.bottomSheetManager?.isInitialized() && this.managers.bottomSheetManager.isBottomSheetOpen()) {
+            this.managers.bottomSheetManager.closeBottomSheet();
+            return;
+        }
+
+        // Check if help modal is open and close it
         if (this.managers.helpManager?.isInitialized() && this.managers.helpManager.isHelpOpen()) {
             this.managers.helpManager.closeHelp();
             return;
@@ -277,12 +286,6 @@ export class EventManager {
 
         if (this.managers.sidebarManager?.isInitialized() && this.managers.sidebarManager.isSidebarOpen()) {
             this.managers.sidebarManager.closeSidebar();
-            return;
-        }
-
-        // Close font dropdown if open
-        if (this.managers.fontManager?.isInitialized() && this.managers.fontManager.isDropdownOpen()) {
-            this.managers.fontManager.closeFontDropdown();
             return;
         }
     }
@@ -309,7 +312,6 @@ export class EventManager {
         const clickedElement = window.event ? window.event.target : null;
 
         if (!clickedElement) {
-            console.log('Link icon click handled for:', anchorId);
             this.updateURLWithAnchor(anchorId);
             return;
         }
@@ -350,7 +352,7 @@ export class EventManager {
             // Trigger URL change event
             this.handleURLChange();
         } catch (error) {
-            console.warn('Failed to update URL:', error);
+            // Failed to update URL
         }
     }
 
@@ -362,17 +364,14 @@ export class EventManager {
         if (newUrl !== this.currentUrl) {
             this.currentUrl = newUrl;
 
-            // Check for immediate loading if URL contains hash
-            if (this.managers.verbDataManager && window.location.hash) {
-                this.managers.verbDataManager.checkForImmediateLoading();
-            }
+            // URL hash changes are now handled by the sidebar manager for navigation
 
             // Notify URL change handlers
             this.urlChangeHandlers.forEach(handler => {
                 try {
                     handler(window.location.hash);
                 } catch (error) {
-                    console.error('Error in URL change handler:', error);
+                    // Error in URL change handler
                 }
             });
         }
@@ -512,23 +511,29 @@ export class EventManager {
 
 
     /**
-     * Handle window resize events
+     * Handle window resize events with throttling
      */
     handleWindowResize() {
-        // Handle responsive behavior
-        if (this.managers.sidebarManager?.isInitialized()) {
-            // Close sidebar on mobile resize
-            if (window.innerWidth < 768) {
-                this.managers.sidebarManager.closeSidebar();
-            }
+        // Throttle resize events to prevent excessive layout calculations
+        if (this.resizeTimeout) {
+            clearTimeout(this.resizeTimeout);
         }
+
+        this.resizeTimeout = setTimeout(() => {
+            // Handle responsive behavior
+            if (this.managers.sidebarManager?.isInitialized()) {
+                // Close sidebar on mobile resize
+                if (window.innerWidth < 768) {
+                    this.managers.sidebarManager.closeSidebar();
+                }
+            }
+        }, 100); // Throttle to 100ms
     }
 
     /**
      * Handle global errors
      */
     handleGlobalError(event) {
-        console.error('Global error caught:', event.error);
         // Note: showNotification is not available in EventManager
         // This could be dispatched as a custom event for the main app to handle
         this.dispatchEvent('globalError', { error: event.error });
@@ -538,7 +543,6 @@ export class EventManager {
      * Handle unhandled promise rejections
      */
     handleUnhandledRejection(event) {
-        console.error('Unhandled promise rejection:', event.reason);
         // Note: showNotification is not available in EventManager
         // This could be dispatched as a custom event for the main app to handle
         this.dispatchEvent('unhandledRejection', { reason: event.reason });

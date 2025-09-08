@@ -2,7 +2,7 @@
 Gloss Processor for Website Display
 
 This module provides structured gloss processing for the build pipeline.
-It creates clean, structured data for the processed_verbs.json file
+It creates structured data for the processed_verbs.json file
 and website display with proper color coding and metadata.
 
 Used by: verb_data_processor.py for build pipeline output
@@ -296,7 +296,7 @@ class RobustGlossProcessor(BaseGlossParser):
 
 def create_gloss_data_structure(raw_gloss: str, preverb: str = None) -> Dict:
     """
-    Create a clean data structure for gloss information.
+    Create a data structure for gloss information.
 
     Args:
         raw_gloss: Raw gloss string

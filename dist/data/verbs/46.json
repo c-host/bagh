@@ -1,0 +1,1276 @@
+{
+  "base_data": {
+    "id": 46,
+    "georgian": "ლაპარაკი",
+    "description": "To Speak",
+    "category": "Communication & Language",
+    "class": "Class-I",
+    "semantic_key": "speak",
+    "notes": "",
+    "url": "https://lingua.ge/verbs/%e1%83%9a%e1%83%90%e1%83%9e%e1%83%90%e1%83%a0%e1%83%90%e1%83%99%e1%83%98-2/",
+    "global_argument_pattern": "<S>",
+    "valency": {
+      "default": "<S>",
+      "alternatives": []
+    },
+    "syntax": {
+      "arguments": {
+        "subject": {
+          "3sg": {
+            "noun": "reporter",
+            "adjective": "friendly"
+          },
+          "3pl": {
+            "noun": "neighbor",
+            "adjective": "helpful"
+          }
+        }
+      },
+      "prepositions": {
+        "subject": "the",
+        "direct_object": "the",
+        "indirect_object": ""
+      },
+      "preverb_overrides": {}
+    },
+    "english_translations": {
+      "default": {
+        "present": "speak",
+        "imperfect": "was speaking",
+        "future": "will speak",
+        "aorist": "spoke",
+        "optative": "speak",
+        "imperative": "speak"
+      }
+    },
+    "conjugations": {
+      "present": {
+        "raw_gloss": "V MedAct Pres <S> <S:Nom>",
+        "forms": {
+          "1sg": "ვლაპარაკობ",
+          "2sg": "ლაპარაკობ",
+          "3sg": "ლაპარაკობს",
+          "1pl": "ვლაპარაკობთ",
+          "2pl": "ლაპარაკობთ",
+          "3pl": "ლაპარაკობენ"
+        },
+        "examples": []
+      },
+      "imperfect": {
+        "raw_gloss": "V MedAct Impf <S> <S:Nom>",
+        "forms": {
+          "1sg": "ვლაპარაკობდი",
+          "2sg": "ლაპარაკობდი",
+          "3sg": "ლაპარაკობდა",
+          "1pl": "ვლაპარაკობდით",
+          "2pl": "ლაპარაკობდით",
+          "3pl": "ლაპარაკობდნენ"
+        },
+        "examples": []
+      },
+      "future": {
+        "raw_gloss": "V MedAct Fut <S> <S:Nom>",
+        "forms": {
+          "1sg": "ვილაპარაკებ",
+          "2sg": "ილაპარაკებ",
+          "3sg": "ილაპარაკებს",
+          "1pl": "ვილაპარაკებთ",
+          "2pl": "ილაპარაკებთ",
+          "3pl": "ილაპარაკებენ"
+        },
+        "examples": []
+      },
+      "aorist": {
+        "raw_gloss": "V MedAct Aor <S> <S:Erg>",
+        "forms": {
+          "1sg": "ვილაპარაკე",
+          "2sg": "ილაპარაკე",
+          "3sg": "ილაპარაკა",
+          "1pl": "ვილაპარაკეთ",
+          "2pl": "ილაპარაკეთ",
+          "3pl": "ილაპარაკეს"
+        },
+        "examples": []
+      },
+      "optative": {
+        "raw_gloss": "V MedAct Opt <S> <S:Erg>",
+        "forms": {
+          "1sg": "ვილაპარაკო",
+          "2sg": "ილაპარაკო",
+          "3sg": "ილაპარაკოს",
+          "1pl": "ვილაპარაკოთ",
+          "2pl": "ილაპარაკოთ",
+          "3pl": "ილაპარაკონ"
+        },
+        "examples": []
+      },
+      "imperative": {
+        "raw_gloss": "V MedAct Impf <S> <S:Erg>",
+        "forms": {
+          "1sg": "-",
+          "2sg": "ილაპარაკე",
+          "3sg": "-",
+          "1pl": "-",
+          "2pl": "ილაპარაკეთ",
+          "3pl": "-"
+        },
+        "examples": []
+      }
+    },
+    "preverb_config": {
+      "has_multiple_preverbs": false,
+      "default_preverb": "",
+      "available_preverbs": []
+    },
+    "preverb_rules": {
+      "default": "",
+      "replacements": {},
+      "tense_specific_fallbacks": {}
+    }
+  },
+  "generated_data": {
+    "examples": {
+      "default": {
+        "present": [
+          {
+            "georgian": "ვლაპარაკობ",
+            "georgian_components": {
+              "verb": {
+                "text": "ვლაპარაკობ",
+                "role": "verb"
+              }
+            },
+            "english": "I speak",
+            "english_components": {
+              "subject": {
+                "text": "I",
+                "role": "subject",
+                "person": "1sg"
+              },
+              "verb": {
+                "text": "speak",
+                "role": "verb"
+              }
+            },
+            "georgian_verb_form": "ვლაპარაკობ",
+            "person": "1sg",
+            "effective_preverb": ""
+          },
+          {
+            "georgian": "მეგობრული რეპორტიორი ლაპარაკობს",
+            "georgian_components": {
+              "subject": {
+                "text": "მეგობრული რეპორტიორი",
+                "case": "nom",
+                "role": "subject"
+              },
+              "verb": {
+                "text": "ლაპარაკობს",
+                "role": "verb"
+              }
+            },
+            "english": "The friendly reporter speaks",
+            "english_components": {
+              "subject": {
+                "text": "The friendly reporter",
+                "role": "subject",
+                "person": "3sg"
+              },
+              "verb": {
+                "text": "speaks",
+                "role": "verb"
+              }
+            },
+            "georgian_verb_form": "ლაპარაკობს",
+            "person": "3sg",
+            "effective_preverb": ""
+          },
+          {
+            "georgian": "დამხმარე მეზობლები ლაპარაკობენ",
+            "georgian_components": {
+              "subject": {
+                "text": "დამხმარე მეზობლები",
+                "case": "nom",
+                "role": "subject"
+              },
+              "verb": {
+                "text": "ლაპარაკობენ",
+                "role": "verb"
+              }
+            },
+            "english": "The helpful neighbors speak",
+            "english_components": {
+              "subject": {
+                "text": "The helpful neighbors",
+                "role": "subject",
+                "person": "3pl"
+              },
+              "verb": {
+                "text": "speak",
+                "role": "verb"
+              }
+            },
+            "georgian_verb_form": "ლაპარაკობენ",
+            "person": "3pl",
+            "effective_preverb": ""
+          }
+        ],
+        "imperfect": [
+          {
+            "georgian": "ვლაპარაკობდი",
+            "georgian_components": {
+              "verb": {
+                "text": "ვლაპარაკობდი",
+                "role": "verb"
+              }
+            },
+            "english": "I was speaking",
+            "english_components": {
+              "subject": {
+                "text": "I",
+                "role": "subject",
+                "person": "1sg"
+              },
+              "verb": {
+                "text": "was speaking",
+                "role": "verb"
+              }
+            },
+            "georgian_verb_form": "ვლაპარაკობდი",
+            "person": "1sg",
+            "effective_preverb": ""
+          },
+          {
+            "georgian": "მეგობრული რეპორტიორი ლაპარაკობდა",
+            "georgian_components": {
+              "subject": {
+                "text": "მეგობრული რეპორტიორი",
+                "case": "nom",
+                "role": "subject"
+              },
+              "verb": {
+                "text": "ლაპარაკობდა",
+                "role": "verb"
+              }
+            },
+            "english": "The friendly reporter was speaking",
+            "english_components": {
+              "subject": {
+                "text": "The friendly reporter",
+                "role": "subject",
+                "person": "3sg"
+              },
+              "verb": {
+                "text": "was speaking",
+                "role": "verb"
+              }
+            },
+            "georgian_verb_form": "ლაპარაკობდა",
+            "person": "3sg",
+            "effective_preverb": ""
+          },
+          {
+            "georgian": "დამხმარე მეზობლები ლაპარაკობდნენ",
+            "georgian_components": {
+              "subject": {
+                "text": "დამხმარე მეზობლები",
+                "case": "nom",
+                "role": "subject"
+              },
+              "verb": {
+                "text": "ლაპარაკობდნენ",
+                "role": "verb"
+              }
+            },
+            "english": "The helpful neighbors were speaking",
+            "english_components": {
+              "subject": {
+                "text": "The helpful neighbors",
+                "role": "subject",
+                "person": "3pl"
+              },
+              "verb": {
+                "text": "were speaking",
+                "role": "verb"
+              }
+            },
+            "georgian_verb_form": "ლაპარაკობდნენ",
+            "person": "3pl",
+            "effective_preverb": ""
+          }
+        ],
+        "future": [
+          {
+            "georgian": "ვილაპარაკებ",
+            "georgian_components": {
+              "verb": {
+                "text": "ვილაპარაკებ",
+                "role": "verb"
+              }
+            },
+            "english": "I will speak",
+            "english_components": {
+              "subject": {
+                "text": "I",
+                "role": "subject",
+                "person": "1sg"
+              },
+              "verb": {
+                "text": "will speak",
+                "role": "verb"
+              }
+            },
+            "georgian_verb_form": "ვილაპარაკებ",
+            "person": "1sg",
+            "effective_preverb": ""
+          },
+          {
+            "georgian": "მეგობრული რეპორტიორი ილაპარაკებს",
+            "georgian_components": {
+              "subject": {
+                "text": "მეგობრული რეპორტიორი",
+                "case": "nom",
+                "role": "subject"
+              },
+              "verb": {
+                "text": "ილაპარაკებს",
+                "role": "verb"
+              }
+            },
+            "english": "The friendly reporter will speak",
+            "english_components": {
+              "subject": {
+                "text": "The friendly reporter",
+                "role": "subject",
+                "person": "3sg"
+              },
+              "verb": {
+                "text": "will speak",
+                "role": "verb"
+              }
+            },
+            "georgian_verb_form": "ილაპარაკებს",
+            "person": "3sg",
+            "effective_preverb": ""
+          },
+          {
+            "georgian": "დამხმარე მეზობლები ილაპარაკებენ",
+            "georgian_components": {
+              "subject": {
+                "text": "დამხმარე მეზობლები",
+                "case": "nom",
+                "role": "subject"
+              },
+              "verb": {
+                "text": "ილაპარაკებენ",
+                "role": "verb"
+              }
+            },
+            "english": "The helpful neighbors will speak",
+            "english_components": {
+              "subject": {
+                "text": "The helpful neighbors",
+                "role": "subject",
+                "person": "3pl"
+              },
+              "verb": {
+                "text": "will speak",
+                "role": "verb"
+              }
+            },
+            "georgian_verb_form": "ილაპარაკებენ",
+            "person": "3pl",
+            "effective_preverb": ""
+          }
+        ],
+        "aorist": [
+          {
+            "georgian": "ვილაპარაკე",
+            "georgian_components": {
+              "verb": {
+                "text": "ვილაპარაკე",
+                "role": "verb"
+              }
+            },
+            "english": "I spoke",
+            "english_components": {
+              "subject": {
+                "text": "I",
+                "role": "subject",
+                "person": "1sg"
+              },
+              "verb": {
+                "text": "spoke",
+                "role": "verb"
+              }
+            },
+            "georgian_verb_form": "ვილაპარაკე",
+            "person": "1sg",
+            "effective_preverb": ""
+          },
+          {
+            "georgian": "მეგობრულმა რეპორტიორმა ილაპარაკა",
+            "georgian_components": {
+              "subject": {
+                "text": "მეგობრულმა რეპორტიორმა",
+                "case": "erg",
+                "role": "subject"
+              },
+              "verb": {
+                "text": "ილაპარაკა",
+                "role": "verb"
+              }
+            },
+            "english": "The friendly reporter spoke",
+            "english_components": {
+              "subject": {
+                "text": "The friendly reporter",
+                "role": "subject",
+                "person": "3sg"
+              },
+              "verb": {
+                "text": "spoke",
+                "role": "verb"
+              }
+            },
+            "georgian_verb_form": "ილაპარაკა",
+            "person": "3sg",
+            "effective_preverb": ""
+          },
+          {
+            "georgian": "დამხმარე მეზობლებმა ილაპარაკეს",
+            "georgian_components": {
+              "subject": {
+                "text": "დამხმარე მეზობლებმა",
+                "case": "erg",
+                "role": "subject"
+              },
+              "verb": {
+                "text": "ილაპარაკეს",
+                "role": "verb"
+              }
+            },
+            "english": "The helpful neighbors spoke",
+            "english_components": {
+              "subject": {
+                "text": "The helpful neighbors",
+                "role": "subject",
+                "person": "3pl"
+              },
+              "verb": {
+                "text": "spoke",
+                "role": "verb"
+              }
+            },
+            "georgian_verb_form": "ილაპარაკეს",
+            "person": "3pl",
+            "effective_preverb": ""
+          }
+        ],
+        "optative": [
+          {
+            "georgian": "უნდა ვილაპარაკო",
+            "georgian_components": {
+              "verb": {
+                "text": "უნდა ვილაპარაკო",
+                "role": "verb"
+              }
+            },
+            "english": "I should speak",
+            "english_components": {
+              "subject": {
+                "text": "I",
+                "role": "subject",
+                "person": "1sg"
+              },
+              "verb": {
+                "text": "should speak",
+                "role": "verb"
+              }
+            },
+            "georgian_verb_form": "ვილაპარაკო",
+            "person": "1sg",
+            "effective_preverb": ""
+          },
+          {
+            "georgian": "მეგობრულმა რეპორტიორმა უნდა ილაპარაკოს",
+            "georgian_components": {
+              "subject": {
+                "text": "მეგობრულმა რეპორტიორმა",
+                "case": "erg",
+                "role": "subject"
+              },
+              "verb": {
+                "text": "უნდა ილაპარაკოს",
+                "role": "verb"
+              }
+            },
+            "english": "The friendly reporter should speak",
+            "english_components": {
+              "subject": {
+                "text": "The friendly reporter",
+                "role": "subject",
+                "person": "3sg"
+              },
+              "verb": {
+                "text": "should speak",
+                "role": "verb"
+              }
+            },
+            "georgian_verb_form": "ილაპარაკოს",
+            "person": "3sg",
+            "effective_preverb": ""
+          },
+          {
+            "georgian": "დამხმარე მეზობლებმა უნდა ილაპარაკონ",
+            "georgian_components": {
+              "subject": {
+                "text": "დამხმარე მეზობლებმა",
+                "case": "erg",
+                "role": "subject"
+              },
+              "verb": {
+                "text": "უნდა ილაპარაკონ",
+                "role": "verb"
+              }
+            },
+            "english": "The helpful neighbors should speak",
+            "english_components": {
+              "subject": {
+                "text": "The helpful neighbors",
+                "role": "subject",
+                "person": "3pl"
+              },
+              "verb": {
+                "text": "should speak",
+                "role": "verb"
+              }
+            },
+            "georgian_verb_form": "ილაპარაკონ",
+            "person": "3pl",
+            "effective_preverb": ""
+          }
+        ],
+        "imperative": [
+          {
+            "georgian": "ილაპარაკე",
+            "georgian_components": {
+              "verb": {
+                "text": "ილაპარაკე",
+                "role": "verb"
+              }
+            },
+            "english": "You, speak",
+            "english_components": {
+              "subject": {
+                "text": "You,",
+                "role": "subject",
+                "person": "2sg"
+              },
+              "verb": {
+                "text": "speak",
+                "role": "verb"
+              }
+            },
+            "georgian_verb_form": "ილაპარაკე",
+            "person": "2sg",
+            "effective_preverb": ""
+          },
+          {
+            "georgian": "ილაპარაკეთ",
+            "georgian_components": {
+              "verb": {
+                "text": "ილაპარაკეთ",
+                "role": "verb"
+              }
+            },
+            "english": "You all (you formal), speak",
+            "english_components": {
+              "subject": {
+                "text": "You all (you formal),",
+                "role": "subject",
+                "person": "2pl"
+              },
+              "verb": {
+                "text": "speak",
+                "role": "verb"
+              }
+            },
+            "georgian_verb_form": "ილაპარაკეთ",
+            "person": "2pl",
+            "effective_preverb": ""
+          }
+        ]
+      }
+    },
+    "gloss_analysis": {
+      "present": {
+        "raw_gloss": "V MedAct Pres <S> <S:Nom>",
+        "structured_gloss": {
+          "raw_components": [
+            {
+              "text": "V",
+              "component_type": "verb",
+              "color_class": "gloss-verb",
+              "description": "Verb"
+            },
+            {
+              "text": "MedAct",
+              "component_type": "voice",
+              "color_class": "gloss-default",
+              "description": "Medioactive"
+            },
+            {
+              "text": "Pres",
+              "component_type": "tense",
+              "color_class": "gloss-tense",
+              "description": "Present"
+            },
+            {
+              "type": "argument_pattern_group",
+              "original_text": "<S>",
+              "description": "Intransitive absolute",
+              "components": [
+                {
+                  "text": "<",
+                  "component_type": "punctuation",
+                  "color_class": "gloss-default",
+                  "description": ""
+                },
+                {
+                  "text": "S",
+                  "component_type": "argument",
+                  "color_class": "gloss-subject",
+                  "description": ""
+                },
+                {
+                  "text": ">",
+                  "component_type": "punctuation",
+                  "color_class": "gloss-default",
+                  "description": ""
+                }
+              ]
+            },
+            {
+              "text": "<S:Nom>",
+              "component_type": "case_spec",
+              "color_class": "gloss-subject",
+              "description": "Nominative subject"
+            }
+          ],
+          "expanded_components": [
+            {
+              "text": "V",
+              "component_type": "verb",
+              "color_class": "gloss-verb",
+              "description": "Verb"
+            },
+            {
+              "text": "MedAct",
+              "component_type": "voice",
+              "color_class": "gloss-default",
+              "description": "Medioactive"
+            },
+            {
+              "text": "Pres",
+              "component_type": "tense",
+              "color_class": "gloss-tense",
+              "description": "Present"
+            },
+            {
+              "type": "argument_pattern_group",
+              "original_text": "<S>",
+              "description": "Intransitive absolute",
+              "components": [
+                {
+                  "text": "<",
+                  "component_type": "punctuation",
+                  "color_class": "gloss-default",
+                  "description": ""
+                },
+                {
+                  "text": "S",
+                  "component_type": "argument",
+                  "color_class": "gloss-subject",
+                  "description": ""
+                },
+                {
+                  "text": ">",
+                  "component_type": "punctuation",
+                  "color_class": "gloss-default",
+                  "description": ""
+                }
+              ]
+            },
+            {
+              "text": "<S:Nom>",
+              "component_type": "case_spec",
+              "color_class": "gloss-subject",
+              "description": "Nominative subject"
+            }
+          ],
+          "argument_pattern": "<S>",
+          "case_specifications": [
+            "<S:Nom>"
+          ]
+        }
+      },
+      "imperfect": {
+        "raw_gloss": "V MedAct Impf <S> <S:Nom>",
+        "structured_gloss": {
+          "raw_components": [
+            {
+              "text": "V",
+              "component_type": "verb",
+              "color_class": "gloss-verb",
+              "description": "Verb"
+            },
+            {
+              "text": "MedAct",
+              "component_type": "voice",
+              "color_class": "gloss-default",
+              "description": "Medioactive"
+            },
+            {
+              "text": "Impf",
+              "component_type": "tense",
+              "color_class": "gloss-tense",
+              "description": "Imperfect"
+            },
+            {
+              "type": "argument_pattern_group",
+              "original_text": "<S>",
+              "description": "Intransitive absolute",
+              "components": [
+                {
+                  "text": "<",
+                  "component_type": "punctuation",
+                  "color_class": "gloss-default",
+                  "description": ""
+                },
+                {
+                  "text": "S",
+                  "component_type": "argument",
+                  "color_class": "gloss-subject",
+                  "description": ""
+                },
+                {
+                  "text": ">",
+                  "component_type": "punctuation",
+                  "color_class": "gloss-default",
+                  "description": ""
+                }
+              ]
+            },
+            {
+              "text": "<S:Nom>",
+              "component_type": "case_spec",
+              "color_class": "gloss-subject",
+              "description": "Nominative subject"
+            }
+          ],
+          "expanded_components": [
+            {
+              "text": "V",
+              "component_type": "verb",
+              "color_class": "gloss-verb",
+              "description": "Verb"
+            },
+            {
+              "text": "MedAct",
+              "component_type": "voice",
+              "color_class": "gloss-default",
+              "description": "Medioactive"
+            },
+            {
+              "text": "Impf",
+              "component_type": "tense",
+              "color_class": "gloss-tense",
+              "description": "Imperfect"
+            },
+            {
+              "type": "argument_pattern_group",
+              "original_text": "<S>",
+              "description": "Intransitive absolute",
+              "components": [
+                {
+                  "text": "<",
+                  "component_type": "punctuation",
+                  "color_class": "gloss-default",
+                  "description": ""
+                },
+                {
+                  "text": "S",
+                  "component_type": "argument",
+                  "color_class": "gloss-subject",
+                  "description": ""
+                },
+                {
+                  "text": ">",
+                  "component_type": "punctuation",
+                  "color_class": "gloss-default",
+                  "description": ""
+                }
+              ]
+            },
+            {
+              "text": "<S:Nom>",
+              "component_type": "case_spec",
+              "color_class": "gloss-subject",
+              "description": "Nominative subject"
+            }
+          ],
+          "argument_pattern": "<S>",
+          "case_specifications": [
+            "<S:Nom>"
+          ]
+        }
+      },
+      "future": {
+        "raw_gloss": "V MedAct Fut <S> <S:Nom>",
+        "structured_gloss": {
+          "raw_components": [
+            {
+              "text": "V",
+              "component_type": "verb",
+              "color_class": "gloss-verb",
+              "description": "Verb"
+            },
+            {
+              "text": "MedAct",
+              "component_type": "voice",
+              "color_class": "gloss-default",
+              "description": "Medioactive"
+            },
+            {
+              "text": "Fut",
+              "component_type": "tense",
+              "color_class": "gloss-tense",
+              "description": "Future"
+            },
+            {
+              "type": "argument_pattern_group",
+              "original_text": "<S>",
+              "description": "Intransitive absolute",
+              "components": [
+                {
+                  "text": "<",
+                  "component_type": "punctuation",
+                  "color_class": "gloss-default",
+                  "description": ""
+                },
+                {
+                  "text": "S",
+                  "component_type": "argument",
+                  "color_class": "gloss-subject",
+                  "description": ""
+                },
+                {
+                  "text": ">",
+                  "component_type": "punctuation",
+                  "color_class": "gloss-default",
+                  "description": ""
+                }
+              ]
+            },
+            {
+              "text": "<S:Nom>",
+              "component_type": "case_spec",
+              "color_class": "gloss-subject",
+              "description": "Nominative subject"
+            }
+          ],
+          "expanded_components": [
+            {
+              "text": "V",
+              "component_type": "verb",
+              "color_class": "gloss-verb",
+              "description": "Verb"
+            },
+            {
+              "text": "MedAct",
+              "component_type": "voice",
+              "color_class": "gloss-default",
+              "description": "Medioactive"
+            },
+            {
+              "text": "Fut",
+              "component_type": "tense",
+              "color_class": "gloss-tense",
+              "description": "Future"
+            },
+            {
+              "type": "argument_pattern_group",
+              "original_text": "<S>",
+              "description": "Intransitive absolute",
+              "components": [
+                {
+                  "text": "<",
+                  "component_type": "punctuation",
+                  "color_class": "gloss-default",
+                  "description": ""
+                },
+                {
+                  "text": "S",
+                  "component_type": "argument",
+                  "color_class": "gloss-subject",
+                  "description": ""
+                },
+                {
+                  "text": ">",
+                  "component_type": "punctuation",
+                  "color_class": "gloss-default",
+                  "description": ""
+                }
+              ]
+            },
+            {
+              "text": "<S:Nom>",
+              "component_type": "case_spec",
+              "color_class": "gloss-subject",
+              "description": "Nominative subject"
+            }
+          ],
+          "argument_pattern": "<S>",
+          "case_specifications": [
+            "<S:Nom>"
+          ]
+        }
+      },
+      "aorist": {
+        "raw_gloss": "V MedAct Aor <S> <S:Erg>",
+        "structured_gloss": {
+          "raw_components": [
+            {
+              "text": "V",
+              "component_type": "verb",
+              "color_class": "gloss-verb",
+              "description": "Verb"
+            },
+            {
+              "text": "MedAct",
+              "component_type": "voice",
+              "color_class": "gloss-default",
+              "description": "Medioactive"
+            },
+            {
+              "text": "Aor",
+              "component_type": "tense",
+              "color_class": "gloss-tense",
+              "description": "Aorist"
+            },
+            {
+              "type": "argument_pattern_group",
+              "original_text": "<S>",
+              "description": "Intransitive absolute",
+              "components": [
+                {
+                  "text": "<",
+                  "component_type": "punctuation",
+                  "color_class": "gloss-default",
+                  "description": ""
+                },
+                {
+                  "text": "S",
+                  "component_type": "argument",
+                  "color_class": "gloss-subject",
+                  "description": ""
+                },
+                {
+                  "text": ">",
+                  "component_type": "punctuation",
+                  "color_class": "gloss-default",
+                  "description": ""
+                }
+              ]
+            },
+            {
+              "text": "<S:Erg>",
+              "component_type": "case_spec",
+              "color_class": "gloss-subject",
+              "description": "Ergative subject"
+            }
+          ],
+          "expanded_components": [
+            {
+              "text": "V",
+              "component_type": "verb",
+              "color_class": "gloss-verb",
+              "description": "Verb"
+            },
+            {
+              "text": "MedAct",
+              "component_type": "voice",
+              "color_class": "gloss-default",
+              "description": "Medioactive"
+            },
+            {
+              "text": "Aor",
+              "component_type": "tense",
+              "color_class": "gloss-tense",
+              "description": "Aorist"
+            },
+            {
+              "type": "argument_pattern_group",
+              "original_text": "<S>",
+              "description": "Intransitive absolute",
+              "components": [
+                {
+                  "text": "<",
+                  "component_type": "punctuation",
+                  "color_class": "gloss-default",
+                  "description": ""
+                },
+                {
+                  "text": "S",
+                  "component_type": "argument",
+                  "color_class": "gloss-subject",
+                  "description": ""
+                },
+                {
+                  "text": ">",
+                  "component_type": "punctuation",
+                  "color_class": "gloss-default",
+                  "description": ""
+                }
+              ]
+            },
+            {
+              "text": "<S:Erg>",
+              "component_type": "case_spec",
+              "color_class": "gloss-subject",
+              "description": "Ergative subject"
+            }
+          ],
+          "argument_pattern": "<S>",
+          "case_specifications": [
+            "<S:Erg>"
+          ]
+        }
+      },
+      "optative": {
+        "raw_gloss": "V MedAct Opt <S> <S:Erg>",
+        "structured_gloss": {
+          "raw_components": [
+            {
+              "text": "V",
+              "component_type": "verb",
+              "color_class": "gloss-verb",
+              "description": "Verb"
+            },
+            {
+              "text": "MedAct",
+              "component_type": "voice",
+              "color_class": "gloss-default",
+              "description": "Medioactive"
+            },
+            {
+              "text": "Opt",
+              "component_type": "tense",
+              "color_class": "gloss-tense",
+              "description": "Optative"
+            },
+            {
+              "type": "argument_pattern_group",
+              "original_text": "<S>",
+              "description": "Intransitive absolute",
+              "components": [
+                {
+                  "text": "<",
+                  "component_type": "punctuation",
+                  "color_class": "gloss-default",
+                  "description": ""
+                },
+                {
+                  "text": "S",
+                  "component_type": "argument",
+                  "color_class": "gloss-subject",
+                  "description": ""
+                },
+                {
+                  "text": ">",
+                  "component_type": "punctuation",
+                  "color_class": "gloss-default",
+                  "description": ""
+                }
+              ]
+            },
+            {
+              "text": "<S:Erg>",
+              "component_type": "case_spec",
+              "color_class": "gloss-subject",
+              "description": "Ergative subject"
+            }
+          ],
+          "expanded_components": [
+            {
+              "text": "V",
+              "component_type": "verb",
+              "color_class": "gloss-verb",
+              "description": "Verb"
+            },
+            {
+              "text": "MedAct",
+              "component_type": "voice",
+              "color_class": "gloss-default",
+              "description": "Medioactive"
+            },
+            {
+              "text": "Opt",
+              "component_type": "tense",
+              "color_class": "gloss-tense",
+              "description": "Optative"
+            },
+            {
+              "type": "argument_pattern_group",
+              "original_text": "<S>",
+              "description": "Intransitive absolute",
+              "components": [
+                {
+                  "text": "<",
+                  "component_type": "punctuation",
+                  "color_class": "gloss-default",
+                  "description": ""
+                },
+                {
+                  "text": "S",
+                  "component_type": "argument",
+                  "color_class": "gloss-subject",
+                  "description": ""
+                },
+                {
+                  "text": ">",
+                  "component_type": "punctuation",
+                  "color_class": "gloss-default",
+                  "description": ""
+                }
+              ]
+            },
+            {
+              "text": "<S:Erg>",
+              "component_type": "case_spec",
+              "color_class": "gloss-subject",
+              "description": "Ergative subject"
+            }
+          ],
+          "argument_pattern": "<S>",
+          "case_specifications": [
+            "<S:Erg>"
+          ]
+        }
+      },
+      "imperative": {
+        "raw_gloss": "V MedAct Impf <S> <S:Erg>",
+        "structured_gloss": {
+          "raw_components": [
+            {
+              "text": "V",
+              "component_type": "verb",
+              "color_class": "gloss-verb",
+              "description": "Verb"
+            },
+            {
+              "text": "MedAct",
+              "component_type": "voice",
+              "color_class": "gloss-default",
+              "description": "Medioactive"
+            },
+            {
+              "text": "Impf",
+              "component_type": "tense",
+              "color_class": "gloss-tense",
+              "description": "Imperfect"
+            },
+            {
+              "type": "argument_pattern_group",
+              "original_text": "<S>",
+              "description": "Intransitive absolute",
+              "components": [
+                {
+                  "text": "<",
+                  "component_type": "punctuation",
+                  "color_class": "gloss-default",
+                  "description": ""
+                },
+                {
+                  "text": "S",
+                  "component_type": "argument",
+                  "color_class": "gloss-subject",
+                  "description": ""
+                },
+                {
+                  "text": ">",
+                  "component_type": "punctuation",
+                  "color_class": "gloss-default",
+                  "description": ""
+                }
+              ]
+            },
+            {
+              "text": "<S:Erg>",
+              "component_type": "case_spec",
+              "color_class": "gloss-subject",
+              "description": "Ergative subject"
+            }
+          ],
+          "expanded_components": [
+            {
+              "text": "V",
+              "component_type": "verb",
+              "color_class": "gloss-verb",
+              "description": "Verb"
+            },
+            {
+              "text": "MedAct",
+              "component_type": "voice",
+              "color_class": "gloss-default",
+              "description": "Medioactive"
+            },
+            {
+              "text": "Impf",
+              "component_type": "tense",
+              "color_class": "gloss-tense",
+              "description": "Imperfect"
+            },
+            {
+              "type": "argument_pattern_group",
+              "original_text": "<S>",
+              "description": "Intransitive absolute",
+              "components": [
+                {
+                  "text": "<",
+                  "component_type": "punctuation",
+                  "color_class": "gloss-default",
+                  "description": ""
+                },
+                {
+                  "text": "S",
+                  "component_type": "argument",
+                  "color_class": "gloss-subject",
+                  "description": ""
+                },
+                {
+                  "text": ">",
+                  "component_type": "punctuation",
+                  "color_class": "gloss-default",
+                  "description": ""
+                }
+              ]
+            },
+            {
+              "text": "<S:Erg>",
+              "component_type": "case_spec",
+              "color_class": "gloss-subject",
+              "description": "Ergative subject"
+            }
+          ],
+          "argument_pattern": "<S>",
+          "case_specifications": [
+            "<S:Erg>"
+          ]
+        }
+      }
+    },
+    "preverb_forms": {}
+  }
+}

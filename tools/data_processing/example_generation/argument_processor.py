@@ -76,7 +76,7 @@ class ArgumentProcessor(BaseGlossParser):
             {"S": "subject", "DO": "direct_object", "IO": "indirect_object"},
         )
 
-        # Note: default_cases removed - all cases must be explicitly specified
+        # All cases must be explicitly specified
 
         self.database_names = self.config.get(
             "database_names", ["subjects", "direct_objects", "indirect_objects"]
@@ -259,7 +259,7 @@ class ArgumentProcessor(BaseGlossParser):
         """Map argument type abbreviation to full name"""
         return self.argument_mappings.get(arg_type)
 
-    # Note: _get_default_case_for_argument method removed - all cases must be explicitly specified
+    # All cases must be explicitly specified
 
     def get_argument_pair(
         self, verb_data: Dict, argument_type: str, person: str
@@ -314,7 +314,7 @@ class ArgumentProcessor(BaseGlossParser):
                     f"Adjective is missing or empty for {argument_type} {person}"
                 )
 
-            # Handle "none" adjective case - but this should not be allowed anymore
+            # Handle "none" adjective case - not allowed
             if adjective.strip().lower() == "none":
                 raise ValueError(
                     f"Adjective cannot be 'none' for {argument_type} {person}. Adjectives are now mandatory."
@@ -367,7 +367,7 @@ class ArgumentProcessor(BaseGlossParser):
                 )
                 raise ValueError(f"Noun '{noun_key}' not found in any database")
 
-            # Normalize case to lowercase for database lookup
+            # Normalize case to lowercase
             case_lower = case.lower()
 
             # Log the noun data structure for debugging
@@ -423,7 +423,7 @@ class ArgumentProcessor(BaseGlossParser):
                 if case_form:
                     return case_form
 
-            # If we get here, the case wasn't found
+            # Case not found
             raise ValueError(f"Case '{case}' not found for noun '{noun_key}'")
 
         except Exception as e:
@@ -483,7 +483,7 @@ class ArgumentProcessor(BaseGlossParser):
                 f"Found adjective '{adjective_key}' with data structure: {list(adjective_data.keys())}",
             )
 
-            # Normalize case to lowercase for database lookup
+            # Normalize case to lowercase
             case_lower = case.lower()
 
             # Adjectives always use singular forms in Georgian
@@ -497,7 +497,7 @@ class ArgumentProcessor(BaseGlossParser):
             if case_form:
                 return case_form
 
-            # If we get here, the case was not found
+            # Case not found
             raise ValueError(f"Case '{case}' not found for adjective '{adjective_key}'")
 
         except Exception as e:
@@ -556,7 +556,7 @@ class ArgumentProcessor(BaseGlossParser):
                     else:
                         return english_data if english_data else key
 
-            # If we get here, the key wasn't found
+            # Key not found
             return key  # Fallback to key if not found
 
         except Exception as e:
@@ -588,7 +588,7 @@ class ArgumentProcessor(BaseGlossParser):
                     noun_key, adjective_key = self.get_argument_pair(
                         verb_data, arg_name, person
                     )
-                    # Get case forms - normalize case to lowercase for database lookup
+                    # Get case forms
                     case = arg_info.get("case", "Nom")
                     case_lower = case.lower()
 

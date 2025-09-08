@@ -173,7 +173,7 @@ class DatabaseLoader:
         return info
 
 
-# Convenience functions for backward compatibility
+# Convenience functions for backward compatibility [LEGACY]
 def load_all_databases(data_dir: Optional[Path] = None) -> Dict[str, Dict]:
     """Convenience function to load all databases."""
     loader = DatabaseLoader(data_dir)

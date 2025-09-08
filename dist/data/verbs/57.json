@@ -1,0 +1,1276 @@
+{
+  "base_data": {
+    "id": 57,
+    "georgian": "ცეკვა",
+    "description": "To dance",
+    "category": "Physical Activities & Sports",
+    "class": "Class-I",
+    "semantic_key": "dance",
+    "notes": "",
+    "url": "https://lingua.ge/verbs/%e1%83%aa%e1%83%94%e1%83%99%e1%83%95%e1%83%90/",
+    "global_argument_pattern": "<S>",
+    "valency": {
+      "default": "<S>",
+      "alternatives": []
+    },
+    "syntax": {
+      "arguments": {
+        "subject": {
+          "3sg": {
+            "noun": "girl",
+            "adjective": "young"
+          },
+          "3pl": {
+            "noun": "dancer",
+            "adjective": "talented"
+          }
+        }
+      },
+      "prepositions": {
+        "subject": "the",
+        "direct_object": "the",
+        "indirect_object": "to"
+      },
+      "preverb_overrides": {}
+    },
+    "english_translations": {
+      "default": {
+        "present": "dance",
+        "imperfect": "was dancing",
+        "future": "will dance",
+        "aorist": "danced",
+        "optative": "dance",
+        "imperative": "dance"
+      }
+    },
+    "conjugations": {
+      "present": {
+        "raw_gloss": "V MedAct Pres <S> <S:Nom>",
+        "forms": {
+          "1sg": "ვცეკვავ",
+          "2sg": "ცეკვავ",
+          "3sg": "ცეკვავს",
+          "1pl": "ვცეკვავთ",
+          "2pl": "ცეკვავთ",
+          "3pl": "ცეკვავენ"
+        },
+        "examples": []
+      },
+      "imperfect": {
+        "raw_gloss": "V MedAct Impf <S> <S:Nom>",
+        "forms": {
+          "1sg": "ვცეკვავდი",
+          "2sg": "ცეკვავდი",
+          "3sg": "ცეკვავდა",
+          "1pl": "ვცეკვავდით",
+          "2pl": "ცეკვავდით",
+          "3pl": "ცეკვავდნენ"
+        },
+        "examples": []
+      },
+      "future": {
+        "raw_gloss": "V MedAct Fut <S> <S:Nom>",
+        "forms": {
+          "1sg": "ვიცეკვებ",
+          "2sg": "იცეკვებ",
+          "3sg": "იცეკვებს",
+          "1pl": "ვიცეკვებთ",
+          "2pl": "იცეკვებთ",
+          "3pl": "იცეკვებენ"
+        },
+        "examples": []
+      },
+      "aorist": {
+        "raw_gloss": "V MedAct Aor <S> <S:Erg>",
+        "forms": {
+          "1sg": "ვიცეკვე",
+          "2sg": "იცეკვე",
+          "3sg": "იცეკვა",
+          "1pl": "ვიცეკვეთ",
+          "2pl": "იცეკვეთ",
+          "3pl": "იცეკვეს"
+        },
+        "examples": []
+      },
+      "optative": {
+        "raw_gloss": "V MedAct Opt <S> <S:Erg>",
+        "forms": {
+          "1sg": "ვიცეკვო",
+          "2sg": "იცეკვო",
+          "3sg": "იცეკვოს",
+          "1pl": "ვიცეკვოთ",
+          "2pl": "იცეკვოთ",
+          "3pl": "იცეკვონ"
+        },
+        "examples": []
+      },
+      "imperative": {
+        "raw_gloss": "V MedAct Impv <S> <S:Erg>",
+        "forms": {
+          "1sg": "-",
+          "2sg": "იცეკვე",
+          "3sg": "-",
+          "1pl": "-",
+          "2pl": "იცეკვეთ",
+          "3pl": "-"
+        },
+        "examples": []
+      }
+    },
+    "preverb_config": {
+      "has_multiple_preverbs": false,
+      "default_preverb": "",
+      "available_preverbs": []
+    },
+    "preverb_rules": {
+      "default": "",
+      "replacements": {},
+      "tense_specific_fallbacks": {}
+    }
+  },
+  "generated_data": {
+    "examples": {
+      "default": {
+        "present": [
+          {
+            "georgian": "ვცეკვავ",
+            "georgian_components": {
+              "verb": {
+                "text": "ვცეკვავ",
+                "role": "verb"
+              }
+            },
+            "english": "I dance",
+            "english_components": {
+              "subject": {
+                "text": "I",
+                "role": "subject",
+                "person": "1sg"
+              },
+              "verb": {
+                "text": "dance",
+                "role": "verb"
+              }
+            },
+            "georgian_verb_form": "ვცეკვავ",
+            "person": "1sg",
+            "effective_preverb": ""
+          },
+          {
+            "georgian": "ახალგაზრდა გოგო ცეკვავს",
+            "georgian_components": {
+              "subject": {
+                "text": "ახალგაზრდა გოგო",
+                "case": "nom",
+                "role": "subject"
+              },
+              "verb": {
+                "text": "ცეკვავს",
+                "role": "verb"
+              }
+            },
+            "english": "The young girl dances",
+            "english_components": {
+              "subject": {
+                "text": "The young girl",
+                "role": "subject",
+                "person": "3sg"
+              },
+              "verb": {
+                "text": "dances",
+                "role": "verb"
+              }
+            },
+            "georgian_verb_form": "ცეკვავს",
+            "person": "3sg",
+            "effective_preverb": ""
+          },
+          {
+            "georgian": "ნიჭიერი მოცეკვავეები ცეკვავენ",
+            "georgian_components": {
+              "subject": {
+                "text": "ნიჭიერი მოცეკვავეები",
+                "case": "nom",
+                "role": "subject"
+              },
+              "verb": {
+                "text": "ცეკვავენ",
+                "role": "verb"
+              }
+            },
+            "english": "The talented dancers dance",
+            "english_components": {
+              "subject": {
+                "text": "The talented dancers",
+                "role": "subject",
+                "person": "3pl"
+              },
+              "verb": {
+                "text": "dance",
+                "role": "verb"
+              }
+            },
+            "georgian_verb_form": "ცეკვავენ",
+            "person": "3pl",
+            "effective_preverb": ""
+          }
+        ],
+        "imperfect": [
+          {
+            "georgian": "ვცეკვავდი",
+            "georgian_components": {
+              "verb": {
+                "text": "ვცეკვავდი",
+                "role": "verb"
+              }
+            },
+            "english": "I was dancing",
+            "english_components": {
+              "subject": {
+                "text": "I",
+                "role": "subject",
+                "person": "1sg"
+              },
+              "verb": {
+                "text": "was dancing",
+                "role": "verb"
+              }
+            },
+            "georgian_verb_form": "ვცეკვავდი",
+            "person": "1sg",
+            "effective_preverb": ""
+          },
+          {
+            "georgian": "ახალგაზრდა გოგო ცეკვავდა",
+            "georgian_components": {
+              "subject": {
+                "text": "ახალგაზრდა გოგო",
+                "case": "nom",
+                "role": "subject"
+              },
+              "verb": {
+                "text": "ცეკვავდა",
+                "role": "verb"
+              }
+            },
+            "english": "The young girl was dancing",
+            "english_components": {
+              "subject": {
+                "text": "The young girl",
+                "role": "subject",
+                "person": "3sg"
+              },
+              "verb": {
+                "text": "was dancing",
+                "role": "verb"
+              }
+            },
+            "georgian_verb_form": "ცეკვავდა",
+            "person": "3sg",
+            "effective_preverb": ""
+          },
+          {
+            "georgian": "ნიჭიერი მოცეკვავეები ცეკვავდნენ",
+            "georgian_components": {
+              "subject": {
+                "text": "ნიჭიერი მოცეკვავეები",
+                "case": "nom",
+                "role": "subject"
+              },
+              "verb": {
+                "text": "ცეკვავდნენ",
+                "role": "verb"
+              }
+            },
+            "english": "The talented dancers were dancing",
+            "english_components": {
+              "subject": {
+                "text": "The talented dancers",
+                "role": "subject",
+                "person": "3pl"
+              },
+              "verb": {
+                "text": "were dancing",
+                "role": "verb"
+              }
+            },
+            "georgian_verb_form": "ცეკვავდნენ",
+            "person": "3pl",
+            "effective_preverb": ""
+          }
+        ],
+        "future": [
+          {
+            "georgian": "ვიცეკვებ",
+            "georgian_components": {
+              "verb": {
+                "text": "ვიცეკვებ",
+                "role": "verb"
+              }
+            },
+            "english": "I will dance",
+            "english_components": {
+              "subject": {
+                "text": "I",
+                "role": "subject",
+                "person": "1sg"
+              },
+              "verb": {
+                "text": "will dance",
+                "role": "verb"
+              }
+            },
+            "georgian_verb_form": "ვიცეკვებ",
+            "person": "1sg",
+            "effective_preverb": ""
+          },
+          {
+            "georgian": "ახალგაზრდა გოგო იცეკვებს",
+            "georgian_components": {
+              "subject": {
+                "text": "ახალგაზრდა გოგო",
+                "case": "nom",
+                "role": "subject"
+              },
+              "verb": {
+                "text": "იცეკვებს",
+                "role": "verb"
+              }
+            },
+            "english": "The young girl will dance",
+            "english_components": {
+              "subject": {
+                "text": "The young girl",
+                "role": "subject",
+                "person": "3sg"
+              },
+              "verb": {
+                "text": "will dance",
+                "role": "verb"
+              }
+            },
+            "georgian_verb_form": "იცეკვებს",
+            "person": "3sg",
+            "effective_preverb": ""
+          },
+          {
+            "georgian": "ნიჭიერი მოცეკვავეები იცეკვებენ",
+            "georgian_components": {
+              "subject": {
+                "text": "ნიჭიერი მოცეკვავეები",
+                "case": "nom",
+                "role": "subject"
+              },
+              "verb": {
+                "text": "იცეკვებენ",
+                "role": "verb"
+              }
+            },
+            "english": "The talented dancers will dance",
+            "english_components": {
+              "subject": {
+                "text": "The talented dancers",
+                "role": "subject",
+                "person": "3pl"
+              },
+              "verb": {
+                "text": "will dance",
+                "role": "verb"
+              }
+            },
+            "georgian_verb_form": "იცეკვებენ",
+            "person": "3pl",
+            "effective_preverb": ""
+          }
+        ],
+        "aorist": [
+          {
+            "georgian": "ვიცეკვე",
+            "georgian_components": {
+              "verb": {
+                "text": "ვიცეკვე",
+                "role": "verb"
+              }
+            },
+            "english": "I danced",
+            "english_components": {
+              "subject": {
+                "text": "I",
+                "role": "subject",
+                "person": "1sg"
+              },
+              "verb": {
+                "text": "danced",
+                "role": "verb"
+              }
+            },
+            "georgian_verb_form": "ვიცეკვე",
+            "person": "1sg",
+            "effective_preverb": ""
+          },
+          {
+            "georgian": "ახალგაზრდა გოგომ იცეკვა",
+            "georgian_components": {
+              "subject": {
+                "text": "ახალგაზრდა გოგომ",
+                "case": "erg",
+                "role": "subject"
+              },
+              "verb": {
+                "text": "იცეკვა",
+                "role": "verb"
+              }
+            },
+            "english": "The young girl danced",
+            "english_components": {
+              "subject": {
+                "text": "The young girl",
+                "role": "subject",
+                "person": "3sg"
+              },
+              "verb": {
+                "text": "danced",
+                "role": "verb"
+              }
+            },
+            "georgian_verb_form": "იცეკვა",
+            "person": "3sg",
+            "effective_preverb": ""
+          },
+          {
+            "georgian": "ნიჭიერმა მოცეკვავეებმა იცეკვეს",
+            "georgian_components": {
+              "subject": {
+                "text": "ნიჭიერმა მოცეკვავეებმა",
+                "case": "erg",
+                "role": "subject"
+              },
+              "verb": {
+                "text": "იცეკვეს",
+                "role": "verb"
+              }
+            },
+            "english": "The talented dancers danced",
+            "english_components": {
+              "subject": {
+                "text": "The talented dancers",
+                "role": "subject",
+                "person": "3pl"
+              },
+              "verb": {
+                "text": "danced",
+                "role": "verb"
+              }
+            },
+            "georgian_verb_form": "იცეკვეს",
+            "person": "3pl",
+            "effective_preverb": ""
+          }
+        ],
+        "optative": [
+          {
+            "georgian": "უნდა ვიცეკვო",
+            "georgian_components": {
+              "verb": {
+                "text": "უნდა ვიცეკვო",
+                "role": "verb"
+              }
+            },
+            "english": "I should dance",
+            "english_components": {
+              "subject": {
+                "text": "I",
+                "role": "subject",
+                "person": "1sg"
+              },
+              "verb": {
+                "text": "should dance",
+                "role": "verb"
+              }
+            },
+            "georgian_verb_form": "ვიცეკვო",
+            "person": "1sg",
+            "effective_preverb": ""
+          },
+          {
+            "georgian": "ახალგაზრდა გოგომ უნდა იცეკვოს",
+            "georgian_components": {
+              "subject": {
+                "text": "ახალგაზრდა გოგომ",
+                "case": "erg",
+                "role": "subject"
+              },
+              "verb": {
+                "text": "უნდა იცეკვოს",
+                "role": "verb"
+              }
+            },
+            "english": "The young girl should dance",
+            "english_components": {
+              "subject": {
+                "text": "The young girl",
+                "role": "subject",
+                "person": "3sg"
+              },
+              "verb": {
+                "text": "should dance",
+                "role": "verb"
+              }
+            },
+            "georgian_verb_form": "იცეკვოს",
+            "person": "3sg",
+            "effective_preverb": ""
+          },
+          {
+            "georgian": "ნიჭიერმა მოცეკვავეებმა უნდა იცეკვონ",
+            "georgian_components": {
+              "subject": {
+                "text": "ნიჭიერმა მოცეკვავეებმა",
+                "case": "erg",
+                "role": "subject"
+              },
+              "verb": {
+                "text": "უნდა იცეკვონ",
+                "role": "verb"
+              }
+            },
+            "english": "The talented dancers should dance",
+            "english_components": {
+              "subject": {
+                "text": "The talented dancers",
+                "role": "subject",
+                "person": "3pl"
+              },
+              "verb": {
+                "text": "should dance",
+                "role": "verb"
+              }
+            },
+            "georgian_verb_form": "იცეკვონ",
+            "person": "3pl",
+            "effective_preverb": ""
+          }
+        ],
+        "imperative": [
+          {
+            "georgian": "იცეკვე",
+            "georgian_components": {
+              "verb": {
+                "text": "იცეკვე",
+                "role": "verb"
+              }
+            },
+            "english": "You, dance",
+            "english_components": {
+              "subject": {
+                "text": "You,",
+                "role": "subject",
+                "person": "2sg"
+              },
+              "verb": {
+                "text": "dance",
+                "role": "verb"
+              }
+            },
+            "georgian_verb_form": "იცეკვე",
+            "person": "2sg",
+            "effective_preverb": ""
+          },
+          {
+            "georgian": "იცეკვეთ",
+            "georgian_components": {
+              "verb": {
+                "text": "იცეკვეთ",
+                "role": "verb"
+              }
+            },
+            "english": "You all (you formal), dance",
+            "english_components": {
+              "subject": {
+                "text": "You all (you formal),",
+                "role": "subject",
+                "person": "2pl"
+              },
+              "verb": {
+                "text": "dance",
+                "role": "verb"
+              }
+            },
+            "georgian_verb_form": "იცეკვეთ",
+            "person": "2pl",
+            "effective_preverb": ""
+          }
+        ]
+      }
+    },
+    "gloss_analysis": {
+      "present": {
+        "raw_gloss": "V MedAct Pres <S> <S:Nom>",
+        "structured_gloss": {
+          "raw_components": [
+            {
+              "text": "V",
+              "component_type": "verb",
+              "color_class": "gloss-verb",
+              "description": "Verb"
+            },
+            {
+              "text": "MedAct",
+              "component_type": "voice",
+              "color_class": "gloss-default",
+              "description": "Medioactive"
+            },
+            {
+              "text": "Pres",
+              "component_type": "tense",
+              "color_class": "gloss-tense",
+              "description": "Present"
+            },
+            {
+              "type": "argument_pattern_group",
+              "original_text": "<S>",
+              "description": "Intransitive absolute",
+              "components": [
+                {
+                  "text": "<",
+                  "component_type": "punctuation",
+                  "color_class": "gloss-default",
+                  "description": ""
+                },
+                {
+                  "text": "S",
+                  "component_type": "argument",
+                  "color_class": "gloss-subject",
+                  "description": ""
+                },
+                {
+                  "text": ">",
+                  "component_type": "punctuation",
+                  "color_class": "gloss-default",
+                  "description": ""
+                }
+              ]
+            },
+            {
+              "text": "<S:Nom>",
+              "component_type": "case_spec",
+              "color_class": "gloss-subject",
+              "description": "Nominative subject"
+            }
+          ],
+          "expanded_components": [
+            {
+              "text": "V",
+              "component_type": "verb",
+              "color_class": "gloss-verb",
+              "description": "Verb"
+            },
+            {
+              "text": "MedAct",
+              "component_type": "voice",
+              "color_class": "gloss-default",
+              "description": "Medioactive"
+            },
+            {
+              "text": "Pres",
+              "component_type": "tense",
+              "color_class": "gloss-tense",
+              "description": "Present"
+            },
+            {
+              "type": "argument_pattern_group",
+              "original_text": "<S>",
+              "description": "Intransitive absolute",
+              "components": [
+                {
+                  "text": "<",
+                  "component_type": "punctuation",
+                  "color_class": "gloss-default",
+                  "description": ""
+                },
+                {
+                  "text": "S",
+                  "component_type": "argument",
+                  "color_class": "gloss-subject",
+                  "description": ""
+                },
+                {
+                  "text": ">",
+                  "component_type": "punctuation",
+                  "color_class": "gloss-default",
+                  "description": ""
+                }
+              ]
+            },
+            {
+              "text": "<S:Nom>",
+              "component_type": "case_spec",
+              "color_class": "gloss-subject",
+              "description": "Nominative subject"
+            }
+          ],
+          "argument_pattern": "<S>",
+          "case_specifications": [
+            "<S:Nom>"
+          ]
+        }
+      },
+      "imperfect": {
+        "raw_gloss": "V MedAct Impf <S> <S:Nom>",
+        "structured_gloss": {
+          "raw_components": [
+            {
+              "text": "V",
+              "component_type": "verb",
+              "color_class": "gloss-verb",
+              "description": "Verb"
+            },
+            {
+              "text": "MedAct",
+              "component_type": "voice",
+              "color_class": "gloss-default",
+              "description": "Medioactive"
+            },
+            {
+              "text": "Impf",
+              "component_type": "tense",
+              "color_class": "gloss-tense",
+              "description": "Imperfect"
+            },
+            {
+              "type": "argument_pattern_group",
+              "original_text": "<S>",
+              "description": "Intransitive absolute",
+              "components": [
+                {
+                  "text": "<",
+                  "component_type": "punctuation",
+                  "color_class": "gloss-default",
+                  "description": ""
+                },
+                {
+                  "text": "S",
+                  "component_type": "argument",
+                  "color_class": "gloss-subject",
+                  "description": ""
+                },
+                {
+                  "text": ">",
+                  "component_type": "punctuation",
+                  "color_class": "gloss-default",
+                  "description": ""
+                }
+              ]
+            },
+            {
+              "text": "<S:Nom>",
+              "component_type": "case_spec",
+              "color_class": "gloss-subject",
+              "description": "Nominative subject"
+            }
+          ],
+          "expanded_components": [
+            {
+              "text": "V",
+              "component_type": "verb",
+              "color_class": "gloss-verb",
+              "description": "Verb"
+            },
+            {
+              "text": "MedAct",
+              "component_type": "voice",
+              "color_class": "gloss-default",
+              "description": "Medioactive"
+            },
+            {
+              "text": "Impf",
+              "component_type": "tense",
+              "color_class": "gloss-tense",
+              "description": "Imperfect"
+            },
+            {
+              "type": "argument_pattern_group",
+              "original_text": "<S>",
+              "description": "Intransitive absolute",
+              "components": [
+                {
+                  "text": "<",
+                  "component_type": "punctuation",
+                  "color_class": "gloss-default",
+                  "description": ""
+                },
+                {
+                  "text": "S",
+                  "component_type": "argument",
+                  "color_class": "gloss-subject",
+                  "description": ""
+                },
+                {
+                  "text": ">",
+                  "component_type": "punctuation",
+                  "color_class": "gloss-default",
+                  "description": ""
+                }
+              ]
+            },
+            {
+              "text": "<S:Nom>",
+              "component_type": "case_spec",
+              "color_class": "gloss-subject",
+              "description": "Nominative subject"
+            }
+          ],
+          "argument_pattern": "<S>",
+          "case_specifications": [
+            "<S:Nom>"
+          ]
+        }
+      },
+      "future": {
+        "raw_gloss": "V MedAct Fut <S> <S:Nom>",
+        "structured_gloss": {
+          "raw_components": [
+            {
+              "text": "V",
+              "component_type": "verb",
+              "color_class": "gloss-verb",
+              "description": "Verb"
+            },
+            {
+              "text": "MedAct",
+              "component_type": "voice",
+              "color_class": "gloss-default",
+              "description": "Medioactive"
+            },
+            {
+              "text": "Fut",
+              "component_type": "tense",
+              "color_class": "gloss-tense",
+              "description": "Future"
+            },
+            {
+              "type": "argument_pattern_group",
+              "original_text": "<S>",
+              "description": "Intransitive absolute",
+              "components": [
+                {
+                  "text": "<",
+                  "component_type": "punctuation",
+                  "color_class": "gloss-default",
+                  "description": ""
+                },
+                {
+                  "text": "S",
+                  "component_type": "argument",
+                  "color_class": "gloss-subject",
+                  "description": ""
+                },
+                {
+                  "text": ">",
+                  "component_type": "punctuation",
+                  "color_class": "gloss-default",
+                  "description": ""
+                }
+              ]
+            },
+            {
+              "text": "<S:Nom>",
+              "component_type": "case_spec",
+              "color_class": "gloss-subject",
+              "description": "Nominative subject"
+            }
+          ],
+          "expanded_components": [
+            {
+              "text": "V",
+              "component_type": "verb",
+              "color_class": "gloss-verb",
+              "description": "Verb"
+            },
+            {
+              "text": "MedAct",
+              "component_type": "voice",
+              "color_class": "gloss-default",
+              "description": "Medioactive"
+            },
+            {
+              "text": "Fut",
+              "component_type": "tense",
+              "color_class": "gloss-tense",
+              "description": "Future"
+            },
+            {
+              "type": "argument_pattern_group",
+              "original_text": "<S>",
+              "description": "Intransitive absolute",
+              "components": [
+                {
+                  "text": "<",
+                  "component_type": "punctuation",
+                  "color_class": "gloss-default",
+                  "description": ""
+                },
+                {
+                  "text": "S",
+                  "component_type": "argument",
+                  "color_class": "gloss-subject",
+                  "description": ""
+                },
+                {
+                  "text": ">",
+                  "component_type": "punctuation",
+                  "color_class": "gloss-default",
+                  "description": ""
+                }
+              ]
+            },
+            {
+              "text": "<S:Nom>",
+              "component_type": "case_spec",
+              "color_class": "gloss-subject",
+              "description": "Nominative subject"
+            }
+          ],
+          "argument_pattern": "<S>",
+          "case_specifications": [
+            "<S:Nom>"
+          ]
+        }
+      },
+      "aorist": {
+        "raw_gloss": "V MedAct Aor <S> <S:Erg>",
+        "structured_gloss": {
+          "raw_components": [
+            {
+              "text": "V",
+              "component_type": "verb",
+              "color_class": "gloss-verb",
+              "description": "Verb"
+            },
+            {
+              "text": "MedAct",
+              "component_type": "voice",
+              "color_class": "gloss-default",
+              "description": "Medioactive"
+            },
+            {
+              "text": "Aor",
+              "component_type": "tense",
+              "color_class": "gloss-tense",
+              "description": "Aorist"
+            },
+            {
+              "type": "argument_pattern_group",
+              "original_text": "<S>",
+              "description": "Intransitive absolute",
+              "components": [
+                {
+                  "text": "<",
+                  "component_type": "punctuation",
+                  "color_class": "gloss-default",
+                  "description": ""
+                },
+                {
+                  "text": "S",
+                  "component_type": "argument",
+                  "color_class": "gloss-subject",
+                  "description": ""
+                },
+                {
+                  "text": ">",
+                  "component_type": "punctuation",
+                  "color_class": "gloss-default",
+                  "description": ""
+                }
+              ]
+            },
+            {
+              "text": "<S:Erg>",
+              "component_type": "case_spec",
+              "color_class": "gloss-subject",
+              "description": "Ergative subject"
+            }
+          ],
+          "expanded_components": [
+            {
+              "text": "V",
+              "component_type": "verb",
+              "color_class": "gloss-verb",
+              "description": "Verb"
+            },
+            {
+              "text": "MedAct",
+              "component_type": "voice",
+              "color_class": "gloss-default",
+              "description": "Medioactive"
+            },
+            {
+              "text": "Aor",
+              "component_type": "tense",
+              "color_class": "gloss-tense",
+              "description": "Aorist"
+            },
+            {
+              "type": "argument_pattern_group",
+              "original_text": "<S>",
+              "description": "Intransitive absolute",
+              "components": [
+                {
+                  "text": "<",
+                  "component_type": "punctuation",
+                  "color_class": "gloss-default",
+                  "description": ""
+                },
+                {
+                  "text": "S",
+                  "component_type": "argument",
+                  "color_class": "gloss-subject",
+                  "description": ""
+                },
+                {
+                  "text": ">",
+                  "component_type": "punctuation",
+                  "color_class": "gloss-default",
+                  "description": ""
+                }
+              ]
+            },
+            {
+              "text": "<S:Erg>",
+              "component_type": "case_spec",
+              "color_class": "gloss-subject",
+              "description": "Ergative subject"
+            }
+          ],
+          "argument_pattern": "<S>",
+          "case_specifications": [
+            "<S:Erg>"
+          ]
+        }
+      },
+      "optative": {
+        "raw_gloss": "V MedAct Opt <S> <S:Erg>",
+        "structured_gloss": {
+          "raw_components": [
+            {
+              "text": "V",
+              "component_type": "verb",
+              "color_class": "gloss-verb",
+              "description": "Verb"
+            },
+            {
+              "text": "MedAct",
+              "component_type": "voice",
+              "color_class": "gloss-default",
+              "description": "Medioactive"
+            },
+            {
+              "text": "Opt",
+              "component_type": "tense",
+              "color_class": "gloss-tense",
+              "description": "Optative"
+            },
+            {
+              "type": "argument_pattern_group",
+              "original_text": "<S>",
+              "description": "Intransitive absolute",
+              "components": [
+                {
+                  "text": "<",
+                  "component_type": "punctuation",
+                  "color_class": "gloss-default",
+                  "description": ""
+                },
+                {
+                  "text": "S",
+                  "component_type": "argument",
+                  "color_class": "gloss-subject",
+                  "description": ""
+                },
+                {
+                  "text": ">",
+                  "component_type": "punctuation",
+                  "color_class": "gloss-default",
+                  "description": ""
+                }
+              ]
+            },
+            {
+              "text": "<S:Erg>",
+              "component_type": "case_spec",
+              "color_class": "gloss-subject",
+              "description": "Ergative subject"
+            }
+          ],
+          "expanded_components": [
+            {
+              "text": "V",
+              "component_type": "verb",
+              "color_class": "gloss-verb",
+              "description": "Verb"
+            },
+            {
+              "text": "MedAct",
+              "component_type": "voice",
+              "color_class": "gloss-default",
+              "description": "Medioactive"
+            },
+            {
+              "text": "Opt",
+              "component_type": "tense",
+              "color_class": "gloss-tense",
+              "description": "Optative"
+            },
+            {
+              "type": "argument_pattern_group",
+              "original_text": "<S>",
+              "description": "Intransitive absolute",
+              "components": [
+                {
+                  "text": "<",
+                  "component_type": "punctuation",
+                  "color_class": "gloss-default",
+                  "description": ""
+                },
+                {
+                  "text": "S",
+                  "component_type": "argument",
+                  "color_class": "gloss-subject",
+                  "description": ""
+                },
+                {
+                  "text": ">",
+                  "component_type": "punctuation",
+                  "color_class": "gloss-default",
+                  "description": ""
+                }
+              ]
+            },
+            {
+              "text": "<S:Erg>",
+              "component_type": "case_spec",
+              "color_class": "gloss-subject",
+              "description": "Ergative subject"
+            }
+          ],
+          "argument_pattern": "<S>",
+          "case_specifications": [
+            "<S:Erg>"
+          ]
+        }
+      },
+      "imperative": {
+        "raw_gloss": "V MedAct Impv <S> <S:Erg>",
+        "structured_gloss": {
+          "raw_components": [
+            {
+              "text": "V",
+              "component_type": "verb",
+              "color_class": "gloss-verb",
+              "description": "Verb"
+            },
+            {
+              "text": "MedAct",
+              "component_type": "voice",
+              "color_class": "gloss-default",
+              "description": "Medioactive"
+            },
+            {
+              "text": "Impv",
+              "component_type": "tense",
+              "color_class": "gloss-tense",
+              "description": "Imperative"
+            },
+            {
+              "type": "argument_pattern_group",
+              "original_text": "<S>",
+              "description": "Intransitive absolute",
+              "components": [
+                {
+                  "text": "<",
+                  "component_type": "punctuation",
+                  "color_class": "gloss-default",
+                  "description": ""
+                },
+                {
+                  "text": "S",
+                  "component_type": "argument",
+                  "color_class": "gloss-subject",
+                  "description": ""
+                },
+                {
+                  "text": ">",
+                  "component_type": "punctuation",
+                  "color_class": "gloss-default",
+                  "description": ""
+                }
+              ]
+            },
+            {
+              "text": "<S:Erg>",
+              "component_type": "case_spec",
+              "color_class": "gloss-subject",
+              "description": "Ergative subject"
+            }
+          ],
+          "expanded_components": [
+            {
+              "text": "V",
+              "component_type": "verb",
+              "color_class": "gloss-verb",
+              "description": "Verb"
+            },
+            {
+              "text": "MedAct",
+              "component_type": "voice",
+              "color_class": "gloss-default",
+              "description": "Medioactive"
+            },
+            {
+              "text": "Impv",
+              "component_type": "tense",
+              "color_class": "gloss-tense",
+              "description": "Imperative"
+            },
+            {
+              "type": "argument_pattern_group",
+              "original_text": "<S>",
+              "description": "Intransitive absolute",
+              "components": [
+                {
+                  "text": "<",
+                  "component_type": "punctuation",
+                  "color_class": "gloss-default",
+                  "description": ""
+                },
+                {
+                  "text": "S",
+                  "component_type": "argument",
+                  "color_class": "gloss-subject",
+                  "description": ""
+                },
+                {
+                  "text": ">",
+                  "component_type": "punctuation",
+                  "color_class": "gloss-default",
+                  "description": ""
+                }
+              ]
+            },
+            {
+              "text": "<S:Erg>",
+              "component_type": "case_spec",
+              "color_class": "gloss-subject",
+              "description": "Ergative subject"
+            }
+          ],
+          "argument_pattern": "<S>",
+          "case_specifications": [
+            "<S:Erg>"
+          ]
+        }
+      }
+    },
+    "preverb_forms": {}
+  }
+}

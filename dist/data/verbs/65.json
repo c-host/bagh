@@ -1,0 +1,1276 @@
+{
+  "base_data": {
+    "id": 65,
+    "georgian": "შრომა",
+    "description": "To labor",
+    "category": "Work & Commerce",
+    "class": "",
+    "semantic_key": "labor",
+    "notes": "",
+    "url": "https://lingua.ge/verbs/%e1%83%a8%e1%83%a0%e1%83%9d%e1%83%9b%e1%83%90/",
+    "global_argument_pattern": "<S>",
+    "valency": {
+      "default": "<S>",
+      "alternatives": []
+    },
+    "syntax": {
+      "arguments": {
+        "subject": {
+          "3sg": {
+            "noun": "worker",
+            "adjective": "diligent"
+          },
+          "3pl": {
+            "noun": "farmer",
+            "adjective": "tired"
+          }
+        }
+      },
+      "prepositions": {
+        "subject": "the",
+        "direct_object": "",
+        "indirect_object": "to"
+      },
+      "preverb_overrides": {}
+    },
+    "english_translations": {
+      "default": {
+        "present": "labor",
+        "imperfect": "was laboring",
+        "future": "will labor",
+        "aorist": "labored",
+        "optative": "labor",
+        "imperative": "labor"
+      }
+    },
+    "conjugations": {
+      "present": {
+        "raw_gloss": "V MedAct Pres <S> <S:Nom>",
+        "forms": {
+          "1sg": "ვშრომობ",
+          "2sg": "შრომობ",
+          "3sg": "შრომობს",
+          "1pl": "ვშრომობთ",
+          "2pl": "შრომობთ",
+          "3pl": "შრომობენ"
+        },
+        "examples": []
+      },
+      "imperfect": {
+        "raw_gloss": "V MedAct Impf <S> <S:Nom>",
+        "forms": {
+          "1sg": "ვშრომობდი",
+          "2sg": "შრომობდი",
+          "3sg": "შრომობდა",
+          "1pl": "ვშრომობდით",
+          "2pl": "შრომობდით",
+          "3pl": "შრომობდნენ"
+        },
+        "examples": []
+      },
+      "future": {
+        "raw_gloss": "V MedAct Fut <S> <S:Nom>",
+        "forms": {
+          "1sg": "ვიშრომებ",
+          "2sg": "იშრომებ",
+          "3sg": "იშრომებს",
+          "1pl": "ვიშრომებთ",
+          "2pl": "იშრომებთ",
+          "3pl": "იშრომებენ"
+        },
+        "examples": []
+      },
+      "aorist": {
+        "raw_gloss": "V MedAct Aor <S> <S:Erg>",
+        "forms": {
+          "1sg": "ვიშრომე",
+          "2sg": "იშრომე",
+          "3sg": "იშრომა",
+          "1pl": "ვიშრომეთ",
+          "2pl": "იშრომეთ",
+          "3pl": "იშრომეს"
+        },
+        "examples": []
+      },
+      "optative": {
+        "raw_gloss": "V MedAct Opt <S> <S:Erg>",
+        "forms": {
+          "1sg": "ვიშრომო",
+          "2sg": "იშრომო",
+          "3sg": "იშრომოს",
+          "1pl": "ვიშრომოთ",
+          "2pl": "იშრომოთ",
+          "3pl": "იშრომონ"
+        },
+        "examples": []
+      },
+      "imperative": {
+        "raw_gloss": "V MedAct Impv <S> <S:Erg>",
+        "forms": {
+          "1sg": "-",
+          "2sg": "იშრომე",
+          "3sg": "-",
+          "1pl": "-",
+          "2pl": "იშრომეთ",
+          "3pl": "-"
+        },
+        "examples": []
+      }
+    },
+    "preverb_config": {
+      "has_multiple_preverbs": false,
+      "default_preverb": "",
+      "available_preverbs": []
+    },
+    "preverb_rules": {
+      "default": "",
+      "replacements": {},
+      "tense_specific_fallbacks": {}
+    }
+  },
+  "generated_data": {
+    "examples": {
+      "default": {
+        "present": [
+          {
+            "georgian": "ვშრომობ",
+            "georgian_components": {
+              "verb": {
+                "text": "ვშრომობ",
+                "role": "verb"
+              }
+            },
+            "english": "I labor",
+            "english_components": {
+              "subject": {
+                "text": "I",
+                "role": "subject",
+                "person": "1sg"
+              },
+              "verb": {
+                "text": "labor",
+                "role": "verb"
+              }
+            },
+            "georgian_verb_form": "ვშრომობ",
+            "person": "1sg",
+            "effective_preverb": ""
+          },
+          {
+            "georgian": "შრომისმოყვარე მუშა შრომობს",
+            "georgian_components": {
+              "subject": {
+                "text": "შრომისმოყვარე მუშა",
+                "case": "nom",
+                "role": "subject"
+              },
+              "verb": {
+                "text": "შრომობს",
+                "role": "verb"
+              }
+            },
+            "english": "The diligent worker labors",
+            "english_components": {
+              "subject": {
+                "text": "The diligent worker",
+                "role": "subject",
+                "person": "3sg"
+              },
+              "verb": {
+                "text": "labors",
+                "role": "verb"
+              }
+            },
+            "georgian_verb_form": "შრომობს",
+            "person": "3sg",
+            "effective_preverb": ""
+          },
+          {
+            "georgian": "დაღლილი ფერმერები შრომობენ",
+            "georgian_components": {
+              "subject": {
+                "text": "დაღლილი ფერმერები",
+                "case": "nom",
+                "role": "subject"
+              },
+              "verb": {
+                "text": "შრომობენ",
+                "role": "verb"
+              }
+            },
+            "english": "The tired farmers labor",
+            "english_components": {
+              "subject": {
+                "text": "The tired farmers",
+                "role": "subject",
+                "person": "3pl"
+              },
+              "verb": {
+                "text": "labor",
+                "role": "verb"
+              }
+            },
+            "georgian_verb_form": "შრომობენ",
+            "person": "3pl",
+            "effective_preverb": ""
+          }
+        ],
+        "imperfect": [
+          {
+            "georgian": "ვშრომობდი",
+            "georgian_components": {
+              "verb": {
+                "text": "ვშრომობდი",
+                "role": "verb"
+              }
+            },
+            "english": "I was laboring",
+            "english_components": {
+              "subject": {
+                "text": "I",
+                "role": "subject",
+                "person": "1sg"
+              },
+              "verb": {
+                "text": "was laboring",
+                "role": "verb"
+              }
+            },
+            "georgian_verb_form": "ვშრომობდი",
+            "person": "1sg",
+            "effective_preverb": ""
+          },
+          {
+            "georgian": "შრომისმოყვარე მუშა შრომობდა",
+            "georgian_components": {
+              "subject": {
+                "text": "შრომისმოყვარე მუშა",
+                "case": "nom",
+                "role": "subject"
+              },
+              "verb": {
+                "text": "შრომობდა",
+                "role": "verb"
+              }
+            },
+            "english": "The diligent worker was laboring",
+            "english_components": {
+              "subject": {
+                "text": "The diligent worker",
+                "role": "subject",
+                "person": "3sg"
+              },
+              "verb": {
+                "text": "was laboring",
+                "role": "verb"
+              }
+            },
+            "georgian_verb_form": "შრომობდა",
+            "person": "3sg",
+            "effective_preverb": ""
+          },
+          {
+            "georgian": "დაღლილი ფერმერები შრომობდნენ",
+            "georgian_components": {
+              "subject": {
+                "text": "დაღლილი ფერმერები",
+                "case": "nom",
+                "role": "subject"
+              },
+              "verb": {
+                "text": "შრომობდნენ",
+                "role": "verb"
+              }
+            },
+            "english": "The tired farmers were laboring",
+            "english_components": {
+              "subject": {
+                "text": "The tired farmers",
+                "role": "subject",
+                "person": "3pl"
+              },
+              "verb": {
+                "text": "were laboring",
+                "role": "verb"
+              }
+            },
+            "georgian_verb_form": "შრომობდნენ",
+            "person": "3pl",
+            "effective_preverb": ""
+          }
+        ],
+        "future": [
+          {
+            "georgian": "ვიშრომებ",
+            "georgian_components": {
+              "verb": {
+                "text": "ვიშრომებ",
+                "role": "verb"
+              }
+            },
+            "english": "I will labor",
+            "english_components": {
+              "subject": {
+                "text": "I",
+                "role": "subject",
+                "person": "1sg"
+              },
+              "verb": {
+                "text": "will labor",
+                "role": "verb"
+              }
+            },
+            "georgian_verb_form": "ვიშრომებ",
+            "person": "1sg",
+            "effective_preverb": ""
+          },
+          {
+            "georgian": "შრომისმოყვარე მუშა იშრომებს",
+            "georgian_components": {
+              "subject": {
+                "text": "შრომისმოყვარე მუშა",
+                "case": "nom",
+                "role": "subject"
+              },
+              "verb": {
+                "text": "იშრომებს",
+                "role": "verb"
+              }
+            },
+            "english": "The diligent worker will labor",
+            "english_components": {
+              "subject": {
+                "text": "The diligent worker",
+                "role": "subject",
+                "person": "3sg"
+              },
+              "verb": {
+                "text": "will labor",
+                "role": "verb"
+              }
+            },
+            "georgian_verb_form": "იშრომებს",
+            "person": "3sg",
+            "effective_preverb": ""
+          },
+          {
+            "georgian": "დაღლილი ფერმერები იშრომებენ",
+            "georgian_components": {
+              "subject": {
+                "text": "დაღლილი ფერმერები",
+                "case": "nom",
+                "role": "subject"
+              },
+              "verb": {
+                "text": "იშრომებენ",
+                "role": "verb"
+              }
+            },
+            "english": "The tired farmers will labor",
+            "english_components": {
+              "subject": {
+                "text": "The tired farmers",
+                "role": "subject",
+                "person": "3pl"
+              },
+              "verb": {
+                "text": "will labor",
+                "role": "verb"
+              }
+            },
+            "georgian_verb_form": "იშრომებენ",
+            "person": "3pl",
+            "effective_preverb": ""
+          }
+        ],
+        "aorist": [
+          {
+            "georgian": "ვიშრომე",
+            "georgian_components": {
+              "verb": {
+                "text": "ვიშრომე",
+                "role": "verb"
+              }
+            },
+            "english": "I labored",
+            "english_components": {
+              "subject": {
+                "text": "I",
+                "role": "subject",
+                "person": "1sg"
+              },
+              "verb": {
+                "text": "labored",
+                "role": "verb"
+              }
+            },
+            "georgian_verb_form": "ვიშრომე",
+            "person": "1sg",
+            "effective_preverb": ""
+          },
+          {
+            "georgian": "შრომისმოყვარე მუშამ იშრომა",
+            "georgian_components": {
+              "subject": {
+                "text": "შრომისმოყვარე მუშამ",
+                "case": "erg",
+                "role": "subject"
+              },
+              "verb": {
+                "text": "იშრომა",
+                "role": "verb"
+              }
+            },
+            "english": "The diligent worker labored",
+            "english_components": {
+              "subject": {
+                "text": "The diligent worker",
+                "role": "subject",
+                "person": "3sg"
+              },
+              "verb": {
+                "text": "labored",
+                "role": "verb"
+              }
+            },
+            "georgian_verb_form": "იშრომა",
+            "person": "3sg",
+            "effective_preverb": ""
+          },
+          {
+            "georgian": "დაღლილმა ფერმერებმა იშრომეს",
+            "georgian_components": {
+              "subject": {
+                "text": "დაღლილმა ფერმერებმა",
+                "case": "erg",
+                "role": "subject"
+              },
+              "verb": {
+                "text": "იშრომეს",
+                "role": "verb"
+              }
+            },
+            "english": "The tired farmers labored",
+            "english_components": {
+              "subject": {
+                "text": "The tired farmers",
+                "role": "subject",
+                "person": "3pl"
+              },
+              "verb": {
+                "text": "labored",
+                "role": "verb"
+              }
+            },
+            "georgian_verb_form": "იშრომეს",
+            "person": "3pl",
+            "effective_preverb": ""
+          }
+        ],
+        "optative": [
+          {
+            "georgian": "უნდა ვიშრომო",
+            "georgian_components": {
+              "verb": {
+                "text": "უნდა ვიშრომო",
+                "role": "verb"
+              }
+            },
+            "english": "I should labor",
+            "english_components": {
+              "subject": {
+                "text": "I",
+                "role": "subject",
+                "person": "1sg"
+              },
+              "verb": {
+                "text": "should labor",
+                "role": "verb"
+              }
+            },
+            "georgian_verb_form": "ვიშრომო",
+            "person": "1sg",
+            "effective_preverb": ""
+          },
+          {
+            "georgian": "შრომისმოყვარე მუშამ უნდა იშრომოს",
+            "georgian_components": {
+              "subject": {
+                "text": "შრომისმოყვარე მუშამ",
+                "case": "erg",
+                "role": "subject"
+              },
+              "verb": {
+                "text": "უნდა იშრომოს",
+                "role": "verb"
+              }
+            },
+            "english": "The diligent worker should labor",
+            "english_components": {
+              "subject": {
+                "text": "The diligent worker",
+                "role": "subject",
+                "person": "3sg"
+              },
+              "verb": {
+                "text": "should labor",
+                "role": "verb"
+              }
+            },
+            "georgian_verb_form": "იშრომოს",
+            "person": "3sg",
+            "effective_preverb": ""
+          },
+          {
+            "georgian": "დაღლილმა ფერმერებმა უნდა იშრომონ",
+            "georgian_components": {
+              "subject": {
+                "text": "დაღლილმა ფერმერებმა",
+                "case": "erg",
+                "role": "subject"
+              },
+              "verb": {
+                "text": "უნდა იშრომონ",
+                "role": "verb"
+              }
+            },
+            "english": "The tired farmers should labor",
+            "english_components": {
+              "subject": {
+                "text": "The tired farmers",
+                "role": "subject",
+                "person": "3pl"
+              },
+              "verb": {
+                "text": "should labor",
+                "role": "verb"
+              }
+            },
+            "georgian_verb_form": "იშრომონ",
+            "person": "3pl",
+            "effective_preverb": ""
+          }
+        ],
+        "imperative": [
+          {
+            "georgian": "იშრომე",
+            "georgian_components": {
+              "verb": {
+                "text": "იშრომე",
+                "role": "verb"
+              }
+            },
+            "english": "You, labor",
+            "english_components": {
+              "subject": {
+                "text": "You,",
+                "role": "subject",
+                "person": "2sg"
+              },
+              "verb": {
+                "text": "labor",
+                "role": "verb"
+              }
+            },
+            "georgian_verb_form": "იშრომე",
+            "person": "2sg",
+            "effective_preverb": ""
+          },
+          {
+            "georgian": "იშრომეთ",
+            "georgian_components": {
+              "verb": {
+                "text": "იშრომეთ",
+                "role": "verb"
+              }
+            },
+            "english": "You all (you formal), labor",
+            "english_components": {
+              "subject": {
+                "text": "You all (you formal),",
+                "role": "subject",
+                "person": "2pl"
+              },
+              "verb": {
+                "text": "labor",
+                "role": "verb"
+              }
+            },
+            "georgian_verb_form": "იშრომეთ",
+            "person": "2pl",
+            "effective_preverb": ""
+          }
+        ]
+      }
+    },
+    "gloss_analysis": {
+      "present": {
+        "raw_gloss": "V MedAct Pres <S> <S:Nom>",
+        "structured_gloss": {
+          "raw_components": [
+            {
+              "text": "V",
+              "component_type": "verb",
+              "color_class": "gloss-verb",
+              "description": "Verb"
+            },
+            {
+              "text": "MedAct",
+              "component_type": "voice",
+              "color_class": "gloss-default",
+              "description": "Medioactive"
+            },
+            {
+              "text": "Pres",
+              "component_type": "tense",
+              "color_class": "gloss-tense",
+              "description": "Present"
+            },
+            {
+              "type": "argument_pattern_group",
+              "original_text": "<S>",
+              "description": "Intransitive absolute",
+              "components": [
+                {
+                  "text": "<",
+                  "component_type": "punctuation",
+                  "color_class": "gloss-default",
+                  "description": ""
+                },
+                {
+                  "text": "S",
+                  "component_type": "argument",
+                  "color_class": "gloss-subject",
+                  "description": ""
+                },
+                {
+                  "text": ">",
+                  "component_type": "punctuation",
+                  "color_class": "gloss-default",
+                  "description": ""
+                }
+              ]
+            },
+            {
+              "text": "<S:Nom>",
+              "component_type": "case_spec",
+              "color_class": "gloss-subject",
+              "description": "Nominative subject"
+            }
+          ],
+          "expanded_components": [
+            {
+              "text": "V",
+              "component_type": "verb",
+              "color_class": "gloss-verb",
+              "description": "Verb"
+            },
+            {
+              "text": "MedAct",
+              "component_type": "voice",
+              "color_class": "gloss-default",
+              "description": "Medioactive"
+            },
+            {
+              "text": "Pres",
+              "component_type": "tense",
+              "color_class": "gloss-tense",
+              "description": "Present"
+            },
+            {
+              "type": "argument_pattern_group",
+              "original_text": "<S>",
+              "description": "Intransitive absolute",
+              "components": [
+                {
+                  "text": "<",
+                  "component_type": "punctuation",
+                  "color_class": "gloss-default",
+                  "description": ""
+                },
+                {
+                  "text": "S",
+                  "component_type": "argument",
+                  "color_class": "gloss-subject",
+                  "description": ""
+                },
+                {
+                  "text": ">",
+                  "component_type": "punctuation",
+                  "color_class": "gloss-default",
+                  "description": ""
+                }
+              ]
+            },
+            {
+              "text": "<S:Nom>",
+              "component_type": "case_spec",
+              "color_class": "gloss-subject",
+              "description": "Nominative subject"
+            }
+          ],
+          "argument_pattern": "<S>",
+          "case_specifications": [
+            "<S:Nom>"
+          ]
+        }
+      },
+      "imperfect": {
+        "raw_gloss": "V MedAct Impf <S> <S:Nom>",
+        "structured_gloss": {
+          "raw_components": [
+            {
+              "text": "V",
+              "component_type": "verb",
+              "color_class": "gloss-verb",
+              "description": "Verb"
+            },
+            {
+              "text": "MedAct",
+              "component_type": "voice",
+              "color_class": "gloss-default",
+              "description": "Medioactive"
+            },
+            {
+              "text": "Impf",
+              "component_type": "tense",
+              "color_class": "gloss-tense",
+              "description": "Imperfect"
+            },
+            {
+              "type": "argument_pattern_group",
+              "original_text": "<S>",
+              "description": "Intransitive absolute",
+              "components": [
+                {
+                  "text": "<",
+                  "component_type": "punctuation",
+                  "color_class": "gloss-default",
+                  "description": ""
+                },
+                {
+                  "text": "S",
+                  "component_type": "argument",
+                  "color_class": "gloss-subject",
+                  "description": ""
+                },
+                {
+                  "text": ">",
+                  "component_type": "punctuation",
+                  "color_class": "gloss-default",
+                  "description": ""
+                }
+              ]
+            },
+            {
+              "text": "<S:Nom>",
+              "component_type": "case_spec",
+              "color_class": "gloss-subject",
+              "description": "Nominative subject"
+            }
+          ],
+          "expanded_components": [
+            {
+              "text": "V",
+              "component_type": "verb",
+              "color_class": "gloss-verb",
+              "description": "Verb"
+            },
+            {
+              "text": "MedAct",
+              "component_type": "voice",
+              "color_class": "gloss-default",
+              "description": "Medioactive"
+            },
+            {
+              "text": "Impf",
+              "component_type": "tense",
+              "color_class": "gloss-tense",
+              "description": "Imperfect"
+            },
+            {
+              "type": "argument_pattern_group",
+              "original_text": "<S>",
+              "description": "Intransitive absolute",
+              "components": [
+                {
+                  "text": "<",
+                  "component_type": "punctuation",
+                  "color_class": "gloss-default",
+                  "description": ""
+                },
+                {
+                  "text": "S",
+                  "component_type": "argument",
+                  "color_class": "gloss-subject",
+                  "description": ""
+                },
+                {
+                  "text": ">",
+                  "component_type": "punctuation",
+                  "color_class": "gloss-default",
+                  "description": ""
+                }
+              ]
+            },
+            {
+              "text": "<S:Nom>",
+              "component_type": "case_spec",
+              "color_class": "gloss-subject",
+              "description": "Nominative subject"
+            }
+          ],
+          "argument_pattern": "<S>",
+          "case_specifications": [
+            "<S:Nom>"
+          ]
+        }
+      },
+      "future": {
+        "raw_gloss": "V MedAct Fut <S> <S:Nom>",
+        "structured_gloss": {
+          "raw_components": [
+            {
+              "text": "V",
+              "component_type": "verb",
+              "color_class": "gloss-verb",
+              "description": "Verb"
+            },
+            {
+              "text": "MedAct",
+              "component_type": "voice",
+              "color_class": "gloss-default",
+              "description": "Medioactive"
+            },
+            {
+              "text": "Fut",
+              "component_type": "tense",
+              "color_class": "gloss-tense",
+              "description": "Future"
+            },
+            {
+              "type": "argument_pattern_group",
+              "original_text": "<S>",
+              "description": "Intransitive absolute",
+              "components": [
+                {
+                  "text": "<",
+                  "component_type": "punctuation",
+                  "color_class": "gloss-default",
+                  "description": ""
+                },
+                {
+                  "text": "S",
+                  "component_type": "argument",
+                  "color_class": "gloss-subject",
+                  "description": ""
+                },
+                {
+                  "text": ">",
+                  "component_type": "punctuation",
+                  "color_class": "gloss-default",
+                  "description": ""
+                }
+              ]
+            },
+            {
+              "text": "<S:Nom>",
+              "component_type": "case_spec",
+              "color_class": "gloss-subject",
+              "description": "Nominative subject"
+            }
+          ],
+          "expanded_components": [
+            {
+              "text": "V",
+              "component_type": "verb",
+              "color_class": "gloss-verb",
+              "description": "Verb"
+            },
+            {
+              "text": "MedAct",
+              "component_type": "voice",
+              "color_class": "gloss-default",
+              "description": "Medioactive"
+            },
+            {
+              "text": "Fut",
+              "component_type": "tense",
+              "color_class": "gloss-tense",
+              "description": "Future"
+            },
+            {
+              "type": "argument_pattern_group",
+              "original_text": "<S>",
+              "description": "Intransitive absolute",
+              "components": [
+                {
+                  "text": "<",
+                  "component_type": "punctuation",
+                  "color_class": "gloss-default",
+                  "description": ""
+                },
+                {
+                  "text": "S",
+                  "component_type": "argument",
+                  "color_class": "gloss-subject",
+                  "description": ""
+                },
+                {
+                  "text": ">",
+                  "component_type": "punctuation",
+                  "color_class": "gloss-default",
+                  "description": ""
+                }
+              ]
+            },
+            {
+              "text": "<S:Nom>",
+              "component_type": "case_spec",
+              "color_class": "gloss-subject",
+              "description": "Nominative subject"
+            }
+          ],
+          "argument_pattern": "<S>",
+          "case_specifications": [
+            "<S:Nom>"
+          ]
+        }
+      },
+      "aorist": {
+        "raw_gloss": "V MedAct Aor <S> <S:Erg>",
+        "structured_gloss": {
+          "raw_components": [
+            {
+              "text": "V",
+              "component_type": "verb",
+              "color_class": "gloss-verb",
+              "description": "Verb"
+            },
+            {
+              "text": "MedAct",
+              "component_type": "voice",
+              "color_class": "gloss-default",
+              "description": "Medioactive"
+            },
+            {
+              "text": "Aor",
+              "component_type": "tense",
+              "color_class": "gloss-tense",
+              "description": "Aorist"
+            },
+            {
+              "type": "argument_pattern_group",
+              "original_text": "<S>",
+              "description": "Intransitive absolute",
+              "components": [
+                {
+                  "text": "<",
+                  "component_type": "punctuation",
+                  "color_class": "gloss-default",
+                  "description": ""
+                },
+                {
+                  "text": "S",
+                  "component_type": "argument",
+                  "color_class": "gloss-subject",
+                  "description": ""
+                },
+                {
+                  "text": ">",
+                  "component_type": "punctuation",
+                  "color_class": "gloss-default",
+                  "description": ""
+                }
+              ]
+            },
+            {
+              "text": "<S:Erg>",
+              "component_type": "case_spec",
+              "color_class": "gloss-subject",
+              "description": "Ergative subject"
+            }
+          ],
+          "expanded_components": [
+            {
+              "text": "V",
+              "component_type": "verb",
+              "color_class": "gloss-verb",
+              "description": "Verb"
+            },
+            {
+              "text": "MedAct",
+              "component_type": "voice",
+              "color_class": "gloss-default",
+              "description": "Medioactive"
+            },
+            {
+              "text": "Aor",
+              "component_type": "tense",
+              "color_class": "gloss-tense",
+              "description": "Aorist"
+            },
+            {
+              "type": "argument_pattern_group",
+              "original_text": "<S>",
+              "description": "Intransitive absolute",
+              "components": [
+                {
+                  "text": "<",
+                  "component_type": "punctuation",
+                  "color_class": "gloss-default",
+                  "description": ""
+                },
+                {
+                  "text": "S",
+                  "component_type": "argument",
+                  "color_class": "gloss-subject",
+                  "description": ""
+                },
+                {
+                  "text": ">",
+                  "component_type": "punctuation",
+                  "color_class": "gloss-default",
+                  "description": ""
+                }
+              ]
+            },
+            {
+              "text": "<S:Erg>",
+              "component_type": "case_spec",
+              "color_class": "gloss-subject",
+              "description": "Ergative subject"
+            }
+          ],
+          "argument_pattern": "<S>",
+          "case_specifications": [
+            "<S:Erg>"
+          ]
+        }
+      },
+      "optative": {
+        "raw_gloss": "V MedAct Opt <S> <S:Erg>",
+        "structured_gloss": {
+          "raw_components": [
+            {
+              "text": "V",
+              "component_type": "verb",
+              "color_class": "gloss-verb",
+              "description": "Verb"
+            },
+            {
+              "text": "MedAct",
+              "component_type": "voice",
+              "color_class": "gloss-default",
+              "description": "Medioactive"
+            },
+            {
+              "text": "Opt",
+              "component_type": "tense",
+              "color_class": "gloss-tense",
+              "description": "Optative"
+            },
+            {
+              "type": "argument_pattern_group",
+              "original_text": "<S>",
+              "description": "Intransitive absolute",
+              "components": [
+                {
+                  "text": "<",
+                  "component_type": "punctuation",
+                  "color_class": "gloss-default",
+                  "description": ""
+                },
+                {
+                  "text": "S",
+                  "component_type": "argument",
+                  "color_class": "gloss-subject",
+                  "description": ""
+                },
+                {
+                  "text": ">",
+                  "component_type": "punctuation",
+                  "color_class": "gloss-default",
+                  "description": ""
+                }
+              ]
+            },
+            {
+              "text": "<S:Erg>",
+              "component_type": "case_spec",
+              "color_class": "gloss-subject",
+              "description": "Ergative subject"
+            }
+          ],
+          "expanded_components": [
+            {
+              "text": "V",
+              "component_type": "verb",
+              "color_class": "gloss-verb",
+              "description": "Verb"
+            },
+            {
+              "text": "MedAct",
+              "component_type": "voice",
+              "color_class": "gloss-default",
+              "description": "Medioactive"
+            },
+            {
+              "text": "Opt",
+              "component_type": "tense",
+              "color_class": "gloss-tense",
+              "description": "Optative"
+            },
+            {
+              "type": "argument_pattern_group",
+              "original_text": "<S>",
+              "description": "Intransitive absolute",
+              "components": [
+                {
+                  "text": "<",
+                  "component_type": "punctuation",
+                  "color_class": "gloss-default",
+                  "description": ""
+                },
+                {
+                  "text": "S",
+                  "component_type": "argument",
+                  "color_class": "gloss-subject",
+                  "description": ""
+                },
+                {
+                  "text": ">",
+                  "component_type": "punctuation",
+                  "color_class": "gloss-default",
+                  "description": ""
+                }
+              ]
+            },
+            {
+              "text": "<S:Erg>",
+              "component_type": "case_spec",
+              "color_class": "gloss-subject",
+              "description": "Ergative subject"
+            }
+          ],
+          "argument_pattern": "<S>",
+          "case_specifications": [
+            "<S:Erg>"
+          ]
+        }
+      },
+      "imperative": {
+        "raw_gloss": "V MedAct Impv <S> <S:Erg>",
+        "structured_gloss": {
+          "raw_components": [
+            {
+              "text": "V",
+              "component_type": "verb",
+              "color_class": "gloss-verb",
+              "description": "Verb"
+            },
+            {
+              "text": "MedAct",
+              "component_type": "voice",
+              "color_class": "gloss-default",
+              "description": "Medioactive"
+            },
+            {
+              "text": "Impv",
+              "component_type": "tense",
+              "color_class": "gloss-tense",
+              "description": "Imperative"
+            },
+            {
+              "type": "argument_pattern_group",
+              "original_text": "<S>",
+              "description": "Intransitive absolute",
+              "components": [
+                {
+                  "text": "<",
+                  "component_type": "punctuation",
+                  "color_class": "gloss-default",
+                  "description": ""
+                },
+                {
+                  "text": "S",
+                  "component_type": "argument",
+                  "color_class": "gloss-subject",
+                  "description": ""
+                },
+                {
+                  "text": ">",
+                  "component_type": "punctuation",
+                  "color_class": "gloss-default",
+                  "description": ""
+                }
+              ]
+            },
+            {
+              "text": "<S:Erg>",
+              "component_type": "case_spec",
+              "color_class": "gloss-subject",
+              "description": "Ergative subject"
+            }
+          ],
+          "expanded_components": [
+            {
+              "text": "V",
+              "component_type": "verb",
+              "color_class": "gloss-verb",
+              "description": "Verb"
+            },
+            {
+              "text": "MedAct",
+              "component_type": "voice",
+              "color_class": "gloss-default",
+              "description": "Medioactive"
+            },
+            {
+              "text": "Impv",
+              "component_type": "tense",
+              "color_class": "gloss-tense",
+              "description": "Imperative"
+            },
+            {
+              "type": "argument_pattern_group",
+              "original_text": "<S>",
+              "description": "Intransitive absolute",
+              "components": [
+                {
+                  "text": "<",
+                  "component_type": "punctuation",
+                  "color_class": "gloss-default",
+                  "description": ""
+                },
+                {
+                  "text": "S",
+                  "component_type": "argument",
+                  "color_class": "gloss-subject",
+                  "description": ""
+                },
+                {
+                  "text": ">",
+                  "component_type": "punctuation",
+                  "color_class": "gloss-default",
+                  "description": ""
+                }
+              ]
+            },
+            {
+              "text": "<S:Erg>",
+              "component_type": "case_spec",
+              "color_class": "gloss-subject",
+              "description": "Ergative subject"
+            }
+          ],
+          "argument_pattern": "<S>",
+          "case_specifications": [
+            "<S:Erg>"
+          ]
+        }
+      }
+    },
+    "preverb_forms": {}
+  }
+}

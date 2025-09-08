@@ -100,7 +100,7 @@ class ExampleGenerator:
             arg_data: Argument data
             raw_gloss: Raw gloss specification
             verb_semantics: Verb semantic information
-            verb_data: Verb data from new structure
+            verb_data: Verb data dictionary
             include_preposition: Whether to include preposition
             capitalize_preposition: Whether to capitalize preposition
 
@@ -162,7 +162,7 @@ class ExampleGenerator:
             tense: Verb tense
             person: Verb person
             georgian_verb_form: Georgian verb form
-            verb_data: Verb data from new structure
+            verb_data: Verb data dictionary
             effective_preverb: Effective preverb being used
 
         Returns:
@@ -216,10 +216,9 @@ class ExampleGenerator:
         effective_preverb: str = "",
     ) -> Dict[str, Any]:
         """
-        NEW: Generate a complete example with simplified structured data (no HTML).
+        Generate a complete example with structured data.
 
-        This method returns clean, simplified data structures optimized for consumption
-        by html_generator.py and other consumers.
+        Returns structured data optimized for consumption by html_generator.py and other consumers.
 
         Args:
             verb_id: Verb identifier for deterministic selection
@@ -228,11 +227,11 @@ class ExampleGenerator:
             raw_gloss: Raw gloss specification
             verb_semantics: Verb semantic information
             georgian_verb_form: The Georgian verb form to use
-            verb_data: Verb data from new structure
+            verb_data: Verb data dictionary
             effective_preverb: Effective preverb being used (after fallbacks)
 
         Returns:
-            Dictionary with simplified structured example data
+            Dictionary with structured example data
         """
         try:
             # Parse the raw gloss to understand argument structure
@@ -277,7 +276,7 @@ class ExampleGenerator:
                 english_components["subject"] = english_component
 
             elif person in ["1sg", "2sg", "1pl", "2pl"]:
-                # For 1st and 2nd person, always include subject (I, you, we, you all)
+                # For 1st and 2nd person, include subject pronouns
                 # Georgian doesn't need explicit subjects for these persons, so don't add to georgian_components
 
                 # Add English subject
@@ -287,7 +286,7 @@ class ExampleGenerator:
                     "person": person,
                 }
 
-            # Add the verb form using the new method
+            # Add the verb form
             georgian_text, georgian_component, english_component = (
                 self._build_verb_component(
                     tense, person, georgian_verb_form, verb_data, effective_preverb
@@ -338,7 +337,7 @@ class ExampleGenerator:
             # Combine all parts
             georgian_sentence = " ".join(georgian_parts)
 
-            # Build simplified English sentence
+            # Build English sentence
             english_parts = []
             if "subject" in english_components:
                 english_parts.append(english_components["subject"]["text"])
@@ -473,7 +472,7 @@ class ExampleGenerator:
     ) -> Dict[str, Any]:
         """Unified method to generate any argument component"""
         try:
-            # Get argument data from new structure
+            # Get argument data
             syntax = verb_data.get("syntax", {}) if verb_data else {}
             arguments = syntax.get("arguments", {})
             arg_args = arguments.get(arg_type, {})
@@ -483,7 +482,7 @@ class ExampleGenerator:
             noun_key = person_data.get("noun", "")
             adjective_key = person_data.get("adjective", "")
 
-            # Get case form - fail if not specified (no defaults allowed)
+            # Get case form - fail if not specified
             case = arg_data.get("case")
 
             # Validate all required data using centralized validation
@@ -491,7 +490,7 @@ class ExampleGenerator:
                 verb_id, person, arg_type, noun_key, adjective_key, case
             )
 
-            # Convert case to lowercase after validation
+            # Convert case to lowercase
             case = case.lower()
 
             # Handle number for subjects (plural for 3pl)
@@ -578,7 +577,7 @@ class ExampleGenerator:
             ValueError: If no translation is available
         """
         try:
-            # Get English translations from new structure
+            # Get English translations
             english_translations = (
                 verb_data.get("english_translations", {}) if verb_data else {}
             )
@@ -638,10 +637,10 @@ class ExampleGenerator:
     ) -> str:
         """
         Build the English text for a specific argument (subject, direct object, indirect object)
-        using the new JSON structure.
+        using the JSON structure.
         """
         try:
-            # Get argument data from new structure
+            # Get argument data
             syntax = verb_data.get("syntax", {}) if verb_data else {}
             arguments = syntax.get("arguments", {})
             argument_args = arguments.get(argument_type, {})
@@ -707,7 +706,7 @@ class ExampleGenerator:
             argument_preposition = prepositions.get(argument_type, "")
 
             if include_preposition and argument_preposition:
-                # Capitalize "the" to "The" ONLY for subjects
+                # Capitalize "the" to "The" for subjects
                 if argument_type == "subject" and argument_preposition.lower() == "the":
                     argument_preposition = "The"
                 english_text = f"{argument_preposition} {english_text}"
@@ -747,10 +746,10 @@ def generate_examples(
     verb_data: Dict, tense: str, selected_preverbs: Optional[List[str]] = None
 ) -> Dict[str, Any]:
     """
-    Generate examples for a verb and tense using the new JSON structure
+    Generate examples for a verb and tense using the JSON structure
 
     Args:
-        verb_data: Verb data from verb editor (new structure)
+        verb_data: Verb data from verb editor
         tense: Tense name (present, imperfect, etc.)
         selected_preverbs: List of preverbs to generate examples for (for multi-preverb verbs)
 
@@ -762,7 +761,7 @@ def generate_examples(
     )
 
     try:
-        # Get tense data from the new conjugations structure
+        # Get tense data from conjugations structure
         conjugations = verb_data.get("conjugations", {})
         tense_conjugation = conjugations.get(tense, {})
 
@@ -774,7 +773,7 @@ def generate_examples(
             )
             return {"examples": [], "raw_gloss": ""}
 
-        # Extract data from new structure
+        # Extract data from structure
         raw_gloss = tense_conjugation.get("raw_gloss", "")
         verb_semantics = verb_data.get("semantic_key", "to do")
         verb_id = verb_data.get("id", 0)
@@ -878,14 +877,14 @@ def generate_examples(
                     )
                     continue
 
-                # Generate the example using the new structure
+                # Generate the example
                 mapped_tense = generator.tense_mapping.get(tense, tense)
                 safe_log(
                     logger,
                     "info",
                     f"[EXAMPLES] Original tense: '{tense}', mapped tense: '{mapped_tense}'",
                 )
-                # UPDATED: Use the new structured method instead of the old HTML-generating method
+                # Use the structured method
                 example = generator.generate_example_structured(
                     verb_id=verb_id,
                     tense=mapped_tense,
@@ -919,7 +918,7 @@ def generate_examples(
                     safe_log(
                         logger,
                         "info",
-                        f"[EXAMPLES] Created new preverb group for: {preverb}",
+                        f"[EXAMPLES] Created preverb group for: {preverb}",
                     )
 
                 preverb_group["examples"].append(example)
@@ -962,7 +961,7 @@ def get_effective_preverb(verb_data: Dict, preverb: str, tense: str) -> str:
     Get the effective preverb for a given preverb and tense, handling fallbacks
 
     Args:
-        verb_data: Verb data from new structure
+        verb_data: Verb data dictionary
         preverb: Requested preverb
         tense: Tense name
 
@@ -1026,10 +1025,10 @@ def get_conjugation_form_for_preverb(
     verb_data: Dict, tense: str, person: str, preverb: str
 ) -> str:
     """
-    Get conjugation form for a specific preverb, handling the new structure
+    Get conjugation form for a specific preverb
 
     Args:
-        verb_data: Verb data from new structure
+        verb_data: Verb data dictionary
         tense: Tense name
         person: Person form
         preverb: Preverb to use

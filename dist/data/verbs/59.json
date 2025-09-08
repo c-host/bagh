@@ -1,0 +1,1727 @@
+{
+  "base_data": {
+    "id": 59,
+    "georgian": "დაბანვა",
+    "description": "To bath",
+    "category": "Daily Activities",
+    "class": "",
+    "semantic_key": "bath",
+    "notes": "",
+    "url": "https://lingua.ge/verbs/%e1%83%93%e1%83%90%e1%83%91%e1%83%90%e1%83%9c%e1%83%95%e1%83%90/",
+    "global_argument_pattern": "<S-DO>",
+    "valency": {
+      "default": "<S-DO>",
+      "alternatives": []
+    },
+    "syntax": {
+      "arguments": {
+        "subject": {
+          "3sg": {
+            "noun": "mother",
+            "adjective": "kind"
+          },
+          "3pl": {
+            "noun": "veterinarian",
+            "adjective": "careful"
+          }
+        },
+        "direct_object": {
+          "1sg": {
+            "noun": "hand",
+            "adjective": "dirty"
+          },
+          "2sg": {
+            "noun": "face",
+            "adjective": "oily"
+          },
+          "3sg": {
+            "noun": "baby",
+            "adjective": "small"
+          },
+          "1pl": {
+            "noun": "child",
+            "adjective": "young"
+          },
+          "2pl": {
+            "noun": "foot",
+            "adjective": "dry"
+          },
+          "3pl": {
+            "noun": "dog",
+            "adjective": "big"
+          }
+        }
+      },
+      "prepositions": {
+        "subject": "the",
+        "direct_object": "the",
+        "indirect_object": "to"
+      },
+      "preverb_overrides": {}
+    },
+    "english_translations": {
+      "default": {
+        "present": "bath",
+        "imperfect": "was bathing",
+        "future": "will bath",
+        "aorist": "bathed",
+        "optative": "bath",
+        "imperative": "bath"
+      }
+    },
+    "conjugations": {
+      "present": {
+        "raw_gloss": "V Act Pres <S-DO> <S:Nom> <DO:Dat>",
+        "forms": {
+          "1sg": "ვბან",
+          "2sg": "ბან",
+          "3sg": "ბანს",
+          "1pl": "ვბანთ",
+          "2pl": "ბანთ",
+          "3pl": "ბანენ"
+        },
+        "examples": []
+      },
+      "imperfect": {
+        "raw_gloss": "V Act Impf <S-DO> <S:Nom> <DO:Dat>",
+        "forms": {
+          "1sg": "ვბანდი",
+          "2sg": "ბანდი",
+          "3sg": "ბანდა",
+          "1pl": "ვბანდით",
+          "2pl": "ბანდით",
+          "3pl": "ბანდნენ"
+        },
+        "examples": []
+      },
+      "future": {
+        "raw_gloss": "V Act Fut Pv <S-DO> <S:Nom> <DO:Dat>",
+        "forms": {
+          "1sg": "დავბან",
+          "2sg": "დაბან",
+          "3sg": "დაბანს",
+          "1pl": "დავბანთ",
+          "2pl": "დაბანთ",
+          "3pl": "დაბანენ"
+        },
+        "examples": []
+      },
+      "aorist": {
+        "raw_gloss": "V Act Aor Pv <S-DO> <S:Erg> <DO:Nom>",
+        "forms": {
+          "1sg": "დავბანე",
+          "2sg": "დაბანე",
+          "3sg": "დაბანა",
+          "1pl": "დავბანეთ",
+          "2pl": "დაბანეთ",
+          "3pl": "დაბანეს"
+        },
+        "examples": []
+      },
+      "optative": {
+        "raw_gloss": "V Act Opt Pv <S-DO> <S:Erg> <DO:Nom>",
+        "forms": {
+          "1sg": "დავბანო",
+          "2sg": "დაბანო",
+          "3sg": "დაბანოს",
+          "1pl": "დავბანოთ",
+          "2pl": "დაბანოთ",
+          "3pl": "დაბანონ"
+        },
+        "examples": []
+      },
+      "imperative": {
+        "raw_gloss": "V Act Impv Pv <S-DO> <S:Erg> <DO:Nom>",
+        "forms": {
+          "1sg": "-",
+          "2sg": "დაბანე",
+          "3sg": "-",
+          "1pl": "-",
+          "2pl": "დაბანეთ",
+          "3pl": "-"
+        },
+        "examples": []
+      }
+    },
+    "preverb_config": {
+      "has_multiple_preverbs": false,
+      "default_preverb": "და",
+      "available_preverbs": [
+        "და"
+      ]
+    },
+    "preverb_rules": {
+      "default": "და",
+      "replacements": {},
+      "tense_specific_fallbacks": {}
+    }
+  },
+  "generated_data": {
+    "examples": {
+      "default": {
+        "present": [
+          {
+            "georgian": "ვბან ჭუჭყიან ხელს",
+            "georgian_components": {
+              "verb": {
+                "text": "ვბან",
+                "role": "verb"
+              },
+              "direct_object": {
+                "text": "ჭუჭყიან ხელს",
+                "case": "dat",
+                "role": "direct_object"
+              }
+            },
+            "english": "I bath the dirty hand",
+            "english_components": {
+              "subject": {
+                "text": "I",
+                "role": "subject",
+                "person": "1sg"
+              },
+              "verb": {
+                "text": "bath",
+                "role": "verb"
+              },
+              "direct_object": {
+                "text": "the dirty hand",
+                "role": "direct_object"
+              }
+            },
+            "georgian_verb_form": "ვბან",
+            "person": "1sg",
+            "effective_preverb": "და"
+          },
+          {
+            "georgian": "კეთილი დედა ბანს პატარა ბავშვს",
+            "georgian_components": {
+              "subject": {
+                "text": "კეთილი დედა",
+                "case": "nom",
+                "role": "subject"
+              },
+              "verb": {
+                "text": "ბანს",
+                "role": "verb"
+              },
+              "direct_object": {
+                "text": "პატარა ბავშვს",
+                "case": "dat",
+                "role": "direct_object"
+              }
+            },
+            "english": "The kind mother baths the small baby",
+            "english_components": {
+              "subject": {
+                "text": "The kind mother",
+                "role": "subject",
+                "person": "3sg"
+              },
+              "verb": {
+                "text": "baths",
+                "role": "verb"
+              },
+              "direct_object": {
+                "text": "the small baby",
+                "role": "direct_object"
+              }
+            },
+            "georgian_verb_form": "ბანს",
+            "person": "3sg",
+            "effective_preverb": "და"
+          },
+          {
+            "georgian": "ფრთხილი ვეტერინარები ბანენ დიდ ძაღლს",
+            "georgian_components": {
+              "subject": {
+                "text": "ფრთხილი ვეტერინარები",
+                "case": "nom",
+                "role": "subject"
+              },
+              "verb": {
+                "text": "ბანენ",
+                "role": "verb"
+              },
+              "direct_object": {
+                "text": "დიდ ძაღლს",
+                "case": "dat",
+                "role": "direct_object"
+              }
+            },
+            "english": "The careful veterinarians bath the big dog",
+            "english_components": {
+              "subject": {
+                "text": "The careful veterinarians",
+                "role": "subject",
+                "person": "3pl"
+              },
+              "verb": {
+                "text": "bath",
+                "role": "verb"
+              },
+              "direct_object": {
+                "text": "the big dog",
+                "role": "direct_object"
+              }
+            },
+            "georgian_verb_form": "ბანენ",
+            "person": "3pl",
+            "effective_preverb": "და"
+          }
+        ],
+        "imperfect": [
+          {
+            "georgian": "ვბანდი ჭუჭყიან ხელს",
+            "georgian_components": {
+              "verb": {
+                "text": "ვბანდი",
+                "role": "verb"
+              },
+              "direct_object": {
+                "text": "ჭუჭყიან ხელს",
+                "case": "dat",
+                "role": "direct_object"
+              }
+            },
+            "english": "I was bathing the dirty hand",
+            "english_components": {
+              "subject": {
+                "text": "I",
+                "role": "subject",
+                "person": "1sg"
+              },
+              "verb": {
+                "text": "was bathing",
+                "role": "verb"
+              },
+              "direct_object": {
+                "text": "the dirty hand",
+                "role": "direct_object"
+              }
+            },
+            "georgian_verb_form": "ვბანდი",
+            "person": "1sg",
+            "effective_preverb": "და"
+          },
+          {
+            "georgian": "კეთილი დედა ბანდა პატარა ბავშვს",
+            "georgian_components": {
+              "subject": {
+                "text": "კეთილი დედა",
+                "case": "nom",
+                "role": "subject"
+              },
+              "verb": {
+                "text": "ბანდა",
+                "role": "verb"
+              },
+              "direct_object": {
+                "text": "პატარა ბავშვს",
+                "case": "dat",
+                "role": "direct_object"
+              }
+            },
+            "english": "The kind mother was bathing the small baby",
+            "english_components": {
+              "subject": {
+                "text": "The kind mother",
+                "role": "subject",
+                "person": "3sg"
+              },
+              "verb": {
+                "text": "was bathing",
+                "role": "verb"
+              },
+              "direct_object": {
+                "text": "the small baby",
+                "role": "direct_object"
+              }
+            },
+            "georgian_verb_form": "ბანდა",
+            "person": "3sg",
+            "effective_preverb": "და"
+          },
+          {
+            "georgian": "ფრთხილი ვეტერინარები ბანდნენ დიდ ძაღლს",
+            "georgian_components": {
+              "subject": {
+                "text": "ფრთხილი ვეტერინარები",
+                "case": "nom",
+                "role": "subject"
+              },
+              "verb": {
+                "text": "ბანდნენ",
+                "role": "verb"
+              },
+              "direct_object": {
+                "text": "დიდ ძაღლს",
+                "case": "dat",
+                "role": "direct_object"
+              }
+            },
+            "english": "The careful veterinarians were bathing the big dog",
+            "english_components": {
+              "subject": {
+                "text": "The careful veterinarians",
+                "role": "subject",
+                "person": "3pl"
+              },
+              "verb": {
+                "text": "were bathing",
+                "role": "verb"
+              },
+              "direct_object": {
+                "text": "the big dog",
+                "role": "direct_object"
+              }
+            },
+            "georgian_verb_form": "ბანდნენ",
+            "person": "3pl",
+            "effective_preverb": "და"
+          }
+        ],
+        "future": [
+          {
+            "georgian": "დავბან ჭუჭყიან ხელს",
+            "georgian_components": {
+              "verb": {
+                "text": "დავბან",
+                "role": "verb"
+              },
+              "direct_object": {
+                "text": "ჭუჭყიან ხელს",
+                "case": "dat",
+                "role": "direct_object"
+              }
+            },
+            "english": "I will bath the dirty hand",
+            "english_components": {
+              "subject": {
+                "text": "I",
+                "role": "subject",
+                "person": "1sg"
+              },
+              "verb": {
+                "text": "will bath",
+                "role": "verb"
+              },
+              "direct_object": {
+                "text": "the dirty hand",
+                "role": "direct_object"
+              }
+            },
+            "georgian_verb_form": "დავბან",
+            "person": "1sg",
+            "effective_preverb": "და"
+          },
+          {
+            "georgian": "კეთილი დედა დაბანს პატარა ბავშვს",
+            "georgian_components": {
+              "subject": {
+                "text": "კეთილი დედა",
+                "case": "nom",
+                "role": "subject"
+              },
+              "verb": {
+                "text": "დაბანს",
+                "role": "verb"
+              },
+              "direct_object": {
+                "text": "პატარა ბავშვს",
+                "case": "dat",
+                "role": "direct_object"
+              }
+            },
+            "english": "The kind mother will bath the small baby",
+            "english_components": {
+              "subject": {
+                "text": "The kind mother",
+                "role": "subject",
+                "person": "3sg"
+              },
+              "verb": {
+                "text": "will bath",
+                "role": "verb"
+              },
+              "direct_object": {
+                "text": "the small baby",
+                "role": "direct_object"
+              }
+            },
+            "georgian_verb_form": "დაბანს",
+            "person": "3sg",
+            "effective_preverb": "და"
+          },
+          {
+            "georgian": "ფრთხილი ვეტერინარები დაბანენ დიდ ძაღლს",
+            "georgian_components": {
+              "subject": {
+                "text": "ფრთხილი ვეტერინარები",
+                "case": "nom",
+                "role": "subject"
+              },
+              "verb": {
+                "text": "დაბანენ",
+                "role": "verb"
+              },
+              "direct_object": {
+                "text": "დიდ ძაღლს",
+                "case": "dat",
+                "role": "direct_object"
+              }
+            },
+            "english": "The careful veterinarians will bath the big dog",
+            "english_components": {
+              "subject": {
+                "text": "The careful veterinarians",
+                "role": "subject",
+                "person": "3pl"
+              },
+              "verb": {
+                "text": "will bath",
+                "role": "verb"
+              },
+              "direct_object": {
+                "text": "the big dog",
+                "role": "direct_object"
+              }
+            },
+            "georgian_verb_form": "დაბანენ",
+            "person": "3pl",
+            "effective_preverb": "და"
+          }
+        ],
+        "aorist": [
+          {
+            "georgian": "დავბანე ჭუჭყიანი ხელი",
+            "georgian_components": {
+              "verb": {
+                "text": "დავბანე",
+                "role": "verb"
+              },
+              "direct_object": {
+                "text": "ჭუჭყიანი ხელი",
+                "case": "nom",
+                "role": "direct_object"
+              }
+            },
+            "english": "I bathed the dirty hand",
+            "english_components": {
+              "subject": {
+                "text": "I",
+                "role": "subject",
+                "person": "1sg"
+              },
+              "verb": {
+                "text": "bathed",
+                "role": "verb"
+              },
+              "direct_object": {
+                "text": "the dirty hand",
+                "role": "direct_object"
+              }
+            },
+            "georgian_verb_form": "დავბანე",
+            "person": "1sg",
+            "effective_preverb": "და"
+          },
+          {
+            "georgian": "კეთილმა დედამ დაბანა პატარა ბავშვი",
+            "georgian_components": {
+              "subject": {
+                "text": "კეთილმა დედამ",
+                "case": "erg",
+                "role": "subject"
+              },
+              "verb": {
+                "text": "დაბანა",
+                "role": "verb"
+              },
+              "direct_object": {
+                "text": "პატარა ბავშვი",
+                "case": "nom",
+                "role": "direct_object"
+              }
+            },
+            "english": "The kind mother bathed the small baby",
+            "english_components": {
+              "subject": {
+                "text": "The kind mother",
+                "role": "subject",
+                "person": "3sg"
+              },
+              "verb": {
+                "text": "bathed",
+                "role": "verb"
+              },
+              "direct_object": {
+                "text": "the small baby",
+                "role": "direct_object"
+              }
+            },
+            "georgian_verb_form": "დაბანა",
+            "person": "3sg",
+            "effective_preverb": "და"
+          },
+          {
+            "georgian": "ფრთხილმა ვეტერინარებმა დაბანეს დიდი ძაღლი",
+            "georgian_components": {
+              "subject": {
+                "text": "ფრთხილმა ვეტერინარებმა",
+                "case": "erg",
+                "role": "subject"
+              },
+              "verb": {
+                "text": "დაბანეს",
+                "role": "verb"
+              },
+              "direct_object": {
+                "text": "დიდი ძაღლი",
+                "case": "nom",
+                "role": "direct_object"
+              }
+            },
+            "english": "The careful veterinarians bathed the big dog",
+            "english_components": {
+              "subject": {
+                "text": "The careful veterinarians",
+                "role": "subject",
+                "person": "3pl"
+              },
+              "verb": {
+                "text": "bathed",
+                "role": "verb"
+              },
+              "direct_object": {
+                "text": "the big dog",
+                "role": "direct_object"
+              }
+            },
+            "georgian_verb_form": "დაბანეს",
+            "person": "3pl",
+            "effective_preverb": "და"
+          }
+        ],
+        "optative": [
+          {
+            "georgian": "უნდა დავბანო ჭუჭყიანი ხელი",
+            "georgian_components": {
+              "verb": {
+                "text": "უნდა დავბანო",
+                "role": "verb"
+              },
+              "direct_object": {
+                "text": "ჭუჭყიანი ხელი",
+                "case": "nom",
+                "role": "direct_object"
+              }
+            },
+            "english": "I should bath the dirty hand",
+            "english_components": {
+              "subject": {
+                "text": "I",
+                "role": "subject",
+                "person": "1sg"
+              },
+              "verb": {
+                "text": "should bath",
+                "role": "verb"
+              },
+              "direct_object": {
+                "text": "the dirty hand",
+                "role": "direct_object"
+              }
+            },
+            "georgian_verb_form": "დავბანო",
+            "person": "1sg",
+            "effective_preverb": "და"
+          },
+          {
+            "georgian": "კეთილმა დედამ უნდა დაბანოს პატარა ბავშვი",
+            "georgian_components": {
+              "subject": {
+                "text": "კეთილმა დედამ",
+                "case": "erg",
+                "role": "subject"
+              },
+              "verb": {
+                "text": "უნდა დაბანოს",
+                "role": "verb"
+              },
+              "direct_object": {
+                "text": "პატარა ბავშვი",
+                "case": "nom",
+                "role": "direct_object"
+              }
+            },
+            "english": "The kind mother should bath the small baby",
+            "english_components": {
+              "subject": {
+                "text": "The kind mother",
+                "role": "subject",
+                "person": "3sg"
+              },
+              "verb": {
+                "text": "should bath",
+                "role": "verb"
+              },
+              "direct_object": {
+                "text": "the small baby",
+                "role": "direct_object"
+              }
+            },
+            "georgian_verb_form": "დაბანოს",
+            "person": "3sg",
+            "effective_preverb": "და"
+          },
+          {
+            "georgian": "ფრთხილმა ვეტერინარებმა უნდა დაბანონ დიდი ძაღლი",
+            "georgian_components": {
+              "subject": {
+                "text": "ფრთხილმა ვეტერინარებმა",
+                "case": "erg",
+                "role": "subject"
+              },
+              "verb": {
+                "text": "უნდა დაბანონ",
+                "role": "verb"
+              },
+              "direct_object": {
+                "text": "დიდი ძაღლი",
+                "case": "nom",
+                "role": "direct_object"
+              }
+            },
+            "english": "The careful veterinarians should bath the big dog",
+            "english_components": {
+              "subject": {
+                "text": "The careful veterinarians",
+                "role": "subject",
+                "person": "3pl"
+              },
+              "verb": {
+                "text": "should bath",
+                "role": "verb"
+              },
+              "direct_object": {
+                "text": "the big dog",
+                "role": "direct_object"
+              }
+            },
+            "georgian_verb_form": "დაბანონ",
+            "person": "3pl",
+            "effective_preverb": "და"
+          }
+        ],
+        "imperative": [
+          {
+            "georgian": "დაბანე ზეთოვანი სახე",
+            "georgian_components": {
+              "verb": {
+                "text": "დაბანე",
+                "role": "verb"
+              },
+              "direct_object": {
+                "text": "ზეთოვანი სახე",
+                "case": "nom",
+                "role": "direct_object"
+              }
+            },
+            "english": "You, bath the oily face",
+            "english_components": {
+              "subject": {
+                "text": "You,",
+                "role": "subject",
+                "person": "2sg"
+              },
+              "verb": {
+                "text": "bath",
+                "role": "verb"
+              },
+              "direct_object": {
+                "text": "the oily face",
+                "role": "direct_object"
+              }
+            },
+            "georgian_verb_form": "დაბანე",
+            "person": "2sg",
+            "effective_preverb": "და"
+          },
+          {
+            "georgian": "დაბანეთ მშრალი ფეხი",
+            "georgian_components": {
+              "verb": {
+                "text": "დაბანეთ",
+                "role": "verb"
+              },
+              "direct_object": {
+                "text": "მშრალი ფეხი",
+                "case": "nom",
+                "role": "direct_object"
+              }
+            },
+            "english": "You all (you formal), bath the dry foot",
+            "english_components": {
+              "subject": {
+                "text": "You all (you formal),",
+                "role": "subject",
+                "person": "2pl"
+              },
+              "verb": {
+                "text": "bath",
+                "role": "verb"
+              },
+              "direct_object": {
+                "text": "the dry foot",
+                "role": "direct_object"
+              }
+            },
+            "georgian_verb_form": "დაბანეთ",
+            "person": "2pl",
+            "effective_preverb": "და"
+          }
+        ]
+      }
+    },
+    "gloss_analysis": {
+      "present": {
+        "raw_gloss": "V Act Pres <S-DO> <S:Nom> <DO:Dat>",
+        "structured_gloss": {
+          "raw_components": [
+            {
+              "text": "V",
+              "component_type": "verb",
+              "color_class": "gloss-verb",
+              "description": "Verb"
+            },
+            {
+              "text": "Act",
+              "component_type": "voice",
+              "color_class": "gloss-default",
+              "description": "Active"
+            },
+            {
+              "text": "Pres",
+              "component_type": "tense",
+              "color_class": "gloss-tense",
+              "description": "Present"
+            },
+            {
+              "type": "argument_pattern_group",
+              "original_text": "<S-DO>",
+              "description": "Transitive absolute",
+              "components": [
+                {
+                  "text": "<",
+                  "component_type": "punctuation",
+                  "color_class": "gloss-default",
+                  "description": ""
+                },
+                {
+                  "text": "S",
+                  "component_type": "argument",
+                  "color_class": "gloss-subject",
+                  "description": ""
+                },
+                {
+                  "text": "-",
+                  "component_type": "punctuation",
+                  "color_class": "gloss-default",
+                  "description": ""
+                },
+                {
+                  "text": "DO",
+                  "component_type": "argument",
+                  "color_class": "gloss-direct-object",
+                  "description": ""
+                },
+                {
+                  "text": ">",
+                  "component_type": "punctuation",
+                  "color_class": "gloss-default",
+                  "description": ""
+                }
+              ]
+            },
+            {
+              "text": "<S:Nom>",
+              "component_type": "case_spec",
+              "color_class": "gloss-subject",
+              "description": "Nominative subject"
+            },
+            {
+              "text": "<DO:Dat>",
+              "component_type": "case_spec",
+              "color_class": "gloss-direct-object",
+              "description": "Dative direct object"
+            }
+          ],
+          "expanded_components": [
+            {
+              "text": "V",
+              "component_type": "verb",
+              "color_class": "gloss-verb",
+              "description": "Verb"
+            },
+            {
+              "text": "Act",
+              "component_type": "voice",
+              "color_class": "gloss-default",
+              "description": "Active"
+            },
+            {
+              "text": "Pres",
+              "component_type": "tense",
+              "color_class": "gloss-tense",
+              "description": "Present"
+            },
+            {
+              "type": "argument_pattern_group",
+              "original_text": "<S-DO>",
+              "description": "Transitive absolute",
+              "components": [
+                {
+                  "text": "<",
+                  "component_type": "punctuation",
+                  "color_class": "gloss-default",
+                  "description": ""
+                },
+                {
+                  "text": "S",
+                  "component_type": "argument",
+                  "color_class": "gloss-subject",
+                  "description": ""
+                },
+                {
+                  "text": "-",
+                  "component_type": "punctuation",
+                  "color_class": "gloss-default",
+                  "description": ""
+                },
+                {
+                  "text": "DO",
+                  "component_type": "argument",
+                  "color_class": "gloss-direct-object",
+                  "description": ""
+                },
+                {
+                  "text": ">",
+                  "component_type": "punctuation",
+                  "color_class": "gloss-default",
+                  "description": ""
+                }
+              ]
+            },
+            {
+              "text": "<S:Nom>",
+              "component_type": "case_spec",
+              "color_class": "gloss-subject",
+              "description": "Nominative subject"
+            },
+            {
+              "text": "<DO:Dat>",
+              "component_type": "case_spec",
+              "color_class": "gloss-direct-object",
+              "description": "Dative direct object"
+            }
+          ],
+          "argument_pattern": "<S-DO>",
+          "case_specifications": [
+            "<S:Nom>",
+            "<DO:Dat>"
+          ]
+        }
+      },
+      "imperfect": {
+        "raw_gloss": "V Act Impf <S-DO> <S:Nom> <DO:Dat>",
+        "structured_gloss": {
+          "raw_components": [
+            {
+              "text": "V",
+              "component_type": "verb",
+              "color_class": "gloss-verb",
+              "description": "Verb"
+            },
+            {
+              "text": "Act",
+              "component_type": "voice",
+              "color_class": "gloss-default",
+              "description": "Active"
+            },
+            {
+              "text": "Impf",
+              "component_type": "tense",
+              "color_class": "gloss-tense",
+              "description": "Imperfect"
+            },
+            {
+              "type": "argument_pattern_group",
+              "original_text": "<S-DO>",
+              "description": "Transitive absolute",
+              "components": [
+                {
+                  "text": "<",
+                  "component_type": "punctuation",
+                  "color_class": "gloss-default",
+                  "description": ""
+                },
+                {
+                  "text": "S",
+                  "component_type": "argument",
+                  "color_class": "gloss-subject",
+                  "description": ""
+                },
+                {
+                  "text": "-",
+                  "component_type": "punctuation",
+                  "color_class": "gloss-default",
+                  "description": ""
+                },
+                {
+                  "text": "DO",
+                  "component_type": "argument",
+                  "color_class": "gloss-direct-object",
+                  "description": ""
+                },
+                {
+                  "text": ">",
+                  "component_type": "punctuation",
+                  "color_class": "gloss-default",
+                  "description": ""
+                }
+              ]
+            },
+            {
+              "text": "<S:Nom>",
+              "component_type": "case_spec",
+              "color_class": "gloss-subject",
+              "description": "Nominative subject"
+            },
+            {
+              "text": "<DO:Dat>",
+              "component_type": "case_spec",
+              "color_class": "gloss-direct-object",
+              "description": "Dative direct object"
+            }
+          ],
+          "expanded_components": [
+            {
+              "text": "V",
+              "component_type": "verb",
+              "color_class": "gloss-verb",
+              "description": "Verb"
+            },
+            {
+              "text": "Act",
+              "component_type": "voice",
+              "color_class": "gloss-default",
+              "description": "Active"
+            },
+            {
+              "text": "Impf",
+              "component_type": "tense",
+              "color_class": "gloss-tense",
+              "description": "Imperfect"
+            },
+            {
+              "type": "argument_pattern_group",
+              "original_text": "<S-DO>",
+              "description": "Transitive absolute",
+              "components": [
+                {
+                  "text": "<",
+                  "component_type": "punctuation",
+                  "color_class": "gloss-default",
+                  "description": ""
+                },
+                {
+                  "text": "S",
+                  "component_type": "argument",
+                  "color_class": "gloss-subject",
+                  "description": ""
+                },
+                {
+                  "text": "-",
+                  "component_type": "punctuation",
+                  "color_class": "gloss-default",
+                  "description": ""
+                },
+                {
+                  "text": "DO",
+                  "component_type": "argument",
+                  "color_class": "gloss-direct-object",
+                  "description": ""
+                },
+                {
+                  "text": ">",
+                  "component_type": "punctuation",
+                  "color_class": "gloss-default",
+                  "description": ""
+                }
+              ]
+            },
+            {
+              "text": "<S:Nom>",
+              "component_type": "case_spec",
+              "color_class": "gloss-subject",
+              "description": "Nominative subject"
+            },
+            {
+              "text": "<DO:Dat>",
+              "component_type": "case_spec",
+              "color_class": "gloss-direct-object",
+              "description": "Dative direct object"
+            }
+          ],
+          "argument_pattern": "<S-DO>",
+          "case_specifications": [
+            "<S:Nom>",
+            "<DO:Dat>"
+          ]
+        }
+      },
+      "future": {
+        "raw_gloss": "V Act Fut Pv <S-DO> <S:Nom> <DO:Dat>",
+        "structured_gloss": {
+          "raw_components": [
+            {
+              "text": "V",
+              "component_type": "verb",
+              "color_class": "gloss-verb",
+              "description": "Verb"
+            },
+            {
+              "text": "Act",
+              "component_type": "voice",
+              "color_class": "gloss-default",
+              "description": "Active"
+            },
+            {
+              "text": "Fut",
+              "component_type": "tense",
+              "color_class": "gloss-tense",
+              "description": "Future"
+            },
+            {
+              "text": "Pv",
+              "component_type": "preverb",
+              "color_class": "gloss-default",
+              "description": "და"
+            },
+            {
+              "type": "argument_pattern_group",
+              "original_text": "<S-DO>",
+              "description": "Transitive absolute",
+              "components": [
+                {
+                  "text": "<",
+                  "component_type": "punctuation",
+                  "color_class": "gloss-default",
+                  "description": ""
+                },
+                {
+                  "text": "S",
+                  "component_type": "argument",
+                  "color_class": "gloss-subject",
+                  "description": ""
+                },
+                {
+                  "text": "-",
+                  "component_type": "punctuation",
+                  "color_class": "gloss-default",
+                  "description": ""
+                },
+                {
+                  "text": "DO",
+                  "component_type": "argument",
+                  "color_class": "gloss-direct-object",
+                  "description": ""
+                },
+                {
+                  "text": ">",
+                  "component_type": "punctuation",
+                  "color_class": "gloss-default",
+                  "description": ""
+                }
+              ]
+            },
+            {
+              "text": "<S:Nom>",
+              "component_type": "case_spec",
+              "color_class": "gloss-subject",
+              "description": "Nominative subject"
+            },
+            {
+              "text": "<DO:Dat>",
+              "component_type": "case_spec",
+              "color_class": "gloss-direct-object",
+              "description": "Dative direct object"
+            }
+          ],
+          "expanded_components": [
+            {
+              "text": "V",
+              "component_type": "verb",
+              "color_class": "gloss-verb",
+              "description": "Verb"
+            },
+            {
+              "text": "Act",
+              "component_type": "voice",
+              "color_class": "gloss-default",
+              "description": "Active"
+            },
+            {
+              "text": "Fut",
+              "component_type": "tense",
+              "color_class": "gloss-tense",
+              "description": "Future"
+            },
+            {
+              "text": "Pv",
+              "component_type": "preverb",
+              "color_class": "gloss-default",
+              "description": "და"
+            },
+            {
+              "type": "argument_pattern_group",
+              "original_text": "<S-DO>",
+              "description": "Transitive absolute",
+              "components": [
+                {
+                  "text": "<",
+                  "component_type": "punctuation",
+                  "color_class": "gloss-default",
+                  "description": ""
+                },
+                {
+                  "text": "S",
+                  "component_type": "argument",
+                  "color_class": "gloss-subject",
+                  "description": ""
+                },
+                {
+                  "text": "-",
+                  "component_type": "punctuation",
+                  "color_class": "gloss-default",
+                  "description": ""
+                },
+                {
+                  "text": "DO",
+                  "component_type": "argument",
+                  "color_class": "gloss-direct-object",
+                  "description": ""
+                },
+                {
+                  "text": ">",
+                  "component_type": "punctuation",
+                  "color_class": "gloss-default",
+                  "description": ""
+                }
+              ]
+            },
+            {
+              "text": "<S:Nom>",
+              "component_type": "case_spec",
+              "color_class": "gloss-subject",
+              "description": "Nominative subject"
+            },
+            {
+              "text": "<DO:Dat>",
+              "component_type": "case_spec",
+              "color_class": "gloss-direct-object",
+              "description": "Dative direct object"
+            }
+          ],
+          "argument_pattern": "<S-DO>",
+          "case_specifications": [
+            "<S:Nom>",
+            "<DO:Dat>"
+          ]
+        }
+      },
+      "aorist": {
+        "raw_gloss": "V Act Aor Pv <S-DO> <S:Erg> <DO:Nom>",
+        "structured_gloss": {
+          "raw_components": [
+            {
+              "text": "V",
+              "component_type": "verb",
+              "color_class": "gloss-verb",
+              "description": "Verb"
+            },
+            {
+              "text": "Act",
+              "component_type": "voice",
+              "color_class": "gloss-default",
+              "description": "Active"
+            },
+            {
+              "text": "Aor",
+              "component_type": "tense",
+              "color_class": "gloss-tense",
+              "description": "Aorist"
+            },
+            {
+              "text": "Pv",
+              "component_type": "preverb",
+              "color_class": "gloss-default",
+              "description": "და"
+            },
+            {
+              "type": "argument_pattern_group",
+              "original_text": "<S-DO>",
+              "description": "Transitive absolute",
+              "components": [
+                {
+                  "text": "<",
+                  "component_type": "punctuation",
+                  "color_class": "gloss-default",
+                  "description": ""
+                },
+                {
+                  "text": "S",
+                  "component_type": "argument",
+                  "color_class": "gloss-subject",
+                  "description": ""
+                },
+                {
+                  "text": "-",
+                  "component_type": "punctuation",
+                  "color_class": "gloss-default",
+                  "description": ""
+                },
+                {
+                  "text": "DO",
+                  "component_type": "argument",
+                  "color_class": "gloss-direct-object",
+                  "description": ""
+                },
+                {
+                  "text": ">",
+                  "component_type": "punctuation",
+                  "color_class": "gloss-default",
+                  "description": ""
+                }
+              ]
+            },
+            {
+              "text": "<S:Erg>",
+              "component_type": "case_spec",
+              "color_class": "gloss-subject",
+              "description": "Ergative subject"
+            },
+            {
+              "text": "<DO:Nom>",
+              "component_type": "case_spec",
+              "color_class": "gloss-direct-object",
+              "description": "Nominative direct object"
+            }
+          ],
+          "expanded_components": [
+            {
+              "text": "V",
+              "component_type": "verb",
+              "color_class": "gloss-verb",
+              "description": "Verb"
+            },
+            {
+              "text": "Act",
+              "component_type": "voice",
+              "color_class": "gloss-default",
+              "description": "Active"
+            },
+            {
+              "text": "Aor",
+              "component_type": "tense",
+              "color_class": "gloss-tense",
+              "description": "Aorist"
+            },
+            {
+              "text": "Pv",
+              "component_type": "preverb",
+              "color_class": "gloss-default",
+              "description": "და"
+            },
+            {
+              "type": "argument_pattern_group",
+              "original_text": "<S-DO>",
+              "description": "Transitive absolute",
+              "components": [
+                {
+                  "text": "<",
+                  "component_type": "punctuation",
+                  "color_class": "gloss-default",
+                  "description": ""
+                },
+                {
+                  "text": "S",
+                  "component_type": "argument",
+                  "color_class": "gloss-subject",
+                  "description": ""
+                },
+                {
+                  "text": "-",
+                  "component_type": "punctuation",
+                  "color_class": "gloss-default",
+                  "description": ""
+                },
+                {
+                  "text": "DO",
+                  "component_type": "argument",
+                  "color_class": "gloss-direct-object",
+                  "description": ""
+                },
+                {
+                  "text": ">",
+                  "component_type": "punctuation",
+                  "color_class": "gloss-default",
+                  "description": ""
+                }
+              ]
+            },
+            {
+              "text": "<S:Erg>",
+              "component_type": "case_spec",
+              "color_class": "gloss-subject",
+              "description": "Ergative subject"
+            },
+            {
+              "text": "<DO:Nom>",
+              "component_type": "case_spec",
+              "color_class": "gloss-direct-object",
+              "description": "Nominative direct object"
+            }
+          ],
+          "argument_pattern": "<S-DO>",
+          "case_specifications": [
+            "<S:Erg>",
+            "<DO:Nom>"
+          ]
+        }
+      },
+      "optative": {
+        "raw_gloss": "V Act Opt Pv <S-DO> <S:Erg> <DO:Nom>",
+        "structured_gloss": {
+          "raw_components": [
+            {
+              "text": "V",
+              "component_type": "verb",
+              "color_class": "gloss-verb",
+              "description": "Verb"
+            },
+            {
+              "text": "Act",
+              "component_type": "voice",
+              "color_class": "gloss-default",
+              "description": "Active"
+            },
+            {
+              "text": "Opt",
+              "component_type": "tense",
+              "color_class": "gloss-tense",
+              "description": "Optative"
+            },
+            {
+              "text": "Pv",
+              "component_type": "preverb",
+              "color_class": "gloss-default",
+              "description": "და"
+            },
+            {
+              "type": "argument_pattern_group",
+              "original_text": "<S-DO>",
+              "description": "Transitive absolute",
+              "components": [
+                {
+                  "text": "<",
+                  "component_type": "punctuation",
+                  "color_class": "gloss-default",
+                  "description": ""
+                },
+                {
+                  "text": "S",
+                  "component_type": "argument",
+                  "color_class": "gloss-subject",
+                  "description": ""
+                },
+                {
+                  "text": "-",
+                  "component_type": "punctuation",
+                  "color_class": "gloss-default",
+                  "description": ""
+                },
+                {
+                  "text": "DO",
+                  "component_type": "argument",
+                  "color_class": "gloss-direct-object",
+                  "description": ""
+                },
+                {
+                  "text": ">",
+                  "component_type": "punctuation",
+                  "color_class": "gloss-default",
+                  "description": ""
+                }
+              ]
+            },
+            {
+              "text": "<S:Erg>",
+              "component_type": "case_spec",
+              "color_class": "gloss-subject",
+              "description": "Ergative subject"
+            },
+            {
+              "text": "<DO:Nom>",
+              "component_type": "case_spec",
+              "color_class": "gloss-direct-object",
+              "description": "Nominative direct object"
+            }
+          ],
+          "expanded_components": [
+            {
+              "text": "V",
+              "component_type": "verb",
+              "color_class": "gloss-verb",
+              "description": "Verb"
+            },
+            {
+              "text": "Act",
+              "component_type": "voice",
+              "color_class": "gloss-default",
+              "description": "Active"
+            },
+            {
+              "text": "Opt",
+              "component_type": "tense",
+              "color_class": "gloss-tense",
+              "description": "Optative"
+            },
+            {
+              "text": "Pv",
+              "component_type": "preverb",
+              "color_class": "gloss-default",
+              "description": "და"
+            },
+            {
+              "type": "argument_pattern_group",
+              "original_text": "<S-DO>",
+              "description": "Transitive absolute",
+              "components": [
+                {
+                  "text": "<",
+                  "component_type": "punctuation",
+                  "color_class": "gloss-default",
+                  "description": ""
+                },
+                {
+                  "text": "S",
+                  "component_type": "argument",
+                  "color_class": "gloss-subject",
+                  "description": ""
+                },
+                {
+                  "text": "-",
+                  "component_type": "punctuation",
+                  "color_class": "gloss-default",
+                  "description": ""
+                },
+                {
+                  "text": "DO",
+                  "component_type": "argument",
+                  "color_class": "gloss-direct-object",
+                  "description": ""
+                },
+                {
+                  "text": ">",
+                  "component_type": "punctuation",
+                  "color_class": "gloss-default",
+                  "description": ""
+                }
+              ]
+            },
+            {
+              "text": "<S:Erg>",
+              "component_type": "case_spec",
+              "color_class": "gloss-subject",
+              "description": "Ergative subject"
+            },
+            {
+              "text": "<DO:Nom>",
+              "component_type": "case_spec",
+              "color_class": "gloss-direct-object",
+              "description": "Nominative direct object"
+            }
+          ],
+          "argument_pattern": "<S-DO>",
+          "case_specifications": [
+            "<S:Erg>",
+            "<DO:Nom>"
+          ]
+        }
+      },
+      "imperative": {
+        "raw_gloss": "V Act Impv Pv <S-DO> <S:Erg> <DO:Nom>",
+        "structured_gloss": {
+          "raw_components": [
+            {
+              "text": "V",
+              "component_type": "verb",
+              "color_class": "gloss-verb",
+              "description": "Verb"
+            },
+            {
+              "text": "Act",
+              "component_type": "voice",
+              "color_class": "gloss-default",
+              "description": "Active"
+            },
+            {
+              "text": "Impv",
+              "component_type": "tense",
+              "color_class": "gloss-tense",
+              "description": "Imperative"
+            },
+            {
+              "text": "Pv",
+              "component_type": "preverb",
+              "color_class": "gloss-default",
+              "description": "და"
+            },
+            {
+              "type": "argument_pattern_group",
+              "original_text": "<S-DO>",
+              "description": "Transitive absolute",
+              "components": [
+                {
+                  "text": "<",
+                  "component_type": "punctuation",
+                  "color_class": "gloss-default",
+                  "description": ""
+                },
+                {
+                  "text": "S",
+                  "component_type": "argument",
+                  "color_class": "gloss-subject",
+                  "description": ""
+                },
+                {
+                  "text": "-",
+                  "component_type": "punctuation",
+                  "color_class": "gloss-default",
+                  "description": ""
+                },
+                {
+                  "text": "DO",
+                  "component_type": "argument",
+                  "color_class": "gloss-direct-object",
+                  "description": ""
+                },
+                {
+                  "text": ">",
+                  "component_type": "punctuation",
+                  "color_class": "gloss-default",
+                  "description": ""
+                }
+              ]
+            },
+            {
+              "text": "<S:Erg>",
+              "component_type": "case_spec",
+              "color_class": "gloss-subject",
+              "description": "Ergative subject"
+            },
+            {
+              "text": "<DO:Nom>",
+              "component_type": "case_spec",
+              "color_class": "gloss-direct-object",
+              "description": "Nominative direct object"
+            }
+          ],
+          "expanded_components": [
+            {
+              "text": "V",
+              "component_type": "verb",
+              "color_class": "gloss-verb",
+              "description": "Verb"
+            },
+            {
+              "text": "Act",
+              "component_type": "voice",
+              "color_class": "gloss-default",
+              "description": "Active"
+            },
+            {
+              "text": "Impv",
+              "component_type": "tense",
+              "color_class": "gloss-tense",
+              "description": "Imperative"
+            },
+            {
+              "text": "Pv",
+              "component_type": "preverb",
+              "color_class": "gloss-default",
+              "description": "და"
+            },
+            {
+              "type": "argument_pattern_group",
+              "original_text": "<S-DO>",
+              "description": "Transitive absolute",
+              "components": [
+                {
+                  "text": "<",
+                  "component_type": "punctuation",
+                  "color_class": "gloss-default",
+                  "description": ""
+                },
+                {
+                  "text": "S",
+                  "component_type": "argument",
+                  "color_class": "gloss-subject",
+                  "description": ""
+                },
+                {
+                  "text": "-",
+                  "component_type": "punctuation",
+                  "color_class": "gloss-default",
+                  "description": ""
+                },
+                {
+                  "text": "DO",
+                  "component_type": "argument",
+                  "color_class": "gloss-direct-object",
+                  "description": ""
+                },
+                {
+                  "text": ">",
+                  "component_type": "punctuation",
+                  "color_class": "gloss-default",
+                  "description": ""
+                }
+              ]
+            },
+            {
+              "text": "<S:Erg>",
+              "component_type": "case_spec",
+              "color_class": "gloss-subject",
+              "description": "Ergative subject"
+            },
+            {
+              "text": "<DO:Nom>",
+              "component_type": "case_spec",
+              "color_class": "gloss-direct-object",
+              "description": "Nominative direct object"
+            }
+          ],
+          "argument_pattern": "<S-DO>",
+          "case_specifications": [
+            "<S:Erg>",
+            "<DO:Nom>"
+          ]
+        }
+      }
+    },
+    "preverb_forms": {}
+  }
+}

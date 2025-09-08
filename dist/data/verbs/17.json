@@ -1,0 +1,1799 @@
+{
+  "base_data": {
+    "id": 17,
+    "georgian": "დავიწყება",
+    "description": "To Forget",
+    "category": "Mental Activities & Cognition",
+    "class": "Class-I",
+    "semantic_key": "forget",
+    "notes": "",
+    "url": "https://lingua.ge/verbs/%e1%83%93%e1%83%90%e1%83%95%e1%83%98%e1%83%ac%e1%83%a7%e1%83%94%e1%83%91%e1%83%90/",
+    "global_argument_pattern": "<S-DO>",
+    "valency": {
+      "default": "<S-DO>",
+      "alternatives": []
+    },
+    "syntax": {
+      "arguments": {
+        "subject": {
+          "3sg": {
+            "noun": "grandmother",
+            "adjective": "old"
+          },
+          "3pl": {
+            "noun": "student",
+            "adjective": "young"
+          }
+        },
+        "direct_object": {
+          "1sg": {
+            "noun": "name",
+            "adjective": "new"
+          },
+          "2sg": {
+            "noun": "key",
+            "adjective": "small"
+          },
+          "3sg": {
+            "noun": "word",
+            "adjective": "difficult"
+          },
+          "1pl": {
+            "noun": "date",
+            "adjective": "special"
+          },
+          "2pl": {
+            "noun": "number",
+            "adjective": "long"
+          },
+          "3pl": {
+            "noun": "homework",
+            "adjective": "important"
+          }
+        }
+      },
+      "prepositions": {
+        "subject": "the",
+        "direct_object": "the",
+        "indirect_object": ""
+      },
+      "preverb_overrides": {}
+    },
+    "english_translations": {
+      "default": {
+        "present": "forget",
+        "imperfect": "was forgetting",
+        "future": "will forget",
+        "aorist": "forgot",
+        "optative": "forget",
+        "imperative": "forget"
+      }
+    },
+    "conjugations": {
+      "present": {
+        "raw_gloss": "V Act Pres SV <S-DO> <S:Nom> <DO:Dat>",
+        "forms": {
+          "1sg": "ვივიწყებ",
+          "2sg": "ივიწყებ",
+          "3sg": "ივიწყებს",
+          "1pl": "ვივიწყებთ",
+          "2pl": "ივიწყებთ",
+          "3pl": "ივიწყებენ"
+        },
+        "examples": []
+      },
+      "imperfect": {
+        "raw_gloss": "V Act Impf SV <S-DO> <S:Nom> <DO:Dat>",
+        "forms": {
+          "1sg": "ვივიწყებდი",
+          "2sg": "ივიწყებდი",
+          "3sg": "ივიწყებდა",
+          "1pl": "ვივიწყებდით",
+          "2pl": "ივიწყებდით",
+          "3pl": "ივიწყებდნენ"
+        },
+        "examples": []
+      },
+      "future": {
+        "raw_gloss": "V Act Fut Pv SV <S-DO> <S:Nom> <DO:Dat>",
+        "forms": {
+          "1sg": "დავივიწყებ",
+          "2sg": "დაივიწყებ",
+          "3sg": "დაივიწყებს",
+          "1pl": "დავივიწყებთ",
+          "2pl": "დაივიწყებთ",
+          "3pl": "დაივიწყებენ"
+        },
+        "examples": []
+      },
+      "aorist": {
+        "raw_gloss": "V Act Aor Pv SV <S-DO> <S:Erg> <DO:Nom>",
+        "forms": {
+          "1sg": "დავივიწყე",
+          "2sg": "დაივიწყე",
+          "3sg": "დაივიწყა",
+          "1pl": "დავივიწყეთ",
+          "2pl": "დაივიწყეთ",
+          "3pl": "დაივიწყეს"
+        },
+        "examples": []
+      },
+      "optative": {
+        "raw_gloss": "V Act Opt Pv SV <S-DO> <S:Erg> <DO:Nom>",
+        "forms": {
+          "1sg": "დავივიწყო",
+          "2sg": "დაივიწყო",
+          "3sg": "დაივიწყოს",
+          "1pl": "დავივიწყოთ",
+          "2pl": "დაივიწყოთ",
+          "3pl": "დაივიწყონ"
+        },
+        "examples": []
+      },
+      "imperative": {
+        "raw_gloss": "V Act Impv SV PV <S-DO> <S:Erg> <DO:Nom>",
+        "forms": {
+          "1sg": "-",
+          "2sg": "დაივიწყე",
+          "3sg": "-",
+          "1pl": "-",
+          "2pl": "დაივიწყეთ",
+          "3pl": "-"
+        },
+        "examples": []
+      }
+    },
+    "preverb_config": {
+      "has_multiple_preverbs": false,
+      "default_preverb": "და",
+      "available_preverbs": [
+        "და"
+      ]
+    },
+    "preverb_rules": {
+      "default": "",
+      "replacements": {},
+      "tense_specific_fallbacks": {}
+    }
+  },
+  "generated_data": {
+    "examples": {
+      "default": {
+        "present": [
+          {
+            "georgian": "ვივიწყებ ახალ სახელს",
+            "georgian_components": {
+              "verb": {
+                "text": "ვივიწყებ",
+                "role": "verb"
+              },
+              "direct_object": {
+                "text": "ახალ სახელს",
+                "case": "dat",
+                "role": "direct_object"
+              }
+            },
+            "english": "I forget the new name",
+            "english_components": {
+              "subject": {
+                "text": "I",
+                "role": "subject",
+                "person": "1sg"
+              },
+              "verb": {
+                "text": "forget",
+                "role": "verb"
+              },
+              "direct_object": {
+                "text": "the new name",
+                "role": "direct_object"
+              }
+            },
+            "georgian_verb_form": "ვივიწყებ",
+            "person": "1sg",
+            "effective_preverb": "და"
+          },
+          {
+            "georgian": "ძველი ბებია ივიწყებს რთულ სიტყვას",
+            "georgian_components": {
+              "subject": {
+                "text": "ძველი ბებია",
+                "case": "nom",
+                "role": "subject"
+              },
+              "verb": {
+                "text": "ივიწყებს",
+                "role": "verb"
+              },
+              "direct_object": {
+                "text": "რთულ სიტყვას",
+                "case": "dat",
+                "role": "direct_object"
+              }
+            },
+            "english": "The old grandmother forgets the difficult word",
+            "english_components": {
+              "subject": {
+                "text": "The old grandmother",
+                "role": "subject",
+                "person": "3sg"
+              },
+              "verb": {
+                "text": "forgets",
+                "role": "verb"
+              },
+              "direct_object": {
+                "text": "the difficult word",
+                "role": "direct_object"
+              }
+            },
+            "georgian_verb_form": "ივიწყებს",
+            "person": "3sg",
+            "effective_preverb": "და"
+          },
+          {
+            "georgian": "ახალგაზრდა სტუდენტები ივიწყებენ მნიშვნელოვან საშინაო დავალებას",
+            "georgian_components": {
+              "subject": {
+                "text": "ახალგაზრდა სტუდენტები",
+                "case": "nom",
+                "role": "subject"
+              },
+              "verb": {
+                "text": "ივიწყებენ",
+                "role": "verb"
+              },
+              "direct_object": {
+                "text": "მნიშვნელოვან საშინაო დავალებას",
+                "case": "dat",
+                "role": "direct_object"
+              }
+            },
+            "english": "The young students forget the important homework",
+            "english_components": {
+              "subject": {
+                "text": "The young students",
+                "role": "subject",
+                "person": "3pl"
+              },
+              "verb": {
+                "text": "forget",
+                "role": "verb"
+              },
+              "direct_object": {
+                "text": "the important homework",
+                "role": "direct_object"
+              }
+            },
+            "georgian_verb_form": "ივიწყებენ",
+            "person": "3pl",
+            "effective_preverb": "და"
+          }
+        ],
+        "imperfect": [
+          {
+            "georgian": "ვივიწყებდი ახალ სახელს",
+            "georgian_components": {
+              "verb": {
+                "text": "ვივიწყებდი",
+                "role": "verb"
+              },
+              "direct_object": {
+                "text": "ახალ სახელს",
+                "case": "dat",
+                "role": "direct_object"
+              }
+            },
+            "english": "I was forgetting the new name",
+            "english_components": {
+              "subject": {
+                "text": "I",
+                "role": "subject",
+                "person": "1sg"
+              },
+              "verb": {
+                "text": "was forgetting",
+                "role": "verb"
+              },
+              "direct_object": {
+                "text": "the new name",
+                "role": "direct_object"
+              }
+            },
+            "georgian_verb_form": "ვივიწყებდი",
+            "person": "1sg",
+            "effective_preverb": "და"
+          },
+          {
+            "georgian": "ძველი ბებია ივიწყებდა რთულ სიტყვას",
+            "georgian_components": {
+              "subject": {
+                "text": "ძველი ბებია",
+                "case": "nom",
+                "role": "subject"
+              },
+              "verb": {
+                "text": "ივიწყებდა",
+                "role": "verb"
+              },
+              "direct_object": {
+                "text": "რთულ სიტყვას",
+                "case": "dat",
+                "role": "direct_object"
+              }
+            },
+            "english": "The old grandmother was forgetting the difficult word",
+            "english_components": {
+              "subject": {
+                "text": "The old grandmother",
+                "role": "subject",
+                "person": "3sg"
+              },
+              "verb": {
+                "text": "was forgetting",
+                "role": "verb"
+              },
+              "direct_object": {
+                "text": "the difficult word",
+                "role": "direct_object"
+              }
+            },
+            "georgian_verb_form": "ივიწყებდა",
+            "person": "3sg",
+            "effective_preverb": "და"
+          },
+          {
+            "georgian": "ახალგაზრდა სტუდენტები ივიწყებდნენ მნიშვნელოვან საშინაო დავალებას",
+            "georgian_components": {
+              "subject": {
+                "text": "ახალგაზრდა სტუდენტები",
+                "case": "nom",
+                "role": "subject"
+              },
+              "verb": {
+                "text": "ივიწყებდნენ",
+                "role": "verb"
+              },
+              "direct_object": {
+                "text": "მნიშვნელოვან საშინაო დავალებას",
+                "case": "dat",
+                "role": "direct_object"
+              }
+            },
+            "english": "The young students were forgetting the important homework",
+            "english_components": {
+              "subject": {
+                "text": "The young students",
+                "role": "subject",
+                "person": "3pl"
+              },
+              "verb": {
+                "text": "were forgetting",
+                "role": "verb"
+              },
+              "direct_object": {
+                "text": "the important homework",
+                "role": "direct_object"
+              }
+            },
+            "georgian_verb_form": "ივიწყებდნენ",
+            "person": "3pl",
+            "effective_preverb": "და"
+          }
+        ],
+        "future": [
+          {
+            "georgian": "დავივიწყებ ახალ სახელს",
+            "georgian_components": {
+              "verb": {
+                "text": "დავივიწყებ",
+                "role": "verb"
+              },
+              "direct_object": {
+                "text": "ახალ სახელს",
+                "case": "dat",
+                "role": "direct_object"
+              }
+            },
+            "english": "I will forget the new name",
+            "english_components": {
+              "subject": {
+                "text": "I",
+                "role": "subject",
+                "person": "1sg"
+              },
+              "verb": {
+                "text": "will forget",
+                "role": "verb"
+              },
+              "direct_object": {
+                "text": "the new name",
+                "role": "direct_object"
+              }
+            },
+            "georgian_verb_form": "დავივიწყებ",
+            "person": "1sg",
+            "effective_preverb": "და"
+          },
+          {
+            "georgian": "ძველი ბებია დაივიწყებს რთულ სიტყვას",
+            "georgian_components": {
+              "subject": {
+                "text": "ძველი ბებია",
+                "case": "nom",
+                "role": "subject"
+              },
+              "verb": {
+                "text": "დაივიწყებს",
+                "role": "verb"
+              },
+              "direct_object": {
+                "text": "რთულ სიტყვას",
+                "case": "dat",
+                "role": "direct_object"
+              }
+            },
+            "english": "The old grandmother will forget the difficult word",
+            "english_components": {
+              "subject": {
+                "text": "The old grandmother",
+                "role": "subject",
+                "person": "3sg"
+              },
+              "verb": {
+                "text": "will forget",
+                "role": "verb"
+              },
+              "direct_object": {
+                "text": "the difficult word",
+                "role": "direct_object"
+              }
+            },
+            "georgian_verb_form": "დაივიწყებს",
+            "person": "3sg",
+            "effective_preverb": "და"
+          },
+          {
+            "georgian": "ახალგაზრდა სტუდენტები დაივიწყებენ მნიშვნელოვან საშინაო დავალებას",
+            "georgian_components": {
+              "subject": {
+                "text": "ახალგაზრდა სტუდენტები",
+                "case": "nom",
+                "role": "subject"
+              },
+              "verb": {
+                "text": "დაივიწყებენ",
+                "role": "verb"
+              },
+              "direct_object": {
+                "text": "მნიშვნელოვან საშინაო დავალებას",
+                "case": "dat",
+                "role": "direct_object"
+              }
+            },
+            "english": "The young students will forget the important homework",
+            "english_components": {
+              "subject": {
+                "text": "The young students",
+                "role": "subject",
+                "person": "3pl"
+              },
+              "verb": {
+                "text": "will forget",
+                "role": "verb"
+              },
+              "direct_object": {
+                "text": "the important homework",
+                "role": "direct_object"
+              }
+            },
+            "georgian_verb_form": "დაივიწყებენ",
+            "person": "3pl",
+            "effective_preverb": "და"
+          }
+        ],
+        "aorist": [
+          {
+            "georgian": "დავივიწყე ახალი სახელი",
+            "georgian_components": {
+              "verb": {
+                "text": "დავივიწყე",
+                "role": "verb"
+              },
+              "direct_object": {
+                "text": "ახალი სახელი",
+                "case": "nom",
+                "role": "direct_object"
+              }
+            },
+            "english": "I forgot the new name",
+            "english_components": {
+              "subject": {
+                "text": "I",
+                "role": "subject",
+                "person": "1sg"
+              },
+              "verb": {
+                "text": "forgot",
+                "role": "verb"
+              },
+              "direct_object": {
+                "text": "the new name",
+                "role": "direct_object"
+              }
+            },
+            "georgian_verb_form": "დავივიწყე",
+            "person": "1sg",
+            "effective_preverb": "და"
+          },
+          {
+            "georgian": "ძველმა ბებიამ დაივიწყა რთული სიტყვა",
+            "georgian_components": {
+              "subject": {
+                "text": "ძველმა ბებიამ",
+                "case": "erg",
+                "role": "subject"
+              },
+              "verb": {
+                "text": "დაივიწყა",
+                "role": "verb"
+              },
+              "direct_object": {
+                "text": "რთული სიტყვა",
+                "case": "nom",
+                "role": "direct_object"
+              }
+            },
+            "english": "The old grandmother forgot the difficult word",
+            "english_components": {
+              "subject": {
+                "text": "The old grandmother",
+                "role": "subject",
+                "person": "3sg"
+              },
+              "verb": {
+                "text": "forgot",
+                "role": "verb"
+              },
+              "direct_object": {
+                "text": "the difficult word",
+                "role": "direct_object"
+              }
+            },
+            "georgian_verb_form": "დაივიწყა",
+            "person": "3sg",
+            "effective_preverb": "და"
+          },
+          {
+            "georgian": "ახალგაზრდა სტუდენტებმა დაივიწყეს მნიშვნელოვანი საშინაო დავალება",
+            "georgian_components": {
+              "subject": {
+                "text": "ახალგაზრდა სტუდენტებმა",
+                "case": "erg",
+                "role": "subject"
+              },
+              "verb": {
+                "text": "დაივიწყეს",
+                "role": "verb"
+              },
+              "direct_object": {
+                "text": "მნიშვნელოვანი საშინაო დავალება",
+                "case": "nom",
+                "role": "direct_object"
+              }
+            },
+            "english": "The young students forgot the important homework",
+            "english_components": {
+              "subject": {
+                "text": "The young students",
+                "role": "subject",
+                "person": "3pl"
+              },
+              "verb": {
+                "text": "forgot",
+                "role": "verb"
+              },
+              "direct_object": {
+                "text": "the important homework",
+                "role": "direct_object"
+              }
+            },
+            "georgian_verb_form": "დაივიწყეს",
+            "person": "3pl",
+            "effective_preverb": "და"
+          }
+        ],
+        "optative": [
+          {
+            "georgian": "უნდა დავივიწყო ახალი სახელი",
+            "georgian_components": {
+              "verb": {
+                "text": "უნდა დავივიწყო",
+                "role": "verb"
+              },
+              "direct_object": {
+                "text": "ახალი სახელი",
+                "case": "nom",
+                "role": "direct_object"
+              }
+            },
+            "english": "I should forget the new name",
+            "english_components": {
+              "subject": {
+                "text": "I",
+                "role": "subject",
+                "person": "1sg"
+              },
+              "verb": {
+                "text": "should forget",
+                "role": "verb"
+              },
+              "direct_object": {
+                "text": "the new name",
+                "role": "direct_object"
+              }
+            },
+            "georgian_verb_form": "დავივიწყო",
+            "person": "1sg",
+            "effective_preverb": "და"
+          },
+          {
+            "georgian": "ძველმა ბებიამ უნდა დაივიწყოს რთული სიტყვა",
+            "georgian_components": {
+              "subject": {
+                "text": "ძველმა ბებიამ",
+                "case": "erg",
+                "role": "subject"
+              },
+              "verb": {
+                "text": "უნდა დაივიწყოს",
+                "role": "verb"
+              },
+              "direct_object": {
+                "text": "რთული სიტყვა",
+                "case": "nom",
+                "role": "direct_object"
+              }
+            },
+            "english": "The old grandmother should forget the difficult word",
+            "english_components": {
+              "subject": {
+                "text": "The old grandmother",
+                "role": "subject",
+                "person": "3sg"
+              },
+              "verb": {
+                "text": "should forget",
+                "role": "verb"
+              },
+              "direct_object": {
+                "text": "the difficult word",
+                "role": "direct_object"
+              }
+            },
+            "georgian_verb_form": "დაივიწყოს",
+            "person": "3sg",
+            "effective_preverb": "და"
+          },
+          {
+            "georgian": "ახალგაზრდა სტუდენტებმა უნდა დაივიწყონ მნიშვნელოვანი საშინაო დავალება",
+            "georgian_components": {
+              "subject": {
+                "text": "ახალგაზრდა სტუდენტებმა",
+                "case": "erg",
+                "role": "subject"
+              },
+              "verb": {
+                "text": "უნდა დაივიწყონ",
+                "role": "verb"
+              },
+              "direct_object": {
+                "text": "მნიშვნელოვანი საშინაო დავალება",
+                "case": "nom",
+                "role": "direct_object"
+              }
+            },
+            "english": "The young students should forget the important homework",
+            "english_components": {
+              "subject": {
+                "text": "The young students",
+                "role": "subject",
+                "person": "3pl"
+              },
+              "verb": {
+                "text": "should forget",
+                "role": "verb"
+              },
+              "direct_object": {
+                "text": "the important homework",
+                "role": "direct_object"
+              }
+            },
+            "georgian_verb_form": "დაივიწყონ",
+            "person": "3pl",
+            "effective_preverb": "და"
+          }
+        ],
+        "imperative": [
+          {
+            "georgian": "დაივიწყე პატარა გასაღები",
+            "georgian_components": {
+              "verb": {
+                "text": "დაივიწყე",
+                "role": "verb"
+              },
+              "direct_object": {
+                "text": "პატარა გასაღები",
+                "case": "nom",
+                "role": "direct_object"
+              }
+            },
+            "english": "You, forget the small key",
+            "english_components": {
+              "subject": {
+                "text": "You,",
+                "role": "subject",
+                "person": "2sg"
+              },
+              "verb": {
+                "text": "forget",
+                "role": "verb"
+              },
+              "direct_object": {
+                "text": "the small key",
+                "role": "direct_object"
+              }
+            },
+            "georgian_verb_form": "დაივიწყე",
+            "person": "2sg",
+            "effective_preverb": "და"
+          },
+          {
+            "georgian": "დაივიწყეთ გრძელი ნომერი",
+            "georgian_components": {
+              "verb": {
+                "text": "დაივიწყეთ",
+                "role": "verb"
+              },
+              "direct_object": {
+                "text": "გრძელი ნომერი",
+                "case": "nom",
+                "role": "direct_object"
+              }
+            },
+            "english": "You all (you formal), forget the long number",
+            "english_components": {
+              "subject": {
+                "text": "You all (you formal),",
+                "role": "subject",
+                "person": "2pl"
+              },
+              "verb": {
+                "text": "forget",
+                "role": "verb"
+              },
+              "direct_object": {
+                "text": "the long number",
+                "role": "direct_object"
+              }
+            },
+            "georgian_verb_form": "დაივიწყეთ",
+            "person": "2pl",
+            "effective_preverb": "და"
+          }
+        ]
+      }
+    },
+    "gloss_analysis": {
+      "present": {
+        "raw_gloss": "V Act Pres SV <S-DO> <S:Nom> <DO:Dat>",
+        "structured_gloss": {
+          "raw_components": [
+            {
+              "text": "V",
+              "component_type": "verb",
+              "color_class": "gloss-verb",
+              "description": "Verb"
+            },
+            {
+              "text": "Act",
+              "component_type": "voice",
+              "color_class": "gloss-default",
+              "description": "Active"
+            },
+            {
+              "text": "Pres",
+              "component_type": "tense",
+              "color_class": "gloss-tense",
+              "description": "Present"
+            },
+            {
+              "text": "SV",
+              "component_type": "unknown",
+              "color_class": "gloss-default",
+              "description": "Subjective Version"
+            },
+            {
+              "type": "argument_pattern_group",
+              "original_text": "<S-DO>",
+              "description": "Transitive absolute",
+              "components": [
+                {
+                  "text": "<",
+                  "component_type": "punctuation",
+                  "color_class": "gloss-default",
+                  "description": ""
+                },
+                {
+                  "text": "S",
+                  "component_type": "argument",
+                  "color_class": "gloss-subject",
+                  "description": ""
+                },
+                {
+                  "text": "-",
+                  "component_type": "punctuation",
+                  "color_class": "gloss-default",
+                  "description": ""
+                },
+                {
+                  "text": "DO",
+                  "component_type": "argument",
+                  "color_class": "gloss-direct-object",
+                  "description": ""
+                },
+                {
+                  "text": ">",
+                  "component_type": "punctuation",
+                  "color_class": "gloss-default",
+                  "description": ""
+                }
+              ]
+            },
+            {
+              "text": "<S:Nom>",
+              "component_type": "case_spec",
+              "color_class": "gloss-subject",
+              "description": "Nominative subject"
+            },
+            {
+              "text": "<DO:Dat>",
+              "component_type": "case_spec",
+              "color_class": "gloss-direct-object",
+              "description": "Dative direct object"
+            }
+          ],
+          "expanded_components": [
+            {
+              "text": "V",
+              "component_type": "verb",
+              "color_class": "gloss-verb",
+              "description": "Verb"
+            },
+            {
+              "text": "Act",
+              "component_type": "voice",
+              "color_class": "gloss-default",
+              "description": "Active"
+            },
+            {
+              "text": "Pres",
+              "component_type": "tense",
+              "color_class": "gloss-tense",
+              "description": "Present"
+            },
+            {
+              "text": "SV",
+              "component_type": "unknown",
+              "color_class": "gloss-default",
+              "description": "Subjective Version"
+            },
+            {
+              "type": "argument_pattern_group",
+              "original_text": "<S-DO>",
+              "description": "Transitive absolute",
+              "components": [
+                {
+                  "text": "<",
+                  "component_type": "punctuation",
+                  "color_class": "gloss-default",
+                  "description": ""
+                },
+                {
+                  "text": "S",
+                  "component_type": "argument",
+                  "color_class": "gloss-subject",
+                  "description": ""
+                },
+                {
+                  "text": "-",
+                  "component_type": "punctuation",
+                  "color_class": "gloss-default",
+                  "description": ""
+                },
+                {
+                  "text": "DO",
+                  "component_type": "argument",
+                  "color_class": "gloss-direct-object",
+                  "description": ""
+                },
+                {
+                  "text": ">",
+                  "component_type": "punctuation",
+                  "color_class": "gloss-default",
+                  "description": ""
+                }
+              ]
+            },
+            {
+              "text": "<S:Nom>",
+              "component_type": "case_spec",
+              "color_class": "gloss-subject",
+              "description": "Nominative subject"
+            },
+            {
+              "text": "<DO:Dat>",
+              "component_type": "case_spec",
+              "color_class": "gloss-direct-object",
+              "description": "Dative direct object"
+            }
+          ],
+          "argument_pattern": "<S-DO>",
+          "case_specifications": [
+            "<S:Nom>",
+            "<DO:Dat>"
+          ]
+        }
+      },
+      "imperfect": {
+        "raw_gloss": "V Act Impf SV <S-DO> <S:Nom> <DO:Dat>",
+        "structured_gloss": {
+          "raw_components": [
+            {
+              "text": "V",
+              "component_type": "verb",
+              "color_class": "gloss-verb",
+              "description": "Verb"
+            },
+            {
+              "text": "Act",
+              "component_type": "voice",
+              "color_class": "gloss-default",
+              "description": "Active"
+            },
+            {
+              "text": "Impf",
+              "component_type": "tense",
+              "color_class": "gloss-tense",
+              "description": "Imperfect"
+            },
+            {
+              "text": "SV",
+              "component_type": "unknown",
+              "color_class": "gloss-default",
+              "description": "Subjective Version"
+            },
+            {
+              "type": "argument_pattern_group",
+              "original_text": "<S-DO>",
+              "description": "Transitive absolute",
+              "components": [
+                {
+                  "text": "<",
+                  "component_type": "punctuation",
+                  "color_class": "gloss-default",
+                  "description": ""
+                },
+                {
+                  "text": "S",
+                  "component_type": "argument",
+                  "color_class": "gloss-subject",
+                  "description": ""
+                },
+                {
+                  "text": "-",
+                  "component_type": "punctuation",
+                  "color_class": "gloss-default",
+                  "description": ""
+                },
+                {
+                  "text": "DO",
+                  "component_type": "argument",
+                  "color_class": "gloss-direct-object",
+                  "description": ""
+                },
+                {
+                  "text": ">",
+                  "component_type": "punctuation",
+                  "color_class": "gloss-default",
+                  "description": ""
+                }
+              ]
+            },
+            {
+              "text": "<S:Nom>",
+              "component_type": "case_spec",
+              "color_class": "gloss-subject",
+              "description": "Nominative subject"
+            },
+            {
+              "text": "<DO:Dat>",
+              "component_type": "case_spec",
+              "color_class": "gloss-direct-object",
+              "description": "Dative direct object"
+            }
+          ],
+          "expanded_components": [
+            {
+              "text": "V",
+              "component_type": "verb",
+              "color_class": "gloss-verb",
+              "description": "Verb"
+            },
+            {
+              "text": "Act",
+              "component_type": "voice",
+              "color_class": "gloss-default",
+              "description": "Active"
+            },
+            {
+              "text": "Impf",
+              "component_type": "tense",
+              "color_class": "gloss-tense",
+              "description": "Imperfect"
+            },
+            {
+              "text": "SV",
+              "component_type": "unknown",
+              "color_class": "gloss-default",
+              "description": "Subjective Version"
+            },
+            {
+              "type": "argument_pattern_group",
+              "original_text": "<S-DO>",
+              "description": "Transitive absolute",
+              "components": [
+                {
+                  "text": "<",
+                  "component_type": "punctuation",
+                  "color_class": "gloss-default",
+                  "description": ""
+                },
+                {
+                  "text": "S",
+                  "component_type": "argument",
+                  "color_class": "gloss-subject",
+                  "description": ""
+                },
+                {
+                  "text": "-",
+                  "component_type": "punctuation",
+                  "color_class": "gloss-default",
+                  "description": ""
+                },
+                {
+                  "text": "DO",
+                  "component_type": "argument",
+                  "color_class": "gloss-direct-object",
+                  "description": ""
+                },
+                {
+                  "text": ">",
+                  "component_type": "punctuation",
+                  "color_class": "gloss-default",
+                  "description": ""
+                }
+              ]
+            },
+            {
+              "text": "<S:Nom>",
+              "component_type": "case_spec",
+              "color_class": "gloss-subject",
+              "description": "Nominative subject"
+            },
+            {
+              "text": "<DO:Dat>",
+              "component_type": "case_spec",
+              "color_class": "gloss-direct-object",
+              "description": "Dative direct object"
+            }
+          ],
+          "argument_pattern": "<S-DO>",
+          "case_specifications": [
+            "<S:Nom>",
+            "<DO:Dat>"
+          ]
+        }
+      },
+      "future": {
+        "raw_gloss": "V Act Fut Pv SV <S-DO> <S:Nom> <DO:Dat>",
+        "structured_gloss": {
+          "raw_components": [
+            {
+              "text": "V",
+              "component_type": "verb",
+              "color_class": "gloss-verb",
+              "description": "Verb"
+            },
+            {
+              "text": "Act",
+              "component_type": "voice",
+              "color_class": "gloss-default",
+              "description": "Active"
+            },
+            {
+              "text": "Fut",
+              "component_type": "tense",
+              "color_class": "gloss-tense",
+              "description": "Future"
+            },
+            {
+              "text": "Pv",
+              "component_type": "preverb",
+              "color_class": "gloss-default",
+              "description": "და"
+            },
+            {
+              "text": "SV",
+              "component_type": "unknown",
+              "color_class": "gloss-default",
+              "description": "Subjective Version"
+            },
+            {
+              "type": "argument_pattern_group",
+              "original_text": "<S-DO>",
+              "description": "Transitive absolute",
+              "components": [
+                {
+                  "text": "<",
+                  "component_type": "punctuation",
+                  "color_class": "gloss-default",
+                  "description": ""
+                },
+                {
+                  "text": "S",
+                  "component_type": "argument",
+                  "color_class": "gloss-subject",
+                  "description": ""
+                },
+                {
+                  "text": "-",
+                  "component_type": "punctuation",
+                  "color_class": "gloss-default",
+                  "description": ""
+                },
+                {
+                  "text": "DO",
+                  "component_type": "argument",
+                  "color_class": "gloss-direct-object",
+                  "description": ""
+                },
+                {
+                  "text": ">",
+                  "component_type": "punctuation",
+                  "color_class": "gloss-default",
+                  "description": ""
+                }
+              ]
+            },
+            {
+              "text": "<S:Nom>",
+              "component_type": "case_spec",
+              "color_class": "gloss-subject",
+              "description": "Nominative subject"
+            },
+            {
+              "text": "<DO:Dat>",
+              "component_type": "case_spec",
+              "color_class": "gloss-direct-object",
+              "description": "Dative direct object"
+            }
+          ],
+          "expanded_components": [
+            {
+              "text": "V",
+              "component_type": "verb",
+              "color_class": "gloss-verb",
+              "description": "Verb"
+            },
+            {
+              "text": "Act",
+              "component_type": "voice",
+              "color_class": "gloss-default",
+              "description": "Active"
+            },
+            {
+              "text": "Fut",
+              "component_type": "tense",
+              "color_class": "gloss-tense",
+              "description": "Future"
+            },
+            {
+              "text": "Pv",
+              "component_type": "preverb",
+              "color_class": "gloss-default",
+              "description": "და"
+            },
+            {
+              "text": "SV",
+              "component_type": "unknown",
+              "color_class": "gloss-default",
+              "description": "Subjective Version"
+            },
+            {
+              "type": "argument_pattern_group",
+              "original_text": "<S-DO>",
+              "description": "Transitive absolute",
+              "components": [
+                {
+                  "text": "<",
+                  "component_type": "punctuation",
+                  "color_class": "gloss-default",
+                  "description": ""
+                },
+                {
+                  "text": "S",
+                  "component_type": "argument",
+                  "color_class": "gloss-subject",
+                  "description": ""
+                },
+                {
+                  "text": "-",
+                  "component_type": "punctuation",
+                  "color_class": "gloss-default",
+                  "description": ""
+                },
+                {
+                  "text": "DO",
+                  "component_type": "argument",
+                  "color_class": "gloss-direct-object",
+                  "description": ""
+                },
+                {
+                  "text": ">",
+                  "component_type": "punctuation",
+                  "color_class": "gloss-default",
+                  "description": ""
+                }
+              ]
+            },
+            {
+              "text": "<S:Nom>",
+              "component_type": "case_spec",
+              "color_class": "gloss-subject",
+              "description": "Nominative subject"
+            },
+            {
+              "text": "<DO:Dat>",
+              "component_type": "case_spec",
+              "color_class": "gloss-direct-object",
+              "description": "Dative direct object"
+            }
+          ],
+          "argument_pattern": "<S-DO>",
+          "case_specifications": [
+            "<S:Nom>",
+            "<DO:Dat>"
+          ]
+        }
+      },
+      "aorist": {
+        "raw_gloss": "V Act Aor Pv SV <S-DO> <S:Erg> <DO:Nom>",
+        "structured_gloss": {
+          "raw_components": [
+            {
+              "text": "V",
+              "component_type": "verb",
+              "color_class": "gloss-verb",
+              "description": "Verb"
+            },
+            {
+              "text": "Act",
+              "component_type": "voice",
+              "color_class": "gloss-default",
+              "description": "Active"
+            },
+            {
+              "text": "Aor",
+              "component_type": "tense",
+              "color_class": "gloss-tense",
+              "description": "Aorist"
+            },
+            {
+              "text": "Pv",
+              "component_type": "preverb",
+              "color_class": "gloss-default",
+              "description": "და"
+            },
+            {
+              "text": "SV",
+              "component_type": "unknown",
+              "color_class": "gloss-default",
+              "description": "Subjective Version"
+            },
+            {
+              "type": "argument_pattern_group",
+              "original_text": "<S-DO>",
+              "description": "Transitive absolute",
+              "components": [
+                {
+                  "text": "<",
+                  "component_type": "punctuation",
+                  "color_class": "gloss-default",
+                  "description": ""
+                },
+                {
+                  "text": "S",
+                  "component_type": "argument",
+                  "color_class": "gloss-subject",
+                  "description": ""
+                },
+                {
+                  "text": "-",
+                  "component_type": "punctuation",
+                  "color_class": "gloss-default",
+                  "description": ""
+                },
+                {
+                  "text": "DO",
+                  "component_type": "argument",
+                  "color_class": "gloss-direct-object",
+                  "description": ""
+                },
+                {
+                  "text": ">",
+                  "component_type": "punctuation",
+                  "color_class": "gloss-default",
+                  "description": ""
+                }
+              ]
+            },
+            {
+              "text": "<S:Erg>",
+              "component_type": "case_spec",
+              "color_class": "gloss-subject",
+              "description": "Ergative subject"
+            },
+            {
+              "text": "<DO:Nom>",
+              "component_type": "case_spec",
+              "color_class": "gloss-direct-object",
+              "description": "Nominative direct object"
+            }
+          ],
+          "expanded_components": [
+            {
+              "text": "V",
+              "component_type": "verb",
+              "color_class": "gloss-verb",
+              "description": "Verb"
+            },
+            {
+              "text": "Act",
+              "component_type": "voice",
+              "color_class": "gloss-default",
+              "description": "Active"
+            },
+            {
+              "text": "Aor",
+              "component_type": "tense",
+              "color_class": "gloss-tense",
+              "description": "Aorist"
+            },
+            {
+              "text": "Pv",
+              "component_type": "preverb",
+              "color_class": "gloss-default",
+              "description": "და"
+            },
+            {
+              "text": "SV",
+              "component_type": "unknown",
+              "color_class": "gloss-default",
+              "description": "Subjective Version"
+            },
+            {
+              "type": "argument_pattern_group",
+              "original_text": "<S-DO>",
+              "description": "Transitive absolute",
+              "components": [
+                {
+                  "text": "<",
+                  "component_type": "punctuation",
+                  "color_class": "gloss-default",
+                  "description": ""
+                },
+                {
+                  "text": "S",
+                  "component_type": "argument",
+                  "color_class": "gloss-subject",
+                  "description": ""
+                },
+                {
+                  "text": "-",
+                  "component_type": "punctuation",
+                  "color_class": "gloss-default",
+                  "description": ""
+                },
+                {
+                  "text": "DO",
+                  "component_type": "argument",
+                  "color_class": "gloss-direct-object",
+                  "description": ""
+                },
+                {
+                  "text": ">",
+                  "component_type": "punctuation",
+                  "color_class": "gloss-default",
+                  "description": ""
+                }
+              ]
+            },
+            {
+              "text": "<S:Erg>",
+              "component_type": "case_spec",
+              "color_class": "gloss-subject",
+              "description": "Ergative subject"
+            },
+            {
+              "text": "<DO:Nom>",
+              "component_type": "case_spec",
+              "color_class": "gloss-direct-object",
+              "description": "Nominative direct object"
+            }
+          ],
+          "argument_pattern": "<S-DO>",
+          "case_specifications": [
+            "<S:Erg>",
+            "<DO:Nom>"
+          ]
+        }
+      },
+      "optative": {
+        "raw_gloss": "V Act Opt Pv SV <S-DO> <S:Erg> <DO:Nom>",
+        "structured_gloss": {
+          "raw_components": [
+            {
+              "text": "V",
+              "component_type": "verb",
+              "color_class": "gloss-verb",
+              "description": "Verb"
+            },
+            {
+              "text": "Act",
+              "component_type": "voice",
+              "color_class": "gloss-default",
+              "description": "Active"
+            },
+            {
+              "text": "Opt",
+              "component_type": "tense",
+              "color_class": "gloss-tense",
+              "description": "Optative"
+            },
+            {
+              "text": "Pv",
+              "component_type": "preverb",
+              "color_class": "gloss-default",
+              "description": "და"
+            },
+            {
+              "text": "SV",
+              "component_type": "unknown",
+              "color_class": "gloss-default",
+              "description": "Subjective Version"
+            },
+            {
+              "type": "argument_pattern_group",
+              "original_text": "<S-DO>",
+              "description": "Transitive absolute",
+              "components": [
+                {
+                  "text": "<",
+                  "component_type": "punctuation",
+                  "color_class": "gloss-default",
+                  "description": ""
+                },
+                {
+                  "text": "S",
+                  "component_type": "argument",
+                  "color_class": "gloss-subject",
+                  "description": ""
+                },
+                {
+                  "text": "-",
+                  "component_type": "punctuation",
+                  "color_class": "gloss-default",
+                  "description": ""
+                },
+                {
+                  "text": "DO",
+                  "component_type": "argument",
+                  "color_class": "gloss-direct-object",
+                  "description": ""
+                },
+                {
+                  "text": ">",
+                  "component_type": "punctuation",
+                  "color_class": "gloss-default",
+                  "description": ""
+                }
+              ]
+            },
+            {
+              "text": "<S:Erg>",
+              "component_type": "case_spec",
+              "color_class": "gloss-subject",
+              "description": "Ergative subject"
+            },
+            {
+              "text": "<DO:Nom>",
+              "component_type": "case_spec",
+              "color_class": "gloss-direct-object",
+              "description": "Nominative direct object"
+            }
+          ],
+          "expanded_components": [
+            {
+              "text": "V",
+              "component_type": "verb",
+              "color_class": "gloss-verb",
+              "description": "Verb"
+            },
+            {
+              "text": "Act",
+              "component_type": "voice",
+              "color_class": "gloss-default",
+              "description": "Active"
+            },
+            {
+              "text": "Opt",
+              "component_type": "tense",
+              "color_class": "gloss-tense",
+              "description": "Optative"
+            },
+            {
+              "text": "Pv",
+              "component_type": "preverb",
+              "color_class": "gloss-default",
+              "description": "და"
+            },
+            {
+              "text": "SV",
+              "component_type": "unknown",
+              "color_class": "gloss-default",
+              "description": "Subjective Version"
+            },
+            {
+              "type": "argument_pattern_group",
+              "original_text": "<S-DO>",
+              "description": "Transitive absolute",
+              "components": [
+                {
+                  "text": "<",
+                  "component_type": "punctuation",
+                  "color_class": "gloss-default",
+                  "description": ""
+                },
+                {
+                  "text": "S",
+                  "component_type": "argument",
+                  "color_class": "gloss-subject",
+                  "description": ""
+                },
+                {
+                  "text": "-",
+                  "component_type": "punctuation",
+                  "color_class": "gloss-default",
+                  "description": ""
+                },
+                {
+                  "text": "DO",
+                  "component_type": "argument",
+                  "color_class": "gloss-direct-object",
+                  "description": ""
+                },
+                {
+                  "text": ">",
+                  "component_type": "punctuation",
+                  "color_class": "gloss-default",
+                  "description": ""
+                }
+              ]
+            },
+            {
+              "text": "<S:Erg>",
+              "component_type": "case_spec",
+              "color_class": "gloss-subject",
+              "description": "Ergative subject"
+            },
+            {
+              "text": "<DO:Nom>",
+              "component_type": "case_spec",
+              "color_class": "gloss-direct-object",
+              "description": "Nominative direct object"
+            }
+          ],
+          "argument_pattern": "<S-DO>",
+          "case_specifications": [
+            "<S:Erg>",
+            "<DO:Nom>"
+          ]
+        }
+      },
+      "imperative": {
+        "raw_gloss": "V Act Impv SV PV <S-DO> <S:Erg> <DO:Nom>",
+        "structured_gloss": {
+          "raw_components": [
+            {
+              "text": "V",
+              "component_type": "verb",
+              "color_class": "gloss-verb",
+              "description": "Verb"
+            },
+            {
+              "text": "Act",
+              "component_type": "voice",
+              "color_class": "gloss-default",
+              "description": "Active"
+            },
+            {
+              "text": "Impv",
+              "component_type": "tense",
+              "color_class": "gloss-tense",
+              "description": "Imperative"
+            },
+            {
+              "text": "SV",
+              "component_type": "unknown",
+              "color_class": "gloss-default",
+              "description": "Subjective Version"
+            },
+            {
+              "text": "PV",
+              "component_type": "unknown",
+              "color_class": "gloss-default",
+              "description": "PV"
+            },
+            {
+              "type": "argument_pattern_group",
+              "original_text": "<S-DO>",
+              "description": "Transitive absolute",
+              "components": [
+                {
+                  "text": "<",
+                  "component_type": "punctuation",
+                  "color_class": "gloss-default",
+                  "description": ""
+                },
+                {
+                  "text": "S",
+                  "component_type": "argument",
+                  "color_class": "gloss-subject",
+                  "description": ""
+                },
+                {
+                  "text": "-",
+                  "component_type": "punctuation",
+                  "color_class": "gloss-default",
+                  "description": ""
+                },
+                {
+                  "text": "DO",
+                  "component_type": "argument",
+                  "color_class": "gloss-direct-object",
+                  "description": ""
+                },
+                {
+                  "text": ">",
+                  "component_type": "punctuation",
+                  "color_class": "gloss-default",
+                  "description": ""
+                }
+              ]
+            },
+            {
+              "text": "<S:Erg>",
+              "component_type": "case_spec",
+              "color_class": "gloss-subject",
+              "description": "Ergative subject"
+            },
+            {
+              "text": "<DO:Nom>",
+              "component_type": "case_spec",
+              "color_class": "gloss-direct-object",
+              "description": "Nominative direct object"
+            }
+          ],
+          "expanded_components": [
+            {
+              "text": "V",
+              "component_type": "verb",
+              "color_class": "gloss-verb",
+              "description": "Verb"
+            },
+            {
+              "text": "Act",
+              "component_type": "voice",
+              "color_class": "gloss-default",
+              "description": "Active"
+            },
+            {
+              "text": "Impv",
+              "component_type": "tense",
+              "color_class": "gloss-tense",
+              "description": "Imperative"
+            },
+            {
+              "text": "SV",
+              "component_type": "unknown",
+              "color_class": "gloss-default",
+              "description": "Subjective Version"
+            },
+            {
+              "text": "PV",
+              "component_type": "unknown",
+              "color_class": "gloss-default",
+              "description": "PV"
+            },
+            {
+              "type": "argument_pattern_group",
+              "original_text": "<S-DO>",
+              "description": "Transitive absolute",
+              "components": [
+                {
+                  "text": "<",
+                  "component_type": "punctuation",
+                  "color_class": "gloss-default",
+                  "description": ""
+                },
+                {
+                  "text": "S",
+                  "component_type": "argument",
+                  "color_class": "gloss-subject",
+                  "description": ""
+                },
+                {
+                  "text": "-",
+                  "component_type": "punctuation",
+                  "color_class": "gloss-default",
+                  "description": ""
+                },
+                {
+                  "text": "DO",
+                  "component_type": "argument",
+                  "color_class": "gloss-direct-object",
+                  "description": ""
+                },
+                {
+                  "text": ">",
+                  "component_type": "punctuation",
+                  "color_class": "gloss-default",
+                  "description": ""
+                }
+              ]
+            },
+            {
+              "text": "<S:Erg>",
+              "component_type": "case_spec",
+              "color_class": "gloss-subject",
+              "description": "Ergative subject"
+            },
+            {
+              "text": "<DO:Nom>",
+              "component_type": "case_spec",
+              "color_class": "gloss-direct-object",
+              "description": "Nominative direct object"
+            }
+          ],
+          "argument_pattern": "<S-DO>",
+          "case_specifications": [
+            "<S:Erg>",
+            "<DO:Nom>"
+          ]
+        }
+      }
+    },
+    "preverb_forms": {}
+  }
+}

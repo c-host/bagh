@@ -33,6 +33,9 @@ export class FontManager {
 
         /** @type {Array} Font options in dropdown */
         this.fontOptions = [];
+
+        /** @type {Array} Event listeners for cleanup */
+        this.eventListeners = [];
     }
 
     /**
@@ -56,7 +59,6 @@ export class FontManager {
             this.initialized = true;
             return true;
         } catch (error) {
-            console.error('Failed to initialize Font Manager:', error);
             return false;
         }
     }
@@ -69,7 +71,6 @@ export class FontManager {
         const fontSelectDropdown = this.domManager.getElement(ELEMENT_IDS.FONT_SELECT_DROPDOWN);
 
         if (!fontSelectButton || !fontSelectDropdown) {
-            console.warn('Font selection elements not found');
             return;
         }
 
@@ -92,8 +93,44 @@ export class FontManager {
             }
         });
 
+        // Handle outside clicks to close dropdown
+        const handleOutsideClick = (e) => {
+            if (this.isDropdownOpen() &&
+                !fontSelectButton.contains(e.target) &&
+                !fontSelectDropdown.contains(e.target)) {
+                this.closeFontDropdown();
+            }
+        };
+
+        // Add document click listener for outside clicks
+        document.addEventListener('click', handleOutsideClick);
+
         // Set up keyboard navigation
         this.setupKeyboardNavigation();
+
+        // Store listeners for cleanup
+        this.eventListeners = [
+            {
+                element: fontSelectButton, event: 'click', handler: () => {
+                    const isVisible = fontSelectDropdown.classList.contains('show');
+                    if (isVisible) {
+                        this.closeFontDropdown();
+                    } else {
+                        this.openFontDropdown();
+                    }
+                }
+            },
+            {
+                element: fontSelectDropdown, event: 'click', handler: (e) => {
+                    const fontOption = e.target.closest('.font-option');
+                    if (fontOption) {
+                        const fontName = fontOption.getAttribute('data-font');
+                        this.selectFont(fontName);
+                    }
+                }
+            },
+            { element: document, event: 'click', handler: handleOutsideClick }
+        ];
     }
 
     /**
@@ -132,6 +169,9 @@ export class FontManager {
         this.fontOptions.forEach(option => {
             option.classList.remove('selected');
         });
+
+        // Dispatch event to notify bottom sheet that font dropdown is closed
+        document.dispatchEvent(new CustomEvent('fontDropdownClosed'));
     }
 
     /**
@@ -144,19 +184,48 @@ export class FontManager {
     }
 
     /**
-     * Start font preloading
+     * Start font preloading with optimized strategy
      */
     startFontPreloading() {
-        // Use requestIdleCallback for non-blocking font preloading
+        // Preload critical fonts immediately (current font)
+        this.preloadCriticalFont();
+
+        // Use requestIdleCallback for non-critical font preloading
         if (window.requestIdleCallback) {
             requestIdleCallback(() => {
                 this.preloadFonts();
-            }, { timeout: 2000 }); // Fallback after 2 seconds
+            }, { timeout: 1000 }); // Reduced timeout for faster fallback
         } else {
             // Fallback for browsers without requestIdleCallback
             setTimeout(() => {
                 this.preloadFonts();
-            }, TIMING.FONT_PRELOAD_DELAY);
+            }, 100); // Reduced delay
+        }
+    }
+
+    /**
+     * Preload critical font (current font) immediately
+     */
+    preloadCriticalFont() {
+        const currentFontFamily = this.getFontFamily(this.currentFont);
+        if (currentFontFamily && currentFontFamily !== 'Noto Sans Georgian') {
+            // Preload current font immediately for better performance
+            if (document.fonts && document.fonts.load) {
+                document.fonts.load(`12px "${currentFontFamily}"`).catch(() => {
+                    // Font preloading failed, continue without it
+                });
+            }
+        }
+    }
+
+    /**
+     * Preload a specific font
+     */
+    preloadFont(fontFamily) {
+        if (document.fonts && document.fonts.load) {
+            document.fonts.load(`12px "${fontFamily}"`).catch(() => {
+                // Font preloading failed, continue without it
+            });
         }
     }
 
@@ -173,10 +242,8 @@ export class FontManager {
                 })
             )).then(() => {
                 this.fontsPreloaded = true;
-                console.log('Fonts preloaded successfully');
             }).catch(() => {
                 // Overall font preloading failed, continue without it
-                console.warn('Font preloading failed');
             });
         } else {
             // Mark as preloaded even if API not available
@@ -224,7 +291,7 @@ export class FontManager {
                 // Use Font Loading API with a short timeout
                 await Promise.race([
                     document.fonts.load(`12px "${fontFamily}"`),
-                    new Promise(resolve => setTimeout(resolve, 100)) // 100ms timeout
+                    new Promise(resolve => setTimeout(resolve, 100)) // Standard font timeout
                 ]);
             } catch (error) {
                 // Font loading failed, but we'll proceed anyway
@@ -252,7 +319,6 @@ export class FontManager {
     changeFont(fontName, saveToStorage = true) {
         const fontFamily = this.getFontFamily(fontName);
         if (!fontFamily) {
-            console.warn(`Invalid font name: ${fontName}`);
             return;
         }
 
@@ -269,21 +335,8 @@ export class FontManager {
 
         // Load font in background without blocking UI
         if (!this.isFontLoaded(fontFamily)) {
-            // Use requestIdleCallback for non-critical font loading
-            if (window.requestIdleCallback) {
-                requestIdleCallback(() => {
-                    this.waitForFont(fontFamily).catch(() => {
-                        // Font loading failed, but we already applied the font
-                    });
-                });
-            } else {
-                // Fallback for browsers without requestIdleCallback
-                setTimeout(() => {
-                    this.waitForFont(fontFamily).catch(() => {
-                        // Font loading failed, but we already applied the font
-                    });
-                }, 0);
-            }
+            // Preload font immediately for better performance
+            this.preloadFont(fontFamily);
         }
 
 
@@ -296,6 +349,11 @@ export class FontManager {
     selectFont(fontName) {
         this.changeFont(fontName, true);
         this.closeFontDropdown();
+
+        // Dispatch event to notify bottom sheet that font selection is complete
+        document.dispatchEvent(new CustomEvent('fontSelected', {
+            detail: { fontName }
+        }));
     }
 
     /**
@@ -477,6 +535,14 @@ export class FontManager {
      * Clean up font manager
      */
     destroy() {
+        // Remove event listeners
+        this.eventListeners.forEach(({ element, event, handler }) => {
+            if (element && element.removeEventListener) {
+                element.removeEventListener(event, handler);
+            }
+        });
+        this.eventListeners = [];
+
         this.closeFontDropdown();
         this.initialized = false;
     }

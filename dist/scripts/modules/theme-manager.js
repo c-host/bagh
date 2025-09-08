@@ -86,6 +86,25 @@ export class ThemeManager {
             // Temporarily disable transitions for instant theme switch
             this.disableTransitions();
 
+            // Store current button positions to prevent layout shift
+            const floatingControls = document.querySelector('.floating-controls');
+            const sidebarToggle = document.querySelector('.sidebar-toggle');
+            const fontSelect = document.querySelector('.font-select');
+
+            let floatingControlsRect = null;
+            let sidebarToggleRect = null;
+            let fontSelectRect = null;
+
+            if (floatingControls) {
+                floatingControlsRect = floatingControls.getBoundingClientRect();
+            }
+            if (sidebarToggle) {
+                sidebarToggleRect = sidebarToggle.getBoundingClientRect();
+            }
+            if (fontSelect) {
+                fontSelectRect = fontSelect.getBoundingClientRect();
+            }
+
             // Apply theme to document
             document.documentElement.setAttribute('data-theme', theme);
 
@@ -98,9 +117,28 @@ export class ThemeManager {
             // Save to storage (batched for performance)
             storageManager.set(STORAGE_KEYS.THEME, theme);
 
+            // Force a reflow to ensure theme is applied
+            document.documentElement.offsetHeight;
+
+            // Restore button positions if they shifted
+            if (floatingControls && floatingControlsRect) {
+                const newRect = floatingControls.getBoundingClientRect();
+                if (Math.abs(newRect.top - floatingControlsRect.top) > 1 ||
+                    Math.abs(newRect.right - floatingControlsRect.right) > 1) {
+                    console.warn('Floating controls shifted during theme change, restoring position');
+                    floatingControls.style.top = `${floatingControlsRect.top}px`;
+                    floatingControls.style.right = `${window.innerWidth - floatingControlsRect.right}px`;
+                }
+            }
+
             // Re-enable transitions after a brief moment
             setTimeout(() => {
                 this.enableTransitions();
+                // Remove any temporary positioning fixes
+                if (floatingControls) {
+                    floatingControls.style.top = '';
+                    floatingControls.style.right = '';
+                }
             }, TIMING.THEME_TRANSITION_DISABLE);
 
         } catch (error) {

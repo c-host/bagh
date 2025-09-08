@@ -1,0 +1,1727 @@
+{
+  "base_data": {
+    "id": 36,
+    "georgian": "დარეკვა",
+    "description": "To Call",
+    "category": "Communication & Language",
+    "class": "Class-I",
+    "semantic_key": "call",
+    "notes": "",
+    "url": "https://lingua.ge/verbs/%e1%83%93%e1%83%90%e1%83%a0%e1%83%94%e1%83%99%e1%83%95%e1%83%90/",
+    "global_argument_pattern": "<S-DO>",
+    "valency": {
+      "default": "<S-DO>",
+      "alternatives": []
+    },
+    "syntax": {
+      "arguments": {
+        "subject": {
+          "3sg": {
+            "noun": "mother",
+            "adjective": "worried"
+          },
+          "3pl": {
+            "noun": "dancer",
+            "adjective": "inexperienced"
+          }
+        },
+        "direct_object": {
+          "1sg": {
+            "noun": "doctor",
+            "adjective": "good"
+          },
+          "2sg": {
+            "noun": "friend",
+            "adjective": "old"
+          },
+          "3sg": {
+            "noun": "parent",
+            "adjective": "concerned"
+          },
+          "1pl": {
+            "noun": "sister",
+            "adjective": "good"
+          },
+          "2pl": {
+            "noun": "brother",
+            "adjective": "kind"
+          },
+          "3pl": {
+            "noun": "teacher",
+            "adjective": "knowledgeable"
+          }
+        }
+      },
+      "prepositions": {
+        "subject": "the",
+        "direct_object": "the",
+        "indirect_object": ""
+      },
+      "preverb_overrides": {}
+    },
+    "english_translations": {
+      "default": {
+        "present": "call",
+        "imperfect": "was calling",
+        "future": "will call",
+        "aorist": "called",
+        "optative": "call",
+        "imperative": "call"
+      }
+    },
+    "conjugations": {
+      "present": {
+        "raw_gloss": "V Act Pres <S-DO> <S:Nom> <DO:Dat>",
+        "forms": {
+          "1sg": "ვრეკავ",
+          "2sg": "რეკავ",
+          "3sg": "რეკავს",
+          "1pl": "ვრეკავთ",
+          "2pl": "რეკავთ",
+          "3pl": "რეკავენ"
+        },
+        "examples": []
+      },
+      "imperfect": {
+        "raw_gloss": "V Act Impf <S-DO> <S:Nom> <DO:Dat>",
+        "forms": {
+          "1sg": "ვრეკავდი",
+          "2sg": "რეკავდი",
+          "3sg": "რეკავდა",
+          "1pl": "ვრეკავდით",
+          "2pl": "რეკავდით",
+          "3pl": "რეკავდნენ"
+        },
+        "examples": []
+      },
+      "future": {
+        "raw_gloss": "V Act Fut Pv <S-DO> <S:Nom> <DO:Dat>",
+        "forms": {
+          "1sg": "დავრეკავ",
+          "2sg": "დარეკავ",
+          "3sg": "დარეკავს",
+          "1pl": "დავრეკავთ",
+          "2pl": "დარეკავთ",
+          "3pl": "დარეკავენ"
+        },
+        "examples": []
+      },
+      "aorist": {
+        "raw_gloss": "V Act Aor Pv <S-DO> <S:Erg> <DO:Nom>",
+        "forms": {
+          "1sg": "დავრეკე",
+          "2sg": "დარეკე",
+          "3sg": "დარეკა",
+          "1pl": "დავრეკეთ",
+          "2pl": "დარეკეთ",
+          "3pl": "დარეკეს"
+        },
+        "examples": []
+      },
+      "optative": {
+        "raw_gloss": "V Act Opt Pv <S-DO> <S:Erg> <DO:Nom>",
+        "forms": {
+          "1sg": "დავრეკო",
+          "2sg": "დარეკო",
+          "3sg": "დარეკოს",
+          "1pl": "დავრეკოთ",
+          "2pl": "დარეკოთ",
+          "3pl": "დარეკონ"
+        },
+        "examples": []
+      },
+      "imperative": {
+        "raw_gloss": "V Act Impv Pv <S-DO> <S:Erg> <DO:Nom>",
+        "forms": {
+          "1sg": "-",
+          "2sg": "დარეკე",
+          "3sg": "-",
+          "1pl": "-",
+          "2pl": "დარეკეთ",
+          "3pl": "-"
+        },
+        "examples": []
+      }
+    },
+    "preverb_config": {
+      "has_multiple_preverbs": false,
+      "default_preverb": "და",
+      "available_preverbs": [
+        "და"
+      ]
+    },
+    "preverb_rules": {
+      "default": "",
+      "replacements": {},
+      "tense_specific_fallbacks": {}
+    }
+  },
+  "generated_data": {
+    "examples": {
+      "default": {
+        "present": [
+          {
+            "georgian": "ვრეკავ კარგ ექიმს",
+            "georgian_components": {
+              "verb": {
+                "text": "ვრეკავ",
+                "role": "verb"
+              },
+              "direct_object": {
+                "text": "კარგ ექიმს",
+                "case": "dat",
+                "role": "direct_object"
+              }
+            },
+            "english": "I call the good doctor",
+            "english_components": {
+              "subject": {
+                "text": "I",
+                "role": "subject",
+                "person": "1sg"
+              },
+              "verb": {
+                "text": "call",
+                "role": "verb"
+              },
+              "direct_object": {
+                "text": "the good doctor",
+                "role": "direct_object"
+              }
+            },
+            "georgian_verb_form": "ვრეკავ",
+            "person": "1sg",
+            "effective_preverb": "და"
+          },
+          {
+            "georgian": "შეშფოთებული დედა რეკავს მწუხარე მშობელს",
+            "georgian_components": {
+              "subject": {
+                "text": "შეშფოთებული დედა",
+                "case": "nom",
+                "role": "subject"
+              },
+              "verb": {
+                "text": "რეკავს",
+                "role": "verb"
+              },
+              "direct_object": {
+                "text": "მწუხარე მშობელს",
+                "case": "dat",
+                "role": "direct_object"
+              }
+            },
+            "english": "The worried mother calls the concerned parent",
+            "english_components": {
+              "subject": {
+                "text": "The worried mother",
+                "role": "subject",
+                "person": "3sg"
+              },
+              "verb": {
+                "text": "calls",
+                "role": "verb"
+              },
+              "direct_object": {
+                "text": "the concerned parent",
+                "role": "direct_object"
+              }
+            },
+            "georgian_verb_form": "რეკავს",
+            "person": "3sg",
+            "effective_preverb": "და"
+          },
+          {
+            "georgian": "გამოუცდელი მოცეკვავეები რეკავენ მცოდნე მასწავლებელს",
+            "georgian_components": {
+              "subject": {
+                "text": "გამოუცდელი მოცეკვავეები",
+                "case": "nom",
+                "role": "subject"
+              },
+              "verb": {
+                "text": "რეკავენ",
+                "role": "verb"
+              },
+              "direct_object": {
+                "text": "მცოდნე მასწავლებელს",
+                "case": "dat",
+                "role": "direct_object"
+              }
+            },
+            "english": "The inexperienced dancers call the knowledgeable teacher",
+            "english_components": {
+              "subject": {
+                "text": "The inexperienced dancers",
+                "role": "subject",
+                "person": "3pl"
+              },
+              "verb": {
+                "text": "call",
+                "role": "verb"
+              },
+              "direct_object": {
+                "text": "the knowledgeable teacher",
+                "role": "direct_object"
+              }
+            },
+            "georgian_verb_form": "რეკავენ",
+            "person": "3pl",
+            "effective_preverb": "და"
+          }
+        ],
+        "imperfect": [
+          {
+            "georgian": "ვრეკავდი კარგ ექიმს",
+            "georgian_components": {
+              "verb": {
+                "text": "ვრეკავდი",
+                "role": "verb"
+              },
+              "direct_object": {
+                "text": "კარგ ექიმს",
+                "case": "dat",
+                "role": "direct_object"
+              }
+            },
+            "english": "I was calling the good doctor",
+            "english_components": {
+              "subject": {
+                "text": "I",
+                "role": "subject",
+                "person": "1sg"
+              },
+              "verb": {
+                "text": "was calling",
+                "role": "verb"
+              },
+              "direct_object": {
+                "text": "the good doctor",
+                "role": "direct_object"
+              }
+            },
+            "georgian_verb_form": "ვრეკავდი",
+            "person": "1sg",
+            "effective_preverb": "და"
+          },
+          {
+            "georgian": "შეშფოთებული დედა რეკავდა მწუხარე მშობელს",
+            "georgian_components": {
+              "subject": {
+                "text": "შეშფოთებული დედა",
+                "case": "nom",
+                "role": "subject"
+              },
+              "verb": {
+                "text": "რეკავდა",
+                "role": "verb"
+              },
+              "direct_object": {
+                "text": "მწუხარე მშობელს",
+                "case": "dat",
+                "role": "direct_object"
+              }
+            },
+            "english": "The worried mother was calling the concerned parent",
+            "english_components": {
+              "subject": {
+                "text": "The worried mother",
+                "role": "subject",
+                "person": "3sg"
+              },
+              "verb": {
+                "text": "was calling",
+                "role": "verb"
+              },
+              "direct_object": {
+                "text": "the concerned parent",
+                "role": "direct_object"
+              }
+            },
+            "georgian_verb_form": "რეკავდა",
+            "person": "3sg",
+            "effective_preverb": "და"
+          },
+          {
+            "georgian": "გამოუცდელი მოცეკვავეები რეკავდნენ მცოდნე მასწავლებელს",
+            "georgian_components": {
+              "subject": {
+                "text": "გამოუცდელი მოცეკვავეები",
+                "case": "nom",
+                "role": "subject"
+              },
+              "verb": {
+                "text": "რეკავდნენ",
+                "role": "verb"
+              },
+              "direct_object": {
+                "text": "მცოდნე მასწავლებელს",
+                "case": "dat",
+                "role": "direct_object"
+              }
+            },
+            "english": "The inexperienced dancers were calling the knowledgeable teacher",
+            "english_components": {
+              "subject": {
+                "text": "The inexperienced dancers",
+                "role": "subject",
+                "person": "3pl"
+              },
+              "verb": {
+                "text": "were calling",
+                "role": "verb"
+              },
+              "direct_object": {
+                "text": "the knowledgeable teacher",
+                "role": "direct_object"
+              }
+            },
+            "georgian_verb_form": "რეკავდნენ",
+            "person": "3pl",
+            "effective_preverb": "და"
+          }
+        ],
+        "future": [
+          {
+            "georgian": "დავრეკავ კარგ ექიმს",
+            "georgian_components": {
+              "verb": {
+                "text": "დავრეკავ",
+                "role": "verb"
+              },
+              "direct_object": {
+                "text": "კარგ ექიმს",
+                "case": "dat",
+                "role": "direct_object"
+              }
+            },
+            "english": "I will call the good doctor",
+            "english_components": {
+              "subject": {
+                "text": "I",
+                "role": "subject",
+                "person": "1sg"
+              },
+              "verb": {
+                "text": "will call",
+                "role": "verb"
+              },
+              "direct_object": {
+                "text": "the good doctor",
+                "role": "direct_object"
+              }
+            },
+            "georgian_verb_form": "დავრეკავ",
+            "person": "1sg",
+            "effective_preverb": "და"
+          },
+          {
+            "georgian": "შეშფოთებული დედა დარეკავს მწუხარე მშობელს",
+            "georgian_components": {
+              "subject": {
+                "text": "შეშფოთებული დედა",
+                "case": "nom",
+                "role": "subject"
+              },
+              "verb": {
+                "text": "დარეკავს",
+                "role": "verb"
+              },
+              "direct_object": {
+                "text": "მწუხარე მშობელს",
+                "case": "dat",
+                "role": "direct_object"
+              }
+            },
+            "english": "The worried mother will call the concerned parent",
+            "english_components": {
+              "subject": {
+                "text": "The worried mother",
+                "role": "subject",
+                "person": "3sg"
+              },
+              "verb": {
+                "text": "will call",
+                "role": "verb"
+              },
+              "direct_object": {
+                "text": "the concerned parent",
+                "role": "direct_object"
+              }
+            },
+            "georgian_verb_form": "დარეკავს",
+            "person": "3sg",
+            "effective_preverb": "და"
+          },
+          {
+            "georgian": "გამოუცდელი მოცეკვავეები დარეკავენ მცოდნე მასწავლებელს",
+            "georgian_components": {
+              "subject": {
+                "text": "გამოუცდელი მოცეკვავეები",
+                "case": "nom",
+                "role": "subject"
+              },
+              "verb": {
+                "text": "დარეკავენ",
+                "role": "verb"
+              },
+              "direct_object": {
+                "text": "მცოდნე მასწავლებელს",
+                "case": "dat",
+                "role": "direct_object"
+              }
+            },
+            "english": "The inexperienced dancers will call the knowledgeable teacher",
+            "english_components": {
+              "subject": {
+                "text": "The inexperienced dancers",
+                "role": "subject",
+                "person": "3pl"
+              },
+              "verb": {
+                "text": "will call",
+                "role": "verb"
+              },
+              "direct_object": {
+                "text": "the knowledgeable teacher",
+                "role": "direct_object"
+              }
+            },
+            "georgian_verb_form": "დარეკავენ",
+            "person": "3pl",
+            "effective_preverb": "და"
+          }
+        ],
+        "aorist": [
+          {
+            "georgian": "დავრეკე კარგი ექიმი",
+            "georgian_components": {
+              "verb": {
+                "text": "დავრეკე",
+                "role": "verb"
+              },
+              "direct_object": {
+                "text": "კარგი ექიმი",
+                "case": "nom",
+                "role": "direct_object"
+              }
+            },
+            "english": "I called the good doctor",
+            "english_components": {
+              "subject": {
+                "text": "I",
+                "role": "subject",
+                "person": "1sg"
+              },
+              "verb": {
+                "text": "called",
+                "role": "verb"
+              },
+              "direct_object": {
+                "text": "the good doctor",
+                "role": "direct_object"
+              }
+            },
+            "georgian_verb_form": "დავრეკე",
+            "person": "1sg",
+            "effective_preverb": "და"
+          },
+          {
+            "georgian": "შეშფოთებულმა დედამ დარეკა მწუხარე მშობელი",
+            "georgian_components": {
+              "subject": {
+                "text": "შეშფოთებულმა დედამ",
+                "case": "erg",
+                "role": "subject"
+              },
+              "verb": {
+                "text": "დარეკა",
+                "role": "verb"
+              },
+              "direct_object": {
+                "text": "მწუხარე მშობელი",
+                "case": "nom",
+                "role": "direct_object"
+              }
+            },
+            "english": "The worried mother called the concerned parent",
+            "english_components": {
+              "subject": {
+                "text": "The worried mother",
+                "role": "subject",
+                "person": "3sg"
+              },
+              "verb": {
+                "text": "called",
+                "role": "verb"
+              },
+              "direct_object": {
+                "text": "the concerned parent",
+                "role": "direct_object"
+              }
+            },
+            "georgian_verb_form": "დარეკა",
+            "person": "3sg",
+            "effective_preverb": "და"
+          },
+          {
+            "georgian": "გამოუცდელმა მოცეკვავეებმა დარეკეს მცოდნე მასწავლებელი",
+            "georgian_components": {
+              "subject": {
+                "text": "გამოუცდელმა მოცეკვავეებმა",
+                "case": "erg",
+                "role": "subject"
+              },
+              "verb": {
+                "text": "დარეკეს",
+                "role": "verb"
+              },
+              "direct_object": {
+                "text": "მცოდნე მასწავლებელი",
+                "case": "nom",
+                "role": "direct_object"
+              }
+            },
+            "english": "The inexperienced dancers called the knowledgeable teacher",
+            "english_components": {
+              "subject": {
+                "text": "The inexperienced dancers",
+                "role": "subject",
+                "person": "3pl"
+              },
+              "verb": {
+                "text": "called",
+                "role": "verb"
+              },
+              "direct_object": {
+                "text": "the knowledgeable teacher",
+                "role": "direct_object"
+              }
+            },
+            "georgian_verb_form": "დარეკეს",
+            "person": "3pl",
+            "effective_preverb": "და"
+          }
+        ],
+        "optative": [
+          {
+            "georgian": "უნდა დავრეკო კარგი ექიმი",
+            "georgian_components": {
+              "verb": {
+                "text": "უნდა დავრეკო",
+                "role": "verb"
+              },
+              "direct_object": {
+                "text": "კარგი ექიმი",
+                "case": "nom",
+                "role": "direct_object"
+              }
+            },
+            "english": "I should call the good doctor",
+            "english_components": {
+              "subject": {
+                "text": "I",
+                "role": "subject",
+                "person": "1sg"
+              },
+              "verb": {
+                "text": "should call",
+                "role": "verb"
+              },
+              "direct_object": {
+                "text": "the good doctor",
+                "role": "direct_object"
+              }
+            },
+            "georgian_verb_form": "დავრეკო",
+            "person": "1sg",
+            "effective_preverb": "და"
+          },
+          {
+            "georgian": "შეშფოთებულმა დედამ უნდა დარეკოს მწუხარე მშობელი",
+            "georgian_components": {
+              "subject": {
+                "text": "შეშფოთებულმა დედამ",
+                "case": "erg",
+                "role": "subject"
+              },
+              "verb": {
+                "text": "უნდა დარეკოს",
+                "role": "verb"
+              },
+              "direct_object": {
+                "text": "მწუხარე მშობელი",
+                "case": "nom",
+                "role": "direct_object"
+              }
+            },
+            "english": "The worried mother should call the concerned parent",
+            "english_components": {
+              "subject": {
+                "text": "The worried mother",
+                "role": "subject",
+                "person": "3sg"
+              },
+              "verb": {
+                "text": "should call",
+                "role": "verb"
+              },
+              "direct_object": {
+                "text": "the concerned parent",
+                "role": "direct_object"
+              }
+            },
+            "georgian_verb_form": "დარეკოს",
+            "person": "3sg",
+            "effective_preverb": "და"
+          },
+          {
+            "georgian": "გამოუცდელმა მოცეკვავეებმა უნდა დარეკონ მცოდნე მასწავლებელი",
+            "georgian_components": {
+              "subject": {
+                "text": "გამოუცდელმა მოცეკვავეებმა",
+                "case": "erg",
+                "role": "subject"
+              },
+              "verb": {
+                "text": "უნდა დარეკონ",
+                "role": "verb"
+              },
+              "direct_object": {
+                "text": "მცოდნე მასწავლებელი",
+                "case": "nom",
+                "role": "direct_object"
+              }
+            },
+            "english": "The inexperienced dancers should call the knowledgeable teacher",
+            "english_components": {
+              "subject": {
+                "text": "The inexperienced dancers",
+                "role": "subject",
+                "person": "3pl"
+              },
+              "verb": {
+                "text": "should call",
+                "role": "verb"
+              },
+              "direct_object": {
+                "text": "the knowledgeable teacher",
+                "role": "direct_object"
+              }
+            },
+            "georgian_verb_form": "დარეკონ",
+            "person": "3pl",
+            "effective_preverb": "და"
+          }
+        ],
+        "imperative": [
+          {
+            "georgian": "დარეკე ძველი მეგობარი",
+            "georgian_components": {
+              "verb": {
+                "text": "დარეკე",
+                "role": "verb"
+              },
+              "direct_object": {
+                "text": "ძველი მეგობარი",
+                "case": "nom",
+                "role": "direct_object"
+              }
+            },
+            "english": "You, call the old friend",
+            "english_components": {
+              "subject": {
+                "text": "You,",
+                "role": "subject",
+                "person": "2sg"
+              },
+              "verb": {
+                "text": "call",
+                "role": "verb"
+              },
+              "direct_object": {
+                "text": "the old friend",
+                "role": "direct_object"
+              }
+            },
+            "georgian_verb_form": "დარეკე",
+            "person": "2sg",
+            "effective_preverb": "და"
+          },
+          {
+            "georgian": "დარეკეთ კეთილი ძმა",
+            "georgian_components": {
+              "verb": {
+                "text": "დარეკეთ",
+                "role": "verb"
+              },
+              "direct_object": {
+                "text": "კეთილი ძმა",
+                "case": "nom",
+                "role": "direct_object"
+              }
+            },
+            "english": "You all (you formal), call the kind brother",
+            "english_components": {
+              "subject": {
+                "text": "You all (you formal),",
+                "role": "subject",
+                "person": "2pl"
+              },
+              "verb": {
+                "text": "call",
+                "role": "verb"
+              },
+              "direct_object": {
+                "text": "the kind brother",
+                "role": "direct_object"
+              }
+            },
+            "georgian_verb_form": "დარეკეთ",
+            "person": "2pl",
+            "effective_preverb": "და"
+          }
+        ]
+      }
+    },
+    "gloss_analysis": {
+      "present": {
+        "raw_gloss": "V Act Pres <S-DO> <S:Nom> <DO:Dat>",
+        "structured_gloss": {
+          "raw_components": [
+            {
+              "text": "V",
+              "component_type": "verb",
+              "color_class": "gloss-verb",
+              "description": "Verb"
+            },
+            {
+              "text": "Act",
+              "component_type": "voice",
+              "color_class": "gloss-default",
+              "description": "Active"
+            },
+            {
+              "text": "Pres",
+              "component_type": "tense",
+              "color_class": "gloss-tense",
+              "description": "Present"
+            },
+            {
+              "type": "argument_pattern_group",
+              "original_text": "<S-DO>",
+              "description": "Transitive absolute",
+              "components": [
+                {
+                  "text": "<",
+                  "component_type": "punctuation",
+                  "color_class": "gloss-default",
+                  "description": ""
+                },
+                {
+                  "text": "S",
+                  "component_type": "argument",
+                  "color_class": "gloss-subject",
+                  "description": ""
+                },
+                {
+                  "text": "-",
+                  "component_type": "punctuation",
+                  "color_class": "gloss-default",
+                  "description": ""
+                },
+                {
+                  "text": "DO",
+                  "component_type": "argument",
+                  "color_class": "gloss-direct-object",
+                  "description": ""
+                },
+                {
+                  "text": ">",
+                  "component_type": "punctuation",
+                  "color_class": "gloss-default",
+                  "description": ""
+                }
+              ]
+            },
+            {
+              "text": "<S:Nom>",
+              "component_type": "case_spec",
+              "color_class": "gloss-subject",
+              "description": "Nominative subject"
+            },
+            {
+              "text": "<DO:Dat>",
+              "component_type": "case_spec",
+              "color_class": "gloss-direct-object",
+              "description": "Dative direct object"
+            }
+          ],
+          "expanded_components": [
+            {
+              "text": "V",
+              "component_type": "verb",
+              "color_class": "gloss-verb",
+              "description": "Verb"
+            },
+            {
+              "text": "Act",
+              "component_type": "voice",
+              "color_class": "gloss-default",
+              "description": "Active"
+            },
+            {
+              "text": "Pres",
+              "component_type": "tense",
+              "color_class": "gloss-tense",
+              "description": "Present"
+            },
+            {
+              "type": "argument_pattern_group",
+              "original_text": "<S-DO>",
+              "description": "Transitive absolute",
+              "components": [
+                {
+                  "text": "<",
+                  "component_type": "punctuation",
+                  "color_class": "gloss-default",
+                  "description": ""
+                },
+                {
+                  "text": "S",
+                  "component_type": "argument",
+                  "color_class": "gloss-subject",
+                  "description": ""
+                },
+                {
+                  "text": "-",
+                  "component_type": "punctuation",
+                  "color_class": "gloss-default",
+                  "description": ""
+                },
+                {
+                  "text": "DO",
+                  "component_type": "argument",
+                  "color_class": "gloss-direct-object",
+                  "description": ""
+                },
+                {
+                  "text": ">",
+                  "component_type": "punctuation",
+                  "color_class": "gloss-default",
+                  "description": ""
+                }
+              ]
+            },
+            {
+              "text": "<S:Nom>",
+              "component_type": "case_spec",
+              "color_class": "gloss-subject",
+              "description": "Nominative subject"
+            },
+            {
+              "text": "<DO:Dat>",
+              "component_type": "case_spec",
+              "color_class": "gloss-direct-object",
+              "description": "Dative direct object"
+            }
+          ],
+          "argument_pattern": "<S-DO>",
+          "case_specifications": [
+            "<S:Nom>",
+            "<DO:Dat>"
+          ]
+        }
+      },
+      "imperfect": {
+        "raw_gloss": "V Act Impf <S-DO> <S:Nom> <DO:Dat>",
+        "structured_gloss": {
+          "raw_components": [
+            {
+              "text": "V",
+              "component_type": "verb",
+              "color_class": "gloss-verb",
+              "description": "Verb"
+            },
+            {
+              "text": "Act",
+              "component_type": "voice",
+              "color_class": "gloss-default",
+              "description": "Active"
+            },
+            {
+              "text": "Impf",
+              "component_type": "tense",
+              "color_class": "gloss-tense",
+              "description": "Imperfect"
+            },
+            {
+              "type": "argument_pattern_group",
+              "original_text": "<S-DO>",
+              "description": "Transitive absolute",
+              "components": [
+                {
+                  "text": "<",
+                  "component_type": "punctuation",
+                  "color_class": "gloss-default",
+                  "description": ""
+                },
+                {
+                  "text": "S",
+                  "component_type": "argument",
+                  "color_class": "gloss-subject",
+                  "description": ""
+                },
+                {
+                  "text": "-",
+                  "component_type": "punctuation",
+                  "color_class": "gloss-default",
+                  "description": ""
+                },
+                {
+                  "text": "DO",
+                  "component_type": "argument",
+                  "color_class": "gloss-direct-object",
+                  "description": ""
+                },
+                {
+                  "text": ">",
+                  "component_type": "punctuation",
+                  "color_class": "gloss-default",
+                  "description": ""
+                }
+              ]
+            },
+            {
+              "text": "<S:Nom>",
+              "component_type": "case_spec",
+              "color_class": "gloss-subject",
+              "description": "Nominative subject"
+            },
+            {
+              "text": "<DO:Dat>",
+              "component_type": "case_spec",
+              "color_class": "gloss-direct-object",
+              "description": "Dative direct object"
+            }
+          ],
+          "expanded_components": [
+            {
+              "text": "V",
+              "component_type": "verb",
+              "color_class": "gloss-verb",
+              "description": "Verb"
+            },
+            {
+              "text": "Act",
+              "component_type": "voice",
+              "color_class": "gloss-default",
+              "description": "Active"
+            },
+            {
+              "text": "Impf",
+              "component_type": "tense",
+              "color_class": "gloss-tense",
+              "description": "Imperfect"
+            },
+            {
+              "type": "argument_pattern_group",
+              "original_text": "<S-DO>",
+              "description": "Transitive absolute",
+              "components": [
+                {
+                  "text": "<",
+                  "component_type": "punctuation",
+                  "color_class": "gloss-default",
+                  "description": ""
+                },
+                {
+                  "text": "S",
+                  "component_type": "argument",
+                  "color_class": "gloss-subject",
+                  "description": ""
+                },
+                {
+                  "text": "-",
+                  "component_type": "punctuation",
+                  "color_class": "gloss-default",
+                  "description": ""
+                },
+                {
+                  "text": "DO",
+                  "component_type": "argument",
+                  "color_class": "gloss-direct-object",
+                  "description": ""
+                },
+                {
+                  "text": ">",
+                  "component_type": "punctuation",
+                  "color_class": "gloss-default",
+                  "description": ""
+                }
+              ]
+            },
+            {
+              "text": "<S:Nom>",
+              "component_type": "case_spec",
+              "color_class": "gloss-subject",
+              "description": "Nominative subject"
+            },
+            {
+              "text": "<DO:Dat>",
+              "component_type": "case_spec",
+              "color_class": "gloss-direct-object",
+              "description": "Dative direct object"
+            }
+          ],
+          "argument_pattern": "<S-DO>",
+          "case_specifications": [
+            "<S:Nom>",
+            "<DO:Dat>"
+          ]
+        }
+      },
+      "future": {
+        "raw_gloss": "V Act Fut Pv <S-DO> <S:Nom> <DO:Dat>",
+        "structured_gloss": {
+          "raw_components": [
+            {
+              "text": "V",
+              "component_type": "verb",
+              "color_class": "gloss-verb",
+              "description": "Verb"
+            },
+            {
+              "text": "Act",
+              "component_type": "voice",
+              "color_class": "gloss-default",
+              "description": "Active"
+            },
+            {
+              "text": "Fut",
+              "component_type": "tense",
+              "color_class": "gloss-tense",
+              "description": "Future"
+            },
+            {
+              "text": "Pv",
+              "component_type": "preverb",
+              "color_class": "gloss-default",
+              "description": "და"
+            },
+            {
+              "type": "argument_pattern_group",
+              "original_text": "<S-DO>",
+              "description": "Transitive absolute",
+              "components": [
+                {
+                  "text": "<",
+                  "component_type": "punctuation",
+                  "color_class": "gloss-default",
+                  "description": ""
+                },
+                {
+                  "text": "S",
+                  "component_type": "argument",
+                  "color_class": "gloss-subject",
+                  "description": ""
+                },
+                {
+                  "text": "-",
+                  "component_type": "punctuation",
+                  "color_class": "gloss-default",
+                  "description": ""
+                },
+                {
+                  "text": "DO",
+                  "component_type": "argument",
+                  "color_class": "gloss-direct-object",
+                  "description": ""
+                },
+                {
+                  "text": ">",
+                  "component_type": "punctuation",
+                  "color_class": "gloss-default",
+                  "description": ""
+                }
+              ]
+            },
+            {
+              "text": "<S:Nom>",
+              "component_type": "case_spec",
+              "color_class": "gloss-subject",
+              "description": "Nominative subject"
+            },
+            {
+              "text": "<DO:Dat>",
+              "component_type": "case_spec",
+              "color_class": "gloss-direct-object",
+              "description": "Dative direct object"
+            }
+          ],
+          "expanded_components": [
+            {
+              "text": "V",
+              "component_type": "verb",
+              "color_class": "gloss-verb",
+              "description": "Verb"
+            },
+            {
+              "text": "Act",
+              "component_type": "voice",
+              "color_class": "gloss-default",
+              "description": "Active"
+            },
+            {
+              "text": "Fut",
+              "component_type": "tense",
+              "color_class": "gloss-tense",
+              "description": "Future"
+            },
+            {
+              "text": "Pv",
+              "component_type": "preverb",
+              "color_class": "gloss-default",
+              "description": "და"
+            },
+            {
+              "type": "argument_pattern_group",
+              "original_text": "<S-DO>",
+              "description": "Transitive absolute",
+              "components": [
+                {
+                  "text": "<",
+                  "component_type": "punctuation",
+                  "color_class": "gloss-default",
+                  "description": ""
+                },
+                {
+                  "text": "S",
+                  "component_type": "argument",
+                  "color_class": "gloss-subject",
+                  "description": ""
+                },
+                {
+                  "text": "-",
+                  "component_type": "punctuation",
+                  "color_class": "gloss-default",
+                  "description": ""
+                },
+                {
+                  "text": "DO",
+                  "component_type": "argument",
+                  "color_class": "gloss-direct-object",
+                  "description": ""
+                },
+                {
+                  "text": ">",
+                  "component_type": "punctuation",
+                  "color_class": "gloss-default",
+                  "description": ""
+                }
+              ]
+            },
+            {
+              "text": "<S:Nom>",
+              "component_type": "case_spec",
+              "color_class": "gloss-subject",
+              "description": "Nominative subject"
+            },
+            {
+              "text": "<DO:Dat>",
+              "component_type": "case_spec",
+              "color_class": "gloss-direct-object",
+              "description": "Dative direct object"
+            }
+          ],
+          "argument_pattern": "<S-DO>",
+          "case_specifications": [
+            "<S:Nom>",
+            "<DO:Dat>"
+          ]
+        }
+      },
+      "aorist": {
+        "raw_gloss": "V Act Aor Pv <S-DO> <S:Erg> <DO:Nom>",
+        "structured_gloss": {
+          "raw_components": [
+            {
+              "text": "V",
+              "component_type": "verb",
+              "color_class": "gloss-verb",
+              "description": "Verb"
+            },
+            {
+              "text": "Act",
+              "component_type": "voice",
+              "color_class": "gloss-default",
+              "description": "Active"
+            },
+            {
+              "text": "Aor",
+              "component_type": "tense",
+              "color_class": "gloss-tense",
+              "description": "Aorist"
+            },
+            {
+              "text": "Pv",
+              "component_type": "preverb",
+              "color_class": "gloss-default",
+              "description": "და"
+            },
+            {
+              "type": "argument_pattern_group",
+              "original_text": "<S-DO>",
+              "description": "Transitive absolute",
+              "components": [
+                {
+                  "text": "<",
+                  "component_type": "punctuation",
+                  "color_class": "gloss-default",
+                  "description": ""
+                },
+                {
+                  "text": "S",
+                  "component_type": "argument",
+                  "color_class": "gloss-subject",
+                  "description": ""
+                },
+                {
+                  "text": "-",
+                  "component_type": "punctuation",
+                  "color_class": "gloss-default",
+                  "description": ""
+                },
+                {
+                  "text": "DO",
+                  "component_type": "argument",
+                  "color_class": "gloss-direct-object",
+                  "description": ""
+                },
+                {
+                  "text": ">",
+                  "component_type": "punctuation",
+                  "color_class": "gloss-default",
+                  "description": ""
+                }
+              ]
+            },
+            {
+              "text": "<S:Erg>",
+              "component_type": "case_spec",
+              "color_class": "gloss-subject",
+              "description": "Ergative subject"
+            },
+            {
+              "text": "<DO:Nom>",
+              "component_type": "case_spec",
+              "color_class": "gloss-direct-object",
+              "description": "Nominative direct object"
+            }
+          ],
+          "expanded_components": [
+            {
+              "text": "V",
+              "component_type": "verb",
+              "color_class": "gloss-verb",
+              "description": "Verb"
+            },
+            {
+              "text": "Act",
+              "component_type": "voice",
+              "color_class": "gloss-default",
+              "description": "Active"
+            },
+            {
+              "text": "Aor",
+              "component_type": "tense",
+              "color_class": "gloss-tense",
+              "description": "Aorist"
+            },
+            {
+              "text": "Pv",
+              "component_type": "preverb",
+              "color_class": "gloss-default",
+              "description": "და"
+            },
+            {
+              "type": "argument_pattern_group",
+              "original_text": "<S-DO>",
+              "description": "Transitive absolute",
+              "components": [
+                {
+                  "text": "<",
+                  "component_type": "punctuation",
+                  "color_class": "gloss-default",
+                  "description": ""
+                },
+                {
+                  "text": "S",
+                  "component_type": "argument",
+                  "color_class": "gloss-subject",
+                  "description": ""
+                },
+                {
+                  "text": "-",
+                  "component_type": "punctuation",
+                  "color_class": "gloss-default",
+                  "description": ""
+                },
+                {
+                  "text": "DO",
+                  "component_type": "argument",
+                  "color_class": "gloss-direct-object",
+                  "description": ""
+                },
+                {
+                  "text": ">",
+                  "component_type": "punctuation",
+                  "color_class": "gloss-default",
+                  "description": ""
+                }
+              ]
+            },
+            {
+              "text": "<S:Erg>",
+              "component_type": "case_spec",
+              "color_class": "gloss-subject",
+              "description": "Ergative subject"
+            },
+            {
+              "text": "<DO:Nom>",
+              "component_type": "case_spec",
+              "color_class": "gloss-direct-object",
+              "description": "Nominative direct object"
+            }
+          ],
+          "argument_pattern": "<S-DO>",
+          "case_specifications": [
+            "<S:Erg>",
+            "<DO:Nom>"
+          ]
+        }
+      },
+      "optative": {
+        "raw_gloss": "V Act Opt Pv <S-DO> <S:Erg> <DO:Nom>",
+        "structured_gloss": {
+          "raw_components": [
+            {
+              "text": "V",
+              "component_type": "verb",
+              "color_class": "gloss-verb",
+              "description": "Verb"
+            },
+            {
+              "text": "Act",
+              "component_type": "voice",
+              "color_class": "gloss-default",
+              "description": "Active"
+            },
+            {
+              "text": "Opt",
+              "component_type": "tense",
+              "color_class": "gloss-tense",
+              "description": "Optative"
+            },
+            {
+              "text": "Pv",
+              "component_type": "preverb",
+              "color_class": "gloss-default",
+              "description": "და"
+            },
+            {
+              "type": "argument_pattern_group",
+              "original_text": "<S-DO>",
+              "description": "Transitive absolute",
+              "components": [
+                {
+                  "text": "<",
+                  "component_type": "punctuation",
+                  "color_class": "gloss-default",
+                  "description": ""
+                },
+                {
+                  "text": "S",
+                  "component_type": "argument",
+                  "color_class": "gloss-subject",
+                  "description": ""
+                },
+                {
+                  "text": "-",
+                  "component_type": "punctuation",
+                  "color_class": "gloss-default",
+                  "description": ""
+                },
+                {
+                  "text": "DO",
+                  "component_type": "argument",
+                  "color_class": "gloss-direct-object",
+                  "description": ""
+                },
+                {
+                  "text": ">",
+                  "component_type": "punctuation",
+                  "color_class": "gloss-default",
+                  "description": ""
+                }
+              ]
+            },
+            {
+              "text": "<S:Erg>",
+              "component_type": "case_spec",
+              "color_class": "gloss-subject",
+              "description": "Ergative subject"
+            },
+            {
+              "text": "<DO:Nom>",
+              "component_type": "case_spec",
+              "color_class": "gloss-direct-object",
+              "description": "Nominative direct object"
+            }
+          ],
+          "expanded_components": [
+            {
+              "text": "V",
+              "component_type": "verb",
+              "color_class": "gloss-verb",
+              "description": "Verb"
+            },
+            {
+              "text": "Act",
+              "component_type": "voice",
+              "color_class": "gloss-default",
+              "description": "Active"
+            },
+            {
+              "text": "Opt",
+              "component_type": "tense",
+              "color_class": "gloss-tense",
+              "description": "Optative"
+            },
+            {
+              "text": "Pv",
+              "component_type": "preverb",
+              "color_class": "gloss-default",
+              "description": "და"
+            },
+            {
+              "type": "argument_pattern_group",
+              "original_text": "<S-DO>",
+              "description": "Transitive absolute",
+              "components": [
+                {
+                  "text": "<",
+                  "component_type": "punctuation",
+                  "color_class": "gloss-default",
+                  "description": ""
+                },
+                {
+                  "text": "S",
+                  "component_type": "argument",
+                  "color_class": "gloss-subject",
+                  "description": ""
+                },
+                {
+                  "text": "-",
+                  "component_type": "punctuation",
+                  "color_class": "gloss-default",
+                  "description": ""
+                },
+                {
+                  "text": "DO",
+                  "component_type": "argument",
+                  "color_class": "gloss-direct-object",
+                  "description": ""
+                },
+                {
+                  "text": ">",
+                  "component_type": "punctuation",
+                  "color_class": "gloss-default",
+                  "description": ""
+                }
+              ]
+            },
+            {
+              "text": "<S:Erg>",
+              "component_type": "case_spec",
+              "color_class": "gloss-subject",
+              "description": "Ergative subject"
+            },
+            {
+              "text": "<DO:Nom>",
+              "component_type": "case_spec",
+              "color_class": "gloss-direct-object",
+              "description": "Nominative direct object"
+            }
+          ],
+          "argument_pattern": "<S-DO>",
+          "case_specifications": [
+            "<S:Erg>",
+            "<DO:Nom>"
+          ]
+        }
+      },
+      "imperative": {
+        "raw_gloss": "V Act Impv Pv <S-DO> <S:Erg> <DO:Nom>",
+        "structured_gloss": {
+          "raw_components": [
+            {
+              "text": "V",
+              "component_type": "verb",
+              "color_class": "gloss-verb",
+              "description": "Verb"
+            },
+            {
+              "text": "Act",
+              "component_type": "voice",
+              "color_class": "gloss-default",
+              "description": "Active"
+            },
+            {
+              "text": "Impv",
+              "component_type": "tense",
+              "color_class": "gloss-tense",
+              "description": "Imperative"
+            },
+            {
+              "text": "Pv",
+              "component_type": "preverb",
+              "color_class": "gloss-default",
+              "description": "და"
+            },
+            {
+              "type": "argument_pattern_group",
+              "original_text": "<S-DO>",
+              "description": "Transitive absolute",
+              "components": [
+                {
+                  "text": "<",
+                  "component_type": "punctuation",
+                  "color_class": "gloss-default",
+                  "description": ""
+                },
+                {
+                  "text": "S",
+                  "component_type": "argument",
+                  "color_class": "gloss-subject",
+                  "description": ""
+                },
+                {
+                  "text": "-",
+                  "component_type": "punctuation",
+                  "color_class": "gloss-default",
+                  "description": ""
+                },
+                {
+                  "text": "DO",
+                  "component_type": "argument",
+                  "color_class": "gloss-direct-object",
+                  "description": ""
+                },
+                {
+                  "text": ">",
+                  "component_type": "punctuation",
+                  "color_class": "gloss-default",
+                  "description": ""
+                }
+              ]
+            },
+            {
+              "text": "<S:Erg>",
+              "component_type": "case_spec",
+              "color_class": "gloss-subject",
+              "description": "Ergative subject"
+            },
+            {
+              "text": "<DO:Nom>",
+              "component_type": "case_spec",
+              "color_class": "gloss-direct-object",
+              "description": "Nominative direct object"
+            }
+          ],
+          "expanded_components": [
+            {
+              "text": "V",
+              "component_type": "verb",
+              "color_class": "gloss-verb",
+              "description": "Verb"
+            },
+            {
+              "text": "Act",
+              "component_type": "voice",
+              "color_class": "gloss-default",
+              "description": "Active"
+            },
+            {
+              "text": "Impv",
+              "component_type": "tense",
+              "color_class": "gloss-tense",
+              "description": "Imperative"
+            },
+            {
+              "text": "Pv",
+              "component_type": "preverb",
+              "color_class": "gloss-default",
+              "description": "და"
+            },
+            {
+              "type": "argument_pattern_group",
+              "original_text": "<S-DO>",
+              "description": "Transitive absolute",
+              "components": [
+                {
+                  "text": "<",
+                  "component_type": "punctuation",
+                  "color_class": "gloss-default",
+                  "description": ""
+                },
+                {
+                  "text": "S",
+                  "component_type": "argument",
+                  "color_class": "gloss-subject",
+                  "description": ""
+                },
+                {
+                  "text": "-",
+                  "component_type": "punctuation",
+                  "color_class": "gloss-default",
+                  "description": ""
+                },
+                {
+                  "text": "DO",
+                  "component_type": "argument",
+                  "color_class": "gloss-direct-object",
+                  "description": ""
+                },
+                {
+                  "text": ">",
+                  "component_type": "punctuation",
+                  "color_class": "gloss-default",
+                  "description": ""
+                }
+              ]
+            },
+            {
+              "text": "<S:Erg>",
+              "component_type": "case_spec",
+              "color_class": "gloss-subject",
+              "description": "Ergative subject"
+            },
+            {
+              "text": "<DO:Nom>",
+              "component_type": "case_spec",
+              "color_class": "gloss-direct-object",
+              "description": "Nominative direct object"
+            }
+          ],
+          "argument_pattern": "<S-DO>",
+          "case_specifications": [
+            "<S:Erg>",
+            "<DO:Nom>"
+          ]
+        }
+      }
+    },
+    "preverb_forms": {}
+  }
+}

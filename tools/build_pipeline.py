@@ -27,8 +27,8 @@ force_utf8_environment()
 from tools.data_processing.verb_data_processor import VerbDataProcessor
 from tools.data_processing.processed_data_manager import ProcessedDataManager
 from tools.output_generation.html_generator import HTMLGenerator
-from tools.output_generation.external_data_generator import (
-    ExternalDataGenerator,
+from tools.output_generation.split_processed_verbs import (
+    VerbDataSplitter,
 )
 from tools.data_extraction.verb_data_loader import VerbDataLoader
 from tools.output_generation.asset_manager import AssetManager
@@ -267,23 +267,23 @@ def run_output_generation_pipeline(config_manager: ConfigManager, build_mode: st
             traceback.print_exc()
             raise
 
-        # Generate external data
-        print("🔧 About to generate external data...")
-        logger.info("Generating external data...")
+        # Split processed verbs into individual files
+        print("🔧 About to split processed verbs...")
+        logger.info("Splitting processed verbs into individual files...")
         try:
-            print("🔧 About to initialize ExternalDataGenerator...")
-            external_generator = ExternalDataGenerator(project_root)
-            print("🔧 ExternalDataGenerator initialized successfully")
+            print("🔧 About to initialize VerbDataSplitter...")
+            verb_splitter = VerbDataSplitter(project_root)
+            print("🔧 VerbDataSplitter initialized successfully")
 
-            print("🔧 About to generate external data from processed verbs...")
-            external_success = (
-                external_generator.generate_external_data_from_processed_data(
-                    processed_verbs
-                )
-            )
-            print(f"🔧 External data generation result: {external_success}")
+            print("🔧 About to split processed verbs into individual files...")
+            split_success = verb_splitter.split_processed_verbs(processed_verbs)
+            print(f"🔧 Verb data splitting result: {split_success}")
+
+            if not split_success:
+                raise Exception("Verb data splitting failed")
+
         except Exception as e:
-            print(f"💥 External data generation failed: {e}")
+            print(f"💥 Verb data splitting failed: {e}")
             import traceback
 
             traceback.print_exc()

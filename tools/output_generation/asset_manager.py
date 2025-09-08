@@ -7,7 +7,7 @@ This module:
 2. Copies font and other assets to dist/assets
 3. Copies 404 page to dist/
 4. Manages directory creation and cleanup
-5. Handles the new modular JavaScript system
+5. Handles the modular JavaScript system
 """
 
 import shutil
@@ -103,7 +103,7 @@ class AssetManager:
     def _copy_js_files(self) -> bool:
         """
         Copy JavaScript files to dist/scripts directory.
-        Handles the new modular system with shared/ and modules/ directories.
+        Handles the modular system with shared/ and modules/ directories.
 
         Returns:
             bool: True if successful, False otherwise
@@ -229,7 +229,7 @@ class AssetManager:
             "css_file": self.config_manager.get_path("css_output"),
             "js_file": self.config_manager.get_path("js_output"),
             "error_page": self.config_manager.get_path("error_page_output"),
-            # New modular structure paths
+            # Modular structure paths
             "shared_dir": self.config_manager.get_path("dist_scripts_dir") / "shared",
             "modules_dir": self.config_manager.get_path("dist_scripts_dir") / "modules",
             "test_config": self.config_manager.get_path("dist_scripts_dir")
@@ -241,7 +241,7 @@ class AssetManager:
     def validate_assets(self) -> Tuple[bool, List[str]]:
         """
         Validate that all required assets exist in the dist directory.
-        Updated for modular JavaScript system.
+        Validates modular JavaScript system.
 
         Returns:
             Tuple[bool, List[str]]: (success, list of missing files)
