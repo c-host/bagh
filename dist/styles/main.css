@@ -100,8 +100,7 @@
     --font-neueimpakt: 'NeueImpakt', 'Noto Sans Georgian', sans-serif;
 
     /* Common font stack */
-    --font-stack: 'Noto Sans Georgian', 'Inter', 'Segoe UI', Tahoma, Verdana, sans-serif;
-    --font-stack-short: 'Noto Sans Georgian', 'Inter', 'Segoe UI', sans-serif;
+    --font-stack: 'Noto Sans Georgian', 'Inter', 'Segoe UI', sans-serif;
 
     /* Common spacing */
     --spacing-xs: 4px;
@@ -136,17 +135,18 @@
     --filter-active-text: #1a1a1a;
 
     /* Base sizes for different content types */
-    --base-size-example: 1.1em;
-    --base-size-header: 1.6em;
-    --base-size-flat: 1.2em;
-    --base-size-flat-small: 0.9em;
+    --base-size-overview: 0.8em;
+    --base-size-tense-table: 0.95em;
+    --base-size-examples: 1.2em;
+    --base-size-verb-header: 1.6em;
+    --base-size-toc-items: 1.2em;
 }
 
 /* Font switching classes */
 [data-font="default"] {
     --current-font: var(--font-default);
-    --font-scale-overview: 1.1;
-    --font-scale-tense-table: 1.15;
+    --font-scale-overview: 1.2;
+    --font-scale-tense-table: 1.05;
     --font-scale-examples: 0.9;
     --font-scale-verb-header: 0.6;
     --font-scale-toc-items: 1.0;
@@ -154,8 +154,8 @@
 
 [data-font="k_gorga"] {
     --current-font: var(--font-k-gorga);
-    --font-scale-overview: 1.55;
-    --font-scale-tense-table: 1.2;
+    --font-scale-overview: 1.65;
+    --font-scale-tense-table: 1.15;
     --font-scale-examples: 1.0;
     --font-scale-verb-header: 0.6;
     --font-scale-toc-items: 1.0;
@@ -163,7 +163,7 @@
 
 [data-font="k_grigol"] {
     --current-font: var(--font-k-grigol);
-    --font-scale-overview: 1.4;
+    --font-scale-overview: 1.45;
     --font-scale-tense-table: 1.15;
     --font-scale-examples: 1.0;
     --font-scale-verb-header: 0.6;
@@ -172,12 +172,12 @@
 
 [data-font="k_kalig"] {
     --current-font: var(--font-k-kalig);
-    --font-scale-overview: 1.4;
+    --font-scale-overview: 1.55;
     --font-scale-tense-table: 1.2;
     --font-scale-examples: 1.1;
     --font-scale-verb-header: 0.6;
     --font-scale-toc-items: 1.1;
-    --line-height-examples: 2.2;
+    --line-height-examples: 1.5;
 }
 
 [data-font="k_lortki"] {
@@ -191,8 +191,8 @@
 
 [data-font="sonata"] {
     --current-font: var(--font-sonata);
-    --font-scale-overview: 1.4;
-    --font-scale-tense-table: 1.2;
+    --font-scale-overview: 1.6;
+    --font-scale-tense-table: 1.1;
     --font-scale-examples: 1.05;
     --font-scale-verb-header: 0.6;
     --font-scale-toc-items: 1.1;
@@ -200,7 +200,7 @@
 
 [data-font="neueimpakt"] {
     --current-font: var(--font-neueimpakt);
-    --font-scale-overview: 1.1;
+    --font-scale-overview: 1.35;
     --font-scale-tense-table: 1.05;
     --font-scale-examples: 0.85;
     --font-scale-verb-header: 0.55;
@@ -288,14 +288,15 @@
     --role-case-color: #ef4444;
 
     /* Base sizes for different content types */
-    --base-size-example: 1.1em;
-    --base-size-header: 1.6em;
-    --base-size-flat: 1.2em;
-    --base-size-flat-small: 0.9em;
+    --base-size-overview: 0.8em;
+    --base-size-tense-table: 0.95em;
+    --base-size-examples: 1.2em;
+    --base-size-verb-header: 1.6em;
+    --base-size-toc-items: 1.2em;
 
     /* Common font stack */
-    --font-stack: 'Noto Sans Georgian', 'Inter', 'Segoe UI', Tahoma, Verdana, sans-serif;
-    --font-stack-short: 'Noto Sans Georgian', 'Inter', 'Segoe UI', sans-serif;
+    --font-stack: 'Noto Sans Georgian', 'Inter', 'Segoe UI', sans-serif;
+
 
     /* Common spacing */
     --spacing-xs: 4px;
@@ -500,7 +501,7 @@ li:last-child {
 /* Verb sections */
 .verb-section {
     margin-bottom: 40px;
-    padding: var(--spacing-xl);
+    padding: var(--spacing-xxl);
     border: 1px solid var(--border-color);
     border-radius: var(--radius-lg);
     background-color: var(--bg-primary);
@@ -623,23 +624,22 @@ li:last-child {
 
 /* Font sizing */
 /* Overview table cells */
-[data-font] .flat-overview-cell.georgian-text,
-[data-font] .flat-overview-header {
-    font-size: calc(var(--base-size-flat-small) * var(--font-scale-overview, 1.0));
+[data-font] .flat-overview-cell.georgian-text {
+    font-size: calc(var(--base-size-overview) * var(--font-scale-overview, 1.0)) !important;
 }
 
 /* Tense table cells */
 [data-font] .flat-conjugation-form.georgian-text,
 [data-font] .flat-conjugation-item,
 [data-font] .flat-tense-header {
-    font-size: calc(var(--base-size-flat-small) * var(--font-scale-tense-table, 1.0));
+    font-size: calc(var(--base-size-tense-table) * var(--font-scale-tense-table, 1.0)) !important;
 }
 
 /* Example text */
 [data-font] .flat-example-georgian.georgian-text,
 [data-font] .examples .georgian-text,
 [data-font] .examples .georgian {
-    font-size: calc(var(--base-size-example) * var(--font-scale-examples, 1.0));
+    font-size: calc(var(--base-size-examples) * var(--font-scale-examples, 1.0)) !important;
 }
 
 /* k_kalig line height */
@@ -652,12 +652,12 @@ li:last-child {
 [data-font] h2 .verb-georgian.georgian-text,
 [data-font] h3 .verb-georgian.georgian-text,
 [data-font] h4 .verb-georgian.georgian-text {
-    font-size: calc(var(--base-size-header) * var(--font-scale-verb-header, 1.0));
+    font-size: calc(var(--base-size-verb-header) * var(--font-scale-verb-header, 1.0)) !important;
 }
 
 /* TOC items */
 [data-font] .toc-item .verb-georgian.georgian-text {
-    font-size: calc(var(--base-size-flat) * var(--font-scale-toc-items, 1.0));
+    font-size: calc(var(--base-size-toc-items) * var(--font-scale-toc-items, 1.0)) !important;
 }
 
 /* Hide bottom sheet elements */
@@ -671,7 +671,7 @@ li:last-child {
 
 @media (min-width: 1025px) {
     .main-content {
-        padding: 20px 60px;
+        padding: 10px 60px;
     }
 }
 
@@ -685,9 +685,22 @@ li:last-child {
 
 /* Small desktop */
 @media (max-width: 1024px) and (min-width: 769px) {
+    :root {
+        --base-size-overview: 0.75em;
+        /* root: 0.7em */
+        --base-size-tense-table: 0.95em;
+        /* root: 0.95em */
+        --base-size-examples: 1.15em;
+        /* root: 1.2em */
+        --base-size-verb-header: 1.65em;
+        /* root: 1.7em */
+        --base-size-toc-items: 1.25em;
+        /* root: 1.3em */
+    }
+
     .main-content {
         margin: 0;
-        padding: 15px 60px;
+        padding: 10px 60px;
         width: 100%;
         max-width: 100vw;
         box-sizing: border-box;
@@ -696,6 +709,31 @@ li:last-child {
     .flat-tenses {
         grid-template-columns: repeat(auto-fit, minmax(330px, 1fr));
         gap: 18px;
+    }
+
+    .flat-overview {
+        grid-template-columns: 65px repeat(6, 1fr) !important;
+        min-width: 280px !important;
+        max-width: 100% !important;
+        overflow-x: auto !important;
+    }
+
+    .flat-overview-header,
+    .flat-overview-cell {
+        padding: 10px 4px !important;
+    }
+
+    .flat-overview-header {
+        font-size: 0.9em !important;
+    }
+
+    /* Screve column styling */
+    .flat-overview-header:first-child,
+    .flat-overview-cell.flat-overview-tense {
+        min-width: 70px !important;
+        max-width: 70px !important;
+        font-size: 0.9em !important;
+        text-align: center;
     }
 
     /* Use 2x3 layout */
@@ -708,10 +746,38 @@ li:last-child {
     }
 
     .flat-overview {
-        grid-template-columns: 110px repeat(6, 1fr);
+        grid-template-columns: 85px repeat(6, 1fr) !important;
         min-width: 350px;
         max-width: 100%;
         overflow-x: auto;
+    }
+
+    .flat-overview-header,
+    .flat-overview-cell {
+        padding: 10px 4px !important;
+    }
+
+    .flat-overview-header {
+        font-size: 1.0em !important;
+    }
+
+    /* Screve column styling */
+    .flat-overview-header:first-child,
+    .flat-overview-cell.flat-overview-tense {
+        min-width: 85px !important;
+        max-width: 85px !important;
+        font-size: 1.0em !important;
+        text-align: center;
+    }
+
+    /* Verb Section */
+
+    .verb-title {
+        font-size: 1.8em !important;
+    }
+
+    .verb-section {
+        padding: var(--spacing-xl) !important;
     }
 
     .theme-toggle,
@@ -730,6 +796,16 @@ li:last-child {
     :root {
         --table-min-width: 500px;
         --table-cell-min-width: 70px;
+        --base-size-overview: 0.7em;
+        /* root: 0.7em */
+        --base-size-tense-table: 0.9em;
+        /* root: 0.95em */
+        --base-size-examples: 1.1em;
+        /* root: 1.2em */
+        --base-size-verb-header: 1.6em;
+        /* root: 1.7em */
+        --base-size-toc-items: 1.2em;
+        /* root: 1.3em */
     }
 
     .main-content {
@@ -757,8 +833,12 @@ li:last-child {
 
     /* Verb section */
     .verb-section {
-        margin-bottom: var(--spacing-xxl);
+        margin-bottom: var(--spacing-lg);
         padding: var(--spacing-lg);
+    }
+
+    .verb-title {
+        font-size: 1.6em !important;
     }
 
     /* Header responsive */
@@ -807,21 +887,33 @@ li:last-child {
 
     /* Flat structure responsive */
     .flat-tenses {
-        grid-template-columns: repeat(auto-fit, minmax(290px, 1fr));
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
         gap: 15px;
     }
 
     .flat-overview {
-        grid-template-columns: 60px repeat(6, 1fr) !important;
-        font-size: 0.75em;
-        min-width: 280px;
-        max-width: 100%;
-        overflow-x: auto;
+        grid-template-columns: 70px repeat(6, 1fr) !important;
+        min-width: 280px !important;
+        max-width: 100% !important;
+        overflow-x: auto !important;
     }
 
     .flat-overview-header,
     .flat-overview-cell {
-        padding: 6px 4px;
+        padding: 10px 4px !important;
+    }
+
+    .flat-overview-header {
+        font-size: 0.9em !important;
+    }
+
+    /* Screve column styling */
+    .flat-overview-header:first-child,
+    .flat-overview-cell.flat-overview-tense {
+        min-width: 70px !important;
+        max-width: 70px !important;
+        font-size: 0.9em !important;
+        text-align: center;
     }
 
     /* Use 2x3 layout */
@@ -858,6 +950,16 @@ li:last-child {
     :root {
         --table-min-width: 450px;
         --table-cell-min-width: 60px;
+        --base-size-overview: 0.6em;
+        /* root: 0.7em */
+        --base-size-tense-table: 0.8em;
+        /* root: 0.95em */
+        --base-size-examples: 1.0em;
+        /* root: 1.2em */
+        --base-size-verb-header: 1.6em;
+        /* root: 1.7em */
+        --base-size-toc-items: 1.2em;
+        /* root: 1.3em */
     }
 
     .main-content {
@@ -878,6 +980,12 @@ li:last-child {
         margin-bottom: 6px;
     }
 
+    .flat-example {
+        padding: 12px;
+        gap: 8px !important;
+        margin-bottom: 10px;
+    }
+
     h1 {
         font-size: 1.6em;
         padding-bottom: var(--spacing-md);
@@ -885,7 +993,7 @@ li:last-child {
     }
 
     h2 {
-        font-size: 1.2em;
+        font-size: 1.0em;
         padding-left: 12px;
         margin-bottom: var(--spacing-md);
     }
@@ -929,7 +1037,6 @@ li:last-child {
 
     .flat-overview {
         grid-template-columns: 70px repeat(6, 1fr) !important;
-        font-size: 0.75em;
         min-width: 250px;
         max-width: 100%;
         overflow-x: auto;
@@ -940,12 +1047,16 @@ li:last-child {
         padding: 6px 4px;
     }
 
+    .flat-overview-header {
+        font-size: 0.9em !important;
+    }
+
     /* Screve column styling */
     .flat-overview-header:first-child,
     .flat-overview-cell.flat-overview-tense {
         min-width: 70px !important;
         max-width: 70px !important;
-        font-size: 1.1em !important;
+        font-size: 0.9em !important;
         text-align: center;
     }
 
@@ -1123,14 +1234,28 @@ li:last-child {
 
 /* Very small screens */
 @media (max-width: 320px) {
+    :root {
+        --base-size-overview: 0.8em;
+        /* root: 0.7em */
+        --base-size-tense-table: 0.95em;
+        /* root: 0.95em */
+        --base-size-examples: 1.3em;
+        /* root: 1.2em */
+        --base-size-verb-header: 1.7em;
+        /* root: 1.7em */
+        --base-size-toc-items: 1.3em;
+        /* root: 1.3em */
+    }
+
     .main-content {
         margin: 0 !important;
-        padding: 10px 60px !important;
+        padding: 0px 60px !important;
         width: 100% !important;
         max-width: 100vw !important;
         overflow-x: hidden;
         box-sizing: border-box;
     }
+
 
     .verb-content-container {
         overflow-x: hidden;
@@ -1178,7 +1303,6 @@ li:last-child {
 
     .flat-overview {
         grid-template-columns: 70px repeat(6, 1fr);
-        font-size: 0.7em;
         min-width: 200px;
         max-width: 100%;
         overflow-x: auto;
@@ -1200,6 +1324,18 @@ li:last-child {
 
     .regular-table {
         min-width: 400px;
+    }
+
+    .flat-example {
+        padding: 10px;
+        gap: 6px !important;
+        margin-bottom: 8px;
+    }
+
+    .flat-example-georgian::before,
+    .flat-example-english::before {
+        font-size: 0.7em;
+        margin-bottom: 2px;
     }
 }
 
@@ -1387,7 +1523,7 @@ li:last-child {
 .main-content {
     margin: 0;
     background-color: var(--bg-secondary);
-    padding: 20px 60px;
+    padding: 10px 60px;
     /* Full viewport width */
     width: 100%;
     max-width: 100vw;
@@ -2040,7 +2176,7 @@ li:last-child {
 /* Flat overview grid */
 .flat-overview {
     display: grid;
-    grid-template-columns: 120px repeat(6, 1fr);
+    grid-template-columns: 90px repeat(6, 1fr);
     gap: 0;
     background: var(--bg-secondary);
     border-radius: var(--radius-sm);
@@ -2082,7 +2218,7 @@ li:last-child {
     padding: 12px 8px;
     text-align: center;
     font-weight: bold;
-    font-size: calc(var(--base-size-flat-small) * var(--font-scale-overview, 1.0));
+    font-size: 1em;
     min-width: min-content;
     max-width: none;
     overflow: visible;
@@ -2110,9 +2246,9 @@ li:last-child {
 
 .flat-overview-cell {
     background: var(--bg-secondary);
-    padding: 8px;
+    padding: 10px;
     text-align: center;
-    font-size: calc(var(--base-size-flat-small) * var(--font-scale-overview, 1.0));
+    font-size: 1em;
     min-width: min-content;
     max-width: none;
     overflow: visible;
@@ -2154,8 +2290,9 @@ li:last-child {
     border-radius: var(--radius-sm);
     text-align: center;
     font-weight: bold;
-    margin-bottom: 15px;
-    font-size: calc(var(--base-size-flat) * var(--font-scale-tense-table, 1.0));
+    margin-top: 5px;
+    margin-bottom: 10px;
+    font-size: calc(var(--base-size-tense-table) * var(--font-scale-tense-table, 1.0)) !important;
 }
 
 /* Flat conjugation grid - 3x2 layout (disabled) */
@@ -2189,7 +2326,7 @@ li:last-child {
     background: var(--bg-primary);
     padding: 8px;
     text-align: center;
-    font-size: calc(var(--base-size-flat-small) * var(--font-scale-tense-table, 1.0));
+    font-size: calc(var(--base-size-tense-table) * var(--font-scale-tense-table, 1.0)) !important;
     display: flex;
     flex-direction: column;
     gap: 4px;
@@ -2211,39 +2348,49 @@ li:last-child {
 /* Flat examples */
 .flat-examples {
     margin: 15px 0;
+    display: flex;
+    flex-direction: column;
+    gap: 0;
 }
 
 .flat-examples-header {
     background: var(--accent-primary);
     color: white;
-    padding: 8px 12px;
+    padding: 8px 18px;
     border-radius: var(--radius-sm);
     font-weight: bold;
+    margin-top: 5px;
     margin-bottom: 10px;
 }
 
 .flat-example {
     display: flex;
-    gap: 15px;
-    padding: 10px;
-    border-bottom: 1px solid var(--border-color);
-    align-items: flex-start;
+    flex-direction: column;
+    gap: 8px;
+    padding: 16px;
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius-md);
+    background: var(--bg-primary);
+    margin-bottom: 8px;
+    align-items: stretch;
 }
 
 .flat-example:last-child {
-    border-bottom: none;
+    margin-bottom: 0;
 }
 
 .flat-example-georgian {
-    flex: 1;
+    width: 100%;
     font-weight: bold;
     color: var(--accent-primary);
-    font-size: calc(var(--base-size-example) * var(--font-scale-examples, 1.0));
+    font-size: calc(var(--base-size-examples) * var(--font-scale-examples, 1.0)) !important;
+    line-height: 1.4;
 }
 
 .flat-example-english {
-    flex: 1;
+    width: 100%;
     color: var(--text-secondary);
+    line-height: 1.4;
 }
 
 /* Flat gloss */

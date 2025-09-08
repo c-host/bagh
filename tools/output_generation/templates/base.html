@@ -96,13 +96,29 @@
     <!-- Early URL anchor detection to prevent content flash -->
     <script>
         (function () {
-            // Check for URL anchor immediately to prevent static content flash
+            // Check for URL parameters immediately to prevent static content flash
             const urlParams = new URLSearchParams(window.location.search);
             const verbParam = urlParams.get('verb');
+            const idParam = urlParams.get('id');
             const hash = window.location.hash;
 
-            if (verbParam || (hash && hash.startsWith('#'))) {
-                const verbId = verbParam || hash.substring(1);
+            // Determine if we have a verb to load
+            let verbId = null;
+
+            // New format: ?verb=მიტანა&id=1
+            if (verbParam && idParam && !/^\d+$/.test(verbParam)) {
+                verbId = idParam;
+            }
+            // Legacy format: ?verb=1
+            else if (verbParam && /^\d+$/.test(verbParam)) {
+                verbId = verbParam;
+            }
+            // Hash format: #1
+            else if (hash && hash.startsWith('#')) {
+                verbId = hash.substring(1);
+            }
+
+            if (verbId) {
                 console.log('🔗 Early URL anchor detection:', verbId);
 
                 // Hide content immediately with CSS to prevent any flash

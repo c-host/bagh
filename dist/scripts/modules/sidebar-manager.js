@@ -5,6 +5,7 @@
 import { STORAGE_KEYS, ELEMENT_IDS } from '../shared/constants.js';
 import { storageManager } from '../shared/storage-manager.js';
 import { AnimationManager } from './animation-manager.js';
+import { updateVerbURL } from '../shared/url-utils.js';
 
 
 /**
@@ -30,6 +31,9 @@ export class SidebarManager {
 
         /** @type {boolean} Whether manager is initialized */
         this.initialized = false;
+
+        /** @type {boolean} Whether TOC has been populated */
+        this.tocPopulated = false;
 
         /** @type {Array} Event listeners for cleanup */
         this.eventListeners = [];
@@ -323,17 +327,22 @@ export class SidebarManager {
      * Populate table of contents using enhanced verb loader
      */
     async populateTableOfContents() {
-        const tocContainer = this.getCachedElement('.toc-content-container', 'tocContainer');
-        if (!tocContainer) return;
-
-        // Use enhanced verb loader if available
-        if (this.enhancedVerbLoader) {
-            await this.populateTocFromVerbLoader(tocContainer);
+        // Only populate once per session
+        if (this.tocPopulated) {
             return;
         }
 
-        // Fallback to original DOM parsing method
-        this.populateTocFromDOM(tocContainer);
+        const tocContainer = this.getCachedElement('.toc-content-container', 'tocContainer');
+        if (!tocContainer) return;
+
+        // Always use enhanced verb loader (no more DOM fallback)
+        if (this.enhancedVerbLoader) {
+            await this.populateTocFromVerbLoader(tocContainer);
+            this.tocPopulated = true;
+        } else {
+            console.error('Enhanced verb loader not available');
+            tocContainer.innerHTML = '<div class="error">Verb loader not available</div>';
+        }
     }
 
     /**
@@ -370,7 +379,6 @@ export class SidebarManager {
             // Add click handlers
             this.addTocClickHandlers();
 
-            console.log(`Populated TOC with ${verbIndex.verbs.length} verbs from verb loader`);
         } catch (error) {
             console.error('Error populating TOC from verb loader:', error);
             tocContainer.innerHTML = '<div class="error">Error loading verb list</div>';
@@ -385,7 +393,10 @@ export class SidebarManager {
         tocItems.forEach(item => {
             item.addEventListener('click', () => {
                 const verbId = item.getAttribute('data-verb-id');
-                if (this.enhancedVerbLoader && verbId) {
+                const georgianElement = item.querySelector('.verb-georgian');
+                const georgianWord = georgianElement ? georgianElement.textContent.trim() : null;
+
+                if (this.enhancedVerbLoader && verbId && georgianWord) {
                     // Remove active class from all items
                     document.querySelectorAll('.toc-item').forEach(tocItem => {
                         tocItem.classList.remove('active');
@@ -394,139 +405,27 @@ export class SidebarManager {
                     // Add active class to clicked item
                     item.classList.add('active');
 
-                    // Load the verb and update URL
-                    this.enhancedVerbLoader.loadVerbWithURLUpdate(verbId);
+                    // Update URL with Georgian word
+                    if (window.updateVerbURLWithGeorgian) {
+                        window.updateVerbURLWithGeorgian(georgianWord, verbId);
+                    }
+
+                    // Load verb using dynamic loader
+                    this.enhancedVerbLoader.loadVerb(verbId, false); // Don't update URL (already done above)
 
                     // Close sidebar
                     this.closeSidebar();
+                } else {
+                    console.error('Missing required data for verb navigation', {
+                        verbId,
+                        georgianWord,
+                        hasLoader: !!this.enhancedVerbLoader
+                    });
                 }
             });
         });
     }
 
-    /**
-     * Fallback method to populate TOC from DOM (original implementation)
-     */
-    populateTocFromDOM(tocContainer) {
-        const verbSections = this.getCachedElement('.verb-section', 'verbSections', true);
-        tocContainer.innerHTML = '';
-        this.allTocItems = []; // Reset the array
-
-        // Group verbs by category
-        const verbsByCategory = {};
-
-        verbSections.forEach((section, index) => {
-            // Extract basic data from the section
-            const semanticKey = section.getAttribute('data-semantic-key') || '';
-            const georgian = section.getAttribute('data-full-georgian') || '';
-            const category = section.getAttribute('data-category') || 'Unknown';
-            const sectionId = section.id;
-
-            // Extract description from the h2 element - clean up the text properly
-            const h2Element = section.querySelector('h2');
-            let description = '';
-            if (h2Element) {
-                // Get the text content and clean it up
-                let fullText = h2Element.textContent;
-                // Remove page number at the start
-                fullText = fullText.replace(/^\d+\s*/, '');
-                // Remove Georgian text and the dash
-                fullText = fullText.replace(/^[^\s-]*\s*-\s*/, '');
-                // Remove "↑ ToC" and "🔗" at the end
-                fullText = fullText.replace(/\s*↑\s*ToC\s*🔗\s*$/, '');
-                fullText = fullText.replace(/\s*🔗\s*$/, '');
-                description = fullText.trim();
-            }
-
-            // Group by category
-            if (!verbsByCategory[category]) {
-                verbsByCategory[category] = [];
-            }
-
-            verbsByCategory[category].push({
-                section,
-                semanticKey,
-                georgian,
-                category,
-                description,
-                sectionId
-            });
-        });
-
-        // Create organized TOC with category headers
-        Object.keys(verbsByCategory).sort().forEach(category => {
-            const categoryVerbs = verbsByCategory[category];
-
-            // Add category header
-            const categoryHeader = document.createElement('div');
-            categoryHeader.className = 'toc-category-header';
-            categoryHeader.innerHTML = `<h3>${category}</h3>`;
-            tocContainer.appendChild(categoryHeader);
-
-            // Create toc-list for this category's items
-            const tocList = document.createElement('div');
-            tocList.className = 'toc-list';
-
-            // Add verbs in this category
-            categoryVerbs.forEach((verb, verbIndex) => {
-                const tocItem = document.createElement('div');
-                tocItem.className = 'toc-item';
-                tocItem.setAttribute('data-semantic-key', verb.semanticKey);
-                tocItem.setAttribute('data-category', verb.category);
-                tocItem.innerHTML = `
-                    <div class="verb-georgian">${verb.georgian}</div>
-                    <div class="verb-description">${verb.description}</div>
-                `;
-
-                tocItem.addEventListener('click', function () {
-                    // Remove active class from all items
-                    document.querySelectorAll('.toc-item').forEach(item => {
-                        item.classList.remove('active');
-                    });
-
-                    // Add active class to clicked item
-                    tocItem.classList.add('active');
-
-                    // Navigate directly to the section
-                    if (verb.section) {
-                        // Ensure category is expanded
-                        const categoryContainer = this.findCategoryContainer(verb.category);
-                        if (categoryContainer) {
-                            this.expandCategoryIfCollapsed(categoryContainer);
-                        }
-
-                        // Close sidebar first
-                        this.closeSidebar();
-
-                        // Navigate to verb after a brief delay for smooth sidebar close
-                        setTimeout(() => {
-                            this.navigateToVerbSection(verb.section, verb.section.id, verb.georgian);
-                        }, 150);
-                    } else {
-                        console.error(`Verb "${verb.georgian}" not found`);
-                    }
-                }.bind(this));
-
-                tocList.appendChild(tocItem);
-                this.allTocItems.push(tocItem);
-            });
-
-            // Append the toc-list to the container
-            tocContainer.appendChild(tocList);
-        });
-
-        // Initialize filtered items
-        this.filteredItems = [...this.allTocItems];
-        this.currentSearchIndex = 0;
-        this.updateSearchSelection();
-
-        // Set the first item as active by default (only if no item is already active)
-        const firstItem = tocContainer.querySelector('.toc-item');
-        const hasActiveItem = tocContainer.querySelector('.toc-item.active');
-        if (firstItem && !hasActiveItem) {
-            firstItem.classList.add('active');
-        }
-    }
 
     /**
      * Filter table of contents - simplified without category filtering
@@ -747,15 +646,35 @@ export class SidebarManager {
      * Navigate to verb section with proper positioning
      */
     navigateToVerbSection(verbSection, primaryVerb, fullGeorgian) {
+        console.log('🔗 SidebarManager.navigateToVerbSection called:', {
+            verbSection: verbSection?.id,
+            primaryVerb,
+            fullGeorgian
+        });
+
         if (!verbSection) {
             console.error(`Verb "${fullGeorgian}" not found`);
             return false;
         }
 
+        // Extract verb ID from section ID (e.g., "verb-1" -> "1")
+        const verbId = verbSection.id.replace('verb-', '');
+        console.log('🔗 SidebarManager: Extracted verb ID:', verbId);
 
-        // Update URL with primary verb
-        if (window.updateURLWithAnchor) {
-            window.updateURLWithAnchor(primaryVerb);
+        // Update URL with new format: ?verb=მიტანა&id=1
+        console.log('🔗 SidebarManager: Checking for updateVerbURLWithGeorgian function');
+        if (window.updateVerbURLWithGeorgian) {
+            console.log('🔗 SidebarManager: Using updateVerbURLWithGeorgian');
+            window.updateVerbURLWithGeorgian(fullGeorgian, verbId);
+        } else {
+            // Fallback to legacy method
+            console.log('🔗 SidebarManager: updateVerbURLWithGeorgian not available, checking for updateURLWithAnchor');
+            if (window.updateURLWithAnchor) {
+                console.log('🔗 SidebarManager: Using updateURLWithAnchor fallback');
+                window.updateURLWithAnchor(verbId);
+            } else {
+                console.warn('🔗 SidebarManager: No URL update functions available');
+            }
         }
 
         // Use the same smooth fade-in approach as URL anchor loading

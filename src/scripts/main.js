@@ -14,6 +14,7 @@
 // Import shared modules
 import { DOMManager } from './shared/dom-manager.js';
 import { storageManager } from './shared/storage-manager.js';
+import { getVerbIdFromURL } from './shared/url-utils.js';
 
 // Import critical modules (needed immediately)
 import { ThemeManager } from './modules/theme-manager.js';
@@ -380,12 +381,12 @@ class App {
 
             // Load non-critical modules asynchronously
             this.loadNonCriticalModules().then(() => {
+                // Set up cross-module communication after non-critical modules are loaded
+                this.setupCrossModuleCommunication();
+
                 // Handle URL anchors after non-critical modules are loaded
                 this.handleInitialURLAnchor();
             });
-
-            // Set up cross-module communication
-            this.setupCrossModuleCommunication();
 
             this.initialized = true;
 
@@ -446,23 +447,8 @@ class App {
      * @returns {string|null} Verb ID or null if not found
      */
     getVerbIdFromURL() {
-        // Check URL hash first (e.g., #verb123)
-        const hash = window.location.hash;
-        if (hash && hash.startsWith('#')) {
-            const verbId = hash.substring(1);
-            if (verbId) {
-                return verbId;
-            }
-        }
-
-        // Check URL query parameter (e.g., ?verb=verb123)
-        const urlParams = new URLSearchParams(window.location.search);
-        const verbParam = urlParams.get('verb');
-        if (verbParam) {
-            return verbParam;
-        }
-
-        return null;
+        // Use the centralized URL utility function
+        return getVerbIdFromURL();
     }
 
     /**

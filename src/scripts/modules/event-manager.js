@@ -5,6 +5,8 @@
  * and provides a centralized event system for communication between modules.
  */
 
+import { updateVerbURL, updateLegacyVerbURL, updateHashURL, getVerbIdFromURL } from '../shared/url-utils.js';
+
 /**
  * Manages global events, keyboard shortcuts, and cross-module communication
  */
@@ -67,9 +69,14 @@ export class EventManager {
             this.handleLinkIconClick(anchorId);
         };
 
-        // Global URL update handler
+        // Global URL update handler (legacy)
         window.updateURLWithAnchor = (anchorId) => {
             this.updateURLWithAnchor(anchorId);
+        };
+
+        // Global URL update handler with Georgian word
+        window.updateVerbURLWithGeorgian = (georgianWord, verbId) => {
+            this.updateVerbURLWithGeorgian(georgianWord, verbId);
         };
 
         // Global copy to clipboard handler
@@ -81,6 +88,7 @@ export class EventManager {
         this.eventListeners.set('global', {
             handleLinkIconClick: window.handleLinkIconClick,
             updateURLWithAnchor: window.updateURLWithAnchor,
+            updateVerbURLWithGeorgian: window.updateVerbURLWithGeorgian,
             copyToClipboard: window.copyToClipboard
         });
     }
@@ -279,8 +287,8 @@ export class EventManager {
             return;
         }
 
-        if (this.managers.notepadManager?.isInitialized() && this.managers.notepadManager.isOpen) {
-            this.managers.notepadManager.closeNotepad();
+        if (this.app.notepadManager?.isInitialized() && this.app.notepadManager.isOpen) {
+            this.app.notepadManager.closeNotepad();
             return;
         }
 
@@ -341,18 +349,50 @@ export class EventManager {
     }
 
     /**
-     * Update URL with anchor
+     * Update URL with anchor (legacy method for backward compatibility)
      * @param {string} anchorId - Anchor ID
      */
     updateURLWithAnchor(anchorId) {
         try {
-            const newUrl = `${window.location.pathname}#${encodeURIComponent(anchorId)}`;
-            window.history.pushState({}, '', newUrl);
+            // Try to extract Georgian word from the verb section
+            const verbSection = document.getElementById(`verb-${anchorId}`);
+
+            if (verbSection) {
+                const georgianElement = verbSection.querySelector('.verb-georgian');
+                const georgianWord = georgianElement ? georgianElement.textContent.trim() : null;
+
+                if (georgianWord) {
+                    // Use new URL format if Georgian word is available
+                    updateVerbURL(georgianWord, anchorId);
+                } else {
+                    // Fallback to hash format
+                    updateHashURL(anchorId);
+                }
+            } else {
+                // Fallback to hash format
+                updateHashURL(anchorId);
+            }
 
             // Trigger URL change event
             this.handleURLChange();
         } catch (error) {
-            // Failed to update URL
+            console.error('Failed to update URL:', error);
+        }
+    }
+
+    /**
+     * Update URL with Georgian word and verb ID (new method)
+     * @param {string} georgianWord - Georgian verb word
+     * @param {string|number} verbId - Numeric verb ID
+     */
+    updateVerbURLWithGeorgian(georgianWord, verbId) {
+        try {
+            updateVerbURL(georgianWord, verbId);
+
+            // Trigger URL change event
+            this.handleURLChange();
+        } catch (error) {
+            console.error('Failed to update URL:', error);
         }
     }
 
@@ -478,6 +518,9 @@ export class EventManager {
         }
         if (window.updateURLWithAnchor) {
             delete window.updateURLWithAnchor;
+        }
+        if (window.updateVerbURLWithGeorgian) {
+            delete window.updateVerbURLWithGeorgian;
         }
         if (window.copyToClipboard) {
             delete window.copyToClipboard;

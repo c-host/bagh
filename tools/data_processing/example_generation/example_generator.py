@@ -255,7 +255,7 @@ class ExampleGenerator:
             georgian_components = {}
             english_components = {}
 
-            # Add subject if needed and available
+            # Add subject if needed and available (SOV order: Subject first)
             if "subject" in arguments and self._should_include_subject(person):
                 georgian_text, georgian_component, english_component = (
                     self._build_component(
@@ -286,17 +286,7 @@ class ExampleGenerator:
                     "person": person,
                 }
 
-            # Add the verb form
-            georgian_text, georgian_component, english_component = (
-                self._build_verb_component(
-                    tense, person, georgian_verb_form, verb_data, effective_preverb
-                )
-            )
-            georgian_parts.append(georgian_text)
-            georgian_components["verb"] = georgian_component
-            english_components["verb"] = english_component
-
-            # Add direct object if available
+            # Add direct object if available (SOV order: Direct Object second)
             if "direct_object" in arguments:
                 georgian_text, georgian_component, english_component = (
                     self._build_component(
@@ -315,7 +305,7 @@ class ExampleGenerator:
                 georgian_components["direct_object"] = georgian_component
                 english_components["direct_object"] = english_component
 
-            # Add indirect object if available
+            # Add indirect object if available (SOV order: Indirect Object third)
             if "indirect_object" in arguments:
                 georgian_text, georgian_component, english_component = (
                     self._build_component(
@@ -333,6 +323,16 @@ class ExampleGenerator:
                 georgian_parts.append(georgian_text)
                 georgian_components["indirect_object"] = georgian_component
                 english_components["indirect_object"] = english_component
+
+            # Add the verb form (SOV order: Verb last)
+            georgian_text, georgian_component, english_component = (
+                self._build_verb_component(
+                    tense, person, georgian_verb_form, verb_data, effective_preverb
+                )
+            )
+            georgian_parts.append(georgian_text)
+            georgian_components["verb"] = georgian_component
+            english_components["verb"] = english_component
 
             # Combine all parts
             georgian_sentence = " ".join(georgian_parts)

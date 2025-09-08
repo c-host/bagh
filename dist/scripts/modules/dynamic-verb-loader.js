@@ -10,6 +10,7 @@
  */
 
 import { AnimationManager } from './animation-manager.js';
+import { updateVerbURL, updateLegacyVerbURL, getVerbIdFromURL } from '../shared/url-utils.js';
 
 class DynamicVerbLoader {
     constructor() {
@@ -126,21 +127,27 @@ class DynamicVerbLoader {
 
     /**
      * Load a verb and update URL (for user interactions)
+     * @param {string|number} verbId - Verb ID
+     * @param {string} georgianWord - Georgian word (optional)
+     * @deprecated Use loadVerb() directly - URL updates are now handled by sidebar
      */
-    async loadVerbWithURLUpdate(verbId) {
-        return await this.loadVerb(verbId, true);
+    async loadVerbWithURLUpdate(verbId, georgianWord = null) {
+        // Just load the verb without URL update (sidebar handles URL updates now)
+        return await this.loadVerb(verbId, false);
     }
 
     /**
      * Update current verb
+     * @param {string|number} verbId - Verb ID
+     * @param {string} georgianWord - Georgian word (optional)
+     * @deprecated URL updates are now handled by sidebar - this method only tracks current verb
      */
-    updateCurrentVerb(verbId) {
+    updateCurrentVerb(verbId, georgianWord = null) {
+        // Just track the current verb ID - URL updates are handled by sidebar
         this.currentVerbId = verbId;
 
-        // Update URL (optional)
-        if (history.pushState) {
-            history.pushState({ verbId }, '', `?verb=${verbId}`);
-        }
+        // Clear any pending Georgian word
+        this.pendingGeorgianWord = null;
     }
 
     /**
@@ -795,23 +802,8 @@ class DynamicVerbLoader {
      * Get verb ID from URL hash or query parameter
      */
     getVerbIdFromURL() {
-        // Check URL hash first (e.g., #verb123)
-        const hash = window.location.hash;
-        if (hash && hash.startsWith('#')) {
-            const verbId = hash.substring(1);
-            if (verbId) {
-                return verbId;
-            }
-        }
-
-        // Check URL query parameter (e.g., ?verb=verb123)
-        const urlParams = new URLSearchParams(window.location.search);
-        const verbParam = urlParams.get('verb');
-        if (verbParam) {
-            return verbParam;
-        }
-
-        return null;
+        // Use the centralized URL utility function
+        return getVerbIdFromURL();
     }
 
     /**

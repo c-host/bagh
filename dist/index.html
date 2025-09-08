@@ -89,20 +89,36 @@
             // Show content quickly
             setTimeout(() => {
                 document.documentElement.style.visibility = 'visible';
-            }, 20);
+            }, 25);
         })();
     </script>
 
     <!-- Early URL anchor detection to prevent content flash -->
     <script>
         (function () {
-            // Check for URL anchor immediately to prevent static content flash
+            // Check for URL parameters immediately to prevent static content flash
             const urlParams = new URLSearchParams(window.location.search);
             const verbParam = urlParams.get('verb');
+            const idParam = urlParams.get('id');
             const hash = window.location.hash;
 
-            if (verbParam || (hash && hash.startsWith('#'))) {
-                const verbId = verbParam || hash.substring(1);
+            // Determine if we have a verb to load
+            let verbId = null;
+
+            // New format: ?verb=მიტანა&id=1
+            if (verbParam && idParam && !/^\d+$/.test(verbParam)) {
+                verbId = idParam;
+            }
+            // Legacy format: ?verb=1
+            else if (verbParam && /^\d+$/.test(verbParam)) {
+                verbId = verbParam;
+            }
+            // Hash format: #1
+            else if (hash && hash.startsWith('#')) {
+                verbId = hash.substring(1);
+            }
+
+            if (verbId) {
                 console.log('🔗 Early URL anchor detection:', verbId);
 
                 // Hide content immediately with CSS to prevent any flash
@@ -285,7 +301,7 @@
 
                     <a href="#გაგზავნა" class="toc-link">
 
-                        <span class="georgian-text">გაგზავნა</span> - to send
+                        <span class="georgian-text">გაგზავნა</span> - To Send
 
                         </a>
 
@@ -565,7 +581,7 @@
 
                     <a href="#მისვლა" class="toc-link">
 
-                        <span class="georgian-text">მისვლა / მოსვლა / გასვლა / წასვლა</span> - Movement Verbs
+                        <span class="georgian-text">მისვლა / მოსვლა / გასვლა / წასვლა</span> - To Go (Movement Verbs)
 
                         </a>
 
@@ -635,7 +651,7 @@
 
                     <a href="#ქონა" class="toc-link">
 
-                        <span class="georgian-text">ქონა</span> - To Have (inanimate objects only)
+                        <span class="georgian-text">ქონა</span> - To Have (Inanimate Objects)
 
                         </a>
 
@@ -691,7 +707,7 @@
 
                     <a href="#პასუხი" class="toc-link">
 
-                        <span class="georgian-text">პასუხი</span> - to answer
+                        <span class="georgian-text">პასუხი</span> - To Answer
 
                         </a>
 
@@ -1027,7 +1043,7 @@
 
                     <a href="#დანახვა" class="toc-link">
 
-                        <span class="georgian-text">დანახვა</span> - To see
+                        <span class="georgian-text">დანახვა</span> - To See
 
                         </a>
 
@@ -1055,7 +1071,7 @@
 
                     <a href="#ცურვა" class="toc-link">
 
-                        <span class="georgian-text">ცურვა</span> - To swim
+                        <span class="georgian-text">ცურვა</span> - To Swim
 
                         </a>
 
@@ -1069,7 +1085,7 @@
 
                     <a href="#დაბანვა" class="toc-link">
 
-                        <span class="georgian-text">დაბანვა</span> - To bath
+                        <span class="georgian-text">დაბანვა</span> - To Bath
 
                         </a>
 
@@ -1083,7 +1099,7 @@
 
                     <a href="#თამაში" class="toc-link">
 
-                        <span class="georgian-text">თამაში</span> - To play
+                        <span class="georgian-text">თამაში</span> - To Play
 
                         </a>
 
@@ -1097,7 +1113,7 @@
 
                     <a href="#ჭამა" class="toc-link">
 
-                        <span class="georgian-text">ჭამა</span> - To eat
+                        <span class="georgian-text">ჭამა</span> - To Eat
 
                         </a>
 
@@ -1111,7 +1127,7 @@
 
                     <a href="#თხოვნა" class="toc-link">
 
-                        <span class="georgian-text">თხოვნა</span> - To ask
+                        <span class="georgian-text">თხოვნა</span> - To Ask
 
                         </a>
 
@@ -1125,7 +1141,7 @@
 
                     <a href="#ბრძოლა" class="toc-link">
 
-                        <span class="georgian-text">ბრძოლა</span> - To fight
+                        <span class="georgian-text">ბრძოლა</span> - To Fight
 
                         </a>
 
@@ -1139,7 +1155,7 @@
 
                     <a href="#პოვნა" class="toc-link">
 
-                        <span class="georgian-text">პოვნა</span> - To find
+                        <span class="georgian-text">პოვნა</span> - To Find
 
                         </a>
 
@@ -1153,7 +1169,7 @@
 
                     <a href="#შრომა" class="toc-link">
 
-                        <span class="georgian-text">შრომა</span> - To labor
+                        <span class="georgian-text">შრომა</span> - To Labor
 
                         </a>
 
@@ -1167,7 +1183,7 @@
 
                     <a href="#მოყვანა" class="toc-link">
 
-                        <span class="georgian-text">მოყვანა</span> - To bring
+                        <span class="georgian-text">მოყვანა</span> - To Bring
 
                         </a>
 
@@ -1181,7 +1197,7 @@
 
                     <a href="#რბენა" class="toc-link">
 
-                        <span class="georgian-text">რბენა</span> - To run
+                        <span class="georgian-text">რბენა</span> - To Run
 
                         </a>
 
@@ -1195,7 +1211,7 @@
 
                     <a href="#მიწვევა" class="toc-link">
 
-                        <span class="georgian-text">მიწვევა</span> - to invite
+                        <span class="georgian-text">მიწვევა</span> - To Invite
 
                         </a>
 
