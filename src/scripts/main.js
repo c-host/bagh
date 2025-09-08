@@ -318,7 +318,7 @@ class App {
 
             // Update Sidebar Manager with verb loader reference
             if (this.sidebarManager) {
-                this.sidebarManager.enhancedVerbLoader = this.enhancedVerbLoader;
+                this.sidebarManager.setEnhancedVerbLoader(this.enhancedVerbLoader);
             }
 
             // Initialize Preverb Manager
@@ -373,14 +373,14 @@ class App {
                 throw new Error('Failed to initialize Font Manager');
             }
 
-            // Initialize Event Manager (critical for user interactions)
-            this.eventManager = new EventManager(this);
-            if (!(await this.eventManager.initialize())) {
-                throw new Error('Failed to initialize Event Manager');
-            }
-
             // Load non-critical modules asynchronously
-            this.loadNonCriticalModules().then(() => {
+            this.loadNonCriticalModules().then(async () => {
+                // Initialize Event Manager after non-critical modules are loaded
+                this.eventManager = new EventManager(this);
+                if (!(await this.eventManager.initialize())) {
+                    throw new Error('Failed to initialize Event Manager');
+                }
+
                 // Set up cross-module communication after non-critical modules are loaded
                 this.setupCrossModuleCommunication();
 
@@ -647,6 +647,11 @@ class App {
      * Set up cross-module communication
      */
     setupCrossModuleCommunication() {
+        // Make sidebarManager available globally for welcome link
+        if (this.sidebarManager) {
+            window.sidebarManager = this.sidebarManager;
+        }
+
         // Theme changes should update notepad font
         if (this.themeManager && this.notepadManager) {
             // Listen for theme changes and update notepad accordingly

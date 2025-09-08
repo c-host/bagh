@@ -1882,6 +1882,7 @@ class HTMLGenerator:
                 <div class="welcome-header">
                     <h1>Georgian Verb Conjugations</h1>
                     <p>Select a verb from the sidebar to view conjugations, examples, and gloss analysis.</p>
+                    <p><a href="#" onclick="window.sidebarManager?.openSidebar(); return false;" class="welcome-link">Click here to browse verbs</a> or use <kbd>Ctrl+B</kbd> to open the sidebar.</p>
                 </div>
             </div>
         """

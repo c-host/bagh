@@ -134,6 +134,19 @@ export class EventManager {
             handler: () => this.focusSearch()
         });
 
+        // Sidebar toggle: Ctrl/Cmd + B
+        this.keyboardShortcuts.set('sidebar-toggle', {
+            key: 'b',
+            ctrlKey: true,
+            handler: () => {
+                if (this.managers.sidebarManager?.isInitialized()) {
+                    this.managers.sidebarManager.openSidebar();
+                } else {
+                    console.warn('Sidebar manager not available for keyboard shortcut');
+                }
+            }
+        });
+
 
 
         // Add keyboard event listener

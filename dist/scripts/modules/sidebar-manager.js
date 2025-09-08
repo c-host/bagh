@@ -6,6 +6,7 @@ import { STORAGE_KEYS, ELEMENT_IDS } from '../shared/constants.js';
 import { storageManager } from '../shared/storage-manager.js';
 import { AnimationManager } from './animation-manager.js';
 import { updateVerbURL } from '../shared/url-utils.js';
+import { ConjugationSearchManager } from './conjugation-search-manager.js';
 
 
 /**
@@ -19,6 +20,33 @@ export class SidebarManager {
 
         /** @type {Object} Enhanced Dynamic Verb Loader instance */
         this.enhancedVerbLoader = enhancedVerbLoader;
+
+        /** @type {Object} Conjugation Search Manager instance */
+        this.conjugationSearchManager = null;
+
+        /** @type {string} Current search mode: 'basic' or 'conjugation' */
+        this.searchMode = 'basic';
+
+        /** @type {boolean} Whether conjugation search is available */
+        this.conjugationSearchAvailable = false;
+
+        /** @type {number} Search debounce timeout ID */
+        this.searchDebounceTimeout = null;
+
+        /** @type {number} Search debounce delay in milliseconds */
+        this.searchDebounceDelay = 500;
+
+        /** @type {number} Number of results to show initially */
+        this.initialResultsLimit = 15;
+
+        /** @type {number} Number of results to load per batch */
+        this.batchSize = 10;
+
+        /** @type {Array} Current search results for progressive loading */
+        this.currentSearchResults = [];
+
+        /** @type {number} Number of results currently displayed */
+        this.displayedResultsCount = 0;
 
         /** @type {Array} Table of contents items */
         this.allTocItems = [];
@@ -78,6 +106,7 @@ export class SidebarManager {
             this.loadSavedState();
             this.setupEventListeners();
             this.setupScrollHandler();
+            // Don't initialize conjugation search here - it will be initialized when enhanced verb loader is available
             this.initialized = true;
             return true;
         } catch (error) {
@@ -120,6 +149,27 @@ export class SidebarManager {
 
 
     /**
+     * Open sidebar modal (public method for keyboard shortcuts and external calls)
+     */
+    async openSidebar() {
+        if (!this.elements?.sidebarModal) {
+            console.warn('Sidebar elements not available');
+            return;
+        }
+
+        // Populate TOC first, then show sidebar to prevent flicker
+        await this.populateTableOfContents();
+        this.elements.sidebarModal.classList.add('active');
+
+        // Focus search input after modal animation completes
+        setTimeout(() => {
+            if (this.elements.searchInput) {
+                this.elements.searchInput.focus();
+            }
+        }, 300); // Match modal animation duration
+    }
+
+    /**
      * Set up event listeners for sidebar functionality
      */
     setupEventListeners() {
@@ -130,7 +180,12 @@ export class SidebarManager {
         const searchInput = this.domManager.getElement(ELEMENT_IDS.SEARCH_INPUT);
 
         if (!sidebarToggle || !sidebarModal || !sidebarOverlay || !sidebarClose) {
-            console.warn('Sidebar elements not found');
+            console.warn('Sidebar elements not found:', {
+                sidebarToggle: !!sidebarToggle,
+                sidebarModal: !!sidebarModal,
+                sidebarOverlay: !!sidebarOverlay,
+                sidebarClose: !!sidebarClose
+            });
             return;
         }
 
@@ -145,9 +200,7 @@ export class SidebarManager {
 
         // Toggle sidebar
         const toggleSidebar = async () => {
-            // Populate TOC first, then show sidebar to prevent flicker
-            await this.populateTableOfContents();
-            sidebarModal.classList.add('active');
+            await this.openSidebar();
         };
 
         // Close sidebar
@@ -155,10 +208,27 @@ export class SidebarManager {
             sidebarModal.classList.remove('active');
         };
 
-        // Handle search input
+        // Handle search input with debouncing
         const handleSearchInput = (e) => {
-            this.filterTableOfContents(e.target.value);
+            const searchTerm = e.target.value;
+
+            // Clear existing timeout
+            if (this.searchDebounceTimeout) {
+                clearTimeout(this.searchDebounceTimeout);
+            }
+
+            // Update clear button visibility immediately
             this.updateClearButtonVisibility();
+
+            // Show searching indicator for longer searches (conjugation mode only)
+            if (searchTerm.trim().length > 2 && this.searchMode === 'conjugation') {
+                this.showSearchingIndicator();
+            }
+
+            // Debounce the actual search
+            this.searchDebounceTimeout = setTimeout(() => {
+                this.filterTableOfContents(searchTerm);
+            }, this.searchDebounceDelay);
         };
 
         // Handle clear button click
@@ -173,10 +243,13 @@ export class SidebarManager {
         searchInput.addEventListener('input', handleSearchInput);
 
         // Add clear button event listener
-        const searchClearButton = this.domManager.getElement('search-clear');
+        const searchClearButton = this.domManager.getElement(ELEMENT_IDS.SEARCH_CLEAR);
         if (searchClearButton) {
             searchClearButton.addEventListener('click', handleClearButton);
         }
+
+        // Add search mode toggle event listeners
+        this.setupSearchModeToggle();
 
         // Set up keyboard navigation
         this.setupKeyboardNavigation();
@@ -290,6 +363,56 @@ export class SidebarManager {
         // Add mobile-specific scroll optimizations
         if (this.isMobile) {
             this.setupMobileScrollOptimizations();
+        }
+    }
+
+    /**
+     * Initialize conjugation search functionality when enhanced verb loader becomes available
+     */
+    async initializeConjugationSearch() {
+        if (!this.enhancedVerbLoader) {
+            console.warn('Enhanced verb loader not available for conjugation search');
+            return;
+        }
+
+        try {
+            // Create conjugation search manager
+            this.conjugationSearchManager = new ConjugationSearchManager(this.enhancedVerbLoader);
+
+            // Build search index in background
+            this.buildConjugationSearchIndex();
+
+        } catch (error) {
+            console.error('Failed to initialize conjugation search:', error);
+        }
+    }
+
+    /**
+     * Set enhanced verb loader and initialize conjugation search if not already done
+     */
+    setEnhancedVerbLoader(verbLoader) {
+        this.enhancedVerbLoader = verbLoader;
+
+        // Initialize conjugation search now that we have the verb loader
+        if (!this.conjugationSearchManager) {
+            this.initializeConjugationSearch();
+        }
+    }
+
+    /**
+     * Build conjugation search index in background
+     */
+    async buildConjugationSearchIndex() {
+        if (!this.conjugationSearchManager) return;
+
+        try {
+            const success = await this.conjugationSearchManager.buildSearchIndex();
+            if (success) {
+                this.conjugationSearchAvailable = true;
+                this.updateSearchModeUI();
+            }
+        } catch (error) {
+            console.error('Failed to build conjugation search index:', error);
         }
     }
 
@@ -483,8 +606,20 @@ export class SidebarManager {
             await this.populateTocFromVerbLoader(tocContainer);
             this.tocPopulated = true;
         } else {
-            console.error('Enhanced verb loader not available');
-            tocContainer.innerHTML = '<div class="error">Verb loader not available</div>';
+            // Show loading animation instead of error message
+            tocContainer.innerHTML = `
+                <div class="loading-container">
+                    <div class="loading-spinner"></div>
+                    <div class="loading-text">Loading verbs...</div>
+                </div>
+            `;
+
+            // Retry after a short delay
+            setTimeout(() => {
+                if (this.enhancedVerbLoader) {
+                    this.populateTableOfContents();
+                }
+            }, 1000);
         }
     }
 
@@ -572,10 +707,20 @@ export class SidebarManager {
 
 
     /**
-     * Filter table of contents - simplified without category filtering
-     * @deprecated TODO: Remove this method - category and class filtering has been removed
+     * Filter table of contents based on search mode
      */
     filterTableOfContents(searchTerm) {
+        if (this.searchMode === 'conjugation' && this.conjugationSearchAvailable) {
+            this.filterConjugationSearch(searchTerm);
+        } else {
+            this.filterBasicSearch(searchTerm);
+        }
+    }
+
+    /**
+     * Filter using basic search (original functionality)
+     */
+    filterBasicSearch(searchTerm) {
         const searchLower = searchTerm.toLowerCase();
         let visibleCount = 0;
         this.filteredItems = [];
@@ -679,6 +824,292 @@ export class SidebarManager {
     }
 
     /**
+     * Filter using conjugation search
+     */
+    filterConjugationSearch(searchTerm) {
+        if (!this.conjugationSearchManager || !this.conjugationSearchManager.isIndexReady()) {
+            // Show loading state if conjugation search not ready
+            const tocContainer = this.getCachedElement('.toc-content-container', 'tocContainer');
+            if (tocContainer) {
+                tocContainer.innerHTML = `
+                    <div class="loading-container">
+                        <div class="loading-spinner"></div>
+                        <div class="loading-text">Building search index...</div>
+                    </div>
+                `;
+            }
+            return;
+        }
+
+        const tocContainer = this.getCachedElement('.toc-content-container', 'tocContainer');
+        if (!tocContainer) return;
+
+        // Clear existing content
+        tocContainer.innerHTML = '';
+
+        if (!searchTerm.trim()) {
+            // Show all verbs if no search term
+            this.showAllVerbsInToc(tocContainer);
+            return;
+        }
+
+        // Search conjugation forms
+        const results = this.conjugationSearchManager.searchConjugations(searchTerm);
+
+        if (results.length === 0) {
+            // Show no results message
+            const noResultsMsg = document.createElement('div');
+            noResultsMsg.className = 'no-results';
+            noResultsMsg.innerHTML = `
+                <div class="no-results-title">No conjugation forms found</div>
+                <div class="no-results-subtitle">Try searching for a different Georgian verb form</div>
+            `;
+            tocContainer.appendChild(noResultsMsg);
+            return;
+        }
+
+        // Store all results for progressive loading
+        this.currentSearchResults = results;
+        this.displayedResultsCount = 0;
+
+        // Group results by verb
+        const verbGroups = this.groupConjugationResults(results);
+
+        // Display initial batch of results
+        const initialBatch = verbGroups.slice(0, this.initialResultsLimit);
+        this.displayConjugationResults(tocContainer, initialBatch, searchTerm);
+        this.displayedResultsCount = initialBatch.length;
+
+        // Add "Load More" button if there are more results
+        if (verbGroups.length > this.initialResultsLimit) {
+            this.addLoadMoreButton(tocContainer);
+        }
+    }
+
+    /**
+     * Group conjugation search results by verb
+     */
+    groupConjugationResults(results) {
+        const groups = new Map();
+
+        results.forEach(result => {
+            const key = result.verbId;
+            if (!groups.has(key)) {
+                groups.set(key, {
+                    verb: result,
+                    matches: []
+                });
+            }
+            groups.get(key).matches.push(result);
+        });
+
+        return Array.from(groups.values());
+    }
+
+    /**
+     * Display conjugation search results
+     */
+    displayConjugationResults(container, verbGroups, searchTerm) {
+        verbGroups.forEach(group => {
+            const verb = group.verb;
+            const matches = group.matches;
+
+            // Create verb item
+            const verbItem = document.createElement('div');
+            verbItem.className = 'toc-item conjugation-search-result';
+            verbItem.setAttribute('data-verb-id', verb.verbId);
+            verbItem.setAttribute('data-semantic-key', verb.semanticKey);
+
+            // Create verb title
+            const verbTitle = document.createElement('div');
+            verbTitle.className = 'verb-title';
+            verbTitle.innerHTML = `
+                <div class="verb-georgian georgian-text">${verb.verbTitle}</div>
+                <div class="verb-description">${verb.verbDescription}</div>
+            `;
+
+            // Create matches list
+            const matchesList = document.createElement('div');
+            matchesList.className = 'conjugation-matches';
+
+            matches.forEach(match => {
+                const matchItem = document.createElement('div');
+                matchItem.className = 'conjugation-match';
+
+                const contextString = this.conjugationSearchManager.getContextString(match);
+
+                // Create emphasized text for the matched form
+                const matchPositions = this.conjugationSearchManager.findMatchPositions(searchTerm, match.form);
+                const emphasizedForm = this.conjugationSearchManager.createEmphasizedText(match.form, matchPositions);
+
+                matchItem.innerHTML = `
+                    <div class="verb-info">
+                        <div class="matched-form georgian-text">${emphasizedForm}</div>
+                    </div>
+                    <div class="context-info">
+                        <div class="match-context">${contextString}</div>
+                    </div>
+                `;
+
+                matchesList.appendChild(matchItem);
+            });
+
+            verbItem.appendChild(verbTitle);
+            verbItem.appendChild(matchesList);
+            container.appendChild(verbItem);
+        });
+
+        // Add click handlers
+        this.addTocClickHandlers();
+    }
+
+    /**
+     * Show all verbs in TOC (when no search term)
+     */
+    showAllVerbsInToc(container) {
+        if (this.enhancedVerbLoader && this.enhancedVerbLoader.getVerbIndex()) {
+            this.populateTocFromVerbLoader(container);
+        }
+    }
+
+    /**
+     * Set up search mode toggle event listeners
+     */
+    setupSearchModeToggle() {
+        const toggleContainer = document.getElementById('search-mode-toggle');
+        if (!toggleContainer) return;
+
+        const buttons = toggleContainer.querySelectorAll('.search-mode-button');
+
+        buttons.forEach(button => {
+            button.addEventListener('click', () => {
+                const mode = button.getAttribute('data-mode');
+                this.setSearchMode(mode);
+            });
+        });
+    }
+
+    /**
+     * Reset search state when switching modes
+     */
+    resetSearchState() {
+        // Clear search input
+        const searchInput = this.domManager.getElement(ELEMENT_IDS.SEARCH_INPUT);
+        if (searchInput) {
+            searchInput.value = '';
+        }
+
+        // Clear debounce timeout
+        if (this.searchDebounceTimeout) {
+            clearTimeout(this.searchDebounceTimeout);
+            this.searchDebounceTimeout = null;
+        }
+
+        // Reset progressive loading state
+        this.currentSearchResults = [];
+        this.displayedResultsCount = 0;
+
+        // Reset search selection
+        this.currentSearchIndex = -1;
+        this.filteredItems = [];
+    }
+
+    /**
+     * Set search mode
+     */
+    setSearchMode(mode) {
+        if (!this.conjugationSearchAvailable && mode === 'conjugation') {
+            return;
+        }
+
+        this.searchMode = mode;
+
+        // Reset search state when switching modes
+        this.resetSearchState();
+
+        // Update button states
+        const toggleContainer = document.getElementById('search-mode-toggle');
+        if (toggleContainer) {
+            const buttons = toggleContainer.querySelectorAll('.search-mode-button');
+            buttons.forEach(btn => {
+                btn.classList.remove('active');
+                if (btn.getAttribute('data-mode') === mode) {
+                    btn.classList.add('active');
+                }
+            });
+        }
+
+        // Update search input placeholder
+        const searchInput = this.domManager.getElement(ELEMENT_IDS.SEARCH_INPUT);
+        if (searchInput) {
+            if (mode === 'conjugation') {
+                searchInput.placeholder = 'Search conjugation forms...';
+                searchInput.title = 'Search for any Georgian verb form. Use ↑↓ arrows to navigate, Enter to select';
+            } else {
+                searchInput.placeholder = 'Search verbs...';
+                searchInput.title = 'Search by Georgian or English name. Use ↑↓ arrows to navigate, Enter to select';
+            }
+        }
+
+        // Restore appropriate content for the mode
+        if (mode === 'basic') {
+            // Show all verbs when switching to basic mode
+            const tocContainer = this.getCachedElement('.toc-content-container', 'tocContainer');
+            if (tocContainer) {
+                this.showAllVerbsInToc(tocContainer);
+            }
+        } else {
+            // Clear conjugation results - user needs to search
+            const tocContainer = this.getCachedElement('.toc-content-container', 'tocContainer');
+            if (tocContainer) {
+                tocContainer.innerHTML = '';
+            }
+        }
+    }
+
+    /**
+     * Update search mode UI
+     */
+    updateSearchModeUI() {
+        const toggleContainer = document.getElementById('search-mode-toggle');
+        if (toggleContainer && this.conjugationSearchAvailable) {
+            toggleContainer.style.display = 'flex';
+        }
+    }
+
+    /**
+     * Toggle search mode between basic and conjugation
+     */
+    toggleSearchMode() {
+        if (!this.conjugationSearchAvailable) {
+            return;
+        }
+
+        this.searchMode = this.searchMode === 'basic' ? 'conjugation' : 'basic';
+
+        // Reset search state when switching modes
+        this.resetSearchState();
+
+        // Update UI
+        this.updateSearchModeUI();
+
+        // Restore appropriate content for the mode
+        if (this.searchMode === 'basic') {
+            // Show all verbs when switching to basic mode
+            const tocContainer = this.getCachedElement('.toc-content-container', 'tocContainer');
+            if (tocContainer) {
+                this.showAllVerbsInToc(tocContainer);
+            }
+        } else {
+            // Clear conjugation results - user needs to search
+            const tocContainer = this.getCachedElement('.toc-content-container', 'tocContainer');
+            if (tocContainer) {
+                tocContainer.innerHTML = '';
+            }
+        }
+    }
+
+    /**
      * Update search selection highlighting
      */
     updateSearchSelection() {
@@ -766,39 +1197,11 @@ export class SidebarManager {
         }
     }
 
-    /**
-     * Find category container by category name
-     * @deprecated TODO: Remove this method - category-based organization has been removed
-     */
-    findCategoryContainer(category) {
-        return document.querySelector(`.category-container[data-category="${category}"]`);
-    }
-
-    /**
-     * Expand category if it's collapsed
-     * @deprecated TODO: Remove this method - category-based organization has been removed
-     */
-    expandCategoryIfCollapsed(categoryContainer) {
-        const content = categoryContainer.querySelector('.category-content');
-        const header = categoryContainer.querySelector('.collapsible-header');
-
-        if (content && content.classList.contains('collapsed')) {
-            // Expand the category
-            content.classList.remove('collapsed');
-            header.classList.remove('collapsed');
-        }
-    }
 
     /**
      * Navigate to verb section with proper positioning
      */
     navigateToVerbSection(verbSection, primaryVerb, fullGeorgian) {
-        console.log('🔗 SidebarManager.navigateToVerbSection called:', {
-            verbSection: verbSection?.id,
-            primaryVerb,
-            fullGeorgian
-        });
-
         if (!verbSection) {
             console.error(`Verb "${fullGeorgian}" not found`);
             return false;
@@ -806,21 +1209,16 @@ export class SidebarManager {
 
         // Extract verb ID from section ID (e.g., "verb-1" -> "1")
         const verbId = verbSection.id.replace('verb-', '');
-        console.log('🔗 SidebarManager: Extracted verb ID:', verbId);
 
         // Update URL with new format: ?verb=მიტანა&id=1
-        console.log('🔗 SidebarManager: Checking for updateVerbURLWithGeorgian function');
         if (window.updateVerbURLWithGeorgian) {
-            console.log('🔗 SidebarManager: Using updateVerbURLWithGeorgian');
             window.updateVerbURLWithGeorgian(fullGeorgian, verbId);
         } else {
             // Fallback to legacy method
-            console.log('🔗 SidebarManager: updateVerbURLWithGeorgian not available, checking for updateURLWithAnchor');
             if (window.updateURLWithAnchor) {
-                console.log('🔗 SidebarManager: Using updateURLWithAnchor fallback');
                 window.updateURLWithAnchor(verbId);
             } else {
-                console.warn('🔗 SidebarManager: No URL update functions available');
+                console.warn('No URL update functions available');
             }
         }
 
@@ -873,15 +1271,12 @@ export class SidebarManager {
         const hash = window.location.hash;
         if (hash && hash.startsWith('#')) {
             const primaryVerb = decodeURIComponent(hash.substring(1));
-            console.log(`[SIDEBAR] Handling URL anchor: ${primaryVerb}`);
 
             // Check if verb exists in static content
             const verbSection = document.getElementById(primaryVerb);
             if (verbSection) {
-                console.log(`[SIDEBAR] Verb ${primaryVerb} found in static content, scrolling to it`);
                 this.scrollToVerb(primaryVerb);
             } else {
-                console.log(`[SIDEBAR] Verb ${primaryVerb} not found in static content`);
                 // Verb not in static content - this will be handled by the main app's URL processing
             }
         }
@@ -923,6 +1318,9 @@ export class SidebarManager {
         if (this.elements.sidebarModal) {
             await this.populateTableOfContents();
             this.elements.sidebarModal.classList.add('active');
+
+            // Auto-focus search input after sidebar opens
+            this.autoFocusSearch();
         }
     }
 
@@ -960,8 +1358,8 @@ export class SidebarManager {
      * Update clear button visibility based on search input value
      */
     updateClearButtonVisibility() {
-        const searchInput = this.domManager.getElement('search-input');
-        const clearButton = this.domManager.getElement('search-clear');
+        const searchInput = this.domManager.getElement(ELEMENT_IDS.SEARCH_INPUT);
+        const clearButton = this.domManager.getElement(ELEMENT_IDS.SEARCH_CLEAR);
 
         if (searchInput && clearButton) {
             if (searchInput.value.trim().length > 0) {
@@ -976,8 +1374,14 @@ export class SidebarManager {
      * Clear search input and hide clear button
      */
     clearSearchInput() {
-        const searchInput = this.domManager.getElement('search-input');
-        const clearButton = this.domManager.getElement('search-clear');
+        const searchInput = this.domManager.getElement(ELEMENT_IDS.SEARCH_INPUT);
+        const clearButton = this.domManager.getElement(ELEMENT_IDS.SEARCH_CLEAR);
+
+        // Clear debounce timeout
+        if (this.searchDebounceTimeout) {
+            clearTimeout(this.searchDebounceTimeout);
+            this.searchDebounceTimeout = null;
+        }
 
         if (searchInput) {
             searchInput.value = '';
@@ -989,12 +1393,115 @@ export class SidebarManager {
         if (clearButton) {
             clearButton.classList.add('hidden');
         }
+
+        // Reset progressive loading state
+        this.currentSearchResults = [];
+        this.displayedResultsCount = 0;
+    }
+
+    /**
+     * Show searching indicator
+     */
+    showSearchingIndicator() {
+        // Only show searching indicator for conjugation search mode
+        if (this.searchMode !== 'conjugation') {
+            return;
+        }
+
+        const tocContainer = this.getCachedElement('.toc-content-container', 'tocContainer');
+        if (!tocContainer) return;
+
+        tocContainer.innerHTML = `
+            <div class="searching-indicator">
+                <div class="searching-spinner"></div>
+                <div class="searching-text">Searching...</div>
+            </div>
+        `;
+    }
+
+    /**
+     * Load more search results progressively
+     */
+    loadMoreResults() {
+        if (this.displayedResultsCount >= this.currentSearchResults.length) {
+            return; // No more results to load
+        }
+
+        const nextBatch = this.currentSearchResults.slice(
+            this.displayedResultsCount,
+            this.displayedResultsCount + this.batchSize
+        );
+
+        const tocContainer = this.getCachedElement('.toc-content-container', 'tocContainer');
+        if (!tocContainer) return;
+
+        // Remove "Load More" button if it exists
+        const loadMoreButton = tocContainer.querySelector('.load-more-button');
+        if (loadMoreButton) {
+            loadMoreButton.remove();
+        }
+
+        // Display next batch of results
+        this.displayConjugationResults(tocContainer, nextBatch, '', true);
+
+        this.displayedResultsCount += nextBatch.length;
+
+        // Add "Load More" button if there are more results
+        if (this.displayedResultsCount < this.currentSearchResults.length) {
+            this.addLoadMoreButton(tocContainer);
+        }
+    }
+
+    /**
+     * Add "Load More" button to container
+     */
+    addLoadMoreButton(container) {
+        const loadMoreButton = document.createElement('button');
+        loadMoreButton.className = 'load-more-button';
+        loadMoreButton.innerHTML = `
+            <i class="fas fa-chevron-down"></i>
+            Load More Results (${this.currentSearchResults.length - this.displayedResultsCount} remaining)
+        `;
+        loadMoreButton.addEventListener('click', () => this.loadMoreResults());
+        container.appendChild(loadMoreButton);
+    }
+
+    /**
+     * Auto-focus search input with reliable timing
+     */
+    autoFocusSearch() {
+        try {
+            if (this.elements.searchInput && this.elements.searchInput.focus) {
+                // Use requestAnimationFrame for reliable timing after DOM updates
+                requestAnimationFrame(() => {
+                    try {
+                        this.elements.searchInput.focus({ preventScroll: true });
+                    } catch (focusError) {
+                        console.warn('Failed to focus search input:', focusError);
+                    }
+                });
+            }
+        } catch (error) {
+            console.warn('Auto-focus search failed:', error);
+        }
     }
 
     /**
      * Clean up event listeners
      */
     destroy() {
+        // Clean up search debounce timeout
+        if (this.searchDebounceTimeout) {
+            clearTimeout(this.searchDebounceTimeout);
+            this.searchDebounceTimeout = null;
+        }
+
+        // Clean up conjugation search manager
+        if (this.conjugationSearchManager) {
+            this.conjugationSearchManager.clearCache();
+            this.conjugationSearchManager = null;
+        }
+
         // Clean up IntersectionObserver
         if (this.intersectionObserver) {
             this.intersectionObserver.disconnect();

@@ -871,18 +871,17 @@ class DynamicVerbLoader {
             return conjugations;
         }
 
-        // Use pre-calculated forms from build pipeline
-        if (verbData && verbData.preverb_content && verbData.preverb_content[targetPreverb]) {
-            const preverbContent = verbData.preverb_content[targetPreverb];
-            const preverbConjugations = preverbContent.conjugations || {};
+        // Use pre-calculated forms from generated_data.preverb_forms
+        if (verbData && verbData.generated_data?.preverb_forms && verbData.generated_data.preverb_forms[targetPreverb]) {
+            const preverbForms = verbData.generated_data.preverb_forms[targetPreverb];
             const result = {};
 
             // Restructure to match expected format
-            for (const [tense, tenseForms] of Object.entries(preverbConjugations)) {
+            for (const [tense, tenseForms] of Object.entries(preverbForms)) {
                 result[tense] = {
                     forms: tenseForms,
-                    gloss: preverbContent.gloss_analysis?.[tense] || {},
-                    examples: preverbContent.examples?.[tense] || []
+                    gloss: {}, // Gloss analysis would be in generated_data.gloss_analysis if needed
+                    examples: [] // Examples would be in generated_data.examples if needed
                 };
             }
 

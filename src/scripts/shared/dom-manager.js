@@ -35,6 +35,7 @@ export class DOMManager {
                 sidebarOverlay: safeGetElementById(ELEMENT_IDS.SIDEBAR_OVERLAY),
                 sidebarClose: safeGetElementById(ELEMENT_IDS.SIDEBAR_CLOSE),
                 searchInput: safeGetElementById(ELEMENT_IDS.SEARCH_INPUT),
+                searchClear: safeGetElementById(ELEMENT_IDS.SEARCH_CLEAR),
 
                 notepadToggle: safeGetElementById(ELEMENT_IDS.NOTEPAD_TOGGLE),
                 notepadModal: safeGetElementById(ELEMENT_IDS.NOTEPAD_MODAL),

@@ -240,7 +240,7 @@
         <div class="sidebar-overlay" id="sidebar-overlay"></div>
         <div class="sidebar-content">
             <div class="sidebar-header">
-                <h3>Table of Contents</h3>
+                <h3>Verb Search</h3>
                 <button id="sidebar-close" class="sidebar-close">
                     <i class="fas fa-times"></i>
                 </button>
@@ -255,6 +255,18 @@
                     <div class="search-icon">
                         <i class="fas fa-search"></i>
                     </div>
+                </div>
+                <div class="search-mode-toggle" id="search-mode-toggle" style="display: none;">
+                    <button class="search-mode-button active" data-mode="basic"
+                        title="Basic search (verb names and descriptions)">
+                        <i class="fas fa-list"></i>
+                        <span>Basic</span>
+                    </button>
+                    <button class="search-mode-button" data-mode="conjugation"
+                        title="Conjugation search (any Georgian verb form)">
+                        <i class="fas fa-language"></i>
+                        <span>Conjugation</span>
+                    </button>
                 </div>
             </div>
             <div class="sidebar-body">
@@ -312,48 +324,41 @@
                 <div class="help-section">
                     <h4>🎯 Core Features</h4>
                     <ul>
-                        <li><strong>Interactive Verb Tables:</strong> Tables for common conjugations of 30+ Georgian
+                        <li><strong>Verb Tables:</strong> Tables for common conjugations of 30+ Georgian
                             verbs</li>
                         <li><strong>Theme Toggle:</strong> Switch between light and dark themes</li>
-                        <li><strong>Font Selection:</strong> Choose from 7 Georgian fonts with left and right arrow key
-                            navigation</li>
-                        <li><strong>Search Functionality:</strong> Real-time search through verbs with keyboard
-                            shortcuts</li>
-                        <li><strong>Notepad:</strong> Built-in notepad with local storage</li>
+                        <li><strong>Font Selection:</strong> Choose from 7 Georgian fonts</li>
+                        <li><strong>Search Functionality:</strong> Real-time search through verbs</li>
+                        <li><strong>Notepad:</strong> Built-in notepad</li>
                     </ul>
                 </div>
                 <div class="help-section">
                     <h4>⌨️ Keyboard Shortcuts</h4>
                     <ul>
-                        <li><strong>Ctrl/Cmd + K:</strong> Open search sidebar</li>
-                        <li><strong>↑/↓:</strong> Navigate search results</li>
-                        <li><strong>Enter:</strong> Select highlighted verb</li>
-                        <li><strong>←/→:</strong> Switch fonts (when notepad is closed)</li>
+                        <li><strong>Ctrl/Cmd + B:</strong> Open search sidebar</li>
                         <li><strong>ESC:</strong> Close active modal</li>
                     </ul>
                 </div>
                 <div class="help-section">
                     <h4>🔍 How to Use</h4>
                     <ul>
-                        <li><strong>Browse Verbs:</strong> Use the table of contents (top-left button) to navigate
+                        <li><strong>Browse Verbs:</strong> Use the table of contents (top-left button) to search and
+                            navigate
                             between verbs</li>
-                        <li><strong>Search:</strong> Click the search icon or press Ctrl+K to find specific verbs</li>
-                        <li><strong>Take Notes:</strong> Click the notepad button (bottom-left) to open a writing area
-                        </li>
-                        <li><strong>Change Appearance:</strong> Use the theme toggle and font selector to customize your
-                            experience</li>
+                        <li><strong>Search:</strong> Search basic verbal noun forms or conjugated forms</li>
                     </ul>
                 </div>
                 <div class="help-section">
                     <h4>📚 Verb Information</h4>
                     <ul>
-                        <li><strong>Conjugation Tables:</strong> See verb forms across 6 common tenses</li>
+                        <li><strong>Conjugation Tables:</strong> See verb forms across 6 common screves</li>
                         <li><strong>Examples:</strong> View example sentences showing how verbs are used in context</li>
                         <li><strong>Case Markings:</strong> Understand subject/object argument structure with case
                             glosses</li>
                         <li><strong>Preverbs:</strong> Explore how preverbs change verb meanings</li>
                         <li><strong>English Translations:</strong> The definite article "the" is used in English
-                            translations because Georgian doesn't have common definite or indefinite articles. This
+                            translations. This is because Georgian doesn't have common definite or indefinite articles.
+                            This
                             makes the English clearer and less ambiguous.</li>
                     </ul>
                 </div>

@@ -79,6 +79,7 @@ export const ELEMENT_IDS = {
     SIDEBAR_OVERLAY: 'sidebar-overlay',
     SIDEBAR_CLOSE: 'sidebar-close',
     SEARCH_INPUT: 'search-input',
+    SEARCH_CLEAR: 'search-clear',
 
     NOTEPAD_TOGGLE: 'notepad-toggle',
     NOTEPAD_MODAL: 'notepad-modal',
