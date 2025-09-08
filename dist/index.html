@@ -89,7 +89,7 @@
             // Show content quickly
             setTimeout(() => {
                 document.documentElement.style.visibility = 'visible';
-            }, 25);
+            }, 20);
         })();
     </script>
 
@@ -247,9 +247,11 @@
             </div>
             <div class="sidebar-sticky-header">
                 <div class="search-container">
-                    <input type="text" id="search-input" class="search-input"
-                        placeholder="Search verbs (↑↓ to navigate, Enter to select)"
+                    <input type="text" id="search-input" class="search-input" placeholder="Search verbs..."
                         title="Search by Georgian or English name. Use ↑↓ arrows to navigate, Enter to select">
+                    <button id="search-clear" class="search-clear-button hidden" title="Clear search">
+                        <i class="fas fa-times"></i>
+                    </button>
                     <div class="search-icon">
                         <i class="fas fa-search"></i>
                     </div>

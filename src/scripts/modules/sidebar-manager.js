@@ -55,6 +55,19 @@ export class SidebarManager {
             lastCacheTime: 0,
             cacheTimeout: 1000 // Cache for 1 second
         };
+
+        /** @type {boolean} Whether device is mobile */
+        this.isMobile = window.innerWidth <= 768;
+
+        /** @type {number} Cached scroll position for restoration */
+        this.cachedScrollPosition = 0;
+
+        /** @type {Object} Mobile-specific scroll optimization settings */
+        this.mobileScrollSettings = {
+            throttleDelay: this.isMobile ? 16 : 100, // 60fps on mobile, 10fps on desktop
+            passiveEvents: true,
+            momentumScrolling: true
+        };
     }
 
     /**
@@ -145,6 +158,12 @@ export class SidebarManager {
         // Handle search input
         const handleSearchInput = (e) => {
             this.filterTableOfContents(e.target.value);
+            this.updateClearButtonVisibility();
+        };
+
+        // Handle clear button click
+        const handleClearButton = () => {
+            this.clearSearchInput();
         };
 
         // Add event listeners
@@ -153,15 +172,42 @@ export class SidebarManager {
         sidebarOverlay.addEventListener('click', closeSidebar);
         searchInput.addEventListener('input', handleSearchInput);
 
+        // Add clear button event listener
+        const searchClearButton = this.domManager.getElement('search-clear');
+        if (searchClearButton) {
+            searchClearButton.addEventListener('click', handleClearButton);
+        }
+
         // Set up keyboard navigation
         this.setupKeyboardNavigation();
+
+        // Handle window resize for mobile detection updates
+        const handleResize = () => {
+            // Update mobile detection
+            const wasMobile = this.isMobile;
+            this.isMobile = window.innerWidth <= 768;
+
+            // Update mobile scroll settings if device type changed
+            if (wasMobile !== this.isMobile) {
+                this.mobileScrollSettings.throttleDelay = this.isMobile ? 16 : 100;
+            }
+
+            // Close sidebar on desktop if it was opened on mobile
+            if (!this.isMobile && this.isOpen) {
+                this.closeSidebar();
+            }
+        };
+
+        // Add resize listener
+        window.addEventListener('resize', handleResize);
 
         // Store listeners for cleanup
         this.eventListeners = [
             { element: sidebarToggle, event: 'click', handler: toggleSidebar },
             { element: sidebarClose, event: 'click', handler: closeSidebar },
             { element: sidebarOverlay, event: 'click', handler: closeSidebar },
-            { element: searchInput, event: 'input', handler: handleSearchInput }
+            { element: searchInput, event: 'input', handler: handleSearchInput },
+            { element: window, event: 'resize', handler: handleResize }
         ];
     }
 
@@ -240,23 +286,30 @@ export class SidebarManager {
     setupScrollHandler() {
         // Use IntersectionObserver for better performance instead of scroll events
         this.setupIntersectionObserver();
+
+        // Add mobile-specific scroll optimizations
+        if (this.isMobile) {
+            this.setupMobileScrollOptimizations();
+        }
     }
 
     /**
      * Set up IntersectionObserver for active TOC item updates
      */
     setupIntersectionObserver() {
-        // Create IntersectionObserver for better performance
+        // Create IntersectionObserver with mobile-optimized settings
+        const observerOptions = {
+            root: null, // Use viewport as root
+            rootMargin: this.isMobile ? '-50px 0px -60% 0px' : '-100px 0px -50% 0px',
+            threshold: this.isMobile ? 0.2 : 0.1 // Higher threshold on mobile for better performance
+        };
+
         this.intersectionObserver = new IntersectionObserver((entries) => {
             // Use requestAnimationFrame to batch updates
             requestAnimationFrame(() => {
                 this.updateActiveTocItemFromIntersection(entries);
             });
-        }, {
-            root: null, // Use viewport as root
-            rootMargin: '-100px 0px -50% 0px', // Trigger when section is in upper portion of viewport
-            threshold: 0.1 // Trigger when 10% of section is visible
-        });
+        }, observerOptions);
 
         // Observe all verb sections
         this.observeVerbSections();
@@ -324,6 +377,96 @@ export class SidebarManager {
     }
 
     /**
+     * Set up mobile-specific scroll optimizations
+     */
+    setupMobileScrollOptimizations() {
+        // Cache scroll position when sidebar closes
+        this.setupScrollPositionCaching();
+
+        // Add momentum scrolling support
+        this.setupMomentumScrolling();
+
+        // Optimize touch interactions
+        this.setupMobileTouchHandling();
+    }
+
+    /**
+     * Set up scroll position caching for smooth restoration
+     */
+    setupScrollPositionCaching() {
+        const sidebarBody = this.getCachedElement('.sidebar-body');
+        if (!sidebarBody) return;
+
+        // Cache scroll position when sidebar closes
+        const originalCloseSidebar = this.closeSidebar.bind(this);
+        this.closeSidebar = () => {
+            this.cachedScrollPosition = sidebarBody.scrollTop;
+            originalCloseSidebar();
+        };
+
+        // Restore scroll position when sidebar opens
+        const originalOpenSidebar = this.openSidebar.bind(this);
+        this.openSidebar = () => {
+            originalOpenSidebar();
+            // Restore scroll position after a brief delay to ensure DOM is ready
+            setTimeout(() => {
+                if (sidebarBody && this.cachedScrollPosition > 0) {
+                    sidebarBody.scrollTop = this.cachedScrollPosition;
+                }
+            }, 50);
+        };
+    }
+
+    /**
+     * Set up momentum scrolling support
+     */
+    setupMomentumScrolling() {
+        const sidebarBody = this.getCachedElement('.sidebar-body');
+        if (!sidebarBody) return;
+
+        // Add momentum scrolling CSS class
+        sidebarBody.style.webkitOverflowScrolling = 'touch';
+        sidebarBody.style.overscrollBehavior = 'contain';
+    }
+
+    /**
+     * Set up mobile touch handling for better touch feedback
+     */
+    setupMobileTouchHandling() {
+        const tocItems = this.getCachedElement('.toc-item', null, true);
+        if (!tocItems || tocItems.length === 0) return;
+
+        tocItems.forEach(item => {
+            // Add touch event listeners for better mobile interaction
+            const handleTouchStart = (e) => {
+                item.style.transform = 'scale(0.98) translateZ(0)';
+                item.style.transition = 'transform 0.1s ease';
+            };
+
+            const handleTouchEnd = (e) => {
+                item.style.transform = 'scale(1) translateZ(0)';
+                item.style.transition = 'transform 0.1s ease, background-color 0.15s ease, color 0.15s ease';
+            };
+
+            const handleTouchCancel = (e) => {
+                item.style.transform = 'scale(1) translateZ(0)';
+                item.style.transition = 'transform 0.1s ease, background-color 0.15s ease, color 0.15s ease';
+            };
+
+            item.addEventListener('touchstart', handleTouchStart, { passive: true });
+            item.addEventListener('touchend', handleTouchEnd, { passive: true });
+            item.addEventListener('touchcancel', handleTouchCancel, { passive: true });
+
+            // Store listeners for cleanup
+            this.eventListeners.push(
+                { element: item, event: 'touchstart', handler: handleTouchStart },
+                { element: item, event: 'touchend', handler: handleTouchEnd },
+                { element: item, event: 'touchcancel', handler: handleTouchCancel }
+            );
+        });
+    }
+
+    /**
      * Populate table of contents using enhanced verb loader
      */
     async populateTableOfContents() {
@@ -366,10 +509,6 @@ export class SidebarManager {
                     <div class="toc-item" data-verb-id="${verb.id}" data-semantic-key="${verb.semantic_key}">
                         <div class="verb-georgian georgian-text">${verb.georgian}</div>
                         <div class="verb-description">${verb.description}</div>
-                        <div class="verb-meta">
-                            <span class="verb-category">${verb.category}</span>
-                            <span class="verb-class">${verb.class}</span>
-                        </div>
                     </div>
                 `;
             }).join('');
@@ -424,11 +563,17 @@ export class SidebarManager {
                 }
             });
         });
+
+        // Reinitialize mobile touch handling for new TOC items
+        if (this.isMobile) {
+            this.setupMobileTouchHandling();
+        }
     }
 
 
     /**
      * Filter table of contents - simplified without category filtering
+     * @deprecated TODO: Remove this method - category and class filtering has been removed
      */
     filterTableOfContents(searchTerm) {
         const searchLower = searchTerm.toLowerCase();
@@ -623,6 +768,7 @@ export class SidebarManager {
 
     /**
      * Find category container by category name
+     * @deprecated TODO: Remove this method - category-based organization has been removed
      */
     findCategoryContainer(category) {
         return document.querySelector(`.category-container[data-category="${category}"]`);
@@ -630,6 +776,7 @@ export class SidebarManager {
 
     /**
      * Expand category if it's collapsed
+     * @deprecated TODO: Remove this method - category-based organization has been removed
      */
     expandCategoryIfCollapsed(categoryContainer) {
         const content = categoryContainer.querySelector('.category-content');
@@ -809,7 +956,40 @@ export class SidebarManager {
         return this.elements.sidebarModal ? this.elements.sidebarModal.classList.contains('active') : false;
     }
 
+    /**
+     * Update clear button visibility based on search input value
+     */
+    updateClearButtonVisibility() {
+        const searchInput = this.domManager.getElement('search-input');
+        const clearButton = this.domManager.getElement('search-clear');
 
+        if (searchInput && clearButton) {
+            if (searchInput.value.trim().length > 0) {
+                clearButton.classList.remove('hidden');
+            } else {
+                clearButton.classList.add('hidden');
+            }
+        }
+    }
+
+    /**
+     * Clear search input and hide clear button
+     */
+    clearSearchInput() {
+        const searchInput = this.domManager.getElement('search-input');
+        const clearButton = this.domManager.getElement('search-clear');
+
+        if (searchInput) {
+            searchInput.value = '';
+            searchInput.focus();
+            this.filterTableOfContents('');
+            this.updateSearchSelection();
+        }
+
+        if (clearButton) {
+            clearButton.classList.add('hidden');
+        }
+    }
 
     /**
      * Clean up event listeners
