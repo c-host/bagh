@@ -286,7 +286,6 @@
     --role-tense-color: #60a5fa;
     --role-argument-color: #10b981;
     --role-case-color: #ef4444;
-
     /* Base sizes for different content types */
     --base-size-overview: 0.8em;
     --base-size-tense-table: 0.95em;
@@ -319,6 +318,7 @@
         -webkit-backdrop-filter: blur(5px);
     }
 }
+
 
 /* Base styles */
 * {
@@ -496,6 +496,75 @@ li:last-child {
     color: var(--text-secondary);
     line-height: 1.6;
     margin: 0;
+}
+
+.welcome-header p+p {
+    margin-top: 1rem;
+}
+
+/* Welcome content styling */
+.welcome-link {
+    color: var(--accent-primary);
+    text-decoration: none;
+    font-weight: 500;
+    border-bottom: 1px solid transparent;
+    transition: border-bottom-color 0.2s ease;
+}
+
+.welcome-link:hover {
+    border-bottom-color: var(--accent-primary);
+}
+
+
+/* Responsive welcome content */
+@media (max-width: 1024px) {
+    .welcome-header h1 {
+        font-size: 2.2rem;
+    }
+
+    .welcome-header p {
+        font-size: 1.1rem;
+    }
+}
+
+@media (max-width: 768px) {
+    .welcome-header h1 {
+        font-size: 1.8rem;
+    }
+
+    .welcome-header p {
+        font-size: 1rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .welcome-header h1 {
+        font-size: 1.5rem;
+    }
+
+    .welcome-header p {
+        font-size: 0.9rem;
+    }
+}
+
+@media (max-width: 380px) {
+    .welcome-header h1 {
+        font-size: 1.3rem;
+    }
+
+    .welcome-header p {
+        font-size: 0.85rem;
+    }
+}
+
+@media (max-width: 320px) {
+    .welcome-header h1 {
+        font-size: 1.2rem;
+    }
+
+    .welcome-header p {
+        font-size: 0.8rem;
+    }
 }
 
 /* Verb sections */
@@ -1639,7 +1708,7 @@ li:last-child {
     }
 }
 
-/* Sidebar modal */
+/* Sidebar modal - Mobile-first approach */
 .sidebar-modal {
     position: fixed;
     top: 0;
@@ -1669,6 +1738,7 @@ li:last-child {
     transition: opacity 0.1s ease 0.05s;
 }
 
+/* Mobile-first sidebar overlay - hidden on mobile */
 .sidebar-overlay {
     position: absolute;
     top: 0;
@@ -1677,6 +1747,64 @@ li:last-child {
     height: 100%;
     background-color: rgba(0, 0, 0, 0.5);
     backdrop-filter: blur(2px);
+}
+
+/* Mobile-specific sidebar behavior */
+@media (max-width: 767px) {
+    .sidebar-modal {
+        /* Mobile: Slide-in from left, no overlay */
+        left: 0;
+        right: auto;
+        transform: translateX(-100%);
+        transition: transform 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+        opacity: 1;
+        /* Remove backdrop blur for better mobile performance */
+        backdrop-filter: none;
+    }
+
+    .sidebar-modal.active {
+        transform: translateX(0);
+    }
+
+    /* Hide overlay on mobile - no backdrop needed */
+    .sidebar-overlay {
+        display: none;
+    }
+
+    /* Mobile-optimized sidebar content */
+    .sidebar-content {
+        width: 100%;
+        max-width: 100%;
+        border-right: none;
+        box-shadow: 2px 0 10px rgba(0, 0, 0, 0.1);
+    }
+}
+
+/* Desktop-specific sidebar behavior */
+@media (min-width: 768px) {
+    .sidebar-modal {
+        /* Desktop: Keep current modal approach */
+        right: 0;
+        left: auto;
+        transform: none;
+        transition: opacity 0.15s ease;
+    }
+
+    .sidebar-modal.active {
+        transform: none;
+    }
+
+    /* Show overlay on desktop */
+    .sidebar-overlay {
+        display: block;
+    }
+
+    /* Desktop sidebar content */
+    .sidebar-content {
+        width: 350px;
+        max-width: 350px;
+        border-right: 2px solid var(--border-color);
+    }
 }
 
 .sidebar-content {
@@ -1856,11 +1984,43 @@ li:last-child {
     box-sizing: border-box;
 }
 
-/* Search input */
+/* Search input - Mobile-first approach */
 .search-container {
     position: relative;
     margin-bottom: 0;
     padding: 0;
+    z-index: 10;
+}
+
+/* Mobile-optimized search input */
+@media (max-width: 767px) {
+    .search-container {
+        /* Larger touch target on mobile */
+        padding: 8px 0;
+    }
+
+    .search-input {
+        /* Mobile-optimized input styling */
+        font-size: 16px;
+        /* Prevents zoom on iOS */
+        padding: 12px 70px 12px 16px;
+        border-radius: 8px;
+        /* Better touch target */
+        min-height: 44px;
+    }
+
+    .search-clear-button {
+        /* Larger touch target for clear button */
+        width: 32px;
+        height: 32px;
+        right: 40px;
+    }
+
+    .search-icon {
+        /* Larger search icon for mobile */
+        font-size: 18px;
+        right: 16px;
+    }
 }
 
 .search-input {
@@ -2011,10 +2171,12 @@ li:last-child {
     overflow: hidden;
 }
 
-.conjugation-search-result .verb-title {
+.conjugation-search-result .conjugation-verb-title {
     padding: 12px 16px 8px 16px;
     border-bottom: 1px solid var(--border-color);
     background-color: var(--bg-tertiary);
+    font-size: 1em;
+    /* Match basic search result sizing */
 }
 
 .conjugation-matches {
@@ -2163,7 +2325,7 @@ li:last-child {
     background-color: var(--bg-tertiary);
 }
 
-[data-theme="dark"] .conjugation-search-result .verb-title {
+[data-theme="dark"] .conjugation-search-result .conjugation-verb-title {
     border-bottom-color: var(--border-color);
 }
 
@@ -2219,18 +2381,7 @@ li:last-child {
     }
 }
 
-/* Welcome content styling */
-.welcome-link {
-    color: var(--accent-primary);
-    text-decoration: none;
-    font-weight: 500;
-    border-bottom: 1px solid transparent;
-    transition: border-bottom-color 0.2s ease;
-}
-
-.welcome-link:hover {
-    border-bottom-color: var(--accent-primary);
-}
+/* Welcome content styling - moved to responsive section above */
 
 kbd {
     background-color: var(--bg-tertiary);

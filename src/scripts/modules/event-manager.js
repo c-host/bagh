@@ -577,12 +577,8 @@ export class EventManager {
 
         this.resizeTimeout = setTimeout(() => {
             // Handle responsive behavior
-            if (this.managers.sidebarManager?.isInitialized()) {
-                // Close sidebar on mobile resize
-                if (window.innerWidth < 768) {
-                    this.managers.sidebarManager.closeSidebar();
-                }
-            }
+            // Note: SidebarManager handles its own resize behavior with mobile-first approach
+            // No need to close sidebar here as it conflicts with mobile keyboard handling
         }, 100); // Throttle to 100ms
     }
 

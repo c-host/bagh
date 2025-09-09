@@ -103,14 +103,21 @@ export class SidebarManager {
      */
     initialize() {
         try {
+            console.log('🔧 SidebarManager: Initializing...', {
+                isMobile: this.isMobile,
+                viewport: { width: window.innerWidth, height: window.innerHeight }
+            });
+
             this.loadSavedState();
             this.setupEventListeners();
             this.setupScrollHandler();
             // Don't initialize conjugation search here - it will be initialized when enhanced verb loader is available
             this.initialized = true;
+
+            console.log('✅ SidebarManager: Initialized successfully');
             return true;
         } catch (error) {
-            console.error('Failed to initialize Sidebar Manager:', error);
+            console.error('❌ Failed to initialize Sidebar Manager:', error);
             return false;
         }
     }
@@ -160,13 +167,6 @@ export class SidebarManager {
         // Populate TOC first, then show sidebar to prevent flicker
         await this.populateTableOfContents();
         this.elements.sidebarModal.classList.add('active');
-
-        // Focus search input after modal animation completes
-        setTimeout(() => {
-            if (this.elements.searchInput) {
-                this.elements.searchInput.focus();
-            }
-        }, 300); // Match modal animation duration
     }
 
     /**
@@ -205,12 +205,25 @@ export class SidebarManager {
 
         // Close sidebar
         const closeSidebar = () => {
+            console.log('🔄 SidebarManager: closeSidebar() called', {
+                sidebarModal: !!sidebarModal,
+                hasActiveClass: sidebarModal?.classList.contains('active'),
+                isMobile: this.isMobile,
+                stackTrace: new Error().stack
+            });
             sidebarModal.classList.remove('active');
         };
 
         // Handle search input with debouncing
         const handleSearchInput = (e) => {
             const searchTerm = e.target.value;
+
+            console.log('🔍 SidebarManager: Search input event', {
+                searchTerm: searchTerm.substring(0, 20) + (searchTerm.length > 20 ? '...' : ''),
+                searchMode: this.searchMode,
+                isMobile: this.isMobile,
+                sidebarOpen: this.isSidebarOpen()
+            });
 
             // Clear existing timeout
             if (this.searchDebounceTimeout) {
@@ -239,8 +252,48 @@ export class SidebarManager {
         // Add event listeners
         sidebarToggle.addEventListener('click', toggleSidebar);
         sidebarClose.addEventListener('click', closeSidebar);
-        sidebarOverlay.addEventListener('click', closeSidebar);
+
+        // Mobile-first overlay handling - only active on desktop
+        sidebarOverlay.addEventListener('click', (e) => {
+            console.log('🖱️ SidebarManager: Overlay click detected', {
+                target: e.target,
+                targetTagName: e.target.tagName,
+                targetClass: e.target.className,
+                isSearchContainer: !!e.target.closest('.search-container'),
+                isInput: !!e.target.closest('input'),
+                isMobile: this.isMobile
+            });
+
+            // On mobile, overlay is hidden, so this won't fire
+            // On desktop, prevent close if clicking on search input or its container
+            if (e.target.closest('.search-container') || e.target.closest('input')) {
+                console.log('🔍 SidebarManager: Overlay click on search area - not closing sidebar');
+                return;
+            }
+            console.log('🔄 SidebarManager: Overlay click - closing sidebar');
+            closeSidebar();
+        });
+
         searchInput.addEventListener('input', handleSearchInput);
+
+        // Add focus/blur event logging for debugging
+        searchInput.addEventListener('focus', (e) => {
+            console.log('🎯 SidebarManager: Search input FOCUS event', {
+                target: e.target,
+                isMobile: this.isMobile,
+                sidebarOpen: this.isSidebarOpen(),
+                viewport: { width: window.innerWidth, height: window.innerHeight }
+            });
+        });
+
+        searchInput.addEventListener('blur', (e) => {
+            console.log('🎯 SidebarManager: Search input BLUR event', {
+                target: e.target,
+                isMobile: this.isMobile,
+                sidebarOpen: this.isSidebarOpen(),
+                viewport: { width: window.innerWidth, height: window.innerHeight }
+            });
+        });
 
         // Add clear button event listener
         const searchClearButton = this.domManager.getElement(ELEMENT_IDS.SEARCH_CLEAR);
@@ -254,25 +307,106 @@ export class SidebarManager {
         // Set up keyboard navigation
         this.setupKeyboardNavigation();
 
-        // Handle window resize for mobile detection updates
+        // Mobile-first resize handling - only close on actual device orientation change
         const handleResize = () => {
-            // Update mobile detection
+            const oldViewport = { width: window.innerWidth, height: window.innerHeight };
             const wasMobile = this.isMobile;
             this.isMobile = window.innerWidth <= 768;
+
+            console.log('📱 SidebarManager: Resize event detected', {
+                oldViewport,
+                newViewport: { width: window.innerWidth, height: window.innerHeight },
+                wasMobile,
+                isMobile: this.isMobile,
+                sidebarOpen: this.isSidebarOpen(),
+                deviceTypeChanged: wasMobile !== this.isMobile
+            });
 
             // Update mobile scroll settings if device type changed
             if (wasMobile !== this.isMobile) {
                 this.mobileScrollSettings.throttleDelay = this.isMobile ? 16 : 100;
+                console.log('📱 SidebarManager: Device type changed, updated scroll settings');
             }
 
-            // Close sidebar on desktop if it was opened on mobile
-            if (!this.isMobile && this.isOpen) {
+            // Mobile-first approach: Only close sidebar on actual device orientation change
+            // Don't close on mobile keyboard appearance (which only changes height, not width)
+            if (wasMobile !== this.isMobile && !this.isMobile && this.isSidebarOpen()) {
+                console.log('🔄 SidebarManager: Closing sidebar due to device type change (mobile -> desktop)');
                 this.closeSidebar();
+            } else if (wasMobile !== this.isMobile) {
+                console.log('📱 SidebarManager: Device type changed but not closing sidebar', {
+                    wasMobile,
+                    isMobile: this.isMobile,
+                    sidebarOpen: this.isSidebarOpen()
+                });
             }
         };
 
         // Add resize listener
         window.addEventListener('resize', handleResize);
+
+        // Add additional viewport change tracking for mobile keyboard detection
+        let lastViewportHeight = window.innerHeight;
+        let viewportChangeTimeout;
+
+        const trackViewportChanges = () => {
+            const currentHeight = window.innerHeight;
+            const heightDifference = Math.abs(currentHeight - lastViewportHeight);
+
+            console.log('📏 SidebarManager: Viewport height change detected', {
+                lastHeight: lastViewportHeight,
+                currentHeight,
+                heightDifference,
+                isMobile: this.isMobile,
+                sidebarOpen: this.isSidebarOpen(),
+                likelyKeyboard: heightDifference > 100 // Mobile keyboards typically reduce height by 200-400px
+            });
+
+            // Clear any existing timeout
+            if (viewportChangeTimeout) {
+                clearTimeout(viewportChangeTimeout);
+            }
+
+            // Set a timeout to detect if this is a keyboard appearance
+            viewportChangeTimeout = setTimeout(() => {
+                const finalHeight = window.innerHeight;
+                console.log('📏 SidebarManager: Viewport change settled', {
+                    initialHeight: lastViewportHeight,
+                    finalHeight,
+                    heightChange: finalHeight - lastViewportHeight,
+                    isMobile: this.isMobile,
+                    sidebarOpen: this.isSidebarOpen()
+                });
+            }, 500);
+
+            lastViewportHeight = currentHeight;
+        };
+
+        window.addEventListener('resize', trackViewportChanges);
+
+        // Add MutationObserver to track when sidebar modal active class is removed
+        if (sidebarModal) {
+            const observer = new MutationObserver((mutations) => {
+                mutations.forEach((mutation) => {
+                    if (mutation.type === 'attributes' && mutation.attributeName === 'class') {
+                        const hasActiveClass = sidebarModal.classList.contains('active');
+                        console.log('👁️ SidebarManager: Modal class changed', {
+                            hasActiveClass,
+                            classList: sidebarModal.className,
+                            isMobile: this.isMobile,
+                            stackTrace: new Error().stack
+                        });
+                    }
+                });
+            });
+
+            observer.observe(sidebarModal, {
+                attributes: true,
+                attributeFilter: ['class']
+            });
+
+            this.mutationObserver = observer;
+        }
 
         // Store listeners for cleanup
         this.eventListeners = [
@@ -922,7 +1056,7 @@ export class SidebarManager {
 
             // Create verb title
             const verbTitle = document.createElement('div');
-            verbTitle.className = 'verb-title';
+            verbTitle.className = 'conjugation-verb-title';
             verbTitle.innerHTML = `
                 <div class="verb-georgian georgian-text">${verb.verbTitle}</div>
                 <div class="verb-description">${verb.verbDescription}</div>
@@ -1315,12 +1449,50 @@ export class SidebarManager {
      * Open sidebar
      */
     async openSidebar() {
+        console.log('🚀 SidebarManager: openSidebar() called', {
+            hasSidebarModal: !!this.elements?.sidebarModal,
+            isMobile: this.isMobile,
+            currentState: this.isSidebarOpen()
+        });
+
         if (this.elements.sidebarModal) {
             await this.populateTableOfContents();
             this.elements.sidebarModal.classList.add('active');
 
-            // Auto-focus search input after sidebar opens
-            this.autoFocusSearch();
+            console.log('✅ SidebarManager: Sidebar opened successfully', {
+                hasActiveClass: this.elements.sidebarModal.classList.contains('active'),
+                isMobile: this.isMobile
+            });
+
+            // Auto-focus search input after sidebar opens (mobile-first approach)
+            this.focusSearchInput();
+        } else {
+            console.error('❌ SidebarManager: Cannot open sidebar - sidebarModal element not found');
+        }
+    }
+
+    /**
+     * Focus search input with mobile-first approach
+     */
+    focusSearchInput() {
+        console.log('🎯 SidebarManager: focusSearchInput() called', {
+            hasSearchInput: !!this.elements?.searchInput,
+            isMobile: this.isMobile,
+            willFocus: !this.isMobile
+        });
+
+        if (this.elements?.searchInput) {
+            // Mobile-first: Only auto-focus on desktop to avoid keyboard issues
+            if (!this.isMobile) {
+                setTimeout(() => {
+                    console.log('🎯 SidebarManager: Auto-focusing search input (desktop)');
+                    this.elements.searchInput.focus();
+                }, 100);
+            } else {
+                console.log('📱 SidebarManager: Skipping auto-focus on mobile');
+            }
+        } else {
+            console.warn('⚠️ SidebarManager: Cannot focus search input - element not found');
         }
     }
 
@@ -1466,25 +1638,6 @@ export class SidebarManager {
         container.appendChild(loadMoreButton);
     }
 
-    /**
-     * Auto-focus search input with reliable timing
-     */
-    autoFocusSearch() {
-        try {
-            if (this.elements.searchInput && this.elements.searchInput.focus) {
-                // Use requestAnimationFrame for reliable timing after DOM updates
-                requestAnimationFrame(() => {
-                    try {
-                        this.elements.searchInput.focus({ preventScroll: true });
-                    } catch (focusError) {
-                        console.warn('Failed to focus search input:', focusError);
-                    }
-                });
-            }
-        } catch (error) {
-            console.warn('Auto-focus search failed:', error);
-        }
-    }
 
     /**
      * Clean up event listeners
