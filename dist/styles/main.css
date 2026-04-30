@@ -545,6 +545,7 @@ li:last-child {
     margin-top: 0.85rem;
     display: inline-flex;
     align-items: center;
+    flex-wrap: wrap;
     gap: 0.65rem;
     font-size: 0.96rem !important;
     color: var(--text-secondary);
@@ -3569,4 +3570,279 @@ kbd {
 
 .related-morphology-item.open-viewer {
     margin-top: 10px;
+}
+
+.related-preverb-cube {
+    margin-top: 16px;
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius-md);
+    background: var(--bg-secondary);
+    padding: 12px;
+}
+
+.related-preverb-cube h4 {
+    margin: 0 0 8px;
+    font-size: 1.05em;
+}
+
+.related-preverb-cube-title {
+    margin: 0 0 10px;
+    color: var(--text-secondary);
+    font-size: 12px;
+}
+
+.preverb-cube-embed-host {
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius-sm);
+    background: var(--bg-primary);
+    overflow: hidden;
+    height: 520px;
+}
+
+.preverb-cube-open-full {
+    display: inline-flex;
+    align-items: center;
+    margin-top: 10px;
+    border: 1px solid var(--border-color);
+    border-radius: 999px;
+    background: var(--bg-primary);
+    color: var(--text-primary);
+    text-decoration: none;
+    font-size: 12px;
+    padding: 6px 12px;
+}
+
+.preverb-cube-open-full:hover {
+    border-color: var(--accent-primary);
+    color: var(--accent-primary);
+}
+
+.preverb-cube-embed-error {
+    margin: 0;
+    color: var(--text-secondary);
+    font-size: 12px;
+    padding: 12px;
+}
+
+/* Keep verb embeds constrained to mapped verb profile. */
+.related-preverb-cube .pd-mode-bar > label:not(.pd-scenario-label) {
+    display: none !important;
+}
+
+/* Verb-specific embeds should not show scenario controls. */
+.related-preverb-cube .pd-scenario-label {
+    display: none !important;
+}
+
+/* Keep preverb cube embedded inside the verb card area. */
+.related-preverb-cube .pd-root,
+.related-preverb-cube .pd-root--embedded,
+.related-preverb-cube .pd-layout,
+.related-preverb-cube .pd-layout-body,
+.related-preverb-cube .pd-main {
+    min-height: 0 !important;
+    height: 100% !important;
+    max-height: 100% !important;
+}
+
+.related-preverb-cube .pd-root {
+    overflow: hidden !important;
+}
+
+/* Keep left reference panel hidden in embeds, but retain right details panel. */
+.related-preverb-cube .pd-sidebar-shell--left,
+.related-preverb-cube .pd-drawer-fab--left {
+    display: none !important;
+}
+
+/* Force contained two-column embed layout (cube + right info panel). */
+.related-preverb-cube .pd-layout-body {
+    display: grid !important;
+    grid-template-columns: minmax(0, 1fr) minmax(250px, 31%) !important;
+    grid-template-rows: minmax(0, 1fr) !important;
+    height: 100% !important;
+}
+
+.related-preverb-cube .pd-main {
+    grid-column: 1 !important;
+    grid-row: 1 !important;
+}
+
+.related-preverb-cube .pd-sidebar-shell--right {
+    grid-column: 2 !important;
+    grid-row: 1 !important;
+    position: relative !important;
+    inset: auto !important;
+    transform: none !important;
+    width: auto !important;
+    max-width: none !important;
+    display: grid !important;
+    grid-template-columns: minmax(0, 1fr) !important;
+    box-shadow: none !important;
+    border-left: 1px solid var(--pd-border) !important;
+}
+
+.related-preverb-cube .pd-sidebar-toggle--right {
+    display: none !important;
+}
+
+/* Verb-page embeds are view-only: hide reset/print controls. */
+.related-preverb-cube .pd-canvas-chrome__actions {
+    display: none !important;
+}
+
+.related-preverb-cube .pd-sidebar-shell--right .pd-sidebar-scroll,
+.related-preverb-cube .pd-sidebar--right,
+.related-preverb-cube .pd-panel {
+    min-height: 0 !important;
+    height: 100% !important;
+}
+
+.related-preverb-cube .pd-sidebar-shell--right .pd-sidebar-scroll,
+.related-preverb-cube .pd-panel {
+    overflow-y: auto !important;
+}
+
+.related-preverb-cube .pd-drawer-backdrop {
+    position: absolute !important;
+    inset: 0 !important;
+    z-index: 28 !important;
+}
+
+@media (max-width: 980px) {
+    .preverb-cube-embed-host {
+        height: 500px;
+    }
+
+    .related-preverb-cube .pd-layout-body {
+        display: block !important;
+        position: relative !important;
+    }
+
+    .related-preverb-cube .pd-main {
+        height: 100% !important;
+        width: 100% !important;
+    }
+
+    .related-preverb-cube .pd-sidebar-shell--right {
+        position: absolute !important;
+        top: 0 !important;
+        right: 0 !important;
+        bottom: 0 !important;
+        width: min(22rem, 88%) !important;
+        max-width: 100% !important;
+        transform: translateX(100%) !important;
+        z-index: 40 !important;
+        box-shadow: 0 0 24px rgba(0, 0, 0, 0.24) !important;
+        border-left: 1px solid var(--pd-border) !important;
+        background: var(--pd-panel) !important;
+    }
+
+    .related-preverb-cube .pd-root--drawer-right-open .pd-sidebar-shell--right {
+        transform: translateX(0) !important;
+    }
+
+    .related-preverb-cube .pd-fab-layer {
+        display: flex !important;
+        position: absolute !important;
+        inset: 0 !important;
+        justify-content: flex-end !important;
+        align-items: flex-start !important;
+        z-index: 12 !important;
+        pointer-events: none !important;
+        padding: 0.5rem !important;
+    }
+
+    .related-preverb-cube .pd-drawer-fab--right {
+        display: inline-flex !important;
+        pointer-events: auto !important;
+    }
+}
+
+/* Theme sync for cube embeds without remounting (preserves camera/zoom). */
+.related-preverb-cube[data-theme="dark"] {
+    --pd-bg: #111827;
+    --pd-panel: #1f2937;
+    --pd-border: #374151;
+    --pd-text: #e5e7eb;
+    --pd-muted: #9ca3af;
+    --pd-simple: #34d399;
+    --pd-mo: #a78bfa;
+    --pd-olds: #fbbf24;
+    --pd-oldc: #f472b6;
+    --pd-accent: #f97316;
+    --pd-scenario: #38bdf8;
+}
+
+.related-preverb-cube[data-theme="dark"] .pd-btn,
+.related-preverb-cube[data-theme="dark"] .pd-drawer-fab,
+.related-preverb-cube[data-theme="dark"] .pd-leg-item,
+.related-preverb-cube[data-theme="dark"] .pd-sidebar,
+.related-preverb-cube[data-theme="dark"] .pd-canvas-chrome__actions,
+.related-preverb-cube[data-theme="dark"] .pd-canvas-chrome__icons,
+.related-preverb-cube[data-theme="dark"] .pd-icon-strip__cell,
+.related-preverb-cube[data-theme="dark"] .pd-spatial-icon__cell {
+    background: #111827 !important;
+    color: #e5e7eb !important;
+    border-color: #374151 !important;
+}
+
+.related-preverb-cube[data-theme="dark"] .pd-note,
+.related-preverb-cube[data-theme="dark"] .pd-annote,
+.related-preverb-cube[data-theme="dark"] .pd-scenario-box,
+.related-preverb-cube[data-theme="dark"] .pd-ann-citation,
+.related-preverb-cube[data-theme="dark"] .pd-arrow-cap {
+    background: rgba(56, 189, 248, 0.08) !important;
+    border-color: #374151 !important;
+    color: #d1d5db !important;
+}
+
+.related-preverb-cube[data-theme="dark"] .pd-label,
+.related-preverb-cube[data-theme="dark"] .pd-axis-label {
+    background: rgba(15, 23, 42, 0.92) !important;
+    border-color: #4b5563 !important;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.35) !important;
+}
+
+.related-preverb-cube[data-theme="dark"] .pd-axis-label__primary {
+    color: #e5e7eb !important;
+}
+
+.related-preverb-cube[data-theme="dark"] .pd-axis-label__secondary {
+    color: #9ca3af !important;
+}
+
+.related-preverb-cube[data-theme="dark"] .pd-label--modern-simple {
+    color: var(--pd-simple) !important;
+}
+
+.related-preverb-cube[data-theme="dark"] .pd-label--modern-complex {
+    color: var(--pd-mo) !important;
+}
+
+.related-preverb-cube[data-theme="dark"] .pd-label--old-simple {
+    color: var(--pd-olds) !important;
+}
+
+.related-preverb-cube[data-theme="dark"] .pd-label--old-complex {
+    color: var(--pd-oldc) !important;
+}
+
+.related-preverb-cube[data-theme="dark"] .pd-panel a,
+.related-preverb-cube[data-theme="dark"] .pd-ann-citation a {
+    color: #93c5fd !important;
+    text-decoration: underline;
+    text-underline-offset: 2px;
+}
+
+.related-preverb-cube[data-theme="dark"] .pd-panel a:hover,
+.related-preverb-cube[data-theme="dark"] .pd-ann-citation a:hover {
+    color: #bfdbfe !important;
+}
+
+/* Remove top divider break in embedded right details panel. */
+.related-preverb-cube .pd-sidebar--right .pd-panel {
+    border-top: none !important;
+    padding-top: 0 !important;
+    margin-top: 0 !important;
 }

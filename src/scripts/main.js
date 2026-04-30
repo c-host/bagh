@@ -67,6 +67,9 @@ class App {
         /** @type {Object} Morphology Manager instance */
         this.morphologyManager = null;
 
+        /** @type {Object} Preverb Cube Manager instance */
+        this.preverbCubeManager = null;
+
         /** @type {boolean} Whether app is initialized */
         this.initialized = false;
 
@@ -288,14 +291,16 @@ class App {
                 { PreverbManager },
                 { DynamicVerbLoader },
                 { BottomSheetManager },
-                { MorphologyManager }
+                { MorphologyManager },
+                { PreverbCubeManager }
             ] = await Promise.all([
                 this.loadModule('notepad-manager'),
                 this.loadModule('sidebar-manager'),
                 this.loadModule('preverb-manager'),
                 this.loadModule('dynamic-verb-loader'),
                 this.loadModule('bottom-sheet-manager'),
-                this.loadModule('morphology-manager')
+                this.loadModule('morphology-manager'),
+                this.loadModule('preverb-cube-manager')
             ]);
 
             // Initialize Notepad Manager
@@ -323,6 +328,10 @@ class App {
             // Initialize read-only morphology manager for public search/viewing.
             this.morphologyManager = new MorphologyManager(this.enhancedVerbLoader);
             await this.morphologyManager.initialize();
+
+            // Initialize preverb-cube verb embeds.
+            this.preverbCubeManager = new PreverbCubeManager(this.enhancedVerbLoader);
+            await this.preverbCubeManager.initialize();
 
             // Initialize Preverb Manager
             if (this.enhancedVerbLoader) {
@@ -728,7 +737,8 @@ class App {
             eventManager: this.eventManager?.isInitialized() || false,
             stickyHeaderManager: this.stickyHeaderManager?.isInitialized() || false,
             bottomSheetManager: this.bottomSheetManager?.isInitialized() || false,
-            morphologyManager: this.morphologyManager?.isInitialized?.() || false
+            morphologyManager: this.morphologyManager?.isInitialized?.() || false,
+            preverbCubeManager: this.preverbCubeManager?.isInitialized?.() || false
         };
     }
 
@@ -747,7 +757,8 @@ class App {
             eventManager: this.eventManager,
             stickyHeaderManager: this.stickyHeaderManager,
             bottomSheetManager: this.bottomSheetManager,
-            morphologyManager: this.morphologyManager
+            morphologyManager: this.morphologyManager,
+            preverbCubeManager: this.preverbCubeManager
         };
     }
 
@@ -778,6 +789,9 @@ class App {
         }
         if (this.bottomSheetManager) {
             this.bottomSheetManager.destroy();
+        }
+        if (this.preverbCubeManager) {
+            this.preverbCubeManager.destroy();
         }
 
         this.initialized = false;

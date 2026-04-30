@@ -5,7 +5,9 @@ Two-Stage Pipeline Build Process for Georgian Verb Website
 
 import argparse
 import logging
+import os
 import shutil
+import subprocess
 import sys
 import time
 from pathlib import Path
@@ -321,6 +323,18 @@ def run_output_generation_pipeline(config_manager: ConfigManager, build_mode: st
             traceback.print_exc()
             raise
 
+        # Build and sync preverb-cube assets for full-page and embeds.
+        print("🔧 About to sync preverb cube assets...")
+        try:
+            sync_preverb_cube_assets(config_manager)
+            print("🔧 Preverb cube assets sync completed")
+        except Exception as e:
+            print(f"💥 Preverb cube asset sync failed: {e}")
+            import traceback
+
+            traceback.print_exc()
+            raise
+
         generation_time = time.time() - start_time
         print(f"🔧 Pipeline completed in {generation_time:.2f}s")
         logger.info("✅ Output Generation Pipeline completed successfully")
@@ -462,10 +476,68 @@ def sync_morphology_chart_data(config_manager: ConfigManager):
     logger.info(f"✅ Synced morphology app data to {dist_morphology_charts}")
 
 
+def sync_preverb_cube_assets(config_manager: ConfigManager):
+    """
+    Build preverb-cube and copy both standalone app and library assets into dist.
+    """
+    project_root = config_manager.get_path("project_root")
+    preverb_root = project_root / "preverb-cube"
+    if not preverb_root.exists():
+        logger.warning(f"⚠️ Preverb cube directory not found: {preverb_root}")
+        return
+
+    env = os.environ.copy()
+    # Use relative asset paths so preverb-cube works from any deployment base path.
+    env["VITE_BASE"] = "./"
+    npm_executable = "npm.cmd" if os.name == "nt" else "npm"
+    try:
+        subprocess.run(
+            [npm_executable, "run", "build:all"], cwd=preverb_root, env=env, check=True
+        )
+    except Exception as build_error:
+        logger.warning(
+            f"⚠️ Could not build preverb-cube assets automatically: {build_error}"
+        )
+        logger.warning(
+            "⚠️ Falling back to existing preverb-cube dist artifacts if available."
+        )
+
+    dist_dir = config_manager.get_path("dist_dir")
+    preverb_app_source = preverb_root / "dist"
+    preverb_lib_source = preverb_root / "dist-lib"
+    preverb_app_target = dist_dir / "preverb-cube"
+    preverb_lib_target = dist_dir / "preverb-cube-lib"
+
+    if not preverb_app_source.exists() or not preverb_lib_source.exists():
+        logger.warning(
+            "⚠️ Missing preverb-cube build outputs (dist and/or dist-lib); skipping sync."
+        )
+        return
+
+    if preverb_app_target.exists():
+        shutil.rmtree(preverb_app_target)
+    if preverb_lib_target.exists():
+        shutil.rmtree(preverb_lib_target)
+
+    shutil.copytree(preverb_app_source, preverb_app_target)
+    shutil.copytree(preverb_lib_source, preverb_lib_target)
+    logger.info(f"✅ Synced preverb cube app to {preverb_app_target}")
+    logger.info(f"✅ Synced preverb cube lib to {preverb_lib_target}")
+
+    map_source = project_root / "src" / "data" / "preverb-cube" / "verb-profile-map.json"
+    if map_source.exists():
+        map_target_dir = config_manager.get_path("dist_data_dir") / "preverb-cube"
+        map_target_dir.mkdir(parents=True, exist_ok=True)
+        map_target = map_target_dir / "verb-profile-map.json"
+        shutil.copy2(map_source, map_target)
+        logger.info(f"✅ Synced preverb profile map to {map_target}")
+    else:
+        logger.warning(f"⚠️ Missing preverb profile map: {map_source}")
+
+
 if __name__ == "__main__":
     # Set UTF-8 encoding for Windows compatibility
     import sys
-    import os
 
     if sys.platform == "win32":
         os.environ["PYTHONIOENCODING"] = "utf-8"
