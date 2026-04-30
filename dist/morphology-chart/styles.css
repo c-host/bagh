@@ -15,6 +15,15 @@
   --lr-row-pad-y: 6px;
 }
 
+[data-theme="dark"] {
+  color-scheme: dark;
+  --bg: #0b1220;
+  --card: #111a2b;
+  --text: #e5e7eb;
+  --muted: #9ca3af;
+  --line: #334155;
+}
+
 * {
   box-sizing: border-box;
 }
@@ -179,6 +188,10 @@ select {
 
 #chartContainer:fullscreen #chartViewport {
   background: #fff;
+}
+
+[data-theme="dark"] #chartContainer:fullscreen #chartViewport {
+  background: var(--bg);
 }
 
 .tree {
@@ -541,6 +554,94 @@ select {
 
 .linked-verb-chip:hover {
   background: #e8f0ff;
+}
+
+[data-theme="dark"] select {
+  border-color: #334155;
+  background: #111827;
+  color: var(--text);
+}
+
+[data-theme="dark"] .controls button,
+[data-theme="dark"] .file-label,
+[data-theme="dark"] .editor-actions button,
+[data-theme="dark"] .canvas-icon-btn,
+[data-theme="dark"] .group-layout-toggle {
+  border-color: #334155;
+  background: #0f172a;
+  color: var(--text);
+}
+
+[data-theme="dark"] .controls button:hover,
+[data-theme="dark"] .file-label:hover,
+[data-theme="dark"] .editor-actions button:hover,
+[data-theme="dark"] .canvas-icon-btn:hover,
+[data-theme="dark"] .group-layout-toggle:hover {
+  background: #1e293b;
+  border-color: #475569;
+}
+
+[data-theme="dark"] #chartContainer {
+  background: var(--bg);
+  border-color: #334155;
+}
+
+[data-theme="dark"] #chartViewport {
+  background: var(--bg);
+}
+
+[data-theme="dark"] .node-card {
+  border-color: #374151;
+  box-shadow: 0 1px 4px rgba(2, 6, 23, 0.65);
+}
+
+[data-theme="dark"] .node-card .en {
+  color: #cbd5e1;
+}
+
+[data-theme="dark"] .node-card .en-secondary {
+  color: #93c5fd;
+}
+
+[data-theme="dark"] .node-card .unit-type-secondary {
+  color: #94a3b8;
+}
+
+[data-theme="dark"] .node-card .notes {
+  color: #fcd34d;
+}
+
+[data-theme="dark"] .sibling-group-box {
+  border-color: #334155;
+  background: #0f172a;
+}
+
+[data-theme="dark"] .linked-verb-chip {
+  border-color: #334155;
+  background: #172554;
+  color: #bfdbfe;
+}
+
+[data-theme="dark"] .linked-verb-chip:hover {
+  background: #1e3a8a;
+}
+
+[data-theme="dark"] .chart-node.persistent-highlight > .node-card {
+  background: #3a2a0d;
+}
+
+[data-theme="dark"] .editor {
+  background: #0f172a;
+  border-color: #334155;
+}
+
+[data-theme="dark"] #nodeForm input,
+[data-theme="dark"] #nodeForm select,
+[data-theme="dark"] #nodeForm textarea,
+[data-theme="dark"] .reparent-tools {
+  background: #111827;
+  border-color: #334155;
+  color: var(--text);
 }
 
 .chart-node.selected > .node-card {

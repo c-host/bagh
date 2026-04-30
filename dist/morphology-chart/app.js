@@ -42,6 +42,16 @@ const STORAGE_HISTORY_KEY = "georgianMorphologyChartsHistory";
 const QUERY_PARAMS = new URLSearchParams(window.location.search);
 const EMBED_MODE = QUERY_PARAMS.get("embed") === "1";
 const READ_ONLY_MODE = QUERY_PARAMS.get("readonly") === "1";
+const FORCED_THEME = (() => {
+  const rawTheme = String(QUERY_PARAMS.get("theme") || "").trim().toLowerCase();
+  if (rawTheme === "dark") {
+    return "dark";
+  }
+  if (rawTheme === "light") {
+    return "light";
+  }
+  return null;
+})();
 const INITIAL_CHART_INDEX = Number.parseInt(QUERY_PARAMS.get("chartIndex") || "0", 10);
 const HIGHLIGHT_NODE_IDS = new Set(
   String(QUERY_PARAMS.get("highlightNodeIds") || "")
@@ -56,6 +66,29 @@ if (READ_ONLY_MODE) {
 if (EMBED_MODE) {
   document.body.classList.add("embed-mode");
 }
+
+function applyTheme(themeName) {
+  const normalized = String(themeName || "").trim().toLowerCase();
+  const theme = normalized === "dark" ? "dark" : "light";
+  document.documentElement.setAttribute("data-theme", theme);
+  document.body.classList.remove("theme-light", "theme-dark");
+  document.body.classList.add(`theme-${theme}`);
+}
+
+if (FORCED_THEME) {
+  applyTheme(FORCED_THEME);
+}
+
+window.addEventListener("message", (event) => {
+  if (event.origin !== window.location.origin) {
+    return;
+  }
+  const data = event.data || {};
+  if (data.type !== "morphology-theme") {
+    return;
+  }
+  applyTheme(data.theme);
+});
 
 const state = {
   charts: [],
@@ -426,15 +459,13 @@ function buildNode(node) {
     linkWrap.className = "linked-verb-chips";
 
     linkedVerbIds.slice(0, 6).forEach((verbId) => {
-      const verbMeta = getVerbById(verbId);
-      const label = verbMeta?.georgian ? `${verbMeta.georgian}` : `Verb #${verbId}`;
       const link = document.createElement("a");
       link.className = "linked-verb-chip";
       link.href = EMBED_MODE
         ? `../index.html?verb=${verbId}`
         : `../dist/index.html?verb=${verbId}`;
-      link.textContent = label;
-      link.title = `Open linked verb ${verbId}`;
+      link.textContent = "view conjugation tables";
+      link.title = "Open linked verb conjugation tables";
       link.addEventListener("click", (event) => {
         event.stopPropagation();
         if (EMBED_MODE && window.top && window.top !== window) {
@@ -491,9 +522,8 @@ function buildNode(node) {
       groupBox.appendChild(groupHeader);
 
       const groupedChildrenList = document.createElement("ul");
-      groupedChildrenList.className = `sibling-group-list ${
-        groupLayout === "left-right" ? "group-layout-lr" : "group-layout-tb"
-      }`;
+      groupedChildrenList.className = `sibling-group-list ${groupLayout === "left-right" ? "group-layout-lr" : "group-layout-tb"
+        }`;
       segment.items.forEach((groupedChild) => {
         const childNode = buildNode(groupedChild);
         groupedChildrenList.appendChild(childNode);

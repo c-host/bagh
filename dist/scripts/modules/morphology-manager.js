@@ -11,6 +11,7 @@ export class MorphologyManager {
         this.currentChartIndex = 0;
         this.selectedNodeId = '';
         this.initialized = false;
+        this.themeObserver = null;
 
         this.elements = {
             section: null,
@@ -30,6 +31,7 @@ export class MorphologyManager {
             this.cacheViewerElements();
             this.setupViewer();
             this.attachVerbBacklinks();
+            this.setupThemeSync();
             this.initialized = true;
             return true;
         } catch (error) {
@@ -410,11 +412,51 @@ export class MorphologyManager {
         return Array.from(byChart.values());
     }
 
+    getCurrentTheme() {
+        const theme = document.documentElement.getAttribute('data-theme');
+        return theme === 'dark' ? 'dark' : 'light';
+    }
+
+    setupThemeSync() {
+        if (this.themeObserver) {
+            this.themeObserver.disconnect();
+        }
+
+        this.themeObserver = new MutationObserver(() => {
+            this.refreshEmbeddedIframeThemes();
+        });
+        this.themeObserver.observe(document.documentElement, {
+            attributes: true,
+            attributeFilter: ['data-theme']
+        });
+    }
+
+    refreshEmbeddedIframeThemes() {
+        const nextTheme = this.getCurrentTheme();
+        const iframes = document.querySelectorAll('iframe.morphology-embed-iframe');
+        iframes.forEach((iframe) => {
+            const lastTheme = iframe.dataset.theme || '';
+            if (lastTheme === nextTheme) {
+                return;
+            }
+
+            iframe.dataset.theme = nextTheme;
+            iframe.contentWindow?.postMessage(
+                {
+                    type: 'morphology-theme',
+                    theme: nextTheme
+                },
+                window.location.origin
+            );
+        });
+    }
+
     buildMorphologyIframeSrc(chartIndex, highlightedNodeIds = []) {
         const params = new URLSearchParams();
         params.set('embed', '1');
         params.set('readonly', '1');
         params.set('chartIndex', String(chartIndex));
+        params.set('theme', this.getCurrentTheme());
         if (Array.isArray(highlightedNodeIds) && highlightedNodeIds.length > 0) {
             params.set('highlightNodeIds', highlightedNodeIds.join(','));
         }
@@ -427,6 +469,7 @@ export class MorphologyManager {
         iframe.loading = 'lazy';
         iframe.referrerPolicy = 'no-referrer';
         iframe.src = this.buildMorphologyIframeSrc(chartIndex, highlightedNodeIds);
+        iframe.dataset.theme = this.getCurrentTheme();
         iframe.title = 'Morphology chart viewer';
         return iframe;
     }
