@@ -30,6 +30,12 @@ export class SidebarManager {
         /** @type {boolean} Whether conjugation search is available */
         this.conjugationSearchAvailable = false;
 
+        /** @type {Object|null} Morphology manager for node search/viewer */
+        this.morphologyManager = null;
+
+        /** @type {boolean} Whether morphology search is available */
+        this.morphologySearchAvailable = false;
+
         /** @type {number} Search debounce timeout ID */
         this.searchDebounceTimeout = null;
 
@@ -534,6 +540,18 @@ export class SidebarManager {
     }
 
     /**
+     * Set morphology manager and enable morphology search mode
+     * @param {Object} morphologyManager
+     */
+    setMorphologyManager(morphologyManager) {
+        this.morphologyManager = morphologyManager;
+        this.morphologySearchAvailable = Boolean(
+            morphologyManager && typeof morphologyManager.isInitialized === 'function' && morphologyManager.isInitialized()
+        );
+        this.updateSearchModeUI();
+    }
+
+    /**
      * Build conjugation search index in background
      */
     async buildConjugationSearchIndex() {
@@ -849,6 +867,25 @@ export class SidebarManager {
         } else {
             this.filterBasicSearch(searchTerm);
         }
+    }
+
+    /**
+     * Filter using morphology search mode
+     * @param {string} searchTerm
+     */
+    filterMorphologySearch(searchTerm) {
+        const tocContainer = this.getCachedElement('.toc-content-container', 'tocContainer');
+        if (!tocContainer || !this.morphologyManager) {
+            return;
+        }
+
+        const results = this.morphologyManager.searchNodes(searchTerm);
+        this.morphologyManager.renderSearchResults(
+            tocContainer,
+            results,
+            searchTerm,
+            () => this.closeSidebar()
+        );
     }
 
     /**
@@ -1215,11 +1252,18 @@ export class SidebarManager {
      * Toggle search mode between basic and conjugation
      */
     toggleSearchMode() {
-        if (!this.conjugationSearchAvailable) {
+        const availableModes = ['basic'];
+        if (this.conjugationSearchAvailable) {
+            availableModes.push('conjugation');
+        }
+
+        if (availableModes.length <= 1) {
             return;
         }
 
-        this.searchMode = this.searchMode === 'basic' ? 'conjugation' : 'basic';
+        const currentIndex = availableModes.indexOf(this.searchMode);
+        const nextIndex = currentIndex < 0 ? 0 : (currentIndex + 1) % availableModes.length;
+        this.searchMode = availableModes[nextIndex];
 
         // Reset search state when switching modes
         this.resetSearchState();

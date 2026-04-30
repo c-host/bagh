@@ -5,6 +5,7 @@ Two-Stage Pipeline Build Process for Georgian Verb Website
 
 import argparse
 import logging
+import shutil
 import sys
 import time
 from pathlib import Path
@@ -308,6 +309,18 @@ def run_output_generation_pipeline(config_manager: ConfigManager, build_mode: st
             traceback.print_exc()
             raise
 
+        # Sync morphology chart data into verb-website data paths
+        print("🔧 About to sync morphology chart data...")
+        try:
+            sync_morphology_chart_data(config_manager)
+            print("🔧 Morphology chart data sync completed")
+        except Exception as e:
+            print(f"💥 Morphology chart data sync failed: {e}")
+            import traceback
+
+            traceback.print_exc()
+            raise
+
         generation_time = time.time() - start_time
         print(f"🔧 Pipeline completed in {generation_time:.2f}s")
         logger.info("✅ Output Generation Pipeline completed successfully")
@@ -392,6 +405,61 @@ def write_html_output(config_manager: ConfigManager, html_content: str):
         logger.info(f"HTML written to {file_writer.get_output_path()}")
     else:
         raise RuntimeError("Failed to write HTML file")
+
+
+def sync_morphology_chart_data(config_manager: ConfigManager):
+    """
+    Copy morphology chart data into src/dist data directories so runtime loading
+    at data/morphology/charts.json always has current content.
+    """
+    project_root = config_manager.get_path("project_root")
+    morphology_root = project_root / "morphology-chart"
+    source_file = morphology_root / "data" / "charts.json"
+
+    if not source_file.exists():
+        fallback_source = project_root / "src" / "data" / "morphology" / "charts.json"
+        if fallback_source.exists():
+            source_file = fallback_source
+            logger.warning(
+                "⚠️ Using fallback morphology charts source at src/data/morphology/charts.json"
+            )
+
+    if not source_file.exists():
+        logger.warning(f"⚠️ Morphology source charts file not found: {source_file}")
+        return
+
+    src_target_dir = project_root / "src" / "data" / "morphology"
+    dist_target_dir = config_manager.get_path("dist_data_dir") / "morphology"
+    src_target_dir.mkdir(parents=True, exist_ok=True)
+    dist_target_dir.mkdir(parents=True, exist_ok=True)
+
+    src_target_file = src_target_dir / "charts.json"
+    dist_target_file = dist_target_dir / "charts.json"
+
+    shutil.copy2(source_file, src_target_file)
+    shutil.copy2(source_file, dist_target_file)
+    logger.info(f"✅ Synced morphology charts to {src_target_file}")
+    logger.info(f"✅ Synced morphology charts to {dist_target_file}")
+
+    # Also copy the morphology-chart viewer app itself so verb-website can embed
+    # the exact same draggable canvas implementation in iframes.
+    dist_morphology_app_dir = config_manager.get_path("dist_dir") / "morphology-chart"
+    dist_morphology_data_dir = dist_morphology_app_dir / "data"
+    dist_morphology_app_dir.mkdir(parents=True, exist_ok=True)
+    dist_morphology_data_dir.mkdir(parents=True, exist_ok=True)
+
+    for app_file_name in ["index.html", "styles.css", "app.js"]:
+        app_source = morphology_root / app_file_name
+        if not app_source.exists():
+            logger.warning(f"⚠️ Missing morphology app file: {app_source}")
+            continue
+        app_target = dist_morphology_app_dir / app_file_name
+        shutil.copy2(app_source, app_target)
+        logger.info(f"✅ Synced morphology app file to {app_target}")
+
+    dist_morphology_charts = dist_morphology_data_dir / "charts.json"
+    shutil.copy2(source_file, dist_morphology_charts)
+    logger.info(f"✅ Synced morphology app data to {dist_morphology_charts}")
 
 
 if __name__ == "__main__":

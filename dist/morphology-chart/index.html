@@ -1,0 +1,174 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Georgian Morphology Charts</title>
+  <link rel="stylesheet" href="./styles.css" />
+</head>
+
+<body>
+  <header>
+    <h1>Georgian Morphology Flow Charts</h1>
+    <p>
+      Editable JSON-based charts for roots, nouns, verbal nouns, participles,
+      preverbs, and derived abstract nouns.
+    </p>
+  </header>
+
+  <main>
+    <section class="controls">
+      <label for="chartSelect">Chart:</label>
+      <select id="chartSelect" aria-label="Select chart"></select>
+      <label for="layoutSelect">Layout:</label>
+      <select id="layoutSelect" aria-label="Select layout">
+        <option value="top-down">Top to bottom</option>
+        <option value="left-right">Left to right</option>
+      </select>
+      <button type="button" id="addChartBtn">Add chart</button>
+      <button type="button" id="renameChartBtn">Rename chart</button>
+      <label for="historySelect">History:</label>
+      <select id="historySelect" aria-label="Select saved change"></select>
+      <button type="button" id="restoreHistoryBtn">Restore selected</button>
+      <button type="button" id="exportBtn">Export JSON</button>
+      <label class="file-label" for="importInput">Import JSON</label>
+      <input id="importInput" type="file" accept="application/json" />
+    </section>
+
+    <section class="workspace">
+      <section id="chartContainer" aria-live="polite">
+        <div id="chartViewport">
+          <div id="chartStage"></div>
+        </div>
+        <div class="canvas-tools">
+          <button type="button" id="zoomOutBtn" class="canvas-icon-btn" aria-label="Zoom out" title="Zoom out">
+            -
+          </button>
+          <button type="button" id="zoomResetBtn" class="canvas-icon-btn" aria-label="Reset zoom" title="Reset zoom">
+            100%
+          </button>
+          <button type="button" id="zoomInBtn" class="canvas-icon-btn" aria-label="Zoom in" title="Zoom in">
+            +
+          </button>
+          <button type="button" id="fullscreenBtn" class="canvas-icon-btn" aria-label="Toggle fullscreen chart"
+            title="Toggle fullscreen">
+            []
+          </button>
+        </div>
+      </section>
+
+      <aside class="editor" aria-label="Node editor">
+        <h2>Node Editor</h2>
+        <p id="editorHelp" class="editor-help">
+          Click a node in the chart to edit it.
+        </p>
+        <p id="autosaveStatus" class="editor-help">Changes auto-save instantly.</p>
+
+        <form id="nodeForm">
+          <label for="kaInput">Georgian Word (ka)</label>
+          <input id="kaInput" name="ka" type="text" required />
+
+          <label for="enInput">English Definition (en)</label>
+          <input id="enInput" name="en" type="text" required />
+
+          <label for="typeInput">Grammatical Type</label>
+          <select id="typeInput" name="type" required>
+            <option value="Present Participle">Present Participle</option>
+            <option value="Future Participle">Future Participle</option>
+            <option value="Past Participle">Past Participle</option>
+            <option value="Negative Participle">Negative Participle</option>
+            <option value="Abstract Noun">Abstract Noun</option>
+            <option value="Adjective">Adjective</option>
+            <option value="Adverb">Adverb</option>
+            <option value="Verbal Noun">Verbal Noun</option>
+            <option value="Noun">Noun</option>
+            <option value="Root">Root</option>
+          </select>
+
+          <label for="enSecondaryInput">Secondary English Definition (optional)</label>
+          <input id="enSecondaryInput" name="enSecondary" type="text" />
+
+          <label for="typeSecondaryInput">Secondary Grammatical Type (optional)</label>
+          <select id="typeSecondaryInput" name="typeSecondary">
+            <option value="">None</option>
+            <option value="Present Participle">Present Participle</option>
+            <option value="Future Participle">Future Participle</option>
+            <option value="Past Participle">Past Participle</option>
+            <option value="Negative Participle">Negative Participle</option>
+            <option value="Abstract Noun">Abstract Noun</option>
+            <option value="Adjective">Adjective</option>
+            <option value="Adverb">Adverb</option>
+            <option value="Verbal Noun">Verbal Noun</option>
+            <option value="Noun">Noun</option>
+            <option value="Root">Root</option>
+          </select>
+
+          <label for="notesInput">Notes</label>
+          <textarea id="notesInput" name="notes" rows="3"></textarea>
+
+          <fieldset class="reparent-tools">
+            <legend>Linked verbs</legend>
+            <label for="linkedVerbsInput">Link this node to verbs in bagh</label>
+            <select id="linkedVerbsInput" name="linkedVerbs" multiple size="8"></select>
+            <p class="small-help">Ctrl/Cmd-click to select multiple linked verbs.</p>
+          </fieldset>
+
+          <div class="editor-actions">
+            <button type="button" id="addChildBtn">Add child</button>
+            <button type="button" id="deleteNodeBtn">Delete node</button>
+          </div>
+
+          <fieldset class="reparent-tools">
+            <legend>Sibling grouping</legend>
+            <label for="siblingGroupInput">Group key</label>
+            <input id="siblingGroupInput" name="siblingGroup" type="text" placeholder="e.g. verbal-nouns" />
+            <label for="siblingGroupLabelInput">Group label (optional)</label>
+            <input id="siblingGroupLabelInput" name="siblingGroupLabel" type="text" placeholder="e.g. Verbal nouns" />
+          </fieldset>
+
+          <fieldset class="reparent-tools">
+            <legend>Reclassify parent</legend>
+            <label for="reparentSelect">Move selected node under</label>
+            <select id="reparentSelect"></select>
+            <div class="editor-actions">
+              <button type="button" id="moveNodeBtn">Move node</button>
+            </div>
+          </fieldset>
+
+          <fieldset class="reparent-tools">
+            <legend>Order among siblings</legend>
+            <p id="siblingOrderInfo" class="small-help"></p>
+            <div class="editor-actions">
+              <button type="button" id="moveUpBtn">Move earlier</button>
+              <button type="button" id="moveDownBtn">Move later</button>
+            </div>
+            <label for="moveToPositionInput">Move to position</label>
+            <div class="editor-actions">
+              <input id="moveToPositionInput" type="number" min="1" step="1" />
+              <button type="button" id="moveToPositionBtn">Apply position</button>
+            </div>
+          </fieldset>
+        </form>
+      </aside>
+    </section>
+  </main>
+
+  <template id="nodeTemplate">
+    <li class="chart-node">
+      <div class="node-card">
+        <p class="ge"></p>
+        <p class="en"></p>
+        <p class="unit-type"></p>
+        <p class="en-secondary"></p>
+        <p class="unit-type-secondary"></p>
+        <p class="notes"></p>
+      </div>
+      <ul class="children"></ul>
+    </li>
+  </template>
+
+  <script src="./app.js" type="module"></script>
+</body>
+
+</html>

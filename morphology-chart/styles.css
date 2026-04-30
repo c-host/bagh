@@ -1,0 +1,690 @@
+:root {
+  color-scheme: light;
+  --bg: #f6f7fb;
+  --card: #ffffff;
+  --text: #1f2430;
+  --muted: #5c6575;
+  --line: #bbc3d4;
+  --page-max-width: 1800px;
+  --page-padding-x: clamp(0.75rem, 1.6vw, 1.6rem);
+  --connector-depth: 1.3rem;
+  --lr-trunk-x: 8px;
+  --lr-branch-len: 14px;
+  --lr-indent: 22px;
+  --lr-branch-y: 22px;
+  --lr-row-pad-y: 6px;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: Arial, Helvetica, sans-serif;
+  color: var(--text);
+  background: var(--bg);
+  line-height: 1.4;
+}
+
+header {
+  width: min(var(--page-max-width), calc(100vw - (var(--page-padding-x) * 2)));
+  margin: 0 auto;
+  padding: 1rem var(--page-padding-x) 0.5rem;
+}
+
+h1 {
+  margin: 0;
+  font-size: 1.5rem;
+}
+
+header p {
+  margin: 0.4rem 0 0;
+  color: var(--muted);
+}
+
+main {
+  width: min(var(--page-max-width), calc(100vw - (var(--page-padding-x) * 2)));
+  margin: 0 auto;
+  padding: 0.5rem var(--page-padding-x) 2rem;
+}
+
+.controls {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  align-items: center;
+  margin-bottom: 0.75rem;
+}
+
+select {
+  border: 1px solid #ccd2df;
+  border-radius: 0.4rem;
+  background: #fff;
+  font: inherit;
+  padding: 0.35rem 0.6rem;
+}
+
+.controls button,
+.file-label,
+.editor-actions button {
+  border: 1px solid #ccd2df;
+  border-radius: 0.4rem;
+  background: #fff;
+  color: var(--text);
+  font: inherit;
+  padding: 0.35rem 0.6rem;
+  cursor: pointer;
+}
+
+.controls button:hover,
+.file-label:hover,
+.editor-actions button:hover {
+  background: #f2f5ff;
+  border-color: #b8c2dc;
+}
+
+.file-label {
+  display: inline-block;
+}
+
+#importInput {
+  display: none;
+}
+
+.workspace {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 330px;
+  gap: 1rem;
+  align-items: start;
+}
+
+#chartContainer {
+  background: #fff;
+  border: 1px solid #dde3ef;
+  border-radius: 0.6rem;
+  min-height: 180px;
+  position: relative;
+  overflow: hidden;
+}
+
+#chartViewport {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+  cursor: grab;
+  touch-action: none;
+}
+
+.canvas-tools {
+  position: absolute;
+  top: 0.5rem;
+  left: 0.5rem;
+  z-index: 20;
+  display: flex;
+  gap: 0.25rem;
+  align-items: center;
+}
+
+.canvas-icon-btn:hover {
+  background: #eef3ff;
+  border-color: #b9c4df;
+}
+
+.canvas-icon-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  height: 28px;
+  min-width: 28px;
+  border: 1px solid #ccd2df;
+  border-radius: 0.35rem;
+  background: #ffffff;
+  color: #2a3140;
+  font-size: 0.9rem;
+  line-height: 1;
+  padding: 0 0.45rem;
+  cursor: pointer;
+}
+
+#zoomResetBtn {
+  min-width: 3.4rem;
+}
+
+#chartViewport.dragging {
+  cursor: grabbing;
+  user-select: none;
+}
+
+#chartViewport.dragging .node-card,
+#chartViewport.dragging .node-card * {
+  user-select: none;
+}
+
+#chartStage {
+  position: absolute;
+  left: 0;
+  top: 0;
+  transform: translate(48px, 48px);
+  transform-origin: 0 0;
+}
+
+#chartContainer:fullscreen {
+  width: 100vw;
+  height: 100vh;
+  max-width: none;
+  border-radius: 0;
+  border: 0;
+}
+
+#chartContainer:fullscreen #chartViewport {
+  background: #fff;
+}
+
+.tree {
+  margin: 0;
+  padding: 0;
+  white-space: nowrap;
+}
+
+.tree,
+.tree ul {
+  list-style: none;
+  text-align: center;
+}
+
+.tree ul {
+  margin: 0;
+  padding-top: var(--connector-depth);
+  position: relative;
+}
+
+.tree ul::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 50%;
+  width: 0;
+  height: var(--connector-depth);
+  border-left: 1px solid var(--line);
+}
+
+.tree li {
+  display: inline-block;
+  vertical-align: top;
+  position: relative;
+  padding: 1.3rem 0.3rem 0 0.3rem;
+  min-width: 190px;
+}
+
+.tree li::before,
+.tree li::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  right: 50%;
+  width: 50%;
+  height: var(--connector-depth);
+  border-top: 1px solid var(--line);
+}
+
+.tree li::after {
+  right: auto;
+  left: 50%;
+  border-left: 1px solid var(--line);
+}
+
+.tree:not(.tree-lr) li:only-child::before,
+.tree:not(.tree-lr) li:only-child::after {
+  display: none;
+}
+
+.tree:not(.tree-lr) li:only-child {
+  padding-top: 0;
+}
+
+.tree:not(.tree-lr) li:first-child::before,
+.tree:not(.tree-lr) li:last-child::after {
+  border: 0 none;
+}
+
+.tree:not(.tree-lr) li:last-child::before {
+  border-right: 1px solid var(--line);
+  border-radius: 0 4px 0 0;
+}
+
+.tree:not(.tree-lr) li:first-child::after {
+  border-radius: 4px 0 0 0;
+}
+
+.tree.tree-lr,
+.tree.tree-lr ul {
+  text-align: left;
+}
+
+.tree.tree-lr {
+  display: inline-block;
+  min-width: max-content;
+  white-space: normal;
+}
+
+.tree.tree-lr ul {
+  margin: 0;
+  padding: 0 0 0 var(--lr-indent);
+  position: relative;
+}
+
+.tree.tree-lr ul::before {
+  top: 0;
+  left: var(--lr-trunk-x);
+  width: 1px;
+  height: 100%;
+  border-left: 1px solid var(--line);
+  border-top: 0;
+}
+
+.tree.tree-lr li {
+  display: block;
+  min-width: 0;
+  padding: var(--lr-row-pad-y) 0 var(--lr-row-pad-y) var(--lr-indent);
+}
+
+.tree.tree-lr li::before {
+  top: var(--lr-branch-y);
+  left: var(--lr-trunk-x);
+  right: auto;
+  width: var(--lr-branch-len);
+  height: 0;
+  border-top: 1px solid var(--line);
+}
+
+.tree.tree-lr li::after {
+  display: none;
+}
+
+.tree.tree-lr li:first-child::before {
+  border-top: 1px solid var(--line);
+}
+
+.tree.tree-lr li:last-child::before {
+  border-right: 0;
+  border-radius: 0;
+}
+
+.tree.tree-lr li:only-child {
+  padding-top: 0.35rem;
+  padding-bottom: 0.35rem;
+}
+
+.sibling-group {
+  min-width: auto;
+}
+
+.sibling-group-box {
+  border: 1px dashed #bcc5d8;
+  border-radius: 0.45rem;
+  padding: 0.35rem 0.35rem 0.2rem;
+  background: #f9fbff;
+}
+
+.sibling-group-header {
+  display: grid;
+  grid-template-columns: auto 1fr auto;
+  align-items: center;
+  gap: 0.35rem;
+  margin-bottom: 0.15rem;
+}
+
+.sibling-group-header::after {
+  content: "";
+  width: 28px;
+  visibility: hidden;
+}
+
+.sibling-group-label {
+  margin: 0;
+  font-size: 0.75rem;
+  color: var(--muted);
+  text-transform: uppercase;
+  letter-spacing: 0.03em;
+  justify-self: center;
+  text-align: center;
+}
+
+.group-layout-toggle {
+  border: 1px solid #c7cfdf;
+  border-radius: 0.3rem;
+  background: #fff;
+  color: #354256;
+  font-size: 0.68rem;
+  line-height: 1;
+  padding: 0.14rem 0.28rem;
+  cursor: pointer;
+}
+
+.group-layout-toggle:hover {
+  background: #edf2ff;
+}
+
+.sibling-group-list.group-layout-tb {
+  margin: 0;
+  padding: var(--connector-depth) 0 0;
+  list-style: none;
+  text-align: center;
+  position: relative;
+}
+
+.sibling-group-list.group-layout-tb::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 50%;
+  width: 0;
+  height: var(--connector-depth);
+  border-left: 1px solid var(--line);
+}
+
+.sibling-group-list.group-layout-tb > li {
+  padding-top: var(--connector-depth);
+}
+
+.sibling-group-list.group-layout-lr,
+.sibling-group-list.group-layout-lr ul {
+  text-align: left;
+}
+
+.sibling-group-list.group-layout-lr {
+  display: inline-block;
+  min-width: max-content;
+  white-space: normal;
+  margin: 0;
+  padding: 0 0 0 var(--lr-indent);
+  position: relative;
+}
+
+.sibling-group-list.group-layout-lr ul {
+  margin: 0;
+  padding: 0 0 0 var(--lr-indent);
+  position: relative;
+}
+
+.sibling-group-list.group-layout-lr::before,
+.sibling-group-list.group-layout-lr ul::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: var(--lr-trunk-x);
+  width: 1px;
+  height: 100%;
+  border-left: 1px solid var(--line);
+  border-top: 0;
+}
+
+.sibling-group-list.group-layout-lr li {
+  display: block;
+  min-width: 0;
+  padding: var(--lr-row-pad-y) 0 var(--lr-row-pad-y) var(--lr-indent);
+}
+
+.sibling-group-list.group-layout-lr li::before {
+  left: var(--lr-trunk-x);
+  width: var(--lr-branch-len);
+  top: var(--lr-branch-y);
+  right: auto;
+  height: 0;
+  border-top: 1px solid var(--line);
+}
+
+.sibling-group-list.group-layout-lr li::after {
+  display: none;
+}
+
+.sibling-group-list.group-layout-lr li:first-child::before {
+  border-top: 1px solid var(--line);
+}
+
+.sibling-group-list.group-layout-lr li:last-child::before {
+  border-right: 0;
+  border-radius: 0;
+}
+
+.sibling-group-list.group-layout-lr li:only-child {
+  padding-top: 0.35rem;
+  padding-bottom: 0.35rem;
+}
+
+.node-card {
+  display: inline-block;
+  width: 180px;
+  text-align: left;
+  padding: 0.55rem 0.6rem;
+  border: 1px solid #ccd3e0;
+  border-radius: 0.5rem;
+  background: var(--card);
+  box-shadow: 0 1px 4px rgba(23, 31, 56, 0.08);
+  white-space: normal;
+  user-select: text;
+  cursor: text;
+}
+
+.node-card p {
+  margin: 0;
+}
+
+.node-card * {
+  cursor: text;
+}
+
+.node-card .ge {
+  font-size: 1rem;
+  font-weight: 700;
+  margin-bottom: 0.15rem;
+}
+
+.node-card .en {
+  font-size: 0.9rem;
+  color: #253149;
+  margin-bottom: 0.3rem;
+}
+
+.node-card .unit-type {
+  color: var(--muted);
+  font-size: 0.78rem;
+  text-transform: uppercase;
+  letter-spacing: 0.02em;
+}
+
+.node-card .en-secondary {
+  font-size: 0.84rem;
+  color: #2f3f63;
+  margin-top: 0.28rem;
+}
+
+.node-card .unit-type-secondary {
+  font-size: 0.72rem;
+  color: #6a7488;
+  text-transform: uppercase;
+  letter-spacing: 0.02em;
+}
+
+.node-card .notes {
+  margin-top: 0.25rem;
+  font-size: 0.76rem;
+  color: #6f5f30;
+}
+
+.linked-verb-chips {
+  margin-top: 0.45rem;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.28rem;
+}
+
+.linked-verb-chip {
+  display: inline-block;
+  border: 1px solid #cdd5e4;
+  border-radius: 999px;
+  background: #f7f9ff;
+  color: #2f4b93;
+  text-decoration: none;
+  font-size: 0.66rem;
+  line-height: 1;
+  padding: 0.2rem 0.42rem;
+  cursor: pointer !important;
+  pointer-events: auto;
+}
+
+.node-card .linked-verb-chip,
+.node-card .linked-verb-chip * {
+  cursor: pointer !important;
+}
+
+.linked-verb-chip:hover {
+  background: #e8f0ff;
+}
+
+.chart-node.selected > .node-card {
+  outline: 2px solid #2f7cf5;
+  outline-offset: 2px;
+}
+
+.chart-node.persistent-highlight > .node-card {
+  outline: 2px solid #f59e0b;
+  outline-offset: 2px;
+  background: #fff7e6;
+}
+
+.editor {
+  background: #fff;
+  border: 1px solid #dde3ef;
+  border-radius: 0.6rem;
+  padding: 0.85rem;
+}
+
+.editor h2 {
+  margin: 0;
+  font-size: 1.1rem;
+}
+
+.editor-help {
+  margin: 0.35rem 0 0.8rem;
+  color: var(--muted);
+  font-size: 0.9rem;
+}
+
+#nodeForm {
+  display: grid;
+  gap: 0.45rem;
+}
+
+#nodeForm label {
+  font-size: 0.85rem;
+  color: var(--muted);
+}
+
+#nodeForm input,
+#nodeForm select,
+#nodeForm textarea {
+  border: 1px solid #ccd2df;
+  border-radius: 0.4rem;
+  font: inherit;
+  padding: 0.35rem 0.5rem;
+  width: 100%;
+}
+
+#nodeForm textarea {
+  resize: vertical;
+}
+
+.editor-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.45rem;
+  margin-top: 0.35rem;
+}
+
+.reparent-tools {
+  border: 1px solid #ccd2df;
+  border-radius: 0.45rem;
+  margin: 0.45rem 0 0;
+  padding: 0.45rem 0.55rem 0.6rem;
+}
+
+.reparent-tools legend {
+  color: var(--muted);
+  font-size: 0.85rem;
+  padding: 0 0.3rem;
+}
+
+.small-help {
+  margin: 0 0 0.4rem;
+  color: var(--muted);
+  font-size: 0.82rem;
+}
+
+#moveToPositionInput {
+  max-width: 90px;
+}
+
+@media (max-width: 1000px) {
+  .workspace {
+    grid-template-columns: 1fr;
+  }
+}
+
+body.readonly-mode .editor,
+body.readonly-mode #addChartBtn,
+body.readonly-mode #renameChartBtn,
+body.readonly-mode #restoreHistoryBtn,
+body.readonly-mode #exportBtn,
+body.readonly-mode .file-label,
+body.readonly-mode #importInput,
+body.readonly-mode label[for="historySelect"],
+body.readonly-mode #historySelect {
+  display: none !important;
+}
+
+body.readonly-mode .workspace {
+  grid-template-columns: 1fr;
+}
+
+body.embed-mode header {
+  display: none !important;
+}
+
+body.embed-mode .controls {
+  display: none !important;
+}
+
+body.embed-mode main {
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  height: 100vh;
+}
+
+body.embed-mode header p {
+  display: none;
+}
+
+body.embed-mode {
+  height: 100vh;
+}
+
+body.embed-mode .workspace,
+body.embed-mode #chartContainer,
+body.embed-mode #chartViewport {
+  height: 100%;
+}
+
+body.embed-mode #chartContainer {
+  min-height: 0;
+  border-radius: 0;
+  border: 0;
+}
+
+@media (max-width: 600px) {
+  :root {
+    --page-padding-x: 0.55rem;
+  }
+}

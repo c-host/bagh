@@ -3251,3 +3251,265 @@ kbd {
     font-family: 'Courier New', monospace;
     font-size: 1.0em;
 }
+
+.hidden {
+    display: none !important;
+}
+
+.morphology-viewer-header p {
+    margin-top: 6px;
+    color: var(--text-secondary);
+}
+
+.morphology-viewer-controls {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-bottom: 16px;
+}
+
+.morphology-chart-stage {
+    padding: 8px 0 6px;
+}
+
+.morphology-embed-iframe {
+    width: 100%;
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius-sm);
+    background: var(--bg-primary);
+    display: block;
+    height: 100%;
+}
+
+.morphology-main-iframe {
+    min-height: 680px;
+}
+
+.embedded-context-iframe {
+    min-height: 520px;
+    height: 100%;
+}
+
+.morphology-canvas {
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius-sm);
+    background: var(--bg-primary);
+    overflow: hidden;
+}
+
+.morphology-canvas-viewport {
+    position: relative;
+    height: 400px;
+    overflow: hidden;
+    cursor: grab;
+    touch-action: none;
+}
+
+.morphology-canvas-viewport.dragging {
+    cursor: grabbing;
+}
+
+.morphology-canvas-stage {
+    position: absolute;
+    left: 0;
+    top: 0;
+    transform-origin: 0 0;
+}
+
+.embedded-context-canvas .morphology-canvas-viewport {
+    height: 320px;
+}
+
+.morphology-tree {
+    margin: 0;
+    padding: 0;
+    white-space: nowrap;
+    list-style: none;
+    text-align: center;
+}
+
+.morphology-tree ul {
+    margin: 0;
+    padding-top: 1.2rem;
+    position: relative;
+    list-style: none;
+    text-align: center;
+}
+
+.morphology-tree ul::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 50%;
+    width: 0;
+    height: 1.2rem;
+    border-left: 1px solid var(--border-color);
+}
+
+.morphology-node {
+    display: inline-block;
+    vertical-align: top;
+    position: relative;
+    margin: 0;
+    padding: 1.2rem 0.35rem 0 0.35rem;
+    min-width: 220px;
+}
+
+.morphology-node::before,
+.morphology-node::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    right: 50%;
+    width: 50%;
+    height: 1.2rem;
+    border-top: 1px solid var(--border-color);
+}
+
+.morphology-node::after {
+    right: auto;
+    left: 50%;
+    border-left: 1px solid var(--border-color);
+}
+
+.morphology-node:only-child::before,
+.morphology-node:only-child::after {
+    display: none;
+}
+
+.morphology-node:only-child {
+    padding-top: 0;
+}
+
+.morphology-node:first-child::before,
+.morphology-node:last-child::after {
+    border: 0 none;
+}
+
+.morphology-node:last-child::before {
+    border-right: 1px solid var(--border-color);
+    border-radius: 0 4px 0 0;
+}
+
+.morphology-node:first-child::after {
+    border-radius: 4px 0 0 0;
+}
+
+.morphology-node-card {
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius-md);
+    background: var(--bg-secondary);
+    padding: 10px;
+    width: 220px;
+    max-width: 220px;
+    cursor: pointer;
+    white-space: normal;
+    text-align: left;
+}
+
+.morphology-node-card.selected {
+    border-color: var(--accent-primary);
+    box-shadow: 0 0 0 2px rgba(37, 99, 235, 0.18);
+}
+
+.morphology-node-card.persistent-highlight {
+    border-color: #f59e0b;
+    box-shadow: 0 0 0 2px rgba(245, 158, 11, 0.22);
+    background: rgba(245, 158, 11, 0.08);
+}
+
+.morphology-node-card.readonly {
+    cursor: default;
+}
+
+.morphology-node-ka {
+    font-size: 1.15em;
+    font-weight: 700;
+    margin-bottom: 2px;
+}
+
+.morphology-node-en {
+    color: var(--text-secondary);
+    margin-bottom: 4px;
+}
+
+.morphology-node-type {
+    text-transform: uppercase;
+    letter-spacing: 0.03em;
+    font-size: 0.78em;
+    color: var(--accent-primary);
+}
+
+.morphology-linked-verbs {
+    margin-top: 8px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+}
+
+.morphology-verb-chip {
+    border: 1px solid var(--border-color);
+    border-radius: 999px;
+    background: var(--bg-primary);
+    color: var(--text-primary);
+    font-size: 11px;
+    padding: 3px 8px;
+    cursor: pointer;
+}
+
+.morphology-search-result .morphology-search-meta {
+    margin-top: 4px;
+    font-size: 11px;
+    color: var(--text-secondary);
+}
+
+.related-morphology {
+    margin-top: 16px;
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius-md);
+    background: var(--bg-secondary);
+    padding: 12px;
+}
+
+.related-morphology h4 {
+    margin: 0 0 10px;
+    font-size: 1.05em;
+}
+
+.related-morphology-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+}
+
+.related-morphology-item {
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius-sm);
+    background: var(--bg-primary);
+    color: var(--text-primary);
+    padding: 6px 10px;
+    cursor: pointer;
+    font-size: 12px;
+}
+
+.related-morphology-context {
+    margin-top: 14px;
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius-sm);
+    padding: 10px;
+    background: var(--bg-primary);
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    height: 600px;
+}
+
+.related-morphology-context-title {
+    margin: 0 0 8px;
+    color: var(--text-secondary);
+    font-size: 12px;
+}
+
+.related-morphology-item.open-viewer {
+    margin-top: 10px;
+}

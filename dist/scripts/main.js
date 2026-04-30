@@ -68,6 +68,9 @@ class App {
         /** @type {Object} Bottom Sheet Manager instance */
         this.bottomSheetManager = null;
 
+        /** @type {Object} Morphology Manager instance */
+        this.morphologyManager = null;
+
         /** @type {boolean} Whether app is initialized */
         this.initialized = false;
 
@@ -289,14 +292,16 @@ class App {
                 { PreverbManager },
                 { HelpManager },
                 { DynamicVerbLoader },
-                { BottomSheetManager }
+                { BottomSheetManager },
+                { MorphologyManager }
             ] = await Promise.all([
                 this.loadModule('notepad-manager'),
                 this.loadModule('sidebar-manager'),
                 this.loadModule('preverb-manager'),
                 this.loadModule('help-manager'),
                 this.loadModule('dynamic-verb-loader'),
-                this.loadModule('bottom-sheet-manager')
+                this.loadModule('bottom-sheet-manager'),
+                this.loadModule('morphology-manager')
             ]);
 
             // Initialize Notepad Manager
@@ -320,6 +325,10 @@ class App {
             if (this.sidebarManager) {
                 this.sidebarManager.setEnhancedVerbLoader(this.enhancedVerbLoader);
             }
+
+            // Initialize read-only morphology manager for public search/viewing.
+            this.morphologyManager = new MorphologyManager(this.enhancedVerbLoader);
+            await this.morphologyManager.initialize();
 
             // Initialize Preverb Manager
             if (this.enhancedVerbLoader) {
@@ -730,7 +739,8 @@ class App {
             eventManager: this.eventManager?.isInitialized() || false,
             helpManager: this.helpManager?.isInitialized() || false,
             stickyHeaderManager: this.stickyHeaderManager?.isInitialized() || false,
-            bottomSheetManager: this.bottomSheetManager?.isInitialized() || false
+            bottomSheetManager: this.bottomSheetManager?.isInitialized() || false,
+            morphologyManager: this.morphologyManager?.isInitialized?.() || false
         };
     }
 
@@ -749,7 +759,8 @@ class App {
             eventManager: this.eventManager,
             helpManager: this.helpManager,
             stickyHeaderManager: this.stickyHeaderManager,
-            bottomSheetManager: this.bottomSheetManager
+            bottomSheetManager: this.bottomSheetManager,
+            morphologyManager: this.morphologyManager
         };
     }
 
