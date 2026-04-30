@@ -3,7 +3,7 @@
  * Handles bottom sheet functionality for mobile controls
  * 
  * This module manages the bottom sheet that contains mobile controls
- * (help, notepad, font selector) in a single accessible interface.
+ * (notepad, font selector) in a single accessible interface.
  */
 
 import { ELEMENT_IDS } from '../shared/constants.js';
@@ -94,10 +94,6 @@ export class BottomSheetManager {
         this.bottomSheet.className = 'bottom-controls-sheet';
         this.bottomSheet.innerHTML = `
             <div class="bottom-sheet-content">
-                <button class="bottom-sheet-button" data-action="help">
-                    <i class="fas fa-question-circle"></i>
-                    <span>Help</span>
-                </button>
                 <button class="bottom-sheet-button" data-action="notepad">
                     <i class="fas fa-sticky-note"></i>
                     <span>Notes</span>
@@ -267,11 +263,6 @@ export class BottomSheetManager {
      */
     handleButtonAction(action) {
         switch (action) {
-            case 'help':
-                if (this.managers.helpManager?.isInitialized()) {
-                    this.managers.helpManager.openHelp();
-                }
-                break;
             case 'notepad':
                 if (this.managers.notepadManager?.isInitialized()) {
                     this.managers.notepadManager.openNotepad();

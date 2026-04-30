@@ -26,7 +26,6 @@ import { AnimationManager } from './modules/animation-manager.js';
 // import { NotepadManager } from './modules/notepad-manager.js';
 // import { SidebarManager } from './modules/sidebar-manager.js';
 // import { PreverbManager } from './modules/preverb-manager.js';
-// import { HelpManager } from './modules/help-manager.js';
 // import { DynamicVerbLoader } from './modules/dynamic-verb-loader.js';
 
 
@@ -54,9 +53,6 @@ class App {
 
         /** @type {Object} Preverb Manager instance */
         this.preverbManager = null;
-
-        /** @type {Object} Help Manager instance */
-        this.helpManager = null;
 
 
         /** @type {Object} Sticky Header Manager instance */
@@ -290,7 +286,6 @@ class App {
                 { NotepadManager },
                 { SidebarManager },
                 { PreverbManager },
-                { HelpManager },
                 { DynamicVerbLoader },
                 { BottomSheetManager },
                 { MorphologyManager }
@@ -298,7 +293,6 @@ class App {
                 this.loadModule('notepad-manager'),
                 this.loadModule('sidebar-manager'),
                 this.loadModule('preverb-manager'),
-                this.loadModule('help-manager'),
                 this.loadModule('dynamic-verb-loader'),
                 this.loadModule('bottom-sheet-manager'),
                 this.loadModule('morphology-manager')
@@ -336,13 +330,8 @@ class App {
                 await this.preverbManager.initialize();
             }
 
-            // Initialize Help Manager
-            this.helpManager = new HelpManager(this.domManager);
-            this.helpManager.initialize();
-
             // Initialize Bottom Sheet Manager
             this.bottomSheetManager = new BottomSheetManager(this.domManager, {
-                helpManager: this.helpManager,
                 notepadManager: this.notepadManager,
                 fontManager: this.fontManager
             });
@@ -737,7 +726,6 @@ class App {
             sidebarManager: this.sidebarManager?.isInitialized() || false,
             preverbManager: this.preverbManager?.isInitialized() || false,
             eventManager: this.eventManager?.isInitialized() || false,
-            helpManager: this.helpManager?.isInitialized() || false,
             stickyHeaderManager: this.stickyHeaderManager?.isInitialized() || false,
             bottomSheetManager: this.bottomSheetManager?.isInitialized() || false,
             morphologyManager: this.morphologyManager?.isInitialized?.() || false
@@ -757,7 +745,6 @@ class App {
             sidebarManager: this.sidebarManager,
             preverbManager: this.preverbManager,
             eventManager: this.eventManager,
-            helpManager: this.helpManager,
             stickyHeaderManager: this.stickyHeaderManager,
             bottomSheetManager: this.bottomSheetManager,
             morphologyManager: this.morphologyManager
@@ -785,9 +772,6 @@ class App {
         }
         if (this.eventManager) {
             this.eventManager.destroy();
-        }
-        if (this.helpManager) {
-            this.helpManager.destroy();
         }
         if (this.stickyHeaderManager) {
             this.stickyHeaderManager.destroy();

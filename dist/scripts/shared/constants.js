@@ -86,9 +86,5 @@ export const ELEMENT_IDS = {
     NOTEPAD_OVERLAY: 'notepad-overlay',
     NOTEPAD_CLOSE: 'notepad-close',
     NOTEPAD_TEXTAREA: 'notepad-textarea',
-    HELP_TOGGLE: 'help-toggle',
-    HELP_MODAL: 'help-modal',
-    HELP_OVERLAY: 'help-overlay',
-    HELP_CLOSE: 'help-close',
 
 };

@@ -1880,9 +1880,16 @@ class HTMLGenerator:
         return """
             <div class="welcome-content">
                 <div class="welcome-header">
-                    <h1>Georgian Verb Conjugations</h1>
-                    <p>Select a verb from the sidebar to view conjugations, examples, and gloss analysis.</p>
-                    <p><a href="#" onclick="window.sidebarManager?.openSidebar(); return false;" class="welcome-link">Click here to browse verbs</a> or use <kbd>Ctrl+B</kbd> to open the sidebar.</p>
+                    <h1>Bagh / ბაღ</h1>
+                    <p>Bagh is a Georgian verb resource with searchable entries, screve tables, examples, gloss/case analysis, and linked morphology charts.</p>
+                    <p class="welcome-section-label">How to use</p>
+                    <ul class="welcome-intro-list">
+                        <li><strong>Browse and search verbs:</strong> Open the sidebar and choose a verb to load its full page.</li>
+                        <li><strong>Study forms in context:</strong> Each page includes conjugations, examples, and argument-structure glosses.</li>
+                        <li><strong>Explore morphology links:</strong> On linked verbs, use the embedded chart to navigate related forms.</li>
+                    </ul>
+                    <p class="welcome-warning"><strong>Work in Progress:</strong> This website is a personal study resource under semi-active development. It contains mistakes, inconsistencies, and incomplete features. Do not treat it as a definitive source for Georgian verb conjugation and morphology.</p>
+                    <p class="welcome-actions"><a href="#" onclick="window.sidebarManager?.openSidebar(); return false;" class="welcome-link">Browse verbs</a><span class="welcome-shortcut-hint">Press <kbd>Ctrl/Cmd+B</kbd></span></p>
                 </div>
             </div>
         """

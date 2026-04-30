@@ -42,10 +42,6 @@ export class DOMManager {
                 notepadOverlay: safeGetElementById(ELEMENT_IDS.NOTEPAD_OVERLAY),
                 notepadClose: safeGetElementById(ELEMENT_IDS.NOTEPAD_CLOSE),
                 notepadTextarea: safeGetElementById(ELEMENT_IDS.NOTEPAD_TEXTAREA),
-                helpToggle: safeGetElementById(ELEMENT_IDS.HELP_TOGGLE),
-                helpModal: safeGetElementById(ELEMENT_IDS.HELP_MODAL),
-                helpOverlay: safeGetElementById(ELEMENT_IDS.HELP_OVERLAY),
-                helpClose: safeGetElementById(ELEMENT_IDS.HELP_CLOSE),
 
             };
 

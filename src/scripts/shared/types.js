@@ -96,7 +96,6 @@
  * @property {Object} enhancedVerbLoader - Dynamic verb loader instance
  * @property {Object} preverbManager - Preverb manager instance
  * @property {Object} eventManager - Event manager instance
- * @property {Object} helpManager - Help manager instance
  */
 
 /**

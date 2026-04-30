@@ -274,7 +274,7 @@ export class EventManager {
      * Handle ESC key actions in order of priority
      */
     handleEscapeKeyActions() {
-        // Priority order: Font Dropdown → Bottom Sheet Font Dropdown → Bottom Sheet → Help → Notepad → Sidebar
+        // Priority order: Font Dropdown → Bottom Sheet Font Dropdown → Bottom Sheet → Notepad → Sidebar
 
         // Close font dropdown first (highest priority)
         if (this.managers.fontManager?.isInitialized() && this.managers.fontManager.isDropdownOpen()) {
@@ -291,12 +291,6 @@ export class EventManager {
         // Close bottom sheet if open (high priority for mobile)
         if (this.managers.bottomSheetManager?.isInitialized() && this.managers.bottomSheetManager.isBottomSheetOpen()) {
             this.managers.bottomSheetManager.closeBottomSheet();
-            return;
-        }
-
-        // Check if help modal is open and close it
-        if (this.managers.helpManager?.isInitialized() && this.managers.helpManager.isHelpOpen()) {
-            this.managers.helpManager.closeHelp();
             return;
         }
 
