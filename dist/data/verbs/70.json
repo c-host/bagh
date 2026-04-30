@@ -1,0 +1,1675 @@
+{
+  "base_data": {
+    "id": 70,
+    "georgian": "სმა",
+    "description": "To Drink",
+    "category": "Communication & Language",
+    "class": "Class-I",
+    "semantic_key": "სმა",
+    "notes": "",
+    "url": "https://lingua.ge/verbs/სმა/",
+    "global_argument_pattern": "<S-DO>",
+    "valency": {
+      "default": "<S-DO>",
+      "alternatives": []
+    },
+    "syntax": {
+      "arguments": {
+        "subject": {
+          "3sg": {
+            "noun": "waiter",
+            "adjective": "happy"
+          },
+          "3pl": {
+            "noun": "guest",
+            "adjective": "new"
+          }
+        },
+        "direct_object": {
+          "1sg": {
+            "noun": "water",
+            "adjective": "cold"
+          },
+          "2sg": {
+            "noun": "juice",
+            "adjective": "new"
+          },
+          "3sg": {
+            "noun": "coffee",
+            "adjective": "hot"
+          },
+          "1pl": {
+            "noun": "wine",
+            "adjective": "red"
+          },
+          "2pl": {
+            "noun": "coffee",
+            "adjective": "strong"
+          },
+          "3pl": {
+            "noun": "beer",
+            "adjective": "cold"
+          }
+        }
+      },
+      "prepositions": {
+        "subject": "the",
+        "direct_object": "the",
+        "indirect_object": ""
+      },
+      "preverb_overrides": {}
+    },
+    "english_translations": {
+      "default": {
+        "present": "drink",
+        "imperfect": "was drinking",
+        "future": "will drink",
+        "aorist": "drank",
+        "optative": "drink",
+        "imperative": "drink"
+      }
+    },
+    "conjugations": {
+      "present": {
+        "raw_gloss": "V Act Pres <S-DO> <S:Nom> <DO:Dat>",
+        "forms": {
+          "1sg": "ვსვამ",
+          "2sg": "სვამ",
+          "3sg": "სვამს",
+          "1pl": "ვსვამთ",
+          "2pl": "სვამთ",
+          "3pl": "სვამენ"
+        },
+        "examples": []
+      },
+      "imperfect": {
+        "raw_gloss": "V Act Impf <S-DO> <S:Nom> <DO:Dat>",
+        "forms": {
+          "1sg": "ვსვამდი",
+          "2sg": "სვამდი",
+          "3sg": "სვამდა",
+          "1pl": "ვსვამდით",
+          "2pl": "სვამდით",
+          "3pl": "სვამდნენ"
+        },
+        "examples": []
+      },
+      "future": {
+        "raw_gloss": "V Act Fut <S-DO> <S:Nom> <DO:Dat>",
+        "forms": {
+          "1sg": "დავლევ",
+          "2sg": "დალევ",
+          "3sg": "დალევს",
+          "1pl": "დავლევთ",
+          "2pl": "დალევთ",
+          "3pl": "დალევენ"
+        },
+        "examples": []
+      },
+      "aorist": {
+        "raw_gloss": "V Act Aor <S-DO> <S:Erg> <DO:Nom>",
+        "forms": {
+          "1sg": "დავლიე",
+          "2sg": "დალიე",
+          "3sg": "დალია",
+          "1pl": "დავლიეთ",
+          "2pl": "დალიეთ",
+          "3pl": "დალიეს"
+        },
+        "examples": []
+      },
+      "optative": {
+        "raw_gloss": "V Act Opt <S-DO> <S:Erg> <DO:Nom>",
+        "forms": {
+          "1sg": "დავლიო",
+          "2sg": "დალიო",
+          "3sg": "დალიოს",
+          "1pl": "დავლიოთ",
+          "2pl": "დალიოთ",
+          "3pl": "დალიონ"
+        },
+        "examples": []
+      },
+      "imperative": {
+        "raw_gloss": "V Act Impv <S-DO> <S:Erg> <DO:Nom>",
+        "forms": {
+          "2sg": "დალიე",
+          "2pl": "დალიეთ"
+        },
+        "examples": []
+      }
+    },
+    "preverb_config": {
+      "has_multiple_preverbs": false,
+      "default_preverb": "და",
+      "available_preverbs": [
+        "და"
+      ]
+    },
+    "preverb_rules": {
+      "default": "",
+      "replacements": {},
+      "tense_specific_fallbacks": {}
+    }
+  },
+  "generated_data": {
+    "examples": {
+      "default": {
+        "present": [
+          {
+            "georgian": "ცივ წყალს ვსვამ",
+            "georgian_components": {
+              "direct_object": {
+                "text": "ცივ წყალს",
+                "case": "dat",
+                "role": "direct_object"
+              },
+              "verb": {
+                "text": "ვსვამ",
+                "role": "verb"
+              }
+            },
+            "english": "I drink the cold water",
+            "english_components": {
+              "subject": {
+                "text": "I",
+                "role": "subject",
+                "person": "1sg"
+              },
+              "direct_object": {
+                "text": "the cold water",
+                "role": "direct_object"
+              },
+              "verb": {
+                "text": "drink",
+                "role": "verb"
+              }
+            },
+            "georgian_verb_form": "ვსვამ",
+            "person": "1sg",
+            "effective_preverb": "და"
+          },
+          {
+            "georgian": "ბედნიერი მიმტანი ცხელ ყავას სვამს",
+            "georgian_components": {
+              "subject": {
+                "text": "ბედნიერი მიმტანი",
+                "case": "nom",
+                "role": "subject"
+              },
+              "direct_object": {
+                "text": "ცხელ ყავას",
+                "case": "dat",
+                "role": "direct_object"
+              },
+              "verb": {
+                "text": "სვამს",
+                "role": "verb"
+              }
+            },
+            "english": "The happy waiter drinks the hot coffee",
+            "english_components": {
+              "subject": {
+                "text": "The happy waiter",
+                "role": "subject",
+                "person": "3sg"
+              },
+              "direct_object": {
+                "text": "the hot coffee",
+                "role": "direct_object"
+              },
+              "verb": {
+                "text": "drinks",
+                "role": "verb"
+              }
+            },
+            "georgian_verb_form": "სვამს",
+            "person": "3sg",
+            "effective_preverb": "და"
+          },
+          {
+            "georgian": "ახალი სტუმრები ცივ ლუდს სვამენ",
+            "georgian_components": {
+              "subject": {
+                "text": "ახალი სტუმრები",
+                "case": "nom",
+                "role": "subject"
+              },
+              "direct_object": {
+                "text": "ცივ ლუდს",
+                "case": "dat",
+                "role": "direct_object"
+              },
+              "verb": {
+                "text": "სვამენ",
+                "role": "verb"
+              }
+            },
+            "english": "The new guests drink the cold beer",
+            "english_components": {
+              "subject": {
+                "text": "The new guests",
+                "role": "subject",
+                "person": "3pl"
+              },
+              "direct_object": {
+                "text": "the cold beer",
+                "role": "direct_object"
+              },
+              "verb": {
+                "text": "drink",
+                "role": "verb"
+              }
+            },
+            "georgian_verb_form": "სვამენ",
+            "person": "3pl",
+            "effective_preverb": "და"
+          }
+        ],
+        "imperfect": [
+          {
+            "georgian": "ცივ წყალს ვსვამდი",
+            "georgian_components": {
+              "direct_object": {
+                "text": "ცივ წყალს",
+                "case": "dat",
+                "role": "direct_object"
+              },
+              "verb": {
+                "text": "ვსვამდი",
+                "role": "verb"
+              }
+            },
+            "english": "I was drinking the cold water",
+            "english_components": {
+              "subject": {
+                "text": "I",
+                "role": "subject",
+                "person": "1sg"
+              },
+              "direct_object": {
+                "text": "the cold water",
+                "role": "direct_object"
+              },
+              "verb": {
+                "text": "was drinking",
+                "role": "verb"
+              }
+            },
+            "georgian_verb_form": "ვსვამდი",
+            "person": "1sg",
+            "effective_preverb": "და"
+          },
+          {
+            "georgian": "ბედნიერი მიმტანი ცხელ ყავას სვამდა",
+            "georgian_components": {
+              "subject": {
+                "text": "ბედნიერი მიმტანი",
+                "case": "nom",
+                "role": "subject"
+              },
+              "direct_object": {
+                "text": "ცხელ ყავას",
+                "case": "dat",
+                "role": "direct_object"
+              },
+              "verb": {
+                "text": "სვამდა",
+                "role": "verb"
+              }
+            },
+            "english": "The happy waiter was drinking the hot coffee",
+            "english_components": {
+              "subject": {
+                "text": "The happy waiter",
+                "role": "subject",
+                "person": "3sg"
+              },
+              "direct_object": {
+                "text": "the hot coffee",
+                "role": "direct_object"
+              },
+              "verb": {
+                "text": "was drinking",
+                "role": "verb"
+              }
+            },
+            "georgian_verb_form": "სვამდა",
+            "person": "3sg",
+            "effective_preverb": "და"
+          },
+          {
+            "georgian": "ახალი სტუმრები ცივ ლუდს სვამდნენ",
+            "georgian_components": {
+              "subject": {
+                "text": "ახალი სტუმრები",
+                "case": "nom",
+                "role": "subject"
+              },
+              "direct_object": {
+                "text": "ცივ ლუდს",
+                "case": "dat",
+                "role": "direct_object"
+              },
+              "verb": {
+                "text": "სვამდნენ",
+                "role": "verb"
+              }
+            },
+            "english": "The new guests were drinking the cold beer",
+            "english_components": {
+              "subject": {
+                "text": "The new guests",
+                "role": "subject",
+                "person": "3pl"
+              },
+              "direct_object": {
+                "text": "the cold beer",
+                "role": "direct_object"
+              },
+              "verb": {
+                "text": "were drinking",
+                "role": "verb"
+              }
+            },
+            "georgian_verb_form": "სვამდნენ",
+            "person": "3pl",
+            "effective_preverb": "და"
+          }
+        ],
+        "future": [
+          {
+            "georgian": "ცივ წყალს დავლევ",
+            "georgian_components": {
+              "direct_object": {
+                "text": "ცივ წყალს",
+                "case": "dat",
+                "role": "direct_object"
+              },
+              "verb": {
+                "text": "დავლევ",
+                "role": "verb"
+              }
+            },
+            "english": "I will drink the cold water",
+            "english_components": {
+              "subject": {
+                "text": "I",
+                "role": "subject",
+                "person": "1sg"
+              },
+              "direct_object": {
+                "text": "the cold water",
+                "role": "direct_object"
+              },
+              "verb": {
+                "text": "will drink",
+                "role": "verb"
+              }
+            },
+            "georgian_verb_form": "დავლევ",
+            "person": "1sg",
+            "effective_preverb": "და"
+          },
+          {
+            "georgian": "ბედნიერი მიმტანი ცხელ ყავას დალევს",
+            "georgian_components": {
+              "subject": {
+                "text": "ბედნიერი მიმტანი",
+                "case": "nom",
+                "role": "subject"
+              },
+              "direct_object": {
+                "text": "ცხელ ყავას",
+                "case": "dat",
+                "role": "direct_object"
+              },
+              "verb": {
+                "text": "დალევს",
+                "role": "verb"
+              }
+            },
+            "english": "The happy waiter will drink the hot coffee",
+            "english_components": {
+              "subject": {
+                "text": "The happy waiter",
+                "role": "subject",
+                "person": "3sg"
+              },
+              "direct_object": {
+                "text": "the hot coffee",
+                "role": "direct_object"
+              },
+              "verb": {
+                "text": "will drink",
+                "role": "verb"
+              }
+            },
+            "georgian_verb_form": "დალევს",
+            "person": "3sg",
+            "effective_preverb": "და"
+          },
+          {
+            "georgian": "ახალი სტუმრები ცივ ლუდს დალევენ",
+            "georgian_components": {
+              "subject": {
+                "text": "ახალი სტუმრები",
+                "case": "nom",
+                "role": "subject"
+              },
+              "direct_object": {
+                "text": "ცივ ლუდს",
+                "case": "dat",
+                "role": "direct_object"
+              },
+              "verb": {
+                "text": "დალევენ",
+                "role": "verb"
+              }
+            },
+            "english": "The new guests will drink the cold beer",
+            "english_components": {
+              "subject": {
+                "text": "The new guests",
+                "role": "subject",
+                "person": "3pl"
+              },
+              "direct_object": {
+                "text": "the cold beer",
+                "role": "direct_object"
+              },
+              "verb": {
+                "text": "will drink",
+                "role": "verb"
+              }
+            },
+            "georgian_verb_form": "დალევენ",
+            "person": "3pl",
+            "effective_preverb": "და"
+          }
+        ],
+        "aorist": [
+          {
+            "georgian": "ცივი წყალი დავლიე",
+            "georgian_components": {
+              "direct_object": {
+                "text": "ცივი წყალი",
+                "case": "nom",
+                "role": "direct_object"
+              },
+              "verb": {
+                "text": "დავლიე",
+                "role": "verb"
+              }
+            },
+            "english": "I drank the cold water",
+            "english_components": {
+              "subject": {
+                "text": "I",
+                "role": "subject",
+                "person": "1sg"
+              },
+              "direct_object": {
+                "text": "the cold water",
+                "role": "direct_object"
+              },
+              "verb": {
+                "text": "drank",
+                "role": "verb"
+              }
+            },
+            "georgian_verb_form": "დავლიე",
+            "person": "1sg",
+            "effective_preverb": "და"
+          },
+          {
+            "georgian": "ბედნიერმა მიმტანმა ცხელი ყავა დალია",
+            "georgian_components": {
+              "subject": {
+                "text": "ბედნიერმა მიმტანმა",
+                "case": "erg",
+                "role": "subject"
+              },
+              "direct_object": {
+                "text": "ცხელი ყავა",
+                "case": "nom",
+                "role": "direct_object"
+              },
+              "verb": {
+                "text": "დალია",
+                "role": "verb"
+              }
+            },
+            "english": "The happy waiter drank the hot coffee",
+            "english_components": {
+              "subject": {
+                "text": "The happy waiter",
+                "role": "subject",
+                "person": "3sg"
+              },
+              "direct_object": {
+                "text": "the hot coffee",
+                "role": "direct_object"
+              },
+              "verb": {
+                "text": "drank",
+                "role": "verb"
+              }
+            },
+            "georgian_verb_form": "დალია",
+            "person": "3sg",
+            "effective_preverb": "და"
+          },
+          {
+            "georgian": "ახალმა სტუმრებმა ცივი ლუდი დალიეს",
+            "georgian_components": {
+              "subject": {
+                "text": "ახალმა სტუმრებმა",
+                "case": "erg",
+                "role": "subject"
+              },
+              "direct_object": {
+                "text": "ცივი ლუდი",
+                "case": "nom",
+                "role": "direct_object"
+              },
+              "verb": {
+                "text": "დალიეს",
+                "role": "verb"
+              }
+            },
+            "english": "The new guests drank the cold beer",
+            "english_components": {
+              "subject": {
+                "text": "The new guests",
+                "role": "subject",
+                "person": "3pl"
+              },
+              "direct_object": {
+                "text": "the cold beer",
+                "role": "direct_object"
+              },
+              "verb": {
+                "text": "drank",
+                "role": "verb"
+              }
+            },
+            "georgian_verb_form": "დალიეს",
+            "person": "3pl",
+            "effective_preverb": "და"
+          }
+        ],
+        "optative": [
+          {
+            "georgian": "ცივი წყალი უნდა დავლიო",
+            "georgian_components": {
+              "direct_object": {
+                "text": "ცივი წყალი",
+                "case": "nom",
+                "role": "direct_object"
+              },
+              "verb": {
+                "text": "უნდა დავლიო",
+                "role": "verb"
+              }
+            },
+            "english": "I should drink the cold water",
+            "english_components": {
+              "subject": {
+                "text": "I",
+                "role": "subject",
+                "person": "1sg"
+              },
+              "direct_object": {
+                "text": "the cold water",
+                "role": "direct_object"
+              },
+              "verb": {
+                "text": "should drink",
+                "role": "verb"
+              }
+            },
+            "georgian_verb_form": "დავლიო",
+            "person": "1sg",
+            "effective_preverb": "და"
+          },
+          {
+            "georgian": "ბედნიერმა მიმტანმა ცხელი ყავა უნდა დალიოს",
+            "georgian_components": {
+              "subject": {
+                "text": "ბედნიერმა მიმტანმა",
+                "case": "erg",
+                "role": "subject"
+              },
+              "direct_object": {
+                "text": "ცხელი ყავა",
+                "case": "nom",
+                "role": "direct_object"
+              },
+              "verb": {
+                "text": "უნდა დალიოს",
+                "role": "verb"
+              }
+            },
+            "english": "The happy waiter should drink the hot coffee",
+            "english_components": {
+              "subject": {
+                "text": "The happy waiter",
+                "role": "subject",
+                "person": "3sg"
+              },
+              "direct_object": {
+                "text": "the hot coffee",
+                "role": "direct_object"
+              },
+              "verb": {
+                "text": "should drink",
+                "role": "verb"
+              }
+            },
+            "georgian_verb_form": "დალიოს",
+            "person": "3sg",
+            "effective_preverb": "და"
+          },
+          {
+            "georgian": "ახალმა სტუმრებმა ცივი ლუდი უნდა დალიონ",
+            "georgian_components": {
+              "subject": {
+                "text": "ახალმა სტუმრებმა",
+                "case": "erg",
+                "role": "subject"
+              },
+              "direct_object": {
+                "text": "ცივი ლუდი",
+                "case": "nom",
+                "role": "direct_object"
+              },
+              "verb": {
+                "text": "უნდა დალიონ",
+                "role": "verb"
+              }
+            },
+            "english": "The new guests should drink the cold beer",
+            "english_components": {
+              "subject": {
+                "text": "The new guests",
+                "role": "subject",
+                "person": "3pl"
+              },
+              "direct_object": {
+                "text": "the cold beer",
+                "role": "direct_object"
+              },
+              "verb": {
+                "text": "should drink",
+                "role": "verb"
+              }
+            },
+            "georgian_verb_form": "დალიონ",
+            "person": "3pl",
+            "effective_preverb": "და"
+          }
+        ],
+        "imperative": [
+          {
+            "georgian": "ახალი წვენე დალიე",
+            "georgian_components": {
+              "direct_object": {
+                "text": "ახალი წვენე",
+                "case": "nom",
+                "role": "direct_object"
+              },
+              "verb": {
+                "text": "დალიე",
+                "role": "verb"
+              }
+            },
+            "english": "You, drink the new juice",
+            "english_components": {
+              "subject": {
+                "text": "You,",
+                "role": "subject",
+                "person": "2sg"
+              },
+              "direct_object": {
+                "text": "the new juice",
+                "role": "direct_object"
+              },
+              "verb": {
+                "text": "drink",
+                "role": "verb"
+              }
+            },
+            "georgian_verb_form": "დალიე",
+            "person": "2sg",
+            "effective_preverb": "და"
+          },
+          {
+            "georgian": "ძლიერი ყავა დალიეთ",
+            "georgian_components": {
+              "direct_object": {
+                "text": "ძლიერი ყავა",
+                "case": "nom",
+                "role": "direct_object"
+              },
+              "verb": {
+                "text": "დალიეთ",
+                "role": "verb"
+              }
+            },
+            "english": "You all (you formal), drink the strong coffee",
+            "english_components": {
+              "subject": {
+                "text": "You all (you formal),",
+                "role": "subject",
+                "person": "2pl"
+              },
+              "direct_object": {
+                "text": "the strong coffee",
+                "role": "direct_object"
+              },
+              "verb": {
+                "text": "drink",
+                "role": "verb"
+              }
+            },
+            "georgian_verb_form": "დალიეთ",
+            "person": "2pl",
+            "effective_preverb": "და"
+          }
+        ]
+      }
+    },
+    "gloss_analysis": {
+      "present": {
+        "raw_gloss": "V Act Pres <S-DO> <S:Nom> <DO:Dat>",
+        "structured_gloss": {
+          "raw_components": [
+            {
+              "text": "V",
+              "component_type": "verb",
+              "color_class": "gloss-verb",
+              "description": "Verb"
+            },
+            {
+              "text": "Act",
+              "component_type": "voice",
+              "color_class": "gloss-default",
+              "description": "Active"
+            },
+            {
+              "text": "Pres",
+              "component_type": "tense",
+              "color_class": "gloss-tense",
+              "description": "Present"
+            },
+            {
+              "type": "argument_pattern_group",
+              "original_text": "<S-DO>",
+              "description": "Transitive absolute",
+              "components": [
+                {
+                  "text": "<",
+                  "component_type": "punctuation",
+                  "color_class": "gloss-default",
+                  "description": ""
+                },
+                {
+                  "text": "S",
+                  "component_type": "argument",
+                  "color_class": "gloss-subject",
+                  "description": ""
+                },
+                {
+                  "text": "-",
+                  "component_type": "punctuation",
+                  "color_class": "gloss-default",
+                  "description": ""
+                },
+                {
+                  "text": "DO",
+                  "component_type": "argument",
+                  "color_class": "gloss-direct-object",
+                  "description": ""
+                },
+                {
+                  "text": ">",
+                  "component_type": "punctuation",
+                  "color_class": "gloss-default",
+                  "description": ""
+                }
+              ]
+            },
+            {
+              "text": "<S:Nom>",
+              "component_type": "case_spec",
+              "color_class": "gloss-subject",
+              "description": "Nominative subject"
+            },
+            {
+              "text": "<DO:Dat>",
+              "component_type": "case_spec",
+              "color_class": "gloss-direct-object",
+              "description": "Dative direct object"
+            }
+          ],
+          "expanded_components": [
+            {
+              "text": "V",
+              "component_type": "verb",
+              "color_class": "gloss-verb",
+              "description": "Verb"
+            },
+            {
+              "text": "Act",
+              "component_type": "voice",
+              "color_class": "gloss-default",
+              "description": "Active"
+            },
+            {
+              "text": "Pres",
+              "component_type": "tense",
+              "color_class": "gloss-tense",
+              "description": "Present"
+            },
+            {
+              "type": "argument_pattern_group",
+              "original_text": "<S-DO>",
+              "description": "Transitive absolute",
+              "components": [
+                {
+                  "text": "<",
+                  "component_type": "punctuation",
+                  "color_class": "gloss-default",
+                  "description": ""
+                },
+                {
+                  "text": "S",
+                  "component_type": "argument",
+                  "color_class": "gloss-subject",
+                  "description": ""
+                },
+                {
+                  "text": "-",
+                  "component_type": "punctuation",
+                  "color_class": "gloss-default",
+                  "description": ""
+                },
+                {
+                  "text": "DO",
+                  "component_type": "argument",
+                  "color_class": "gloss-direct-object",
+                  "description": ""
+                },
+                {
+                  "text": ">",
+                  "component_type": "punctuation",
+                  "color_class": "gloss-default",
+                  "description": ""
+                }
+              ]
+            },
+            {
+              "text": "<S:Nom>",
+              "component_type": "case_spec",
+              "color_class": "gloss-subject",
+              "description": "Nominative subject"
+            },
+            {
+              "text": "<DO:Dat>",
+              "component_type": "case_spec",
+              "color_class": "gloss-direct-object",
+              "description": "Dative direct object"
+            }
+          ],
+          "argument_pattern": "<S-DO>",
+          "case_specifications": [
+            "<S:Nom>",
+            "<DO:Dat>"
+          ]
+        }
+      },
+      "imperfect": {
+        "raw_gloss": "V Act Impf <S-DO> <S:Nom> <DO:Dat>",
+        "structured_gloss": {
+          "raw_components": [
+            {
+              "text": "V",
+              "component_type": "verb",
+              "color_class": "gloss-verb",
+              "description": "Verb"
+            },
+            {
+              "text": "Act",
+              "component_type": "voice",
+              "color_class": "gloss-default",
+              "description": "Active"
+            },
+            {
+              "text": "Impf",
+              "component_type": "tense",
+              "color_class": "gloss-tense",
+              "description": "Imperfect"
+            },
+            {
+              "type": "argument_pattern_group",
+              "original_text": "<S-DO>",
+              "description": "Transitive absolute",
+              "components": [
+                {
+                  "text": "<",
+                  "component_type": "punctuation",
+                  "color_class": "gloss-default",
+                  "description": ""
+                },
+                {
+                  "text": "S",
+                  "component_type": "argument",
+                  "color_class": "gloss-subject",
+                  "description": ""
+                },
+                {
+                  "text": "-",
+                  "component_type": "punctuation",
+                  "color_class": "gloss-default",
+                  "description": ""
+                },
+                {
+                  "text": "DO",
+                  "component_type": "argument",
+                  "color_class": "gloss-direct-object",
+                  "description": ""
+                },
+                {
+                  "text": ">",
+                  "component_type": "punctuation",
+                  "color_class": "gloss-default",
+                  "description": ""
+                }
+              ]
+            },
+            {
+              "text": "<S:Nom>",
+              "component_type": "case_spec",
+              "color_class": "gloss-subject",
+              "description": "Nominative subject"
+            },
+            {
+              "text": "<DO:Dat>",
+              "component_type": "case_spec",
+              "color_class": "gloss-direct-object",
+              "description": "Dative direct object"
+            }
+          ],
+          "expanded_components": [
+            {
+              "text": "V",
+              "component_type": "verb",
+              "color_class": "gloss-verb",
+              "description": "Verb"
+            },
+            {
+              "text": "Act",
+              "component_type": "voice",
+              "color_class": "gloss-default",
+              "description": "Active"
+            },
+            {
+              "text": "Impf",
+              "component_type": "tense",
+              "color_class": "gloss-tense",
+              "description": "Imperfect"
+            },
+            {
+              "type": "argument_pattern_group",
+              "original_text": "<S-DO>",
+              "description": "Transitive absolute",
+              "components": [
+                {
+                  "text": "<",
+                  "component_type": "punctuation",
+                  "color_class": "gloss-default",
+                  "description": ""
+                },
+                {
+                  "text": "S",
+                  "component_type": "argument",
+                  "color_class": "gloss-subject",
+                  "description": ""
+                },
+                {
+                  "text": "-",
+                  "component_type": "punctuation",
+                  "color_class": "gloss-default",
+                  "description": ""
+                },
+                {
+                  "text": "DO",
+                  "component_type": "argument",
+                  "color_class": "gloss-direct-object",
+                  "description": ""
+                },
+                {
+                  "text": ">",
+                  "component_type": "punctuation",
+                  "color_class": "gloss-default",
+                  "description": ""
+                }
+              ]
+            },
+            {
+              "text": "<S:Nom>",
+              "component_type": "case_spec",
+              "color_class": "gloss-subject",
+              "description": "Nominative subject"
+            },
+            {
+              "text": "<DO:Dat>",
+              "component_type": "case_spec",
+              "color_class": "gloss-direct-object",
+              "description": "Dative direct object"
+            }
+          ],
+          "argument_pattern": "<S-DO>",
+          "case_specifications": [
+            "<S:Nom>",
+            "<DO:Dat>"
+          ]
+        }
+      },
+      "future": {
+        "raw_gloss": "V Act Fut <S-DO> <S:Nom> <DO:Dat>",
+        "structured_gloss": {
+          "raw_components": [
+            {
+              "text": "V",
+              "component_type": "verb",
+              "color_class": "gloss-verb",
+              "description": "Verb"
+            },
+            {
+              "text": "Act",
+              "component_type": "voice",
+              "color_class": "gloss-default",
+              "description": "Active"
+            },
+            {
+              "text": "Fut",
+              "component_type": "tense",
+              "color_class": "gloss-tense",
+              "description": "Future"
+            },
+            {
+              "type": "argument_pattern_group",
+              "original_text": "<S-DO>",
+              "description": "Transitive absolute",
+              "components": [
+                {
+                  "text": "<",
+                  "component_type": "punctuation",
+                  "color_class": "gloss-default",
+                  "description": ""
+                },
+                {
+                  "text": "S",
+                  "component_type": "argument",
+                  "color_class": "gloss-subject",
+                  "description": ""
+                },
+                {
+                  "text": "-",
+                  "component_type": "punctuation",
+                  "color_class": "gloss-default",
+                  "description": ""
+                },
+                {
+                  "text": "DO",
+                  "component_type": "argument",
+                  "color_class": "gloss-direct-object",
+                  "description": ""
+                },
+                {
+                  "text": ">",
+                  "component_type": "punctuation",
+                  "color_class": "gloss-default",
+                  "description": ""
+                }
+              ]
+            },
+            {
+              "text": "<S:Nom>",
+              "component_type": "case_spec",
+              "color_class": "gloss-subject",
+              "description": "Nominative subject"
+            },
+            {
+              "text": "<DO:Dat>",
+              "component_type": "case_spec",
+              "color_class": "gloss-direct-object",
+              "description": "Dative direct object"
+            }
+          ],
+          "expanded_components": [
+            {
+              "text": "V",
+              "component_type": "verb",
+              "color_class": "gloss-verb",
+              "description": "Verb"
+            },
+            {
+              "text": "Act",
+              "component_type": "voice",
+              "color_class": "gloss-default",
+              "description": "Active"
+            },
+            {
+              "text": "Fut",
+              "component_type": "tense",
+              "color_class": "gloss-tense",
+              "description": "Future"
+            },
+            {
+              "type": "argument_pattern_group",
+              "original_text": "<S-DO>",
+              "description": "Transitive absolute",
+              "components": [
+                {
+                  "text": "<",
+                  "component_type": "punctuation",
+                  "color_class": "gloss-default",
+                  "description": ""
+                },
+                {
+                  "text": "S",
+                  "component_type": "argument",
+                  "color_class": "gloss-subject",
+                  "description": ""
+                },
+                {
+                  "text": "-",
+                  "component_type": "punctuation",
+                  "color_class": "gloss-default",
+                  "description": ""
+                },
+                {
+                  "text": "DO",
+                  "component_type": "argument",
+                  "color_class": "gloss-direct-object",
+                  "description": ""
+                },
+                {
+                  "text": ">",
+                  "component_type": "punctuation",
+                  "color_class": "gloss-default",
+                  "description": ""
+                }
+              ]
+            },
+            {
+              "text": "<S:Nom>",
+              "component_type": "case_spec",
+              "color_class": "gloss-subject",
+              "description": "Nominative subject"
+            },
+            {
+              "text": "<DO:Dat>",
+              "component_type": "case_spec",
+              "color_class": "gloss-direct-object",
+              "description": "Dative direct object"
+            }
+          ],
+          "argument_pattern": "<S-DO>",
+          "case_specifications": [
+            "<S:Nom>",
+            "<DO:Dat>"
+          ]
+        }
+      },
+      "aorist": {
+        "raw_gloss": "V Act Aor <S-DO> <S:Erg> <DO:Nom>",
+        "structured_gloss": {
+          "raw_components": [
+            {
+              "text": "V",
+              "component_type": "verb",
+              "color_class": "gloss-verb",
+              "description": "Verb"
+            },
+            {
+              "text": "Act",
+              "component_type": "voice",
+              "color_class": "gloss-default",
+              "description": "Active"
+            },
+            {
+              "text": "Aor",
+              "component_type": "tense",
+              "color_class": "gloss-tense",
+              "description": "Aorist"
+            },
+            {
+              "type": "argument_pattern_group",
+              "original_text": "<S-DO>",
+              "description": "Transitive absolute",
+              "components": [
+                {
+                  "text": "<",
+                  "component_type": "punctuation",
+                  "color_class": "gloss-default",
+                  "description": ""
+                },
+                {
+                  "text": "S",
+                  "component_type": "argument",
+                  "color_class": "gloss-subject",
+                  "description": ""
+                },
+                {
+                  "text": "-",
+                  "component_type": "punctuation",
+                  "color_class": "gloss-default",
+                  "description": ""
+                },
+                {
+                  "text": "DO",
+                  "component_type": "argument",
+                  "color_class": "gloss-direct-object",
+                  "description": ""
+                },
+                {
+                  "text": ">",
+                  "component_type": "punctuation",
+                  "color_class": "gloss-default",
+                  "description": ""
+                }
+              ]
+            },
+            {
+              "text": "<S:Erg>",
+              "component_type": "case_spec",
+              "color_class": "gloss-subject",
+              "description": "Ergative subject"
+            },
+            {
+              "text": "<DO:Nom>",
+              "component_type": "case_spec",
+              "color_class": "gloss-direct-object",
+              "description": "Nominative direct object"
+            }
+          ],
+          "expanded_components": [
+            {
+              "text": "V",
+              "component_type": "verb",
+              "color_class": "gloss-verb",
+              "description": "Verb"
+            },
+            {
+              "text": "Act",
+              "component_type": "voice",
+              "color_class": "gloss-default",
+              "description": "Active"
+            },
+            {
+              "text": "Aor",
+              "component_type": "tense",
+              "color_class": "gloss-tense",
+              "description": "Aorist"
+            },
+            {
+              "type": "argument_pattern_group",
+              "original_text": "<S-DO>",
+              "description": "Transitive absolute",
+              "components": [
+                {
+                  "text": "<",
+                  "component_type": "punctuation",
+                  "color_class": "gloss-default",
+                  "description": ""
+                },
+                {
+                  "text": "S",
+                  "component_type": "argument",
+                  "color_class": "gloss-subject",
+                  "description": ""
+                },
+                {
+                  "text": "-",
+                  "component_type": "punctuation",
+                  "color_class": "gloss-default",
+                  "description": ""
+                },
+                {
+                  "text": "DO",
+                  "component_type": "argument",
+                  "color_class": "gloss-direct-object",
+                  "description": ""
+                },
+                {
+                  "text": ">",
+                  "component_type": "punctuation",
+                  "color_class": "gloss-default",
+                  "description": ""
+                }
+              ]
+            },
+            {
+              "text": "<S:Erg>",
+              "component_type": "case_spec",
+              "color_class": "gloss-subject",
+              "description": "Ergative subject"
+            },
+            {
+              "text": "<DO:Nom>",
+              "component_type": "case_spec",
+              "color_class": "gloss-direct-object",
+              "description": "Nominative direct object"
+            }
+          ],
+          "argument_pattern": "<S-DO>",
+          "case_specifications": [
+            "<S:Erg>",
+            "<DO:Nom>"
+          ]
+        }
+      },
+      "optative": {
+        "raw_gloss": "V Act Opt <S-DO> <S:Erg> <DO:Nom>",
+        "structured_gloss": {
+          "raw_components": [
+            {
+              "text": "V",
+              "component_type": "verb",
+              "color_class": "gloss-verb",
+              "description": "Verb"
+            },
+            {
+              "text": "Act",
+              "component_type": "voice",
+              "color_class": "gloss-default",
+              "description": "Active"
+            },
+            {
+              "text": "Opt",
+              "component_type": "tense",
+              "color_class": "gloss-tense",
+              "description": "Optative"
+            },
+            {
+              "type": "argument_pattern_group",
+              "original_text": "<S-DO>",
+              "description": "Transitive absolute",
+              "components": [
+                {
+                  "text": "<",
+                  "component_type": "punctuation",
+                  "color_class": "gloss-default",
+                  "description": ""
+                },
+                {
+                  "text": "S",
+                  "component_type": "argument",
+                  "color_class": "gloss-subject",
+                  "description": ""
+                },
+                {
+                  "text": "-",
+                  "component_type": "punctuation",
+                  "color_class": "gloss-default",
+                  "description": ""
+                },
+                {
+                  "text": "DO",
+                  "component_type": "argument",
+                  "color_class": "gloss-direct-object",
+                  "description": ""
+                },
+                {
+                  "text": ">",
+                  "component_type": "punctuation",
+                  "color_class": "gloss-default",
+                  "description": ""
+                }
+              ]
+            },
+            {
+              "text": "<S:Erg>",
+              "component_type": "case_spec",
+              "color_class": "gloss-subject",
+              "description": "Ergative subject"
+            },
+            {
+              "text": "<DO:Nom>",
+              "component_type": "case_spec",
+              "color_class": "gloss-direct-object",
+              "description": "Nominative direct object"
+            }
+          ],
+          "expanded_components": [
+            {
+              "text": "V",
+              "component_type": "verb",
+              "color_class": "gloss-verb",
+              "description": "Verb"
+            },
+            {
+              "text": "Act",
+              "component_type": "voice",
+              "color_class": "gloss-default",
+              "description": "Active"
+            },
+            {
+              "text": "Opt",
+              "component_type": "tense",
+              "color_class": "gloss-tense",
+              "description": "Optative"
+            },
+            {
+              "type": "argument_pattern_group",
+              "original_text": "<S-DO>",
+              "description": "Transitive absolute",
+              "components": [
+                {
+                  "text": "<",
+                  "component_type": "punctuation",
+                  "color_class": "gloss-default",
+                  "description": ""
+                },
+                {
+                  "text": "S",
+                  "component_type": "argument",
+                  "color_class": "gloss-subject",
+                  "description": ""
+                },
+                {
+                  "text": "-",
+                  "component_type": "punctuation",
+                  "color_class": "gloss-default",
+                  "description": ""
+                },
+                {
+                  "text": "DO",
+                  "component_type": "argument",
+                  "color_class": "gloss-direct-object",
+                  "description": ""
+                },
+                {
+                  "text": ">",
+                  "component_type": "punctuation",
+                  "color_class": "gloss-default",
+                  "description": ""
+                }
+              ]
+            },
+            {
+              "text": "<S:Erg>",
+              "component_type": "case_spec",
+              "color_class": "gloss-subject",
+              "description": "Ergative subject"
+            },
+            {
+              "text": "<DO:Nom>",
+              "component_type": "case_spec",
+              "color_class": "gloss-direct-object",
+              "description": "Nominative direct object"
+            }
+          ],
+          "argument_pattern": "<S-DO>",
+          "case_specifications": [
+            "<S:Erg>",
+            "<DO:Nom>"
+          ]
+        }
+      },
+      "imperative": {
+        "raw_gloss": "V Act Impv <S-DO> <S:Erg> <DO:Nom>",
+        "structured_gloss": {
+          "raw_components": [
+            {
+              "text": "V",
+              "component_type": "verb",
+              "color_class": "gloss-verb",
+              "description": "Verb"
+            },
+            {
+              "text": "Act",
+              "component_type": "voice",
+              "color_class": "gloss-default",
+              "description": "Active"
+            },
+            {
+              "text": "Impv",
+              "component_type": "tense",
+              "color_class": "gloss-tense",
+              "description": "Imperative"
+            },
+            {
+              "type": "argument_pattern_group",
+              "original_text": "<S-DO>",
+              "description": "Transitive absolute",
+              "components": [
+                {
+                  "text": "<",
+                  "component_type": "punctuation",
+                  "color_class": "gloss-default",
+                  "description": ""
+                },
+                {
+                  "text": "S",
+                  "component_type": "argument",
+                  "color_class": "gloss-subject",
+                  "description": ""
+                },
+                {
+                  "text": "-",
+                  "component_type": "punctuation",
+                  "color_class": "gloss-default",
+                  "description": ""
+                },
+                {
+                  "text": "DO",
+                  "component_type": "argument",
+                  "color_class": "gloss-direct-object",
+                  "description": ""
+                },
+                {
+                  "text": ">",
+                  "component_type": "punctuation",
+                  "color_class": "gloss-default",
+                  "description": ""
+                }
+              ]
+            },
+            {
+              "text": "<S:Erg>",
+              "component_type": "case_spec",
+              "color_class": "gloss-subject",
+              "description": "Ergative subject"
+            },
+            {
+              "text": "<DO:Nom>",
+              "component_type": "case_spec",
+              "color_class": "gloss-direct-object",
+              "description": "Nominative direct object"
+            }
+          ],
+          "expanded_components": [
+            {
+              "text": "V",
+              "component_type": "verb",
+              "color_class": "gloss-verb",
+              "description": "Verb"
+            },
+            {
+              "text": "Act",
+              "component_type": "voice",
+              "color_class": "gloss-default",
+              "description": "Active"
+            },
+            {
+              "text": "Impv",
+              "component_type": "tense",
+              "color_class": "gloss-tense",
+              "description": "Imperative"
+            },
+            {
+              "type": "argument_pattern_group",
+              "original_text": "<S-DO>",
+              "description": "Transitive absolute",
+              "components": [
+                {
+                  "text": "<",
+                  "component_type": "punctuation",
+                  "color_class": "gloss-default",
+                  "description": ""
+                },
+                {
+                  "text": "S",
+                  "component_type": "argument",
+                  "color_class": "gloss-subject",
+                  "description": ""
+                },
+                {
+                  "text": "-",
+                  "component_type": "punctuation",
+                  "color_class": "gloss-default",
+                  "description": ""
+                },
+                {
+                  "text": "DO",
+                  "component_type": "argument",
+                  "color_class": "gloss-direct-object",
+                  "description": ""
+                },
+                {
+                  "text": ">",
+                  "component_type": "punctuation",
+                  "color_class": "gloss-default",
+                  "description": ""
+                }
+              ]
+            },
+            {
+              "text": "<S:Erg>",
+              "component_type": "case_spec",
+              "color_class": "gloss-subject",
+              "description": "Ergative subject"
+            },
+            {
+              "text": "<DO:Nom>",
+              "component_type": "case_spec",
+              "color_class": "gloss-direct-object",
+              "description": "Nominative direct object"
+            }
+          ],
+          "argument_pattern": "<S-DO>",
+          "case_specifications": [
+            "<S:Erg>",
+            "<DO:Nom>"
+          ]
+        }
+      }
+    },
+    "preverb_forms": {}
+  }
+}

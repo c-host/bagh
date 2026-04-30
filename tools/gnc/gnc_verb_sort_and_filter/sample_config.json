@@ -1,0 +1,67 @@
+{
+    "voice_preference": "MedPass",
+    "voice_priority": [
+        "MedPass",
+        "Pass",
+        "Act",
+        "PassState"
+    ],
+    "version_preference": "OV",
+    "version_priority": [
+        "OV",
+        "Non-Version",
+        "SV",
+        "LV"
+    ],
+    "tense_specific_rules": {
+        "present": {
+            "voice": "MedPass",
+            "version": "OV"
+        },
+        "imperfect": {
+            "voice": "MedPass",
+            "version": "OV"
+        },
+        "future": {
+            "voice": "Act",
+            "version": "Non-Version"
+        },
+        "aorist": {
+            "voice": "Act",
+            "version": "Non-Version"
+        },
+        "optative": {
+            "voice": "Act",
+            "version": "Non-Version"
+        },
+        "imperative": {
+            "voice": "Act",
+            "version": "Non-Version"
+        }
+    },
+    "fallback_rules": {
+        "version_priority": [
+            "OV",
+            "Non-Version",
+            "SV",
+            "LV"
+        ],
+        "voice_priority": [
+            "MedPass",
+            "Pass",
+            "Act",
+            "PassState"
+        ]
+    },
+    "preverb_config": {
+        "default_preverb": "Base",
+        "tense_preverb_rules": {
+            "present": "Base",
+            "imperfect": "Base",
+            "future": "Base",
+            "aorist": "Base",
+            "optative": "Base",
+            "imperative": "Base"
+        }
+    }
+}

@@ -1,0 +1,148 @@
+Georgian Verb Conjugation Analysis Summary - საზღვრა
+==================================================
+
+Total original matches: 881
+After filtering and splitting: 873
+Unique match-feature combinations: 20
+
+Breakdown by slemma, DO/IO type and argument pattern:
+  Base (საზღვრა):
+    Standard DO/IO:
+      <S-IO>: 9 forms
+    Non-Standard DO/IO:
+      <S-IO>: 11 forms
+
+Filtering criteria applied:
+  - Removed slemmas with compound forms (containing '¦')
+  - Removed matches with hyphens
+  - Removed matches with ellipsis (…)
+  - Removed matches with parentheses ()
+  - Removed matches with punctuation marks (.,;:!? etc.)
+  - Removed lines with 'Encl' in features
+  - Removed lines with 'PP' in features
+  - Removed lines with 'NonStand' in features
+  - Removed lines with 'VN' in features
+  - Removed lines with 'LevGuess' in features
+  - Removed lines with 'Dialect' in features
+
+==================================================
+DETAILED RESULTS: MATCHES AND FEATURES
+==================================================
+
+# Slemma Category: Base (საზღვრა)
+============================================================
+
+## DO/IO Type: Standard
+----------------------------------------
+
+### Argument Pattern: <S-IO>
+# Count: 9
+
+#### Tense: Pres
+# Count: 6
+
+##### Non-Preverb
+# Count: 6
+
+###### Non-Version
+# Count: 6
+
+####### Pass
+# Count: 6
+
+ვესაზღვრები         საზღვრა        V Pass Pres <S-IO> <S:Nom> <IO:Dat> S:1Sg IO:3
+ესაზღვრები          საზღვრა        V Pass Pres <S-IO> <S:Nom> <IO:Dat> S:2Sg IO:3
+ესაზღვრება          საზღვრა        V Pass Pres <S-IO> <S:Nom> <IO:Dat> S:3Sg IO:3
+ვესაზღვრებით        საზღვრა        V Pass Pres <S-IO> <S:Nom> <IO:Dat> S:1Pl IO:3
+ესაზღვრებით         საზღვრა        V Pass Pres <S-IO> <S:Nom> <IO:Dat> S:2Pl IO:3
+ესაზღვრებიან        საზღვრა        V Pass Pres <S-IO> <S:Nom> <IO:Dat> S:3Pl IO:3
+
+
+#### Tense: Impf
+# Count: 2
+
+##### Non-Preverb
+# Count: 2
+
+###### Non-Version
+# Count: 2
+
+####### Pass
+# Count: 2
+
+ესაზღვრებოდა        საზღვრა        V Pass Impf <S-IO> <S:Nom> <IO:Dat> S:3Sg IO:3
+ესაზღვრებოდნენ      საზღვრა        V Pass Impf <S-IO> <S:Nom> <IO:Dat> S:3Pl IO:3
+
+
+#### Tense: ConjPres
+# Count: 1
+
+##### Non-Preverb
+# Count: 1
+
+###### Non-Version
+# Count: 1
+
+####### Pass
+# Count: 1
+
+ესაზღვრებოდეს       საზღვრა        V Pass ConjPres <S-IO> <S:Nom> <IO:Dat> S:3Sg IO:3
+
+
+
+## DO/IO Type: Non-Standard
+----------------------------------------
+
+### Argument Pattern: <S-IO>
+# Count: 11
+
+#### Tense: Pres
+# Count: 9
+
+##### Non-Preverb
+# Count: 9
+
+###### Non-Version
+# Count: 9
+
+####### Pass
+# Count: 9
+
+მესაზღვრები         საზღვრა        V Pass Pres <S-IO> <S:Nom> <IO:Dat> S:2Sg IO:1Sg
+მესაზღვრება         საზღვრა        V Pass Pres <S-IO> <S:Nom> <IO:Dat> S:3Sg IO:1Sg
+მესაზღვრების        საზღვრა        V Pass Pres <S-IO> <S:Nom> <IO:Dat> S:3Sg IO:1Sg
+
+# IO/DO Group Separator: IO:1Sg → IO:1Pl
+გვესაზღვრება        საზღვრა        V Pass Pres <S-IO> <S:Nom> <IO:Dat> S:3Sg IO:1Pl
+გვესაზღვრებიან      საზღვრა        V Pass Pres <S-IO> <S:Nom> <IO:Dat> S:3Pl IO:1Pl
+
+# IO/DO Group Separator: IO:1Pl → IO:1
+მესაზღვრების        საზღვრა        V Pass Pres <S-IO> <S:Nom> <IO:Dat> S:3Sg IO:1 [Excl]
+
+# IO/DO Group Separator: IO:1 → IO:2Sg
+გესაზღვრება         საზღვრა        V Pass Pres <S-IO> <S:Nom> <IO:Dat> S:3Sg IO:2Sg
+
+# IO/DO Group Separator: IO:2Sg → IO:2Pl
+გესაზღვრებათ        საზღვრა        V Pass Pres <S-IO> <S:Nom> <IO:Dat> S:3Sg IO:2Pl
+
+# IO/DO Group Separator: IO:2Pl → IO:3Pl
+ესაზღვრებათ         საზღვრა        V Pass Pres <S-IO> <S:Nom> <IO:Dat> S:3Sg IO:3Pl
+
+
+#### Tense: Impf
+# Count: 2
+
+##### Non-Preverb
+# Count: 2
+
+###### Non-Version
+# Count: 2
+
+####### Pass
+# Count: 2
+
+გვესაზღვრებოდა      საზღვრა        V Pass Impf <S-IO> <S:Nom> <IO:Dat> S:3Sg IO:1Pl
+გვესაზღვრებოდნენ    საზღვრა        V Pass Impf <S-IO> <S:Nom> <IO:Dat> S:3Pl IO:1Pl
+
+
+

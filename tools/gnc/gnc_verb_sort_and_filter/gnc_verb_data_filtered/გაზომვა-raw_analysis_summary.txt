@@ -1,0 +1,629 @@
+Georgian Verb Conjugation Analysis Summary - გაზომვა-raw
+==================================================
+
+Total original matches: 1725
+After filtering and splitting: 900
+Unique match-feature combinations: 104
+
+Breakdown by slemma, DO/IO type and argument pattern:
+  Base (ზომვა):
+    Standard DO/IO:
+      <S-DO>: 11 forms
+      <S-DO-IO>: 1 forms
+    Non-Standard DO/IO:
+      <S-DO>: 3 forms
+      <S-DO-IO>: 1 forms
+  გა- (გაზომვა):
+    Standard DO/IO:
+      <S-DO>: 49 forms
+      <S-DO-IO>: 19 forms
+    Non-Standard DO/IO:
+      <S-DO>: 9 forms
+      <S-DO-IO>: 11 forms
+
+Filtering criteria applied:
+  - Removed slemmas with compound forms (containing '¦')
+  - Removed matches with hyphens
+  - Removed matches with ellipsis (…)
+  - Removed matches with parentheses ()
+  - Removed matches with punctuation marks (.,;:!? etc.)
+  - Removed lines with 'Encl' in features
+  - Removed lines with 'PP' in features
+  - Removed lines with 'NonStand' in features
+  - Removed lines with 'VN' in features
+  - Removed lines with 'LevGuess' in features
+  - Removed lines with 'Dialect' in features
+
+==================================================
+DETAILED RESULTS: MATCHES AND FEATURES
+==================================================
+
+# Slemma Category: Base (ზომვა)
+============================================================
+
+## DO/IO Type: Standard
+----------------------------------------
+
+### Argument Pattern: <S-DO>
+# Count: 11
+
+#### Tense: Aor
+# Count: 4
+
+##### Non-Preverb
+# Count: 4
+
+###### Non-Version
+# Count: 4
+
+####### Act
+# Count: 4
+
+ვზომე               ზომვა          V Act Aor <S-DO> <S:Erg> <DO:Nom> S:1Sg DO:3
+ზომე                ზომვა          V Act Aor <S-DO> <S:Erg> <DO:Nom> S:2Sg DO:3
+ზომა                ზომვა          V Act Aor <S-DO> <S:Erg> <DO:Nom> S:3Sg DO:3
+ზომეს               ზომვა          V Act Aor <S-DO> <S:Erg> <DO:Nom> S:3Pl DO:3
+
+
+#### Tense: Opt
+# Count: 4
+
+##### Non-Preverb
+# Count: 4
+
+###### Non-Version
+# Count: 4
+
+####### Act
+# Count: 4
+
+ზომოს               ზომვა          V Act Opt <S-DO> <S:Erg> <DO:Nom> S:3Sg DO:3
+ვზომოთ              ზომვა          V Act Opt <S-DO> <S:Erg> <DO:Nom> S:1Pl DO:3
+ზომოთ               ზომვა          V Act Opt <S-DO> <S:Erg> <DO:Nom> S:2Pl DO:3
+ზომონ               ზომვა          V Act Opt <S-DO> <S:Erg> <DO:Nom> S:3Pl DO:3
+
+
+#### Tense: Perf
+# Count: 3
+
+##### Non-Preverb
+# Count: 3
+
+###### Non-Version
+# Count: 3
+
+####### Act
+# Count: 3
+
+მიზომია             ზომვა          V Act Perf <S-DO> <S:Dat> <DO:Nom> S:1Sg DO:3
+უზომავს             ზომვა          V Act Perf <S-DO> <S:Dat> <DO:Nom> S:3Sg DO:3
+გვიზომია            ზომვა          V Act Perf <S-DO> <S:Dat> <DO:Nom> S:1Pl DO:3
+
+
+
+### Argument Pattern: <S-DO-IO>
+# Count: 1
+
+#### Tense: Opt
+# Count: 1
+
+##### Non-Preverb
+# Count: 1
+
+###### OV
+# Count: 1
+
+####### Act
+# Count: 1
+
+უზომო               ზომვა          V Act Opt OV <S-DO-IO> <S:Erg> <DO:Nom> <IO:Dat> S:2Sg DO:3 IO:3
+
+
+
+## DO/IO Type: Non-Standard
+----------------------------------------
+
+### Argument Pattern: <S-DO>
+# Count: 3
+
+#### Tense: Aor
+# Count: 1
+
+##### Non-Preverb
+# Count: 1
+
+###### Non-Version
+# Count: 1
+
+####### Act
+# Count: 1
+
+მზომე               ზომვა          V Act Aor <S-DO> <S:Erg> <DO:Nom> S:2Sg DO:1Sg
+
+
+#### Tense: Opt
+# Count: 1
+
+##### Non-Preverb
+# Count: 1
+
+###### Non-Version
+# Count: 1
+
+####### Act
+# Count: 1
+
+ზომოთ               ზომვა          V Act Opt <S-DO> <S:Erg> <DO:Nom> S:3Sg DO:3Pl
+
+
+
+### Argument Pattern: <S-DO-IO>
+# Count: 1
+
+#### Tense: Aor
+# Count: 1
+
+##### Non-Preverb
+# Count: 1
+
+###### OV
+# Count: 1
+
+####### Act
+# Count: 1
+
+გიზომა              ზომვა          V Act Aor OV <S-DO-IO> <S:Erg> <DO:Nom> <IO:Dat> S:3Sg DO:3 IO:2Sg
+
+
+
+# Slemma Category: გა- (გაზომვა)
+============================================================
+
+## DO/IO Type: Standard
+----------------------------------------
+
+### Argument Pattern: <S-DO>
+# Count: 49
+
+#### Tense: Fut
+# Count: 9
+
+##### Preverb
+# Count: 9
+
+###### SV
+# Count: 3
+
+####### Act
+# Count: 3
+
+გაიზომავ            გაზომვა        V Act Fut Pv SV <S-DO> <S:Nom> <DO:Dat> S:2Sg DO:3
+გაიზომავთ           გაზომვა        V Act Fut Pv SV <S-DO> <S:Nom> <DO:Dat> S:2Pl DO:3
+გაიზომავენ          გაზომვა        V Act Fut Pv SV <S-DO> <S:Nom> <DO:Dat> S:3Pl DO:3
+
+###### Non-Version
+# Count: 6
+
+####### Act
+# Count: 6
+
+გავზომავ            გაზომვა        V Act Fut Pv <S-DO> <S:Nom> <DO:Dat> S:1Sg DO:3
+გაზომავ             გაზომვა        V Act Fut Pv <S-DO> <S:Nom> <DO:Dat> S:2Sg DO:3
+გაზომავს            გაზომვა        V Act Fut Pv <S-DO> <S:Nom> <DO:Dat> S:3Sg DO:3
+გავზომავთ           გაზომვა        V Act Fut Pv <S-DO> <S:Nom> <DO:Dat> S:1Pl DO:3
+გაზომავთ            გაზომვა        V Act Fut Pv <S-DO> <S:Nom> <DO:Dat> S:2Pl DO:3
+გაზომავენ           გაზომვა        V Act Fut Pv <S-DO> <S:Nom> <DO:Dat> S:3Pl DO:3
+
+
+#### Tense: Cond
+# Count: 2
+
+##### Preverb
+# Count: 2
+
+###### Non-Version
+# Count: 2
+
+####### Act
+# Count: 2
+
+გავზომავდი          გაზომვა        V Act Cond Pv <S-DO> <S:Nom> <DO:Dat> S:1Sg DO:3
+გაზომავდა           გაზომვა        V Act Cond Pv <S-DO> <S:Nom> <DO:Dat> S:3Sg DO:3
+
+
+#### Tense: ConjFut
+# Count: 2
+
+##### Preverb
+# Count: 2
+
+###### Non-Version
+# Count: 2
+
+####### Act
+# Count: 2
+
+გავზომავდეთ         გაზომვა        V Act ConjFut Pv <S-DO> <S:Nom> <DO:Dat> S:1Pl DO:3
+გაზომავდნენ         გაზომვა        V Act ConjFut Pv <S-DO> <S:Nom> <DO:Dat> S:3Pl DO:3
+
+
+#### Tense: Aor
+# Count: 12
+
+##### Preverb
+# Count: 12
+
+###### SV
+# Count: 6
+
+####### Act
+# Count: 6
+
+გავიზომე            გაზომვა        V Act Aor Pv SV <S-DO> <S:Erg> <DO:Nom> S:1Sg DO:3
+გაიზომე             გაზომვა        V Act Aor Pv SV <S-DO> <S:Erg> <DO:Nom> S:2Sg DO:3
+გაიზომა             გაზომვა        V Act Aor Pv SV <S-DO> <S:Erg> <DO:Nom> S:3Sg DO:3
+გავიზომეთ           გაზომვა        V Act Aor Pv SV <S-DO> <S:Erg> <DO:Nom> S:1Pl DO:3
+გაიზომეთ            გაზომვა        V Act Aor Pv SV <S-DO> <S:Erg> <DO:Nom> S:2Pl DO:3
+გაიზომეს            გაზომვა        V Act Aor Pv SV <S-DO> <S:Erg> <DO:Nom> S:3Pl DO:3
+
+###### Non-Version
+# Count: 6
+
+####### Act
+# Count: 6
+
+გავზომე             გაზომვა        V Act Aor Pv <S-DO> <S:Erg> <DO:Nom> S:1Sg DO:3
+გაზომე              გაზომვა        V Act Aor Pv <S-DO> <S:Erg> <DO:Nom> S:2Sg DO:3
+გაზომა              გაზომვა        V Act Aor Pv <S-DO> <S:Erg> <DO:Nom> S:3Sg DO:3
+გავზომეთ            გაზომვა        V Act Aor Pv <S-DO> <S:Erg> <DO:Nom> S:1Pl DO:3
+გაზომეთ             გაზომვა        V Act Aor Pv <S-DO> <S:Erg> <DO:Nom> S:2Pl DO:3
+გაზომეს             გაზომვა        V Act Aor Pv <S-DO> <S:Erg> <DO:Nom> S:3Pl DO:3
+
+
+#### Tense: Opt
+# Count: 11
+
+##### Preverb
+# Count: 11
+
+###### SV
+# Count: 5
+
+####### Act
+# Count: 5
+
+გავიზომო            გაზომვა        V Act Opt Pv SV <S-DO> <S:Erg> <DO:Nom> S:1Sg DO:3
+გაიზომოს            გაზომვა        V Act Opt Pv SV <S-DO> <S:Erg> <DO:Nom> S:3Sg DO:3
+გავიზომოთ           გაზომვა        V Act Opt Pv SV <S-DO> <S:Erg> <DO:Nom> S:1Pl DO:3
+გაიზომოთ            გაზომვა        V Act Opt Pv SV <S-DO> <S:Erg> <DO:Nom> S:2Pl DO:3
+გაიზომონ            გაზომვა        V Act Opt Pv SV <S-DO> <S:Erg> <DO:Nom> S:3Pl DO:3
+
+###### Non-Version
+# Count: 6
+
+####### Act
+# Count: 6
+
+გავზომო             გაზომვა        V Act Opt Pv <S-DO> <S:Erg> <DO:Nom> S:1Sg DO:3
+გაზომო              გაზომვა        V Act Opt Pv <S-DO> <S:Erg> <DO:Nom> S:2Sg DO:3
+გაზომოს             გაზომვა        V Act Opt Pv <S-DO> <S:Erg> <DO:Nom> S:3Sg DO:3
+გავზომოთ            გაზომვა        V Act Opt Pv <S-DO> <S:Erg> <DO:Nom> S:1Pl DO:3
+გაზომოთ             გაზომვა        V Act Opt Pv <S-DO> <S:Erg> <DO:Nom> S:2Pl DO:3
+გაზომონ             გაზომვა        V Act Opt Pv <S-DO> <S:Erg> <DO:Nom> S:3Pl DO:3
+
+
+#### Tense: Perf
+# Count: 4
+
+##### Preverb
+# Count: 4
+
+###### Non-Version
+# Count: 4
+
+####### Act
+# Count: 4
+
+გამიზომია           გაზომვა        V Act Perf Pv <S-DO> <S:Dat> <DO:Nom> S:1Sg DO:3
+გაუზომავს           გაზომვა        V Act Perf Pv <S-DO> <S:Dat> <DO:Nom> S:3Sg DO:3
+გაუზომია            გაზომვა        V Act Perf Pv <S-DO> <S:Dat> <DO:Nom> S:3Sg DO:3
+გაუზომიათ           გაზომვა        V Act Perf Pv <S-DO> <S:Dat> <DO:Nom> S:3Pl DO:3
+
+
+#### Tense: PluPerf
+# Count: 5
+
+##### Preverb
+# Count: 5
+
+###### Non-Version
+# Count: 5
+
+####### Act
+# Count: 5
+
+გამეზომა            გაზომვა        V Act PluPerf Pv <S-DO> <S:Dat> <DO:Nom> S:1Sg DO:3
+გაგეზომა            გაზომვა        V Act PluPerf Pv <S-DO> <S:Dat> <DO:Nom> S:2Sg DO:3
+გაეზომა             გაზომვა        V Act PluPerf Pv <S-DO> <S:Dat> <DO:Nom> S:3Sg DO:3
+გაეზომნა            გაზომვა        V Act PluPerf Pv <S-DO> <S:Dat> <DO:Nom> S:3Sg DO:3 Old
+გაგვეზომა           გაზომვა        V Act PluPerf Pv <S-DO> <S:Dat> <DO:Nom> S:1Pl DO:3
+
+
+#### Tense: Impv
+# Count: 4
+
+##### Preverb
+# Count: 4
+
+###### SV
+# Count: 2
+
+####### Act
+# Count: 2
+
+გაიზომე             გაზომვა        V Act Impv Pv SV <S-DO> <S:Erg> <DO:Nom> S:2Sg DO:3
+გაიზომეთ            გაზომვა        V Act Impv Pv SV <S-DO> <S:Erg> <DO:Nom> S:2Pl DO:3
+
+###### Non-Version
+# Count: 2
+
+####### Act
+# Count: 2
+
+გაზომე              გაზომვა        V Act Impv Pv <S-DO> <S:Erg> <DO:Nom> S:2Sg DO:3
+გაზომეთ             გაზომვა        V Act Impv Pv <S-DO> <S:Erg> <DO:Nom> S:2Pl DO:3
+
+
+
+### Argument Pattern: <S-DO-IO>
+# Count: 19
+
+#### Tense: Fut
+# Count: 4
+
+##### Preverb
+# Count: 4
+
+###### OV
+# Count: 4
+
+####### Act
+# Count: 4
+
+გავუზომავ           გაზომვა        V Act Fut Pv OV <S-DO-IO> <S:Nom> <DO:Dat> <IO:Dat> S:1Sg DO:3 IO:3
+გაუზომავ            გაზომვა        V Act Fut Pv OV <S-DO-IO> <S:Nom> <DO:Dat> <IO:Dat> S:2Sg DO:3 IO:3
+გაუზომავს           გაზომვა        V Act Fut Pv OV <S-DO-IO> <S:Nom> <DO:Dat> <IO:Dat> S:3Sg DO:3 IO:3
+გაუზომავენ          გაზომვა        V Act Fut Pv OV <S-DO-IO> <S:Nom> <DO:Dat> <IO:Dat> S:3Pl DO:3 IO:3
+
+
+#### Tense: Cond
+# Count: 2
+
+##### Preverb
+# Count: 2
+
+###### OV
+# Count: 2
+
+####### Act
+# Count: 2
+
+გავუზომავდი         გაზომვა        V Act Cond Pv OV <S-DO-IO> <S:Nom> <DO:Dat> <IO:Dat> S:1Sg DO:3 IO:3
+გაუზომავდა          გაზომვა        V Act Cond Pv OV <S-DO-IO> <S:Nom> <DO:Dat> <IO:Dat> S:3Sg DO:3 IO:3
+
+
+#### Tense: Aor
+# Count: 6
+
+##### Preverb
+# Count: 6
+
+###### OV
+# Count: 6
+
+####### Act
+# Count: 6
+
+გავუზომე            გაზომვა        V Act Aor Pv OV <S-DO-IO> <S:Erg> <DO:Nom> <IO:Dat> S:1Sg DO:3 IO:3
+გაუზომე             გაზომვა        V Act Aor Pv OV <S-DO-IO> <S:Erg> <DO:Nom> <IO:Dat> S:2Sg DO:3 IO:3
+გაუზომა             გაზომვა        V Act Aor Pv OV <S-DO-IO> <S:Erg> <DO:Nom> <IO:Dat> S:3Sg DO:3 IO:3
+გავუზომეთ           გაზომვა        V Act Aor Pv OV <S-DO-IO> <S:Erg> <DO:Nom> <IO:Dat> S:1Pl DO:3 IO:3
+გაუზომეთ            გაზომვა        V Act Aor Pv OV <S-DO-IO> <S:Erg> <DO:Nom> <IO:Dat> S:2Pl DO:3 IO:3
+გაუზომეს            გაზომვა        V Act Aor Pv OV <S-DO-IO> <S:Erg> <DO:Nom> <IO:Dat> S:3Pl DO:3 IO:3
+
+
+#### Tense: Opt
+# Count: 5
+
+##### Preverb
+# Count: 5
+
+###### OV
+# Count: 5
+
+####### Act
+# Count: 5
+
+გავუზომო            გაზომვა        V Act Opt Pv OV <S-DO-IO> <S:Erg> <DO:Nom> <IO:Dat> S:1Sg DO:3 IO:3
+გაუზომო             გაზომვა        V Act Opt Pv OV <S-DO-IO> <S:Erg> <DO:Nom> <IO:Dat> S:2Sg DO:3 IO:3
+გაუზომოს            გაზომვა        V Act Opt Pv OV <S-DO-IO> <S:Erg> <DO:Nom> <IO:Dat> S:3Sg DO:3 IO:3
+გავუზომოთ           გაზომვა        V Act Opt Pv OV <S-DO-IO> <S:Erg> <DO:Nom> <IO:Dat> S:1Pl DO:3 IO:3
+გაუზომონ            გაზომვა        V Act Opt Pv OV <S-DO-IO> <S:Erg> <DO:Nom> <IO:Dat> S:3Pl DO:3 IO:3
+
+
+#### Tense: Impv
+# Count: 2
+
+##### Preverb
+# Count: 2
+
+###### OV
+# Count: 2
+
+####### Act
+# Count: 2
+
+გაუზომე             გაზომვა        V Act Impv Pv OV <S-DO-IO> <S:Erg> <DO:Nom> <IO:Dat> S:2Sg DO:3 IO:3
+გაუზომეთ            გაზომვა        V Act Impv Pv OV <S-DO-IO> <S:Erg> <DO:Nom> <IO:Dat> S:2Pl DO:3 IO:3
+
+
+
+## DO/IO Type: Non-Standard
+----------------------------------------
+
+### Argument Pattern: <S-DO>
+# Count: 9
+
+#### Tense: Fut
+# Count: 1
+
+##### Preverb
+# Count: 1
+
+###### Non-Version
+# Count: 1
+
+####### Act
+# Count: 1
+
+გაგვზომავენ         გაზომვა        V Act Fut Pv <S-DO> <S:Nom> <DO:Dat> S:3Pl DO:1Pl
+
+
+#### Tense: Aor
+# Count: 2
+
+##### Preverb
+# Count: 2
+
+###### Non-Version
+# Count: 2
+
+####### Act
+# Count: 2
+
+გამზომა             გაზომვა        V Act Aor Pv <S-DO> <S:Erg> <DO:Nom> S:3Sg DO:1Sg
+გამზომეს            გაზომვა        V Act Aor Pv <S-DO> <S:Erg> <DO:Nom> S:3Pl DO:1Sg
+
+
+#### Tense: Opt
+# Count: 4
+
+##### Preverb
+# Count: 4
+
+###### SV
+# Count: 1
+
+####### Act
+# Count: 1
+
+გაიზომოთ            გაზომვა        V Act Opt Pv SV <S-DO> <S:Erg> <DO:Nom> S:3Sg DO:3Pl
+
+###### Non-Version
+# Count: 3
+
+####### Act
+# Count: 3
+
+გამზომოთ            გაზომვა        V Act Opt Pv <S-DO> <S:Erg> <DO:Nom> S:2Pl DO:1Sg
+
+# IO/DO Group Separator: DO:1Sg → DO:1Pl
+გაგვზომონ           გაზომვა        V Act Opt Pv <S-DO> <S:Erg> <DO:Nom> S:3Pl DO:1Pl
+
+# IO/DO Group Separator: DO:1Pl → DO:3Pl
+გაზომოთ             გაზომვა        V Act Opt Pv <S-DO> <S:Erg> <DO:Nom> S:3Sg DO:3Pl
+
+
+#### Tense: PluPerf
+# Count: 1
+
+##### Preverb
+# Count: 1
+
+###### Non-Version
+# Count: 1
+
+####### Act
+# Count: 1
+
+გაეზომათ            გაზომვა        V Act PluPerf Pv <S-DO> <S:Dat> <DO:Nom> DO:3Sg S:3Pl
+
+
+
+### Argument Pattern: <S-DO-IO>
+# Count: 11
+
+#### Tense: Fut
+# Count: 5
+
+##### Preverb
+# Count: 5
+
+###### OV
+# Count: 5
+
+####### Act
+# Count: 5
+
+გამიზომავს          გაზომვა        V Act Fut Pv OV <S-DO-IO> <S:Nom> <DO:Dat> <IO:Dat> S:3Sg DO:3 IO:1Sg
+
+# IO/DO Group Separator: IO:1Sg → IO:1Pl
+გაგვიზომავს         გაზომვა        V Act Fut Pv OV <S-DO-IO> <S:Nom> <DO:Dat> <IO:Dat> S:3Sg DO:3 IO:1Pl
+გაგვიზომავენ        გაზომვა        V Act Fut Pv OV <S-DO-IO> <S:Nom> <DO:Dat> <IO:Dat> S:3Pl DO:3 IO:1Pl
+
+# IO/DO Group Separator: IO:1Pl → IO:2Sg
+გაგიზომავ           გაზომვა        V Act Fut Pv OV <S-DO-IO> <S:Nom> <DO:Dat> <IO:Dat> S:1Sg DO:3 IO:2Sg
+გაგიზომავს          გაზომვა        V Act Fut Pv OV <S-DO-IO> <S:Nom> <DO:Dat> <IO:Dat> S:3Sg DO:3 IO:2Sg
+
+
+#### Tense: Aor
+# Count: 2
+
+##### Preverb
+# Count: 2
+
+###### OV
+# Count: 2
+
+####### Act
+# Count: 2
+
+გამიზომა            გაზომვა        V Act Aor Pv OV <S-DO-IO> <S:Erg> <DO:Nom> <IO:Dat> S:3Sg DO:3 IO:1Sg
+გამიზომეს           გაზომვა        V Act Aor Pv OV <S-DO-IO> <S:Erg> <DO:Nom> <IO:Dat> S:3Pl DO:3 IO:1Sg
+
+
+#### Tense: Opt
+# Count: 3
+
+##### Preverb
+# Count: 3
+
+###### OV
+# Count: 3
+
+####### Act
+# Count: 3
+
+გამიზომოთ           გაზომვა        V Act Opt Pv OV <S-DO-IO> <S:Erg> <DO:Nom> <IO:Dat> S:2Pl DO:3 IO:1Sg
+
+# IO/DO Group Separator: IO:1Sg → IO:2Sg
+გაგიზომო            გაზომვა        V Act Opt Pv OV <S-DO-IO> <S:Erg> <DO:Nom> <IO:Dat> S:1Sg DO:3 IO:2Sg
+გაგიზომონ           გაზომვა        V Act Opt Pv OV <S-DO-IO> <S:Erg> <DO:Nom> <IO:Dat> S:3Pl DO:3 IO:2Sg
+
+
+#### Tense: Impv
+# Count: 1
+
+##### Preverb
+# Count: 1
+
+###### OV
+# Count: 1
+
+####### Act
+# Count: 1
+
+გამიზომე            გაზომვა        V Act Impv Pv OV <S-DO-IO> <S:Erg> <DO:Nom> <IO:Dat> S:2Sg DO:3 IO:1Sg
+
+
+

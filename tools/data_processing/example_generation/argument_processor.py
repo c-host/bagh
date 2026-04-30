@@ -502,8 +502,9 @@ class ArgumentProcessor(BaseGlossParser):
 
         except Exception as e:
             safe_log(
+                logger,
                 "error",
-                f"Error getting adjective case form for {adjective_key} {case}: {e}",
+                f"Error getting adjective case form for '{adjective_key}' ({case}): {e}",
             )
             raise ValueError(f"Failed to get adjective case form: {e}")
 

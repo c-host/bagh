@@ -361,7 +361,12 @@ class ExampleGenerator:
             }
 
         except Exception as e:
-            safe_log(logger, "error", f"Failed to generate structured example: {e}")
+            safe_log(
+                logger,
+                "error",
+                f"Failed to generate structured example for verb {verb_id}, tense {tense}, person {person}: {e}",
+            )
+            logger.exception("Structured example generation traceback")
             raise ExampleGenerationError(f"Structured example generation failed: {e}")
 
     def _get_english_base_form(self, key: str, number: str, database_type: str) -> str:
@@ -523,6 +528,13 @@ class ExampleGenerator:
             error_msg = f"Failed to generate {arg_type} component for verb {verb_id}, person {person}: {e}"
             guidance = "Please check the verb configuration and ensure all required argument data is properly configured."
             logger.error(f"{error_msg}. {guidance}")
+            logger.exception(
+                "Argument component traceback (verb=%s, tense=%s, person=%s, arg_type=%s)",
+                verb_id,
+                tense,
+                person,
+                arg_type,
+            )
             raise ValueError(f"{error_msg}. {guidance}")
 
     def _validate_argument_data(
@@ -931,6 +943,12 @@ def generate_examples(
 
     except Exception as e:
         safe_log(logger, "error", f"Failed to generate examples: {e}")
+        logger.exception(
+            "Example generation traceback (verb_id=%s, tense=%s, selected_preverbs=%s)",
+            verb_data.get("id", "unknown"),
+            tense,
+            selected_preverbs,
+        )
 
         # Provide more specific error information
         error_details = str(e)

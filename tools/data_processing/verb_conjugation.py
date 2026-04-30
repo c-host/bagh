@@ -8,9 +8,12 @@ handling for tenses that legitimately have no forms (e.g., verb 2's future tense
 
 from typing import Dict, List, Optional, Any
 from dataclasses import dataclass
+import logging
 
 # Import Unicode-safe logging utilities
 from tools.utils.unicode_console import safe_log
+
+logger = logging.getLogger(__name__)
 
 
 @dataclass
@@ -84,6 +87,7 @@ class VerbConjugationProcessor:
 
         except Exception as e:
             safe_log(
+                logger,
                 "error",
                 f"Conjugation failed for {request.verb.get('id', 'unknown')}/{request.tense}/{request.person}: {e}",
             )
@@ -126,9 +130,10 @@ class VerbConjugationProcessor:
 
         if self.enable_debug_logging:
             if forms:
-                safe_log("debug", f"Found forms for {tense}: {forms}")
+                safe_log(logger, "debug", f"Found forms for {tense}: {forms}")
             else:
                 safe_log(
+                    logger,
                     "debug",
                     f"No forms found for {tense} - this may be legitimate",
                 )

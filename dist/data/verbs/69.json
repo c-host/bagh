@@ -1,0 +1,1757 @@
+{
+  "base_data": {
+    "id": 69,
+    "georgian": "ტკივილი",
+    "description": "To Hurt",
+    "category": "Mental Activities & Cognition",
+    "class": "Class-I",
+    "semantic_key": "hurt",
+    "notes": "",
+    "url": "https://lingua.ge/verbs/%e1%83%a2%e1%83%99%e1%83%94%e1%83%9c%e1%83%90-2/",
+    "global_argument_pattern": "<S-DO>",
+    "valency": {
+      "default": "<S-DO>",
+      "alternatives": []
+    },
+    "syntax": {
+      "arguments": {
+        "subject": {
+          "3sg": {
+            "noun": "child",
+            "adjective": "young"
+          },
+          "3pl": {
+            "noun": "father",
+            "adjective": "weak"
+          }
+        },
+        "direct_object": {
+          "1sg": {
+            "noun": "leg",
+            "adjective": "weak"
+          },
+          "2sg": {
+            "noun": "hand",
+            "adjective": "small"
+          },
+          "3sg": {
+            "noun": "hand",
+            "adjective": "big"
+          },
+          "1pl": {
+            "noun": "team",
+            "adjective": "small"
+          },
+          "2pl": {
+            "noun": "face",
+            "adjective": "beautiful"
+          },
+          "3pl": {
+            "noun": "face",
+            "adjective": "beautiful"
+          }
+        }
+      },
+      "prepositions": {
+        "subject": "the",
+        "direct_object": "the",
+        "indirect_object": ""
+      },
+      "preverb_overrides": {}
+    },
+    "english_translations": {
+      "default": {
+        "present": "hurt",
+        "imperfect": "was hurting",
+        "future": "will hurt",
+        "aorist": "hurt",
+        "optative": "hurt",
+        "imperative": "hurt"
+      }
+    },
+    "conjugations": {
+      "present": {
+        "raw_gloss": "V MedAct Inv Pres <S-DO> <S:Dat> <DO:Nom>",
+        "forms": {
+          "1sg": "მტკივა",
+          "1pl": "გვტკივა",
+          "2sg": "გტკივა",
+          "2pl": "გტიკივათ",
+          "3sg": "სტკივა",
+          "3pl": "სტკივათ"
+        },
+        "examples": []
+      },
+      "imperfect": {
+        "raw_gloss": "V MedAct Inv Impf <S-DO> <S:Dat> <DO:Nom>",
+        "forms": {
+          "1sg": "მტკიოდა",
+          "1pl": "გვტკიოდა",
+          "2sg": "გტკიოდა",
+          "2pl": "გტკიოდათ",
+          "3sg": "სტკიოდა",
+          "3pl": "სტკიოდათ"
+        },
+        "examples": []
+      },
+      "future": {
+        "raw_gloss": "V MedPass Inv Fut <S-DO> <S:Dat> <DO:Nom>",
+        "forms": {
+          "1sg": "მეტკინება",
+          "1pl": "გვეტკინება",
+          "2sg": "გეტკინება",
+          "2pl": "გეტკინებათ",
+          "3sg": "ეტკინება",
+          "3pl": "ეტკინებათ"
+        },
+        "examples": []
+      },
+      "aorist": {
+        "raw_gloss": "V MedPass Inv Aor <S-DO> <S:Dat> <DO:Nom>",
+        "forms": {
+          "1sg": "მეტკინა",
+          "1pl": "გვეტკინა",
+          "2sg": "გეტკინა",
+          "2pl": "გეტკინათ",
+          "3sg": "ეტკინა",
+          "3pl": "ეტკინათ"
+        },
+        "examples": []
+      },
+      "optative": {
+        "raw_gloss": "V MedPass Inv Opt <S-DO> <S:Dat> <DO:Nom>",
+        "forms": {
+          "1sg": "მეტკინოს",
+          "1pl": "გვეტკინოს",
+          "2sg": "გეტკინოს",
+          "2pl": "გეტკინოთ",
+          "3sg": "ეტკინოს",
+          "3pl": "ეტკინოთ"
+        },
+        "examples": []
+      },
+      "imperative": {
+        "raw_gloss": "V Act Impv Pv SV <S-DO> <S:Erg> <DO:Nom>",
+        "forms": {
+          "2sg": "გეტკინა",
+          "2pl": "გეტკინათ"
+        },
+        "examples": []
+      }
+    },
+    "preverb_config": {
+      "has_multiple_preverbs": false,
+      "default_preverb": "",
+      "available_preverbs": []
+    },
+    "preverb_rules": {
+      "default": "",
+      "replacements": {},
+      "tense_specific_fallbacks": {}
+    }
+  },
+  "generated_data": {
+    "examples": {
+      "default": {
+        "present": [
+          {
+            "georgian": "სუსტი ფეხი მტკივა",
+            "georgian_components": {
+              "direct_object": {
+                "text": "სუსტი ფეხი",
+                "case": "nom",
+                "role": "direct_object"
+              },
+              "verb": {
+                "text": "მტკივა",
+                "role": "verb"
+              }
+            },
+            "english": "I hurt the weak leg",
+            "english_components": {
+              "subject": {
+                "text": "I",
+                "role": "subject",
+                "person": "1sg"
+              },
+              "direct_object": {
+                "text": "the weak leg",
+                "role": "direct_object"
+              },
+              "verb": {
+                "text": "hurt",
+                "role": "verb"
+              }
+            },
+            "georgian_verb_form": "მტკივა",
+            "person": "1sg",
+            "effective_preverb": ""
+          },
+          {
+            "georgian": "ახალგაზრდა ბავშვს დიდი ხელი სტკივა",
+            "georgian_components": {
+              "subject": {
+                "text": "ახალგაზრდა ბავშვს",
+                "case": "dat",
+                "role": "subject"
+              },
+              "direct_object": {
+                "text": "დიდი ხელი",
+                "case": "nom",
+                "role": "direct_object"
+              },
+              "verb": {
+                "text": "სტკივა",
+                "role": "verb"
+              }
+            },
+            "english": "The young child hurts the big hand",
+            "english_components": {
+              "subject": {
+                "text": "The young child",
+                "role": "subject",
+                "person": "3sg"
+              },
+              "direct_object": {
+                "text": "the big hand",
+                "role": "direct_object"
+              },
+              "verb": {
+                "text": "hurts",
+                "role": "verb"
+              }
+            },
+            "georgian_verb_form": "სტკივა",
+            "person": "3sg",
+            "effective_preverb": ""
+          },
+          {
+            "georgian": "სუსტ მამებს ლამაზი სახე სტკივათ",
+            "georgian_components": {
+              "subject": {
+                "text": "სუსტ მამებს",
+                "case": "dat",
+                "role": "subject"
+              },
+              "direct_object": {
+                "text": "ლამაზი სახე",
+                "case": "nom",
+                "role": "direct_object"
+              },
+              "verb": {
+                "text": "სტკივათ",
+                "role": "verb"
+              }
+            },
+            "english": "The weak fathers hurt the beautiful face",
+            "english_components": {
+              "subject": {
+                "text": "The weak fathers",
+                "role": "subject",
+                "person": "3pl"
+              },
+              "direct_object": {
+                "text": "the beautiful face",
+                "role": "direct_object"
+              },
+              "verb": {
+                "text": "hurt",
+                "role": "verb"
+              }
+            },
+            "georgian_verb_form": "სტკივათ",
+            "person": "3pl",
+            "effective_preverb": ""
+          }
+        ],
+        "imperfect": [
+          {
+            "georgian": "სუსტი ფეხი მტკიოდა",
+            "georgian_components": {
+              "direct_object": {
+                "text": "სუსტი ფეხი",
+                "case": "nom",
+                "role": "direct_object"
+              },
+              "verb": {
+                "text": "მტკიოდა",
+                "role": "verb"
+              }
+            },
+            "english": "I was hurting the weak leg",
+            "english_components": {
+              "subject": {
+                "text": "I",
+                "role": "subject",
+                "person": "1sg"
+              },
+              "direct_object": {
+                "text": "the weak leg",
+                "role": "direct_object"
+              },
+              "verb": {
+                "text": "was hurting",
+                "role": "verb"
+              }
+            },
+            "georgian_verb_form": "მტკიოდა",
+            "person": "1sg",
+            "effective_preverb": ""
+          },
+          {
+            "georgian": "ახალგაზრდა ბავშვს დიდი ხელი სტკიოდა",
+            "georgian_components": {
+              "subject": {
+                "text": "ახალგაზრდა ბავშვს",
+                "case": "dat",
+                "role": "subject"
+              },
+              "direct_object": {
+                "text": "დიდი ხელი",
+                "case": "nom",
+                "role": "direct_object"
+              },
+              "verb": {
+                "text": "სტკიოდა",
+                "role": "verb"
+              }
+            },
+            "english": "The young child was hurting the big hand",
+            "english_components": {
+              "subject": {
+                "text": "The young child",
+                "role": "subject",
+                "person": "3sg"
+              },
+              "direct_object": {
+                "text": "the big hand",
+                "role": "direct_object"
+              },
+              "verb": {
+                "text": "was hurting",
+                "role": "verb"
+              }
+            },
+            "georgian_verb_form": "სტკიოდა",
+            "person": "3sg",
+            "effective_preverb": ""
+          },
+          {
+            "georgian": "სუსტ მამებს ლამაზი სახე სტკიოდათ",
+            "georgian_components": {
+              "subject": {
+                "text": "სუსტ მამებს",
+                "case": "dat",
+                "role": "subject"
+              },
+              "direct_object": {
+                "text": "ლამაზი სახე",
+                "case": "nom",
+                "role": "direct_object"
+              },
+              "verb": {
+                "text": "სტკიოდათ",
+                "role": "verb"
+              }
+            },
+            "english": "The weak fathers were hurting the beautiful face",
+            "english_components": {
+              "subject": {
+                "text": "The weak fathers",
+                "role": "subject",
+                "person": "3pl"
+              },
+              "direct_object": {
+                "text": "the beautiful face",
+                "role": "direct_object"
+              },
+              "verb": {
+                "text": "were hurting",
+                "role": "verb"
+              }
+            },
+            "georgian_verb_form": "სტკიოდათ",
+            "person": "3pl",
+            "effective_preverb": ""
+          }
+        ],
+        "future": [
+          {
+            "georgian": "სუსტი ფეხი მეტკინება",
+            "georgian_components": {
+              "direct_object": {
+                "text": "სუსტი ფეხი",
+                "case": "nom",
+                "role": "direct_object"
+              },
+              "verb": {
+                "text": "მეტკინება",
+                "role": "verb"
+              }
+            },
+            "english": "I will hurt the weak leg",
+            "english_components": {
+              "subject": {
+                "text": "I",
+                "role": "subject",
+                "person": "1sg"
+              },
+              "direct_object": {
+                "text": "the weak leg",
+                "role": "direct_object"
+              },
+              "verb": {
+                "text": "will hurt",
+                "role": "verb"
+              }
+            },
+            "georgian_verb_form": "მეტკინება",
+            "person": "1sg",
+            "effective_preverb": ""
+          },
+          {
+            "georgian": "ახალგაზრდა ბავშვს დიდი ხელი ეტკინება",
+            "georgian_components": {
+              "subject": {
+                "text": "ახალგაზრდა ბავშვს",
+                "case": "dat",
+                "role": "subject"
+              },
+              "direct_object": {
+                "text": "დიდი ხელი",
+                "case": "nom",
+                "role": "direct_object"
+              },
+              "verb": {
+                "text": "ეტკინება",
+                "role": "verb"
+              }
+            },
+            "english": "The young child will hurt the big hand",
+            "english_components": {
+              "subject": {
+                "text": "The young child",
+                "role": "subject",
+                "person": "3sg"
+              },
+              "direct_object": {
+                "text": "the big hand",
+                "role": "direct_object"
+              },
+              "verb": {
+                "text": "will hurt",
+                "role": "verb"
+              }
+            },
+            "georgian_verb_form": "ეტკინება",
+            "person": "3sg",
+            "effective_preverb": ""
+          },
+          {
+            "georgian": "სუსტ მამებს ლამაზი სახე ეტკინებათ",
+            "georgian_components": {
+              "subject": {
+                "text": "სუსტ მამებს",
+                "case": "dat",
+                "role": "subject"
+              },
+              "direct_object": {
+                "text": "ლამაზი სახე",
+                "case": "nom",
+                "role": "direct_object"
+              },
+              "verb": {
+                "text": "ეტკინებათ",
+                "role": "verb"
+              }
+            },
+            "english": "The weak fathers will hurt the beautiful face",
+            "english_components": {
+              "subject": {
+                "text": "The weak fathers",
+                "role": "subject",
+                "person": "3pl"
+              },
+              "direct_object": {
+                "text": "the beautiful face",
+                "role": "direct_object"
+              },
+              "verb": {
+                "text": "will hurt",
+                "role": "verb"
+              }
+            },
+            "georgian_verb_form": "ეტკინებათ",
+            "person": "3pl",
+            "effective_preverb": ""
+          }
+        ],
+        "aorist": [
+          {
+            "georgian": "სუსტი ფეხი მეტკინა",
+            "georgian_components": {
+              "direct_object": {
+                "text": "სუსტი ფეხი",
+                "case": "nom",
+                "role": "direct_object"
+              },
+              "verb": {
+                "text": "მეტკინა",
+                "role": "verb"
+              }
+            },
+            "english": "I hurt the weak leg",
+            "english_components": {
+              "subject": {
+                "text": "I",
+                "role": "subject",
+                "person": "1sg"
+              },
+              "direct_object": {
+                "text": "the weak leg",
+                "role": "direct_object"
+              },
+              "verb": {
+                "text": "hurt",
+                "role": "verb"
+              }
+            },
+            "georgian_verb_form": "მეტკინა",
+            "person": "1sg",
+            "effective_preverb": ""
+          },
+          {
+            "georgian": "ახალგაზრდა ბავშვს დიდი ხელი ეტკინა",
+            "georgian_components": {
+              "subject": {
+                "text": "ახალგაზრდა ბავშვს",
+                "case": "dat",
+                "role": "subject"
+              },
+              "direct_object": {
+                "text": "დიდი ხელი",
+                "case": "nom",
+                "role": "direct_object"
+              },
+              "verb": {
+                "text": "ეტკინა",
+                "role": "verb"
+              }
+            },
+            "english": "The young child hurt the big hand",
+            "english_components": {
+              "subject": {
+                "text": "The young child",
+                "role": "subject",
+                "person": "3sg"
+              },
+              "direct_object": {
+                "text": "the big hand",
+                "role": "direct_object"
+              },
+              "verb": {
+                "text": "hurt",
+                "role": "verb"
+              }
+            },
+            "georgian_verb_form": "ეტკინა",
+            "person": "3sg",
+            "effective_preverb": ""
+          },
+          {
+            "georgian": "სუსტ მამებს ლამაზი სახე ეტკინათ",
+            "georgian_components": {
+              "subject": {
+                "text": "სუსტ მამებს",
+                "case": "dat",
+                "role": "subject"
+              },
+              "direct_object": {
+                "text": "ლამაზი სახე",
+                "case": "nom",
+                "role": "direct_object"
+              },
+              "verb": {
+                "text": "ეტკინათ",
+                "role": "verb"
+              }
+            },
+            "english": "The weak fathers hurt the beautiful face",
+            "english_components": {
+              "subject": {
+                "text": "The weak fathers",
+                "role": "subject",
+                "person": "3pl"
+              },
+              "direct_object": {
+                "text": "the beautiful face",
+                "role": "direct_object"
+              },
+              "verb": {
+                "text": "hurt",
+                "role": "verb"
+              }
+            },
+            "georgian_verb_form": "ეტკინათ",
+            "person": "3pl",
+            "effective_preverb": ""
+          }
+        ],
+        "optative": [
+          {
+            "georgian": "სუსტი ფეხი უნდა მეტკინოს",
+            "georgian_components": {
+              "direct_object": {
+                "text": "სუსტი ფეხი",
+                "case": "nom",
+                "role": "direct_object"
+              },
+              "verb": {
+                "text": "უნდა მეტკინოს",
+                "role": "verb"
+              }
+            },
+            "english": "I should hurt the weak leg",
+            "english_components": {
+              "subject": {
+                "text": "I",
+                "role": "subject",
+                "person": "1sg"
+              },
+              "direct_object": {
+                "text": "the weak leg",
+                "role": "direct_object"
+              },
+              "verb": {
+                "text": "should hurt",
+                "role": "verb"
+              }
+            },
+            "georgian_verb_form": "მეტკინოს",
+            "person": "1sg",
+            "effective_preverb": ""
+          },
+          {
+            "georgian": "ახალგაზრდა ბავშვს დიდი ხელი უნდა ეტკინოს",
+            "georgian_components": {
+              "subject": {
+                "text": "ახალგაზრდა ბავშვს",
+                "case": "dat",
+                "role": "subject"
+              },
+              "direct_object": {
+                "text": "დიდი ხელი",
+                "case": "nom",
+                "role": "direct_object"
+              },
+              "verb": {
+                "text": "უნდა ეტკინოს",
+                "role": "verb"
+              }
+            },
+            "english": "The young child should hurt the big hand",
+            "english_components": {
+              "subject": {
+                "text": "The young child",
+                "role": "subject",
+                "person": "3sg"
+              },
+              "direct_object": {
+                "text": "the big hand",
+                "role": "direct_object"
+              },
+              "verb": {
+                "text": "should hurt",
+                "role": "verb"
+              }
+            },
+            "georgian_verb_form": "ეტკინოს",
+            "person": "3sg",
+            "effective_preverb": ""
+          },
+          {
+            "georgian": "სუსტ მამებს ლამაზი სახე უნდა ეტკინოთ",
+            "georgian_components": {
+              "subject": {
+                "text": "სუსტ მამებს",
+                "case": "dat",
+                "role": "subject"
+              },
+              "direct_object": {
+                "text": "ლამაზი სახე",
+                "case": "nom",
+                "role": "direct_object"
+              },
+              "verb": {
+                "text": "უნდა ეტკინოთ",
+                "role": "verb"
+              }
+            },
+            "english": "The weak fathers should hurt the beautiful face",
+            "english_components": {
+              "subject": {
+                "text": "The weak fathers",
+                "role": "subject",
+                "person": "3pl"
+              },
+              "direct_object": {
+                "text": "the beautiful face",
+                "role": "direct_object"
+              },
+              "verb": {
+                "text": "should hurt",
+                "role": "verb"
+              }
+            },
+            "georgian_verb_form": "ეტკინოთ",
+            "person": "3pl",
+            "effective_preverb": ""
+          }
+        ],
+        "imperative": [
+          {
+            "georgian": "პატარა ხელი გეტკინა",
+            "georgian_components": {
+              "direct_object": {
+                "text": "პატარა ხელი",
+                "case": "nom",
+                "role": "direct_object"
+              },
+              "verb": {
+                "text": "გეტკინა",
+                "role": "verb"
+              }
+            },
+            "english": "You, hurt the small hand",
+            "english_components": {
+              "subject": {
+                "text": "You,",
+                "role": "subject",
+                "person": "2sg"
+              },
+              "direct_object": {
+                "text": "the small hand",
+                "role": "direct_object"
+              },
+              "verb": {
+                "text": "hurt",
+                "role": "verb"
+              }
+            },
+            "georgian_verb_form": "გეტკინა",
+            "person": "2sg",
+            "effective_preverb": ""
+          },
+          {
+            "georgian": "ლამაზი სახე გეტკინათ",
+            "georgian_components": {
+              "direct_object": {
+                "text": "ლამაზი სახე",
+                "case": "nom",
+                "role": "direct_object"
+              },
+              "verb": {
+                "text": "გეტკინათ",
+                "role": "verb"
+              }
+            },
+            "english": "You all (you formal), hurt the beautiful face",
+            "english_components": {
+              "subject": {
+                "text": "You all (you formal),",
+                "role": "subject",
+                "person": "2pl"
+              },
+              "direct_object": {
+                "text": "the beautiful face",
+                "role": "direct_object"
+              },
+              "verb": {
+                "text": "hurt",
+                "role": "verb"
+              }
+            },
+            "georgian_verb_form": "გეტკინათ",
+            "person": "2pl",
+            "effective_preverb": ""
+          }
+        ]
+      }
+    },
+    "gloss_analysis": {
+      "present": {
+        "raw_gloss": "V MedAct Inv Pres <S-DO> <S:Dat> <DO:Nom>",
+        "structured_gloss": {
+          "raw_components": [
+            {
+              "text": "V",
+              "component_type": "verb",
+              "color_class": "gloss-verb",
+              "description": "Verb"
+            },
+            {
+              "text": "MedAct",
+              "component_type": "voice",
+              "color_class": "gloss-default",
+              "description": "Medioactive"
+            },
+            {
+              "text": "Inv",
+              "component_type": "unknown",
+              "color_class": "gloss-default",
+              "description": "Inverted"
+            },
+            {
+              "text": "Pres",
+              "component_type": "tense",
+              "color_class": "gloss-tense",
+              "description": "Present"
+            },
+            {
+              "type": "argument_pattern_group",
+              "original_text": "<S-DO>",
+              "description": "Transitive absolute",
+              "components": [
+                {
+                  "text": "<",
+                  "component_type": "punctuation",
+                  "color_class": "gloss-default",
+                  "description": ""
+                },
+                {
+                  "text": "S",
+                  "component_type": "argument",
+                  "color_class": "gloss-subject",
+                  "description": ""
+                },
+                {
+                  "text": "-",
+                  "component_type": "punctuation",
+                  "color_class": "gloss-default",
+                  "description": ""
+                },
+                {
+                  "text": "DO",
+                  "component_type": "argument",
+                  "color_class": "gloss-direct-object",
+                  "description": ""
+                },
+                {
+                  "text": ">",
+                  "component_type": "punctuation",
+                  "color_class": "gloss-default",
+                  "description": ""
+                }
+              ]
+            },
+            {
+              "text": "<S:Dat>",
+              "component_type": "case_spec",
+              "color_class": "gloss-subject",
+              "description": "Dative subject"
+            },
+            {
+              "text": "<DO:Nom>",
+              "component_type": "case_spec",
+              "color_class": "gloss-direct-object",
+              "description": "Nominative direct object"
+            }
+          ],
+          "expanded_components": [
+            {
+              "text": "V",
+              "component_type": "verb",
+              "color_class": "gloss-verb",
+              "description": "Verb"
+            },
+            {
+              "text": "MedAct",
+              "component_type": "voice",
+              "color_class": "gloss-default",
+              "description": "Medioactive"
+            },
+            {
+              "text": "Inv",
+              "component_type": "unknown",
+              "color_class": "gloss-default",
+              "description": "Inverted"
+            },
+            {
+              "text": "Pres",
+              "component_type": "tense",
+              "color_class": "gloss-tense",
+              "description": "Present"
+            },
+            {
+              "type": "argument_pattern_group",
+              "original_text": "<S-DO>",
+              "description": "Transitive absolute",
+              "components": [
+                {
+                  "text": "<",
+                  "component_type": "punctuation",
+                  "color_class": "gloss-default",
+                  "description": ""
+                },
+                {
+                  "text": "S",
+                  "component_type": "argument",
+                  "color_class": "gloss-subject",
+                  "description": ""
+                },
+                {
+                  "text": "-",
+                  "component_type": "punctuation",
+                  "color_class": "gloss-default",
+                  "description": ""
+                },
+                {
+                  "text": "DO",
+                  "component_type": "argument",
+                  "color_class": "gloss-direct-object",
+                  "description": ""
+                },
+                {
+                  "text": ">",
+                  "component_type": "punctuation",
+                  "color_class": "gloss-default",
+                  "description": ""
+                }
+              ]
+            },
+            {
+              "text": "<S:Dat>",
+              "component_type": "case_spec",
+              "color_class": "gloss-subject",
+              "description": "Dative subject"
+            },
+            {
+              "text": "<DO:Nom>",
+              "component_type": "case_spec",
+              "color_class": "gloss-direct-object",
+              "description": "Nominative direct object"
+            }
+          ],
+          "argument_pattern": "<S-DO>",
+          "case_specifications": [
+            "<S:Dat>",
+            "<DO:Nom>"
+          ]
+        }
+      },
+      "imperfect": {
+        "raw_gloss": "V MedAct Inv Impf <S-DO> <S:Dat> <DO:Nom>",
+        "structured_gloss": {
+          "raw_components": [
+            {
+              "text": "V",
+              "component_type": "verb",
+              "color_class": "gloss-verb",
+              "description": "Verb"
+            },
+            {
+              "text": "MedAct",
+              "component_type": "voice",
+              "color_class": "gloss-default",
+              "description": "Medioactive"
+            },
+            {
+              "text": "Inv",
+              "component_type": "unknown",
+              "color_class": "gloss-default",
+              "description": "Inverted"
+            },
+            {
+              "text": "Impf",
+              "component_type": "tense",
+              "color_class": "gloss-tense",
+              "description": "Imperfect"
+            },
+            {
+              "type": "argument_pattern_group",
+              "original_text": "<S-DO>",
+              "description": "Transitive absolute",
+              "components": [
+                {
+                  "text": "<",
+                  "component_type": "punctuation",
+                  "color_class": "gloss-default",
+                  "description": ""
+                },
+                {
+                  "text": "S",
+                  "component_type": "argument",
+                  "color_class": "gloss-subject",
+                  "description": ""
+                },
+                {
+                  "text": "-",
+                  "component_type": "punctuation",
+                  "color_class": "gloss-default",
+                  "description": ""
+                },
+                {
+                  "text": "DO",
+                  "component_type": "argument",
+                  "color_class": "gloss-direct-object",
+                  "description": ""
+                },
+                {
+                  "text": ">",
+                  "component_type": "punctuation",
+                  "color_class": "gloss-default",
+                  "description": ""
+                }
+              ]
+            },
+            {
+              "text": "<S:Dat>",
+              "component_type": "case_spec",
+              "color_class": "gloss-subject",
+              "description": "Dative subject"
+            },
+            {
+              "text": "<DO:Nom>",
+              "component_type": "case_spec",
+              "color_class": "gloss-direct-object",
+              "description": "Nominative direct object"
+            }
+          ],
+          "expanded_components": [
+            {
+              "text": "V",
+              "component_type": "verb",
+              "color_class": "gloss-verb",
+              "description": "Verb"
+            },
+            {
+              "text": "MedAct",
+              "component_type": "voice",
+              "color_class": "gloss-default",
+              "description": "Medioactive"
+            },
+            {
+              "text": "Inv",
+              "component_type": "unknown",
+              "color_class": "gloss-default",
+              "description": "Inverted"
+            },
+            {
+              "text": "Impf",
+              "component_type": "tense",
+              "color_class": "gloss-tense",
+              "description": "Imperfect"
+            },
+            {
+              "type": "argument_pattern_group",
+              "original_text": "<S-DO>",
+              "description": "Transitive absolute",
+              "components": [
+                {
+                  "text": "<",
+                  "component_type": "punctuation",
+                  "color_class": "gloss-default",
+                  "description": ""
+                },
+                {
+                  "text": "S",
+                  "component_type": "argument",
+                  "color_class": "gloss-subject",
+                  "description": ""
+                },
+                {
+                  "text": "-",
+                  "component_type": "punctuation",
+                  "color_class": "gloss-default",
+                  "description": ""
+                },
+                {
+                  "text": "DO",
+                  "component_type": "argument",
+                  "color_class": "gloss-direct-object",
+                  "description": ""
+                },
+                {
+                  "text": ">",
+                  "component_type": "punctuation",
+                  "color_class": "gloss-default",
+                  "description": ""
+                }
+              ]
+            },
+            {
+              "text": "<S:Dat>",
+              "component_type": "case_spec",
+              "color_class": "gloss-subject",
+              "description": "Dative subject"
+            },
+            {
+              "text": "<DO:Nom>",
+              "component_type": "case_spec",
+              "color_class": "gloss-direct-object",
+              "description": "Nominative direct object"
+            }
+          ],
+          "argument_pattern": "<S-DO>",
+          "case_specifications": [
+            "<S:Dat>",
+            "<DO:Nom>"
+          ]
+        }
+      },
+      "future": {
+        "raw_gloss": "V MedPass Inv Fut <S-DO> <S:Dat> <DO:Nom>",
+        "structured_gloss": {
+          "raw_components": [
+            {
+              "text": "V",
+              "component_type": "verb",
+              "color_class": "gloss-verb",
+              "description": "Verb"
+            },
+            {
+              "text": "MedPass",
+              "component_type": "voice",
+              "color_class": "gloss-default",
+              "description": "Mediopassive"
+            },
+            {
+              "text": "Inv",
+              "component_type": "unknown",
+              "color_class": "gloss-default",
+              "description": "Inverted"
+            },
+            {
+              "text": "Fut",
+              "component_type": "tense",
+              "color_class": "gloss-tense",
+              "description": "Future"
+            },
+            {
+              "type": "argument_pattern_group",
+              "original_text": "<S-DO>",
+              "description": "Transitive absolute",
+              "components": [
+                {
+                  "text": "<",
+                  "component_type": "punctuation",
+                  "color_class": "gloss-default",
+                  "description": ""
+                },
+                {
+                  "text": "S",
+                  "component_type": "argument",
+                  "color_class": "gloss-subject",
+                  "description": ""
+                },
+                {
+                  "text": "-",
+                  "component_type": "punctuation",
+                  "color_class": "gloss-default",
+                  "description": ""
+                },
+                {
+                  "text": "DO",
+                  "component_type": "argument",
+                  "color_class": "gloss-direct-object",
+                  "description": ""
+                },
+                {
+                  "text": ">",
+                  "component_type": "punctuation",
+                  "color_class": "gloss-default",
+                  "description": ""
+                }
+              ]
+            },
+            {
+              "text": "<S:Dat>",
+              "component_type": "case_spec",
+              "color_class": "gloss-subject",
+              "description": "Dative subject"
+            },
+            {
+              "text": "<DO:Nom>",
+              "component_type": "case_spec",
+              "color_class": "gloss-direct-object",
+              "description": "Nominative direct object"
+            }
+          ],
+          "expanded_components": [
+            {
+              "text": "V",
+              "component_type": "verb",
+              "color_class": "gloss-verb",
+              "description": "Verb"
+            },
+            {
+              "text": "MedPass",
+              "component_type": "voice",
+              "color_class": "gloss-default",
+              "description": "Mediopassive"
+            },
+            {
+              "text": "Inv",
+              "component_type": "unknown",
+              "color_class": "gloss-default",
+              "description": "Inverted"
+            },
+            {
+              "text": "Fut",
+              "component_type": "tense",
+              "color_class": "gloss-tense",
+              "description": "Future"
+            },
+            {
+              "type": "argument_pattern_group",
+              "original_text": "<S-DO>",
+              "description": "Transitive absolute",
+              "components": [
+                {
+                  "text": "<",
+                  "component_type": "punctuation",
+                  "color_class": "gloss-default",
+                  "description": ""
+                },
+                {
+                  "text": "S",
+                  "component_type": "argument",
+                  "color_class": "gloss-subject",
+                  "description": ""
+                },
+                {
+                  "text": "-",
+                  "component_type": "punctuation",
+                  "color_class": "gloss-default",
+                  "description": ""
+                },
+                {
+                  "text": "DO",
+                  "component_type": "argument",
+                  "color_class": "gloss-direct-object",
+                  "description": ""
+                },
+                {
+                  "text": ">",
+                  "component_type": "punctuation",
+                  "color_class": "gloss-default",
+                  "description": ""
+                }
+              ]
+            },
+            {
+              "text": "<S:Dat>",
+              "component_type": "case_spec",
+              "color_class": "gloss-subject",
+              "description": "Dative subject"
+            },
+            {
+              "text": "<DO:Nom>",
+              "component_type": "case_spec",
+              "color_class": "gloss-direct-object",
+              "description": "Nominative direct object"
+            }
+          ],
+          "argument_pattern": "<S-DO>",
+          "case_specifications": [
+            "<S:Dat>",
+            "<DO:Nom>"
+          ]
+        }
+      },
+      "aorist": {
+        "raw_gloss": "V MedPass Inv Aor <S-DO> <S:Dat> <DO:Nom>",
+        "structured_gloss": {
+          "raw_components": [
+            {
+              "text": "V",
+              "component_type": "verb",
+              "color_class": "gloss-verb",
+              "description": "Verb"
+            },
+            {
+              "text": "MedPass",
+              "component_type": "voice",
+              "color_class": "gloss-default",
+              "description": "Mediopassive"
+            },
+            {
+              "text": "Inv",
+              "component_type": "unknown",
+              "color_class": "gloss-default",
+              "description": "Inverted"
+            },
+            {
+              "text": "Aor",
+              "component_type": "tense",
+              "color_class": "gloss-tense",
+              "description": "Aorist"
+            },
+            {
+              "type": "argument_pattern_group",
+              "original_text": "<S-DO>",
+              "description": "Transitive absolute",
+              "components": [
+                {
+                  "text": "<",
+                  "component_type": "punctuation",
+                  "color_class": "gloss-default",
+                  "description": ""
+                },
+                {
+                  "text": "S",
+                  "component_type": "argument",
+                  "color_class": "gloss-subject",
+                  "description": ""
+                },
+                {
+                  "text": "-",
+                  "component_type": "punctuation",
+                  "color_class": "gloss-default",
+                  "description": ""
+                },
+                {
+                  "text": "DO",
+                  "component_type": "argument",
+                  "color_class": "gloss-direct-object",
+                  "description": ""
+                },
+                {
+                  "text": ">",
+                  "component_type": "punctuation",
+                  "color_class": "gloss-default",
+                  "description": ""
+                }
+              ]
+            },
+            {
+              "text": "<S:Dat>",
+              "component_type": "case_spec",
+              "color_class": "gloss-subject",
+              "description": "Dative subject"
+            },
+            {
+              "text": "<DO:Nom>",
+              "component_type": "case_spec",
+              "color_class": "gloss-direct-object",
+              "description": "Nominative direct object"
+            }
+          ],
+          "expanded_components": [
+            {
+              "text": "V",
+              "component_type": "verb",
+              "color_class": "gloss-verb",
+              "description": "Verb"
+            },
+            {
+              "text": "MedPass",
+              "component_type": "voice",
+              "color_class": "gloss-default",
+              "description": "Mediopassive"
+            },
+            {
+              "text": "Inv",
+              "component_type": "unknown",
+              "color_class": "gloss-default",
+              "description": "Inverted"
+            },
+            {
+              "text": "Aor",
+              "component_type": "tense",
+              "color_class": "gloss-tense",
+              "description": "Aorist"
+            },
+            {
+              "type": "argument_pattern_group",
+              "original_text": "<S-DO>",
+              "description": "Transitive absolute",
+              "components": [
+                {
+                  "text": "<",
+                  "component_type": "punctuation",
+                  "color_class": "gloss-default",
+                  "description": ""
+                },
+                {
+                  "text": "S",
+                  "component_type": "argument",
+                  "color_class": "gloss-subject",
+                  "description": ""
+                },
+                {
+                  "text": "-",
+                  "component_type": "punctuation",
+                  "color_class": "gloss-default",
+                  "description": ""
+                },
+                {
+                  "text": "DO",
+                  "component_type": "argument",
+                  "color_class": "gloss-direct-object",
+                  "description": ""
+                },
+                {
+                  "text": ">",
+                  "component_type": "punctuation",
+                  "color_class": "gloss-default",
+                  "description": ""
+                }
+              ]
+            },
+            {
+              "text": "<S:Dat>",
+              "component_type": "case_spec",
+              "color_class": "gloss-subject",
+              "description": "Dative subject"
+            },
+            {
+              "text": "<DO:Nom>",
+              "component_type": "case_spec",
+              "color_class": "gloss-direct-object",
+              "description": "Nominative direct object"
+            }
+          ],
+          "argument_pattern": "<S-DO>",
+          "case_specifications": [
+            "<S:Dat>",
+            "<DO:Nom>"
+          ]
+        }
+      },
+      "optative": {
+        "raw_gloss": "V MedPass Inv Opt <S-DO> <S:Dat> <DO:Nom>",
+        "structured_gloss": {
+          "raw_components": [
+            {
+              "text": "V",
+              "component_type": "verb",
+              "color_class": "gloss-verb",
+              "description": "Verb"
+            },
+            {
+              "text": "MedPass",
+              "component_type": "voice",
+              "color_class": "gloss-default",
+              "description": "Mediopassive"
+            },
+            {
+              "text": "Inv",
+              "component_type": "unknown",
+              "color_class": "gloss-default",
+              "description": "Inverted"
+            },
+            {
+              "text": "Opt",
+              "component_type": "tense",
+              "color_class": "gloss-tense",
+              "description": "Optative"
+            },
+            {
+              "type": "argument_pattern_group",
+              "original_text": "<S-DO>",
+              "description": "Transitive absolute",
+              "components": [
+                {
+                  "text": "<",
+                  "component_type": "punctuation",
+                  "color_class": "gloss-default",
+                  "description": ""
+                },
+                {
+                  "text": "S",
+                  "component_type": "argument",
+                  "color_class": "gloss-subject",
+                  "description": ""
+                },
+                {
+                  "text": "-",
+                  "component_type": "punctuation",
+                  "color_class": "gloss-default",
+                  "description": ""
+                },
+                {
+                  "text": "DO",
+                  "component_type": "argument",
+                  "color_class": "gloss-direct-object",
+                  "description": ""
+                },
+                {
+                  "text": ">",
+                  "component_type": "punctuation",
+                  "color_class": "gloss-default",
+                  "description": ""
+                }
+              ]
+            },
+            {
+              "text": "<S:Dat>",
+              "component_type": "case_spec",
+              "color_class": "gloss-subject",
+              "description": "Dative subject"
+            },
+            {
+              "text": "<DO:Nom>",
+              "component_type": "case_spec",
+              "color_class": "gloss-direct-object",
+              "description": "Nominative direct object"
+            }
+          ],
+          "expanded_components": [
+            {
+              "text": "V",
+              "component_type": "verb",
+              "color_class": "gloss-verb",
+              "description": "Verb"
+            },
+            {
+              "text": "MedPass",
+              "component_type": "voice",
+              "color_class": "gloss-default",
+              "description": "Mediopassive"
+            },
+            {
+              "text": "Inv",
+              "component_type": "unknown",
+              "color_class": "gloss-default",
+              "description": "Inverted"
+            },
+            {
+              "text": "Opt",
+              "component_type": "tense",
+              "color_class": "gloss-tense",
+              "description": "Optative"
+            },
+            {
+              "type": "argument_pattern_group",
+              "original_text": "<S-DO>",
+              "description": "Transitive absolute",
+              "components": [
+                {
+                  "text": "<",
+                  "component_type": "punctuation",
+                  "color_class": "gloss-default",
+                  "description": ""
+                },
+                {
+                  "text": "S",
+                  "component_type": "argument",
+                  "color_class": "gloss-subject",
+                  "description": ""
+                },
+                {
+                  "text": "-",
+                  "component_type": "punctuation",
+                  "color_class": "gloss-default",
+                  "description": ""
+                },
+                {
+                  "text": "DO",
+                  "component_type": "argument",
+                  "color_class": "gloss-direct-object",
+                  "description": ""
+                },
+                {
+                  "text": ">",
+                  "component_type": "punctuation",
+                  "color_class": "gloss-default",
+                  "description": ""
+                }
+              ]
+            },
+            {
+              "text": "<S:Dat>",
+              "component_type": "case_spec",
+              "color_class": "gloss-subject",
+              "description": "Dative subject"
+            },
+            {
+              "text": "<DO:Nom>",
+              "component_type": "case_spec",
+              "color_class": "gloss-direct-object",
+              "description": "Nominative direct object"
+            }
+          ],
+          "argument_pattern": "<S-DO>",
+          "case_specifications": [
+            "<S:Dat>",
+            "<DO:Nom>"
+          ]
+        }
+      },
+      "imperative": {
+        "raw_gloss": "V Act Impv Pv SV <S-DO> <S:Erg> <DO:Nom>",
+        "structured_gloss": {
+          "raw_components": [
+            {
+              "text": "V",
+              "component_type": "verb",
+              "color_class": "gloss-verb",
+              "description": "Verb"
+            },
+            {
+              "text": "Act",
+              "component_type": "voice",
+              "color_class": "gloss-default",
+              "description": "Active"
+            },
+            {
+              "text": "Impv",
+              "component_type": "tense",
+              "color_class": "gloss-tense",
+              "description": "Imperative"
+            },
+            {
+              "text": "Pv",
+              "component_type": "preverb",
+              "color_class": "gloss-default",
+              "description": "Preverb"
+            },
+            {
+              "text": "SV",
+              "component_type": "unknown",
+              "color_class": "gloss-default",
+              "description": "Subjective Version"
+            },
+            {
+              "type": "argument_pattern_group",
+              "original_text": "<S-DO>",
+              "description": "Transitive absolute",
+              "components": [
+                {
+                  "text": "<",
+                  "component_type": "punctuation",
+                  "color_class": "gloss-default",
+                  "description": ""
+                },
+                {
+                  "text": "S",
+                  "component_type": "argument",
+                  "color_class": "gloss-subject",
+                  "description": ""
+                },
+                {
+                  "text": "-",
+                  "component_type": "punctuation",
+                  "color_class": "gloss-default",
+                  "description": ""
+                },
+                {
+                  "text": "DO",
+                  "component_type": "argument",
+                  "color_class": "gloss-direct-object",
+                  "description": ""
+                },
+                {
+                  "text": ">",
+                  "component_type": "punctuation",
+                  "color_class": "gloss-default",
+                  "description": ""
+                }
+              ]
+            },
+            {
+              "text": "<S:Erg>",
+              "component_type": "case_spec",
+              "color_class": "gloss-subject",
+              "description": "Ergative subject"
+            },
+            {
+              "text": "<DO:Nom>",
+              "component_type": "case_spec",
+              "color_class": "gloss-direct-object",
+              "description": "Nominative direct object"
+            }
+          ],
+          "expanded_components": [
+            {
+              "text": "V",
+              "component_type": "verb",
+              "color_class": "gloss-verb",
+              "description": "Verb"
+            },
+            {
+              "text": "Act",
+              "component_type": "voice",
+              "color_class": "gloss-default",
+              "description": "Active"
+            },
+            {
+              "text": "Impv",
+              "component_type": "tense",
+              "color_class": "gloss-tense",
+              "description": "Imperative"
+            },
+            {
+              "text": "Pv",
+              "component_type": "preverb",
+              "color_class": "gloss-default",
+              "description": "Preverb"
+            },
+            {
+              "text": "SV",
+              "component_type": "unknown",
+              "color_class": "gloss-default",
+              "description": "Subjective Version"
+            },
+            {
+              "type": "argument_pattern_group",
+              "original_text": "<S-DO>",
+              "description": "Transitive absolute",
+              "components": [
+                {
+                  "text": "<",
+                  "component_type": "punctuation",
+                  "color_class": "gloss-default",
+                  "description": ""
+                },
+                {
+                  "text": "S",
+                  "component_type": "argument",
+                  "color_class": "gloss-subject",
+                  "description": ""
+                },
+                {
+                  "text": "-",
+                  "component_type": "punctuation",
+                  "color_class": "gloss-default",
+                  "description": ""
+                },
+                {
+                  "text": "DO",
+                  "component_type": "argument",
+                  "color_class": "gloss-direct-object",
+                  "description": ""
+                },
+                {
+                  "text": ">",
+                  "component_type": "punctuation",
+                  "color_class": "gloss-default",
+                  "description": ""
+                }
+              ]
+            },
+            {
+              "text": "<S:Erg>",
+              "component_type": "case_spec",
+              "color_class": "gloss-subject",
+              "description": "Ergative subject"
+            },
+            {
+              "text": "<DO:Nom>",
+              "component_type": "case_spec",
+              "color_class": "gloss-direct-object",
+              "description": "Nominative direct object"
+            }
+          ],
+          "argument_pattern": "<S-DO>",
+          "case_specifications": [
+            "<S:Erg>",
+            "<DO:Nom>"
+          ]
+        }
+      }
+    },
+    "preverb_forms": {}
+  }
+}

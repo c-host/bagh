@@ -4,7 +4,7 @@
   "description": "Bagh",
   "main": "dist/index.html",
   "scripts": {
-    "build_production": "cd tools && python build.py --production",
+    "build_production": "cd tools && python build_pipeline.py --production",
     "build_reference": "cd tools && python build.py --reference",
     "dev": "npm run build_production && start dist/index.html",
     "clean": "rm -rf dist/"
