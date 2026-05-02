@@ -43,6 +43,15 @@ export class BottomSheetManager {
 
         /** @type {Array} Font options in bottom sheet dropdown */
         this.fontOptions = [];
+
+        /** @type {boolean} Tracks if trigger was created by this manager */
+        this.createdTrigger = false;
+
+        /** @type {boolean} Tracks if sheet was created by this manager */
+        this.createdBottomSheet = false;
+
+        /** @type {boolean} Tracks if overlay was created by this manager */
+        this.createdOverlay = false;
     }
 
     /**
@@ -51,16 +60,8 @@ export class BottomSheetManager {
      */
     initialize() {
         try {
-            // Only initialize on mobile devices
-            if (!this.isMobileDevice()) {
-                this.initialized = true;
-                return true;
-            }
-
-            // Create bottom sheet elements
+            // Always initialize so the control works immediately when viewport changes.
             this.createBottomSheetElements();
-
-            // Set up event listeners
             this.setupEventListeners();
 
             this.initialized = true;
@@ -82,17 +83,25 @@ export class BottomSheetManager {
      * Create bottom sheet DOM elements
      */
     createBottomSheetElements() {
-        // Create bottom sheet trigger button
-        this.triggerButton = document.createElement('button');
-        this.triggerButton.className = 'bottom-sheet-trigger';
-        this.triggerButton.innerHTML = '<i class="fas fa-cog"></i>';
-        this.triggerButton.setAttribute('aria-label', 'Open controls');
-        this.triggerButton.setAttribute('title', 'Open controls');
+        // Reuse pre-rendered trigger so it appears with other top controls immediately.
+        this.triggerButton = document.getElementById(ELEMENT_IDS.BOTTOM_SHEET_TRIGGER);
+        if (!this.triggerButton) {
+            this.triggerButton = document.createElement('button');
+            this.triggerButton.id = ELEMENT_IDS.BOTTOM_SHEET_TRIGGER;
+            this.triggerButton.className = 'bottom-sheet-trigger';
+            this.triggerButton.innerHTML = '<i class="fas fa-cog"></i>';
+            this.triggerButton.setAttribute('aria-label', 'Open controls');
+            this.triggerButton.setAttribute('title', 'Open controls');
+            document.body.appendChild(this.triggerButton);
+            this.createdTrigger = true;
+        }
 
-        // Create bottom sheet container
-        this.bottomSheet = document.createElement('div');
-        this.bottomSheet.className = 'bottom-controls-sheet';
-        this.bottomSheet.innerHTML = `
+        // Create bottom sheet container if it doesn't already exist.
+        this.bottomSheet = document.querySelector('.bottom-controls-sheet');
+        if (!this.bottomSheet) {
+            this.bottomSheet = document.createElement('div');
+            this.bottomSheet.className = 'bottom-controls-sheet';
+            this.bottomSheet.innerHTML = `
             <div class="bottom-sheet-content">
                 <button class="bottom-sheet-button" data-action="notepad">
                     <i class="fas fa-sticky-note"></i>
@@ -113,11 +122,16 @@ export class BottomSheetManager {
                 <div class="font-option" data-font="k_lortki">K Lortki</div>
             </div>
         `;
+            document.body.appendChild(this.bottomSheet);
+            this.createdBottomSheet = true;
+        }
 
-        // Create overlay
-        this.overlay = document.createElement('div');
-        this.overlay.className = 'bottom-sheet-overlay';
-        this.overlay.style.cssText = `
+        // Create overlay if it doesn't already exist.
+        this.overlay = document.querySelector('.bottom-sheet-overlay');
+        if (!this.overlay) {
+            this.overlay = document.createElement('div');
+            this.overlay.className = 'bottom-sheet-overlay';
+            this.overlay.style.cssText = `
             position: fixed;
             top: 0;
             left: 0;
@@ -129,14 +143,12 @@ export class BottomSheetManager {
             visibility: hidden;
             transition: opacity 0.3s ease, visibility 0.3s ease;
         `;
-
-        // Add elements to DOM
-        document.body.appendChild(this.triggerButton);
-        document.body.appendChild(this.overlay);
-        document.body.appendChild(this.bottomSheet);
+            document.body.appendChild(this.overlay);
+            this.createdOverlay = true;
+        }
 
         // Store references to font dropdown elements
-        this.fontDropdown = document.getElementById('bottom-sheet-font-dropdown');
+        this.fontDropdown = this.bottomSheet.querySelector('#bottom-sheet-font-dropdown');
         this.fontOptions = this.fontDropdown ? this.fontDropdown.querySelectorAll('.font-option') : [];
     }
 
@@ -397,13 +409,13 @@ export class BottomSheetManager {
         this.eventListeners = [];
 
         // Remove DOM elements
-        if (this.triggerButton && this.triggerButton.parentNode) {
+        if (this.createdTrigger && this.triggerButton && this.triggerButton.parentNode) {
             this.triggerButton.parentNode.removeChild(this.triggerButton);
         }
-        if (this.bottomSheet && this.bottomSheet.parentNode) {
+        if (this.createdBottomSheet && this.bottomSheet && this.bottomSheet.parentNode) {
             this.bottomSheet.parentNode.removeChild(this.bottomSheet);
         }
-        if (this.overlay && this.overlay.parentNode) {
+        if (this.createdOverlay && this.overlay && this.overlay.parentNode) {
             this.overlay.parentNode.removeChild(this.overlay);
         }
 

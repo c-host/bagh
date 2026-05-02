@@ -327,6 +327,7 @@
 
 .container {
     margin: 0;
+    overflow: visible;
 }
 
 body {
@@ -350,21 +351,33 @@ h4 {
 }
 
 header {
-    position: sticky;
-    top: 0;
-    z-index: 100;
+    position: -webkit-sticky !important;
+    position: sticky !important;
+    top: 0 !important;
+    z-index: 2500;
     background-color: rgba(255, 255, 255, 0.8);
     border-bottom: 1px solid var(--border-color);
-    margin-bottom: var(--spacing-sm);
+    margin-bottom: 0;
     backdrop-filter: blur(5px);
     -webkit-backdrop-filter: blur(5px);
     padding: 0;
+}
+
+[data-theme="dark"] header {
+    background-color: rgba(15, 23, 42, 0.8);
+    backdrop-filter: blur(5px);
+    -webkit-backdrop-filter: blur(5px);
 }
 
 .header-link {
     color: inherit;
     text-decoration: none;
     transition: opacity 0.2s ease;
+}
+
+.header-link:visited,
+.header-link:active {
+    color: inherit;
 }
 
 .header-link:hover {
@@ -681,7 +694,7 @@ li:last-child {
     position: fixed;
     top: var(--spacing-sm);
     left: var(--spacing-sm);
-    z-index: 1000;
+    z-index: 9999;
 }
 
 /* Theme toggle */
@@ -689,7 +702,7 @@ li:last-child {
     position: fixed;
     top: var(--spacing-sm);
     right: var(--spacing-sm);
-    z-index: 1000;
+    z-index: 9999;
 }
 
 /* Font select button */
@@ -943,11 +956,12 @@ li:last-child {
 
     .main-content {
         margin: 0 !important;
-        padding: 10px 60px !important;
+        padding: 0 !important;
         width: 100% !important;
         max-width: 100vw !important;
         overflow-x: hidden;
         box-sizing: border-box;
+        background-color: var(--bg-primary);
     }
 
     .verb-content-container {
@@ -964,10 +978,19 @@ li:last-child {
         font-size: 1em;
     }
 
+    .theme-toggle,
+    .sidebar-toggle,
+    .bottom-sheet-trigger {
+        z-index: 3001 !important;
+    }
+
     /* Verb section */
     .verb-section {
-        margin-bottom: var(--spacing-lg);
+        margin-bottom: 0;
         padding: var(--spacing-lg);
+        border-radius: 0;
+        border-left: none;
+        border-right: none;
     }
 
     .verb-title {
@@ -976,7 +999,15 @@ li:last-child {
 
     /* Header responsive */
     header {
+        position: -webkit-sticky !important;
+        position: sticky !important;
+        top: 0;
+        left: 0;
+        right: 0;
+        z-index: 2000;
         padding: 0;
+        margin-bottom: 0;
+        border-bottom: none;
     }
 
     /* Notepad responsive */
@@ -1058,8 +1089,54 @@ li:last-child {
         display: grid !important;
     }
 
-    /* Hide bottom sheet */
+    /* Mobile settings trigger near theme toggle */
     .bottom-sheet-trigger {
+        position: fixed;
+        top: calc(env(safe-area-inset-top, 0px) + var(--spacing-sm));
+        right: calc(var(--spacing-sm) + 48px);
+        bottom: auto;
+        width: 45px;
+        height: 45px;
+        min-width: 45px;
+        min-height: 45px;
+        border-radius: 50%;
+        border: 2px solid var(--border-color);
+        background-color: var(--bg-secondary);
+        color: var(--text-primary);
+        cursor: pointer;
+        transition: background-color 0.15s ease, color 0.15s ease, transform 0.15s ease;
+        box-shadow: var(--shadow);
+        z-index: 9999;
+        display: flex !important;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .bottom-sheet-trigger:hover {
+        background-color: var(--accent-primary);
+        color: white;
+        transform: translateY(-2px);
+    }
+
+    .bottom-sheet-trigger:focus {
+        outline: 2px solid var(--accent-primary);
+        outline-offset: 2px;
+    }
+
+    /* Enable bottom sheet controls on mobile widths */
+    .bottom-controls-sheet,
+    .bottom-sheet-font-dropdown {
+        display: block !important;
+    }
+
+    .bottom-sheet-content,
+    .bottom-sheet-button {
+        display: flex !important;
+    }
+
+    .help-toggle,
+    .notepad-toggle,
+    .font-select {
         display: none !important;
     }
 
@@ -1097,7 +1174,7 @@ li:last-child {
 
     .main-content {
         margin: 0 !important;
-        padding: 0px 35px !important;
+        padding: 0 !important;
         width: 100% !important;
         max-width: 100vw !important;
         overflow-x: hidden;
@@ -1222,32 +1299,29 @@ li:last-child {
 
     .bottom-sheet-trigger {
         position: fixed;
-        bottom: calc(env(safe-area-inset-bottom, 0px) + 10px);
-        right: calc(env(safe-area-inset-right, 0px) + 10px);
-        width: 40px;
-        height: 40px;
-        background: var(--primary-color);
-        color: var(--accent-secondary);
-        border: none;
-        border-radius: 50%;
-        font-size: 1.2em;
-        cursor: pointer;
-        transition: all 0.2s ease;
+        top: calc(env(safe-area-inset-top, 0px) + var(--spacing-sm));
+        right: calc(var(--spacing-sm) + 48px);
+        bottom: auto;
+        width: 45px;
+        height: 45px;
+        min-width: 45px;
+        min-height: 45px;
+        border: 2px solid var(--border-color);
+        background-color: var(--bg-secondary);
+        color: var(--text-primary);
+        font-size: 1em;
+        transition: background-color 0.15s ease, color 0.15s ease, transform 0.15s ease;
         z-index: 9999;
         display: flex;
         align-items: center;
         justify-content: center;
-        /* Ensure visibility above browser UI */
-        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
-        /* Fallback for browsers without safe area support */
-        bottom: 10px;
-        right: 10px;
+        box-shadow: var(--shadow);
     }
 
     .bottom-sheet-trigger:hover {
-        background: var(--primary-hover);
+        background-color: var(--accent-primary);
+        color: white;
         transform: translateY(-2px);
-        box-shadow: 0 6px 16px rgba(0, 0, 0, 0.2);
     }
 
     .bottom-sheet-content {
@@ -1389,7 +1463,7 @@ li:last-child {
 
     .main-content {
         margin: 0 !important;
-        padding: 0px 20px !important;
+        padding: 0 !important;
         width: 100% !important;
         max-width: 100vw !important;
         overflow-x: hidden;
@@ -1514,29 +1588,31 @@ li:last-child {
 
     .bottom-sheet-trigger {
         position: fixed;
-        bottom: calc(env(safe-area-inset-bottom, 0px) + 10px);
-        right: calc(env(safe-area-inset-right, 0px) + 1.5px);
-        width: 38px;
-        height: 38px;
-        background: var(--primary-color);
-        color: var(--accent-secondary);
-        border: none;
+        top: calc(env(safe-area-inset-top, 0px) + var(--spacing-sm));
+        right: calc(var(--spacing-sm) + 46px);
+        bottom: auto;
+        width: 45px;
+        height: 45px;
+        min-width: 45px;
+        min-height: 45px;
+        border: 2px solid var(--border-color);
+        background-color: var(--bg-secondary);
+        color: var(--text-primary);
         border-radius: 50%;
-        font-size: 1.1em;
+        font-size: 0.95em;
         cursor: pointer;
-        transition: all 0.2s ease;
+        transition: background-color 0.15s ease, color 0.15s ease, transform 0.15s ease;
         z-index: 9999;
         display: flex;
         align-items: center;
         justify-content: center;
-        bottom: 10px;
-        right: 1.5px;
+        box-shadow: var(--shadow);
     }
 
     .bottom-sheet-trigger:hover {
-        background: var(--primary-hover);
+        background-color: var(--accent-primary);
+        color: white;
         transform: translateY(-2px);
-        box-shadow: 0 6px 16px rgba(0, 0, 0, 0.2);
     }
 
     .bottom-sheet-content {
@@ -1676,7 +1752,7 @@ li:last-child {
 
     .main-content {
         margin: 0 !important;
-        padding: 0px 20px !important;
+        padding: 0 !important;
         width: 100% !important;
         max-width: 100vw !important;
         overflow-x: hidden;
@@ -3625,7 +3701,7 @@ kbd {
 }
 
 /* Keep verb embeds constrained to mapped verb profile. */
-.related-preverb-cube .pd-mode-bar > label:not(.pd-scenario-label) {
+.related-preverb-cube .pd-mode-bar>label:not(.pd-scenario-label) {
     display: none !important;
 }
 

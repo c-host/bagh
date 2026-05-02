@@ -72,6 +72,7 @@ export const CSS_COLORS = {
 // Element IDs
 export const ELEMENT_IDS = {
     THEME_TOGGLE: 'theme-toggle',
+    BOTTOM_SHEET_TRIGGER: 'bottom-sheet-trigger',
     FONT_SELECT: 'font-select',
     FONT_SELECT_DROPDOWN: 'font-select-dropdown',
     SIDEBAR_TOGGLE: 'sidebar-toggle',
