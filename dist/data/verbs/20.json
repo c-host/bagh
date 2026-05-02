@@ -189,6 +189,65 @@
                 "role": "verb"
               }
             },
+            "tokens": {
+              "georgian": [
+                {
+                  "text": "რთულ",
+                  "role": "direct_object",
+                  "part": "adjective",
+                  "layer": "adjectives",
+                  "toggleable": true
+                },
+                {
+                  "text": "პრობლემას",
+                  "role": "direct_object",
+                  "part": "noun",
+                  "layer": "always",
+                  "toggleable": false
+                },
+                {
+                  "text": "ვიგებ",
+                  "role": "verb",
+                  "layer": "always",
+                  "toggleable": false
+                }
+              ],
+              "english": [
+                {
+                  "text": "I",
+                  "role": "subject",
+                  "layer": "always",
+                  "toggleable": false
+                },
+                {
+                  "text": "understand",
+                  "role": "verb",
+                  "layer": "always",
+                  "toggleable": false
+                },
+                {
+                  "text": "the",
+                  "role": "direct_object",
+                  "part": "preposition",
+                  "layer": "always",
+                  "toggleable": false
+                },
+                {
+                  "text": "difficult",
+                  "role": "direct_object",
+                  "part": "adjective",
+                  "layer": "adjectives",
+                  "toggleable": true
+                },
+                {
+                  "text": "problem",
+                  "role": "direct_object",
+                  "part": "noun",
+                  "layer": "always",
+                  "toggleable": false
+                }
+              ]
+            },
             "georgian_verb_form": "ვიგებ",
             "person": "1sg",
             "effective_preverb": "გა"
@@ -214,7 +273,7 @@
             "english": "The brilliant student understands the important lesson",
             "english_components": {
               "subject": {
-                "text": "The brilliant student",
+                "text": "the brilliant student",
                 "role": "subject",
                 "person": "3sg"
               },
@@ -226,6 +285,94 @@
                 "text": "understands",
                 "role": "verb"
               }
+            },
+            "tokens": {
+              "georgian": [
+                {
+                  "text": "ბრწყინვალე",
+                  "role": "subject",
+                  "part": "adjective",
+                  "layer": "adjectives",
+                  "toggleable": true
+                },
+                {
+                  "text": "სტუდენტი",
+                  "role": "subject",
+                  "part": "noun",
+                  "layer": "always",
+                  "toggleable": false
+                },
+                {
+                  "text": "მნიშვნელოვან",
+                  "role": "direct_object",
+                  "part": "adjective",
+                  "layer": "adjectives",
+                  "toggleable": true
+                },
+                {
+                  "text": "გაკვეთილს",
+                  "role": "direct_object",
+                  "part": "noun",
+                  "layer": "always",
+                  "toggleable": false
+                },
+                {
+                  "text": "იგებს",
+                  "role": "verb",
+                  "layer": "always",
+                  "toggleable": false
+                }
+              ],
+              "english": [
+                {
+                  "text": "the",
+                  "role": "subject",
+                  "part": "preposition",
+                  "layer": "always",
+                  "toggleable": false
+                },
+                {
+                  "text": "brilliant",
+                  "role": "subject",
+                  "part": "adjective",
+                  "layer": "adjectives",
+                  "toggleable": true
+                },
+                {
+                  "text": "student",
+                  "role": "subject",
+                  "part": "noun",
+                  "layer": "always",
+                  "toggleable": false
+                },
+                {
+                  "text": "understands",
+                  "role": "verb",
+                  "layer": "always",
+                  "toggleable": false
+                },
+                {
+                  "text": "the",
+                  "role": "direct_object",
+                  "part": "preposition",
+                  "layer": "always",
+                  "toggleable": false
+                },
+                {
+                  "text": "important",
+                  "role": "direct_object",
+                  "part": "adjective",
+                  "layer": "adjectives",
+                  "toggleable": true
+                },
+                {
+                  "text": "lesson",
+                  "role": "direct_object",
+                  "part": "noun",
+                  "layer": "always",
+                  "toggleable": false
+                }
+              ]
             },
             "georgian_verb_form": "იგებს",
             "person": "3sg",
@@ -252,7 +399,7 @@
             "english": "The experienced engineers understand the modern technology",
             "english_components": {
               "subject": {
-                "text": "The experienced engineers",
+                "text": "the experienced engineers",
                 "role": "subject",
                 "person": "3pl"
               },
@@ -264,6 +411,94 @@
                 "text": "understand",
                 "role": "verb"
               }
+            },
+            "tokens": {
+              "georgian": [
+                {
+                  "text": "გამოცდილი",
+                  "role": "subject",
+                  "part": "adjective",
+                  "layer": "adjectives",
+                  "toggleable": true
+                },
+                {
+                  "text": "ინჟინერები",
+                  "role": "subject",
+                  "part": "noun",
+                  "layer": "always",
+                  "toggleable": false
+                },
+                {
+                  "text": "თანამედროვე",
+                  "role": "direct_object",
+                  "part": "adjective",
+                  "layer": "adjectives",
+                  "toggleable": true
+                },
+                {
+                  "text": "ტექნოლოგიას",
+                  "role": "direct_object",
+                  "part": "noun",
+                  "layer": "always",
+                  "toggleable": false
+                },
+                {
+                  "text": "იგებენ",
+                  "role": "verb",
+                  "layer": "always",
+                  "toggleable": false
+                }
+              ],
+              "english": [
+                {
+                  "text": "the",
+                  "role": "subject",
+                  "part": "preposition",
+                  "layer": "always",
+                  "toggleable": false
+                },
+                {
+                  "text": "experienced",
+                  "role": "subject",
+                  "part": "adjective",
+                  "layer": "adjectives",
+                  "toggleable": true
+                },
+                {
+                  "text": "engineers",
+                  "role": "subject",
+                  "part": "noun",
+                  "layer": "always",
+                  "toggleable": false
+                },
+                {
+                  "text": "understand",
+                  "role": "verb",
+                  "layer": "always",
+                  "toggleable": false
+                },
+                {
+                  "text": "the",
+                  "role": "direct_object",
+                  "part": "preposition",
+                  "layer": "always",
+                  "toggleable": false
+                },
+                {
+                  "text": "modern",
+                  "role": "direct_object",
+                  "part": "adjective",
+                  "layer": "adjectives",
+                  "toggleable": true
+                },
+                {
+                  "text": "technology",
+                  "role": "direct_object",
+                  "part": "noun",
+                  "layer": "always",
+                  "toggleable": false
+                }
+              ]
             },
             "georgian_verb_form": "იგებენ",
             "person": "3pl",
@@ -300,6 +535,65 @@
                 "role": "verb"
               }
             },
+            "tokens": {
+              "georgian": [
+                {
+                  "text": "რთულ",
+                  "role": "direct_object",
+                  "part": "adjective",
+                  "layer": "adjectives",
+                  "toggleable": true
+                },
+                {
+                  "text": "პრობლემას",
+                  "role": "direct_object",
+                  "part": "noun",
+                  "layer": "always",
+                  "toggleable": false
+                },
+                {
+                  "text": "ვიგებდი",
+                  "role": "verb",
+                  "layer": "always",
+                  "toggleable": false
+                }
+              ],
+              "english": [
+                {
+                  "text": "I",
+                  "role": "subject",
+                  "layer": "always",
+                  "toggleable": false
+                },
+                {
+                  "text": "was understanding",
+                  "role": "verb",
+                  "layer": "always",
+                  "toggleable": false
+                },
+                {
+                  "text": "the",
+                  "role": "direct_object",
+                  "part": "preposition",
+                  "layer": "always",
+                  "toggleable": false
+                },
+                {
+                  "text": "difficult",
+                  "role": "direct_object",
+                  "part": "adjective",
+                  "layer": "adjectives",
+                  "toggleable": true
+                },
+                {
+                  "text": "problem",
+                  "role": "direct_object",
+                  "part": "noun",
+                  "layer": "always",
+                  "toggleable": false
+                }
+              ]
+            },
             "georgian_verb_form": "ვიგებდი",
             "person": "1sg",
             "effective_preverb": "გა"
@@ -325,7 +619,7 @@
             "english": "The brilliant student was understanding the important lesson",
             "english_components": {
               "subject": {
-                "text": "The brilliant student",
+                "text": "the brilliant student",
                 "role": "subject",
                 "person": "3sg"
               },
@@ -337,6 +631,94 @@
                 "text": "was understanding",
                 "role": "verb"
               }
+            },
+            "tokens": {
+              "georgian": [
+                {
+                  "text": "ბრწყინვალე",
+                  "role": "subject",
+                  "part": "adjective",
+                  "layer": "adjectives",
+                  "toggleable": true
+                },
+                {
+                  "text": "სტუდენტი",
+                  "role": "subject",
+                  "part": "noun",
+                  "layer": "always",
+                  "toggleable": false
+                },
+                {
+                  "text": "მნიშვნელოვან",
+                  "role": "direct_object",
+                  "part": "adjective",
+                  "layer": "adjectives",
+                  "toggleable": true
+                },
+                {
+                  "text": "გაკვეთილს",
+                  "role": "direct_object",
+                  "part": "noun",
+                  "layer": "always",
+                  "toggleable": false
+                },
+                {
+                  "text": "იგებდა",
+                  "role": "verb",
+                  "layer": "always",
+                  "toggleable": false
+                }
+              ],
+              "english": [
+                {
+                  "text": "the",
+                  "role": "subject",
+                  "part": "preposition",
+                  "layer": "always",
+                  "toggleable": false
+                },
+                {
+                  "text": "brilliant",
+                  "role": "subject",
+                  "part": "adjective",
+                  "layer": "adjectives",
+                  "toggleable": true
+                },
+                {
+                  "text": "student",
+                  "role": "subject",
+                  "part": "noun",
+                  "layer": "always",
+                  "toggleable": false
+                },
+                {
+                  "text": "was understanding",
+                  "role": "verb",
+                  "layer": "always",
+                  "toggleable": false
+                },
+                {
+                  "text": "the",
+                  "role": "direct_object",
+                  "part": "preposition",
+                  "layer": "always",
+                  "toggleable": false
+                },
+                {
+                  "text": "important",
+                  "role": "direct_object",
+                  "part": "adjective",
+                  "layer": "adjectives",
+                  "toggleable": true
+                },
+                {
+                  "text": "lesson",
+                  "role": "direct_object",
+                  "part": "noun",
+                  "layer": "always",
+                  "toggleable": false
+                }
+              ]
             },
             "georgian_verb_form": "იგებდა",
             "person": "3sg",
@@ -363,7 +745,7 @@
             "english": "The experienced engineers were understanding the modern technology",
             "english_components": {
               "subject": {
-                "text": "The experienced engineers",
+                "text": "the experienced engineers",
                 "role": "subject",
                 "person": "3pl"
               },
@@ -375,6 +757,94 @@
                 "text": "were understanding",
                 "role": "verb"
               }
+            },
+            "tokens": {
+              "georgian": [
+                {
+                  "text": "გამოცდილი",
+                  "role": "subject",
+                  "part": "adjective",
+                  "layer": "adjectives",
+                  "toggleable": true
+                },
+                {
+                  "text": "ინჟინერები",
+                  "role": "subject",
+                  "part": "noun",
+                  "layer": "always",
+                  "toggleable": false
+                },
+                {
+                  "text": "თანამედროვე",
+                  "role": "direct_object",
+                  "part": "adjective",
+                  "layer": "adjectives",
+                  "toggleable": true
+                },
+                {
+                  "text": "ტექნოლოგიას",
+                  "role": "direct_object",
+                  "part": "noun",
+                  "layer": "always",
+                  "toggleable": false
+                },
+                {
+                  "text": "იგებდნენ",
+                  "role": "verb",
+                  "layer": "always",
+                  "toggleable": false
+                }
+              ],
+              "english": [
+                {
+                  "text": "the",
+                  "role": "subject",
+                  "part": "preposition",
+                  "layer": "always",
+                  "toggleable": false
+                },
+                {
+                  "text": "experienced",
+                  "role": "subject",
+                  "part": "adjective",
+                  "layer": "adjectives",
+                  "toggleable": true
+                },
+                {
+                  "text": "engineers",
+                  "role": "subject",
+                  "part": "noun",
+                  "layer": "always",
+                  "toggleable": false
+                },
+                {
+                  "text": "were understanding",
+                  "role": "verb",
+                  "layer": "always",
+                  "toggleable": false
+                },
+                {
+                  "text": "the",
+                  "role": "direct_object",
+                  "part": "preposition",
+                  "layer": "always",
+                  "toggleable": false
+                },
+                {
+                  "text": "modern",
+                  "role": "direct_object",
+                  "part": "adjective",
+                  "layer": "adjectives",
+                  "toggleable": true
+                },
+                {
+                  "text": "technology",
+                  "role": "direct_object",
+                  "part": "noun",
+                  "layer": "always",
+                  "toggleable": false
+                }
+              ]
             },
             "georgian_verb_form": "იგებდნენ",
             "person": "3pl",
@@ -411,6 +881,65 @@
                 "role": "verb"
               }
             },
+            "tokens": {
+              "georgian": [
+                {
+                  "text": "რთულ",
+                  "role": "direct_object",
+                  "part": "adjective",
+                  "layer": "adjectives",
+                  "toggleable": true
+                },
+                {
+                  "text": "პრობლემას",
+                  "role": "direct_object",
+                  "part": "noun",
+                  "layer": "always",
+                  "toggleable": false
+                },
+                {
+                  "text": "გავიგებ",
+                  "role": "verb",
+                  "layer": "always",
+                  "toggleable": false
+                }
+              ],
+              "english": [
+                {
+                  "text": "I",
+                  "role": "subject",
+                  "layer": "always",
+                  "toggleable": false
+                },
+                {
+                  "text": "will understand",
+                  "role": "verb",
+                  "layer": "always",
+                  "toggleable": false
+                },
+                {
+                  "text": "the",
+                  "role": "direct_object",
+                  "part": "preposition",
+                  "layer": "always",
+                  "toggleable": false
+                },
+                {
+                  "text": "difficult",
+                  "role": "direct_object",
+                  "part": "adjective",
+                  "layer": "adjectives",
+                  "toggleable": true
+                },
+                {
+                  "text": "problem",
+                  "role": "direct_object",
+                  "part": "noun",
+                  "layer": "always",
+                  "toggleable": false
+                }
+              ]
+            },
             "georgian_verb_form": "გავიგებ",
             "person": "1sg",
             "effective_preverb": "გა"
@@ -436,7 +965,7 @@
             "english": "The brilliant student will understand the important lesson",
             "english_components": {
               "subject": {
-                "text": "The brilliant student",
+                "text": "the brilliant student",
                 "role": "subject",
                 "person": "3sg"
               },
@@ -448,6 +977,94 @@
                 "text": "will understand",
                 "role": "verb"
               }
+            },
+            "tokens": {
+              "georgian": [
+                {
+                  "text": "ბრწყინვალე",
+                  "role": "subject",
+                  "part": "adjective",
+                  "layer": "adjectives",
+                  "toggleable": true
+                },
+                {
+                  "text": "სტუდენტი",
+                  "role": "subject",
+                  "part": "noun",
+                  "layer": "always",
+                  "toggleable": false
+                },
+                {
+                  "text": "მნიშვნელოვან",
+                  "role": "direct_object",
+                  "part": "adjective",
+                  "layer": "adjectives",
+                  "toggleable": true
+                },
+                {
+                  "text": "გაკვეთილს",
+                  "role": "direct_object",
+                  "part": "noun",
+                  "layer": "always",
+                  "toggleable": false
+                },
+                {
+                  "text": "გაიგებს",
+                  "role": "verb",
+                  "layer": "always",
+                  "toggleable": false
+                }
+              ],
+              "english": [
+                {
+                  "text": "the",
+                  "role": "subject",
+                  "part": "preposition",
+                  "layer": "always",
+                  "toggleable": false
+                },
+                {
+                  "text": "brilliant",
+                  "role": "subject",
+                  "part": "adjective",
+                  "layer": "adjectives",
+                  "toggleable": true
+                },
+                {
+                  "text": "student",
+                  "role": "subject",
+                  "part": "noun",
+                  "layer": "always",
+                  "toggleable": false
+                },
+                {
+                  "text": "will understand",
+                  "role": "verb",
+                  "layer": "always",
+                  "toggleable": false
+                },
+                {
+                  "text": "the",
+                  "role": "direct_object",
+                  "part": "preposition",
+                  "layer": "always",
+                  "toggleable": false
+                },
+                {
+                  "text": "important",
+                  "role": "direct_object",
+                  "part": "adjective",
+                  "layer": "adjectives",
+                  "toggleable": true
+                },
+                {
+                  "text": "lesson",
+                  "role": "direct_object",
+                  "part": "noun",
+                  "layer": "always",
+                  "toggleable": false
+                }
+              ]
             },
             "georgian_verb_form": "გაიგებს",
             "person": "3sg",
@@ -474,7 +1091,7 @@
             "english": "The experienced engineers will understand the modern technology",
             "english_components": {
               "subject": {
-                "text": "The experienced engineers",
+                "text": "the experienced engineers",
                 "role": "subject",
                 "person": "3pl"
               },
@@ -486,6 +1103,94 @@
                 "text": "will understand",
                 "role": "verb"
               }
+            },
+            "tokens": {
+              "georgian": [
+                {
+                  "text": "გამოცდილი",
+                  "role": "subject",
+                  "part": "adjective",
+                  "layer": "adjectives",
+                  "toggleable": true
+                },
+                {
+                  "text": "ინჟინერები",
+                  "role": "subject",
+                  "part": "noun",
+                  "layer": "always",
+                  "toggleable": false
+                },
+                {
+                  "text": "თანამედროვე",
+                  "role": "direct_object",
+                  "part": "adjective",
+                  "layer": "adjectives",
+                  "toggleable": true
+                },
+                {
+                  "text": "ტექნოლოგიას",
+                  "role": "direct_object",
+                  "part": "noun",
+                  "layer": "always",
+                  "toggleable": false
+                },
+                {
+                  "text": "გაიგებენ",
+                  "role": "verb",
+                  "layer": "always",
+                  "toggleable": false
+                }
+              ],
+              "english": [
+                {
+                  "text": "the",
+                  "role": "subject",
+                  "part": "preposition",
+                  "layer": "always",
+                  "toggleable": false
+                },
+                {
+                  "text": "experienced",
+                  "role": "subject",
+                  "part": "adjective",
+                  "layer": "adjectives",
+                  "toggleable": true
+                },
+                {
+                  "text": "engineers",
+                  "role": "subject",
+                  "part": "noun",
+                  "layer": "always",
+                  "toggleable": false
+                },
+                {
+                  "text": "will understand",
+                  "role": "verb",
+                  "layer": "always",
+                  "toggleable": false
+                },
+                {
+                  "text": "the",
+                  "role": "direct_object",
+                  "part": "preposition",
+                  "layer": "always",
+                  "toggleable": false
+                },
+                {
+                  "text": "modern",
+                  "role": "direct_object",
+                  "part": "adjective",
+                  "layer": "adjectives",
+                  "toggleable": true
+                },
+                {
+                  "text": "technology",
+                  "role": "direct_object",
+                  "part": "noun",
+                  "layer": "always",
+                  "toggleable": false
+                }
+              ]
             },
             "georgian_verb_form": "გაიგებენ",
             "person": "3pl",
@@ -522,6 +1227,65 @@
                 "role": "verb"
               }
             },
+            "tokens": {
+              "georgian": [
+                {
+                  "text": "რთული",
+                  "role": "direct_object",
+                  "part": "adjective",
+                  "layer": "adjectives",
+                  "toggleable": true
+                },
+                {
+                  "text": "პრობლემა",
+                  "role": "direct_object",
+                  "part": "noun",
+                  "layer": "always",
+                  "toggleable": false
+                },
+                {
+                  "text": "გავიგე",
+                  "role": "verb",
+                  "layer": "always",
+                  "toggleable": false
+                }
+              ],
+              "english": [
+                {
+                  "text": "I",
+                  "role": "subject",
+                  "layer": "always",
+                  "toggleable": false
+                },
+                {
+                  "text": "understood",
+                  "role": "verb",
+                  "layer": "always",
+                  "toggleable": false
+                },
+                {
+                  "text": "the",
+                  "role": "direct_object",
+                  "part": "preposition",
+                  "layer": "always",
+                  "toggleable": false
+                },
+                {
+                  "text": "difficult",
+                  "role": "direct_object",
+                  "part": "adjective",
+                  "layer": "adjectives",
+                  "toggleable": true
+                },
+                {
+                  "text": "problem",
+                  "role": "direct_object",
+                  "part": "noun",
+                  "layer": "always",
+                  "toggleable": false
+                }
+              ]
+            },
             "georgian_verb_form": "გავიგე",
             "person": "1sg",
             "effective_preverb": "გა"
@@ -547,7 +1311,7 @@
             "english": "The brilliant student understood the important lesson",
             "english_components": {
               "subject": {
-                "text": "The brilliant student",
+                "text": "the brilliant student",
                 "role": "subject",
                 "person": "3sg"
               },
@@ -559,6 +1323,94 @@
                 "text": "understood",
                 "role": "verb"
               }
+            },
+            "tokens": {
+              "georgian": [
+                {
+                  "text": "ბრწყინვალე",
+                  "role": "subject",
+                  "part": "adjective",
+                  "layer": "adjectives",
+                  "toggleable": true
+                },
+                {
+                  "text": "სტუდენტმა",
+                  "role": "subject",
+                  "part": "noun",
+                  "layer": "always",
+                  "toggleable": false
+                },
+                {
+                  "text": "მნიშვნელოვანი",
+                  "role": "direct_object",
+                  "part": "adjective",
+                  "layer": "adjectives",
+                  "toggleable": true
+                },
+                {
+                  "text": "გაკვეთილი",
+                  "role": "direct_object",
+                  "part": "noun",
+                  "layer": "always",
+                  "toggleable": false
+                },
+                {
+                  "text": "გაიგო",
+                  "role": "verb",
+                  "layer": "always",
+                  "toggleable": false
+                }
+              ],
+              "english": [
+                {
+                  "text": "the",
+                  "role": "subject",
+                  "part": "preposition",
+                  "layer": "always",
+                  "toggleable": false
+                },
+                {
+                  "text": "brilliant",
+                  "role": "subject",
+                  "part": "adjective",
+                  "layer": "adjectives",
+                  "toggleable": true
+                },
+                {
+                  "text": "student",
+                  "role": "subject",
+                  "part": "noun",
+                  "layer": "always",
+                  "toggleable": false
+                },
+                {
+                  "text": "understood",
+                  "role": "verb",
+                  "layer": "always",
+                  "toggleable": false
+                },
+                {
+                  "text": "the",
+                  "role": "direct_object",
+                  "part": "preposition",
+                  "layer": "always",
+                  "toggleable": false
+                },
+                {
+                  "text": "important",
+                  "role": "direct_object",
+                  "part": "adjective",
+                  "layer": "adjectives",
+                  "toggleable": true
+                },
+                {
+                  "text": "lesson",
+                  "role": "direct_object",
+                  "part": "noun",
+                  "layer": "always",
+                  "toggleable": false
+                }
+              ]
             },
             "georgian_verb_form": "გაიგო",
             "person": "3sg",
@@ -585,7 +1437,7 @@
             "english": "The experienced engineers understood the modern technology",
             "english_components": {
               "subject": {
-                "text": "The experienced engineers",
+                "text": "the experienced engineers",
                 "role": "subject",
                 "person": "3pl"
               },
@@ -597,6 +1449,94 @@
                 "text": "understood",
                 "role": "verb"
               }
+            },
+            "tokens": {
+              "georgian": [
+                {
+                  "text": "გამოცდილმა",
+                  "role": "subject",
+                  "part": "adjective",
+                  "layer": "adjectives",
+                  "toggleable": true
+                },
+                {
+                  "text": "ინჟინერებმა",
+                  "role": "subject",
+                  "part": "noun",
+                  "layer": "always",
+                  "toggleable": false
+                },
+                {
+                  "text": "თანამედროვე",
+                  "role": "direct_object",
+                  "part": "adjective",
+                  "layer": "adjectives",
+                  "toggleable": true
+                },
+                {
+                  "text": "ტექნოლოგია",
+                  "role": "direct_object",
+                  "part": "noun",
+                  "layer": "always",
+                  "toggleable": false
+                },
+                {
+                  "text": "გაიგეს",
+                  "role": "verb",
+                  "layer": "always",
+                  "toggleable": false
+                }
+              ],
+              "english": [
+                {
+                  "text": "the",
+                  "role": "subject",
+                  "part": "preposition",
+                  "layer": "always",
+                  "toggleable": false
+                },
+                {
+                  "text": "experienced",
+                  "role": "subject",
+                  "part": "adjective",
+                  "layer": "adjectives",
+                  "toggleable": true
+                },
+                {
+                  "text": "engineers",
+                  "role": "subject",
+                  "part": "noun",
+                  "layer": "always",
+                  "toggleable": false
+                },
+                {
+                  "text": "understood",
+                  "role": "verb",
+                  "layer": "always",
+                  "toggleable": false
+                },
+                {
+                  "text": "the",
+                  "role": "direct_object",
+                  "part": "preposition",
+                  "layer": "always",
+                  "toggleable": false
+                },
+                {
+                  "text": "modern",
+                  "role": "direct_object",
+                  "part": "adjective",
+                  "layer": "adjectives",
+                  "toggleable": true
+                },
+                {
+                  "text": "technology",
+                  "role": "direct_object",
+                  "part": "noun",
+                  "layer": "always",
+                  "toggleable": false
+                }
+              ]
             },
             "georgian_verb_form": "გაიგეს",
             "person": "3pl",
@@ -633,6 +1573,65 @@
                 "role": "verb"
               }
             },
+            "tokens": {
+              "georgian": [
+                {
+                  "text": "რთული",
+                  "role": "direct_object",
+                  "part": "adjective",
+                  "layer": "adjectives",
+                  "toggleable": true
+                },
+                {
+                  "text": "პრობლემა",
+                  "role": "direct_object",
+                  "part": "noun",
+                  "layer": "always",
+                  "toggleable": false
+                },
+                {
+                  "text": "უნდა გავიგო",
+                  "role": "verb",
+                  "layer": "always",
+                  "toggleable": false
+                }
+              ],
+              "english": [
+                {
+                  "text": "I",
+                  "role": "subject",
+                  "layer": "always",
+                  "toggleable": false
+                },
+                {
+                  "text": "should understand",
+                  "role": "verb",
+                  "layer": "always",
+                  "toggleable": false
+                },
+                {
+                  "text": "the",
+                  "role": "direct_object",
+                  "part": "preposition",
+                  "layer": "always",
+                  "toggleable": false
+                },
+                {
+                  "text": "difficult",
+                  "role": "direct_object",
+                  "part": "adjective",
+                  "layer": "adjectives",
+                  "toggleable": true
+                },
+                {
+                  "text": "problem",
+                  "role": "direct_object",
+                  "part": "noun",
+                  "layer": "always",
+                  "toggleable": false
+                }
+              ]
+            },
             "georgian_verb_form": "გავიგო",
             "person": "1sg",
             "effective_preverb": "გა"
@@ -658,7 +1657,7 @@
             "english": "The brilliant student should understand the important lesson",
             "english_components": {
               "subject": {
-                "text": "The brilliant student",
+                "text": "the brilliant student",
                 "role": "subject",
                 "person": "3sg"
               },
@@ -670,6 +1669,94 @@
                 "text": "should understand",
                 "role": "verb"
               }
+            },
+            "tokens": {
+              "georgian": [
+                {
+                  "text": "ბრწყინვალე",
+                  "role": "subject",
+                  "part": "adjective",
+                  "layer": "adjectives",
+                  "toggleable": true
+                },
+                {
+                  "text": "სტუდენტმა",
+                  "role": "subject",
+                  "part": "noun",
+                  "layer": "always",
+                  "toggleable": false
+                },
+                {
+                  "text": "მნიშვნელოვანი",
+                  "role": "direct_object",
+                  "part": "adjective",
+                  "layer": "adjectives",
+                  "toggleable": true
+                },
+                {
+                  "text": "გაკვეთილი",
+                  "role": "direct_object",
+                  "part": "noun",
+                  "layer": "always",
+                  "toggleable": false
+                },
+                {
+                  "text": "უნდა გაიგოს",
+                  "role": "verb",
+                  "layer": "always",
+                  "toggleable": false
+                }
+              ],
+              "english": [
+                {
+                  "text": "the",
+                  "role": "subject",
+                  "part": "preposition",
+                  "layer": "always",
+                  "toggleable": false
+                },
+                {
+                  "text": "brilliant",
+                  "role": "subject",
+                  "part": "adjective",
+                  "layer": "adjectives",
+                  "toggleable": true
+                },
+                {
+                  "text": "student",
+                  "role": "subject",
+                  "part": "noun",
+                  "layer": "always",
+                  "toggleable": false
+                },
+                {
+                  "text": "should understand",
+                  "role": "verb",
+                  "layer": "always",
+                  "toggleable": false
+                },
+                {
+                  "text": "the",
+                  "role": "direct_object",
+                  "part": "preposition",
+                  "layer": "always",
+                  "toggleable": false
+                },
+                {
+                  "text": "important",
+                  "role": "direct_object",
+                  "part": "adjective",
+                  "layer": "adjectives",
+                  "toggleable": true
+                },
+                {
+                  "text": "lesson",
+                  "role": "direct_object",
+                  "part": "noun",
+                  "layer": "always",
+                  "toggleable": false
+                }
+              ]
             },
             "georgian_verb_form": "გაიგოს",
             "person": "3sg",
@@ -696,7 +1783,7 @@
             "english": "The experienced engineers should understand the modern technology",
             "english_components": {
               "subject": {
-                "text": "The experienced engineers",
+                "text": "the experienced engineers",
                 "role": "subject",
                 "person": "3pl"
               },
@@ -708,6 +1795,94 @@
                 "text": "should understand",
                 "role": "verb"
               }
+            },
+            "tokens": {
+              "georgian": [
+                {
+                  "text": "გამოცდილმა",
+                  "role": "subject",
+                  "part": "adjective",
+                  "layer": "adjectives",
+                  "toggleable": true
+                },
+                {
+                  "text": "ინჟინერებმა",
+                  "role": "subject",
+                  "part": "noun",
+                  "layer": "always",
+                  "toggleable": false
+                },
+                {
+                  "text": "თანამედროვე",
+                  "role": "direct_object",
+                  "part": "adjective",
+                  "layer": "adjectives",
+                  "toggleable": true
+                },
+                {
+                  "text": "ტექნოლოგია",
+                  "role": "direct_object",
+                  "part": "noun",
+                  "layer": "always",
+                  "toggleable": false
+                },
+                {
+                  "text": "უნდა გაიგონ",
+                  "role": "verb",
+                  "layer": "always",
+                  "toggleable": false
+                }
+              ],
+              "english": [
+                {
+                  "text": "the",
+                  "role": "subject",
+                  "part": "preposition",
+                  "layer": "always",
+                  "toggleable": false
+                },
+                {
+                  "text": "experienced",
+                  "role": "subject",
+                  "part": "adjective",
+                  "layer": "adjectives",
+                  "toggleable": true
+                },
+                {
+                  "text": "engineers",
+                  "role": "subject",
+                  "part": "noun",
+                  "layer": "always",
+                  "toggleable": false
+                },
+                {
+                  "text": "should understand",
+                  "role": "verb",
+                  "layer": "always",
+                  "toggleable": false
+                },
+                {
+                  "text": "the",
+                  "role": "direct_object",
+                  "part": "preposition",
+                  "layer": "always",
+                  "toggleable": false
+                },
+                {
+                  "text": "modern",
+                  "role": "direct_object",
+                  "part": "adjective",
+                  "layer": "adjectives",
+                  "toggleable": true
+                },
+                {
+                  "text": "technology",
+                  "role": "direct_object",
+                  "part": "noun",
+                  "layer": "always",
+                  "toggleable": false
+                }
+              ]
             },
             "georgian_verb_form": "გაიგონ",
             "person": "3pl",
@@ -744,6 +1919,65 @@
                 "role": "verb"
               }
             },
+            "tokens": {
+              "georgian": [
+                {
+                  "text": "უცხო",
+                  "role": "direct_object",
+                  "part": "adjective",
+                  "layer": "adjectives",
+                  "toggleable": true
+                },
+                {
+                  "text": "ენა",
+                  "role": "direct_object",
+                  "part": "noun",
+                  "layer": "always",
+                  "toggleable": false
+                },
+                {
+                  "text": "გაიგე",
+                  "role": "verb",
+                  "layer": "always",
+                  "toggleable": false
+                }
+              ],
+              "english": [
+                {
+                  "text": "You,",
+                  "role": "subject",
+                  "layer": "always",
+                  "toggleable": false
+                },
+                {
+                  "text": "understand",
+                  "role": "verb",
+                  "layer": "always",
+                  "toggleable": false
+                },
+                {
+                  "text": "the",
+                  "role": "direct_object",
+                  "part": "preposition",
+                  "layer": "always",
+                  "toggleable": false
+                },
+                {
+                  "text": "foreign",
+                  "role": "direct_object",
+                  "part": "adjective",
+                  "layer": "adjectives",
+                  "toggleable": true
+                },
+                {
+                  "text": "language",
+                  "role": "direct_object",
+                  "part": "noun",
+                  "layer": "always",
+                  "toggleable": false
+                }
+              ]
+            },
             "georgian_verb_form": "გაიგე",
             "person": "2sg",
             "effective_preverb": "გა"
@@ -776,6 +2010,65 @@
                 "text": "understand",
                 "role": "verb"
               }
+            },
+            "tokens": {
+              "georgian": [
+                {
+                  "text": "რთული",
+                  "role": "direct_object",
+                  "part": "adjective",
+                  "layer": "adjectives",
+                  "toggleable": true
+                },
+                {
+                  "text": "სისტემა",
+                  "role": "direct_object",
+                  "part": "noun",
+                  "layer": "always",
+                  "toggleable": false
+                },
+                {
+                  "text": "გაიგეთ",
+                  "role": "verb",
+                  "layer": "always",
+                  "toggleable": false
+                }
+              ],
+              "english": [
+                {
+                  "text": "You all (you formal),",
+                  "role": "subject",
+                  "layer": "always",
+                  "toggleable": false
+                },
+                {
+                  "text": "understand",
+                  "role": "verb",
+                  "layer": "always",
+                  "toggleable": false
+                },
+                {
+                  "text": "the",
+                  "role": "direct_object",
+                  "part": "preposition",
+                  "layer": "always",
+                  "toggleable": false
+                },
+                {
+                  "text": "complex",
+                  "role": "direct_object",
+                  "part": "adjective",
+                  "layer": "adjectives",
+                  "toggleable": true
+                },
+                {
+                  "text": "system",
+                  "role": "direct_object",
+                  "part": "noun",
+                  "layer": "always",
+                  "toggleable": false
+                }
+              ]
             },
             "georgian_verb_form": "გაიგეთ",
             "person": "2pl",

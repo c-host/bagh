@@ -222,6 +222,100 @@
                 "role": "verb"
               }
             },
+            "tokens": {
+              "georgian": [
+                {
+                  "text": "სასაცილო",
+                  "role": "direct_object",
+                  "part": "adjective",
+                  "layer": "adjectives",
+                  "toggleable": true
+                },
+                {
+                  "text": "ამბავს",
+                  "role": "direct_object",
+                  "part": "noun",
+                  "layer": "always",
+                  "toggleable": false
+                },
+                {
+                  "text": "პატარა",
+                  "role": "indirect_object",
+                  "part": "adjective",
+                  "layer": "adjectives",
+                  "toggleable": true
+                },
+                {
+                  "text": "ბავშვს",
+                  "role": "indirect_object",
+                  "part": "noun",
+                  "layer": "always",
+                  "toggleable": false
+                },
+                {
+                  "text": "ვეუბნები",
+                  "role": "verb",
+                  "layer": "always",
+                  "toggleable": false
+                }
+              ],
+              "english": [
+                {
+                  "text": "I",
+                  "role": "subject",
+                  "layer": "always",
+                  "toggleable": false
+                },
+                {
+                  "text": "tell",
+                  "role": "verb",
+                  "layer": "always",
+                  "toggleable": false
+                },
+                {
+                  "text": "the",
+                  "role": "direct_object",
+                  "part": "preposition",
+                  "layer": "always",
+                  "toggleable": false
+                },
+                {
+                  "text": "funny",
+                  "role": "direct_object",
+                  "part": "adjective",
+                  "layer": "adjectives",
+                  "toggleable": true
+                },
+                {
+                  "text": "story",
+                  "role": "direct_object",
+                  "part": "noun",
+                  "layer": "always",
+                  "toggleable": false
+                },
+                {
+                  "text": "to the",
+                  "role": "indirect_object",
+                  "part": "preposition",
+                  "layer": "always",
+                  "toggleable": false
+                },
+                {
+                  "text": "small",
+                  "role": "indirect_object",
+                  "part": "adjective",
+                  "layer": "adjectives",
+                  "toggleable": true
+                },
+                {
+                  "text": "child",
+                  "role": "indirect_object",
+                  "part": "noun",
+                  "layer": "always",
+                  "toggleable": false
+                }
+              ]
+            },
             "georgian_verb_form": "ვეუბნები",
             "person": "1sg",
             "effective_preverb": ""
@@ -252,7 +346,7 @@
             "english": "The honest mother tells the disappointing truth to the elderly father",
             "english_components": {
               "subject": {
-                "text": "The honest mother",
+                "text": "the honest mother",
                 "role": "subject",
                 "person": "3sg"
               },
@@ -268,6 +362,129 @@
                 "text": "tells",
                 "role": "verb"
               }
+            },
+            "tokens": {
+              "georgian": [
+                {
+                  "text": "პატიოსანი",
+                  "role": "subject",
+                  "part": "adjective",
+                  "layer": "adjectives",
+                  "toggleable": true
+                },
+                {
+                  "text": "დედა",
+                  "role": "subject",
+                  "part": "noun",
+                  "layer": "always",
+                  "toggleable": false
+                },
+                {
+                  "text": "სამწუხარო",
+                  "role": "direct_object",
+                  "part": "adjective",
+                  "layer": "adjectives",
+                  "toggleable": true
+                },
+                {
+                  "text": "სიმართლეს",
+                  "role": "direct_object",
+                  "part": "noun",
+                  "layer": "always",
+                  "toggleable": false
+                },
+                {
+                  "text": "მოხუც",
+                  "role": "indirect_object",
+                  "part": "adjective",
+                  "layer": "adjectives",
+                  "toggleable": true
+                },
+                {
+                  "text": "მამას",
+                  "role": "indirect_object",
+                  "part": "noun",
+                  "layer": "always",
+                  "toggleable": false
+                },
+                {
+                  "text": "ეუბნება",
+                  "role": "verb",
+                  "layer": "always",
+                  "toggleable": false
+                }
+              ],
+              "english": [
+                {
+                  "text": "the",
+                  "role": "subject",
+                  "part": "preposition",
+                  "layer": "always",
+                  "toggleable": false
+                },
+                {
+                  "text": "honest",
+                  "role": "subject",
+                  "part": "adjective",
+                  "layer": "adjectives",
+                  "toggleable": true
+                },
+                {
+                  "text": "mother",
+                  "role": "subject",
+                  "part": "noun",
+                  "layer": "always",
+                  "toggleable": false
+                },
+                {
+                  "text": "tells",
+                  "role": "verb",
+                  "layer": "always",
+                  "toggleable": false
+                },
+                {
+                  "text": "the",
+                  "role": "direct_object",
+                  "part": "preposition",
+                  "layer": "always",
+                  "toggleable": false
+                },
+                {
+                  "text": "disappointing",
+                  "role": "direct_object",
+                  "part": "adjective",
+                  "layer": "adjectives",
+                  "toggleable": true
+                },
+                {
+                  "text": "truth",
+                  "role": "direct_object",
+                  "part": "noun",
+                  "layer": "always",
+                  "toggleable": false
+                },
+                {
+                  "text": "to the",
+                  "role": "indirect_object",
+                  "part": "preposition",
+                  "layer": "always",
+                  "toggleable": false
+                },
+                {
+                  "text": "elderly",
+                  "role": "indirect_object",
+                  "part": "adjective",
+                  "layer": "adjectives",
+                  "toggleable": true
+                },
+                {
+                  "text": "father",
+                  "role": "indirect_object",
+                  "part": "noun",
+                  "layer": "always",
+                  "toggleable": false
+                }
+              ]
             },
             "georgian_verb_form": "ეუბნება",
             "person": "3sg",
@@ -299,7 +516,7 @@
             "english": "The funny friends tell the funny story to the new friend",
             "english_components": {
               "subject": {
-                "text": "The funny friends",
+                "text": "the funny friends",
                 "role": "subject",
                 "person": "3pl"
               },
@@ -315,6 +532,129 @@
                 "text": "tell",
                 "role": "verb"
               }
+            },
+            "tokens": {
+              "georgian": [
+                {
+                  "text": "სასაცილო",
+                  "role": "subject",
+                  "part": "adjective",
+                  "layer": "adjectives",
+                  "toggleable": true
+                },
+                {
+                  "text": "მეგობრები",
+                  "role": "subject",
+                  "part": "noun",
+                  "layer": "always",
+                  "toggleable": false
+                },
+                {
+                  "text": "სასაცილო",
+                  "role": "direct_object",
+                  "part": "adjective",
+                  "layer": "adjectives",
+                  "toggleable": true
+                },
+                {
+                  "text": "ამბავს",
+                  "role": "direct_object",
+                  "part": "noun",
+                  "layer": "always",
+                  "toggleable": false
+                },
+                {
+                  "text": "ახალ",
+                  "role": "indirect_object",
+                  "part": "adjective",
+                  "layer": "adjectives",
+                  "toggleable": true
+                },
+                {
+                  "text": "მეგობარს",
+                  "role": "indirect_object",
+                  "part": "noun",
+                  "layer": "always",
+                  "toggleable": false
+                },
+                {
+                  "text": "ეუბნებიან",
+                  "role": "verb",
+                  "layer": "always",
+                  "toggleable": false
+                }
+              ],
+              "english": [
+                {
+                  "text": "the",
+                  "role": "subject",
+                  "part": "preposition",
+                  "layer": "always",
+                  "toggleable": false
+                },
+                {
+                  "text": "funny",
+                  "role": "subject",
+                  "part": "adjective",
+                  "layer": "adjectives",
+                  "toggleable": true
+                },
+                {
+                  "text": "friends",
+                  "role": "subject",
+                  "part": "noun",
+                  "layer": "always",
+                  "toggleable": false
+                },
+                {
+                  "text": "tell",
+                  "role": "verb",
+                  "layer": "always",
+                  "toggleable": false
+                },
+                {
+                  "text": "the",
+                  "role": "direct_object",
+                  "part": "preposition",
+                  "layer": "always",
+                  "toggleable": false
+                },
+                {
+                  "text": "funny",
+                  "role": "direct_object",
+                  "part": "adjective",
+                  "layer": "adjectives",
+                  "toggleable": true
+                },
+                {
+                  "text": "story",
+                  "role": "direct_object",
+                  "part": "noun",
+                  "layer": "always",
+                  "toggleable": false
+                },
+                {
+                  "text": "to the",
+                  "role": "indirect_object",
+                  "part": "preposition",
+                  "layer": "always",
+                  "toggleable": false
+                },
+                {
+                  "text": "new",
+                  "role": "indirect_object",
+                  "part": "adjective",
+                  "layer": "adjectives",
+                  "toggleable": true
+                },
+                {
+                  "text": "friend",
+                  "role": "indirect_object",
+                  "part": "noun",
+                  "layer": "always",
+                  "toggleable": false
+                }
+              ]
             },
             "georgian_verb_form": "ეუბნებიან",
             "person": "3pl",
@@ -360,6 +700,100 @@
                 "role": "verb"
               }
             },
+            "tokens": {
+              "georgian": [
+                {
+                  "text": "სასაცილო",
+                  "role": "direct_object",
+                  "part": "adjective",
+                  "layer": "adjectives",
+                  "toggleable": true
+                },
+                {
+                  "text": "ამბავს",
+                  "role": "direct_object",
+                  "part": "noun",
+                  "layer": "always",
+                  "toggleable": false
+                },
+                {
+                  "text": "პატარა",
+                  "role": "indirect_object",
+                  "part": "adjective",
+                  "layer": "adjectives",
+                  "toggleable": true
+                },
+                {
+                  "text": "ბავშვს",
+                  "role": "indirect_object",
+                  "part": "noun",
+                  "layer": "always",
+                  "toggleable": false
+                },
+                {
+                  "text": "ვეუბნებოდი",
+                  "role": "verb",
+                  "layer": "always",
+                  "toggleable": false
+                }
+              ],
+              "english": [
+                {
+                  "text": "I",
+                  "role": "subject",
+                  "layer": "always",
+                  "toggleable": false
+                },
+                {
+                  "text": "was telling",
+                  "role": "verb",
+                  "layer": "always",
+                  "toggleable": false
+                },
+                {
+                  "text": "the",
+                  "role": "direct_object",
+                  "part": "preposition",
+                  "layer": "always",
+                  "toggleable": false
+                },
+                {
+                  "text": "funny",
+                  "role": "direct_object",
+                  "part": "adjective",
+                  "layer": "adjectives",
+                  "toggleable": true
+                },
+                {
+                  "text": "story",
+                  "role": "direct_object",
+                  "part": "noun",
+                  "layer": "always",
+                  "toggleable": false
+                },
+                {
+                  "text": "to the",
+                  "role": "indirect_object",
+                  "part": "preposition",
+                  "layer": "always",
+                  "toggleable": false
+                },
+                {
+                  "text": "small",
+                  "role": "indirect_object",
+                  "part": "adjective",
+                  "layer": "adjectives",
+                  "toggleable": true
+                },
+                {
+                  "text": "child",
+                  "role": "indirect_object",
+                  "part": "noun",
+                  "layer": "always",
+                  "toggleable": false
+                }
+              ]
+            },
             "georgian_verb_form": "ვეუბნებოდი",
             "person": "1sg",
             "effective_preverb": ""
@@ -390,7 +824,7 @@
             "english": "The honest mother was telling the disappointing truth to the elderly father",
             "english_components": {
               "subject": {
-                "text": "The honest mother",
+                "text": "the honest mother",
                 "role": "subject",
                 "person": "3sg"
               },
@@ -406,6 +840,129 @@
                 "text": "was telling",
                 "role": "verb"
               }
+            },
+            "tokens": {
+              "georgian": [
+                {
+                  "text": "პატიოსანი",
+                  "role": "subject",
+                  "part": "adjective",
+                  "layer": "adjectives",
+                  "toggleable": true
+                },
+                {
+                  "text": "დედა",
+                  "role": "subject",
+                  "part": "noun",
+                  "layer": "always",
+                  "toggleable": false
+                },
+                {
+                  "text": "სამწუხარო",
+                  "role": "direct_object",
+                  "part": "adjective",
+                  "layer": "adjectives",
+                  "toggleable": true
+                },
+                {
+                  "text": "სიმართლეს",
+                  "role": "direct_object",
+                  "part": "noun",
+                  "layer": "always",
+                  "toggleable": false
+                },
+                {
+                  "text": "მოხუც",
+                  "role": "indirect_object",
+                  "part": "adjective",
+                  "layer": "adjectives",
+                  "toggleable": true
+                },
+                {
+                  "text": "მამას",
+                  "role": "indirect_object",
+                  "part": "noun",
+                  "layer": "always",
+                  "toggleable": false
+                },
+                {
+                  "text": "ეუბნებოდა",
+                  "role": "verb",
+                  "layer": "always",
+                  "toggleable": false
+                }
+              ],
+              "english": [
+                {
+                  "text": "the",
+                  "role": "subject",
+                  "part": "preposition",
+                  "layer": "always",
+                  "toggleable": false
+                },
+                {
+                  "text": "honest",
+                  "role": "subject",
+                  "part": "adjective",
+                  "layer": "adjectives",
+                  "toggleable": true
+                },
+                {
+                  "text": "mother",
+                  "role": "subject",
+                  "part": "noun",
+                  "layer": "always",
+                  "toggleable": false
+                },
+                {
+                  "text": "was telling",
+                  "role": "verb",
+                  "layer": "always",
+                  "toggleable": false
+                },
+                {
+                  "text": "the",
+                  "role": "direct_object",
+                  "part": "preposition",
+                  "layer": "always",
+                  "toggleable": false
+                },
+                {
+                  "text": "disappointing",
+                  "role": "direct_object",
+                  "part": "adjective",
+                  "layer": "adjectives",
+                  "toggleable": true
+                },
+                {
+                  "text": "truth",
+                  "role": "direct_object",
+                  "part": "noun",
+                  "layer": "always",
+                  "toggleable": false
+                },
+                {
+                  "text": "to the",
+                  "role": "indirect_object",
+                  "part": "preposition",
+                  "layer": "always",
+                  "toggleable": false
+                },
+                {
+                  "text": "elderly",
+                  "role": "indirect_object",
+                  "part": "adjective",
+                  "layer": "adjectives",
+                  "toggleable": true
+                },
+                {
+                  "text": "father",
+                  "role": "indirect_object",
+                  "part": "noun",
+                  "layer": "always",
+                  "toggleable": false
+                }
+              ]
             },
             "georgian_verb_form": "ეუბნებოდა",
             "person": "3sg",
@@ -437,7 +994,7 @@
             "english": "The funny friends were telling the funny story to the new friend",
             "english_components": {
               "subject": {
-                "text": "The funny friends",
+                "text": "the funny friends",
                 "role": "subject",
                 "person": "3pl"
               },
@@ -453,6 +1010,129 @@
                 "text": "were telling",
                 "role": "verb"
               }
+            },
+            "tokens": {
+              "georgian": [
+                {
+                  "text": "სასაცილო",
+                  "role": "subject",
+                  "part": "adjective",
+                  "layer": "adjectives",
+                  "toggleable": true
+                },
+                {
+                  "text": "მეგობრები",
+                  "role": "subject",
+                  "part": "noun",
+                  "layer": "always",
+                  "toggleable": false
+                },
+                {
+                  "text": "სასაცილო",
+                  "role": "direct_object",
+                  "part": "adjective",
+                  "layer": "adjectives",
+                  "toggleable": true
+                },
+                {
+                  "text": "ამბავს",
+                  "role": "direct_object",
+                  "part": "noun",
+                  "layer": "always",
+                  "toggleable": false
+                },
+                {
+                  "text": "ახალ",
+                  "role": "indirect_object",
+                  "part": "adjective",
+                  "layer": "adjectives",
+                  "toggleable": true
+                },
+                {
+                  "text": "მეგობარს",
+                  "role": "indirect_object",
+                  "part": "noun",
+                  "layer": "always",
+                  "toggleable": false
+                },
+                {
+                  "text": "ეუბნებოდნენ",
+                  "role": "verb",
+                  "layer": "always",
+                  "toggleable": false
+                }
+              ],
+              "english": [
+                {
+                  "text": "the",
+                  "role": "subject",
+                  "part": "preposition",
+                  "layer": "always",
+                  "toggleable": false
+                },
+                {
+                  "text": "funny",
+                  "role": "subject",
+                  "part": "adjective",
+                  "layer": "adjectives",
+                  "toggleable": true
+                },
+                {
+                  "text": "friends",
+                  "role": "subject",
+                  "part": "noun",
+                  "layer": "always",
+                  "toggleable": false
+                },
+                {
+                  "text": "were telling",
+                  "role": "verb",
+                  "layer": "always",
+                  "toggleable": false
+                },
+                {
+                  "text": "the",
+                  "role": "direct_object",
+                  "part": "preposition",
+                  "layer": "always",
+                  "toggleable": false
+                },
+                {
+                  "text": "funny",
+                  "role": "direct_object",
+                  "part": "adjective",
+                  "layer": "adjectives",
+                  "toggleable": true
+                },
+                {
+                  "text": "story",
+                  "role": "direct_object",
+                  "part": "noun",
+                  "layer": "always",
+                  "toggleable": false
+                },
+                {
+                  "text": "to the",
+                  "role": "indirect_object",
+                  "part": "preposition",
+                  "layer": "always",
+                  "toggleable": false
+                },
+                {
+                  "text": "new",
+                  "role": "indirect_object",
+                  "part": "adjective",
+                  "layer": "adjectives",
+                  "toggleable": true
+                },
+                {
+                  "text": "friend",
+                  "role": "indirect_object",
+                  "part": "noun",
+                  "layer": "always",
+                  "toggleable": false
+                }
+              ]
             },
             "georgian_verb_form": "ეუბნებოდნენ",
             "person": "3pl",
@@ -498,6 +1178,100 @@
                 "role": "verb"
               }
             },
+            "tokens": {
+              "georgian": [
+                {
+                  "text": "სასაცილო",
+                  "role": "direct_object",
+                  "part": "adjective",
+                  "layer": "adjectives",
+                  "toggleable": true
+                },
+                {
+                  "text": "ამბავს",
+                  "role": "direct_object",
+                  "part": "noun",
+                  "layer": "always",
+                  "toggleable": false
+                },
+                {
+                  "text": "პატარა",
+                  "role": "indirect_object",
+                  "part": "adjective",
+                  "layer": "adjectives",
+                  "toggleable": true
+                },
+                {
+                  "text": "ბავშვს",
+                  "role": "indirect_object",
+                  "part": "noun",
+                  "layer": "always",
+                  "toggleable": false
+                },
+                {
+                  "text": "ვეტყვი",
+                  "role": "verb",
+                  "layer": "always",
+                  "toggleable": false
+                }
+              ],
+              "english": [
+                {
+                  "text": "I",
+                  "role": "subject",
+                  "layer": "always",
+                  "toggleable": false
+                },
+                {
+                  "text": "will tell",
+                  "role": "verb",
+                  "layer": "always",
+                  "toggleable": false
+                },
+                {
+                  "text": "the",
+                  "role": "direct_object",
+                  "part": "preposition",
+                  "layer": "always",
+                  "toggleable": false
+                },
+                {
+                  "text": "funny",
+                  "role": "direct_object",
+                  "part": "adjective",
+                  "layer": "adjectives",
+                  "toggleable": true
+                },
+                {
+                  "text": "story",
+                  "role": "direct_object",
+                  "part": "noun",
+                  "layer": "always",
+                  "toggleable": false
+                },
+                {
+                  "text": "to the",
+                  "role": "indirect_object",
+                  "part": "preposition",
+                  "layer": "always",
+                  "toggleable": false
+                },
+                {
+                  "text": "small",
+                  "role": "indirect_object",
+                  "part": "adjective",
+                  "layer": "adjectives",
+                  "toggleable": true
+                },
+                {
+                  "text": "child",
+                  "role": "indirect_object",
+                  "part": "noun",
+                  "layer": "always",
+                  "toggleable": false
+                }
+              ]
+            },
             "georgian_verb_form": "ვეტყვი",
             "person": "1sg",
             "effective_preverb": ""
@@ -528,7 +1302,7 @@
             "english": "The honest mother will tell the disappointing truth to the elderly father",
             "english_components": {
               "subject": {
-                "text": "The honest mother",
+                "text": "the honest mother",
                 "role": "subject",
                 "person": "3sg"
               },
@@ -544,6 +1318,129 @@
                 "text": "will tell",
                 "role": "verb"
               }
+            },
+            "tokens": {
+              "georgian": [
+                {
+                  "text": "პატიოსანი",
+                  "role": "subject",
+                  "part": "adjective",
+                  "layer": "adjectives",
+                  "toggleable": true
+                },
+                {
+                  "text": "დედა",
+                  "role": "subject",
+                  "part": "noun",
+                  "layer": "always",
+                  "toggleable": false
+                },
+                {
+                  "text": "სამწუხარო",
+                  "role": "direct_object",
+                  "part": "adjective",
+                  "layer": "adjectives",
+                  "toggleable": true
+                },
+                {
+                  "text": "სიმართლეს",
+                  "role": "direct_object",
+                  "part": "noun",
+                  "layer": "always",
+                  "toggleable": false
+                },
+                {
+                  "text": "მოხუც",
+                  "role": "indirect_object",
+                  "part": "adjective",
+                  "layer": "adjectives",
+                  "toggleable": true
+                },
+                {
+                  "text": "მამას",
+                  "role": "indirect_object",
+                  "part": "noun",
+                  "layer": "always",
+                  "toggleable": false
+                },
+                {
+                  "text": "ეტყვის",
+                  "role": "verb",
+                  "layer": "always",
+                  "toggleable": false
+                }
+              ],
+              "english": [
+                {
+                  "text": "the",
+                  "role": "subject",
+                  "part": "preposition",
+                  "layer": "always",
+                  "toggleable": false
+                },
+                {
+                  "text": "honest",
+                  "role": "subject",
+                  "part": "adjective",
+                  "layer": "adjectives",
+                  "toggleable": true
+                },
+                {
+                  "text": "mother",
+                  "role": "subject",
+                  "part": "noun",
+                  "layer": "always",
+                  "toggleable": false
+                },
+                {
+                  "text": "will tell",
+                  "role": "verb",
+                  "layer": "always",
+                  "toggleable": false
+                },
+                {
+                  "text": "the",
+                  "role": "direct_object",
+                  "part": "preposition",
+                  "layer": "always",
+                  "toggleable": false
+                },
+                {
+                  "text": "disappointing",
+                  "role": "direct_object",
+                  "part": "adjective",
+                  "layer": "adjectives",
+                  "toggleable": true
+                },
+                {
+                  "text": "truth",
+                  "role": "direct_object",
+                  "part": "noun",
+                  "layer": "always",
+                  "toggleable": false
+                },
+                {
+                  "text": "to the",
+                  "role": "indirect_object",
+                  "part": "preposition",
+                  "layer": "always",
+                  "toggleable": false
+                },
+                {
+                  "text": "elderly",
+                  "role": "indirect_object",
+                  "part": "adjective",
+                  "layer": "adjectives",
+                  "toggleable": true
+                },
+                {
+                  "text": "father",
+                  "role": "indirect_object",
+                  "part": "noun",
+                  "layer": "always",
+                  "toggleable": false
+                }
+              ]
             },
             "georgian_verb_form": "ეტყვის",
             "person": "3sg",
@@ -575,7 +1472,7 @@
             "english": "The funny friends will tell the funny story to the new friend",
             "english_components": {
               "subject": {
-                "text": "The funny friends",
+                "text": "the funny friends",
                 "role": "subject",
                 "person": "3pl"
               },
@@ -591,6 +1488,129 @@
                 "text": "will tell",
                 "role": "verb"
               }
+            },
+            "tokens": {
+              "georgian": [
+                {
+                  "text": "სასაცილო",
+                  "role": "subject",
+                  "part": "adjective",
+                  "layer": "adjectives",
+                  "toggleable": true
+                },
+                {
+                  "text": "მეგობრები",
+                  "role": "subject",
+                  "part": "noun",
+                  "layer": "always",
+                  "toggleable": false
+                },
+                {
+                  "text": "სასაცილო",
+                  "role": "direct_object",
+                  "part": "adjective",
+                  "layer": "adjectives",
+                  "toggleable": true
+                },
+                {
+                  "text": "ამბავს",
+                  "role": "direct_object",
+                  "part": "noun",
+                  "layer": "always",
+                  "toggleable": false
+                },
+                {
+                  "text": "ახალ",
+                  "role": "indirect_object",
+                  "part": "adjective",
+                  "layer": "adjectives",
+                  "toggleable": true
+                },
+                {
+                  "text": "მეგობარს",
+                  "role": "indirect_object",
+                  "part": "noun",
+                  "layer": "always",
+                  "toggleable": false
+                },
+                {
+                  "text": "ეტყვიან",
+                  "role": "verb",
+                  "layer": "always",
+                  "toggleable": false
+                }
+              ],
+              "english": [
+                {
+                  "text": "the",
+                  "role": "subject",
+                  "part": "preposition",
+                  "layer": "always",
+                  "toggleable": false
+                },
+                {
+                  "text": "funny",
+                  "role": "subject",
+                  "part": "adjective",
+                  "layer": "adjectives",
+                  "toggleable": true
+                },
+                {
+                  "text": "friends",
+                  "role": "subject",
+                  "part": "noun",
+                  "layer": "always",
+                  "toggleable": false
+                },
+                {
+                  "text": "will tell",
+                  "role": "verb",
+                  "layer": "always",
+                  "toggleable": false
+                },
+                {
+                  "text": "the",
+                  "role": "direct_object",
+                  "part": "preposition",
+                  "layer": "always",
+                  "toggleable": false
+                },
+                {
+                  "text": "funny",
+                  "role": "direct_object",
+                  "part": "adjective",
+                  "layer": "adjectives",
+                  "toggleable": true
+                },
+                {
+                  "text": "story",
+                  "role": "direct_object",
+                  "part": "noun",
+                  "layer": "always",
+                  "toggleable": false
+                },
+                {
+                  "text": "to the",
+                  "role": "indirect_object",
+                  "part": "preposition",
+                  "layer": "always",
+                  "toggleable": false
+                },
+                {
+                  "text": "new",
+                  "role": "indirect_object",
+                  "part": "adjective",
+                  "layer": "adjectives",
+                  "toggleable": true
+                },
+                {
+                  "text": "friend",
+                  "role": "indirect_object",
+                  "part": "noun",
+                  "layer": "always",
+                  "toggleable": false
+                }
+              ]
             },
             "georgian_verb_form": "ეტყვიან",
             "person": "3pl",
@@ -636,6 +1656,100 @@
                 "role": "verb"
               }
             },
+            "tokens": {
+              "georgian": [
+                {
+                  "text": "სასაცილო",
+                  "role": "direct_object",
+                  "part": "adjective",
+                  "layer": "adjectives",
+                  "toggleable": true
+                },
+                {
+                  "text": "ამბავი",
+                  "role": "direct_object",
+                  "part": "noun",
+                  "layer": "always",
+                  "toggleable": false
+                },
+                {
+                  "text": "პატარა",
+                  "role": "indirect_object",
+                  "part": "adjective",
+                  "layer": "adjectives",
+                  "toggleable": true
+                },
+                {
+                  "text": "ბავშვს",
+                  "role": "indirect_object",
+                  "part": "noun",
+                  "layer": "always",
+                  "toggleable": false
+                },
+                {
+                  "text": "ვუთხარი",
+                  "role": "verb",
+                  "layer": "always",
+                  "toggleable": false
+                }
+              ],
+              "english": [
+                {
+                  "text": "I",
+                  "role": "subject",
+                  "layer": "always",
+                  "toggleable": false
+                },
+                {
+                  "text": "told",
+                  "role": "verb",
+                  "layer": "always",
+                  "toggleable": false
+                },
+                {
+                  "text": "the",
+                  "role": "direct_object",
+                  "part": "preposition",
+                  "layer": "always",
+                  "toggleable": false
+                },
+                {
+                  "text": "funny",
+                  "role": "direct_object",
+                  "part": "adjective",
+                  "layer": "adjectives",
+                  "toggleable": true
+                },
+                {
+                  "text": "story",
+                  "role": "direct_object",
+                  "part": "noun",
+                  "layer": "always",
+                  "toggleable": false
+                },
+                {
+                  "text": "to the",
+                  "role": "indirect_object",
+                  "part": "preposition",
+                  "layer": "always",
+                  "toggleable": false
+                },
+                {
+                  "text": "small",
+                  "role": "indirect_object",
+                  "part": "adjective",
+                  "layer": "adjectives",
+                  "toggleable": true
+                },
+                {
+                  "text": "child",
+                  "role": "indirect_object",
+                  "part": "noun",
+                  "layer": "always",
+                  "toggleable": false
+                }
+              ]
+            },
             "georgian_verb_form": "ვუთხარი",
             "person": "1sg",
             "effective_preverb": ""
@@ -666,7 +1780,7 @@
             "english": "The honest mother told the disappointing truth to the elderly father",
             "english_components": {
               "subject": {
-                "text": "The honest mother",
+                "text": "the honest mother",
                 "role": "subject",
                 "person": "3sg"
               },
@@ -682,6 +1796,129 @@
                 "text": "told",
                 "role": "verb"
               }
+            },
+            "tokens": {
+              "georgian": [
+                {
+                  "text": "პატიოსანმა",
+                  "role": "subject",
+                  "part": "adjective",
+                  "layer": "adjectives",
+                  "toggleable": true
+                },
+                {
+                  "text": "დედამ",
+                  "role": "subject",
+                  "part": "noun",
+                  "layer": "always",
+                  "toggleable": false
+                },
+                {
+                  "text": "სამწუხარო",
+                  "role": "direct_object",
+                  "part": "adjective",
+                  "layer": "adjectives",
+                  "toggleable": true
+                },
+                {
+                  "text": "სიმართლე",
+                  "role": "direct_object",
+                  "part": "noun",
+                  "layer": "always",
+                  "toggleable": false
+                },
+                {
+                  "text": "მოხუც",
+                  "role": "indirect_object",
+                  "part": "adjective",
+                  "layer": "adjectives",
+                  "toggleable": true
+                },
+                {
+                  "text": "მამას",
+                  "role": "indirect_object",
+                  "part": "noun",
+                  "layer": "always",
+                  "toggleable": false
+                },
+                {
+                  "text": "უთხრა",
+                  "role": "verb",
+                  "layer": "always",
+                  "toggleable": false
+                }
+              ],
+              "english": [
+                {
+                  "text": "the",
+                  "role": "subject",
+                  "part": "preposition",
+                  "layer": "always",
+                  "toggleable": false
+                },
+                {
+                  "text": "honest",
+                  "role": "subject",
+                  "part": "adjective",
+                  "layer": "adjectives",
+                  "toggleable": true
+                },
+                {
+                  "text": "mother",
+                  "role": "subject",
+                  "part": "noun",
+                  "layer": "always",
+                  "toggleable": false
+                },
+                {
+                  "text": "told",
+                  "role": "verb",
+                  "layer": "always",
+                  "toggleable": false
+                },
+                {
+                  "text": "the",
+                  "role": "direct_object",
+                  "part": "preposition",
+                  "layer": "always",
+                  "toggleable": false
+                },
+                {
+                  "text": "disappointing",
+                  "role": "direct_object",
+                  "part": "adjective",
+                  "layer": "adjectives",
+                  "toggleable": true
+                },
+                {
+                  "text": "truth",
+                  "role": "direct_object",
+                  "part": "noun",
+                  "layer": "always",
+                  "toggleable": false
+                },
+                {
+                  "text": "to the",
+                  "role": "indirect_object",
+                  "part": "preposition",
+                  "layer": "always",
+                  "toggleable": false
+                },
+                {
+                  "text": "elderly",
+                  "role": "indirect_object",
+                  "part": "adjective",
+                  "layer": "adjectives",
+                  "toggleable": true
+                },
+                {
+                  "text": "father",
+                  "role": "indirect_object",
+                  "part": "noun",
+                  "layer": "always",
+                  "toggleable": false
+                }
+              ]
             },
             "georgian_verb_form": "უთხრა",
             "person": "3sg",
@@ -713,7 +1950,7 @@
             "english": "The funny friends told the funny story to the new friend",
             "english_components": {
               "subject": {
-                "text": "The funny friends",
+                "text": "the funny friends",
                 "role": "subject",
                 "person": "3pl"
               },
@@ -729,6 +1966,129 @@
                 "text": "told",
                 "role": "verb"
               }
+            },
+            "tokens": {
+              "georgian": [
+                {
+                  "text": "სასაცილო",
+                  "role": "subject",
+                  "part": "adjective",
+                  "layer": "adjectives",
+                  "toggleable": true
+                },
+                {
+                  "text": "მეგობრებმა",
+                  "role": "subject",
+                  "part": "noun",
+                  "layer": "always",
+                  "toggleable": false
+                },
+                {
+                  "text": "სასაცილო",
+                  "role": "direct_object",
+                  "part": "adjective",
+                  "layer": "adjectives",
+                  "toggleable": true
+                },
+                {
+                  "text": "ამბავი",
+                  "role": "direct_object",
+                  "part": "noun",
+                  "layer": "always",
+                  "toggleable": false
+                },
+                {
+                  "text": "ახალ",
+                  "role": "indirect_object",
+                  "part": "adjective",
+                  "layer": "adjectives",
+                  "toggleable": true
+                },
+                {
+                  "text": "მეგობარს",
+                  "role": "indirect_object",
+                  "part": "noun",
+                  "layer": "always",
+                  "toggleable": false
+                },
+                {
+                  "text": "უთხრეს",
+                  "role": "verb",
+                  "layer": "always",
+                  "toggleable": false
+                }
+              ],
+              "english": [
+                {
+                  "text": "the",
+                  "role": "subject",
+                  "part": "preposition",
+                  "layer": "always",
+                  "toggleable": false
+                },
+                {
+                  "text": "funny",
+                  "role": "subject",
+                  "part": "adjective",
+                  "layer": "adjectives",
+                  "toggleable": true
+                },
+                {
+                  "text": "friends",
+                  "role": "subject",
+                  "part": "noun",
+                  "layer": "always",
+                  "toggleable": false
+                },
+                {
+                  "text": "told",
+                  "role": "verb",
+                  "layer": "always",
+                  "toggleable": false
+                },
+                {
+                  "text": "the",
+                  "role": "direct_object",
+                  "part": "preposition",
+                  "layer": "always",
+                  "toggleable": false
+                },
+                {
+                  "text": "funny",
+                  "role": "direct_object",
+                  "part": "adjective",
+                  "layer": "adjectives",
+                  "toggleable": true
+                },
+                {
+                  "text": "story",
+                  "role": "direct_object",
+                  "part": "noun",
+                  "layer": "always",
+                  "toggleable": false
+                },
+                {
+                  "text": "to the",
+                  "role": "indirect_object",
+                  "part": "preposition",
+                  "layer": "always",
+                  "toggleable": false
+                },
+                {
+                  "text": "new",
+                  "role": "indirect_object",
+                  "part": "adjective",
+                  "layer": "adjectives",
+                  "toggleable": true
+                },
+                {
+                  "text": "friend",
+                  "role": "indirect_object",
+                  "part": "noun",
+                  "layer": "always",
+                  "toggleable": false
+                }
+              ]
             },
             "georgian_verb_form": "უთხრეს",
             "person": "3pl",
@@ -774,6 +2134,100 @@
                 "role": "verb"
               }
             },
+            "tokens": {
+              "georgian": [
+                {
+                  "text": "სასაცილო",
+                  "role": "direct_object",
+                  "part": "adjective",
+                  "layer": "adjectives",
+                  "toggleable": true
+                },
+                {
+                  "text": "ამბავი",
+                  "role": "direct_object",
+                  "part": "noun",
+                  "layer": "always",
+                  "toggleable": false
+                },
+                {
+                  "text": "პატარა",
+                  "role": "indirect_object",
+                  "part": "adjective",
+                  "layer": "adjectives",
+                  "toggleable": true
+                },
+                {
+                  "text": "ბავშვს",
+                  "role": "indirect_object",
+                  "part": "noun",
+                  "layer": "always",
+                  "toggleable": false
+                },
+                {
+                  "text": "უნდა ვუთხრა",
+                  "role": "verb",
+                  "layer": "always",
+                  "toggleable": false
+                }
+              ],
+              "english": [
+                {
+                  "text": "I",
+                  "role": "subject",
+                  "layer": "always",
+                  "toggleable": false
+                },
+                {
+                  "text": "should tell",
+                  "role": "verb",
+                  "layer": "always",
+                  "toggleable": false
+                },
+                {
+                  "text": "the",
+                  "role": "direct_object",
+                  "part": "preposition",
+                  "layer": "always",
+                  "toggleable": false
+                },
+                {
+                  "text": "funny",
+                  "role": "direct_object",
+                  "part": "adjective",
+                  "layer": "adjectives",
+                  "toggleable": true
+                },
+                {
+                  "text": "story",
+                  "role": "direct_object",
+                  "part": "noun",
+                  "layer": "always",
+                  "toggleable": false
+                },
+                {
+                  "text": "to the",
+                  "role": "indirect_object",
+                  "part": "preposition",
+                  "layer": "always",
+                  "toggleable": false
+                },
+                {
+                  "text": "small",
+                  "role": "indirect_object",
+                  "part": "adjective",
+                  "layer": "adjectives",
+                  "toggleable": true
+                },
+                {
+                  "text": "child",
+                  "role": "indirect_object",
+                  "part": "noun",
+                  "layer": "always",
+                  "toggleable": false
+                }
+              ]
+            },
             "georgian_verb_form": "ვუთხრა",
             "person": "1sg",
             "effective_preverb": ""
@@ -804,7 +2258,7 @@
             "english": "The honest mother should tell the disappointing truth to the elderly father",
             "english_components": {
               "subject": {
-                "text": "The honest mother",
+                "text": "the honest mother",
                 "role": "subject",
                 "person": "3sg"
               },
@@ -820,6 +2274,129 @@
                 "text": "should tell",
                 "role": "verb"
               }
+            },
+            "tokens": {
+              "georgian": [
+                {
+                  "text": "პატიოსანმა",
+                  "role": "subject",
+                  "part": "adjective",
+                  "layer": "adjectives",
+                  "toggleable": true
+                },
+                {
+                  "text": "დედამ",
+                  "role": "subject",
+                  "part": "noun",
+                  "layer": "always",
+                  "toggleable": false
+                },
+                {
+                  "text": "სამწუხარო",
+                  "role": "direct_object",
+                  "part": "adjective",
+                  "layer": "adjectives",
+                  "toggleable": true
+                },
+                {
+                  "text": "სიმართლე",
+                  "role": "direct_object",
+                  "part": "noun",
+                  "layer": "always",
+                  "toggleable": false
+                },
+                {
+                  "text": "მოხუც",
+                  "role": "indirect_object",
+                  "part": "adjective",
+                  "layer": "adjectives",
+                  "toggleable": true
+                },
+                {
+                  "text": "მამას",
+                  "role": "indirect_object",
+                  "part": "noun",
+                  "layer": "always",
+                  "toggleable": false
+                },
+                {
+                  "text": "უნდა უთხრას",
+                  "role": "verb",
+                  "layer": "always",
+                  "toggleable": false
+                }
+              ],
+              "english": [
+                {
+                  "text": "the",
+                  "role": "subject",
+                  "part": "preposition",
+                  "layer": "always",
+                  "toggleable": false
+                },
+                {
+                  "text": "honest",
+                  "role": "subject",
+                  "part": "adjective",
+                  "layer": "adjectives",
+                  "toggleable": true
+                },
+                {
+                  "text": "mother",
+                  "role": "subject",
+                  "part": "noun",
+                  "layer": "always",
+                  "toggleable": false
+                },
+                {
+                  "text": "should tell",
+                  "role": "verb",
+                  "layer": "always",
+                  "toggleable": false
+                },
+                {
+                  "text": "the",
+                  "role": "direct_object",
+                  "part": "preposition",
+                  "layer": "always",
+                  "toggleable": false
+                },
+                {
+                  "text": "disappointing",
+                  "role": "direct_object",
+                  "part": "adjective",
+                  "layer": "adjectives",
+                  "toggleable": true
+                },
+                {
+                  "text": "truth",
+                  "role": "direct_object",
+                  "part": "noun",
+                  "layer": "always",
+                  "toggleable": false
+                },
+                {
+                  "text": "to the",
+                  "role": "indirect_object",
+                  "part": "preposition",
+                  "layer": "always",
+                  "toggleable": false
+                },
+                {
+                  "text": "elderly",
+                  "role": "indirect_object",
+                  "part": "adjective",
+                  "layer": "adjectives",
+                  "toggleable": true
+                },
+                {
+                  "text": "father",
+                  "role": "indirect_object",
+                  "part": "noun",
+                  "layer": "always",
+                  "toggleable": false
+                }
+              ]
             },
             "georgian_verb_form": "უთხრას",
             "person": "3sg",
@@ -851,7 +2428,7 @@
             "english": "The funny friends should tell the funny story to the new friend",
             "english_components": {
               "subject": {
-                "text": "The funny friends",
+                "text": "the funny friends",
                 "role": "subject",
                 "person": "3pl"
               },
@@ -867,6 +2444,129 @@
                 "text": "should tell",
                 "role": "verb"
               }
+            },
+            "tokens": {
+              "georgian": [
+                {
+                  "text": "სასაცილო",
+                  "role": "subject",
+                  "part": "adjective",
+                  "layer": "adjectives",
+                  "toggleable": true
+                },
+                {
+                  "text": "მეგობრებმა",
+                  "role": "subject",
+                  "part": "noun",
+                  "layer": "always",
+                  "toggleable": false
+                },
+                {
+                  "text": "სასაცილო",
+                  "role": "direct_object",
+                  "part": "adjective",
+                  "layer": "adjectives",
+                  "toggleable": true
+                },
+                {
+                  "text": "ამბავი",
+                  "role": "direct_object",
+                  "part": "noun",
+                  "layer": "always",
+                  "toggleable": false
+                },
+                {
+                  "text": "ახალ",
+                  "role": "indirect_object",
+                  "part": "adjective",
+                  "layer": "adjectives",
+                  "toggleable": true
+                },
+                {
+                  "text": "მეგობარს",
+                  "role": "indirect_object",
+                  "part": "noun",
+                  "layer": "always",
+                  "toggleable": false
+                },
+                {
+                  "text": "უნდა უთხრან",
+                  "role": "verb",
+                  "layer": "always",
+                  "toggleable": false
+                }
+              ],
+              "english": [
+                {
+                  "text": "the",
+                  "role": "subject",
+                  "part": "preposition",
+                  "layer": "always",
+                  "toggleable": false
+                },
+                {
+                  "text": "funny",
+                  "role": "subject",
+                  "part": "adjective",
+                  "layer": "adjectives",
+                  "toggleable": true
+                },
+                {
+                  "text": "friends",
+                  "role": "subject",
+                  "part": "noun",
+                  "layer": "always",
+                  "toggleable": false
+                },
+                {
+                  "text": "should tell",
+                  "role": "verb",
+                  "layer": "always",
+                  "toggleable": false
+                },
+                {
+                  "text": "the",
+                  "role": "direct_object",
+                  "part": "preposition",
+                  "layer": "always",
+                  "toggleable": false
+                },
+                {
+                  "text": "funny",
+                  "role": "direct_object",
+                  "part": "adjective",
+                  "layer": "adjectives",
+                  "toggleable": true
+                },
+                {
+                  "text": "story",
+                  "role": "direct_object",
+                  "part": "noun",
+                  "layer": "always",
+                  "toggleable": false
+                },
+                {
+                  "text": "to the",
+                  "role": "indirect_object",
+                  "part": "preposition",
+                  "layer": "always",
+                  "toggleable": false
+                },
+                {
+                  "text": "new",
+                  "role": "indirect_object",
+                  "part": "adjective",
+                  "layer": "adjectives",
+                  "toggleable": true
+                },
+                {
+                  "text": "friend",
+                  "role": "indirect_object",
+                  "part": "noun",
+                  "layer": "always",
+                  "toggleable": false
+                }
+              ]
             },
             "georgian_verb_form": "უთხრან",
             "person": "3pl",
@@ -912,6 +2612,100 @@
                 "role": "verb"
               }
             },
+            "tokens": {
+              "georgian": [
+                {
+                  "text": "დიდი",
+                  "role": "direct_object",
+                  "part": "adjective",
+                  "layer": "adjectives",
+                  "toggleable": true
+                },
+                {
+                  "text": "საიდუმლო",
+                  "role": "direct_object",
+                  "part": "noun",
+                  "layer": "always",
+                  "toggleable": false
+                },
+                {
+                  "text": "ახალგაზრდა",
+                  "role": "indirect_object",
+                  "part": "adjective",
+                  "layer": "adjectives",
+                  "toggleable": true
+                },
+                {
+                  "text": "დას",
+                  "role": "indirect_object",
+                  "part": "noun",
+                  "layer": "always",
+                  "toggleable": false
+                },
+                {
+                  "text": "უთხარი",
+                  "role": "verb",
+                  "layer": "always",
+                  "toggleable": false
+                }
+              ],
+              "english": [
+                {
+                  "text": "You,",
+                  "role": "subject",
+                  "layer": "always",
+                  "toggleable": false
+                },
+                {
+                  "text": "tell",
+                  "role": "verb",
+                  "layer": "always",
+                  "toggleable": false
+                },
+                {
+                  "text": "the",
+                  "role": "direct_object",
+                  "part": "preposition",
+                  "layer": "always",
+                  "toggleable": false
+                },
+                {
+                  "text": "big",
+                  "role": "direct_object",
+                  "part": "adjective",
+                  "layer": "adjectives",
+                  "toggleable": true
+                },
+                {
+                  "text": "secret",
+                  "role": "direct_object",
+                  "part": "noun",
+                  "layer": "always",
+                  "toggleable": false
+                },
+                {
+                  "text": "to the",
+                  "role": "indirect_object",
+                  "part": "preposition",
+                  "layer": "always",
+                  "toggleable": false
+                },
+                {
+                  "text": "young",
+                  "role": "indirect_object",
+                  "part": "adjective",
+                  "layer": "adjectives",
+                  "toggleable": true
+                },
+                {
+                  "text": "sister",
+                  "role": "indirect_object",
+                  "part": "noun",
+                  "layer": "always",
+                  "toggleable": false
+                }
+              ]
+            },
             "georgian_verb_form": "უთხარი",
             "person": "2sg",
             "effective_preverb": ""
@@ -953,6 +2747,100 @@
                 "text": "tell",
                 "role": "verb"
               }
+            },
+            "tokens": {
+              "georgian": [
+                {
+                  "text": "კარგი",
+                  "role": "direct_object",
+                  "part": "adjective",
+                  "layer": "adjectives",
+                  "toggleable": true
+                },
+                {
+                  "text": "ამბავი",
+                  "role": "direct_object",
+                  "part": "noun",
+                  "layer": "always",
+                  "toggleable": false
+                },
+                {
+                  "text": "კეთილ",
+                  "role": "indirect_object",
+                  "part": "adjective",
+                  "layer": "adjectives",
+                  "toggleable": true
+                },
+                {
+                  "text": "მეზობელს",
+                  "role": "indirect_object",
+                  "part": "noun",
+                  "layer": "always",
+                  "toggleable": false
+                },
+                {
+                  "text": "უთხარით",
+                  "role": "verb",
+                  "layer": "always",
+                  "toggleable": false
+                }
+              ],
+              "english": [
+                {
+                  "text": "You all (you formal),",
+                  "role": "subject",
+                  "layer": "always",
+                  "toggleable": false
+                },
+                {
+                  "text": "tell",
+                  "role": "verb",
+                  "layer": "always",
+                  "toggleable": false
+                },
+                {
+                  "text": "the",
+                  "role": "direct_object",
+                  "part": "preposition",
+                  "layer": "always",
+                  "toggleable": false
+                },
+                {
+                  "text": "good",
+                  "role": "direct_object",
+                  "part": "adjective",
+                  "layer": "adjectives",
+                  "toggleable": true
+                },
+                {
+                  "text": "story",
+                  "role": "direct_object",
+                  "part": "noun",
+                  "layer": "always",
+                  "toggleable": false
+                },
+                {
+                  "text": "to the",
+                  "role": "indirect_object",
+                  "part": "preposition",
+                  "layer": "always",
+                  "toggleable": false
+                },
+                {
+                  "text": "kind",
+                  "role": "indirect_object",
+                  "part": "adjective",
+                  "layer": "adjectives",
+                  "toggleable": true
+                },
+                {
+                  "text": "neighbor",
+                  "role": "indirect_object",
+                  "part": "noun",
+                  "layer": "always",
+                  "toggleable": false
+                }
+              ]
             },
             "georgian_verb_form": "უთხარით",
             "person": "2pl",

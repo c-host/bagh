@@ -89,6 +89,18 @@ class ConfigManager:
             / "data"
             / "databases"
             / "adjective_database.json",
+            "verbal_noun_database": self.paths["src_dir"]
+            / "data"
+            / "databases"
+            / "verbal_noun_database.json",
+            "adverb_database": self.paths["src_dir"]
+            / "data"
+            / "databases"
+            / "adverb_database.json",
+            "surface_noun_database": self.paths["src_dir"]
+            / "data"
+            / "databases"
+            / "surface_noun_database.json",
             # Reference files
             "gloss_reference": self.paths["src_dir"]
             / "data"

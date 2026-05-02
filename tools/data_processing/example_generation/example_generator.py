@@ -1,151 +1,88 @@
 #!/usr/bin/env python3
 """
-Example Generator for Georgian Verb Example System
+Compositional example sentence generator.
 
-This module generates examples for Georgian verbs with:
-- Complete example generation for all argument patterns
-- Deterministic generation for consistency
-- Produces structure data for easy consumption by html_generator.py and external_data_generator.py
-- A1-A2 vocabulary level focus
+This generator emits tokenized, layered examples:
+ - layer "always": always visible
+ - layer "adjectives": adjective tokens
+ - layer "adverbs": adverb tokens
 """
 
 import logging
 from typing import Dict, List, Optional, Tuple, Any
-from pathlib import Path
-import json
 
-from tools.data_processing.example_generation.argument_processor import (
-    ArgumentProcessor,
-)
-from tools.data_processing.verb_conjugation import (
-    get_conjugation_form,
-)
+from tools.data_processing.example_generation.argument_processor import ArgumentProcessor
+from tools.data_processing.verb_conjugation import get_conjugation_form
 from tools.utils.shared_gloss_utils import (
     TENSE_MAPPING,
     REVERSE_TENSE_MAPPING,
     CASE_NAMES,
     ROLE_DESCRIPTIONS,
 )
-
-# Import Unicode-safe logging utilities
 from tools.utils.unicode_console import safe_log
 
-# Get the logger for this module
 logger = logging.getLogger(__name__)
 
 
 class ExampleGenerationError(Exception):
-    """Raised when example generation fails"""
-
-    pass
+    """Raised when example generation fails."""
 
 
 class ExampleGenerator:
     def __init__(self):
-        """Initialize the example generator with unified argument processor"""
         self.argument_processor = ArgumentProcessor()
-
-        # Use shared constants from shared_gloss_utils
         self.case_names = CASE_NAMES
         self.role_descriptions = ROLE_DESCRIPTIONS
         self.tense_mapping = TENSE_MAPPING
         self.reverse_tense_mapping = REVERSE_TENSE_MAPPING
-
-        # Person lists for different tense types
-        self.IMPERATIVE_PERSONS = ["2sg", "2pl"]  # Order: 2sg, 2pl
-        self.STANDARD_PERSONS = ["1sg", "3sg", "3pl"]  # Order: 1sg, 3sg, 3pl
-
-        # Database type mappings
+        self.IMPERATIVE_PERSONS = ["2sg", "2pl"]
+        self.STANDARD_PERSONS = ["1sg", "3sg", "3pl"]
         self.DATABASE_TYPE_MAPPING = {
             "subject": "subjects",
             "direct_object": "direct_objects",
             "indirect_object": "indirect_objects",
         }
 
-    def _should_include_subject(self, person: str) -> bool:
+    def _get_default_composition_orders(self, syntax: Dict[str, Any]) -> Tuple[List[str], List[str]]:
         """
-        Determine if subject should be included based on person.
+        Determine token order from syntax configuration, without requiring exampleComposition.
 
-        Args:
-            person: Person form (1sg, 2sg, 3sg, 1pl, 2pl, 3pl)
-
-        Returns:
-            True if subject should be included, False otherwise
+        Priority:
+        1) Locative surface inclusion pattern
+        2) Verbal noun inclusion (modal-like) pattern
+        3) Generic default pattern
         """
-        # Hardcoded logic: only include subjects for 3rd person (3sg, 3pl)
-        # Exclude subjects for 1st and 2nd person (1sg, 1pl, 2sg, 2pl)
-        return person in ["3sg", "3pl"]
+        complements = syntax.get("complements", {}) if syntax else {}
+        adjuncts = syntax.get("adjuncts", {}) if syntax else {}
 
-    def _build_component(
-        self,
-        verb_id: int,
-        tense: str,
-        person: str,
-        arg_type: str,
-        arg_data: Dict,
-        raw_gloss: str,
-        verb_semantics: str,
-        verb_data: Optional[Dict] = None,
-        include_preposition: bool = False,
-        capitalize_preposition: bool = False,
-    ) -> Tuple[str, Dict, Dict]:
-        """
-        Generic method to build any argument component (subject, direct_object, indirect_object).
+        has_verbal_noun = bool(complements.get("verbalNoun"))
+        has_locative_surface = bool(adjuncts.get("locativeSurface"))
 
-        Args:
-            verb_id: Verb identifier
-            tense: Verb tense
-            person: Verb person
-            arg_type: Type of argument
-            arg_data: Argument data
-            raw_gloss: Raw gloss specification
-            verb_semantics: Verb semantic information
-            verb_data: Verb data dictionary
-            include_preposition: Whether to include preposition
-            capitalize_preposition: Whether to capitalize preposition
+        if has_locative_surface:
+            return (
+                ["locative_surface", "subject", "direct_object", "verb"],
+                ["subject", "verb", "direct_object", "locative_surface"],
+            )
 
-        Returns:
-            Tuple of (georgian_text, georgian_component, english_component)
-        """
-        # Generate the argument component
-        component_data = self._generate_argument_component(
-            verb_id,
-            tense,
-            person,
-            arg_type,
-            arg_data,
-            raw_gloss,
-            verb_semantics,
-            verb_data,
+        if has_verbal_noun:
+            return (
+                ["subject", "direct_object", "verb", "adverb", "verbal_noun"],
+                ["subject", "verb", "verbal_noun", "direct_object", "adverb"],
+            )
+
+        return (
+            ["subject", "direct_object", "indirect_object", "verb"],
+            ["subject", "verb", "direct_object", "indirect_object"],
         )
 
-        # Build Georgian component
-        georgian_component = {
-            "text": component_data["georgian"],
-            "case": component_data["case_marking"]["case"],
-            "role": arg_type,
-        }
+    def _should_include_subject(self, person: str) -> bool:
+        return person in ["3sg", "3pl"]
 
-        # Build English component
-        if verb_data:
-            english_text = self._build_argument_english_text(
-                verb_data, person, arg_type, include_preposition, capitalize_preposition
-            )
-        else:
-            raise ValueError(
-                f"Verb data is required for {arg_type} argument generation"
-            )
-
-        english_component = {
-            "text": english_text,
-            "role": arg_type,
-        }
-
-        # Add person info for subjects
-        if arg_type == "subject":
-            english_component["person"] = person
-
-        return component_data["georgian"], georgian_component, english_component
+    def _append_role_tokens(
+        self, role_tokens: Dict[str, List[Dict[str, Any]]], role: str, tokens: List[Dict[str, Any]]
+    ) -> None:
+        if tokens:
+            role_tokens[role] = tokens
 
     def _build_verb_component(
         self,
@@ -154,55 +91,164 @@ class ExampleGenerator:
         georgian_verb_form: str,
         verb_data: Optional[Dict] = None,
         effective_preverb: str = "",
-    ) -> Tuple[str, Dict, Dict]:
-        """
-        Build verb component for both Georgian and English.
-
-        Args:
-            tense: Verb tense
-            person: Verb person
-            georgian_verb_form: Georgian verb form
-            verb_data: Verb data dictionary
-            effective_preverb: Effective preverb being used
-
-        Returns:
-            Tuple of (georgian_text, georgian_component, english_component)
-        """
+    ) -> Tuple[Dict[str, Any], Dict[str, Any]]:
         if tense == "Opt" and georgian_verb_form != "-":
-            # Optative tense: add "უნდა" prefix
             georgian_text = f"უნდა {georgian_verb_form}"
-            georgian_component = {
-                "text": georgian_text,
-                "role": "verb",
-            }
-            english_component = {
-                "text": f"should {self._get_verb_translation(verb_data, self.tense_mapping.get(tense, tense), effective_preverb)}",
-                "role": "verb",
-            }
+            english_text = f"should {self._get_verb_translation(verb_data, self.tense_mapping.get(tense, tense), effective_preverb)}"
         else:
-            # Regular tense
             georgian_text = georgian_verb_form
-            georgian_component = {
-                "text": georgian_text,
-                "role": "verb",
-            }
-            english_component = {
-                "text": self._get_verb_translation(
-                    verb_data,
-                    self.tense_mapping.get(tense, tense),
-                    effective_preverb,
-                ),
-                "role": "verb",
-            }
-
-        # Apply subject-verb agreement if verb_data is available
-        if verb_data:
-            mapped_tense = self.tense_mapping.get(tense, tense)
-            english_component["text"] = self._apply_subject_verb_agreement(
-                english_component["text"], mapped_tense, person
+            english_text = self._get_verb_translation(
+                verb_data, self.tense_mapping.get(tense, tense), effective_preverb
             )
 
-        return georgian_text, georgian_component, english_component
+        if verb_data:
+            mapped_tense = self.tense_mapping.get(tense, tense)
+            english_text = self._apply_subject_verb_agreement(
+                english_text, mapped_tense, person
+            )
+        return (
+            {"text": georgian_text, "role": "verb", "layer": "always", "toggleable": False},
+            {"text": english_text, "role": "verb", "layer": "always", "toggleable": False},
+        )
+
+    def _compose_by_order(
+        self, order: List[str], role_tokens: Dict[str, List[Dict[str, Any]]]
+    ) -> List[Dict[str, Any]]:
+        output: List[Dict[str, Any]] = []
+        for role in order:
+            output.extend(role_tokens.get(role, []))
+        return output
+
+    def _tokens_to_text(self, tokens: List[Dict[str, Any]]) -> str:
+        return " ".join([t["text"] for t in tokens if t.get("text")])
+
+    def _capitalize_sentence(self, sentence: str) -> str:
+        if not sentence:
+            return sentence
+        return sentence[0].upper() + sentence[1:]
+
+    def _make_component_summary(self, tokens: List[Dict[str, Any]], role: str, person: str = "") -> Dict[str, Any]:
+        text = self._tokens_to_text(tokens)
+        result = {"text": text, "role": role}
+        if person:
+            result["person"] = person
+        return result
+
+    def _build_argument_tokens(
+        self,
+        person: str,
+        role: str,
+        role_config: Dict[str, Any],
+        role_case: str,
+        english_prefix: str = "",
+    ) -> Tuple[List[Dict[str, Any]], List[Dict[str, Any]], Dict[str, Any], Dict[str, Any]]:
+        noun_key = role_config.get("noun", "")
+        adjective_key = role_config.get("adjective", "")
+        if not noun_key:
+            raise ValueError(f"Missing noun for role={role}, person={person}")
+
+        number = "plural" if (person == "3pl" and role == "subject") else "singular"
+        noun_ge = self.argument_processor.get_case_form(
+            noun_key, role_case.lower(), self.argument_processor.databases, number
+        )
+        noun_en = self.argument_processor.get_english_translation(
+            noun_key, self.argument_processor.databases, "noun", number
+        )
+
+        ge_tokens: List[Dict[str, Any]] = []
+        en_tokens: List[Dict[str, Any]] = []
+
+        if english_prefix:
+            en_tokens.append(
+                {"text": english_prefix, "role": role, "part": "preposition", "layer": "always", "toggleable": False}
+            )
+
+        if adjective_key:
+            adj_ge = self.argument_processor.get_adjective_form(
+                adjective_key, role_case.lower(), self.argument_processor.databases
+            )
+            adj_en = self.argument_processor.get_english_translation(
+                adjective_key, self.argument_processor.databases, "adjective", "singular"
+            )
+            ge_tokens.append(
+                {"text": adj_ge, "role": role, "part": "adjective", "layer": "adjectives", "toggleable": True}
+            )
+            en_tokens.append(
+                {"text": adj_en, "role": role, "part": "adjective", "layer": "adjectives", "toggleable": True}
+            )
+
+        ge_tokens.append(
+            {"text": noun_ge, "role": role, "part": "noun", "layer": "always", "toggleable": False}
+        )
+        en_tokens.append(
+            {"text": noun_en, "role": role, "part": "noun", "layer": "always", "toggleable": False}
+        )
+
+        ge_component = {"text": self._tokens_to_text(ge_tokens), "case": role_case.lower(), "role": role}
+        en_component = self._make_component_summary(en_tokens, role, person if role == "subject" else "")
+
+        return ge_tokens, en_tokens, ge_component, en_component
+
+    def _build_verbal_noun_tokens(
+        self, verb_data: Dict[str, Any], person: str
+    ) -> Tuple[List[Dict[str, Any]], List[Dict[str, Any]], List[Dict[str, Any]], List[Dict[str, Any]]]:
+        complements = verb_data.get("syntax", {}).get("complements", {})
+        verbal_noun_cfg = complements.get("verbalNoun")
+        if not verbal_noun_cfg:
+            return [], [], [], []
+
+        person_cfg = self.argument_processor.get_person_keyed_config(verbal_noun_cfg, person)
+        verbal_noun_key = person_cfg.get("verbal_noun")
+        adverb_key = person_cfg.get("adverb")
+        if verbal_noun_cfg.get("required") and not verbal_noun_key:
+            raise ValueError(f"Required verbal noun missing for person={person}")
+        if not verbal_noun_key:
+            return [], [], [], []
+
+        verbal_noun_entry = self.argument_processor.get_verbal_noun_entry(verbal_noun_key)
+        ge_vn_tokens: List[Dict[str, Any]] = []
+        en_vn_tokens: List[Dict[str, Any]] = []
+        ge_adv_tokens: List[Dict[str, Any]] = []
+        en_adv_tokens: List[Dict[str, Any]] = []
+
+        if adverb_key:
+            adverb_entry = self.argument_processor.get_adverb_entry(adverb_key)
+            ge_adv_tokens.append(
+                {"text": adverb_entry.get("georgian", ""), "role": "adverb", "layer": "adverbs", "toggleable": True}
+            )
+            en_adv_tokens.append(
+                {"text": adverb_entry.get("english_literal", ""), "role": "adverb", "layer": "adverbs", "toggleable": True}
+            )
+
+        ge_vn_tokens.append(
+            {"text": verbal_noun_entry.get("georgian", ""), "role": "verbal_noun", "layer": "always", "toggleable": False}
+        )
+        en_vn_tokens.append(
+            {"text": verbal_noun_entry.get("english_literal", ""), "role": "verbal_noun", "layer": "always", "toggleable": False}
+        )
+        return ge_vn_tokens, en_vn_tokens, ge_adv_tokens, en_adv_tokens
+
+    def _build_locative_surface_tokens(
+        self, verb_data: Dict[str, Any], person: str
+    ) -> Tuple[List[Dict[str, Any]], List[Dict[str, Any]]]:
+        adjuncts = verb_data.get("syntax", {}).get("adjuncts", {})
+        loc_cfg = adjuncts.get("locativeSurface")
+        if not loc_cfg:
+            return [], []
+
+        person_cfg = self.argument_processor.get_person_keyed_config(loc_cfg, person)
+        surface_noun = person_cfg.get("surface_noun")
+        postposition = person_cfg.get("postposition", "on")
+        if loc_cfg.get("required") and not surface_noun:
+            raise ValueError(f"Required locative surface missing for person={person}")
+        if not surface_noun:
+            return [], []
+
+        ge, en = self.argument_processor.get_surface_phrase(surface_noun, postposition)
+        return (
+            [{"text": ge, "role": "locative_surface", "layer": "always", "toggleable": False}],
+            [{"text": en, "role": "locative_surface", "layer": "always", "toggleable": False}],
+        )
 
     def generate_example_structured(
         self,
@@ -215,28 +261,8 @@ class ExampleGenerator:
         verb_data: Optional[Dict] = None,
         effective_preverb: str = "",
     ) -> Dict[str, Any]:
-        """
-        Generate a complete example with structured data.
-
-        Returns structured data optimized for consumption by html_generator.py and other consumers.
-
-        Args:
-            verb_id: Verb identifier for deterministic selection
-            tense: Verb tense
-            person: Verb person
-            raw_gloss: Raw gloss specification
-            verb_semantics: Verb semantic information
-            georgian_verb_form: The Georgian verb form to use
-            verb_data: Verb data dictionary
-            effective_preverb: Effective preverb being used (after fallbacks)
-
-        Returns:
-            Dictionary with structured example data
-        """
         try:
-            # Parse the raw gloss to understand argument structure
             if not raw_gloss or not raw_gloss.strip():
-                # No raw gloss provided - generation should fail
                 raise ValueError(
                     "Raw gloss is required for example generation - no defaults allowed"
                 )
@@ -250,111 +276,115 @@ class ExampleGenerator:
                     f"Failed to parse raw gloss '{raw_gloss}': {e}. Raw gloss must be valid."
                 )
 
-            # Build the example components
-            georgian_parts = []
-            georgian_components = {}
-            english_components = {}
+            ge_role_tokens: Dict[str, List[Dict[str, Any]]] = {}
+            en_role_tokens: Dict[str, List[Dict[str, Any]]] = {}
+            georgian_components: Dict[str, Dict[str, Any]] = {}
+            english_components: Dict[str, Dict[str, Any]] = {}
 
-            # Add subject if needed and available (SOV order: Subject first)
+            syntax = verb_data.get("syntax", {}) if verb_data else {}
+            syntax_args = syntax.get("arguments", {})
+            syntax_prepositions = syntax.get("prepositions", {})
+
             if "subject" in arguments and self._should_include_subject(person):
-                georgian_text, georgian_component, english_component = (
-                    self._build_component(
-                        verb_id,
-                        tense,
-                        person,
-                        "subject",
-                        arguments["subject"],
-                        raw_gloss,
-                        verb_semantics,
-                        verb_data,
-                        include_preposition=True,
-                        capitalize_preposition=True,
-                    )
+                subject_cfg = syntax_args.get("subject", {}).get(person, {})
+                ge_t, en_t, ge_c, en_c = self._build_argument_tokens(
+                    person,
+                    "subject",
+                    subject_cfg,
+                    arguments["subject"].get("case", "Nom"),
+                    syntax_prepositions.get("subject", ""),
                 )
-                georgian_parts.append(georgian_text)
-                georgian_components["subject"] = georgian_component
-                english_components["subject"] = english_component
-
+                georgian_components["subject"] = ge_c
+                english_components["subject"] = en_c
+                self._append_role_tokens(ge_role_tokens, "subject", ge_t)
+                self._append_role_tokens(en_role_tokens, "subject", en_t)
             elif person in ["1sg", "2sg", "1pl", "2pl"]:
-                # For 1st and 2nd person, include subject pronouns
-                # Georgian doesn't need explicit subjects for these persons, so don't add to georgian_components
-
-                # Add English subject
+                en_role_tokens["subject"] = [
+                    {
+                        "text": self._get_person_text(person),
+                        "role": "subject",
+                        "layer": "always",
+                        "toggleable": False,
+                    }
+                ]
                 english_components["subject"] = {
                     "text": self._get_person_text(person),
                     "role": "subject",
                     "person": person,
                 }
 
-            # Add direct object if available (SOV order: Direct Object second)
             if "direct_object" in arguments:
-                georgian_text, georgian_component, english_component = (
-                    self._build_component(
-                        verb_id,
-                        tense,
-                        person,
-                        "direct_object",
-                        arguments["direct_object"],
-                        raw_gloss,
-                        verb_semantics,
-                        verb_data,
-                        include_preposition=True,
-                    )
+                do_cfg = syntax_args.get("direct_object", {}).get(person, {})
+                ge_t, en_t, ge_c, en_c = self._build_argument_tokens(
+                    person,
+                    "direct_object",
+                    do_cfg,
+                    arguments["direct_object"].get("case", "Nom"),
+                    syntax_prepositions.get("direct_object", ""),
                 )
-                georgian_parts.append(georgian_text)
-                georgian_components["direct_object"] = georgian_component
-                english_components["direct_object"] = english_component
+                georgian_components["direct_object"] = ge_c
+                english_components["direct_object"] = en_c
+                self._append_role_tokens(ge_role_tokens, "direct_object", ge_t)
+                self._append_role_tokens(en_role_tokens, "direct_object", en_t)
 
-            # Add indirect object if available (SOV order: Indirect Object third)
             if "indirect_object" in arguments:
-                georgian_text, georgian_component, english_component = (
-                    self._build_component(
-                        verb_id,
-                        tense,
-                        person,
-                        "indirect_object",
-                        arguments["indirect_object"],
-                        raw_gloss,
-                        verb_semantics,
-                        verb_data,
-                        include_preposition=True,
-                    )
+                io_cfg = syntax_args.get("indirect_object", {}).get(person, {})
+                ge_t, en_t, ge_c, en_c = self._build_argument_tokens(
+                    person,
+                    "indirect_object",
+                    io_cfg,
+                    arguments["indirect_object"].get("case", "Dat"),
+                    syntax_prepositions.get("indirect_object", ""),
                 )
-                georgian_parts.append(georgian_text)
-                georgian_components["indirect_object"] = georgian_component
-                english_components["indirect_object"] = english_component
+                georgian_components["indirect_object"] = ge_c
+                english_components["indirect_object"] = en_c
+                self._append_role_tokens(ge_role_tokens, "indirect_object", ge_t)
+                self._append_role_tokens(en_role_tokens, "indirect_object", en_t)
 
-            # Add the verb form (SOV order: Verb last)
-            georgian_text, georgian_component, english_component = (
-                self._build_verb_component(
-                    tense, person, georgian_verb_form, verb_data, effective_preverb
+            ge_vn, en_vn, ge_adv, en_adv = self._build_verbal_noun_tokens(verb_data or {}, person)
+            self._append_role_tokens(ge_role_tokens, "verbal_noun", ge_vn)
+            self._append_role_tokens(en_role_tokens, "verbal_noun", en_vn)
+            self._append_role_tokens(ge_role_tokens, "adverb", ge_adv)
+            self._append_role_tokens(en_role_tokens, "adverb", en_adv)
+            if ge_vn:
+                georgian_components["verbal_noun"] = self._make_component_summary(ge_vn, "verbal_noun")
+                english_components["verbal_noun"] = self._make_component_summary(en_vn, "verbal_noun")
+            if ge_adv:
+                georgian_components["adverb"] = self._make_component_summary(ge_adv, "adverb")
+                english_components["adverb"] = self._make_component_summary(en_adv, "adverb")
+
+            ge_loc, en_loc = self._build_locative_surface_tokens(verb_data or {}, person)
+            self._append_role_tokens(ge_role_tokens, "locative_surface", ge_loc)
+            self._append_role_tokens(en_role_tokens, "locative_surface", en_loc)
+            if ge_loc:
+                georgian_components["locative_surface"] = self._make_component_summary(
+                    ge_loc, "locative_surface"
                 )
+                english_components["locative_surface"] = self._make_component_summary(
+                    en_loc, "locative_surface"
+                )
+
+            ge_v_tok, en_v_tok = self._build_verb_component(
+                tense, person, georgian_verb_form, verb_data, effective_preverb
             )
-            georgian_parts.append(georgian_text)
-            georgian_components["verb"] = georgian_component
-            english_components["verb"] = english_component
+            ge_role_tokens["verb"] = [ge_v_tok]
+            en_role_tokens["verb"] = [en_v_tok]
+            georgian_components["verb"] = {"text": ge_v_tok["text"], "role": "verb"}
+            english_components["verb"] = {"text": en_v_tok["text"], "role": "verb"}
 
-            # Combine all parts
-            georgian_sentence = " ".join(georgian_parts)
+            ge_order, en_order = self._get_default_composition_orders(syntax)
 
-            # Build English sentence
-            english_parts = []
-            if "subject" in english_components:
-                english_parts.append(english_components["subject"]["text"])
-            if "verb" in english_components:
-                english_parts.append(english_components["verb"]["text"])
-            if "direct_object" in english_components:
-                english_parts.append(english_components["direct_object"]["text"])
-            if "indirect_object" in english_components:
-                english_parts.append(english_components["indirect_object"]["text"])
-
-            english_sentence = " ".join(english_parts)
+            ge_tokens = self._compose_by_order(ge_order, ge_role_tokens)
+            en_tokens = self._compose_by_order(en_order, en_role_tokens)
+            georgian_sentence = self._tokens_to_text(ge_tokens)
+            english_sentence = self._capitalize_sentence(self._tokens_to_text(en_tokens))
 
             return {
                 "georgian": georgian_sentence,
                 "georgian_components": georgian_components,
                 "english": english_sentence,
                 "english_components": english_components,
+                "tokens": {"georgian": ge_tokens, "english": en_tokens},
                 "georgian_verb_form": georgian_verb_form,
                 "person": person,
                 "effective_preverb": effective_preverb,
@@ -370,7 +400,6 @@ class ExampleGenerator:
             raise ExampleGenerationError(f"Structured example generation failed: {e}")
 
     def _get_english_base_form(self, key: str, number: str, database_type: str) -> str:
-        """Get English base form from database"""
         try:
             return self.argument_processor.get_english_translation(
                 key, self.argument_processor.databases, "noun", number
@@ -464,109 +493,7 @@ class ExampleGenerator:
 
         return verb_translation
 
-    def _generate_argument_component(
-        self,
-        verb_id: int,
-        tense: str,
-        person: str,
-        arg_type: str,  # 'subject', 'direct_object', 'indirect_object'
-        arg_data: Dict,
-        raw_gloss: str,
-        verb_semantics: str,
-        verb_data: Optional[Dict] = None,
-    ) -> Dict[str, Any]:
-        """Unified method to generate any argument component"""
-        try:
-            # Get argument data
-            syntax = verb_data.get("syntax", {}) if verb_data else {}
-            arguments = syntax.get("arguments", {})
-            arg_args = arguments.get(arg_type, {})
-
-            # Get noun and adjective for this person
-            person_data = arg_args.get(person, {})
-            noun_key = person_data.get("noun", "")
-            adjective_key = person_data.get("adjective", "")
-
-            # Get case form - fail if not specified
-            case = arg_data.get("case")
-
-            # Validate all required data using centralized validation
-            self._validate_argument_data(
-                verb_id, person, arg_type, noun_key, adjective_key, case
-            )
-
-            # Convert case to lowercase
-            case = case.lower()
-
-            # Handle number for subjects (plural for 3pl)
-            number = (
-                "plural" if person == "3pl" and arg_type == "subject" else "singular"
-            )
-
-            # Get case form from selected argument - pass number parameter for 3pl subjects
-            case_form = self.argument_processor.get_case_form(
-                noun_key, case, self.argument_processor.databases, number
-            )
-
-            # Get adjective form (now mandatory)
-            adj_case_form = self.argument_processor.get_adjective_form(
-                adjective_key, case, self.argument_processor.databases
-            )
-            georgian_text = f"{adj_case_form} {case_form}"
-
-            # Create HTML with case marking and role
-            html = f'<span data-case="{case}" data-role="{arg_type.replace("_", "-")}">{georgian_text}</span>'
-
-            return {
-                "georgian": georgian_text,
-                "english": f"{georgian_text} ({self.case_names.get(case, case.title())})",
-                "html": html,
-                "case_marking": {"case": case, "word": case_form},
-            }
-
-        except Exception as e:
-            error_msg = f"Failed to generate {arg_type} component for verb {verb_id}, person {person}: {e}"
-            guidance = "Please check the verb configuration and ensure all required argument data is properly configured."
-            logger.error(f"{error_msg}. {guidance}")
-            logger.exception(
-                "Argument component traceback (verb=%s, tense=%s, person=%s, arg_type=%s)",
-                verb_id,
-                tense,
-                person,
-                arg_type,
-            )
-            raise ValueError(f"{error_msg}. {guidance}")
-
-    def _validate_argument_data(
-        self,
-        verb_id: int,
-        person: str,
-        arg_type: str,
-        noun_key: str,
-        adjective_key: str,
-        case: str,
-    ) -> None:
-        """Validate that required argument data is present"""
-        # Handle empty noun key
-        if not noun_key:
-            error_msg = f"Missing noun key for {arg_type} argument in person {person} for verb {verb_id}"
-            guidance = f"Please configure the {arg_type} noun in the Arguments section of the verb editor before generating examples."
-            logger.error(f"{error_msg}. {guidance}")
-            raise ValueError(f"{error_msg}. {guidance}")
-
-        # Handle empty adjective key
-        if not adjective_key:
-            error_msg = f"Missing adjective key for {arg_type} argument in person {person} for verb {verb_id}"
-            guidance = f"Please configure the {arg_type} adjective in the Arguments section of the verb editor before generating examples."
-            logger.error(f"{error_msg}. {guidance}")
-            raise ValueError(f"{error_msg}. {guidance}")
-
-        # Handle missing case
-        if not case:
-            error_msg = f"Case not specified for {arg_type} argument in person {person} for verb {verb_id}"
-            guidance = f"Please configure the case for {arg_type} argument in the Arguments section of the verb editor before generating examples."
-            logger.error(f"{error_msg}. {guidance}")
-            raise ValueError(f"{error_msg}. {guidance}")
+    # Legacy component builder removed in favor of tokenized generation.
 
     def _get_verb_translation(
         self,
@@ -669,12 +596,7 @@ class ExampleGenerator:
                 logger.error(f"{error_msg}. {guidance}")
                 raise ValueError(f"{error_msg}. {guidance}")
 
-            # Handle empty adjective key
-            if not adjective_key:
-                error_msg = f"Missing adjective key for {argument_type} argument in person {person} for verb {verb_data.get('id', 'N/A')}"
-                guidance = f"Please configure the {argument_type} adjective in the Arguments section of the verb editor before generating examples."
-                logger.error(f"{error_msg}. {guidance}")
-                raise ValueError(f"{error_msg}. {guidance}")
+            # Adjectives are optional in compositional rendering
 
             # Get case form
             case = person_data.get("case", "nom").lower()
@@ -685,11 +607,12 @@ class ExampleGenerator:
                 noun_key, case, self.argument_processor.databases, number
             )
 
-            # Get adjective form (now mandatory)
-            adj_case_form = self.argument_processor.get_adjective_form(
-                adjective_key, case, self.argument_processor.databases
-            )
-            georgian_text = f"{adj_case_form} {case_form}"
+            georgian_text = case_form
+            if adjective_key:
+                adj_case_form = self.argument_processor.get_adjective_form(
+                    adjective_key, case, self.argument_processor.databases
+                )
+                georgian_text = f"{adj_case_form} {case_form}"
 
             # Add definite article if case is Nom or Acc
             if case in ["nom", "acc"]:
@@ -709,8 +632,9 @@ class ExampleGenerator:
                 adjective_key, "singular", "adjectives"
             )
 
-            # Combine adjective and noun
-            english_text = f"{adj_english} {noun_english}"
+            english_text = noun_english
+            if adjective_key:
+                english_text = f"{adj_english} {noun_english}"
 
             # Add preposition if specified
             syntax = verb_data.get("syntax", {}) if verb_data else {}

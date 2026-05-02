@@ -31,11 +31,23 @@
 
 /**
  * @typedef {Object} VerbData
- * @property {string} id - Verb identifier
- * @property {string} infinitive - Verb infinitive form
- * @property {string} meaning - Verb meaning/translation
- * @property {Object} conjugations - Verb conjugations by preverb
- * @property {Array<string>} preverbs - Available preverbs for this verb
+ * @property {Object} base_data - Canonical verb source data
+ * @property {Object} generated_data - Processed examples and analyses
+ */
+
+/**
+ * @typedef {Object} ExampleToken
+ * @property {string} text - Visible token text
+ * @property {string} role - Grammatical role token belongs to
+ * @property {"always"|"adjectives"|"adverbs"} layer - Visibility layer
+ * @property {boolean} toggleable - Whether a toggle can hide this token
+ */
+
+/**
+ * @typedef {Object} GeneratedExample
+ * @property {string} georgian - Full Georgian sentence
+ * @property {string} english - Full English sentence
+ * @property {{georgian: ExampleToken[], english: ExampleToken[]}} tokens - Tokenized example payload
  */
 
 /**

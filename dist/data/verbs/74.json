@@ -185,6 +185,65 @@
                 "role": "verb"
               }
             },
+            "tokens": {
+              "georgian": [
+                {
+                  "text": "გრძელ",
+                  "role": "direct_object",
+                  "part": "adjective",
+                  "layer": "adjectives",
+                  "toggleable": true
+                },
+                {
+                  "text": "წერილს",
+                  "role": "direct_object",
+                  "part": "noun",
+                  "layer": "always",
+                  "toggleable": false
+                },
+                {
+                  "text": "ვთარგმნი",
+                  "role": "verb",
+                  "layer": "always",
+                  "toggleable": false
+                }
+              ],
+              "english": [
+                {
+                  "text": "I",
+                  "role": "subject",
+                  "layer": "always",
+                  "toggleable": false
+                },
+                {
+                  "text": "translate",
+                  "role": "verb",
+                  "layer": "always",
+                  "toggleable": false
+                },
+                {
+                  "text": "the",
+                  "role": "direct_object",
+                  "part": "preposition",
+                  "layer": "always",
+                  "toggleable": false
+                },
+                {
+                  "text": "long",
+                  "role": "direct_object",
+                  "part": "adjective",
+                  "layer": "adjectives",
+                  "toggleable": true
+                },
+                {
+                  "text": "letter",
+                  "role": "direct_object",
+                  "part": "noun",
+                  "layer": "always",
+                  "toggleable": false
+                }
+              ]
+            },
             "georgian_verb_form": "ვთარგმნი",
             "person": "1sg",
             "effective_preverb": "და"
@@ -210,7 +269,7 @@
             "english": "The smart teacher translates the interesting novel",
             "english_components": {
               "subject": {
-                "text": "The smart teacher",
+                "text": "the smart teacher",
                 "role": "subject",
                 "person": "3sg"
               },
@@ -222,6 +281,94 @@
                 "text": "translates",
                 "role": "verb"
               }
+            },
+            "tokens": {
+              "georgian": [
+                {
+                  "text": "ჭკვიანი",
+                  "role": "subject",
+                  "part": "adjective",
+                  "layer": "adjectives",
+                  "toggleable": true
+                },
+                {
+                  "text": "მასწავლებელი",
+                  "role": "subject",
+                  "part": "noun",
+                  "layer": "always",
+                  "toggleable": false
+                },
+                {
+                  "text": "საინტერესო",
+                  "role": "direct_object",
+                  "part": "adjective",
+                  "layer": "adjectives",
+                  "toggleable": true
+                },
+                {
+                  "text": "რომანს",
+                  "role": "direct_object",
+                  "part": "noun",
+                  "layer": "always",
+                  "toggleable": false
+                },
+                {
+                  "text": "თარგმნის",
+                  "role": "verb",
+                  "layer": "always",
+                  "toggleable": false
+                }
+              ],
+              "english": [
+                {
+                  "text": "the",
+                  "role": "subject",
+                  "part": "preposition",
+                  "layer": "always",
+                  "toggleable": false
+                },
+                {
+                  "text": "smart",
+                  "role": "subject",
+                  "part": "adjective",
+                  "layer": "adjectives",
+                  "toggleable": true
+                },
+                {
+                  "text": "teacher",
+                  "role": "subject",
+                  "part": "noun",
+                  "layer": "always",
+                  "toggleable": false
+                },
+                {
+                  "text": "translates",
+                  "role": "verb",
+                  "layer": "always",
+                  "toggleable": false
+                },
+                {
+                  "text": "the",
+                  "role": "direct_object",
+                  "part": "preposition",
+                  "layer": "always",
+                  "toggleable": false
+                },
+                {
+                  "text": "interesting",
+                  "role": "direct_object",
+                  "part": "adjective",
+                  "layer": "adjectives",
+                  "toggleable": true
+                },
+                {
+                  "text": "novel",
+                  "role": "direct_object",
+                  "part": "noun",
+                  "layer": "always",
+                  "toggleable": false
+                }
+              ]
             },
             "georgian_verb_form": "თარგმნის",
             "person": "3sg",
@@ -248,7 +395,7 @@
             "english": "The curious students translate the detailed report",
             "english_components": {
               "subject": {
-                "text": "The curious students",
+                "text": "the curious students",
                 "role": "subject",
                 "person": "3pl"
               },
@@ -260,6 +407,94 @@
                 "text": "translate",
                 "role": "verb"
               }
+            },
+            "tokens": {
+              "georgian": [
+                {
+                  "text": "ცნობისმოყვარე",
+                  "role": "subject",
+                  "part": "adjective",
+                  "layer": "adjectives",
+                  "toggleable": true
+                },
+                {
+                  "text": "სტუდენტები",
+                  "role": "subject",
+                  "part": "noun",
+                  "layer": "always",
+                  "toggleable": false
+                },
+                {
+                  "text": "დეტალურ",
+                  "role": "direct_object",
+                  "part": "adjective",
+                  "layer": "adjectives",
+                  "toggleable": true
+                },
+                {
+                  "text": "ანგარიშს",
+                  "role": "direct_object",
+                  "part": "noun",
+                  "layer": "always",
+                  "toggleable": false
+                },
+                {
+                  "text": "თარგმიან",
+                  "role": "verb",
+                  "layer": "always",
+                  "toggleable": false
+                }
+              ],
+              "english": [
+                {
+                  "text": "the",
+                  "role": "subject",
+                  "part": "preposition",
+                  "layer": "always",
+                  "toggleable": false
+                },
+                {
+                  "text": "curious",
+                  "role": "subject",
+                  "part": "adjective",
+                  "layer": "adjectives",
+                  "toggleable": true
+                },
+                {
+                  "text": "students",
+                  "role": "subject",
+                  "part": "noun",
+                  "layer": "always",
+                  "toggleable": false
+                },
+                {
+                  "text": "translate",
+                  "role": "verb",
+                  "layer": "always",
+                  "toggleable": false
+                },
+                {
+                  "text": "the",
+                  "role": "direct_object",
+                  "part": "preposition",
+                  "layer": "always",
+                  "toggleable": false
+                },
+                {
+                  "text": "detailed",
+                  "role": "direct_object",
+                  "part": "adjective",
+                  "layer": "adjectives",
+                  "toggleable": true
+                },
+                {
+                  "text": "report",
+                  "role": "direct_object",
+                  "part": "noun",
+                  "layer": "always",
+                  "toggleable": false
+                }
+              ]
             },
             "georgian_verb_form": "თარგმიან",
             "person": "3pl",
@@ -296,6 +531,65 @@
                 "role": "verb"
               }
             },
+            "tokens": {
+              "georgian": [
+                {
+                  "text": "გრძელ",
+                  "role": "direct_object",
+                  "part": "adjective",
+                  "layer": "adjectives",
+                  "toggleable": true
+                },
+                {
+                  "text": "წერილს",
+                  "role": "direct_object",
+                  "part": "noun",
+                  "layer": "always",
+                  "toggleable": false
+                },
+                {
+                  "text": "ვთარგმნიდი",
+                  "role": "verb",
+                  "layer": "always",
+                  "toggleable": false
+                }
+              ],
+              "english": [
+                {
+                  "text": "I",
+                  "role": "subject",
+                  "layer": "always",
+                  "toggleable": false
+                },
+                {
+                  "text": "was translating",
+                  "role": "verb",
+                  "layer": "always",
+                  "toggleable": false
+                },
+                {
+                  "text": "the",
+                  "role": "direct_object",
+                  "part": "preposition",
+                  "layer": "always",
+                  "toggleable": false
+                },
+                {
+                  "text": "long",
+                  "role": "direct_object",
+                  "part": "adjective",
+                  "layer": "adjectives",
+                  "toggleable": true
+                },
+                {
+                  "text": "letter",
+                  "role": "direct_object",
+                  "part": "noun",
+                  "layer": "always",
+                  "toggleable": false
+                }
+              ]
+            },
             "georgian_verb_form": "ვთარგმნიდი",
             "person": "1sg",
             "effective_preverb": "და"
@@ -321,7 +615,7 @@
             "english": "The smart teacher was translating the interesting novel",
             "english_components": {
               "subject": {
-                "text": "The smart teacher",
+                "text": "the smart teacher",
                 "role": "subject",
                 "person": "3sg"
               },
@@ -333,6 +627,94 @@
                 "text": "was translating",
                 "role": "verb"
               }
+            },
+            "tokens": {
+              "georgian": [
+                {
+                  "text": "ჭკვიანი",
+                  "role": "subject",
+                  "part": "adjective",
+                  "layer": "adjectives",
+                  "toggleable": true
+                },
+                {
+                  "text": "მასწავლებელი",
+                  "role": "subject",
+                  "part": "noun",
+                  "layer": "always",
+                  "toggleable": false
+                },
+                {
+                  "text": "საინტერესო",
+                  "role": "direct_object",
+                  "part": "adjective",
+                  "layer": "adjectives",
+                  "toggleable": true
+                },
+                {
+                  "text": "რომანს",
+                  "role": "direct_object",
+                  "part": "noun",
+                  "layer": "always",
+                  "toggleable": false
+                },
+                {
+                  "text": "თარგმნიდა",
+                  "role": "verb",
+                  "layer": "always",
+                  "toggleable": false
+                }
+              ],
+              "english": [
+                {
+                  "text": "the",
+                  "role": "subject",
+                  "part": "preposition",
+                  "layer": "always",
+                  "toggleable": false
+                },
+                {
+                  "text": "smart",
+                  "role": "subject",
+                  "part": "adjective",
+                  "layer": "adjectives",
+                  "toggleable": true
+                },
+                {
+                  "text": "teacher",
+                  "role": "subject",
+                  "part": "noun",
+                  "layer": "always",
+                  "toggleable": false
+                },
+                {
+                  "text": "was translating",
+                  "role": "verb",
+                  "layer": "always",
+                  "toggleable": false
+                },
+                {
+                  "text": "the",
+                  "role": "direct_object",
+                  "part": "preposition",
+                  "layer": "always",
+                  "toggleable": false
+                },
+                {
+                  "text": "interesting",
+                  "role": "direct_object",
+                  "part": "adjective",
+                  "layer": "adjectives",
+                  "toggleable": true
+                },
+                {
+                  "text": "novel",
+                  "role": "direct_object",
+                  "part": "noun",
+                  "layer": "always",
+                  "toggleable": false
+                }
+              ]
             },
             "georgian_verb_form": "თარგმნიდა",
             "person": "3sg",
@@ -359,7 +741,7 @@
             "english": "The curious students were translating the detailed report",
             "english_components": {
               "subject": {
-                "text": "The curious students",
+                "text": "the curious students",
                 "role": "subject",
                 "person": "3pl"
               },
@@ -371,6 +753,94 @@
                 "text": "were translating",
                 "role": "verb"
               }
+            },
+            "tokens": {
+              "georgian": [
+                {
+                  "text": "ცნობისმოყვარე",
+                  "role": "subject",
+                  "part": "adjective",
+                  "layer": "adjectives",
+                  "toggleable": true
+                },
+                {
+                  "text": "სტუდენტები",
+                  "role": "subject",
+                  "part": "noun",
+                  "layer": "always",
+                  "toggleable": false
+                },
+                {
+                  "text": "დეტალურ",
+                  "role": "direct_object",
+                  "part": "adjective",
+                  "layer": "adjectives",
+                  "toggleable": true
+                },
+                {
+                  "text": "ანგარიშს",
+                  "role": "direct_object",
+                  "part": "noun",
+                  "layer": "always",
+                  "toggleable": false
+                },
+                {
+                  "text": "თარგმნიდნენ",
+                  "role": "verb",
+                  "layer": "always",
+                  "toggleable": false
+                }
+              ],
+              "english": [
+                {
+                  "text": "the",
+                  "role": "subject",
+                  "part": "preposition",
+                  "layer": "always",
+                  "toggleable": false
+                },
+                {
+                  "text": "curious",
+                  "role": "subject",
+                  "part": "adjective",
+                  "layer": "adjectives",
+                  "toggleable": true
+                },
+                {
+                  "text": "students",
+                  "role": "subject",
+                  "part": "noun",
+                  "layer": "always",
+                  "toggleable": false
+                },
+                {
+                  "text": "were translating",
+                  "role": "verb",
+                  "layer": "always",
+                  "toggleable": false
+                },
+                {
+                  "text": "the",
+                  "role": "direct_object",
+                  "part": "preposition",
+                  "layer": "always",
+                  "toggleable": false
+                },
+                {
+                  "text": "detailed",
+                  "role": "direct_object",
+                  "part": "adjective",
+                  "layer": "adjectives",
+                  "toggleable": true
+                },
+                {
+                  "text": "report",
+                  "role": "direct_object",
+                  "part": "noun",
+                  "layer": "always",
+                  "toggleable": false
+                }
+              ]
             },
             "georgian_verb_form": "თარგმნიდნენ",
             "person": "3pl",
@@ -407,6 +877,65 @@
                 "role": "verb"
               }
             },
+            "tokens": {
+              "georgian": [
+                {
+                  "text": "გრძელ",
+                  "role": "direct_object",
+                  "part": "adjective",
+                  "layer": "adjectives",
+                  "toggleable": true
+                },
+                {
+                  "text": "წერილს",
+                  "role": "direct_object",
+                  "part": "noun",
+                  "layer": "always",
+                  "toggleable": false
+                },
+                {
+                  "text": "დავთარგმნი",
+                  "role": "verb",
+                  "layer": "always",
+                  "toggleable": false
+                }
+              ],
+              "english": [
+                {
+                  "text": "I",
+                  "role": "subject",
+                  "layer": "always",
+                  "toggleable": false
+                },
+                {
+                  "text": "will translate",
+                  "role": "verb",
+                  "layer": "always",
+                  "toggleable": false
+                },
+                {
+                  "text": "the",
+                  "role": "direct_object",
+                  "part": "preposition",
+                  "layer": "always",
+                  "toggleable": false
+                },
+                {
+                  "text": "long",
+                  "role": "direct_object",
+                  "part": "adjective",
+                  "layer": "adjectives",
+                  "toggleable": true
+                },
+                {
+                  "text": "letter",
+                  "role": "direct_object",
+                  "part": "noun",
+                  "layer": "always",
+                  "toggleable": false
+                }
+              ]
+            },
             "georgian_verb_form": "დავთარგმნი",
             "person": "1sg",
             "effective_preverb": "და"
@@ -432,7 +961,7 @@
             "english": "The smart teacher will translate the interesting novel",
             "english_components": {
               "subject": {
-                "text": "The smart teacher",
+                "text": "the smart teacher",
                 "role": "subject",
                 "person": "3sg"
               },
@@ -444,6 +973,94 @@
                 "text": "will translate",
                 "role": "verb"
               }
+            },
+            "tokens": {
+              "georgian": [
+                {
+                  "text": "ჭკვიანი",
+                  "role": "subject",
+                  "part": "adjective",
+                  "layer": "adjectives",
+                  "toggleable": true
+                },
+                {
+                  "text": "მასწავლებელი",
+                  "role": "subject",
+                  "part": "noun",
+                  "layer": "always",
+                  "toggleable": false
+                },
+                {
+                  "text": "საინტერესო",
+                  "role": "direct_object",
+                  "part": "adjective",
+                  "layer": "adjectives",
+                  "toggleable": true
+                },
+                {
+                  "text": "რომანს",
+                  "role": "direct_object",
+                  "part": "noun",
+                  "layer": "always",
+                  "toggleable": false
+                },
+                {
+                  "text": "დათარგმნის",
+                  "role": "verb",
+                  "layer": "always",
+                  "toggleable": false
+                }
+              ],
+              "english": [
+                {
+                  "text": "the",
+                  "role": "subject",
+                  "part": "preposition",
+                  "layer": "always",
+                  "toggleable": false
+                },
+                {
+                  "text": "smart",
+                  "role": "subject",
+                  "part": "adjective",
+                  "layer": "adjectives",
+                  "toggleable": true
+                },
+                {
+                  "text": "teacher",
+                  "role": "subject",
+                  "part": "noun",
+                  "layer": "always",
+                  "toggleable": false
+                },
+                {
+                  "text": "will translate",
+                  "role": "verb",
+                  "layer": "always",
+                  "toggleable": false
+                },
+                {
+                  "text": "the",
+                  "role": "direct_object",
+                  "part": "preposition",
+                  "layer": "always",
+                  "toggleable": false
+                },
+                {
+                  "text": "interesting",
+                  "role": "direct_object",
+                  "part": "adjective",
+                  "layer": "adjectives",
+                  "toggleable": true
+                },
+                {
+                  "text": "novel",
+                  "role": "direct_object",
+                  "part": "noun",
+                  "layer": "always",
+                  "toggleable": false
+                }
+              ]
             },
             "georgian_verb_form": "დათარგმნის",
             "person": "3sg",
@@ -470,7 +1087,7 @@
             "english": "The curious students will translate the detailed report",
             "english_components": {
               "subject": {
-                "text": "The curious students",
+                "text": "the curious students",
                 "role": "subject",
                 "person": "3pl"
               },
@@ -482,6 +1099,94 @@
                 "text": "will translate",
                 "role": "verb"
               }
+            },
+            "tokens": {
+              "georgian": [
+                {
+                  "text": "ცნობისმოყვარე",
+                  "role": "subject",
+                  "part": "adjective",
+                  "layer": "adjectives",
+                  "toggleable": true
+                },
+                {
+                  "text": "სტუდენტები",
+                  "role": "subject",
+                  "part": "noun",
+                  "layer": "always",
+                  "toggleable": false
+                },
+                {
+                  "text": "დეტალურ",
+                  "role": "direct_object",
+                  "part": "adjective",
+                  "layer": "adjectives",
+                  "toggleable": true
+                },
+                {
+                  "text": "ანგარიშს",
+                  "role": "direct_object",
+                  "part": "noun",
+                  "layer": "always",
+                  "toggleable": false
+                },
+                {
+                  "text": "დათარგმინენ",
+                  "role": "verb",
+                  "layer": "always",
+                  "toggleable": false
+                }
+              ],
+              "english": [
+                {
+                  "text": "the",
+                  "role": "subject",
+                  "part": "preposition",
+                  "layer": "always",
+                  "toggleable": false
+                },
+                {
+                  "text": "curious",
+                  "role": "subject",
+                  "part": "adjective",
+                  "layer": "adjectives",
+                  "toggleable": true
+                },
+                {
+                  "text": "students",
+                  "role": "subject",
+                  "part": "noun",
+                  "layer": "always",
+                  "toggleable": false
+                },
+                {
+                  "text": "will translate",
+                  "role": "verb",
+                  "layer": "always",
+                  "toggleable": false
+                },
+                {
+                  "text": "the",
+                  "role": "direct_object",
+                  "part": "preposition",
+                  "layer": "always",
+                  "toggleable": false
+                },
+                {
+                  "text": "detailed",
+                  "role": "direct_object",
+                  "part": "adjective",
+                  "layer": "adjectives",
+                  "toggleable": true
+                },
+                {
+                  "text": "report",
+                  "role": "direct_object",
+                  "part": "noun",
+                  "layer": "always",
+                  "toggleable": false
+                }
+              ]
             },
             "georgian_verb_form": "დათარგმინენ",
             "person": "3pl",
@@ -518,6 +1223,65 @@
                 "role": "verb"
               }
             },
+            "tokens": {
+              "georgian": [
+                {
+                  "text": "გრძელი",
+                  "role": "direct_object",
+                  "part": "adjective",
+                  "layer": "adjectives",
+                  "toggleable": true
+                },
+                {
+                  "text": "წერილი",
+                  "role": "direct_object",
+                  "part": "noun",
+                  "layer": "always",
+                  "toggleable": false
+                },
+                {
+                  "text": "დავთარგმნე",
+                  "role": "verb",
+                  "layer": "always",
+                  "toggleable": false
+                }
+              ],
+              "english": [
+                {
+                  "text": "I",
+                  "role": "subject",
+                  "layer": "always",
+                  "toggleable": false
+                },
+                {
+                  "text": "translated",
+                  "role": "verb",
+                  "layer": "always",
+                  "toggleable": false
+                },
+                {
+                  "text": "the",
+                  "role": "direct_object",
+                  "part": "preposition",
+                  "layer": "always",
+                  "toggleable": false
+                },
+                {
+                  "text": "long",
+                  "role": "direct_object",
+                  "part": "adjective",
+                  "layer": "adjectives",
+                  "toggleable": true
+                },
+                {
+                  "text": "letter",
+                  "role": "direct_object",
+                  "part": "noun",
+                  "layer": "always",
+                  "toggleable": false
+                }
+              ]
+            },
             "georgian_verb_form": "დავთარგმნე",
             "person": "1sg",
             "effective_preverb": "და"
@@ -543,7 +1307,7 @@
             "english": "The smart teacher translated the interesting novel",
             "english_components": {
               "subject": {
-                "text": "The smart teacher",
+                "text": "the smart teacher",
                 "role": "subject",
                 "person": "3sg"
               },
@@ -555,6 +1319,94 @@
                 "text": "translated",
                 "role": "verb"
               }
+            },
+            "tokens": {
+              "georgian": [
+                {
+                  "text": "ჭკვიანმა",
+                  "role": "subject",
+                  "part": "adjective",
+                  "layer": "adjectives",
+                  "toggleable": true
+                },
+                {
+                  "text": "მასწავლებელმა",
+                  "role": "subject",
+                  "part": "noun",
+                  "layer": "always",
+                  "toggleable": false
+                },
+                {
+                  "text": "საინტერესო",
+                  "role": "direct_object",
+                  "part": "adjective",
+                  "layer": "adjectives",
+                  "toggleable": true
+                },
+                {
+                  "text": "რომანი",
+                  "role": "direct_object",
+                  "part": "noun",
+                  "layer": "always",
+                  "toggleable": false
+                },
+                {
+                  "text": "დათარგმნა",
+                  "role": "verb",
+                  "layer": "always",
+                  "toggleable": false
+                }
+              ],
+              "english": [
+                {
+                  "text": "the",
+                  "role": "subject",
+                  "part": "preposition",
+                  "layer": "always",
+                  "toggleable": false
+                },
+                {
+                  "text": "smart",
+                  "role": "subject",
+                  "part": "adjective",
+                  "layer": "adjectives",
+                  "toggleable": true
+                },
+                {
+                  "text": "teacher",
+                  "role": "subject",
+                  "part": "noun",
+                  "layer": "always",
+                  "toggleable": false
+                },
+                {
+                  "text": "translated",
+                  "role": "verb",
+                  "layer": "always",
+                  "toggleable": false
+                },
+                {
+                  "text": "the",
+                  "role": "direct_object",
+                  "part": "preposition",
+                  "layer": "always",
+                  "toggleable": false
+                },
+                {
+                  "text": "interesting",
+                  "role": "direct_object",
+                  "part": "adjective",
+                  "layer": "adjectives",
+                  "toggleable": true
+                },
+                {
+                  "text": "novel",
+                  "role": "direct_object",
+                  "part": "noun",
+                  "layer": "always",
+                  "toggleable": false
+                }
+              ]
             },
             "georgian_verb_form": "დათარგმნა",
             "person": "3sg",
@@ -581,7 +1433,7 @@
             "english": "The curious students translated the detailed report",
             "english_components": {
               "subject": {
-                "text": "The curious students",
+                "text": "the curious students",
                 "role": "subject",
                 "person": "3pl"
               },
@@ -593,6 +1445,94 @@
                 "text": "translated",
                 "role": "verb"
               }
+            },
+            "tokens": {
+              "georgian": [
+                {
+                  "text": "ცნობისმოყვარე",
+                  "role": "subject",
+                  "part": "adjective",
+                  "layer": "adjectives",
+                  "toggleable": true
+                },
+                {
+                  "text": "სტუდენტებმა",
+                  "role": "subject",
+                  "part": "noun",
+                  "layer": "always",
+                  "toggleable": false
+                },
+                {
+                  "text": "დეტალური",
+                  "role": "direct_object",
+                  "part": "adjective",
+                  "layer": "adjectives",
+                  "toggleable": true
+                },
+                {
+                  "text": "ანგარიში",
+                  "role": "direct_object",
+                  "part": "noun",
+                  "layer": "always",
+                  "toggleable": false
+                },
+                {
+                  "text": "დათარგმნეს",
+                  "role": "verb",
+                  "layer": "always",
+                  "toggleable": false
+                }
+              ],
+              "english": [
+                {
+                  "text": "the",
+                  "role": "subject",
+                  "part": "preposition",
+                  "layer": "always",
+                  "toggleable": false
+                },
+                {
+                  "text": "curious",
+                  "role": "subject",
+                  "part": "adjective",
+                  "layer": "adjectives",
+                  "toggleable": true
+                },
+                {
+                  "text": "students",
+                  "role": "subject",
+                  "part": "noun",
+                  "layer": "always",
+                  "toggleable": false
+                },
+                {
+                  "text": "translated",
+                  "role": "verb",
+                  "layer": "always",
+                  "toggleable": false
+                },
+                {
+                  "text": "the",
+                  "role": "direct_object",
+                  "part": "preposition",
+                  "layer": "always",
+                  "toggleable": false
+                },
+                {
+                  "text": "detailed",
+                  "role": "direct_object",
+                  "part": "adjective",
+                  "layer": "adjectives",
+                  "toggleable": true
+                },
+                {
+                  "text": "report",
+                  "role": "direct_object",
+                  "part": "noun",
+                  "layer": "always",
+                  "toggleable": false
+                }
+              ]
             },
             "georgian_verb_form": "დათარგმნეს",
             "person": "3pl",
@@ -629,6 +1569,65 @@
                 "role": "verb"
               }
             },
+            "tokens": {
+              "georgian": [
+                {
+                  "text": "გრძელი",
+                  "role": "direct_object",
+                  "part": "adjective",
+                  "layer": "adjectives",
+                  "toggleable": true
+                },
+                {
+                  "text": "წერილი",
+                  "role": "direct_object",
+                  "part": "noun",
+                  "layer": "always",
+                  "toggleable": false
+                },
+                {
+                  "text": "უნდა დავთარგმნო",
+                  "role": "verb",
+                  "layer": "always",
+                  "toggleable": false
+                }
+              ],
+              "english": [
+                {
+                  "text": "I",
+                  "role": "subject",
+                  "layer": "always",
+                  "toggleable": false
+                },
+                {
+                  "text": "should translate",
+                  "role": "verb",
+                  "layer": "always",
+                  "toggleable": false
+                },
+                {
+                  "text": "the",
+                  "role": "direct_object",
+                  "part": "preposition",
+                  "layer": "always",
+                  "toggleable": false
+                },
+                {
+                  "text": "long",
+                  "role": "direct_object",
+                  "part": "adjective",
+                  "layer": "adjectives",
+                  "toggleable": true
+                },
+                {
+                  "text": "letter",
+                  "role": "direct_object",
+                  "part": "noun",
+                  "layer": "always",
+                  "toggleable": false
+                }
+              ]
+            },
             "georgian_verb_form": "დავთარგმნო",
             "person": "1sg",
             "effective_preverb": "და"
@@ -654,7 +1653,7 @@
             "english": "The smart teacher should translate the interesting novel",
             "english_components": {
               "subject": {
-                "text": "The smart teacher",
+                "text": "the smart teacher",
                 "role": "subject",
                 "person": "3sg"
               },
@@ -666,6 +1665,94 @@
                 "text": "should translate",
                 "role": "verb"
               }
+            },
+            "tokens": {
+              "georgian": [
+                {
+                  "text": "ჭკვიანმა",
+                  "role": "subject",
+                  "part": "adjective",
+                  "layer": "adjectives",
+                  "toggleable": true
+                },
+                {
+                  "text": "მასწავლებელმა",
+                  "role": "subject",
+                  "part": "noun",
+                  "layer": "always",
+                  "toggleable": false
+                },
+                {
+                  "text": "საინტერესო",
+                  "role": "direct_object",
+                  "part": "adjective",
+                  "layer": "adjectives",
+                  "toggleable": true
+                },
+                {
+                  "text": "რომანი",
+                  "role": "direct_object",
+                  "part": "noun",
+                  "layer": "always",
+                  "toggleable": false
+                },
+                {
+                  "text": "უნდა დათარგმნოს",
+                  "role": "verb",
+                  "layer": "always",
+                  "toggleable": false
+                }
+              ],
+              "english": [
+                {
+                  "text": "the",
+                  "role": "subject",
+                  "part": "preposition",
+                  "layer": "always",
+                  "toggleable": false
+                },
+                {
+                  "text": "smart",
+                  "role": "subject",
+                  "part": "adjective",
+                  "layer": "adjectives",
+                  "toggleable": true
+                },
+                {
+                  "text": "teacher",
+                  "role": "subject",
+                  "part": "noun",
+                  "layer": "always",
+                  "toggleable": false
+                },
+                {
+                  "text": "should translate",
+                  "role": "verb",
+                  "layer": "always",
+                  "toggleable": false
+                },
+                {
+                  "text": "the",
+                  "role": "direct_object",
+                  "part": "preposition",
+                  "layer": "always",
+                  "toggleable": false
+                },
+                {
+                  "text": "interesting",
+                  "role": "direct_object",
+                  "part": "adjective",
+                  "layer": "adjectives",
+                  "toggleable": true
+                },
+                {
+                  "text": "novel",
+                  "role": "direct_object",
+                  "part": "noun",
+                  "layer": "always",
+                  "toggleable": false
+                }
+              ]
             },
             "georgian_verb_form": "დათარგმნოს",
             "person": "3sg",
@@ -692,7 +1779,7 @@
             "english": "The curious students should translate the detailed report",
             "english_components": {
               "subject": {
-                "text": "The curious students",
+                "text": "the curious students",
                 "role": "subject",
                 "person": "3pl"
               },
@@ -704,6 +1791,94 @@
                 "text": "should translate",
                 "role": "verb"
               }
+            },
+            "tokens": {
+              "georgian": [
+                {
+                  "text": "ცნობისმოყვარე",
+                  "role": "subject",
+                  "part": "adjective",
+                  "layer": "adjectives",
+                  "toggleable": true
+                },
+                {
+                  "text": "სტუდენტებმა",
+                  "role": "subject",
+                  "part": "noun",
+                  "layer": "always",
+                  "toggleable": false
+                },
+                {
+                  "text": "დეტალური",
+                  "role": "direct_object",
+                  "part": "adjective",
+                  "layer": "adjectives",
+                  "toggleable": true
+                },
+                {
+                  "text": "ანგარიში",
+                  "role": "direct_object",
+                  "part": "noun",
+                  "layer": "always",
+                  "toggleable": false
+                },
+                {
+                  "text": "უნდა დათარგმნონ",
+                  "role": "verb",
+                  "layer": "always",
+                  "toggleable": false
+                }
+              ],
+              "english": [
+                {
+                  "text": "the",
+                  "role": "subject",
+                  "part": "preposition",
+                  "layer": "always",
+                  "toggleable": false
+                },
+                {
+                  "text": "curious",
+                  "role": "subject",
+                  "part": "adjective",
+                  "layer": "adjectives",
+                  "toggleable": true
+                },
+                {
+                  "text": "students",
+                  "role": "subject",
+                  "part": "noun",
+                  "layer": "always",
+                  "toggleable": false
+                },
+                {
+                  "text": "should translate",
+                  "role": "verb",
+                  "layer": "always",
+                  "toggleable": false
+                },
+                {
+                  "text": "the",
+                  "role": "direct_object",
+                  "part": "preposition",
+                  "layer": "always",
+                  "toggleable": false
+                },
+                {
+                  "text": "detailed",
+                  "role": "direct_object",
+                  "part": "adjective",
+                  "layer": "adjectives",
+                  "toggleable": true
+                },
+                {
+                  "text": "report",
+                  "role": "direct_object",
+                  "part": "noun",
+                  "layer": "always",
+                  "toggleable": false
+                }
+              ]
             },
             "georgian_verb_form": "დათარგმნონ",
             "person": "3pl",
@@ -740,6 +1915,65 @@
                 "role": "verb"
               }
             },
+            "tokens": {
+              "georgian": [
+                {
+                  "text": "მნიშვნელოვანი",
+                  "role": "direct_object",
+                  "part": "adjective",
+                  "layer": "adjectives",
+                  "toggleable": true
+                },
+                {
+                  "text": "ელფოსტა",
+                  "role": "direct_object",
+                  "part": "noun",
+                  "layer": "always",
+                  "toggleable": false
+                },
+                {
+                  "text": "დათარგმნე",
+                  "role": "verb",
+                  "layer": "always",
+                  "toggleable": false
+                }
+              ],
+              "english": [
+                {
+                  "text": "You,",
+                  "role": "subject",
+                  "layer": "always",
+                  "toggleable": false
+                },
+                {
+                  "text": "translate",
+                  "role": "verb",
+                  "layer": "always",
+                  "toggleable": false
+                },
+                {
+                  "text": "the",
+                  "role": "direct_object",
+                  "part": "preposition",
+                  "layer": "always",
+                  "toggleable": false
+                },
+                {
+                  "text": "important",
+                  "role": "direct_object",
+                  "part": "adjective",
+                  "layer": "adjectives",
+                  "toggleable": true
+                },
+                {
+                  "text": "email",
+                  "role": "direct_object",
+                  "part": "noun",
+                  "layer": "always",
+                  "toggleable": false
+                }
+              ]
+            },
             "georgian_verb_form": "დათარგმნე",
             "person": "2sg",
             "effective_preverb": "და"
@@ -772,6 +2006,65 @@
                 "text": "translate",
                 "role": "verb"
               }
+            },
+            "tokens": {
+              "georgian": [
+                {
+                  "text": "სწრაფი",
+                  "role": "direct_object",
+                  "part": "adjective",
+                  "layer": "adjectives",
+                  "toggleable": true
+                },
+                {
+                  "text": "შეტყობინება",
+                  "role": "direct_object",
+                  "part": "noun",
+                  "layer": "always",
+                  "toggleable": false
+                },
+                {
+                  "text": "დათარგმნეთ",
+                  "role": "verb",
+                  "layer": "always",
+                  "toggleable": false
+                }
+              ],
+              "english": [
+                {
+                  "text": "You all (you formal),",
+                  "role": "subject",
+                  "layer": "always",
+                  "toggleable": false
+                },
+                {
+                  "text": "translate",
+                  "role": "verb",
+                  "layer": "always",
+                  "toggleable": false
+                },
+                {
+                  "text": "the",
+                  "role": "direct_object",
+                  "part": "preposition",
+                  "layer": "always",
+                  "toggleable": false
+                },
+                {
+                  "text": "quick",
+                  "role": "direct_object",
+                  "part": "adjective",
+                  "layer": "adjectives",
+                  "toggleable": true
+                },
+                {
+                  "text": "message",
+                  "role": "direct_object",
+                  "part": "noun",
+                  "layer": "always",
+                  "toggleable": false
+                }
+              ]
             },
             "georgian_verb_form": "დათარგმნეთ",
             "person": "2pl",

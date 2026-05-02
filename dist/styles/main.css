@@ -85,6 +85,9 @@
     --role-direct-object-color: #dc2626;
     --role-indirect-object-color: #ea580c;
     --role-verb-color: #2563eb;
+    --role-verbal-noun-color: #6d28d9;
+    --role-adverb-color: #ca8a04;
+    --role-locative-surface-color: #0f766e;
     --role-voice-color: #d97706;
     --role-tense-color: #1d4ed8;
     --role-argument-color: #059669;
@@ -282,6 +285,9 @@
     --role-direct-object-color: #ef4444;
     --role-indirect-object-color: #fb923c;
     --role-verb-color: #3b82f6;
+    --role-verbal-noun-color: #a78bfa;
+    --role-adverb-color: #fde047;
+    --role-locative-surface-color: #2dd4bf;
     --role-voice-color: #f59e0b;
     --role-tense-color: #60a5fa;
     --role-argument-color: #10b981;
@@ -465,6 +471,21 @@ li:last-child {
     font-weight: bold;
 }
 
+.gloss-verbal-noun {
+    color: var(--role-verbal-noun-color);
+    font-weight: bold;
+}
+
+.gloss-adverb {
+    color: var(--role-adverb-color);
+    font-weight: bold;
+}
+
+.gloss-locative-surface {
+    color: var(--role-locative-surface-color);
+    font-weight: bold;
+}
+
 /* Data attribute styling */
 [data-role="verb"] {
     color: var(--role-verb-color);
@@ -483,6 +504,21 @@ li:last-child {
 
 [data-role="indirect_object"] {
     color: var(--role-indirect-object-color);
+    font-weight: bold;
+}
+
+[data-role="verbal_noun"] {
+    color: var(--role-verbal-noun-color);
+    font-weight: bold;
+}
+
+[data-role="adverb"] {
+    color: var(--role-adverb-color);
+    font-weight: bold;
+}
+
+[data-role="locative_surface"] {
+    color: var(--role-locative-surface-color);
     font-weight: bold;
 }
 
@@ -3311,6 +3347,25 @@ kbd {
     margin-bottom: 10px;
 }
 
+.example-layer-toggles {
+    display: flex;
+    gap: 0.75rem;
+    align-items: center;
+    margin-bottom: 8px;
+    font-size: 0.8rem;
+}
+
+.example-layer-toggles label {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.25rem;
+    color: var(--text-secondary);
+}
+
+.example-token-hidden {
+    display: none !important;
+}
+
 .flat-example {
     display: flex;
     flex-direction: column;
@@ -3321,6 +3376,23 @@ kbd {
     background: var(--bg-primary);
     margin-bottom: 8px;
     align-items: stretch;
+}
+
+.example-meta-row {
+    display: flex;
+    justify-content: flex-end;
+    margin-bottom: -2px;
+}
+
+.example-person-indicator {
+    font-size: 0.65rem;
+    line-height: 1;
+    color: var(--text-muted);
+    border: 1px solid var(--border-color);
+    border-radius: 999px;
+    padding: 0.12rem 0.38rem;
+    letter-spacing: 0.02em;
+    background: var(--bg-secondary);
 }
 
 .flat-example:last-child {

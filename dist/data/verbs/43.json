@@ -57,16 +57,26 @@
         "direct_object": "the",
         "indirect_object": ""
       },
-      "preverb_overrides": {}
+      "preverb_overrides": {},
+      "complements": {
+        "verbalNoun": {
+          "required": true,
+          "keyed_by": "person",
+          "default": {
+            "verbal_noun": "to_do",
+            "adverb": "well"
+          }
+        }
+      }
     },
     "english_translations": {
       "default": {
-        "present": "am able to do",
-        "imperfect": "was able to do",
-        "future": "will be able to do",
-        "aorist": "was able to do",
-        "optative": "be able to do",
-        "imperative": "be able to do"
+        "present": "am able",
+        "imperfect": "was able",
+        "future": "will be able",
+        "aorist": "was able",
+        "optative": "be able",
+        "imperative": "be able"
       }
     },
     "conjugations": {
@@ -161,19 +171,27 @@
       "default": {
         "present": [
           {
-            "georgian": "რთული საქმე შემიძლია",
+            "georgian": "რთული საქმე შემიძლია კარგად გაკეთება",
             "georgian_components": {
               "direct_object": {
                 "text": "რთული საქმე",
                 "case": "nom",
                 "role": "direct_object"
               },
+              "verbal_noun": {
+                "text": "გაკეთება",
+                "role": "verbal_noun"
+              },
+              "adverb": {
+                "text": "კარგად",
+                "role": "adverb"
+              },
               "verb": {
                 "text": "შემიძლია",
                 "role": "verb"
               }
             },
-            "english": "I am able to do the difficult task",
+            "english": "I am able to do the difficult task well",
             "english_components": {
               "subject": {
                 "text": "I",
@@ -184,17 +202,108 @@
                 "text": "the difficult task",
                 "role": "direct_object"
               },
+              "verbal_noun": {
+                "text": "to do",
+                "role": "verbal_noun"
+              },
+              "adverb": {
+                "text": "well",
+                "role": "adverb"
+              },
               "verb": {
-                "text": "am able to do",
+                "text": "am able",
                 "role": "verb"
               }
+            },
+            "tokens": {
+              "georgian": [
+                {
+                  "text": "რთული",
+                  "role": "direct_object",
+                  "part": "adjective",
+                  "layer": "adjectives",
+                  "toggleable": true
+                },
+                {
+                  "text": "საქმე",
+                  "role": "direct_object",
+                  "part": "noun",
+                  "layer": "always",
+                  "toggleable": false
+                },
+                {
+                  "text": "შემიძლია",
+                  "role": "verb",
+                  "layer": "always",
+                  "toggleable": false
+                },
+                {
+                  "text": "კარგად",
+                  "role": "adverb",
+                  "layer": "adverbs",
+                  "toggleable": true
+                },
+                {
+                  "text": "გაკეთება",
+                  "role": "verbal_noun",
+                  "layer": "always",
+                  "toggleable": false
+                }
+              ],
+              "english": [
+                {
+                  "text": "I",
+                  "role": "subject",
+                  "layer": "always",
+                  "toggleable": false
+                },
+                {
+                  "text": "am able",
+                  "role": "verb",
+                  "layer": "always",
+                  "toggleable": false
+                },
+                {
+                  "text": "to do",
+                  "role": "verbal_noun",
+                  "layer": "always",
+                  "toggleable": false
+                },
+                {
+                  "text": "the",
+                  "role": "direct_object",
+                  "part": "preposition",
+                  "layer": "always",
+                  "toggleable": false
+                },
+                {
+                  "text": "difficult",
+                  "role": "direct_object",
+                  "part": "adjective",
+                  "layer": "adjectives",
+                  "toggleable": true
+                },
+                {
+                  "text": "task",
+                  "role": "direct_object",
+                  "part": "noun",
+                  "layer": "always",
+                  "toggleable": false
+                },
+                {
+                  "text": "well",
+                  "role": "adverb",
+                  "layer": "adverbs",
+                  "toggleable": true
+                }
+              ]
             },
             "georgian_verb_form": "შემიძლია",
             "person": "1sg",
             "effective_preverb": "შე"
           },
           {
-            "georgian": "ძლიერ სპორტსმენს მარტივი სავარჯიშო შეუძლია",
+            "georgian": "ძლიერ სპორტსმენს მარტივი სავარჯიშო შეუძლია კარგად გაკეთება",
             "georgian_components": {
               "subject": {
                 "text": "ძლიერ სპორტსმენს",
@@ -206,15 +315,23 @@
                 "case": "nom",
                 "role": "direct_object"
               },
+              "verbal_noun": {
+                "text": "გაკეთება",
+                "role": "verbal_noun"
+              },
+              "adverb": {
+                "text": "კარგად",
+                "role": "adverb"
+              },
               "verb": {
                 "text": "შეუძლია",
                 "role": "verb"
               }
             },
-            "english": "The strong athlete is able to do the easy exercise",
+            "english": "The strong athlete is able to do the easy exercise well",
             "english_components": {
               "subject": {
-                "text": "The strong athlete",
+                "text": "the strong athlete",
                 "role": "subject",
                 "person": "3sg"
               },
@@ -222,17 +339,137 @@
                 "text": "the easy exercise",
                 "role": "direct_object"
               },
+              "verbal_noun": {
+                "text": "to do",
+                "role": "verbal_noun"
+              },
+              "adverb": {
+                "text": "well",
+                "role": "adverb"
+              },
               "verb": {
-                "text": "is able to do",
+                "text": "is able",
                 "role": "verb"
               }
+            },
+            "tokens": {
+              "georgian": [
+                {
+                  "text": "ძლიერ",
+                  "role": "subject",
+                  "part": "adjective",
+                  "layer": "adjectives",
+                  "toggleable": true
+                },
+                {
+                  "text": "სპორტსმენს",
+                  "role": "subject",
+                  "part": "noun",
+                  "layer": "always",
+                  "toggleable": false
+                },
+                {
+                  "text": "მარტივი",
+                  "role": "direct_object",
+                  "part": "adjective",
+                  "layer": "adjectives",
+                  "toggleable": true
+                },
+                {
+                  "text": "სავარჯიშო",
+                  "role": "direct_object",
+                  "part": "noun",
+                  "layer": "always",
+                  "toggleable": false
+                },
+                {
+                  "text": "შეუძლია",
+                  "role": "verb",
+                  "layer": "always",
+                  "toggleable": false
+                },
+                {
+                  "text": "კარგად",
+                  "role": "adverb",
+                  "layer": "adverbs",
+                  "toggleable": true
+                },
+                {
+                  "text": "გაკეთება",
+                  "role": "verbal_noun",
+                  "layer": "always",
+                  "toggleable": false
+                }
+              ],
+              "english": [
+                {
+                  "text": "the",
+                  "role": "subject",
+                  "part": "preposition",
+                  "layer": "always",
+                  "toggleable": false
+                },
+                {
+                  "text": "strong",
+                  "role": "subject",
+                  "part": "adjective",
+                  "layer": "adjectives",
+                  "toggleable": true
+                },
+                {
+                  "text": "athlete",
+                  "role": "subject",
+                  "part": "noun",
+                  "layer": "always",
+                  "toggleable": false
+                },
+                {
+                  "text": "is able",
+                  "role": "verb",
+                  "layer": "always",
+                  "toggleable": false
+                },
+                {
+                  "text": "to do",
+                  "role": "verbal_noun",
+                  "layer": "always",
+                  "toggleable": false
+                },
+                {
+                  "text": "the",
+                  "role": "direct_object",
+                  "part": "preposition",
+                  "layer": "always",
+                  "toggleable": false
+                },
+                {
+                  "text": "easy",
+                  "role": "direct_object",
+                  "part": "adjective",
+                  "layer": "adjectives",
+                  "toggleable": true
+                },
+                {
+                  "text": "exercise",
+                  "role": "direct_object",
+                  "part": "noun",
+                  "layer": "always",
+                  "toggleable": false
+                },
+                {
+                  "text": "well",
+                  "role": "adverb",
+                  "layer": "adverbs",
+                  "toggleable": true
+                }
+              ]
             },
             "georgian_verb_form": "შეუძლია",
             "person": "3sg",
             "effective_preverb": "შე"
           },
           {
-            "georgian": "კვალიფიციურ მუშებს კვალიფიციური სამუშაო შეუძლიათ",
+            "georgian": "კვალიფიციურ მუშებს კვალიფიციური სამუშაო შეუძლიათ კარგად გაკეთება",
             "georgian_components": {
               "subject": {
                 "text": "კვალიფიციურ მუშებს",
@@ -244,15 +481,23 @@
                 "case": "nom",
                 "role": "direct_object"
               },
+              "verbal_noun": {
+                "text": "გაკეთება",
+                "role": "verbal_noun"
+              },
+              "adverb": {
+                "text": "კარგად",
+                "role": "adverb"
+              },
               "verb": {
                 "text": "შეუძლიათ",
                 "role": "verb"
               }
             },
-            "english": "The skilled workers are able to do the skilled work",
+            "english": "The skilled workers are able to do the skilled work well",
             "english_components": {
               "subject": {
-                "text": "The skilled workers",
+                "text": "the skilled workers",
                 "role": "subject",
                 "person": "3pl"
               },
@@ -260,10 +505,130 @@
                 "text": "the skilled work",
                 "role": "direct_object"
               },
+              "verbal_noun": {
+                "text": "to do",
+                "role": "verbal_noun"
+              },
+              "adverb": {
+                "text": "well",
+                "role": "adverb"
+              },
               "verb": {
-                "text": "are able to do",
+                "text": "are able",
                 "role": "verb"
               }
+            },
+            "tokens": {
+              "georgian": [
+                {
+                  "text": "კვალიფიციურ",
+                  "role": "subject",
+                  "part": "adjective",
+                  "layer": "adjectives",
+                  "toggleable": true
+                },
+                {
+                  "text": "მუშებს",
+                  "role": "subject",
+                  "part": "noun",
+                  "layer": "always",
+                  "toggleable": false
+                },
+                {
+                  "text": "კვალიფიციური",
+                  "role": "direct_object",
+                  "part": "adjective",
+                  "layer": "adjectives",
+                  "toggleable": true
+                },
+                {
+                  "text": "სამუშაო",
+                  "role": "direct_object",
+                  "part": "noun",
+                  "layer": "always",
+                  "toggleable": false
+                },
+                {
+                  "text": "შეუძლიათ",
+                  "role": "verb",
+                  "layer": "always",
+                  "toggleable": false
+                },
+                {
+                  "text": "კარგად",
+                  "role": "adverb",
+                  "layer": "adverbs",
+                  "toggleable": true
+                },
+                {
+                  "text": "გაკეთება",
+                  "role": "verbal_noun",
+                  "layer": "always",
+                  "toggleable": false
+                }
+              ],
+              "english": [
+                {
+                  "text": "the",
+                  "role": "subject",
+                  "part": "preposition",
+                  "layer": "always",
+                  "toggleable": false
+                },
+                {
+                  "text": "skilled",
+                  "role": "subject",
+                  "part": "adjective",
+                  "layer": "adjectives",
+                  "toggleable": true
+                },
+                {
+                  "text": "workers",
+                  "role": "subject",
+                  "part": "noun",
+                  "layer": "always",
+                  "toggleable": false
+                },
+                {
+                  "text": "are able",
+                  "role": "verb",
+                  "layer": "always",
+                  "toggleable": false
+                },
+                {
+                  "text": "to do",
+                  "role": "verbal_noun",
+                  "layer": "always",
+                  "toggleable": false
+                },
+                {
+                  "text": "the",
+                  "role": "direct_object",
+                  "part": "preposition",
+                  "layer": "always",
+                  "toggleable": false
+                },
+                {
+                  "text": "skilled",
+                  "role": "direct_object",
+                  "part": "adjective",
+                  "layer": "adjectives",
+                  "toggleable": true
+                },
+                {
+                  "text": "work",
+                  "role": "direct_object",
+                  "part": "noun",
+                  "layer": "always",
+                  "toggleable": false
+                },
+                {
+                  "text": "well",
+                  "role": "adverb",
+                  "layer": "adverbs",
+                  "toggleable": true
+                }
+              ]
             },
             "georgian_verb_form": "შეუძლიათ",
             "person": "3pl",
@@ -273,19 +638,27 @@
         "imperfect": [],
         "future": [
           {
-            "georgian": "რთული საქმე შემეძლება",
+            "georgian": "რთული საქმე შემეძლება კარგად გაკეთება",
             "georgian_components": {
               "direct_object": {
                 "text": "რთული საქმე",
                 "case": "nom",
                 "role": "direct_object"
               },
+              "verbal_noun": {
+                "text": "გაკეთება",
+                "role": "verbal_noun"
+              },
+              "adverb": {
+                "text": "კარგად",
+                "role": "adverb"
+              },
               "verb": {
                 "text": "შემეძლება",
                 "role": "verb"
               }
             },
-            "english": "I will be able to do the difficult task",
+            "english": "I will be able to do the difficult task well",
             "english_components": {
               "subject": {
                 "text": "I",
@@ -296,17 +669,108 @@
                 "text": "the difficult task",
                 "role": "direct_object"
               },
+              "verbal_noun": {
+                "text": "to do",
+                "role": "verbal_noun"
+              },
+              "adverb": {
+                "text": "well",
+                "role": "adverb"
+              },
               "verb": {
-                "text": "will be able to do",
+                "text": "will be able",
                 "role": "verb"
               }
+            },
+            "tokens": {
+              "georgian": [
+                {
+                  "text": "რთული",
+                  "role": "direct_object",
+                  "part": "adjective",
+                  "layer": "adjectives",
+                  "toggleable": true
+                },
+                {
+                  "text": "საქმე",
+                  "role": "direct_object",
+                  "part": "noun",
+                  "layer": "always",
+                  "toggleable": false
+                },
+                {
+                  "text": "შემეძლება",
+                  "role": "verb",
+                  "layer": "always",
+                  "toggleable": false
+                },
+                {
+                  "text": "კარგად",
+                  "role": "adverb",
+                  "layer": "adverbs",
+                  "toggleable": true
+                },
+                {
+                  "text": "გაკეთება",
+                  "role": "verbal_noun",
+                  "layer": "always",
+                  "toggleable": false
+                }
+              ],
+              "english": [
+                {
+                  "text": "I",
+                  "role": "subject",
+                  "layer": "always",
+                  "toggleable": false
+                },
+                {
+                  "text": "will be able",
+                  "role": "verb",
+                  "layer": "always",
+                  "toggleable": false
+                },
+                {
+                  "text": "to do",
+                  "role": "verbal_noun",
+                  "layer": "always",
+                  "toggleable": false
+                },
+                {
+                  "text": "the",
+                  "role": "direct_object",
+                  "part": "preposition",
+                  "layer": "always",
+                  "toggleable": false
+                },
+                {
+                  "text": "difficult",
+                  "role": "direct_object",
+                  "part": "adjective",
+                  "layer": "adjectives",
+                  "toggleable": true
+                },
+                {
+                  "text": "task",
+                  "role": "direct_object",
+                  "part": "noun",
+                  "layer": "always",
+                  "toggleable": false
+                },
+                {
+                  "text": "well",
+                  "role": "adverb",
+                  "layer": "adverbs",
+                  "toggleable": true
+                }
+              ]
             },
             "georgian_verb_form": "შემეძლება",
             "person": "1sg",
             "effective_preverb": "შე"
           },
           {
-            "georgian": "ძლიერ სპორტსმენს მარტივი სავარჯიშო შეეძლება",
+            "georgian": "ძლიერ სპორტსმენს მარტივი სავარჯიშო შეეძლება კარგად გაკეთება",
             "georgian_components": {
               "subject": {
                 "text": "ძლიერ სპორტსმენს",
@@ -318,15 +782,23 @@
                 "case": "nom",
                 "role": "direct_object"
               },
+              "verbal_noun": {
+                "text": "გაკეთება",
+                "role": "verbal_noun"
+              },
+              "adverb": {
+                "text": "კარგად",
+                "role": "adverb"
+              },
               "verb": {
                 "text": "შეეძლება",
                 "role": "verb"
               }
             },
-            "english": "The strong athlete will be able to do the easy exercise",
+            "english": "The strong athlete will be able to do the easy exercise well",
             "english_components": {
               "subject": {
-                "text": "The strong athlete",
+                "text": "the strong athlete",
                 "role": "subject",
                 "person": "3sg"
               },
@@ -334,17 +806,137 @@
                 "text": "the easy exercise",
                 "role": "direct_object"
               },
+              "verbal_noun": {
+                "text": "to do",
+                "role": "verbal_noun"
+              },
+              "adverb": {
+                "text": "well",
+                "role": "adverb"
+              },
               "verb": {
-                "text": "will be able to do",
+                "text": "will be able",
                 "role": "verb"
               }
+            },
+            "tokens": {
+              "georgian": [
+                {
+                  "text": "ძლიერ",
+                  "role": "subject",
+                  "part": "adjective",
+                  "layer": "adjectives",
+                  "toggleable": true
+                },
+                {
+                  "text": "სპორტსმენს",
+                  "role": "subject",
+                  "part": "noun",
+                  "layer": "always",
+                  "toggleable": false
+                },
+                {
+                  "text": "მარტივი",
+                  "role": "direct_object",
+                  "part": "adjective",
+                  "layer": "adjectives",
+                  "toggleable": true
+                },
+                {
+                  "text": "სავარჯიშო",
+                  "role": "direct_object",
+                  "part": "noun",
+                  "layer": "always",
+                  "toggleable": false
+                },
+                {
+                  "text": "შეეძლება",
+                  "role": "verb",
+                  "layer": "always",
+                  "toggleable": false
+                },
+                {
+                  "text": "კარგად",
+                  "role": "adverb",
+                  "layer": "adverbs",
+                  "toggleable": true
+                },
+                {
+                  "text": "გაკეთება",
+                  "role": "verbal_noun",
+                  "layer": "always",
+                  "toggleable": false
+                }
+              ],
+              "english": [
+                {
+                  "text": "the",
+                  "role": "subject",
+                  "part": "preposition",
+                  "layer": "always",
+                  "toggleable": false
+                },
+                {
+                  "text": "strong",
+                  "role": "subject",
+                  "part": "adjective",
+                  "layer": "adjectives",
+                  "toggleable": true
+                },
+                {
+                  "text": "athlete",
+                  "role": "subject",
+                  "part": "noun",
+                  "layer": "always",
+                  "toggleable": false
+                },
+                {
+                  "text": "will be able",
+                  "role": "verb",
+                  "layer": "always",
+                  "toggleable": false
+                },
+                {
+                  "text": "to do",
+                  "role": "verbal_noun",
+                  "layer": "always",
+                  "toggleable": false
+                },
+                {
+                  "text": "the",
+                  "role": "direct_object",
+                  "part": "preposition",
+                  "layer": "always",
+                  "toggleable": false
+                },
+                {
+                  "text": "easy",
+                  "role": "direct_object",
+                  "part": "adjective",
+                  "layer": "adjectives",
+                  "toggleable": true
+                },
+                {
+                  "text": "exercise",
+                  "role": "direct_object",
+                  "part": "noun",
+                  "layer": "always",
+                  "toggleable": false
+                },
+                {
+                  "text": "well",
+                  "role": "adverb",
+                  "layer": "adverbs",
+                  "toggleable": true
+                }
+              ]
             },
             "georgian_verb_form": "შეეძლება",
             "person": "3sg",
             "effective_preverb": "შე"
           },
           {
-            "georgian": "კვალიფიციურ მუშებს კვალიფიციური სამუშაო შეეძლებათ",
+            "georgian": "კვალიფიციურ მუშებს კვალიფიციური სამუშაო შეეძლებათ კარგად გაკეთება",
             "georgian_components": {
               "subject": {
                 "text": "კვალიფიციურ მუშებს",
@@ -356,15 +948,23 @@
                 "case": "nom",
                 "role": "direct_object"
               },
+              "verbal_noun": {
+                "text": "გაკეთება",
+                "role": "verbal_noun"
+              },
+              "adverb": {
+                "text": "კარგად",
+                "role": "adverb"
+              },
               "verb": {
                 "text": "შეეძლებათ",
                 "role": "verb"
               }
             },
-            "english": "The skilled workers will be able to do the skilled work",
+            "english": "The skilled workers will be able to do the skilled work well",
             "english_components": {
               "subject": {
-                "text": "The skilled workers",
+                "text": "the skilled workers",
                 "role": "subject",
                 "person": "3pl"
               },
@@ -372,10 +972,130 @@
                 "text": "the skilled work",
                 "role": "direct_object"
               },
+              "verbal_noun": {
+                "text": "to do",
+                "role": "verbal_noun"
+              },
+              "adverb": {
+                "text": "well",
+                "role": "adverb"
+              },
               "verb": {
-                "text": "will be able to do",
+                "text": "will be able",
                 "role": "verb"
               }
+            },
+            "tokens": {
+              "georgian": [
+                {
+                  "text": "კვალიფიციურ",
+                  "role": "subject",
+                  "part": "adjective",
+                  "layer": "adjectives",
+                  "toggleable": true
+                },
+                {
+                  "text": "მუშებს",
+                  "role": "subject",
+                  "part": "noun",
+                  "layer": "always",
+                  "toggleable": false
+                },
+                {
+                  "text": "კვალიფიციური",
+                  "role": "direct_object",
+                  "part": "adjective",
+                  "layer": "adjectives",
+                  "toggleable": true
+                },
+                {
+                  "text": "სამუშაო",
+                  "role": "direct_object",
+                  "part": "noun",
+                  "layer": "always",
+                  "toggleable": false
+                },
+                {
+                  "text": "შეეძლებათ",
+                  "role": "verb",
+                  "layer": "always",
+                  "toggleable": false
+                },
+                {
+                  "text": "კარგად",
+                  "role": "adverb",
+                  "layer": "adverbs",
+                  "toggleable": true
+                },
+                {
+                  "text": "გაკეთება",
+                  "role": "verbal_noun",
+                  "layer": "always",
+                  "toggleable": false
+                }
+              ],
+              "english": [
+                {
+                  "text": "the",
+                  "role": "subject",
+                  "part": "preposition",
+                  "layer": "always",
+                  "toggleable": false
+                },
+                {
+                  "text": "skilled",
+                  "role": "subject",
+                  "part": "adjective",
+                  "layer": "adjectives",
+                  "toggleable": true
+                },
+                {
+                  "text": "workers",
+                  "role": "subject",
+                  "part": "noun",
+                  "layer": "always",
+                  "toggleable": false
+                },
+                {
+                  "text": "will be able",
+                  "role": "verb",
+                  "layer": "always",
+                  "toggleable": false
+                },
+                {
+                  "text": "to do",
+                  "role": "verbal_noun",
+                  "layer": "always",
+                  "toggleable": false
+                },
+                {
+                  "text": "the",
+                  "role": "direct_object",
+                  "part": "preposition",
+                  "layer": "always",
+                  "toggleable": false
+                },
+                {
+                  "text": "skilled",
+                  "role": "direct_object",
+                  "part": "adjective",
+                  "layer": "adjectives",
+                  "toggleable": true
+                },
+                {
+                  "text": "work",
+                  "role": "direct_object",
+                  "part": "noun",
+                  "layer": "always",
+                  "toggleable": false
+                },
+                {
+                  "text": "well",
+                  "role": "adverb",
+                  "layer": "adverbs",
+                  "toggleable": true
+                }
+              ]
             },
             "georgian_verb_form": "შეეძლებათ",
             "person": "3pl",
@@ -384,19 +1104,27 @@
         ],
         "aorist": [
           {
-            "georgian": "რთული საქმე შემეძლო",
+            "georgian": "რთული საქმე შემეძლო კარგად გაკეთება",
             "georgian_components": {
               "direct_object": {
                 "text": "რთული საქმე",
                 "case": "nom",
                 "role": "direct_object"
               },
+              "verbal_noun": {
+                "text": "გაკეთება",
+                "role": "verbal_noun"
+              },
+              "adverb": {
+                "text": "კარგად",
+                "role": "adverb"
+              },
               "verb": {
                 "text": "შემეძლო",
                 "role": "verb"
               }
             },
-            "english": "I was able to do the difficult task",
+            "english": "I was able to do the difficult task well",
             "english_components": {
               "subject": {
                 "text": "I",
@@ -407,17 +1135,108 @@
                 "text": "the difficult task",
                 "role": "direct_object"
               },
+              "verbal_noun": {
+                "text": "to do",
+                "role": "verbal_noun"
+              },
+              "adverb": {
+                "text": "well",
+                "role": "adverb"
+              },
               "verb": {
-                "text": "was able to do",
+                "text": "was able",
                 "role": "verb"
               }
+            },
+            "tokens": {
+              "georgian": [
+                {
+                  "text": "რთული",
+                  "role": "direct_object",
+                  "part": "adjective",
+                  "layer": "adjectives",
+                  "toggleable": true
+                },
+                {
+                  "text": "საქმე",
+                  "role": "direct_object",
+                  "part": "noun",
+                  "layer": "always",
+                  "toggleable": false
+                },
+                {
+                  "text": "შემეძლო",
+                  "role": "verb",
+                  "layer": "always",
+                  "toggleable": false
+                },
+                {
+                  "text": "კარგად",
+                  "role": "adverb",
+                  "layer": "adverbs",
+                  "toggleable": true
+                },
+                {
+                  "text": "გაკეთება",
+                  "role": "verbal_noun",
+                  "layer": "always",
+                  "toggleable": false
+                }
+              ],
+              "english": [
+                {
+                  "text": "I",
+                  "role": "subject",
+                  "layer": "always",
+                  "toggleable": false
+                },
+                {
+                  "text": "was able",
+                  "role": "verb",
+                  "layer": "always",
+                  "toggleable": false
+                },
+                {
+                  "text": "to do",
+                  "role": "verbal_noun",
+                  "layer": "always",
+                  "toggleable": false
+                },
+                {
+                  "text": "the",
+                  "role": "direct_object",
+                  "part": "preposition",
+                  "layer": "always",
+                  "toggleable": false
+                },
+                {
+                  "text": "difficult",
+                  "role": "direct_object",
+                  "part": "adjective",
+                  "layer": "adjectives",
+                  "toggleable": true
+                },
+                {
+                  "text": "task",
+                  "role": "direct_object",
+                  "part": "noun",
+                  "layer": "always",
+                  "toggleable": false
+                },
+                {
+                  "text": "well",
+                  "role": "adverb",
+                  "layer": "adverbs",
+                  "toggleable": true
+                }
+              ]
             },
             "georgian_verb_form": "შემეძლო",
             "person": "1sg",
             "effective_preverb": "შე"
           },
           {
-            "georgian": "ძლიერ სპორტსმენს მარტივი სავარჯიშო შეეძლო",
+            "georgian": "ძლიერ სპორტსმენს მარტივი სავარჯიშო შეეძლო კარგად გაკეთება",
             "georgian_components": {
               "subject": {
                 "text": "ძლიერ სპორტსმენს",
@@ -429,15 +1248,23 @@
                 "case": "nom",
                 "role": "direct_object"
               },
+              "verbal_noun": {
+                "text": "გაკეთება",
+                "role": "verbal_noun"
+              },
+              "adverb": {
+                "text": "კარგად",
+                "role": "adverb"
+              },
               "verb": {
                 "text": "შეეძლო",
                 "role": "verb"
               }
             },
-            "english": "The strong athlete was able to do the easy exercise",
+            "english": "The strong athlete was able to do the easy exercise well",
             "english_components": {
               "subject": {
-                "text": "The strong athlete",
+                "text": "the strong athlete",
                 "role": "subject",
                 "person": "3sg"
               },
@@ -445,17 +1272,137 @@
                 "text": "the easy exercise",
                 "role": "direct_object"
               },
+              "verbal_noun": {
+                "text": "to do",
+                "role": "verbal_noun"
+              },
+              "adverb": {
+                "text": "well",
+                "role": "adverb"
+              },
               "verb": {
-                "text": "was able to do",
+                "text": "was able",
                 "role": "verb"
               }
+            },
+            "tokens": {
+              "georgian": [
+                {
+                  "text": "ძლიერ",
+                  "role": "subject",
+                  "part": "adjective",
+                  "layer": "adjectives",
+                  "toggleable": true
+                },
+                {
+                  "text": "სპორტსმენს",
+                  "role": "subject",
+                  "part": "noun",
+                  "layer": "always",
+                  "toggleable": false
+                },
+                {
+                  "text": "მარტივი",
+                  "role": "direct_object",
+                  "part": "adjective",
+                  "layer": "adjectives",
+                  "toggleable": true
+                },
+                {
+                  "text": "სავარჯიშო",
+                  "role": "direct_object",
+                  "part": "noun",
+                  "layer": "always",
+                  "toggleable": false
+                },
+                {
+                  "text": "შეეძლო",
+                  "role": "verb",
+                  "layer": "always",
+                  "toggleable": false
+                },
+                {
+                  "text": "კარგად",
+                  "role": "adverb",
+                  "layer": "adverbs",
+                  "toggleable": true
+                },
+                {
+                  "text": "გაკეთება",
+                  "role": "verbal_noun",
+                  "layer": "always",
+                  "toggleable": false
+                }
+              ],
+              "english": [
+                {
+                  "text": "the",
+                  "role": "subject",
+                  "part": "preposition",
+                  "layer": "always",
+                  "toggleable": false
+                },
+                {
+                  "text": "strong",
+                  "role": "subject",
+                  "part": "adjective",
+                  "layer": "adjectives",
+                  "toggleable": true
+                },
+                {
+                  "text": "athlete",
+                  "role": "subject",
+                  "part": "noun",
+                  "layer": "always",
+                  "toggleable": false
+                },
+                {
+                  "text": "was able",
+                  "role": "verb",
+                  "layer": "always",
+                  "toggleable": false
+                },
+                {
+                  "text": "to do",
+                  "role": "verbal_noun",
+                  "layer": "always",
+                  "toggleable": false
+                },
+                {
+                  "text": "the",
+                  "role": "direct_object",
+                  "part": "preposition",
+                  "layer": "always",
+                  "toggleable": false
+                },
+                {
+                  "text": "easy",
+                  "role": "direct_object",
+                  "part": "adjective",
+                  "layer": "adjectives",
+                  "toggleable": true
+                },
+                {
+                  "text": "exercise",
+                  "role": "direct_object",
+                  "part": "noun",
+                  "layer": "always",
+                  "toggleable": false
+                },
+                {
+                  "text": "well",
+                  "role": "adverb",
+                  "layer": "adverbs",
+                  "toggleable": true
+                }
+              ]
             },
             "georgian_verb_form": "შეეძლო",
             "person": "3sg",
             "effective_preverb": "შე"
           },
           {
-            "georgian": "კვალიფიციურ მუშებს კვალიფიციური სამუშაო შეეძლოთ",
+            "georgian": "კვალიფიციურ მუშებს კვალიფიციური სამუშაო შეეძლოთ კარგად გაკეთება",
             "georgian_components": {
               "subject": {
                 "text": "კვალიფიციურ მუშებს",
@@ -467,15 +1414,23 @@
                 "case": "nom",
                 "role": "direct_object"
               },
+              "verbal_noun": {
+                "text": "გაკეთება",
+                "role": "verbal_noun"
+              },
+              "adverb": {
+                "text": "კარგად",
+                "role": "adverb"
+              },
               "verb": {
                 "text": "შეეძლოთ",
                 "role": "verb"
               }
             },
-            "english": "The skilled workers were able to do the skilled work",
+            "english": "The skilled workers were able to do the skilled work well",
             "english_components": {
               "subject": {
-                "text": "The skilled workers",
+                "text": "the skilled workers",
                 "role": "subject",
                 "person": "3pl"
               },
@@ -483,10 +1438,130 @@
                 "text": "the skilled work",
                 "role": "direct_object"
               },
+              "verbal_noun": {
+                "text": "to do",
+                "role": "verbal_noun"
+              },
+              "adverb": {
+                "text": "well",
+                "role": "adverb"
+              },
               "verb": {
-                "text": "were able to do",
+                "text": "were able",
                 "role": "verb"
               }
+            },
+            "tokens": {
+              "georgian": [
+                {
+                  "text": "კვალიფიციურ",
+                  "role": "subject",
+                  "part": "adjective",
+                  "layer": "adjectives",
+                  "toggleable": true
+                },
+                {
+                  "text": "მუშებს",
+                  "role": "subject",
+                  "part": "noun",
+                  "layer": "always",
+                  "toggleable": false
+                },
+                {
+                  "text": "კვალიფიციური",
+                  "role": "direct_object",
+                  "part": "adjective",
+                  "layer": "adjectives",
+                  "toggleable": true
+                },
+                {
+                  "text": "სამუშაო",
+                  "role": "direct_object",
+                  "part": "noun",
+                  "layer": "always",
+                  "toggleable": false
+                },
+                {
+                  "text": "შეეძლოთ",
+                  "role": "verb",
+                  "layer": "always",
+                  "toggleable": false
+                },
+                {
+                  "text": "კარგად",
+                  "role": "adverb",
+                  "layer": "adverbs",
+                  "toggleable": true
+                },
+                {
+                  "text": "გაკეთება",
+                  "role": "verbal_noun",
+                  "layer": "always",
+                  "toggleable": false
+                }
+              ],
+              "english": [
+                {
+                  "text": "the",
+                  "role": "subject",
+                  "part": "preposition",
+                  "layer": "always",
+                  "toggleable": false
+                },
+                {
+                  "text": "skilled",
+                  "role": "subject",
+                  "part": "adjective",
+                  "layer": "adjectives",
+                  "toggleable": true
+                },
+                {
+                  "text": "workers",
+                  "role": "subject",
+                  "part": "noun",
+                  "layer": "always",
+                  "toggleable": false
+                },
+                {
+                  "text": "were able",
+                  "role": "verb",
+                  "layer": "always",
+                  "toggleable": false
+                },
+                {
+                  "text": "to do",
+                  "role": "verbal_noun",
+                  "layer": "always",
+                  "toggleable": false
+                },
+                {
+                  "text": "the",
+                  "role": "direct_object",
+                  "part": "preposition",
+                  "layer": "always",
+                  "toggleable": false
+                },
+                {
+                  "text": "skilled",
+                  "role": "direct_object",
+                  "part": "adjective",
+                  "layer": "adjectives",
+                  "toggleable": true
+                },
+                {
+                  "text": "work",
+                  "role": "direct_object",
+                  "part": "noun",
+                  "layer": "always",
+                  "toggleable": false
+                },
+                {
+                  "text": "well",
+                  "role": "adverb",
+                  "layer": "adverbs",
+                  "toggleable": true
+                }
+              ]
             },
             "georgian_verb_form": "შეეძლოთ",
             "person": "3pl",
@@ -495,19 +1570,27 @@
         ],
         "optative": [
           {
-            "georgian": "რთული საქმე უნდა შემეძლოს",
+            "georgian": "რთული საქმე უნდა შემეძლოს კარგად გაკეთება",
             "georgian_components": {
               "direct_object": {
                 "text": "რთული საქმე",
                 "case": "nom",
                 "role": "direct_object"
               },
+              "verbal_noun": {
+                "text": "გაკეთება",
+                "role": "verbal_noun"
+              },
+              "adverb": {
+                "text": "კარგად",
+                "role": "adverb"
+              },
               "verb": {
                 "text": "უნდა შემეძლოს",
                 "role": "verb"
               }
             },
-            "english": "I should be able to do the difficult task",
+            "english": "I should be able to do the difficult task well",
             "english_components": {
               "subject": {
                 "text": "I",
@@ -518,17 +1601,108 @@
                 "text": "the difficult task",
                 "role": "direct_object"
               },
+              "verbal_noun": {
+                "text": "to do",
+                "role": "verbal_noun"
+              },
+              "adverb": {
+                "text": "well",
+                "role": "adverb"
+              },
               "verb": {
-                "text": "should be able to do",
+                "text": "should be able",
                 "role": "verb"
               }
+            },
+            "tokens": {
+              "georgian": [
+                {
+                  "text": "რთული",
+                  "role": "direct_object",
+                  "part": "adjective",
+                  "layer": "adjectives",
+                  "toggleable": true
+                },
+                {
+                  "text": "საქმე",
+                  "role": "direct_object",
+                  "part": "noun",
+                  "layer": "always",
+                  "toggleable": false
+                },
+                {
+                  "text": "უნდა შემეძლოს",
+                  "role": "verb",
+                  "layer": "always",
+                  "toggleable": false
+                },
+                {
+                  "text": "კარგად",
+                  "role": "adverb",
+                  "layer": "adverbs",
+                  "toggleable": true
+                },
+                {
+                  "text": "გაკეთება",
+                  "role": "verbal_noun",
+                  "layer": "always",
+                  "toggleable": false
+                }
+              ],
+              "english": [
+                {
+                  "text": "I",
+                  "role": "subject",
+                  "layer": "always",
+                  "toggleable": false
+                },
+                {
+                  "text": "should be able",
+                  "role": "verb",
+                  "layer": "always",
+                  "toggleable": false
+                },
+                {
+                  "text": "to do",
+                  "role": "verbal_noun",
+                  "layer": "always",
+                  "toggleable": false
+                },
+                {
+                  "text": "the",
+                  "role": "direct_object",
+                  "part": "preposition",
+                  "layer": "always",
+                  "toggleable": false
+                },
+                {
+                  "text": "difficult",
+                  "role": "direct_object",
+                  "part": "adjective",
+                  "layer": "adjectives",
+                  "toggleable": true
+                },
+                {
+                  "text": "task",
+                  "role": "direct_object",
+                  "part": "noun",
+                  "layer": "always",
+                  "toggleable": false
+                },
+                {
+                  "text": "well",
+                  "role": "adverb",
+                  "layer": "adverbs",
+                  "toggleable": true
+                }
+              ]
             },
             "georgian_verb_form": "შემეძლოს",
             "person": "1sg",
             "effective_preverb": "შე"
           },
           {
-            "georgian": "ძლიერ სპორტსმენს მარტივი სავარჯიშო უნდა შეეძლოს",
+            "georgian": "ძლიერ სპორტსმენს მარტივი სავარჯიშო უნდა შეეძლოს კარგად გაკეთება",
             "georgian_components": {
               "subject": {
                 "text": "ძლიერ სპორტსმენს",
@@ -540,15 +1714,23 @@
                 "case": "nom",
                 "role": "direct_object"
               },
+              "verbal_noun": {
+                "text": "გაკეთება",
+                "role": "verbal_noun"
+              },
+              "adverb": {
+                "text": "კარგად",
+                "role": "adverb"
+              },
               "verb": {
                 "text": "უნდა შეეძლოს",
                 "role": "verb"
               }
             },
-            "english": "The strong athlete should be able to do the easy exercise",
+            "english": "The strong athlete should be able to do the easy exercise well",
             "english_components": {
               "subject": {
-                "text": "The strong athlete",
+                "text": "the strong athlete",
                 "role": "subject",
                 "person": "3sg"
               },
@@ -556,17 +1738,137 @@
                 "text": "the easy exercise",
                 "role": "direct_object"
               },
+              "verbal_noun": {
+                "text": "to do",
+                "role": "verbal_noun"
+              },
+              "adverb": {
+                "text": "well",
+                "role": "adverb"
+              },
               "verb": {
-                "text": "should be able to do",
+                "text": "should be able",
                 "role": "verb"
               }
+            },
+            "tokens": {
+              "georgian": [
+                {
+                  "text": "ძლიერ",
+                  "role": "subject",
+                  "part": "adjective",
+                  "layer": "adjectives",
+                  "toggleable": true
+                },
+                {
+                  "text": "სპორტსმენს",
+                  "role": "subject",
+                  "part": "noun",
+                  "layer": "always",
+                  "toggleable": false
+                },
+                {
+                  "text": "მარტივი",
+                  "role": "direct_object",
+                  "part": "adjective",
+                  "layer": "adjectives",
+                  "toggleable": true
+                },
+                {
+                  "text": "სავარჯიშო",
+                  "role": "direct_object",
+                  "part": "noun",
+                  "layer": "always",
+                  "toggleable": false
+                },
+                {
+                  "text": "უნდა შეეძლოს",
+                  "role": "verb",
+                  "layer": "always",
+                  "toggleable": false
+                },
+                {
+                  "text": "კარგად",
+                  "role": "adverb",
+                  "layer": "adverbs",
+                  "toggleable": true
+                },
+                {
+                  "text": "გაკეთება",
+                  "role": "verbal_noun",
+                  "layer": "always",
+                  "toggleable": false
+                }
+              ],
+              "english": [
+                {
+                  "text": "the",
+                  "role": "subject",
+                  "part": "preposition",
+                  "layer": "always",
+                  "toggleable": false
+                },
+                {
+                  "text": "strong",
+                  "role": "subject",
+                  "part": "adjective",
+                  "layer": "adjectives",
+                  "toggleable": true
+                },
+                {
+                  "text": "athlete",
+                  "role": "subject",
+                  "part": "noun",
+                  "layer": "always",
+                  "toggleable": false
+                },
+                {
+                  "text": "should be able",
+                  "role": "verb",
+                  "layer": "always",
+                  "toggleable": false
+                },
+                {
+                  "text": "to do",
+                  "role": "verbal_noun",
+                  "layer": "always",
+                  "toggleable": false
+                },
+                {
+                  "text": "the",
+                  "role": "direct_object",
+                  "part": "preposition",
+                  "layer": "always",
+                  "toggleable": false
+                },
+                {
+                  "text": "easy",
+                  "role": "direct_object",
+                  "part": "adjective",
+                  "layer": "adjectives",
+                  "toggleable": true
+                },
+                {
+                  "text": "exercise",
+                  "role": "direct_object",
+                  "part": "noun",
+                  "layer": "always",
+                  "toggleable": false
+                },
+                {
+                  "text": "well",
+                  "role": "adverb",
+                  "layer": "adverbs",
+                  "toggleable": true
+                }
+              ]
             },
             "georgian_verb_form": "შეეძლოს",
             "person": "3sg",
             "effective_preverb": "შე"
           },
           {
-            "georgian": "კვალიფიციურ მუშებს კვალიფიციური სამუშაო უნდა შეეძლოთ",
+            "georgian": "კვალიფიციურ მუშებს კვალიფიციური სამუშაო უნდა შეეძლოთ კარგად გაკეთება",
             "georgian_components": {
               "subject": {
                 "text": "კვალიფიციურ მუშებს",
@@ -578,15 +1880,23 @@
                 "case": "nom",
                 "role": "direct_object"
               },
+              "verbal_noun": {
+                "text": "გაკეთება",
+                "role": "verbal_noun"
+              },
+              "adverb": {
+                "text": "კარგად",
+                "role": "adverb"
+              },
               "verb": {
                 "text": "უნდა შეეძლოთ",
                 "role": "verb"
               }
             },
-            "english": "The skilled workers should be able to do the skilled work",
+            "english": "The skilled workers should be able to do the skilled work well",
             "english_components": {
               "subject": {
-                "text": "The skilled workers",
+                "text": "the skilled workers",
                 "role": "subject",
                 "person": "3pl"
               },
@@ -594,10 +1904,130 @@
                 "text": "the skilled work",
                 "role": "direct_object"
               },
+              "verbal_noun": {
+                "text": "to do",
+                "role": "verbal_noun"
+              },
+              "adverb": {
+                "text": "well",
+                "role": "adverb"
+              },
               "verb": {
-                "text": "should be able to do",
+                "text": "should be able",
                 "role": "verb"
               }
+            },
+            "tokens": {
+              "georgian": [
+                {
+                  "text": "კვალიფიციურ",
+                  "role": "subject",
+                  "part": "adjective",
+                  "layer": "adjectives",
+                  "toggleable": true
+                },
+                {
+                  "text": "მუშებს",
+                  "role": "subject",
+                  "part": "noun",
+                  "layer": "always",
+                  "toggleable": false
+                },
+                {
+                  "text": "კვალიფიციური",
+                  "role": "direct_object",
+                  "part": "adjective",
+                  "layer": "adjectives",
+                  "toggleable": true
+                },
+                {
+                  "text": "სამუშაო",
+                  "role": "direct_object",
+                  "part": "noun",
+                  "layer": "always",
+                  "toggleable": false
+                },
+                {
+                  "text": "უნდა შეეძლოთ",
+                  "role": "verb",
+                  "layer": "always",
+                  "toggleable": false
+                },
+                {
+                  "text": "კარგად",
+                  "role": "adverb",
+                  "layer": "adverbs",
+                  "toggleable": true
+                },
+                {
+                  "text": "გაკეთება",
+                  "role": "verbal_noun",
+                  "layer": "always",
+                  "toggleable": false
+                }
+              ],
+              "english": [
+                {
+                  "text": "the",
+                  "role": "subject",
+                  "part": "preposition",
+                  "layer": "always",
+                  "toggleable": false
+                },
+                {
+                  "text": "skilled",
+                  "role": "subject",
+                  "part": "adjective",
+                  "layer": "adjectives",
+                  "toggleable": true
+                },
+                {
+                  "text": "workers",
+                  "role": "subject",
+                  "part": "noun",
+                  "layer": "always",
+                  "toggleable": false
+                },
+                {
+                  "text": "should be able",
+                  "role": "verb",
+                  "layer": "always",
+                  "toggleable": false
+                },
+                {
+                  "text": "to do",
+                  "role": "verbal_noun",
+                  "layer": "always",
+                  "toggleable": false
+                },
+                {
+                  "text": "the",
+                  "role": "direct_object",
+                  "part": "preposition",
+                  "layer": "always",
+                  "toggleable": false
+                },
+                {
+                  "text": "skilled",
+                  "role": "direct_object",
+                  "part": "adjective",
+                  "layer": "adjectives",
+                  "toggleable": true
+                },
+                {
+                  "text": "work",
+                  "role": "direct_object",
+                  "part": "noun",
+                  "layer": "always",
+                  "toggleable": false
+                },
+                {
+                  "text": "well",
+                  "role": "adverb",
+                  "layer": "adverbs",
+                  "toggleable": true
+                }
+              ]
             },
             "georgian_verb_form": "შეეძლოთ",
             "person": "3pl",

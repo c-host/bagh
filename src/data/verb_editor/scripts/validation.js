@@ -214,8 +214,8 @@ class ValidationEngine {
             return false;
         }
 
-        const has3sg = subjectArgs['3sg'] && subjectArgs['3sg'].noun && subjectArgs['3sg'].adjective;
-        const has3pl = subjectArgs['3pl'] && subjectArgs['3pl'].noun && subjectArgs['3pl'].adjective;
+        const has3sg = subjectArgs['3sg'] && subjectArgs['3sg'].noun;
+        const has3pl = subjectArgs['3pl'] && subjectArgs['3pl'].noun;
 
         const result = has3sg && has3pl;
         // console.log(`Subject validation result: ${result}`);
@@ -234,13 +234,11 @@ class ValidationEngine {
         const validationResult = personForms.every(person => {
             const personData = doArgs[person];
             const hasNoun = personData && personData.noun && typeof personData.noun === 'string' && personData.noun.trim();
-            const hasAdjective = personData && personData.adjective && typeof personData.adjective === 'string' && personData.adjective.trim();
-
-            if (!hasNoun || !hasAdjective) {
+            if (!hasNoun) {
                 // console.log(`❌ ${person}: noun="${personData?.noun || ''}", adjective="${personData?.adjective || ''}"`);
             }
 
-            return hasNoun && hasAdjective;
+            return hasNoun;
         });
 
         // console.log(`Direct object validation result: ${validationResult}`);
@@ -259,13 +257,11 @@ class ValidationEngine {
         const validationResult = personForms.every(person => {
             const personData = ioArgs[person];
             const hasNoun = personData && personData.noun && typeof personData.noun === 'string' && personData.noun.trim();
-            const hasAdjective = personData && personData.adjective && typeof personData.adjective === 'string' && personData.adjective.trim();
-
-            if (!hasNoun || !hasAdjective) {
+            if (!hasNoun) {
                 // console.log(`❌ ${person}: noun="${personData?.noun || ''}", adjective="${personData?.adjective || ''}"`);
             }
 
-            return hasNoun && hasAdjective;
+            return hasNoun;
         });
 
         // console.log(`Indirect object validation result: ${validationResult}`);

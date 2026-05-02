@@ -135,6 +135,33 @@ class VerbDataProcessor:
         # Validate conjugations and preverb config
         self._validate_conjugations(verb["conjugations"])
         self._validate_preverb_config(verb["preverb_config"])
+        self._validate_syntax_schema(verb)
+
+    def _validate_syntax_schema(self, verb: Dict):
+        """Validate compositional example schema."""
+        syntax = verb.get("syntax", {})
+
+        complements = syntax.get("complements", {})
+        verbal_noun_cfg = complements.get("verbalNoun")
+        if verbal_noun_cfg and verbal_noun_cfg.get("required"):
+            by_person = verbal_noun_cfg.get("by_person", {})
+            for person in ["1sg", "2sg", "3sg", "1pl", "2pl", "3pl"]:
+                resolved = by_person.get(person) or verbal_noun_cfg.get("default")
+                if not resolved or not resolved.get("verbal_noun"):
+                    raise ValueError(
+                        f"Verb {verb.get('id')} missing required verbal noun config for {person}"
+                    )
+
+        adjuncts = syntax.get("adjuncts", {})
+        locative_cfg = adjuncts.get("locativeSurface")
+        if locative_cfg and locative_cfg.get("required"):
+            by_person = locative_cfg.get("by_person", {})
+            for person in ["1sg", "2sg", "3sg", "1pl", "2pl", "3pl"]:
+                resolved = by_person.get(person) or locative_cfg.get("default")
+                if not resolved or not resolved.get("surface_noun"):
+                    raise ValueError(
+                        f"Verb {verb.get('id')} missing required locative surface config for {person}"
+                    )
 
     def _validate_conjugations(self, conjugations: Dict):
         """Validate conjugation structure."""

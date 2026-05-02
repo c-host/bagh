@@ -2,7 +2,7 @@
 Shared database loading utility for Georgian verb tools.
 
 This module provides centralized database loading functionality for the
-four main databases: subjects, direct_objects, indirect_objects, and adjectives.
+lexical databases used by example generation.
 """
 
 import json
@@ -45,7 +45,7 @@ class DatabaseLoader:
 
     def load_all_databases(self) -> Dict[str, Dict]:
         """
-        Load all four databases.
+        Load all lexical databases.
 
         Returns:
             Dictionary containing all databases:
@@ -53,7 +53,10 @@ class DatabaseLoader:
                 "subjects": {...},
                 "direct_objects": {...},
                 "indirect_objects": {...},
-                "adjectives": {...}
+                "adjectives": {...},
+                "verbal_nouns": {...},
+                "adverbs": {...},
+                "surface_nouns": {...}
             }
         """
         if self._loaded:
@@ -64,6 +67,9 @@ class DatabaseLoader:
             ("direct_objects", self.config.get_path("direct_object_database")),
             ("indirect_objects", self.config.get_path("indirect_object_database")),
             ("adjectives", self.config.get_path("adjective_database")),
+            ("verbal_nouns", self.config.get_path("verbal_noun_database")),
+            ("adverbs", self.config.get_path("adverb_database")),
+            ("surface_nouns", self.config.get_path("surface_noun_database")),
         ]
 
         for db_type, filepath in db_files:
@@ -94,7 +100,7 @@ class DatabaseLoader:
         Get a specific database.
 
         Args:
-            db_type: Type of database ('subjects', 'direct_objects', 'indirect_objects', 'adjectives')
+            db_type: Type of database
 
         Returns:
             Database dictionary
@@ -127,6 +133,9 @@ class DatabaseLoader:
             self.config.get_path("direct_object_database"),
             self.config.get_path("indirect_object_database"),
             self.config.get_path("adjective_database"),
+            self.config.get_path("verbal_noun_database"),
+            self.config.get_path("adverb_database"),
+            self.config.get_path("surface_noun_database"),
         ]
 
         missing_files = []
@@ -150,7 +159,10 @@ class DatabaseLoader:
                 "subjects": {"count": 10, "file": "subject_database.json"},
                 "direct_objects": {"count": 15, "file": "direct_object_database.json"},
                 "indirect_objects": {"count": 12, "file": "indirect_object_database.json"},
-                "adjectives": {"count": 8, "file": "adjective_database.json"}
+                "adjectives": {"count": 8, "file": "adjective_database.json"},
+                "verbal_nouns": {"count": 8, "file": "verbal_noun_database.json"},
+                "adverbs": {"count": 8, "file": "adverb_database.json"},
+                "surface_nouns": {"count": 8, "file": "surface_noun_database.json"}
             }
         """
         if not self._loaded:
@@ -162,6 +174,9 @@ class DatabaseLoader:
             "direct_objects": self.config.get_path("direct_object_database"),
             "indirect_objects": self.config.get_path("indirect_object_database"),
             "adjectives": self.config.get_path("adjective_database"),
+            "verbal_nouns": self.config.get_path("verbal_noun_database"),
+            "adverbs": self.config.get_path("adverb_database"),
+            "surface_nouns": self.config.get_path("surface_noun_database"),
         }
 
         for db_type, database in self._databases.items():

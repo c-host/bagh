@@ -33,6 +33,17 @@ python tools/build_pipeline.py --stage output-generation --production
 
 This pipeline is the source of truth for deployment artifacts in `dist/`.
 
+## 🧱 Example Sentence Model
+
+Examples are generated with a compositional token model:
+- Source schema uses `syntax.complements`, `syntax.adjuncts`, and `syntax.exampleComposition`.
+- Generated examples contain token arrays under `generated_data.examples[*].tokens.{georgian,english}`.
+- Token layers are:
+  - `always` (always visible)
+  - `adjectives` (toggleable)
+  - `adverbs` (toggleable)
+- Frontend sentence complexity is controlled per screeve and persisted in `localStorage`.
+
 ## 🎨 Fonts
 
 This project uses several custom fonts for Georgian text display. See [FONTS.md](FONTS.md) for more information.

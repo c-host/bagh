@@ -308,18 +308,6 @@ class ArgumentProcessor(BaseGlossParser):
                     f"Noun is missing or empty for {argument_type} {person}"
                 )
 
-            # Validate adjective is present
-            if not adjective or not adjective.strip():
-                raise ValueError(
-                    f"Adjective is missing or empty for {argument_type} {person}"
-                )
-
-            # Handle "none" adjective case - not allowed
-            if adjective.strip().lower() == "none":
-                raise ValueError(
-                    f"Adjective cannot be 'none' for {argument_type} {person}. Adjectives are now mandatory."
-                )
-
             return noun.strip(), adjective.strip()
 
         except Exception as e:
@@ -635,3 +623,50 @@ class ArgumentProcessor(BaseGlossParser):
         except Exception as e:
             safe_log(logger, "error", f"Error in parse_and_resolve: {e}")
             raise ValueError(f"Failed to parse and resolve: {e}")
+
+    def get_person_keyed_config(self, config: Dict, person: str) -> Dict:
+        """
+        Resolve person-keyed configuration with optional default fallback.
+
+        Expected shape:
+            {
+              "keyed_by": "person",
+              "default": {...},
+              "by_person": {"1sg": {...}}
+            }
+        """
+        by_person = config.get("by_person", {}) if config else {}
+        if person in by_person:
+            return by_person[person]
+        return config.get("default", {}) if config else {}
+
+    def get_verbal_noun_entry(self, verbal_noun_key: str) -> Dict:
+        db = self.databases.get("verbal_nouns", {})
+        entry = db.get(verbal_noun_key, {})
+        if not entry:
+            raise ValueError(f"Verbal noun '{verbal_noun_key}' not found in database")
+        return entry
+
+    def get_adverb_entry(self, adverb_key: str) -> Dict:
+        db = self.databases.get("adverbs", {})
+        entry = db.get(adverb_key, {})
+        if not entry:
+            raise ValueError(f"Adverb '{adverb_key}' not found in database")
+        return entry
+
+    def get_surface_phrase(self, surface_key: str, postposition: str) -> Tuple[str, str]:
+        db = self.databases.get("surface_nouns", {})
+        entry = db.get(surface_key, {})
+        if not entry:
+            raise ValueError(f"Surface noun '{surface_key}' not found in database")
+
+        georgian_map = entry.get("georgian", {})
+        english_map = entry.get("english_literal", {})
+        georgian = georgian_map.get(postposition, "")
+        english = english_map.get(postposition, "")
+
+        if not georgian or not english:
+            raise ValueError(
+                f"Surface noun '{surface_key}' missing postposition '{postposition}' mapping"
+            )
+        return georgian, english

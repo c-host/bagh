@@ -12,6 +12,9 @@ class Database {
         this.indirectObjects = {};
         this.categories = {};
         this.adjectives = {};
+        this.verbalNouns = {};
+        this.adverbs = {};
+        this.surfaceNouns = {};
         this.loaded = false;
         this.loading = false;
 
@@ -78,7 +81,10 @@ class Database {
             await Promise.all([
                 this.loadCategoriesDatabase(), // Categories are needed for form display
                 this.loadVerbsDatabase(),      // Basic verb list for suggestions
-                this.loadAdjectiveDatabase()   // Adjectives are needed for form dropdowns
+                this.loadAdjectiveDatabase(),
+                this.loadVerbalNounDatabase(),
+                this.loadAdverbDatabase(),
+                this.loadSurfaceNounDatabase()
             ]);
 
             this.performanceMetrics.loadTimes.critical = performance.now() - criticalStartTime;
@@ -368,6 +374,42 @@ class Database {
         } catch (error) {
             console.warn('Failed to load adjective database:', error);
             this.adjectives = {};
+        }
+    }
+
+    async loadVerbalNounDatabase() {
+        try {
+            const response = await fetch('../databases/verbal_noun_database.json');
+            if (!response.ok) throw new Error(`Failed to load verbal nouns: ${response.statusText}`);
+            const data = await response.json();
+            this.verbalNouns = data.verbal_nouns || {};
+        } catch (error) {
+            console.warn('Failed to load verbal noun database:', error);
+            this.verbalNouns = {};
+        }
+    }
+
+    async loadAdverbDatabase() {
+        try {
+            const response = await fetch('../databases/adverb_database.json');
+            if (!response.ok) throw new Error(`Failed to load adverbs: ${response.statusText}`);
+            const data = await response.json();
+            this.adverbs = data.adverbs || {};
+        } catch (error) {
+            console.warn('Failed to load adverb database:', error);
+            this.adverbs = {};
+        }
+    }
+
+    async loadSurfaceNounDatabase() {
+        try {
+            const response = await fetch('../databases/surface_noun_database.json');
+            if (!response.ok) throw new Error(`Failed to load surface nouns: ${response.statusText}`);
+            const data = await response.json();
+            this.surfaceNouns = data.surface_nouns || {};
+        } catch (error) {
+            console.warn('Failed to load surface noun database:', error);
+            this.surfaceNouns = {};
         }
     }
 

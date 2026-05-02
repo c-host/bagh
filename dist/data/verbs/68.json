@@ -218,6 +218,65 @@
                 "role": "verb"
               }
             },
+            "tokens": {
+              "georgian": [
+                {
+                  "text": "ახალ",
+                  "role": "direct_object",
+                  "part": "adjective",
+                  "layer": "adjectives",
+                  "toggleable": true
+                },
+                {
+                  "text": "თანამშრომელს",
+                  "role": "direct_object",
+                  "part": "noun",
+                  "layer": "always",
+                  "toggleable": false
+                },
+                {
+                  "text": "ვიწვევ",
+                  "role": "verb",
+                  "layer": "always",
+                  "toggleable": false
+                }
+              ],
+              "english": [
+                {
+                  "text": "I",
+                  "role": "subject",
+                  "layer": "always",
+                  "toggleable": false
+                },
+                {
+                  "text": "invite",
+                  "role": "verb",
+                  "layer": "always",
+                  "toggleable": false
+                },
+                {
+                  "text": "the",
+                  "role": "direct_object",
+                  "part": "preposition",
+                  "layer": "always",
+                  "toggleable": false
+                },
+                {
+                  "text": "new",
+                  "role": "direct_object",
+                  "part": "adjective",
+                  "layer": "adjectives",
+                  "toggleable": true
+                },
+                {
+                  "text": "employee",
+                  "role": "direct_object",
+                  "part": "noun",
+                  "layer": "always",
+                  "toggleable": false
+                }
+              ]
+            },
             "georgian_verb_form": "ვიწვევ",
             "person": "1sg",
             "effective_preverb": "მი"
@@ -243,7 +302,7 @@
             "english": "The experienced manager invites the good worker",
             "english_components": {
               "subject": {
-                "text": "The experienced manager",
+                "text": "the experienced manager",
                 "role": "subject",
                 "person": "3sg"
               },
@@ -255,6 +314,94 @@
                 "text": "invites",
                 "role": "verb"
               }
+            },
+            "tokens": {
+              "georgian": [
+                {
+                  "text": "გამოცდილი",
+                  "role": "subject",
+                  "part": "adjective",
+                  "layer": "adjectives",
+                  "toggleable": true
+                },
+                {
+                  "text": "მენეჯერი",
+                  "role": "subject",
+                  "part": "noun",
+                  "layer": "always",
+                  "toggleable": false
+                },
+                {
+                  "text": "კარგ",
+                  "role": "direct_object",
+                  "part": "adjective",
+                  "layer": "adjectives",
+                  "toggleable": true
+                },
+                {
+                  "text": "მუშას",
+                  "role": "direct_object",
+                  "part": "noun",
+                  "layer": "always",
+                  "toggleable": false
+                },
+                {
+                  "text": "იწვევს",
+                  "role": "verb",
+                  "layer": "always",
+                  "toggleable": false
+                }
+              ],
+              "english": [
+                {
+                  "text": "the",
+                  "role": "subject",
+                  "part": "preposition",
+                  "layer": "always",
+                  "toggleable": false
+                },
+                {
+                  "text": "experienced",
+                  "role": "subject",
+                  "part": "adjective",
+                  "layer": "adjectives",
+                  "toggleable": true
+                },
+                {
+                  "text": "manager",
+                  "role": "subject",
+                  "part": "noun",
+                  "layer": "always",
+                  "toggleable": false
+                },
+                {
+                  "text": "invites",
+                  "role": "verb",
+                  "layer": "always",
+                  "toggleable": false
+                },
+                {
+                  "text": "the",
+                  "role": "direct_object",
+                  "part": "preposition",
+                  "layer": "always",
+                  "toggleable": false
+                },
+                {
+                  "text": "good",
+                  "role": "direct_object",
+                  "part": "adjective",
+                  "layer": "adjectives",
+                  "toggleable": true
+                },
+                {
+                  "text": "worker",
+                  "role": "direct_object",
+                  "part": "noun",
+                  "layer": "always",
+                  "toggleable": false
+                }
+              ]
             },
             "georgian_verb_form": "იწვევს",
             "person": "3sg",
@@ -281,7 +428,7 @@
             "english": "The strict teachers invite the helpful assistant",
             "english_components": {
               "subject": {
-                "text": "The strict teachers",
+                "text": "the strict teachers",
                 "role": "subject",
                 "person": "3pl"
               },
@@ -293,6 +440,94 @@
                 "text": "invite",
                 "role": "verb"
               }
+            },
+            "tokens": {
+              "georgian": [
+                {
+                  "text": "მკაცრი",
+                  "role": "subject",
+                  "part": "adjective",
+                  "layer": "adjectives",
+                  "toggleable": true
+                },
+                {
+                  "text": "მასწავლებლები",
+                  "role": "subject",
+                  "part": "noun",
+                  "layer": "always",
+                  "toggleable": false
+                },
+                {
+                  "text": "დამხმარე",
+                  "role": "direct_object",
+                  "part": "adjective",
+                  "layer": "adjectives",
+                  "toggleable": true
+                },
+                {
+                  "text": "ასისტენტს",
+                  "role": "direct_object",
+                  "part": "noun",
+                  "layer": "always",
+                  "toggleable": false
+                },
+                {
+                  "text": "იწვევენ",
+                  "role": "verb",
+                  "layer": "always",
+                  "toggleable": false
+                }
+              ],
+              "english": [
+                {
+                  "text": "the",
+                  "role": "subject",
+                  "part": "preposition",
+                  "layer": "always",
+                  "toggleable": false
+                },
+                {
+                  "text": "strict",
+                  "role": "subject",
+                  "part": "adjective",
+                  "layer": "adjectives",
+                  "toggleable": true
+                },
+                {
+                  "text": "teachers",
+                  "role": "subject",
+                  "part": "noun",
+                  "layer": "always",
+                  "toggleable": false
+                },
+                {
+                  "text": "invite",
+                  "role": "verb",
+                  "layer": "always",
+                  "toggleable": false
+                },
+                {
+                  "text": "the",
+                  "role": "direct_object",
+                  "part": "preposition",
+                  "layer": "always",
+                  "toggleable": false
+                },
+                {
+                  "text": "helpful",
+                  "role": "direct_object",
+                  "part": "adjective",
+                  "layer": "adjectives",
+                  "toggleable": true
+                },
+                {
+                  "text": "assistant",
+                  "role": "direct_object",
+                  "part": "noun",
+                  "layer": "always",
+                  "toggleable": false
+                }
+              ]
             },
             "georgian_verb_form": "იწვევენ",
             "person": "3pl",
@@ -329,6 +564,65 @@
                 "role": "verb"
               }
             },
+            "tokens": {
+              "georgian": [
+                {
+                  "text": "ახალ",
+                  "role": "direct_object",
+                  "part": "adjective",
+                  "layer": "adjectives",
+                  "toggleable": true
+                },
+                {
+                  "text": "თანამშრომელს",
+                  "role": "direct_object",
+                  "part": "noun",
+                  "layer": "always",
+                  "toggleable": false
+                },
+                {
+                  "text": "ვიწვევდი",
+                  "role": "verb",
+                  "layer": "always",
+                  "toggleable": false
+                }
+              ],
+              "english": [
+                {
+                  "text": "I",
+                  "role": "subject",
+                  "layer": "always",
+                  "toggleable": false
+                },
+                {
+                  "text": "was inviting",
+                  "role": "verb",
+                  "layer": "always",
+                  "toggleable": false
+                },
+                {
+                  "text": "the",
+                  "role": "direct_object",
+                  "part": "preposition",
+                  "layer": "always",
+                  "toggleable": false
+                },
+                {
+                  "text": "new",
+                  "role": "direct_object",
+                  "part": "adjective",
+                  "layer": "adjectives",
+                  "toggleable": true
+                },
+                {
+                  "text": "employee",
+                  "role": "direct_object",
+                  "part": "noun",
+                  "layer": "always",
+                  "toggleable": false
+                }
+              ]
+            },
             "georgian_verb_form": "ვიწვევდი",
             "person": "1sg",
             "effective_preverb": "მი"
@@ -354,7 +648,7 @@
             "english": "The experienced manager was inviting the good worker",
             "english_components": {
               "subject": {
-                "text": "The experienced manager",
+                "text": "the experienced manager",
                 "role": "subject",
                 "person": "3sg"
               },
@@ -366,6 +660,94 @@
                 "text": "was inviting",
                 "role": "verb"
               }
+            },
+            "tokens": {
+              "georgian": [
+                {
+                  "text": "გამოცდილი",
+                  "role": "subject",
+                  "part": "adjective",
+                  "layer": "adjectives",
+                  "toggleable": true
+                },
+                {
+                  "text": "მენეჯერი",
+                  "role": "subject",
+                  "part": "noun",
+                  "layer": "always",
+                  "toggleable": false
+                },
+                {
+                  "text": "კარგ",
+                  "role": "direct_object",
+                  "part": "adjective",
+                  "layer": "adjectives",
+                  "toggleable": true
+                },
+                {
+                  "text": "მუშას",
+                  "role": "direct_object",
+                  "part": "noun",
+                  "layer": "always",
+                  "toggleable": false
+                },
+                {
+                  "text": "იწვევდა",
+                  "role": "verb",
+                  "layer": "always",
+                  "toggleable": false
+                }
+              ],
+              "english": [
+                {
+                  "text": "the",
+                  "role": "subject",
+                  "part": "preposition",
+                  "layer": "always",
+                  "toggleable": false
+                },
+                {
+                  "text": "experienced",
+                  "role": "subject",
+                  "part": "adjective",
+                  "layer": "adjectives",
+                  "toggleable": true
+                },
+                {
+                  "text": "manager",
+                  "role": "subject",
+                  "part": "noun",
+                  "layer": "always",
+                  "toggleable": false
+                },
+                {
+                  "text": "was inviting",
+                  "role": "verb",
+                  "layer": "always",
+                  "toggleable": false
+                },
+                {
+                  "text": "the",
+                  "role": "direct_object",
+                  "part": "preposition",
+                  "layer": "always",
+                  "toggleable": false
+                },
+                {
+                  "text": "good",
+                  "role": "direct_object",
+                  "part": "adjective",
+                  "layer": "adjectives",
+                  "toggleable": true
+                },
+                {
+                  "text": "worker",
+                  "role": "direct_object",
+                  "part": "noun",
+                  "layer": "always",
+                  "toggleable": false
+                }
+              ]
             },
             "georgian_verb_form": "იწვევდა",
             "person": "3sg",
@@ -392,7 +774,7 @@
             "english": "The strict teachers were inviting the helpful assistant",
             "english_components": {
               "subject": {
-                "text": "The strict teachers",
+                "text": "the strict teachers",
                 "role": "subject",
                 "person": "3pl"
               },
@@ -404,6 +786,94 @@
                 "text": "were inviting",
                 "role": "verb"
               }
+            },
+            "tokens": {
+              "georgian": [
+                {
+                  "text": "მკაცრი",
+                  "role": "subject",
+                  "part": "adjective",
+                  "layer": "adjectives",
+                  "toggleable": true
+                },
+                {
+                  "text": "მასწავლებლები",
+                  "role": "subject",
+                  "part": "noun",
+                  "layer": "always",
+                  "toggleable": false
+                },
+                {
+                  "text": "დამხმარე",
+                  "role": "direct_object",
+                  "part": "adjective",
+                  "layer": "adjectives",
+                  "toggleable": true
+                },
+                {
+                  "text": "ასისტენტს",
+                  "role": "direct_object",
+                  "part": "noun",
+                  "layer": "always",
+                  "toggleable": false
+                },
+                {
+                  "text": "იწვევდნენ",
+                  "role": "verb",
+                  "layer": "always",
+                  "toggleable": false
+                }
+              ],
+              "english": [
+                {
+                  "text": "the",
+                  "role": "subject",
+                  "part": "preposition",
+                  "layer": "always",
+                  "toggleable": false
+                },
+                {
+                  "text": "strict",
+                  "role": "subject",
+                  "part": "adjective",
+                  "layer": "adjectives",
+                  "toggleable": true
+                },
+                {
+                  "text": "teachers",
+                  "role": "subject",
+                  "part": "noun",
+                  "layer": "always",
+                  "toggleable": false
+                },
+                {
+                  "text": "were inviting",
+                  "role": "verb",
+                  "layer": "always",
+                  "toggleable": false
+                },
+                {
+                  "text": "the",
+                  "role": "direct_object",
+                  "part": "preposition",
+                  "layer": "always",
+                  "toggleable": false
+                },
+                {
+                  "text": "helpful",
+                  "role": "direct_object",
+                  "part": "adjective",
+                  "layer": "adjectives",
+                  "toggleable": true
+                },
+                {
+                  "text": "assistant",
+                  "role": "direct_object",
+                  "part": "noun",
+                  "layer": "always",
+                  "toggleable": false
+                }
+              ]
             },
             "georgian_verb_form": "იწვევდნენ",
             "person": "3pl",
@@ -440,6 +910,65 @@
                 "role": "verb"
               }
             },
+            "tokens": {
+              "georgian": [
+                {
+                  "text": "ახალ",
+                  "role": "direct_object",
+                  "part": "adjective",
+                  "layer": "adjectives",
+                  "toggleable": true
+                },
+                {
+                  "text": "თანამშრომელს",
+                  "role": "direct_object",
+                  "part": "noun",
+                  "layer": "always",
+                  "toggleable": false
+                },
+                {
+                  "text": "მივიწვევ",
+                  "role": "verb",
+                  "layer": "always",
+                  "toggleable": false
+                }
+              ],
+              "english": [
+                {
+                  "text": "I",
+                  "role": "subject",
+                  "layer": "always",
+                  "toggleable": false
+                },
+                {
+                  "text": "will invite",
+                  "role": "verb",
+                  "layer": "always",
+                  "toggleable": false
+                },
+                {
+                  "text": "the",
+                  "role": "direct_object",
+                  "part": "preposition",
+                  "layer": "always",
+                  "toggleable": false
+                },
+                {
+                  "text": "new",
+                  "role": "direct_object",
+                  "part": "adjective",
+                  "layer": "adjectives",
+                  "toggleable": true
+                },
+                {
+                  "text": "employee",
+                  "role": "direct_object",
+                  "part": "noun",
+                  "layer": "always",
+                  "toggleable": false
+                }
+              ]
+            },
             "georgian_verb_form": "მივიწვევ",
             "person": "1sg",
             "effective_preverb": "მი"
@@ -465,7 +994,7 @@
             "english": "The experienced manager will invite the good worker",
             "english_components": {
               "subject": {
-                "text": "The experienced manager",
+                "text": "the experienced manager",
                 "role": "subject",
                 "person": "3sg"
               },
@@ -477,6 +1006,94 @@
                 "text": "will invite",
                 "role": "verb"
               }
+            },
+            "tokens": {
+              "georgian": [
+                {
+                  "text": "გამოცდილი",
+                  "role": "subject",
+                  "part": "adjective",
+                  "layer": "adjectives",
+                  "toggleable": true
+                },
+                {
+                  "text": "მენეჯერი",
+                  "role": "subject",
+                  "part": "noun",
+                  "layer": "always",
+                  "toggleable": false
+                },
+                {
+                  "text": "კარგ",
+                  "role": "direct_object",
+                  "part": "adjective",
+                  "layer": "adjectives",
+                  "toggleable": true
+                },
+                {
+                  "text": "მუშას",
+                  "role": "direct_object",
+                  "part": "noun",
+                  "layer": "always",
+                  "toggleable": false
+                },
+                {
+                  "text": "მიიწვევს",
+                  "role": "verb",
+                  "layer": "always",
+                  "toggleable": false
+                }
+              ],
+              "english": [
+                {
+                  "text": "the",
+                  "role": "subject",
+                  "part": "preposition",
+                  "layer": "always",
+                  "toggleable": false
+                },
+                {
+                  "text": "experienced",
+                  "role": "subject",
+                  "part": "adjective",
+                  "layer": "adjectives",
+                  "toggleable": true
+                },
+                {
+                  "text": "manager",
+                  "role": "subject",
+                  "part": "noun",
+                  "layer": "always",
+                  "toggleable": false
+                },
+                {
+                  "text": "will invite",
+                  "role": "verb",
+                  "layer": "always",
+                  "toggleable": false
+                },
+                {
+                  "text": "the",
+                  "role": "direct_object",
+                  "part": "preposition",
+                  "layer": "always",
+                  "toggleable": false
+                },
+                {
+                  "text": "good",
+                  "role": "direct_object",
+                  "part": "adjective",
+                  "layer": "adjectives",
+                  "toggleable": true
+                },
+                {
+                  "text": "worker",
+                  "role": "direct_object",
+                  "part": "noun",
+                  "layer": "always",
+                  "toggleable": false
+                }
+              ]
             },
             "georgian_verb_form": "მიიწვევს",
             "person": "3sg",
@@ -503,7 +1120,7 @@
             "english": "The strict teachers will invite the helpful assistant",
             "english_components": {
               "subject": {
-                "text": "The strict teachers",
+                "text": "the strict teachers",
                 "role": "subject",
                 "person": "3pl"
               },
@@ -515,6 +1132,94 @@
                 "text": "will invite",
                 "role": "verb"
               }
+            },
+            "tokens": {
+              "georgian": [
+                {
+                  "text": "მკაცრი",
+                  "role": "subject",
+                  "part": "adjective",
+                  "layer": "adjectives",
+                  "toggleable": true
+                },
+                {
+                  "text": "მასწავლებლები",
+                  "role": "subject",
+                  "part": "noun",
+                  "layer": "always",
+                  "toggleable": false
+                },
+                {
+                  "text": "დამხმარე",
+                  "role": "direct_object",
+                  "part": "adjective",
+                  "layer": "adjectives",
+                  "toggleable": true
+                },
+                {
+                  "text": "ასისტენტს",
+                  "role": "direct_object",
+                  "part": "noun",
+                  "layer": "always",
+                  "toggleable": false
+                },
+                {
+                  "text": "მიიწვევენ",
+                  "role": "verb",
+                  "layer": "always",
+                  "toggleable": false
+                }
+              ],
+              "english": [
+                {
+                  "text": "the",
+                  "role": "subject",
+                  "part": "preposition",
+                  "layer": "always",
+                  "toggleable": false
+                },
+                {
+                  "text": "strict",
+                  "role": "subject",
+                  "part": "adjective",
+                  "layer": "adjectives",
+                  "toggleable": true
+                },
+                {
+                  "text": "teachers",
+                  "role": "subject",
+                  "part": "noun",
+                  "layer": "always",
+                  "toggleable": false
+                },
+                {
+                  "text": "will invite",
+                  "role": "verb",
+                  "layer": "always",
+                  "toggleable": false
+                },
+                {
+                  "text": "the",
+                  "role": "direct_object",
+                  "part": "preposition",
+                  "layer": "always",
+                  "toggleable": false
+                },
+                {
+                  "text": "helpful",
+                  "role": "direct_object",
+                  "part": "adjective",
+                  "layer": "adjectives",
+                  "toggleable": true
+                },
+                {
+                  "text": "assistant",
+                  "role": "direct_object",
+                  "part": "noun",
+                  "layer": "always",
+                  "toggleable": false
+                }
+              ]
             },
             "georgian_verb_form": "მიიწვევენ",
             "person": "3pl",
@@ -551,6 +1256,65 @@
                 "role": "verb"
               }
             },
+            "tokens": {
+              "georgian": [
+                {
+                  "text": "ახალი",
+                  "role": "direct_object",
+                  "part": "adjective",
+                  "layer": "adjectives",
+                  "toggleable": true
+                },
+                {
+                  "text": "თანამშრომელი",
+                  "role": "direct_object",
+                  "part": "noun",
+                  "layer": "always",
+                  "toggleable": false
+                },
+                {
+                  "text": "მივიწვიე",
+                  "role": "verb",
+                  "layer": "always",
+                  "toggleable": false
+                }
+              ],
+              "english": [
+                {
+                  "text": "I",
+                  "role": "subject",
+                  "layer": "always",
+                  "toggleable": false
+                },
+                {
+                  "text": "invited",
+                  "role": "verb",
+                  "layer": "always",
+                  "toggleable": false
+                },
+                {
+                  "text": "the",
+                  "role": "direct_object",
+                  "part": "preposition",
+                  "layer": "always",
+                  "toggleable": false
+                },
+                {
+                  "text": "new",
+                  "role": "direct_object",
+                  "part": "adjective",
+                  "layer": "adjectives",
+                  "toggleable": true
+                },
+                {
+                  "text": "employee",
+                  "role": "direct_object",
+                  "part": "noun",
+                  "layer": "always",
+                  "toggleable": false
+                }
+              ]
+            },
             "georgian_verb_form": "მივიწვიე",
             "person": "1sg",
             "effective_preverb": "მი"
@@ -576,7 +1340,7 @@
             "english": "The experienced manager invited the good worker",
             "english_components": {
               "subject": {
-                "text": "The experienced manager",
+                "text": "the experienced manager",
                 "role": "subject",
                 "person": "3sg"
               },
@@ -588,6 +1352,94 @@
                 "text": "invited",
                 "role": "verb"
               }
+            },
+            "tokens": {
+              "georgian": [
+                {
+                  "text": "გამოცდილმა",
+                  "role": "subject",
+                  "part": "adjective",
+                  "layer": "adjectives",
+                  "toggleable": true
+                },
+                {
+                  "text": "მენეჯერმა",
+                  "role": "subject",
+                  "part": "noun",
+                  "layer": "always",
+                  "toggleable": false
+                },
+                {
+                  "text": "კარგი",
+                  "role": "direct_object",
+                  "part": "adjective",
+                  "layer": "adjectives",
+                  "toggleable": true
+                },
+                {
+                  "text": "მუშა",
+                  "role": "direct_object",
+                  "part": "noun",
+                  "layer": "always",
+                  "toggleable": false
+                },
+                {
+                  "text": "მიიწვია",
+                  "role": "verb",
+                  "layer": "always",
+                  "toggleable": false
+                }
+              ],
+              "english": [
+                {
+                  "text": "the",
+                  "role": "subject",
+                  "part": "preposition",
+                  "layer": "always",
+                  "toggleable": false
+                },
+                {
+                  "text": "experienced",
+                  "role": "subject",
+                  "part": "adjective",
+                  "layer": "adjectives",
+                  "toggleable": true
+                },
+                {
+                  "text": "manager",
+                  "role": "subject",
+                  "part": "noun",
+                  "layer": "always",
+                  "toggleable": false
+                },
+                {
+                  "text": "invited",
+                  "role": "verb",
+                  "layer": "always",
+                  "toggleable": false
+                },
+                {
+                  "text": "the",
+                  "role": "direct_object",
+                  "part": "preposition",
+                  "layer": "always",
+                  "toggleable": false
+                },
+                {
+                  "text": "good",
+                  "role": "direct_object",
+                  "part": "adjective",
+                  "layer": "adjectives",
+                  "toggleable": true
+                },
+                {
+                  "text": "worker",
+                  "role": "direct_object",
+                  "part": "noun",
+                  "layer": "always",
+                  "toggleable": false
+                }
+              ]
             },
             "georgian_verb_form": "მიიწვია",
             "person": "3sg",
@@ -614,7 +1466,7 @@
             "english": "The strict teachers invited the helpful assistant",
             "english_components": {
               "subject": {
-                "text": "The strict teachers",
+                "text": "the strict teachers",
                 "role": "subject",
                 "person": "3pl"
               },
@@ -626,6 +1478,94 @@
                 "text": "invited",
                 "role": "verb"
               }
+            },
+            "tokens": {
+              "georgian": [
+                {
+                  "text": "მკაცრმა",
+                  "role": "subject",
+                  "part": "adjective",
+                  "layer": "adjectives",
+                  "toggleable": true
+                },
+                {
+                  "text": "მასწავლებლებმა",
+                  "role": "subject",
+                  "part": "noun",
+                  "layer": "always",
+                  "toggleable": false
+                },
+                {
+                  "text": "დამხმარე",
+                  "role": "direct_object",
+                  "part": "adjective",
+                  "layer": "adjectives",
+                  "toggleable": true
+                },
+                {
+                  "text": "ასისტენტი",
+                  "role": "direct_object",
+                  "part": "noun",
+                  "layer": "always",
+                  "toggleable": false
+                },
+                {
+                  "text": "მიიწვიეს",
+                  "role": "verb",
+                  "layer": "always",
+                  "toggleable": false
+                }
+              ],
+              "english": [
+                {
+                  "text": "the",
+                  "role": "subject",
+                  "part": "preposition",
+                  "layer": "always",
+                  "toggleable": false
+                },
+                {
+                  "text": "strict",
+                  "role": "subject",
+                  "part": "adjective",
+                  "layer": "adjectives",
+                  "toggleable": true
+                },
+                {
+                  "text": "teachers",
+                  "role": "subject",
+                  "part": "noun",
+                  "layer": "always",
+                  "toggleable": false
+                },
+                {
+                  "text": "invited",
+                  "role": "verb",
+                  "layer": "always",
+                  "toggleable": false
+                },
+                {
+                  "text": "the",
+                  "role": "direct_object",
+                  "part": "preposition",
+                  "layer": "always",
+                  "toggleable": false
+                },
+                {
+                  "text": "helpful",
+                  "role": "direct_object",
+                  "part": "adjective",
+                  "layer": "adjectives",
+                  "toggleable": true
+                },
+                {
+                  "text": "assistant",
+                  "role": "direct_object",
+                  "part": "noun",
+                  "layer": "always",
+                  "toggleable": false
+                }
+              ]
             },
             "georgian_verb_form": "მიიწვიეს",
             "person": "3pl",
@@ -662,6 +1602,65 @@
                 "role": "verb"
               }
             },
+            "tokens": {
+              "georgian": [
+                {
+                  "text": "ახალი",
+                  "role": "direct_object",
+                  "part": "adjective",
+                  "layer": "adjectives",
+                  "toggleable": true
+                },
+                {
+                  "text": "თანამშრომელი",
+                  "role": "direct_object",
+                  "part": "noun",
+                  "layer": "always",
+                  "toggleable": false
+                },
+                {
+                  "text": "უნდა მივიწვიო",
+                  "role": "verb",
+                  "layer": "always",
+                  "toggleable": false
+                }
+              ],
+              "english": [
+                {
+                  "text": "I",
+                  "role": "subject",
+                  "layer": "always",
+                  "toggleable": false
+                },
+                {
+                  "text": "should invite",
+                  "role": "verb",
+                  "layer": "always",
+                  "toggleable": false
+                },
+                {
+                  "text": "the",
+                  "role": "direct_object",
+                  "part": "preposition",
+                  "layer": "always",
+                  "toggleable": false
+                },
+                {
+                  "text": "new",
+                  "role": "direct_object",
+                  "part": "adjective",
+                  "layer": "adjectives",
+                  "toggleable": true
+                },
+                {
+                  "text": "employee",
+                  "role": "direct_object",
+                  "part": "noun",
+                  "layer": "always",
+                  "toggleable": false
+                }
+              ]
+            },
             "georgian_verb_form": "მივიწვიო",
             "person": "1sg",
             "effective_preverb": "მი"
@@ -687,7 +1686,7 @@
             "english": "The experienced manager should invite the good worker",
             "english_components": {
               "subject": {
-                "text": "The experienced manager",
+                "text": "the experienced manager",
                 "role": "subject",
                 "person": "3sg"
               },
@@ -699,6 +1698,94 @@
                 "text": "should invite",
                 "role": "verb"
               }
+            },
+            "tokens": {
+              "georgian": [
+                {
+                  "text": "გამოცდილმა",
+                  "role": "subject",
+                  "part": "adjective",
+                  "layer": "adjectives",
+                  "toggleable": true
+                },
+                {
+                  "text": "მენეჯერმა",
+                  "role": "subject",
+                  "part": "noun",
+                  "layer": "always",
+                  "toggleable": false
+                },
+                {
+                  "text": "კარგი",
+                  "role": "direct_object",
+                  "part": "adjective",
+                  "layer": "adjectives",
+                  "toggleable": true
+                },
+                {
+                  "text": "მუშა",
+                  "role": "direct_object",
+                  "part": "noun",
+                  "layer": "always",
+                  "toggleable": false
+                },
+                {
+                  "text": "უნდა მიიწვიოს",
+                  "role": "verb",
+                  "layer": "always",
+                  "toggleable": false
+                }
+              ],
+              "english": [
+                {
+                  "text": "the",
+                  "role": "subject",
+                  "part": "preposition",
+                  "layer": "always",
+                  "toggleable": false
+                },
+                {
+                  "text": "experienced",
+                  "role": "subject",
+                  "part": "adjective",
+                  "layer": "adjectives",
+                  "toggleable": true
+                },
+                {
+                  "text": "manager",
+                  "role": "subject",
+                  "part": "noun",
+                  "layer": "always",
+                  "toggleable": false
+                },
+                {
+                  "text": "should invite",
+                  "role": "verb",
+                  "layer": "always",
+                  "toggleable": false
+                },
+                {
+                  "text": "the",
+                  "role": "direct_object",
+                  "part": "preposition",
+                  "layer": "always",
+                  "toggleable": false
+                },
+                {
+                  "text": "good",
+                  "role": "direct_object",
+                  "part": "adjective",
+                  "layer": "adjectives",
+                  "toggleable": true
+                },
+                {
+                  "text": "worker",
+                  "role": "direct_object",
+                  "part": "noun",
+                  "layer": "always",
+                  "toggleable": false
+                }
+              ]
             },
             "georgian_verb_form": "მიიწვიოს",
             "person": "3sg",
@@ -725,7 +1812,7 @@
             "english": "The strict teachers should invite the helpful assistant",
             "english_components": {
               "subject": {
-                "text": "The strict teachers",
+                "text": "the strict teachers",
                 "role": "subject",
                 "person": "3pl"
               },
@@ -737,6 +1824,94 @@
                 "text": "should invite",
                 "role": "verb"
               }
+            },
+            "tokens": {
+              "georgian": [
+                {
+                  "text": "მკაცრმა",
+                  "role": "subject",
+                  "part": "adjective",
+                  "layer": "adjectives",
+                  "toggleable": true
+                },
+                {
+                  "text": "მასწავლებლებმა",
+                  "role": "subject",
+                  "part": "noun",
+                  "layer": "always",
+                  "toggleable": false
+                },
+                {
+                  "text": "დამხმარე",
+                  "role": "direct_object",
+                  "part": "adjective",
+                  "layer": "adjectives",
+                  "toggleable": true
+                },
+                {
+                  "text": "ასისტენტი",
+                  "role": "direct_object",
+                  "part": "noun",
+                  "layer": "always",
+                  "toggleable": false
+                },
+                {
+                  "text": "უნდა მიიწვიონ",
+                  "role": "verb",
+                  "layer": "always",
+                  "toggleable": false
+                }
+              ],
+              "english": [
+                {
+                  "text": "the",
+                  "role": "subject",
+                  "part": "preposition",
+                  "layer": "always",
+                  "toggleable": false
+                },
+                {
+                  "text": "strict",
+                  "role": "subject",
+                  "part": "adjective",
+                  "layer": "adjectives",
+                  "toggleable": true
+                },
+                {
+                  "text": "teachers",
+                  "role": "subject",
+                  "part": "noun",
+                  "layer": "always",
+                  "toggleable": false
+                },
+                {
+                  "text": "should invite",
+                  "role": "verb",
+                  "layer": "always",
+                  "toggleable": false
+                },
+                {
+                  "text": "the",
+                  "role": "direct_object",
+                  "part": "preposition",
+                  "layer": "always",
+                  "toggleable": false
+                },
+                {
+                  "text": "helpful",
+                  "role": "direct_object",
+                  "part": "adjective",
+                  "layer": "adjectives",
+                  "toggleable": true
+                },
+                {
+                  "text": "assistant",
+                  "role": "direct_object",
+                  "part": "noun",
+                  "layer": "always",
+                  "toggleable": false
+                }
+              ]
             },
             "georgian_verb_form": "მიიწვიონ",
             "person": "3pl",
@@ -773,6 +1948,65 @@
                 "role": "verb"
               }
             },
+            "tokens": {
+              "georgian": [
+                {
+                  "text": "ახალგაზრდა",
+                  "role": "direct_object",
+                  "part": "adjective",
+                  "layer": "adjectives",
+                  "toggleable": true
+                },
+                {
+                  "text": "სტუდენტი",
+                  "role": "direct_object",
+                  "part": "noun",
+                  "layer": "always",
+                  "toggleable": false
+                },
+                {
+                  "text": "მიიწვიე",
+                  "role": "verb",
+                  "layer": "always",
+                  "toggleable": false
+                }
+              ],
+              "english": [
+                {
+                  "text": "You,",
+                  "role": "subject",
+                  "layer": "always",
+                  "toggleable": false
+                },
+                {
+                  "text": "invite",
+                  "role": "verb",
+                  "layer": "always",
+                  "toggleable": false
+                },
+                {
+                  "text": "the",
+                  "role": "direct_object",
+                  "part": "preposition",
+                  "layer": "always",
+                  "toggleable": false
+                },
+                {
+                  "text": "young",
+                  "role": "direct_object",
+                  "part": "adjective",
+                  "layer": "adjectives",
+                  "toggleable": true
+                },
+                {
+                  "text": "student",
+                  "role": "direct_object",
+                  "part": "noun",
+                  "layer": "always",
+                  "toggleable": false
+                }
+              ]
+            },
             "georgian_verb_form": "მიიწვიე",
             "person": "2sg",
             "effective_preverb": "მი"
@@ -805,6 +2039,65 @@
                 "text": "invite",
                 "role": "verb"
               }
+            },
+            "tokens": {
+              "georgian": [
+                {
+                  "text": "დიდი",
+                  "role": "direct_object",
+                  "part": "adjective",
+                  "layer": "adjectives",
+                  "toggleable": true
+                },
+                {
+                  "text": "ჯგუფი",
+                  "role": "direct_object",
+                  "part": "noun",
+                  "layer": "always",
+                  "toggleable": false
+                },
+                {
+                  "text": "მიიწვიეთ",
+                  "role": "verb",
+                  "layer": "always",
+                  "toggleable": false
+                }
+              ],
+              "english": [
+                {
+                  "text": "You all (you formal),",
+                  "role": "subject",
+                  "layer": "always",
+                  "toggleable": false
+                },
+                {
+                  "text": "invite",
+                  "role": "verb",
+                  "layer": "always",
+                  "toggleable": false
+                },
+                {
+                  "text": "the",
+                  "role": "direct_object",
+                  "part": "preposition",
+                  "layer": "always",
+                  "toggleable": false
+                },
+                {
+                  "text": "large",
+                  "role": "direct_object",
+                  "part": "adjective",
+                  "layer": "adjectives",
+                  "toggleable": true
+                },
+                {
+                  "text": "group",
+                  "role": "direct_object",
+                  "part": "noun",
+                  "layer": "always",
+                  "toggleable": false
+                }
+              ]
             },
             "georgian_verb_form": "მიიწვიეთ",
             "person": "2pl",
@@ -843,6 +2136,65 @@
                 "role": "verb"
               }
             },
+            "tokens": {
+              "georgian": [
+                {
+                  "text": "ახალ",
+                  "role": "direct_object",
+                  "part": "adjective",
+                  "layer": "adjectives",
+                  "toggleable": true
+                },
+                {
+                  "text": "თანამშრომელს",
+                  "role": "direct_object",
+                  "part": "noun",
+                  "layer": "always",
+                  "toggleable": false
+                },
+                {
+                  "text": "ვიწვევ",
+                  "role": "verb",
+                  "layer": "always",
+                  "toggleable": false
+                }
+              ],
+              "english": [
+                {
+                  "text": "I",
+                  "role": "subject",
+                  "layer": "always",
+                  "toggleable": false
+                },
+                {
+                  "text": "invite",
+                  "role": "verb",
+                  "layer": "always",
+                  "toggleable": false
+                },
+                {
+                  "text": "the",
+                  "role": "direct_object",
+                  "part": "preposition",
+                  "layer": "always",
+                  "toggleable": false
+                },
+                {
+                  "text": "new",
+                  "role": "direct_object",
+                  "part": "adjective",
+                  "layer": "adjectives",
+                  "toggleable": true
+                },
+                {
+                  "text": "employee",
+                  "role": "direct_object",
+                  "part": "noun",
+                  "layer": "always",
+                  "toggleable": false
+                }
+              ]
+            },
             "georgian_verb_form": "ვიწვევ",
             "person": "1sg",
             "effective_preverb": "მი"
@@ -868,7 +2220,7 @@
             "english": "The experienced manager invites the good worker",
             "english_components": {
               "subject": {
-                "text": "The experienced manager",
+                "text": "the experienced manager",
                 "role": "subject",
                 "person": "3sg"
               },
@@ -880,6 +2232,94 @@
                 "text": "invites",
                 "role": "verb"
               }
+            },
+            "tokens": {
+              "georgian": [
+                {
+                  "text": "გამოცდილი",
+                  "role": "subject",
+                  "part": "adjective",
+                  "layer": "adjectives",
+                  "toggleable": true
+                },
+                {
+                  "text": "მენეჯერი",
+                  "role": "subject",
+                  "part": "noun",
+                  "layer": "always",
+                  "toggleable": false
+                },
+                {
+                  "text": "კარგ",
+                  "role": "direct_object",
+                  "part": "adjective",
+                  "layer": "adjectives",
+                  "toggleable": true
+                },
+                {
+                  "text": "მუშას",
+                  "role": "direct_object",
+                  "part": "noun",
+                  "layer": "always",
+                  "toggleable": false
+                },
+                {
+                  "text": "იწვევს",
+                  "role": "verb",
+                  "layer": "always",
+                  "toggleable": false
+                }
+              ],
+              "english": [
+                {
+                  "text": "the",
+                  "role": "subject",
+                  "part": "preposition",
+                  "layer": "always",
+                  "toggleable": false
+                },
+                {
+                  "text": "experienced",
+                  "role": "subject",
+                  "part": "adjective",
+                  "layer": "adjectives",
+                  "toggleable": true
+                },
+                {
+                  "text": "manager",
+                  "role": "subject",
+                  "part": "noun",
+                  "layer": "always",
+                  "toggleable": false
+                },
+                {
+                  "text": "invites",
+                  "role": "verb",
+                  "layer": "always",
+                  "toggleable": false
+                },
+                {
+                  "text": "the",
+                  "role": "direct_object",
+                  "part": "preposition",
+                  "layer": "always",
+                  "toggleable": false
+                },
+                {
+                  "text": "good",
+                  "role": "direct_object",
+                  "part": "adjective",
+                  "layer": "adjectives",
+                  "toggleable": true
+                },
+                {
+                  "text": "worker",
+                  "role": "direct_object",
+                  "part": "noun",
+                  "layer": "always",
+                  "toggleable": false
+                }
+              ]
             },
             "georgian_verb_form": "იწვევს",
             "person": "3sg",
@@ -906,7 +2346,7 @@
             "english": "The strict teachers invite the helpful assistant",
             "english_components": {
               "subject": {
-                "text": "The strict teachers",
+                "text": "the strict teachers",
                 "role": "subject",
                 "person": "3pl"
               },
@@ -918,6 +2358,94 @@
                 "text": "invite",
                 "role": "verb"
               }
+            },
+            "tokens": {
+              "georgian": [
+                {
+                  "text": "მკაცრი",
+                  "role": "subject",
+                  "part": "adjective",
+                  "layer": "adjectives",
+                  "toggleable": true
+                },
+                {
+                  "text": "მასწავლებლები",
+                  "role": "subject",
+                  "part": "noun",
+                  "layer": "always",
+                  "toggleable": false
+                },
+                {
+                  "text": "დამხმარე",
+                  "role": "direct_object",
+                  "part": "adjective",
+                  "layer": "adjectives",
+                  "toggleable": true
+                },
+                {
+                  "text": "ასისტენტს",
+                  "role": "direct_object",
+                  "part": "noun",
+                  "layer": "always",
+                  "toggleable": false
+                },
+                {
+                  "text": "იწვევენ",
+                  "role": "verb",
+                  "layer": "always",
+                  "toggleable": false
+                }
+              ],
+              "english": [
+                {
+                  "text": "the",
+                  "role": "subject",
+                  "part": "preposition",
+                  "layer": "always",
+                  "toggleable": false
+                },
+                {
+                  "text": "strict",
+                  "role": "subject",
+                  "part": "adjective",
+                  "layer": "adjectives",
+                  "toggleable": true
+                },
+                {
+                  "text": "teachers",
+                  "role": "subject",
+                  "part": "noun",
+                  "layer": "always",
+                  "toggleable": false
+                },
+                {
+                  "text": "invite",
+                  "role": "verb",
+                  "layer": "always",
+                  "toggleable": false
+                },
+                {
+                  "text": "the",
+                  "role": "direct_object",
+                  "part": "preposition",
+                  "layer": "always",
+                  "toggleable": false
+                },
+                {
+                  "text": "helpful",
+                  "role": "direct_object",
+                  "part": "adjective",
+                  "layer": "adjectives",
+                  "toggleable": true
+                },
+                {
+                  "text": "assistant",
+                  "role": "direct_object",
+                  "part": "noun",
+                  "layer": "always",
+                  "toggleable": false
+                }
+              ]
             },
             "georgian_verb_form": "იწვევენ",
             "person": "3pl",
@@ -954,6 +2482,65 @@
                 "role": "verb"
               }
             },
+            "tokens": {
+              "georgian": [
+                {
+                  "text": "ახალ",
+                  "role": "direct_object",
+                  "part": "adjective",
+                  "layer": "adjectives",
+                  "toggleable": true
+                },
+                {
+                  "text": "თანამშრომელს",
+                  "role": "direct_object",
+                  "part": "noun",
+                  "layer": "always",
+                  "toggleable": false
+                },
+                {
+                  "text": "ვიწვევდი",
+                  "role": "verb",
+                  "layer": "always",
+                  "toggleable": false
+                }
+              ],
+              "english": [
+                {
+                  "text": "I",
+                  "role": "subject",
+                  "layer": "always",
+                  "toggleable": false
+                },
+                {
+                  "text": "was inviting",
+                  "role": "verb",
+                  "layer": "always",
+                  "toggleable": false
+                },
+                {
+                  "text": "the",
+                  "role": "direct_object",
+                  "part": "preposition",
+                  "layer": "always",
+                  "toggleable": false
+                },
+                {
+                  "text": "new",
+                  "role": "direct_object",
+                  "part": "adjective",
+                  "layer": "adjectives",
+                  "toggleable": true
+                },
+                {
+                  "text": "employee",
+                  "role": "direct_object",
+                  "part": "noun",
+                  "layer": "always",
+                  "toggleable": false
+                }
+              ]
+            },
             "georgian_verb_form": "ვიწვევდი",
             "person": "1sg",
             "effective_preverb": "მი"
@@ -979,7 +2566,7 @@
             "english": "The experienced manager was inviting the good worker",
             "english_components": {
               "subject": {
-                "text": "The experienced manager",
+                "text": "the experienced manager",
                 "role": "subject",
                 "person": "3sg"
               },
@@ -991,6 +2578,94 @@
                 "text": "was inviting",
                 "role": "verb"
               }
+            },
+            "tokens": {
+              "georgian": [
+                {
+                  "text": "გამოცდილი",
+                  "role": "subject",
+                  "part": "adjective",
+                  "layer": "adjectives",
+                  "toggleable": true
+                },
+                {
+                  "text": "მენეჯერი",
+                  "role": "subject",
+                  "part": "noun",
+                  "layer": "always",
+                  "toggleable": false
+                },
+                {
+                  "text": "კარგ",
+                  "role": "direct_object",
+                  "part": "adjective",
+                  "layer": "adjectives",
+                  "toggleable": true
+                },
+                {
+                  "text": "მუშას",
+                  "role": "direct_object",
+                  "part": "noun",
+                  "layer": "always",
+                  "toggleable": false
+                },
+                {
+                  "text": "იწვევდა",
+                  "role": "verb",
+                  "layer": "always",
+                  "toggleable": false
+                }
+              ],
+              "english": [
+                {
+                  "text": "the",
+                  "role": "subject",
+                  "part": "preposition",
+                  "layer": "always",
+                  "toggleable": false
+                },
+                {
+                  "text": "experienced",
+                  "role": "subject",
+                  "part": "adjective",
+                  "layer": "adjectives",
+                  "toggleable": true
+                },
+                {
+                  "text": "manager",
+                  "role": "subject",
+                  "part": "noun",
+                  "layer": "always",
+                  "toggleable": false
+                },
+                {
+                  "text": "was inviting",
+                  "role": "verb",
+                  "layer": "always",
+                  "toggleable": false
+                },
+                {
+                  "text": "the",
+                  "role": "direct_object",
+                  "part": "preposition",
+                  "layer": "always",
+                  "toggleable": false
+                },
+                {
+                  "text": "good",
+                  "role": "direct_object",
+                  "part": "adjective",
+                  "layer": "adjectives",
+                  "toggleable": true
+                },
+                {
+                  "text": "worker",
+                  "role": "direct_object",
+                  "part": "noun",
+                  "layer": "always",
+                  "toggleable": false
+                }
+              ]
             },
             "georgian_verb_form": "იწვევდა",
             "person": "3sg",
@@ -1017,7 +2692,7 @@
             "english": "The strict teachers were inviting the helpful assistant",
             "english_components": {
               "subject": {
-                "text": "The strict teachers",
+                "text": "the strict teachers",
                 "role": "subject",
                 "person": "3pl"
               },
@@ -1029,6 +2704,94 @@
                 "text": "were inviting",
                 "role": "verb"
               }
+            },
+            "tokens": {
+              "georgian": [
+                {
+                  "text": "მკაცრი",
+                  "role": "subject",
+                  "part": "adjective",
+                  "layer": "adjectives",
+                  "toggleable": true
+                },
+                {
+                  "text": "მასწავლებლები",
+                  "role": "subject",
+                  "part": "noun",
+                  "layer": "always",
+                  "toggleable": false
+                },
+                {
+                  "text": "დამხმარე",
+                  "role": "direct_object",
+                  "part": "adjective",
+                  "layer": "adjectives",
+                  "toggleable": true
+                },
+                {
+                  "text": "ასისტენტს",
+                  "role": "direct_object",
+                  "part": "noun",
+                  "layer": "always",
+                  "toggleable": false
+                },
+                {
+                  "text": "იწვევდნენ",
+                  "role": "verb",
+                  "layer": "always",
+                  "toggleable": false
+                }
+              ],
+              "english": [
+                {
+                  "text": "the",
+                  "role": "subject",
+                  "part": "preposition",
+                  "layer": "always",
+                  "toggleable": false
+                },
+                {
+                  "text": "strict",
+                  "role": "subject",
+                  "part": "adjective",
+                  "layer": "adjectives",
+                  "toggleable": true
+                },
+                {
+                  "text": "teachers",
+                  "role": "subject",
+                  "part": "noun",
+                  "layer": "always",
+                  "toggleable": false
+                },
+                {
+                  "text": "were inviting",
+                  "role": "verb",
+                  "layer": "always",
+                  "toggleable": false
+                },
+                {
+                  "text": "the",
+                  "role": "direct_object",
+                  "part": "preposition",
+                  "layer": "always",
+                  "toggleable": false
+                },
+                {
+                  "text": "helpful",
+                  "role": "direct_object",
+                  "part": "adjective",
+                  "layer": "adjectives",
+                  "toggleable": true
+                },
+                {
+                  "text": "assistant",
+                  "role": "direct_object",
+                  "part": "noun",
+                  "layer": "always",
+                  "toggleable": false
+                }
+              ]
             },
             "georgian_verb_form": "იწვევდნენ",
             "person": "3pl",
@@ -1065,6 +2828,65 @@
                 "role": "verb"
               }
             },
+            "tokens": {
+              "georgian": [
+                {
+                  "text": "ახალ",
+                  "role": "direct_object",
+                  "part": "adjective",
+                  "layer": "adjectives",
+                  "toggleable": true
+                },
+                {
+                  "text": "თანამშრომელს",
+                  "role": "direct_object",
+                  "part": "noun",
+                  "layer": "always",
+                  "toggleable": false
+                },
+                {
+                  "text": "მოვიწვევ",
+                  "role": "verb",
+                  "layer": "always",
+                  "toggleable": false
+                }
+              ],
+              "english": [
+                {
+                  "text": "I",
+                  "role": "subject",
+                  "layer": "always",
+                  "toggleable": false
+                },
+                {
+                  "text": "will summon",
+                  "role": "verb",
+                  "layer": "always",
+                  "toggleable": false
+                },
+                {
+                  "text": "the",
+                  "role": "direct_object",
+                  "part": "preposition",
+                  "layer": "always",
+                  "toggleable": false
+                },
+                {
+                  "text": "new",
+                  "role": "direct_object",
+                  "part": "adjective",
+                  "layer": "adjectives",
+                  "toggleable": true
+                },
+                {
+                  "text": "employee",
+                  "role": "direct_object",
+                  "part": "noun",
+                  "layer": "always",
+                  "toggleable": false
+                }
+              ]
+            },
             "georgian_verb_form": "მოვიწვევ",
             "person": "1sg",
             "effective_preverb": "მო"
@@ -1090,7 +2912,7 @@
             "english": "The experienced manager will summon the good worker",
             "english_components": {
               "subject": {
-                "text": "The experienced manager",
+                "text": "the experienced manager",
                 "role": "subject",
                 "person": "3sg"
               },
@@ -1102,6 +2924,94 @@
                 "text": "will summon",
                 "role": "verb"
               }
+            },
+            "tokens": {
+              "georgian": [
+                {
+                  "text": "გამოცდილი",
+                  "role": "subject",
+                  "part": "adjective",
+                  "layer": "adjectives",
+                  "toggleable": true
+                },
+                {
+                  "text": "მენეჯერი",
+                  "role": "subject",
+                  "part": "noun",
+                  "layer": "always",
+                  "toggleable": false
+                },
+                {
+                  "text": "კარგ",
+                  "role": "direct_object",
+                  "part": "adjective",
+                  "layer": "adjectives",
+                  "toggleable": true
+                },
+                {
+                  "text": "მუშას",
+                  "role": "direct_object",
+                  "part": "noun",
+                  "layer": "always",
+                  "toggleable": false
+                },
+                {
+                  "text": "მოიწვევს",
+                  "role": "verb",
+                  "layer": "always",
+                  "toggleable": false
+                }
+              ],
+              "english": [
+                {
+                  "text": "the",
+                  "role": "subject",
+                  "part": "preposition",
+                  "layer": "always",
+                  "toggleable": false
+                },
+                {
+                  "text": "experienced",
+                  "role": "subject",
+                  "part": "adjective",
+                  "layer": "adjectives",
+                  "toggleable": true
+                },
+                {
+                  "text": "manager",
+                  "role": "subject",
+                  "part": "noun",
+                  "layer": "always",
+                  "toggleable": false
+                },
+                {
+                  "text": "will summon",
+                  "role": "verb",
+                  "layer": "always",
+                  "toggleable": false
+                },
+                {
+                  "text": "the",
+                  "role": "direct_object",
+                  "part": "preposition",
+                  "layer": "always",
+                  "toggleable": false
+                },
+                {
+                  "text": "good",
+                  "role": "direct_object",
+                  "part": "adjective",
+                  "layer": "adjectives",
+                  "toggleable": true
+                },
+                {
+                  "text": "worker",
+                  "role": "direct_object",
+                  "part": "noun",
+                  "layer": "always",
+                  "toggleable": false
+                }
+              ]
             },
             "georgian_verb_form": "მოიწვევს",
             "person": "3sg",
@@ -1128,7 +3038,7 @@
             "english": "The strict teachers will summon the helpful assistant",
             "english_components": {
               "subject": {
-                "text": "The strict teachers",
+                "text": "the strict teachers",
                 "role": "subject",
                 "person": "3pl"
               },
@@ -1140,6 +3050,94 @@
                 "text": "will summon",
                 "role": "verb"
               }
+            },
+            "tokens": {
+              "georgian": [
+                {
+                  "text": "მკაცრი",
+                  "role": "subject",
+                  "part": "adjective",
+                  "layer": "adjectives",
+                  "toggleable": true
+                },
+                {
+                  "text": "მასწავლებლები",
+                  "role": "subject",
+                  "part": "noun",
+                  "layer": "always",
+                  "toggleable": false
+                },
+                {
+                  "text": "დამხმარე",
+                  "role": "direct_object",
+                  "part": "adjective",
+                  "layer": "adjectives",
+                  "toggleable": true
+                },
+                {
+                  "text": "ასისტენტს",
+                  "role": "direct_object",
+                  "part": "noun",
+                  "layer": "always",
+                  "toggleable": false
+                },
+                {
+                  "text": "მოიწვევენ",
+                  "role": "verb",
+                  "layer": "always",
+                  "toggleable": false
+                }
+              ],
+              "english": [
+                {
+                  "text": "the",
+                  "role": "subject",
+                  "part": "preposition",
+                  "layer": "always",
+                  "toggleable": false
+                },
+                {
+                  "text": "strict",
+                  "role": "subject",
+                  "part": "adjective",
+                  "layer": "adjectives",
+                  "toggleable": true
+                },
+                {
+                  "text": "teachers",
+                  "role": "subject",
+                  "part": "noun",
+                  "layer": "always",
+                  "toggleable": false
+                },
+                {
+                  "text": "will summon",
+                  "role": "verb",
+                  "layer": "always",
+                  "toggleable": false
+                },
+                {
+                  "text": "the",
+                  "role": "direct_object",
+                  "part": "preposition",
+                  "layer": "always",
+                  "toggleable": false
+                },
+                {
+                  "text": "helpful",
+                  "role": "direct_object",
+                  "part": "adjective",
+                  "layer": "adjectives",
+                  "toggleable": true
+                },
+                {
+                  "text": "assistant",
+                  "role": "direct_object",
+                  "part": "noun",
+                  "layer": "always",
+                  "toggleable": false
+                }
+              ]
             },
             "georgian_verb_form": "მოიწვევენ",
             "person": "3pl",
@@ -1176,6 +3174,65 @@
                 "role": "verb"
               }
             },
+            "tokens": {
+              "georgian": [
+                {
+                  "text": "ახალი",
+                  "role": "direct_object",
+                  "part": "adjective",
+                  "layer": "adjectives",
+                  "toggleable": true
+                },
+                {
+                  "text": "თანამშრომელი",
+                  "role": "direct_object",
+                  "part": "noun",
+                  "layer": "always",
+                  "toggleable": false
+                },
+                {
+                  "text": "მოვიწვიე",
+                  "role": "verb",
+                  "layer": "always",
+                  "toggleable": false
+                }
+              ],
+              "english": [
+                {
+                  "text": "I",
+                  "role": "subject",
+                  "layer": "always",
+                  "toggleable": false
+                },
+                {
+                  "text": "summoned",
+                  "role": "verb",
+                  "layer": "always",
+                  "toggleable": false
+                },
+                {
+                  "text": "the",
+                  "role": "direct_object",
+                  "part": "preposition",
+                  "layer": "always",
+                  "toggleable": false
+                },
+                {
+                  "text": "new",
+                  "role": "direct_object",
+                  "part": "adjective",
+                  "layer": "adjectives",
+                  "toggleable": true
+                },
+                {
+                  "text": "employee",
+                  "role": "direct_object",
+                  "part": "noun",
+                  "layer": "always",
+                  "toggleable": false
+                }
+              ]
+            },
             "georgian_verb_form": "მოვიწვიე",
             "person": "1sg",
             "effective_preverb": "მო"
@@ -1201,7 +3258,7 @@
             "english": "The experienced manager summoned the good worker",
             "english_components": {
               "subject": {
-                "text": "The experienced manager",
+                "text": "the experienced manager",
                 "role": "subject",
                 "person": "3sg"
               },
@@ -1213,6 +3270,94 @@
                 "text": "summoned",
                 "role": "verb"
               }
+            },
+            "tokens": {
+              "georgian": [
+                {
+                  "text": "გამოცდილმა",
+                  "role": "subject",
+                  "part": "adjective",
+                  "layer": "adjectives",
+                  "toggleable": true
+                },
+                {
+                  "text": "მენეჯერმა",
+                  "role": "subject",
+                  "part": "noun",
+                  "layer": "always",
+                  "toggleable": false
+                },
+                {
+                  "text": "კარგი",
+                  "role": "direct_object",
+                  "part": "adjective",
+                  "layer": "adjectives",
+                  "toggleable": true
+                },
+                {
+                  "text": "მუშა",
+                  "role": "direct_object",
+                  "part": "noun",
+                  "layer": "always",
+                  "toggleable": false
+                },
+                {
+                  "text": "მოიწვია",
+                  "role": "verb",
+                  "layer": "always",
+                  "toggleable": false
+                }
+              ],
+              "english": [
+                {
+                  "text": "the",
+                  "role": "subject",
+                  "part": "preposition",
+                  "layer": "always",
+                  "toggleable": false
+                },
+                {
+                  "text": "experienced",
+                  "role": "subject",
+                  "part": "adjective",
+                  "layer": "adjectives",
+                  "toggleable": true
+                },
+                {
+                  "text": "manager",
+                  "role": "subject",
+                  "part": "noun",
+                  "layer": "always",
+                  "toggleable": false
+                },
+                {
+                  "text": "summoned",
+                  "role": "verb",
+                  "layer": "always",
+                  "toggleable": false
+                },
+                {
+                  "text": "the",
+                  "role": "direct_object",
+                  "part": "preposition",
+                  "layer": "always",
+                  "toggleable": false
+                },
+                {
+                  "text": "good",
+                  "role": "direct_object",
+                  "part": "adjective",
+                  "layer": "adjectives",
+                  "toggleable": true
+                },
+                {
+                  "text": "worker",
+                  "role": "direct_object",
+                  "part": "noun",
+                  "layer": "always",
+                  "toggleable": false
+                }
+              ]
             },
             "georgian_verb_form": "მოიწვია",
             "person": "3sg",
@@ -1239,7 +3384,7 @@
             "english": "The strict teachers summoned the helpful assistant",
             "english_components": {
               "subject": {
-                "text": "The strict teachers",
+                "text": "the strict teachers",
                 "role": "subject",
                 "person": "3pl"
               },
@@ -1251,6 +3396,94 @@
                 "text": "summoned",
                 "role": "verb"
               }
+            },
+            "tokens": {
+              "georgian": [
+                {
+                  "text": "მკაცრმა",
+                  "role": "subject",
+                  "part": "adjective",
+                  "layer": "adjectives",
+                  "toggleable": true
+                },
+                {
+                  "text": "მასწავლებლებმა",
+                  "role": "subject",
+                  "part": "noun",
+                  "layer": "always",
+                  "toggleable": false
+                },
+                {
+                  "text": "დამხმარე",
+                  "role": "direct_object",
+                  "part": "adjective",
+                  "layer": "adjectives",
+                  "toggleable": true
+                },
+                {
+                  "text": "ასისტენტი",
+                  "role": "direct_object",
+                  "part": "noun",
+                  "layer": "always",
+                  "toggleable": false
+                },
+                {
+                  "text": "მოიწვიეს",
+                  "role": "verb",
+                  "layer": "always",
+                  "toggleable": false
+                }
+              ],
+              "english": [
+                {
+                  "text": "the",
+                  "role": "subject",
+                  "part": "preposition",
+                  "layer": "always",
+                  "toggleable": false
+                },
+                {
+                  "text": "strict",
+                  "role": "subject",
+                  "part": "adjective",
+                  "layer": "adjectives",
+                  "toggleable": true
+                },
+                {
+                  "text": "teachers",
+                  "role": "subject",
+                  "part": "noun",
+                  "layer": "always",
+                  "toggleable": false
+                },
+                {
+                  "text": "summoned",
+                  "role": "verb",
+                  "layer": "always",
+                  "toggleable": false
+                },
+                {
+                  "text": "the",
+                  "role": "direct_object",
+                  "part": "preposition",
+                  "layer": "always",
+                  "toggleable": false
+                },
+                {
+                  "text": "helpful",
+                  "role": "direct_object",
+                  "part": "adjective",
+                  "layer": "adjectives",
+                  "toggleable": true
+                },
+                {
+                  "text": "assistant",
+                  "role": "direct_object",
+                  "part": "noun",
+                  "layer": "always",
+                  "toggleable": false
+                }
+              ]
             },
             "georgian_verb_form": "მოიწვიეს",
             "person": "3pl",
@@ -1287,6 +3520,65 @@
                 "role": "verb"
               }
             },
+            "tokens": {
+              "georgian": [
+                {
+                  "text": "ახალი",
+                  "role": "direct_object",
+                  "part": "adjective",
+                  "layer": "adjectives",
+                  "toggleable": true
+                },
+                {
+                  "text": "თანამშრომელი",
+                  "role": "direct_object",
+                  "part": "noun",
+                  "layer": "always",
+                  "toggleable": false
+                },
+                {
+                  "text": "უნდა მოვიწვიო",
+                  "role": "verb",
+                  "layer": "always",
+                  "toggleable": false
+                }
+              ],
+              "english": [
+                {
+                  "text": "I",
+                  "role": "subject",
+                  "layer": "always",
+                  "toggleable": false
+                },
+                {
+                  "text": "should summon",
+                  "role": "verb",
+                  "layer": "always",
+                  "toggleable": false
+                },
+                {
+                  "text": "the",
+                  "role": "direct_object",
+                  "part": "preposition",
+                  "layer": "always",
+                  "toggleable": false
+                },
+                {
+                  "text": "new",
+                  "role": "direct_object",
+                  "part": "adjective",
+                  "layer": "adjectives",
+                  "toggleable": true
+                },
+                {
+                  "text": "employee",
+                  "role": "direct_object",
+                  "part": "noun",
+                  "layer": "always",
+                  "toggleable": false
+                }
+              ]
+            },
             "georgian_verb_form": "მოვიწვიო",
             "person": "1sg",
             "effective_preverb": "მო"
@@ -1312,7 +3604,7 @@
             "english": "The experienced manager should summon the good worker",
             "english_components": {
               "subject": {
-                "text": "The experienced manager",
+                "text": "the experienced manager",
                 "role": "subject",
                 "person": "3sg"
               },
@@ -1324,6 +3616,94 @@
                 "text": "should summon",
                 "role": "verb"
               }
+            },
+            "tokens": {
+              "georgian": [
+                {
+                  "text": "გამოცდილმა",
+                  "role": "subject",
+                  "part": "adjective",
+                  "layer": "adjectives",
+                  "toggleable": true
+                },
+                {
+                  "text": "მენეჯერმა",
+                  "role": "subject",
+                  "part": "noun",
+                  "layer": "always",
+                  "toggleable": false
+                },
+                {
+                  "text": "კარგი",
+                  "role": "direct_object",
+                  "part": "adjective",
+                  "layer": "adjectives",
+                  "toggleable": true
+                },
+                {
+                  "text": "მუშა",
+                  "role": "direct_object",
+                  "part": "noun",
+                  "layer": "always",
+                  "toggleable": false
+                },
+                {
+                  "text": "უნდა მოიწვიოს",
+                  "role": "verb",
+                  "layer": "always",
+                  "toggleable": false
+                }
+              ],
+              "english": [
+                {
+                  "text": "the",
+                  "role": "subject",
+                  "part": "preposition",
+                  "layer": "always",
+                  "toggleable": false
+                },
+                {
+                  "text": "experienced",
+                  "role": "subject",
+                  "part": "adjective",
+                  "layer": "adjectives",
+                  "toggleable": true
+                },
+                {
+                  "text": "manager",
+                  "role": "subject",
+                  "part": "noun",
+                  "layer": "always",
+                  "toggleable": false
+                },
+                {
+                  "text": "should summon",
+                  "role": "verb",
+                  "layer": "always",
+                  "toggleable": false
+                },
+                {
+                  "text": "the",
+                  "role": "direct_object",
+                  "part": "preposition",
+                  "layer": "always",
+                  "toggleable": false
+                },
+                {
+                  "text": "good",
+                  "role": "direct_object",
+                  "part": "adjective",
+                  "layer": "adjectives",
+                  "toggleable": true
+                },
+                {
+                  "text": "worker",
+                  "role": "direct_object",
+                  "part": "noun",
+                  "layer": "always",
+                  "toggleable": false
+                }
+              ]
             },
             "georgian_verb_form": "მოიწვიოს",
             "person": "3sg",
@@ -1350,7 +3730,7 @@
             "english": "The strict teachers should summon the helpful assistant",
             "english_components": {
               "subject": {
-                "text": "The strict teachers",
+                "text": "the strict teachers",
                 "role": "subject",
                 "person": "3pl"
               },
@@ -1362,6 +3742,94 @@
                 "text": "should summon",
                 "role": "verb"
               }
+            },
+            "tokens": {
+              "georgian": [
+                {
+                  "text": "მკაცრმა",
+                  "role": "subject",
+                  "part": "adjective",
+                  "layer": "adjectives",
+                  "toggleable": true
+                },
+                {
+                  "text": "მასწავლებლებმა",
+                  "role": "subject",
+                  "part": "noun",
+                  "layer": "always",
+                  "toggleable": false
+                },
+                {
+                  "text": "დამხმარე",
+                  "role": "direct_object",
+                  "part": "adjective",
+                  "layer": "adjectives",
+                  "toggleable": true
+                },
+                {
+                  "text": "ასისტენტი",
+                  "role": "direct_object",
+                  "part": "noun",
+                  "layer": "always",
+                  "toggleable": false
+                },
+                {
+                  "text": "უნდა მოიწვიონ",
+                  "role": "verb",
+                  "layer": "always",
+                  "toggleable": false
+                }
+              ],
+              "english": [
+                {
+                  "text": "the",
+                  "role": "subject",
+                  "part": "preposition",
+                  "layer": "always",
+                  "toggleable": false
+                },
+                {
+                  "text": "strict",
+                  "role": "subject",
+                  "part": "adjective",
+                  "layer": "adjectives",
+                  "toggleable": true
+                },
+                {
+                  "text": "teachers",
+                  "role": "subject",
+                  "part": "noun",
+                  "layer": "always",
+                  "toggleable": false
+                },
+                {
+                  "text": "should summon",
+                  "role": "verb",
+                  "layer": "always",
+                  "toggleable": false
+                },
+                {
+                  "text": "the",
+                  "role": "direct_object",
+                  "part": "preposition",
+                  "layer": "always",
+                  "toggleable": false
+                },
+                {
+                  "text": "helpful",
+                  "role": "direct_object",
+                  "part": "adjective",
+                  "layer": "adjectives",
+                  "toggleable": true
+                },
+                {
+                  "text": "assistant",
+                  "role": "direct_object",
+                  "part": "noun",
+                  "layer": "always",
+                  "toggleable": false
+                }
+              ]
             },
             "georgian_verb_form": "მოიწვიონ",
             "person": "3pl",
@@ -1398,6 +3866,65 @@
                 "role": "verb"
               }
             },
+            "tokens": {
+              "georgian": [
+                {
+                  "text": "ახალგაზრდა",
+                  "role": "direct_object",
+                  "part": "adjective",
+                  "layer": "adjectives",
+                  "toggleable": true
+                },
+                {
+                  "text": "სტუდენტი",
+                  "role": "direct_object",
+                  "part": "noun",
+                  "layer": "always",
+                  "toggleable": false
+                },
+                {
+                  "text": "მოიწვიე",
+                  "role": "verb",
+                  "layer": "always",
+                  "toggleable": false
+                }
+              ],
+              "english": [
+                {
+                  "text": "You,",
+                  "role": "subject",
+                  "layer": "always",
+                  "toggleable": false
+                },
+                {
+                  "text": "summon",
+                  "role": "verb",
+                  "layer": "always",
+                  "toggleable": false
+                },
+                {
+                  "text": "the",
+                  "role": "direct_object",
+                  "part": "preposition",
+                  "layer": "always",
+                  "toggleable": false
+                },
+                {
+                  "text": "young",
+                  "role": "direct_object",
+                  "part": "adjective",
+                  "layer": "adjectives",
+                  "toggleable": true
+                },
+                {
+                  "text": "student",
+                  "role": "direct_object",
+                  "part": "noun",
+                  "layer": "always",
+                  "toggleable": false
+                }
+              ]
+            },
             "georgian_verb_form": "მოიწვიე",
             "person": "2sg",
             "effective_preverb": "მო"
@@ -1430,6 +3957,65 @@
                 "text": "summon",
                 "role": "verb"
               }
+            },
+            "tokens": {
+              "georgian": [
+                {
+                  "text": "დიდი",
+                  "role": "direct_object",
+                  "part": "adjective",
+                  "layer": "adjectives",
+                  "toggleable": true
+                },
+                {
+                  "text": "ჯგუფი",
+                  "role": "direct_object",
+                  "part": "noun",
+                  "layer": "always",
+                  "toggleable": false
+                },
+                {
+                  "text": "მოიწვიეთ",
+                  "role": "verb",
+                  "layer": "always",
+                  "toggleable": false
+                }
+              ],
+              "english": [
+                {
+                  "text": "You all (you formal),",
+                  "role": "subject",
+                  "layer": "always",
+                  "toggleable": false
+                },
+                {
+                  "text": "summon",
+                  "role": "verb",
+                  "layer": "always",
+                  "toggleable": false
+                },
+                {
+                  "text": "the",
+                  "role": "direct_object",
+                  "part": "preposition",
+                  "layer": "always",
+                  "toggleable": false
+                },
+                {
+                  "text": "large",
+                  "role": "direct_object",
+                  "part": "adjective",
+                  "layer": "adjectives",
+                  "toggleable": true
+                },
+                {
+                  "text": "group",
+                  "role": "direct_object",
+                  "part": "noun",
+                  "layer": "always",
+                  "toggleable": false
+                }
+              ]
             },
             "georgian_verb_form": "მოიწვიეთ",
             "person": "2pl",

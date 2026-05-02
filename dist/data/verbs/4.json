@@ -57,7 +57,18 @@
         "direct_object": "the",
         "indirect_object": ""
       },
-      "preverb_overrides": {}
+      "preverb_overrides": {},
+      "adjuncts": {
+        "locativeSurface": {
+          "required": true,
+          "keyed_by": "person",
+          "default": {
+            "surface_noun": "table_surface",
+            "postposition": "on"
+          },
+          "by_person": {}
+        }
+      }
     },
     "english_translations": {
       "default": {
@@ -159,19 +170,23 @@
       "default": {
         "present": [
           {
-            "georgian": "ახალ ტელეფონს ვდებ",
+            "georgian": "მაგიდაზე ახალ ტელეფონს ვდებ",
             "georgian_components": {
               "direct_object": {
                 "text": "ახალ ტელეფონს",
                 "case": "dat",
                 "role": "direct_object"
               },
+              "locative_surface": {
+                "text": "მაგიდაზე",
+                "role": "locative_surface"
+              },
               "verb": {
                 "text": "ვდებ",
                 "role": "verb"
               }
             },
-            "english": "I put the new phone",
+            "english": "I put the new phone on the table",
             "english_components": {
               "subject": {
                 "text": "I",
@@ -182,17 +197,92 @@
                 "text": "the new phone",
                 "role": "direct_object"
               },
+              "locative_surface": {
+                "text": "on the table",
+                "role": "locative_surface"
+              },
               "verb": {
                 "text": "put",
                 "role": "verb"
               }
+            },
+            "tokens": {
+              "georgian": [
+                {
+                  "text": "მაგიდაზე",
+                  "role": "locative_surface",
+                  "layer": "always",
+                  "toggleable": false
+                },
+                {
+                  "text": "ახალ",
+                  "role": "direct_object",
+                  "part": "adjective",
+                  "layer": "adjectives",
+                  "toggleable": true
+                },
+                {
+                  "text": "ტელეფონს",
+                  "role": "direct_object",
+                  "part": "noun",
+                  "layer": "always",
+                  "toggleable": false
+                },
+                {
+                  "text": "ვდებ",
+                  "role": "verb",
+                  "layer": "always",
+                  "toggleable": false
+                }
+              ],
+              "english": [
+                {
+                  "text": "I",
+                  "role": "subject",
+                  "layer": "always",
+                  "toggleable": false
+                },
+                {
+                  "text": "put",
+                  "role": "verb",
+                  "layer": "always",
+                  "toggleable": false
+                },
+                {
+                  "text": "the",
+                  "role": "direct_object",
+                  "part": "preposition",
+                  "layer": "always",
+                  "toggleable": false
+                },
+                {
+                  "text": "new",
+                  "role": "direct_object",
+                  "part": "adjective",
+                  "layer": "adjectives",
+                  "toggleable": true
+                },
+                {
+                  "text": "phone",
+                  "role": "direct_object",
+                  "part": "noun",
+                  "layer": "always",
+                  "toggleable": false
+                },
+                {
+                  "text": "on the table",
+                  "role": "locative_surface",
+                  "layer": "always",
+                  "toggleable": false
+                }
+              ]
             },
             "georgian_verb_form": "ვდებ",
             "person": "1sg",
             "effective_preverb": ""
           },
           {
-            "georgian": "ფრთხილი დედა მძიმე წიგნს დებს",
+            "georgian": "მაგიდაზე ფრთხილი დედა მძიმე წიგნს დებს",
             "georgian_components": {
               "subject": {
                 "text": "ფრთხილი დედა",
@@ -204,15 +294,19 @@
                 "case": "dat",
                 "role": "direct_object"
               },
+              "locative_surface": {
+                "text": "მაგიდაზე",
+                "role": "locative_surface"
+              },
               "verb": {
                 "text": "დებს",
                 "role": "verb"
               }
             },
-            "english": "The careful mother puts the heavy book",
+            "english": "The careful mother puts the heavy book on the table",
             "english_components": {
               "subject": {
-                "text": "The careful mother",
+                "text": "the careful mother",
                 "role": "subject",
                 "person": "3sg"
               },
@@ -220,17 +314,121 @@
                 "text": "the heavy book",
                 "role": "direct_object"
               },
+              "locative_surface": {
+                "text": "on the table",
+                "role": "locative_surface"
+              },
               "verb": {
                 "text": "puts",
                 "role": "verb"
               }
+            },
+            "tokens": {
+              "georgian": [
+                {
+                  "text": "მაგიდაზე",
+                  "role": "locative_surface",
+                  "layer": "always",
+                  "toggleable": false
+                },
+                {
+                  "text": "ფრთხილი",
+                  "role": "subject",
+                  "part": "adjective",
+                  "layer": "adjectives",
+                  "toggleable": true
+                },
+                {
+                  "text": "დედა",
+                  "role": "subject",
+                  "part": "noun",
+                  "layer": "always",
+                  "toggleable": false
+                },
+                {
+                  "text": "მძიმე",
+                  "role": "direct_object",
+                  "part": "adjective",
+                  "layer": "adjectives",
+                  "toggleable": true
+                },
+                {
+                  "text": "წიგნს",
+                  "role": "direct_object",
+                  "part": "noun",
+                  "layer": "always",
+                  "toggleable": false
+                },
+                {
+                  "text": "დებს",
+                  "role": "verb",
+                  "layer": "always",
+                  "toggleable": false
+                }
+              ],
+              "english": [
+                {
+                  "text": "the",
+                  "role": "subject",
+                  "part": "preposition",
+                  "layer": "always",
+                  "toggleable": false
+                },
+                {
+                  "text": "careful",
+                  "role": "subject",
+                  "part": "adjective",
+                  "layer": "adjectives",
+                  "toggleable": true
+                },
+                {
+                  "text": "mother",
+                  "role": "subject",
+                  "part": "noun",
+                  "layer": "always",
+                  "toggleable": false
+                },
+                {
+                  "text": "puts",
+                  "role": "verb",
+                  "layer": "always",
+                  "toggleable": false
+                },
+                {
+                  "text": "the",
+                  "role": "direct_object",
+                  "part": "preposition",
+                  "layer": "always",
+                  "toggleable": false
+                },
+                {
+                  "text": "heavy",
+                  "role": "direct_object",
+                  "part": "adjective",
+                  "layer": "adjectives",
+                  "toggleable": true
+                },
+                {
+                  "text": "book",
+                  "role": "direct_object",
+                  "part": "noun",
+                  "layer": "always",
+                  "toggleable": false
+                },
+                {
+                  "text": "on the table",
+                  "role": "locative_surface",
+                  "layer": "always",
+                  "toggleable": false
+                }
+              ]
             },
             "georgian_verb_form": "დებს",
             "person": "3sg",
             "effective_preverb": ""
           },
           {
-            "georgian": "ახალგაზრდა ბავშვები პატარა სათამაშოს დებენ",
+            "georgian": "მაგიდაზე ახალგაზრდა ბავშვები პატარა სათამაშოს დებენ",
             "georgian_components": {
               "subject": {
                 "text": "ახალგაზრდა ბავშვები",
@@ -242,15 +440,19 @@
                 "case": "dat",
                 "role": "direct_object"
               },
+              "locative_surface": {
+                "text": "მაგიდაზე",
+                "role": "locative_surface"
+              },
               "verb": {
                 "text": "დებენ",
                 "role": "verb"
               }
             },
-            "english": "The young children put the small toy",
+            "english": "The young children put the small toy on the table",
             "english_components": {
               "subject": {
-                "text": "The young children",
+                "text": "the young children",
                 "role": "subject",
                 "person": "3pl"
               },
@@ -258,10 +460,114 @@
                 "text": "the small toy",
                 "role": "direct_object"
               },
+              "locative_surface": {
+                "text": "on the table",
+                "role": "locative_surface"
+              },
               "verb": {
                 "text": "put",
                 "role": "verb"
               }
+            },
+            "tokens": {
+              "georgian": [
+                {
+                  "text": "მაგიდაზე",
+                  "role": "locative_surface",
+                  "layer": "always",
+                  "toggleable": false
+                },
+                {
+                  "text": "ახალგაზრდა",
+                  "role": "subject",
+                  "part": "adjective",
+                  "layer": "adjectives",
+                  "toggleable": true
+                },
+                {
+                  "text": "ბავშვები",
+                  "role": "subject",
+                  "part": "noun",
+                  "layer": "always",
+                  "toggleable": false
+                },
+                {
+                  "text": "პატარა",
+                  "role": "direct_object",
+                  "part": "adjective",
+                  "layer": "adjectives",
+                  "toggleable": true
+                },
+                {
+                  "text": "სათამაშოს",
+                  "role": "direct_object",
+                  "part": "noun",
+                  "layer": "always",
+                  "toggleable": false
+                },
+                {
+                  "text": "დებენ",
+                  "role": "verb",
+                  "layer": "always",
+                  "toggleable": false
+                }
+              ],
+              "english": [
+                {
+                  "text": "the",
+                  "role": "subject",
+                  "part": "preposition",
+                  "layer": "always",
+                  "toggleable": false
+                },
+                {
+                  "text": "young",
+                  "role": "subject",
+                  "part": "adjective",
+                  "layer": "adjectives",
+                  "toggleable": true
+                },
+                {
+                  "text": "children",
+                  "role": "subject",
+                  "part": "noun",
+                  "layer": "always",
+                  "toggleable": false
+                },
+                {
+                  "text": "put",
+                  "role": "verb",
+                  "layer": "always",
+                  "toggleable": false
+                },
+                {
+                  "text": "the",
+                  "role": "direct_object",
+                  "part": "preposition",
+                  "layer": "always",
+                  "toggleable": false
+                },
+                {
+                  "text": "small",
+                  "role": "direct_object",
+                  "part": "adjective",
+                  "layer": "adjectives",
+                  "toggleable": true
+                },
+                {
+                  "text": "toy",
+                  "role": "direct_object",
+                  "part": "noun",
+                  "layer": "always",
+                  "toggleable": false
+                },
+                {
+                  "text": "on the table",
+                  "role": "locative_surface",
+                  "layer": "always",
+                  "toggleable": false
+                }
+              ]
             },
             "georgian_verb_form": "დებენ",
             "person": "3pl",
@@ -270,19 +576,23 @@
         ],
         "imperfect": [
           {
-            "georgian": "ახალ ტელეფონს ვდებდი",
+            "georgian": "მაგიდაზე ახალ ტელეფონს ვდებდი",
             "georgian_components": {
               "direct_object": {
                 "text": "ახალ ტელეფონს",
                 "case": "dat",
                 "role": "direct_object"
               },
+              "locative_surface": {
+                "text": "მაგიდაზე",
+                "role": "locative_surface"
+              },
               "verb": {
                 "text": "ვდებდი",
                 "role": "verb"
               }
             },
-            "english": "I was putting the new phone",
+            "english": "I was putting the new phone on the table",
             "english_components": {
               "subject": {
                 "text": "I",
@@ -293,17 +603,92 @@
                 "text": "the new phone",
                 "role": "direct_object"
               },
+              "locative_surface": {
+                "text": "on the table",
+                "role": "locative_surface"
+              },
               "verb": {
                 "text": "was putting",
                 "role": "verb"
               }
+            },
+            "tokens": {
+              "georgian": [
+                {
+                  "text": "მაგიდაზე",
+                  "role": "locative_surface",
+                  "layer": "always",
+                  "toggleable": false
+                },
+                {
+                  "text": "ახალ",
+                  "role": "direct_object",
+                  "part": "adjective",
+                  "layer": "adjectives",
+                  "toggleable": true
+                },
+                {
+                  "text": "ტელეფონს",
+                  "role": "direct_object",
+                  "part": "noun",
+                  "layer": "always",
+                  "toggleable": false
+                },
+                {
+                  "text": "ვდებდი",
+                  "role": "verb",
+                  "layer": "always",
+                  "toggleable": false
+                }
+              ],
+              "english": [
+                {
+                  "text": "I",
+                  "role": "subject",
+                  "layer": "always",
+                  "toggleable": false
+                },
+                {
+                  "text": "was putting",
+                  "role": "verb",
+                  "layer": "always",
+                  "toggleable": false
+                },
+                {
+                  "text": "the",
+                  "role": "direct_object",
+                  "part": "preposition",
+                  "layer": "always",
+                  "toggleable": false
+                },
+                {
+                  "text": "new",
+                  "role": "direct_object",
+                  "part": "adjective",
+                  "layer": "adjectives",
+                  "toggleable": true
+                },
+                {
+                  "text": "phone",
+                  "role": "direct_object",
+                  "part": "noun",
+                  "layer": "always",
+                  "toggleable": false
+                },
+                {
+                  "text": "on the table",
+                  "role": "locative_surface",
+                  "layer": "always",
+                  "toggleable": false
+                }
+              ]
             },
             "georgian_verb_form": "ვდებდი",
             "person": "1sg",
             "effective_preverb": ""
           },
           {
-            "georgian": "ფრთხილი დედა მძიმე წიგნს დებდა",
+            "georgian": "მაგიდაზე ფრთხილი დედა მძიმე წიგნს დებდა",
             "georgian_components": {
               "subject": {
                 "text": "ფრთხილი დედა",
@@ -315,15 +700,19 @@
                 "case": "dat",
                 "role": "direct_object"
               },
+              "locative_surface": {
+                "text": "მაგიდაზე",
+                "role": "locative_surface"
+              },
               "verb": {
                 "text": "დებდა",
                 "role": "verb"
               }
             },
-            "english": "The careful mother was putting the heavy book",
+            "english": "The careful mother was putting the heavy book on the table",
             "english_components": {
               "subject": {
-                "text": "The careful mother",
+                "text": "the careful mother",
                 "role": "subject",
                 "person": "3sg"
               },
@@ -331,17 +720,121 @@
                 "text": "the heavy book",
                 "role": "direct_object"
               },
+              "locative_surface": {
+                "text": "on the table",
+                "role": "locative_surface"
+              },
               "verb": {
                 "text": "was putting",
                 "role": "verb"
               }
+            },
+            "tokens": {
+              "georgian": [
+                {
+                  "text": "მაგიდაზე",
+                  "role": "locative_surface",
+                  "layer": "always",
+                  "toggleable": false
+                },
+                {
+                  "text": "ფრთხილი",
+                  "role": "subject",
+                  "part": "adjective",
+                  "layer": "adjectives",
+                  "toggleable": true
+                },
+                {
+                  "text": "დედა",
+                  "role": "subject",
+                  "part": "noun",
+                  "layer": "always",
+                  "toggleable": false
+                },
+                {
+                  "text": "მძიმე",
+                  "role": "direct_object",
+                  "part": "adjective",
+                  "layer": "adjectives",
+                  "toggleable": true
+                },
+                {
+                  "text": "წიგნს",
+                  "role": "direct_object",
+                  "part": "noun",
+                  "layer": "always",
+                  "toggleable": false
+                },
+                {
+                  "text": "დებდა",
+                  "role": "verb",
+                  "layer": "always",
+                  "toggleable": false
+                }
+              ],
+              "english": [
+                {
+                  "text": "the",
+                  "role": "subject",
+                  "part": "preposition",
+                  "layer": "always",
+                  "toggleable": false
+                },
+                {
+                  "text": "careful",
+                  "role": "subject",
+                  "part": "adjective",
+                  "layer": "adjectives",
+                  "toggleable": true
+                },
+                {
+                  "text": "mother",
+                  "role": "subject",
+                  "part": "noun",
+                  "layer": "always",
+                  "toggleable": false
+                },
+                {
+                  "text": "was putting",
+                  "role": "verb",
+                  "layer": "always",
+                  "toggleable": false
+                },
+                {
+                  "text": "the",
+                  "role": "direct_object",
+                  "part": "preposition",
+                  "layer": "always",
+                  "toggleable": false
+                },
+                {
+                  "text": "heavy",
+                  "role": "direct_object",
+                  "part": "adjective",
+                  "layer": "adjectives",
+                  "toggleable": true
+                },
+                {
+                  "text": "book",
+                  "role": "direct_object",
+                  "part": "noun",
+                  "layer": "always",
+                  "toggleable": false
+                },
+                {
+                  "text": "on the table",
+                  "role": "locative_surface",
+                  "layer": "always",
+                  "toggleable": false
+                }
+              ]
             },
             "georgian_verb_form": "დებდა",
             "person": "3sg",
             "effective_preverb": ""
           },
           {
-            "georgian": "ახალგაზრდა ბავშვები პატარა სათამაშოს დებდნენ",
+            "georgian": "მაგიდაზე ახალგაზრდა ბავშვები პატარა სათამაშოს დებდნენ",
             "georgian_components": {
               "subject": {
                 "text": "ახალგაზრდა ბავშვები",
@@ -353,15 +846,19 @@
                 "case": "dat",
                 "role": "direct_object"
               },
+              "locative_surface": {
+                "text": "მაგიდაზე",
+                "role": "locative_surface"
+              },
               "verb": {
                 "text": "დებდნენ",
                 "role": "verb"
               }
             },
-            "english": "The young children were putting the small toy",
+            "english": "The young children were putting the small toy on the table",
             "english_components": {
               "subject": {
-                "text": "The young children",
+                "text": "the young children",
                 "role": "subject",
                 "person": "3pl"
               },
@@ -369,10 +866,114 @@
                 "text": "the small toy",
                 "role": "direct_object"
               },
+              "locative_surface": {
+                "text": "on the table",
+                "role": "locative_surface"
+              },
               "verb": {
                 "text": "were putting",
                 "role": "verb"
               }
+            },
+            "tokens": {
+              "georgian": [
+                {
+                  "text": "მაგიდაზე",
+                  "role": "locative_surface",
+                  "layer": "always",
+                  "toggleable": false
+                },
+                {
+                  "text": "ახალგაზრდა",
+                  "role": "subject",
+                  "part": "adjective",
+                  "layer": "adjectives",
+                  "toggleable": true
+                },
+                {
+                  "text": "ბავშვები",
+                  "role": "subject",
+                  "part": "noun",
+                  "layer": "always",
+                  "toggleable": false
+                },
+                {
+                  "text": "პატარა",
+                  "role": "direct_object",
+                  "part": "adjective",
+                  "layer": "adjectives",
+                  "toggleable": true
+                },
+                {
+                  "text": "სათამაშოს",
+                  "role": "direct_object",
+                  "part": "noun",
+                  "layer": "always",
+                  "toggleable": false
+                },
+                {
+                  "text": "დებდნენ",
+                  "role": "verb",
+                  "layer": "always",
+                  "toggleable": false
+                }
+              ],
+              "english": [
+                {
+                  "text": "the",
+                  "role": "subject",
+                  "part": "preposition",
+                  "layer": "always",
+                  "toggleable": false
+                },
+                {
+                  "text": "young",
+                  "role": "subject",
+                  "part": "adjective",
+                  "layer": "adjectives",
+                  "toggleable": true
+                },
+                {
+                  "text": "children",
+                  "role": "subject",
+                  "part": "noun",
+                  "layer": "always",
+                  "toggleable": false
+                },
+                {
+                  "text": "were putting",
+                  "role": "verb",
+                  "layer": "always",
+                  "toggleable": false
+                },
+                {
+                  "text": "the",
+                  "role": "direct_object",
+                  "part": "preposition",
+                  "layer": "always",
+                  "toggleable": false
+                },
+                {
+                  "text": "small",
+                  "role": "direct_object",
+                  "part": "adjective",
+                  "layer": "adjectives",
+                  "toggleable": true
+                },
+                {
+                  "text": "toy",
+                  "role": "direct_object",
+                  "part": "noun",
+                  "layer": "always",
+                  "toggleable": false
+                },
+                {
+                  "text": "on the table",
+                  "role": "locative_surface",
+                  "layer": "always",
+                  "toggleable": false
+                }
+              ]
             },
             "georgian_verb_form": "დებდნენ",
             "person": "3pl",
@@ -381,19 +982,23 @@
         ],
         "future": [
           {
-            "georgian": "ახალ ტელეფონს დავდებ",
+            "georgian": "მაგიდაზე ახალ ტელეფონს დავდებ",
             "georgian_components": {
               "direct_object": {
                 "text": "ახალ ტელეფონს",
                 "case": "dat",
                 "role": "direct_object"
               },
+              "locative_surface": {
+                "text": "მაგიდაზე",
+                "role": "locative_surface"
+              },
               "verb": {
                 "text": "დავდებ",
                 "role": "verb"
               }
             },
-            "english": "I will put the new phone",
+            "english": "I will put the new phone on the table",
             "english_components": {
               "subject": {
                 "text": "I",
@@ -404,17 +1009,92 @@
                 "text": "the new phone",
                 "role": "direct_object"
               },
+              "locative_surface": {
+                "text": "on the table",
+                "role": "locative_surface"
+              },
               "verb": {
                 "text": "will put",
                 "role": "verb"
               }
+            },
+            "tokens": {
+              "georgian": [
+                {
+                  "text": "მაგიდაზე",
+                  "role": "locative_surface",
+                  "layer": "always",
+                  "toggleable": false
+                },
+                {
+                  "text": "ახალ",
+                  "role": "direct_object",
+                  "part": "adjective",
+                  "layer": "adjectives",
+                  "toggleable": true
+                },
+                {
+                  "text": "ტელეფონს",
+                  "role": "direct_object",
+                  "part": "noun",
+                  "layer": "always",
+                  "toggleable": false
+                },
+                {
+                  "text": "დავდებ",
+                  "role": "verb",
+                  "layer": "always",
+                  "toggleable": false
+                }
+              ],
+              "english": [
+                {
+                  "text": "I",
+                  "role": "subject",
+                  "layer": "always",
+                  "toggleable": false
+                },
+                {
+                  "text": "will put",
+                  "role": "verb",
+                  "layer": "always",
+                  "toggleable": false
+                },
+                {
+                  "text": "the",
+                  "role": "direct_object",
+                  "part": "preposition",
+                  "layer": "always",
+                  "toggleable": false
+                },
+                {
+                  "text": "new",
+                  "role": "direct_object",
+                  "part": "adjective",
+                  "layer": "adjectives",
+                  "toggleable": true
+                },
+                {
+                  "text": "phone",
+                  "role": "direct_object",
+                  "part": "noun",
+                  "layer": "always",
+                  "toggleable": false
+                },
+                {
+                  "text": "on the table",
+                  "role": "locative_surface",
+                  "layer": "always",
+                  "toggleable": false
+                }
+              ]
             },
             "georgian_verb_form": "დავდებ",
             "person": "1sg",
             "effective_preverb": ""
           },
           {
-            "georgian": "ფრთხილი დედა მძიმე წიგნს დადებს",
+            "georgian": "მაგიდაზე ფრთხილი დედა მძიმე წიგნს დადებს",
             "georgian_components": {
               "subject": {
                 "text": "ფრთხილი დედა",
@@ -426,15 +1106,19 @@
                 "case": "dat",
                 "role": "direct_object"
               },
+              "locative_surface": {
+                "text": "მაგიდაზე",
+                "role": "locative_surface"
+              },
               "verb": {
                 "text": "დადებს",
                 "role": "verb"
               }
             },
-            "english": "The careful mother will put the heavy book",
+            "english": "The careful mother will put the heavy book on the table",
             "english_components": {
               "subject": {
-                "text": "The careful mother",
+                "text": "the careful mother",
                 "role": "subject",
                 "person": "3sg"
               },
@@ -442,17 +1126,121 @@
                 "text": "the heavy book",
                 "role": "direct_object"
               },
+              "locative_surface": {
+                "text": "on the table",
+                "role": "locative_surface"
+              },
               "verb": {
                 "text": "will put",
                 "role": "verb"
               }
+            },
+            "tokens": {
+              "georgian": [
+                {
+                  "text": "მაგიდაზე",
+                  "role": "locative_surface",
+                  "layer": "always",
+                  "toggleable": false
+                },
+                {
+                  "text": "ფრთხილი",
+                  "role": "subject",
+                  "part": "adjective",
+                  "layer": "adjectives",
+                  "toggleable": true
+                },
+                {
+                  "text": "დედა",
+                  "role": "subject",
+                  "part": "noun",
+                  "layer": "always",
+                  "toggleable": false
+                },
+                {
+                  "text": "მძიმე",
+                  "role": "direct_object",
+                  "part": "adjective",
+                  "layer": "adjectives",
+                  "toggleable": true
+                },
+                {
+                  "text": "წიგნს",
+                  "role": "direct_object",
+                  "part": "noun",
+                  "layer": "always",
+                  "toggleable": false
+                },
+                {
+                  "text": "დადებს",
+                  "role": "verb",
+                  "layer": "always",
+                  "toggleable": false
+                }
+              ],
+              "english": [
+                {
+                  "text": "the",
+                  "role": "subject",
+                  "part": "preposition",
+                  "layer": "always",
+                  "toggleable": false
+                },
+                {
+                  "text": "careful",
+                  "role": "subject",
+                  "part": "adjective",
+                  "layer": "adjectives",
+                  "toggleable": true
+                },
+                {
+                  "text": "mother",
+                  "role": "subject",
+                  "part": "noun",
+                  "layer": "always",
+                  "toggleable": false
+                },
+                {
+                  "text": "will put",
+                  "role": "verb",
+                  "layer": "always",
+                  "toggleable": false
+                },
+                {
+                  "text": "the",
+                  "role": "direct_object",
+                  "part": "preposition",
+                  "layer": "always",
+                  "toggleable": false
+                },
+                {
+                  "text": "heavy",
+                  "role": "direct_object",
+                  "part": "adjective",
+                  "layer": "adjectives",
+                  "toggleable": true
+                },
+                {
+                  "text": "book",
+                  "role": "direct_object",
+                  "part": "noun",
+                  "layer": "always",
+                  "toggleable": false
+                },
+                {
+                  "text": "on the table",
+                  "role": "locative_surface",
+                  "layer": "always",
+                  "toggleable": false
+                }
+              ]
             },
             "georgian_verb_form": "დადებს",
             "person": "3sg",
             "effective_preverb": ""
           },
           {
-            "georgian": "ახალგაზრდა ბავშვები პატარა სათამაშოს დადებენ",
+            "georgian": "მაგიდაზე ახალგაზრდა ბავშვები პატარა სათამაშოს დადებენ",
             "georgian_components": {
               "subject": {
                 "text": "ახალგაზრდა ბავშვები",
@@ -464,15 +1252,19 @@
                 "case": "dat",
                 "role": "direct_object"
               },
+              "locative_surface": {
+                "text": "მაგიდაზე",
+                "role": "locative_surface"
+              },
               "verb": {
                 "text": "დადებენ",
                 "role": "verb"
               }
             },
-            "english": "The young children will put the small toy",
+            "english": "The young children will put the small toy on the table",
             "english_components": {
               "subject": {
-                "text": "The young children",
+                "text": "the young children",
                 "role": "subject",
                 "person": "3pl"
               },
@@ -480,10 +1272,114 @@
                 "text": "the small toy",
                 "role": "direct_object"
               },
+              "locative_surface": {
+                "text": "on the table",
+                "role": "locative_surface"
+              },
               "verb": {
                 "text": "will put",
                 "role": "verb"
               }
+            },
+            "tokens": {
+              "georgian": [
+                {
+                  "text": "მაგიდაზე",
+                  "role": "locative_surface",
+                  "layer": "always",
+                  "toggleable": false
+                },
+                {
+                  "text": "ახალგაზრდა",
+                  "role": "subject",
+                  "part": "adjective",
+                  "layer": "adjectives",
+                  "toggleable": true
+                },
+                {
+                  "text": "ბავშვები",
+                  "role": "subject",
+                  "part": "noun",
+                  "layer": "always",
+                  "toggleable": false
+                },
+                {
+                  "text": "პატარა",
+                  "role": "direct_object",
+                  "part": "adjective",
+                  "layer": "adjectives",
+                  "toggleable": true
+                },
+                {
+                  "text": "სათამაშოს",
+                  "role": "direct_object",
+                  "part": "noun",
+                  "layer": "always",
+                  "toggleable": false
+                },
+                {
+                  "text": "დადებენ",
+                  "role": "verb",
+                  "layer": "always",
+                  "toggleable": false
+                }
+              ],
+              "english": [
+                {
+                  "text": "the",
+                  "role": "subject",
+                  "part": "preposition",
+                  "layer": "always",
+                  "toggleable": false
+                },
+                {
+                  "text": "young",
+                  "role": "subject",
+                  "part": "adjective",
+                  "layer": "adjectives",
+                  "toggleable": true
+                },
+                {
+                  "text": "children",
+                  "role": "subject",
+                  "part": "noun",
+                  "layer": "always",
+                  "toggleable": false
+                },
+                {
+                  "text": "will put",
+                  "role": "verb",
+                  "layer": "always",
+                  "toggleable": false
+                },
+                {
+                  "text": "the",
+                  "role": "direct_object",
+                  "part": "preposition",
+                  "layer": "always",
+                  "toggleable": false
+                },
+                {
+                  "text": "small",
+                  "role": "direct_object",
+                  "part": "adjective",
+                  "layer": "adjectives",
+                  "toggleable": true
+                },
+                {
+                  "text": "toy",
+                  "role": "direct_object",
+                  "part": "noun",
+                  "layer": "always",
+                  "toggleable": false
+                },
+                {
+                  "text": "on the table",
+                  "role": "locative_surface",
+                  "layer": "always",
+                  "toggleable": false
+                }
+              ]
             },
             "georgian_verb_form": "დადებენ",
             "person": "3pl",
@@ -492,19 +1388,23 @@
         ],
         "aorist": [
           {
-            "georgian": "ახალი ტელეფონი დავდე",
+            "georgian": "მაგიდაზე ახალი ტელეფონი დავდე",
             "georgian_components": {
               "direct_object": {
                 "text": "ახალი ტელეფონი",
                 "case": "nom",
                 "role": "direct_object"
               },
+              "locative_surface": {
+                "text": "მაგიდაზე",
+                "role": "locative_surface"
+              },
               "verb": {
                 "text": "დავდე",
                 "role": "verb"
               }
             },
-            "english": "I put the new phone",
+            "english": "I put the new phone on the table",
             "english_components": {
               "subject": {
                 "text": "I",
@@ -515,17 +1415,92 @@
                 "text": "the new phone",
                 "role": "direct_object"
               },
+              "locative_surface": {
+                "text": "on the table",
+                "role": "locative_surface"
+              },
               "verb": {
                 "text": "put",
                 "role": "verb"
               }
+            },
+            "tokens": {
+              "georgian": [
+                {
+                  "text": "მაგიდაზე",
+                  "role": "locative_surface",
+                  "layer": "always",
+                  "toggleable": false
+                },
+                {
+                  "text": "ახალი",
+                  "role": "direct_object",
+                  "part": "adjective",
+                  "layer": "adjectives",
+                  "toggleable": true
+                },
+                {
+                  "text": "ტელეფონი",
+                  "role": "direct_object",
+                  "part": "noun",
+                  "layer": "always",
+                  "toggleable": false
+                },
+                {
+                  "text": "დავდე",
+                  "role": "verb",
+                  "layer": "always",
+                  "toggleable": false
+                }
+              ],
+              "english": [
+                {
+                  "text": "I",
+                  "role": "subject",
+                  "layer": "always",
+                  "toggleable": false
+                },
+                {
+                  "text": "put",
+                  "role": "verb",
+                  "layer": "always",
+                  "toggleable": false
+                },
+                {
+                  "text": "the",
+                  "role": "direct_object",
+                  "part": "preposition",
+                  "layer": "always",
+                  "toggleable": false
+                },
+                {
+                  "text": "new",
+                  "role": "direct_object",
+                  "part": "adjective",
+                  "layer": "adjectives",
+                  "toggleable": true
+                },
+                {
+                  "text": "phone",
+                  "role": "direct_object",
+                  "part": "noun",
+                  "layer": "always",
+                  "toggleable": false
+                },
+                {
+                  "text": "on the table",
+                  "role": "locative_surface",
+                  "layer": "always",
+                  "toggleable": false
+                }
+              ]
             },
             "georgian_verb_form": "დავდე",
             "person": "1sg",
             "effective_preverb": ""
           },
           {
-            "georgian": "ფრთხილმა დედამ მძიმე წიგნი დადო",
+            "georgian": "მაგიდაზე ფრთხილმა დედამ მძიმე წიგნი დადო",
             "georgian_components": {
               "subject": {
                 "text": "ფრთხილმა დედამ",
@@ -537,15 +1512,19 @@
                 "case": "nom",
                 "role": "direct_object"
               },
+              "locative_surface": {
+                "text": "მაგიდაზე",
+                "role": "locative_surface"
+              },
               "verb": {
                 "text": "დადო",
                 "role": "verb"
               }
             },
-            "english": "The careful mother put the heavy book",
+            "english": "The careful mother put the heavy book on the table",
             "english_components": {
               "subject": {
-                "text": "The careful mother",
+                "text": "the careful mother",
                 "role": "subject",
                 "person": "3sg"
               },
@@ -553,17 +1532,121 @@
                 "text": "the heavy book",
                 "role": "direct_object"
               },
+              "locative_surface": {
+                "text": "on the table",
+                "role": "locative_surface"
+              },
               "verb": {
                 "text": "put",
                 "role": "verb"
               }
+            },
+            "tokens": {
+              "georgian": [
+                {
+                  "text": "მაგიდაზე",
+                  "role": "locative_surface",
+                  "layer": "always",
+                  "toggleable": false
+                },
+                {
+                  "text": "ფრთხილმა",
+                  "role": "subject",
+                  "part": "adjective",
+                  "layer": "adjectives",
+                  "toggleable": true
+                },
+                {
+                  "text": "დედამ",
+                  "role": "subject",
+                  "part": "noun",
+                  "layer": "always",
+                  "toggleable": false
+                },
+                {
+                  "text": "მძიმე",
+                  "role": "direct_object",
+                  "part": "adjective",
+                  "layer": "adjectives",
+                  "toggleable": true
+                },
+                {
+                  "text": "წიგნი",
+                  "role": "direct_object",
+                  "part": "noun",
+                  "layer": "always",
+                  "toggleable": false
+                },
+                {
+                  "text": "დადო",
+                  "role": "verb",
+                  "layer": "always",
+                  "toggleable": false
+                }
+              ],
+              "english": [
+                {
+                  "text": "the",
+                  "role": "subject",
+                  "part": "preposition",
+                  "layer": "always",
+                  "toggleable": false
+                },
+                {
+                  "text": "careful",
+                  "role": "subject",
+                  "part": "adjective",
+                  "layer": "adjectives",
+                  "toggleable": true
+                },
+                {
+                  "text": "mother",
+                  "role": "subject",
+                  "part": "noun",
+                  "layer": "always",
+                  "toggleable": false
+                },
+                {
+                  "text": "put",
+                  "role": "verb",
+                  "layer": "always",
+                  "toggleable": false
+                },
+                {
+                  "text": "the",
+                  "role": "direct_object",
+                  "part": "preposition",
+                  "layer": "always",
+                  "toggleable": false
+                },
+                {
+                  "text": "heavy",
+                  "role": "direct_object",
+                  "part": "adjective",
+                  "layer": "adjectives",
+                  "toggleable": true
+                },
+                {
+                  "text": "book",
+                  "role": "direct_object",
+                  "part": "noun",
+                  "layer": "always",
+                  "toggleable": false
+                },
+                {
+                  "text": "on the table",
+                  "role": "locative_surface",
+                  "layer": "always",
+                  "toggleable": false
+                }
+              ]
             },
             "georgian_verb_form": "დადო",
             "person": "3sg",
             "effective_preverb": ""
           },
           {
-            "georgian": "ახალგაზრდა ბავშვებმა პატარა სათამაშო დადეს",
+            "georgian": "მაგიდაზე ახალგაზრდა ბავშვებმა პატარა სათამაშო დადეს",
             "georgian_components": {
               "subject": {
                 "text": "ახალგაზრდა ბავშვებმა",
@@ -575,15 +1658,19 @@
                 "case": "nom",
                 "role": "direct_object"
               },
+              "locative_surface": {
+                "text": "მაგიდაზე",
+                "role": "locative_surface"
+              },
               "verb": {
                 "text": "დადეს",
                 "role": "verb"
               }
             },
-            "english": "The young children put the small toy",
+            "english": "The young children put the small toy on the table",
             "english_components": {
               "subject": {
-                "text": "The young children",
+                "text": "the young children",
                 "role": "subject",
                 "person": "3pl"
               },
@@ -591,10 +1678,114 @@
                 "text": "the small toy",
                 "role": "direct_object"
               },
+              "locative_surface": {
+                "text": "on the table",
+                "role": "locative_surface"
+              },
               "verb": {
                 "text": "put",
                 "role": "verb"
               }
+            },
+            "tokens": {
+              "georgian": [
+                {
+                  "text": "მაგიდაზე",
+                  "role": "locative_surface",
+                  "layer": "always",
+                  "toggleable": false
+                },
+                {
+                  "text": "ახალგაზრდა",
+                  "role": "subject",
+                  "part": "adjective",
+                  "layer": "adjectives",
+                  "toggleable": true
+                },
+                {
+                  "text": "ბავშვებმა",
+                  "role": "subject",
+                  "part": "noun",
+                  "layer": "always",
+                  "toggleable": false
+                },
+                {
+                  "text": "პატარა",
+                  "role": "direct_object",
+                  "part": "adjective",
+                  "layer": "adjectives",
+                  "toggleable": true
+                },
+                {
+                  "text": "სათამაშო",
+                  "role": "direct_object",
+                  "part": "noun",
+                  "layer": "always",
+                  "toggleable": false
+                },
+                {
+                  "text": "დადეს",
+                  "role": "verb",
+                  "layer": "always",
+                  "toggleable": false
+                }
+              ],
+              "english": [
+                {
+                  "text": "the",
+                  "role": "subject",
+                  "part": "preposition",
+                  "layer": "always",
+                  "toggleable": false
+                },
+                {
+                  "text": "young",
+                  "role": "subject",
+                  "part": "adjective",
+                  "layer": "adjectives",
+                  "toggleable": true
+                },
+                {
+                  "text": "children",
+                  "role": "subject",
+                  "part": "noun",
+                  "layer": "always",
+                  "toggleable": false
+                },
+                {
+                  "text": "put",
+                  "role": "verb",
+                  "layer": "always",
+                  "toggleable": false
+                },
+                {
+                  "text": "the",
+                  "role": "direct_object",
+                  "part": "preposition",
+                  "layer": "always",
+                  "toggleable": false
+                },
+                {
+                  "text": "small",
+                  "role": "direct_object",
+                  "part": "adjective",
+                  "layer": "adjectives",
+                  "toggleable": true
+                },
+                {
+                  "text": "toy",
+                  "role": "direct_object",
+                  "part": "noun",
+                  "layer": "always",
+                  "toggleable": false
+                },
+                {
+                  "text": "on the table",
+                  "role": "locative_surface",
+                  "layer": "always",
+                  "toggleable": false
+                }
+              ]
             },
             "georgian_verb_form": "დადეს",
             "person": "3pl",
@@ -603,19 +1794,23 @@
         ],
         "optative": [
           {
-            "georgian": "ახალი ტელეფონი უნდა დავდო",
+            "georgian": "მაგიდაზე ახალი ტელეფონი უნდა დავდო",
             "georgian_components": {
               "direct_object": {
                 "text": "ახალი ტელეფონი",
                 "case": "nom",
                 "role": "direct_object"
               },
+              "locative_surface": {
+                "text": "მაგიდაზე",
+                "role": "locative_surface"
+              },
               "verb": {
                 "text": "უნდა დავდო",
                 "role": "verb"
               }
             },
-            "english": "I should should put the new phone",
+            "english": "I should should put the new phone on the table",
             "english_components": {
               "subject": {
                 "text": "I",
@@ -626,17 +1821,92 @@
                 "text": "the new phone",
                 "role": "direct_object"
               },
+              "locative_surface": {
+                "text": "on the table",
+                "role": "locative_surface"
+              },
               "verb": {
                 "text": "should should put",
                 "role": "verb"
               }
+            },
+            "tokens": {
+              "georgian": [
+                {
+                  "text": "მაგიდაზე",
+                  "role": "locative_surface",
+                  "layer": "always",
+                  "toggleable": false
+                },
+                {
+                  "text": "ახალი",
+                  "role": "direct_object",
+                  "part": "adjective",
+                  "layer": "adjectives",
+                  "toggleable": true
+                },
+                {
+                  "text": "ტელეფონი",
+                  "role": "direct_object",
+                  "part": "noun",
+                  "layer": "always",
+                  "toggleable": false
+                },
+                {
+                  "text": "უნდა დავდო",
+                  "role": "verb",
+                  "layer": "always",
+                  "toggleable": false
+                }
+              ],
+              "english": [
+                {
+                  "text": "I",
+                  "role": "subject",
+                  "layer": "always",
+                  "toggleable": false
+                },
+                {
+                  "text": "should should put",
+                  "role": "verb",
+                  "layer": "always",
+                  "toggleable": false
+                },
+                {
+                  "text": "the",
+                  "role": "direct_object",
+                  "part": "preposition",
+                  "layer": "always",
+                  "toggleable": false
+                },
+                {
+                  "text": "new",
+                  "role": "direct_object",
+                  "part": "adjective",
+                  "layer": "adjectives",
+                  "toggleable": true
+                },
+                {
+                  "text": "phone",
+                  "role": "direct_object",
+                  "part": "noun",
+                  "layer": "always",
+                  "toggleable": false
+                },
+                {
+                  "text": "on the table",
+                  "role": "locative_surface",
+                  "layer": "always",
+                  "toggleable": false
+                }
+              ]
             },
             "georgian_verb_form": "დავდო",
             "person": "1sg",
             "effective_preverb": ""
           },
           {
-            "georgian": "ფრთხილმა დედამ მძიმე წიგნი უნდა დადოს",
+            "georgian": "მაგიდაზე ფრთხილმა დედამ მძიმე წიგნი უნდა დადოს",
             "georgian_components": {
               "subject": {
                 "text": "ფრთხილმა დედამ",
@@ -648,15 +1918,19 @@
                 "case": "nom",
                 "role": "direct_object"
               },
+              "locative_surface": {
+                "text": "მაგიდაზე",
+                "role": "locative_surface"
+              },
               "verb": {
                 "text": "უნდა დადოს",
                 "role": "verb"
               }
             },
-            "english": "The careful mother should should put the heavy book",
+            "english": "The careful mother should should put the heavy book on the table",
             "english_components": {
               "subject": {
-                "text": "The careful mother",
+                "text": "the careful mother",
                 "role": "subject",
                 "person": "3sg"
               },
@@ -664,17 +1938,121 @@
                 "text": "the heavy book",
                 "role": "direct_object"
               },
+              "locative_surface": {
+                "text": "on the table",
+                "role": "locative_surface"
+              },
               "verb": {
                 "text": "should should put",
                 "role": "verb"
               }
+            },
+            "tokens": {
+              "georgian": [
+                {
+                  "text": "მაგიდაზე",
+                  "role": "locative_surface",
+                  "layer": "always",
+                  "toggleable": false
+                },
+                {
+                  "text": "ფრთხილმა",
+                  "role": "subject",
+                  "part": "adjective",
+                  "layer": "adjectives",
+                  "toggleable": true
+                },
+                {
+                  "text": "დედამ",
+                  "role": "subject",
+                  "part": "noun",
+                  "layer": "always",
+                  "toggleable": false
+                },
+                {
+                  "text": "მძიმე",
+                  "role": "direct_object",
+                  "part": "adjective",
+                  "layer": "adjectives",
+                  "toggleable": true
+                },
+                {
+                  "text": "წიგნი",
+                  "role": "direct_object",
+                  "part": "noun",
+                  "layer": "always",
+                  "toggleable": false
+                },
+                {
+                  "text": "უნდა დადოს",
+                  "role": "verb",
+                  "layer": "always",
+                  "toggleable": false
+                }
+              ],
+              "english": [
+                {
+                  "text": "the",
+                  "role": "subject",
+                  "part": "preposition",
+                  "layer": "always",
+                  "toggleable": false
+                },
+                {
+                  "text": "careful",
+                  "role": "subject",
+                  "part": "adjective",
+                  "layer": "adjectives",
+                  "toggleable": true
+                },
+                {
+                  "text": "mother",
+                  "role": "subject",
+                  "part": "noun",
+                  "layer": "always",
+                  "toggleable": false
+                },
+                {
+                  "text": "should should put",
+                  "role": "verb",
+                  "layer": "always",
+                  "toggleable": false
+                },
+                {
+                  "text": "the",
+                  "role": "direct_object",
+                  "part": "preposition",
+                  "layer": "always",
+                  "toggleable": false
+                },
+                {
+                  "text": "heavy",
+                  "role": "direct_object",
+                  "part": "adjective",
+                  "layer": "adjectives",
+                  "toggleable": true
+                },
+                {
+                  "text": "book",
+                  "role": "direct_object",
+                  "part": "noun",
+                  "layer": "always",
+                  "toggleable": false
+                },
+                {
+                  "text": "on the table",
+                  "role": "locative_surface",
+                  "layer": "always",
+                  "toggleable": false
+                }
+              ]
             },
             "georgian_verb_form": "დადოს",
             "person": "3sg",
             "effective_preverb": ""
           },
           {
-            "georgian": "ახალგაზრდა ბავშვებმა პატარა სათამაშო უნდა დადონ",
+            "georgian": "მაგიდაზე ახალგაზრდა ბავშვებმა პატარა სათამაშო უნდა დადონ",
             "georgian_components": {
               "subject": {
                 "text": "ახალგაზრდა ბავშვებმა",
@@ -686,15 +2064,19 @@
                 "case": "nom",
                 "role": "direct_object"
               },
+              "locative_surface": {
+                "text": "მაგიდაზე",
+                "role": "locative_surface"
+              },
               "verb": {
                 "text": "უნდა დადონ",
                 "role": "verb"
               }
             },
-            "english": "The young children should should put the small toy",
+            "english": "The young children should should put the small toy on the table",
             "english_components": {
               "subject": {
-                "text": "The young children",
+                "text": "the young children",
                 "role": "subject",
                 "person": "3pl"
               },
@@ -702,10 +2084,114 @@
                 "text": "the small toy",
                 "role": "direct_object"
               },
+              "locative_surface": {
+                "text": "on the table",
+                "role": "locative_surface"
+              },
               "verb": {
                 "text": "should should put",
                 "role": "verb"
               }
+            },
+            "tokens": {
+              "georgian": [
+                {
+                  "text": "მაგიდაზე",
+                  "role": "locative_surface",
+                  "layer": "always",
+                  "toggleable": false
+                },
+                {
+                  "text": "ახალგაზრდა",
+                  "role": "subject",
+                  "part": "adjective",
+                  "layer": "adjectives",
+                  "toggleable": true
+                },
+                {
+                  "text": "ბავშვებმა",
+                  "role": "subject",
+                  "part": "noun",
+                  "layer": "always",
+                  "toggleable": false
+                },
+                {
+                  "text": "პატარა",
+                  "role": "direct_object",
+                  "part": "adjective",
+                  "layer": "adjectives",
+                  "toggleable": true
+                },
+                {
+                  "text": "სათამაშო",
+                  "role": "direct_object",
+                  "part": "noun",
+                  "layer": "always",
+                  "toggleable": false
+                },
+                {
+                  "text": "უნდა დადონ",
+                  "role": "verb",
+                  "layer": "always",
+                  "toggleable": false
+                }
+              ],
+              "english": [
+                {
+                  "text": "the",
+                  "role": "subject",
+                  "part": "preposition",
+                  "layer": "always",
+                  "toggleable": false
+                },
+                {
+                  "text": "young",
+                  "role": "subject",
+                  "part": "adjective",
+                  "layer": "adjectives",
+                  "toggleable": true
+                },
+                {
+                  "text": "children",
+                  "role": "subject",
+                  "part": "noun",
+                  "layer": "always",
+                  "toggleable": false
+                },
+                {
+                  "text": "should should put",
+                  "role": "verb",
+                  "layer": "always",
+                  "toggleable": false
+                },
+                {
+                  "text": "the",
+                  "role": "direct_object",
+                  "part": "preposition",
+                  "layer": "always",
+                  "toggleable": false
+                },
+                {
+                  "text": "small",
+                  "role": "direct_object",
+                  "part": "adjective",
+                  "layer": "adjectives",
+                  "toggleable": true
+                },
+                {
+                  "text": "toy",
+                  "role": "direct_object",
+                  "part": "noun",
+                  "layer": "always",
+                  "toggleable": false
+                },
+                {
+                  "text": "on the table",
+                  "role": "locative_surface",
+                  "layer": "always",
+                  "toggleable": false
+                }
+              ]
             },
             "georgian_verb_form": "დადონ",
             "person": "3pl",
@@ -714,19 +2200,23 @@
         ],
         "imperative": [
           {
-            "georgian": "მნიშვნელოვანი გასაღები დადე",
+            "georgian": "მაგიდაზე მნიშვნელოვანი გასაღები დადე",
             "georgian_components": {
               "direct_object": {
                 "text": "მნიშვნელოვანი გასაღები",
                 "case": "nom",
                 "role": "direct_object"
               },
+              "locative_surface": {
+                "text": "მაგიდაზე",
+                "role": "locative_surface"
+              },
               "verb": {
                 "text": "დადე",
                 "role": "verb"
               }
             },
-            "english": "You, put the important key",
+            "english": "You, put the important key on the table",
             "english_components": {
               "subject": {
                 "text": "You,",
@@ -737,29 +2227,108 @@
                 "text": "the important key",
                 "role": "direct_object"
               },
+              "locative_surface": {
+                "text": "on the table",
+                "role": "locative_surface"
+              },
               "verb": {
                 "text": "put",
                 "role": "verb"
               }
+            },
+            "tokens": {
+              "georgian": [
+                {
+                  "text": "მაგიდაზე",
+                  "role": "locative_surface",
+                  "layer": "always",
+                  "toggleable": false
+                },
+                {
+                  "text": "მნიშვნელოვანი",
+                  "role": "direct_object",
+                  "part": "adjective",
+                  "layer": "adjectives",
+                  "toggleable": true
+                },
+                {
+                  "text": "გასაღები",
+                  "role": "direct_object",
+                  "part": "noun",
+                  "layer": "always",
+                  "toggleable": false
+                },
+                {
+                  "text": "დადე",
+                  "role": "verb",
+                  "layer": "always",
+                  "toggleable": false
+                }
+              ],
+              "english": [
+                {
+                  "text": "You,",
+                  "role": "subject",
+                  "layer": "always",
+                  "toggleable": false
+                },
+                {
+                  "text": "put",
+                  "role": "verb",
+                  "layer": "always",
+                  "toggleable": false
+                },
+                {
+                  "text": "the",
+                  "role": "direct_object",
+                  "part": "preposition",
+                  "layer": "always",
+                  "toggleable": false
+                },
+                {
+                  "text": "important",
+                  "role": "direct_object",
+                  "part": "adjective",
+                  "layer": "adjectives",
+                  "toggleable": true
+                },
+                {
+                  "text": "key",
+                  "role": "direct_object",
+                  "part": "noun",
+                  "layer": "always",
+                  "toggleable": false
+                },
+                {
+                  "text": "on the table",
+                  "role": "locative_surface",
+                  "layer": "always",
+                  "toggleable": false
+                }
+              ]
             },
             "georgian_verb_form": "დადე",
             "person": "2sg",
             "effective_preverb": ""
           },
           {
-            "georgian": "სუფთა ჭიქა დადეთ",
+            "georgian": "მაგიდაზე სუფთა ჭიქა დადეთ",
             "georgian_components": {
               "direct_object": {
                 "text": "სუფთა ჭიქა",
                 "case": "nom",
                 "role": "direct_object"
               },
+              "locative_surface": {
+                "text": "მაგიდაზე",
+                "role": "locative_surface"
+              },
               "verb": {
                 "text": "დადეთ",
                 "role": "verb"
               }
             },
-            "english": "You all (you formal), put the clean cup",
+            "english": "You all (you formal), put the clean cup on the table",
             "english_components": {
               "subject": {
                 "text": "You all (you formal),",
@@ -770,10 +2339,85 @@
                 "text": "the clean cup",
                 "role": "direct_object"
               },
+              "locative_surface": {
+                "text": "on the table",
+                "role": "locative_surface"
+              },
               "verb": {
                 "text": "put",
                 "role": "verb"
               }
+            },
+            "tokens": {
+              "georgian": [
+                {
+                  "text": "მაგიდაზე",
+                  "role": "locative_surface",
+                  "layer": "always",
+                  "toggleable": false
+                },
+                {
+                  "text": "სუფთა",
+                  "role": "direct_object",
+                  "part": "adjective",
+                  "layer": "adjectives",
+                  "toggleable": true
+                },
+                {
+                  "text": "ჭიქა",
+                  "role": "direct_object",
+                  "part": "noun",
+                  "layer": "always",
+                  "toggleable": false
+                },
+                {
+                  "text": "დადეთ",
+                  "role": "verb",
+                  "layer": "always",
+                  "toggleable": false
+                }
+              ],
+              "english": [
+                {
+                  "text": "You all (you formal),",
+                  "role": "subject",
+                  "layer": "always",
+                  "toggleable": false
+                },
+                {
+                  "text": "put",
+                  "role": "verb",
+                  "layer": "always",
+                  "toggleable": false
+                },
+                {
+                  "text": "the",
+                  "role": "direct_object",
+                  "part": "preposition",
+                  "layer": "always",
+                  "toggleable": false
+                },
+                {
+                  "text": "clean",
+                  "role": "direct_object",
+                  "part": "adjective",
+                  "layer": "adjectives",
+                  "toggleable": true
+                },
+                {
+                  "text": "cup",
+                  "role": "direct_object",
+                  "part": "noun",
+                  "layer": "always",
+                  "toggleable": false
+                },
+                {
+                  "text": "on the table",
+                  "role": "locative_surface",
+                  "layer": "always",
+                  "toggleable": false
+                }
+              ]
             },
             "georgian_verb_form": "დადეთ",
             "person": "2pl",

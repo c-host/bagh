@@ -49,7 +49,7 @@ tools/
 - **Purpose**: Extract raw data from various sources
 - **Key Components**:
   - `VerbDataLoader`: Loads and validates Georgian verb data from JSON files
-  - `DatabaseLoader`: Loads reference databases (subjects, direct objects, indirect objects, adjectives)
+  - `DatabaseLoader`: Loads lexical databases (subjects, direct objects, indirect objects, adjectives, verbal nouns, adverbs, surface nouns)
 - **Usage**: First stage of the build pipeline, provides raw data for processing
 
 ### Stage 2: Data Processing (`data_processing/`)
@@ -60,8 +60,8 @@ tools/
   - `VerbConjugation`: Manages verb conjugation calculations
   - `ProcessedDataManager`: Manages processed data throughout the pipeline
   - **Example Generation**:
-    - `ArgumentProcessor`: Unified argument parsing and resolution (merged from argument_parser.py and argument_resolver.py)
-    - `ExampleGenerator`: Generates examples with argument processing
+    - `ArgumentProcessor`: Resolves arguments, complements, and adjunct lexemes
+    - `ExampleGenerator`: Generates tokenized examples with layered visibility metadata
 - **Usage**: Core data transformation stage, prepares data for output generation
 
 ### Stage 3: Output Generation (`output_generation/`)
@@ -97,7 +97,7 @@ tools/
 - **Configuration Management**: Centralized configuration for all build parameters
 
 ### Database Integration
-- **Four Main Databases**: subjects, direct objects, indirect objects, adjectives
+- **Seven Lexical Databases**: subjects, direct objects, indirect objects, adjectives, verbal nouns, adverbs, surface nouns
 - **Structured Data**: Each database contains case forms, English translations, and metadata
 - **Validation**: Built-in validation and error handling for database operations
 

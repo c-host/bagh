@@ -10,11 +10,20 @@
 /**
  * Manages preverb switching and form calculation for multi-preverb verbs
  */
+import {
+    bindExampleToggleEvents,
+    getExampleToggleState,
+    renderExamplePair,
+    renderPersonIndicator,
+    renderScreeveToggleControls
+} from '../shared/example-renderer.js';
+
 export class PreverbManager {
     constructor(enhancedVerbLoader) {
         this.enhancedVerbLoader = enhancedVerbLoader;
         this.preverbFormCache = new Map(); // Cache calculated preverb forms
         this.initialized = false;
+        bindExampleToggleEvents();
     }
 
     /**
@@ -312,7 +321,7 @@ export class PreverbManager {
             <div class="flat-tense">
                 <div class="flat-tense-header">${tense.title}</div>
                 ${this.generateFlatConjugation(tenseData)}
-                ${this.generateFlatExamples(examples, preverb)}
+                ${this.generateFlatExamples(examples, verbData.base_data?.id, preverb, tense.name)}
                 ${this.generateFlatGloss(glossAnalysis)}
             </div>
         `;
@@ -353,19 +362,24 @@ export class PreverbManager {
      * @param {string} preverb - Selected preverb
      * @returns {string} HTML for flat examples
      */
-    generateFlatExamples(examples, preverb) {
+    generateFlatExamples(examples, verbId, preverb, screeve) {
         if (!examples || examples.length === 0) return '';
+        const toggles = getExampleToggleState(String(verbId), preverb, screeve);
+        const hasAdverbLayer = examples.some(example =>
+            (example?.tokens?.georgian || []).some(token => token.layer === 'adverbs') ||
+            (example?.tokens?.english || []).some(token => token.layer === 'adverbs')
+        );
 
         return `
             <div class="flat-examples">
                 <div class="flat-examples-header">Examples</div>
+                ${renderScreeveToggleControls(String(verbId), preverb, screeve, toggles, { showAdverbs: hasAdverbLayer })}
                 ${examples.slice(0, 3).map(example => {
-            // Use structured component data for color coding
-            const georgianHtml = this.buildStyledText(example.georgian, example.georgian_components, 'georgian');
-            const englishHtml = this.buildStyledText(example.english, example.english_components, 'english');
+            const { georgianHtml, englishHtml } = renderExamplePair(example, toggles);
 
             return `
                         <div class="flat-example">
+                            <div class="example-meta-row">${renderPersonIndicator(example.person)}</div>
                             <div class="flat-example-georgian georgian-text">${georgianHtml}</div>
                             <div class="flat-example-english">${englishHtml}</div>
                         </div>
@@ -373,50 +387,6 @@ export class PreverbManager {
         }).join('')}
             </div>
         `;
-    }
-
-
-    /**
-     * Build styled text with proper color coding (from demo approach)
-     */
-    buildStyledText(text, components, language) {
-        if (!components || Object.keys(components).length === 0) {
-            return text;
-        }
-
-        let styledText = text;
-
-        // Apply styling based on components
-        Object.entries(components).forEach(([role, component]) => {
-            const className = this.getComponentClassName(role, language);
-            const componentText = component.text;
-
-            if (styledText.includes(componentText)) {
-                const caseClass = component.case ? ` case-${component.case}` : '';
-                const dataAttributes = `data-role="${role}"${component.person ? ` data-person="${component.person}"` : ''}`;
-
-                styledText = styledText.replace(
-                    componentText,
-                    `<span class="${className}${caseClass}" ${dataAttributes}>${componentText}</span>`
-                );
-            }
-        });
-
-        return styledText;
-    }
-
-    /**
-     * Get CSS class name for component styling
-     */
-    getComponentClassName(role, language) {
-        const classMap = {
-            'verb': 'gloss-verb',
-            'subject': 'gloss-subject',
-            'direct_object': 'gloss-direct-object',
-            'indirect_object': 'gloss-indirect-object'
-        };
-
-        return classMap[role] || 'gloss-default';
     }
 
     /**

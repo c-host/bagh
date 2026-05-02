@@ -1421,6 +1421,14 @@ class VerbEditor {
         const preverbTranslationsData = this.getPreverbTranslations();
         console.log('[FORM_DATA] Preverb translations data collected:', preverbTranslationsData);
 
+        const existingSyntax = (this.currentVerb && this.currentVerb.syntax) ? this.currentVerb.syntax : {};
+        const complementsData = existingSyntax.complements || {};
+        const adjunctsData = existingSyntax.adjuncts || {};
+        const exampleCompositionData = existingSyntax.exampleComposition || {
+            georgian_order: ['subject', 'direct_object', 'indirect_object', 'verbal_noun', 'locative_surface', 'verb'],
+            english_order: ['subject', 'verb', 'direct_object', 'indirect_object', 'verbal_noun', 'locative_surface']
+        };
+
         const formData = {
             georgian_wrapper: getFieldValue('georgianWrapper'),
             georgian_display: getFieldValue('georgianDisplay'),
@@ -1447,7 +1455,10 @@ class VerbEditor {
             syntax: {
                 arguments: argumentsData,
                 prepositions: prepositionsData,
-                preverb_overrides: {}
+                preverb_overrides: existingSyntax.preverb_overrides || {},
+                complements: complementsData,
+                adjuncts: adjunctsData,
+                exampleComposition: exampleCompositionData
             },
             english_translations: (() => {
                 const translations = {
