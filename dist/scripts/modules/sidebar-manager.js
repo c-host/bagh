@@ -184,6 +184,7 @@ export class SidebarManager {
         const sidebarOverlay = this.domManager.getElement(ELEMENT_IDS.SIDEBAR_OVERLAY);
         const sidebarClose = this.domManager.getElement(ELEMENT_IDS.SIDEBAR_CLOSE);
         const searchInput = this.domManager.getElement(ELEMENT_IDS.SEARCH_INPUT);
+        const sidebarContent = sidebarModal?.querySelector('.sidebar-content');
 
         if (!sidebarToggle || !sidebarModal || !sidebarOverlay || !sidebarClose) {
             console.warn('Sidebar elements not found:', {
@@ -201,7 +202,8 @@ export class SidebarManager {
             sidebarModal,
             sidebarOverlay,
             sidebarClose,
-            searchInput
+            searchInput,
+            sidebarContent
         };
 
         // Toggle sidebar
@@ -350,6 +352,59 @@ export class SidebarManager {
 
         // Add resize listener
         window.addEventListener('resize', handleResize);
+
+        // Mobile swipe-left gesture to close sidebar drawer
+        if (sidebarContent) {
+            let touchStartX = 0;
+            let touchStartY = 0;
+            let touchEndX = 0;
+            let touchEndY = 0;
+            let trackingSwipe = false;
+
+            const handleSwipeStart = (e) => {
+                if (!this.isMobile || !this.isSidebarOpen()) return;
+                const touch = e.touches[0];
+                touchStartX = touch.clientX;
+                touchStartY = touch.clientY;
+                touchEndX = touch.clientX;
+                touchEndY = touch.clientY;
+                trackingSwipe = true;
+            };
+
+            const handleSwipeMove = (e) => {
+                if (!trackingSwipe) return;
+                const touch = e.touches[0];
+                touchEndX = touch.clientX;
+                touchEndY = touch.clientY;
+            };
+
+            const handleSwipeEnd = (e) => {
+                if (!trackingSwipe) return;
+                const touch = e.changedTouches[0];
+                touchEndX = touch.clientX;
+                touchEndY = touch.clientY;
+
+                const deltaX = touchEndX - touchStartX;
+                const deltaY = Math.abs(touchEndY - touchStartY);
+                const isLeftSwipe = deltaX < -60 && Math.abs(deltaX) > deltaY * 1.3;
+
+                if (isLeftSwipe) {
+                    closeSidebar();
+                }
+
+                trackingSwipe = false;
+            };
+
+            sidebarContent.addEventListener('touchstart', handleSwipeStart, { passive: true });
+            sidebarContent.addEventListener('touchmove', handleSwipeMove, { passive: true });
+            sidebarContent.addEventListener('touchend', handleSwipeEnd, { passive: true });
+
+            this.eventListeners.push(
+                { element: sidebarContent, event: 'touchstart', handler: handleSwipeStart },
+                { element: sidebarContent, event: 'touchmove', handler: handleSwipeMove },
+                { element: sidebarContent, event: 'touchend', handler: handleSwipeEnd }
+            );
+        }
 
         // Add additional viewport change tracking for mobile keyboard detection
         let lastViewportHeight = window.innerHeight;
