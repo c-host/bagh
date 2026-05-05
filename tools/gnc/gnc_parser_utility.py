@@ -2,8 +2,8 @@
 """
 GNC Parser Utility
 
-A utility class for integrating the Georgian National Corpus parsing API
-into the existing verb-website project.
+A utility class for using  Georgian National Corpus parsing API
+(http://gnc.gov.ge/gnc/page?page-id=parsing-api).
 """
 
 import requests
@@ -26,6 +26,7 @@ class MorphologicalAnalysis:
     voice: Optional[str] = None
     case: Optional[str] = None
     number: Optional[str] = None
+    analysis_count: int = 0
 
 
 class GNCParserUtility:
@@ -145,6 +146,7 @@ class GNCParserUtility:
 
         # Get the first analysis (most likely)
         msa = token["msa"][0]
+        analysis_count = len(token["msa"]) if isinstance(token.get("msa"), list) else 0
         lemma = msa.get("lemma", "")
         features = msa.get("features", "")
 
@@ -152,7 +154,11 @@ class GNCParserUtility:
         parsed_features = self._parse_features(features)
 
         analysis = MorphologicalAnalysis(
-            word=word, lemma=lemma, features=features, **parsed_features
+            word=word,
+            lemma=lemma,
+            features=features,
+            analysis_count=analysis_count,
+            **parsed_features,
         )
 
         return analysis

@@ -16,6 +16,11 @@ import json
 from collections import defaultdict
 from datetime import datetime
 
+RAW_DATA_DIR = os.path.normpath(os.path.join("src", "data", "gnc", "work", "raw"))
+FILTERED_DATA_DIR = os.path.normpath(
+    os.path.join("src", "data", "gnc", "work", "filtered")
+)
+
 
 def parse_features(features_str):
     """Parse the features string to extract relevant information."""
@@ -973,7 +978,7 @@ def main():
     input_file = sys.argv[1]
 
     # Construct input path
-    input_path = os.path.join("gnc_verb_data_raw", input_file)
+    input_path = os.path.join(RAW_DATA_DIR, input_file)
 
     if not os.path.exists(input_path):
         print(f"Error: File '{input_path}' not found.")
@@ -1067,7 +1072,7 @@ def main():
             )
 
     # Create output directory if it doesn't exist
-    output_dir = "gnc_verb_data_filtered"
+    output_dir = FILTERED_DATA_DIR
     os.makedirs(output_dir, exist_ok=True)
 
     # Create comprehensive JSON data

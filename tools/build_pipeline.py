@@ -421,6 +421,27 @@ def write_html_output(config_manager: ConfigManager, html_content: str):
         raise RuntimeError("Failed to write HTML file")
 
 
+def apply_public_dist_marker_to_morphology_index(dist_index_path: Path) -> None:
+    """
+    Tag dist morphology-chart/index.html so bundled CSS hides maintainer-only
+    panels (review queue, ENA/NPLG pipeline) and shows the maintainer hint.
+    """
+    text = dist_index_path.read_text(encoding="utf-8")
+    if 'data-verb-website-dist="1"' in text:
+        return
+    needle = '<html lang="en">'
+    replacement = '<html lang="en" data-verb-website-dist="1">'
+    if needle not in text:
+        logger.warning(
+            "Expected %r in morphology index.html; public-dist marker not applied (%s).",
+            needle,
+            dist_index_path,
+        )
+        return
+    dist_index_path.write_text(text.replace(needle, replacement, 1), encoding="utf-8")
+    logger.info("✅ Marked morphology dist index as public bundle (%s)", dist_index_path)
+
+
 def sync_morphology_chart_data(config_manager: ConfigManager):
     """
     Copy morphology chart data into src/dist data directories so runtime loading
@@ -471,9 +492,23 @@ def sync_morphology_chart_data(config_manager: ConfigManager):
         shutil.copy2(app_source, app_target)
         logger.info(f"✅ Synced morphology app file to {app_target}")
 
+    dist_index = dist_morphology_app_dir / "index.html"
+    if dist_index.is_file():
+        apply_public_dist_marker_to_morphology_index(dist_index)
+
     dist_morphology_charts = dist_morphology_data_dir / "charts.json"
     shutil.copy2(source_file, dist_morphology_charts)
     logger.info(f"✅ Synced morphology app data to {dist_morphology_charts}")
+
+    # Safety: never publish pipeline working data in dist bundles.
+    dist_work_dirs = [
+        config_manager.get_path("dist_data_dir") / "morphology" / "work",
+        dist_morphology_data_dir / "work",
+    ]
+    for work_dir in dist_work_dirs:
+        if work_dir.exists():
+            shutil.rmtree(work_dir)
+            logger.info(f"🧹 Removed non-public morphology work data: {work_dir}")
 
 
 def sync_preverb_cube_assets(config_manager: ConfigManager):
