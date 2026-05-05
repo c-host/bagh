@@ -50,7 +50,7 @@ Run both with `npm run build:all`.
 In the mono-repo setup, deployment is handled by the parent `verb-website` pipeline.
 
 - Build from `websites/verb-website/` with:
-  - `python tools/build_pipeline.py --stage output-generation --production`
+  - `npm run build`
 - That pipeline runs `preverb-cube` builds and syncs outputs into:
   - `dist/preverb-cube/` (standalone app)
   - `dist/preverb-cube-lib/` (embeddable library)

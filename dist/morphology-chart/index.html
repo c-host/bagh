@@ -1,10 +1,11 @@
 <!doctype html>
-<html lang="en">
+<html lang="en" data-verb-website-dist="1">
 
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Georgian Morphology Charts</title>
+  <link rel="icon" href="../src/assets/favicon.svg" type="image/svg+xml" />
   <link rel="stylesheet" href="./styles.css" />
 </head>
 
@@ -15,9 +16,6 @@
       Editable JSON-based charts for roots, nouns, verbal nouns, participles,
       preverbs, and derived abstract nouns.
     </p>
-  </header>
-
-  <main>
     <section class="controls">
       <label for="chartSelect">Chart:</label>
       <select id="chartSelect" aria-label="Select chart"></select>
@@ -35,13 +33,15 @@
       <label class="file-label" for="importInput">Import JSON</label>
       <input id="importInput" type="file" accept="application/json" />
     </section>
+  </header>
 
+  <main>
     <section class="workspace">
       <section id="chartContainer" aria-live="polite">
         <div id="chartViewport">
           <div id="chartStage"></div>
         </div>
-        <div class="canvas-tools">
+        <div class="canvas-tools canvas-tools--left">
           <button type="button" id="zoomOutBtn" class="canvas-icon-btn" aria-label="Zoom out" title="Zoom out">
             -
           </button>
@@ -54,6 +54,12 @@
           <button type="button" id="fullscreenBtn" class="canvas-icon-btn" aria-label="Toggle fullscreen chart"
             title="Toggle fullscreen">
             []
+          </button>
+        </div>
+        <div class="canvas-tools canvas-tools--right">
+          <button type="button" id="dragReparentModeBtn" class="canvas-icon-btn canvas-icon-btn--wide"
+            aria-pressed="false" aria-label="Enable drag reparent mode" title="Drag a node onto another to reparent">
+            Drag off
           </button>
         </div>
       </section>
@@ -109,9 +115,15 @@
 
           <fieldset class="reparent-tools">
             <legend>Linked verbs</legend>
-            <label for="linkedVerbsInput">Link this node to verbs in bagh</label>
-            <select id="linkedVerbsInput" name="linkedVerbs" multiple size="8"></select>
-            <p class="small-help">Ctrl/Cmd-click to select multiple linked verbs.</p>
+            <p class="small-help">Links are not changed until you save. Open bagh from the list below.</p>
+            <div id="linkedVerbsSummary" class="linked-verbs-summary" aria-live="polite"></div>
+            <div class="editor-actions">
+              <button type="button" id="editLinkedVerbsBtn">Edit linked verbs</button>
+              <button type="button" id="saveLinkedVerbsBtn" hidden>Save linked verbs</button>
+            </div>
+            <label for="linkedVerbsInput">Verb list (edit mode)</label>
+            <select id="linkedVerbsInput" name="linkedVerbs" multiple size="8" disabled></select>
+            <p class="small-help">Ctrl/Cmd-click to select multiple, then <strong>Save linked verbs</strong>.</p>
           </fieldset>
 
           <div class="editor-actions">
@@ -150,9 +162,109 @@
             </div>
           </fieldset>
         </form>
+
+        <section class="linked-verb-map-panel" aria-label="Linked verbs in current chart">
+          <h3>Linked verbs (current chart)</h3>
+          <p class="small-help">Click a node entry to jump to it on the canvas.</p>
+          <div id="linkedVerbMapBody" class="linked-verb-map-body"></div>
+        </section>
+
+        <section class="morphology-dist-maintainer-note" aria-label="Maintainer and developer tools">
+          <h3>Maintainer tools</h3>
+          <p class="small-help">
+            ENA/NPLG scraping, candidate generation, and the review queue run from a
+            <strong>local checkout</strong> of this project (Python helper service + this page over
+            <code>http://localhost</code>), not in this public viewer.
+          </p>
+          <p class="small-help">
+            <a
+              href="https://github.com/c-host/bagh/blob/main/websites/verb-website/tools/morphology/ENA_PIPELINE_USAGE.md"
+              target="_blank"
+              rel="noopener noreferrer"
+              >How to run the pipeline locally (GitHub)</a>
+          </p>
+        </section>
+
+        <section class="review-panel" aria-label="Candidate review panel">
+          <h3>Candidate Review Queue</h3>
+          <p id="reviewQueueStatus" class="small-help">Load a review queue JSON to begin.</p>
+          <div class="editor-actions">
+            <label class="file-label" for="reviewQueueInput">Load Review Queue</label>
+            <input id="reviewQueueInput" type="file" accept="application/json" />
+            <button type="button" id="exportReviewQueueBtn">Export Reviewed Queue</button>
+          </div>
+
+          <label for="reviewQueueSelect">Candidates</label>
+          <select id="reviewQueueSelect" size="8"></select>
+          <p class="small-help">Keyboard: focus the list (click it), use arrow keys, then <strong>A</strong> to approve or <strong>R</strong> to reject.
+            <strong>Ctrl+C</strong> (<strong>Cmd+C</strong> on Mac) copies the selected lemma.</p>
+
+          <div class="review-details">
+            <p><strong>Lemma:</strong> <span id="reviewLemma">-</span></p>
+            <p><strong>Confidence:</strong> <span id="reviewConfidence">-</span></p>
+            <p><strong>Relation:</strong> <span id="reviewRelation">-</span></p>
+            <p><strong>POS guess:</strong> <span id="reviewPos">-</span></p>
+            <p><strong>Status:</strong> <span id="reviewDecision">pending</span></p>
+            <p><strong>Definition:</strong> <span id="reviewDefinition">-</span></p>
+            <p><strong>English Definition (NPLG):</strong> <span id="reviewNplgGloss">-</span></p>
+            <p><strong>GNC features:</strong> <span id="reviewGncFeatures">-</span></p>
+            <p><strong>NPLG source:</strong> <span id="reviewNplgTermLink">-</span></p>
+          </div>
+
+          <div class="editor-actions">
+            <button type="button" id="approveCandidateBtn">Approve</button>
+            <button type="button" id="rejectCandidateBtn">Reject</button>
+            <button type="button" id="resetCandidateBtn">Reset</button>
+          </div>
+          <div class="editor-actions">
+            <button type="button" id="insertCandidateBtn">Insert Under Selected Node</button>
+            <button type="button" id="insertAllApprovedBtn">Insert All Approved Under Selected Node</button>
+          </div>
+        </section>
+
+        <section class="pipeline-panel" aria-label="Pipeline generation panel">
+          <h3>Generate From ENA/NPLG</h3>
+          <p class="small-help">
+            Start the local pipeline API first, then click <strong>Refresh Status</strong>.
+            Default endpoint: <code>http://localhost:8765</code>.
+            If needed, override with <code>?pipelineApi=http://127.0.0.1:8765</code>.
+          </p>
+          <p id="pipelineServiceStatus" class="small-help">Service status: not checked yet — click Refresh Status after starting the service.</p>
+          <label for="pipelineHeadwordsInput">Headwords (space or comma separated)</label>
+          <input id="pipelineHeadwordsInput" type="text" placeholder="მაგ. ცვლ ცვალ" />
+
+          <label for="pipelineHeadwordModeSelect">Headword mode</label>
+          <select id="pipelineHeadwordModeSelect">
+            <option value="raw">raw</option>
+            <option value="startswith">startswith</option>
+            <option value="endswith">endswith</option>
+            <option value="contains" selected>contains</option>
+          </select>
+
+          <div class="pipeline-options">
+            <label><input id="pipelineUseGncCheckbox" type="checkbox" checked /> Use GNC</label>
+            <label><input id="pipelineDropNotFoundGncCheckbox" type="checkbox" checked /> Drop not found on GNC</label>
+            <label><input id="pipelineUseNplgCheckbox" type="checkbox" checked /> Use NPLG</label>
+            <label><input id="pipelineDropNotFoundNplgCheckbox" type="checkbox" /> Drop not found on NPLG</label>
+          </div>
+
+          <div class="editor-actions">
+            <button type="button" id="runPipelineBtn">Run Pipeline</button>
+            <button type="button" id="refreshPipelineStatusBtn">Refresh Status</button>
+          </div>
+          <p id="pipelineRunStatus" class="small-help">No pipeline run yet.</p>
+
+          <label for="pipelineReviewQueueSelect">Generated review queues</label>
+          <select id="pipelineReviewQueueSelect" size="4"></select>
+          <div class="editor-actions">
+            <button type="button" id="loadGeneratedReviewBtn">Load Selected Review Queue</button>
+          </div>
+        </section>
       </aside>
     </section>
   </main>
+
+  <div id="pipelineStatusBadge" class="pipeline-status-badge">Pipeline idle</div>
 
   <template id="nodeTemplate">
     <li class="chart-node">

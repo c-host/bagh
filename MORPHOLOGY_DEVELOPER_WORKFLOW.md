@@ -1,17 +1,17 @@
 # Morphology Developer Workflow
 
-This project now keeps the morphology editor and chart data inside the same website repo:
+This project keeps the morphology editor and chart data in the same repository:
 
-- Editor app: `websites/verb-website/morphology-chart/`
-- Canonical chart data: `websites/verb-website/morphology-chart/data/charts.json`
-- Bagh integration data target: `websites/verb-website/src/data/morphology/charts.json`
-- Built embed target: `websites/verb-website/dist/morphology-chart/`
+- Editor app: `morphology-chart/index.html`
+- Canonical chart data: `src/morphology-chart/charts.json`
+- Bagh integration data target: `dist/data/morphology/charts.json`
+- Built embed target: `dist/morphology-chart/index.html`
 
 ## 1) Edit charts in the morphology editor
 
 Open:
 
-- `websites/verb-website/morphology-chart/index.html`
+- `src/morphology-chart/index.html`
 
 In the node editor:
 
@@ -35,7 +35,7 @@ This file is the source of truth for morphology charts in the repo.
 
 From `websites/verb-website/` run:
 
-- `npm run build_production`
+- `npm run build`
 
 The build pipeline syncs morphology files automatically:
 
@@ -49,9 +49,14 @@ The build pipeline syncs morphology files automatically:
 
 ## 4) Verify locally
 
-Open:
+Start local services:
 
-- `websites/verb-website/dist/index.html`
+- `npm run dev`
+
+Then open:
+
+- `http://127.0.0.1:8000/dist/index.html`
+- optional direct chart editor: `http://127.0.0.1:8000/morphology-chart/index.html`
 
 Check:
 

@@ -1,53 +1,65 @@
 # Bagh: Georgian Verbs
 
-🌱 A Georgian verb conjugation website with interactive tables, examples, and detailed grammatical analysis.
+🌱 Bagh is a Georgian verb resource with searchable entries, screve tables, examples, gloss/case analysis, 3D representation and verb-specific preverb cubes, and linked morphology charts.
 
 > **⚠️ Work in Progress:** This website is a personal study resource and under active development. While functional, it may contain some inconsistencies and incomplete features. Please do not treat this as a definitive source for Georgian verb conjugations.
 
 ## 🌐 View the Website
-
-The website is automatically deployed to GitHub Pages and available at:
 [https://c-host.github.io/bagh/dist/index.html](https://c-host.github.io/bagh/dist/index.html)
 
-## 🧩 Components
+- Browse verb pages with tense tables and gloss breakdowns.
+- Compare preverb behavior.
+- Open related morphology charts from verb pages.
+- Use multiple Georgian fonts for readability preferences.
 
-This repository contains multiple integrated components:
+## Quick start for developers
 
-- `morphology-chart/` — standalone morphology chart editor/viewer used in embedded read-only mode on verb pages.
-- `preverb-cube/` — interactive 3D preverb diagram (standalone page + embedded verb-specific views).
-- `src/` — main Bagh application source (tables, examples, glossary analysis, managers, styles).
-- `tools/` — build/data pipeline that generates and syncs deployable `dist/` output.
-
-Component-specific docs:
-
-- `preverb-cube/README.md`
-- `MORPHOLOGY_DEVELOPER_WORKFLOW.md`
-
-## 🛠️ Build And Deploy
-
-Build production output (including synced morphology/preverb artifacts) from this repo root:
+From repo root:
 
 ```bash
-python tools/build_pipeline.py --stage output-generation --production
+npm run dev
 ```
 
-This pipeline is the source of truth for deployment artifacts in `dist/`.
+This starts:
+- a local static server on port `8000`
+- the morphology pipeline API service on port `8765`
+- the browser at `http://127.0.0.1:8000/dist/index.html`
 
-## 🧱 Example Sentence Model
+Build deployable output:
 
-Examples are generated with a compositional token model:
-- Source schema uses `syntax.complements`, `syntax.adjuncts`, and `syntax.exampleComposition`.
-- Generated examples contain token arrays under `generated_data.examples[*].tokens.{georgian,english}`.
-- Token layers are:
-  - `always` (always visible)
-  - `adjectives` (toggleable)
-  - `adverbs` (toggleable)
-- Frontend sentence complexity is controlled per screeve and persisted in `localStorage`.
+```bash
+npm run build
+```
 
-## 🎨 Fonts
+This generates/syncs everything into `dist/`.
 
-This project uses several custom fonts for Georgian text display. See [FONTS.md](FONTS.md) for more information.
+## Project map
 
-## 🐛 Known Issues
+- `src/` - main app source (UI, scripts, styles, and source data).
+- `dist/` - built output used for deployment/local static preview.
+- `morphology-chart/` - standalone morphology editor/viewer app.
+- `preverb-cube/` - 3D preverb visualization app/library.
+- `tools/` - build pipeline, data processing, scraping, and morphology/GNC utilities.
 
-- Some verbs may have incomplete or incoherent semantic mappings
+## Data model notes
+
+- Canonical morphology chart data lives in `morphology-chart/data/charts.json`.
+- Build sync copies morphology chart data into:
+  - `src/data/morphology/charts.json`
+  - `dist/data/morphology/charts.json`
+  - `dist/morphology-chart/data/charts.json`
+- Generated working data for pipelines now lives under:
+  - `src/data/morphology/work/`
+  - `src/data/gnc/work/`
+
+## More docs
+
+- `DEVELOPMENT.md` - practical workflows for local development.
+- `tools/README.md` - build/data pipeline guide.
+- `MORPHOLOGY_DEVELOPER_WORKFLOW.md` - chart editing workflow.
+- `tools/morphology/ENA_PIPELINE_USAGE.md` - ENA/NPLG/GNC candidate pipeline usage.
+- `preverb-cube/README.md` - preverb cube component details.
+
+## Notes
+
+- This is an actively developed study resource and may contain incomplete entries.

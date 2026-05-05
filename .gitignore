@@ -87,12 +87,12 @@ pids
 
 # Local / generated data (directories kept in repo via .gitkeep only)
 # Morphology pipeline outputs — see tools/morphology/ENA_PIPELINE_USAGE.md
-tools/morphology/candidates/*
-!tools/morphology/candidates/.gitkeep
-tools/morphology/raw/*
-!tools/morphology/raw/.gitkeep
-# GNC verb sort/filter working dirs (run scripts from tools/gnc/gnc_verb_sort_and_filter/)
-tools/gnc/gnc_verb_sort_and_filter/gnc_verb_data_raw/*
-!tools/gnc/gnc_verb_sort_and_filter/gnc_verb_data_raw/.gitkeep
-tools/gnc/gnc_verb_sort_and_filter/gnc_verb_data_filtered/*
-!tools/gnc/gnc_verb_sort_and_filter/gnc_verb_data_filtered/.gitkeep
+src/data/morphology/work/candidates/*
+!src/data/morphology/work/candidates/.gitkeep
+src/data/morphology/work/raw/*
+!src/data/morphology/work/raw/.gitkeep
+# GNC verb sort/filter working dirs
+src/data/gnc/work/raw/*
+!src/data/gnc/work/raw/.gitkeep
+src/data/gnc/work/filtered/*
+!src/data/gnc/work/filtered/.gitkeep
