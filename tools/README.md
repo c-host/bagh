@@ -2,6 +2,8 @@
 
 `tools/` contains scripts that build the site, process data, and support editor/pipeline workflows.
 
+For build internals (pipeline stages, dist assembly rules), see `build/README.md`.
+
 ## Most common commands
 
 From repo root:
@@ -17,19 +19,16 @@ npm run dev
 Direct Python entrypoint (same build logic used by `npm run build`):
 
 ```bash
-python tools/build_pipeline.py --production
+python build/build_pipeline.py --production
 ```
 
 ## Directory overview
 
-- `build_pipeline.py` - main build entrypoint.
-- `data_extraction/` - loads source verb/dictionary data.
-- `data_processing/` - transforms source data into runtime-ready structures.
-- `output_generation/` - writes HTML/data output and copies assets into `dist/`.
-- `gnc/` - Georgian National Corpus integration helpers.
+- Build internals now live in `build/` (`build/README.md`).
+- `gnc/` - Georgian National Corpus utilities for verb workflows.
 - `morphology/` - ENA/NPLG/GNC morphology candidate pipeline + local API service.
 - `scraper/` - external data scraping tools.
-- `utils/` - shared config/logging/path helpers.
+- `dev/` - local development helper scripts.
 
 ## Practical workflows
 
@@ -61,7 +60,7 @@ See `tools/morphology/ENA_PIPELINE_USAGE.md` for full options.
 
 Pipeline-generated working data is intentionally separate from tool scripts:
 
-- Morphology working outputs: `src/data/morphology/work/`
-- GNC working outputs: `src/data/gnc/work/`
+- Morphology working outputs: `apps/morphology-chart/data/work/`
+- GNC working outputs: `apps/bagh/data/gnc/work/`
 
 These working directories are ignored and are not intended for deployment.

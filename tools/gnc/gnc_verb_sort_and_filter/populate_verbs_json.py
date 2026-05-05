@@ -14,7 +14,7 @@ Options:
   --append                            Add new verb entry (default)
   --help                              Show help message
 
-Example: python populate_verbs_json.py --version Non-Version --update წერა-raw_comprehensive_data.json ../../src/data/verbs.json წერა
+Example: python populate_verbs_json.py --version Non-Version --update წერა-raw_comprehensive_data.json ../../apps/bagh/data/verbs.json წერა
 """
 
 import json

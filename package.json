@@ -4,10 +4,11 @@
   "description": "Bagh",
   "main": "dist/index.html",
   "scripts": {
-    "build": "python tools/build_pipeline.py --production",
-    "dev:service": "python tools/morphology/morphology_pipeline_service.py",
-    "dev:site": "python -m http.server 8000",
-    "dev": "start \"Morphology Pipeline Service\" cmd /k \"python tools/morphology/morphology_pipeline_service.py\" && start \"Verb Website\" \"http://127.0.0.1:8000/dist/index.html\" && python -m http.server 8000",
+    "build": "python build/build_pipeline.py --production",
+    "dev:service": "python tools/dev/morphology_service_background.py start --host 127.0.0.1 --port 8765",
+    "dev:service:stop": "python tools/dev/morphology_service_background.py stop",
+    "dev:site": "python tools/dev/local_static_server.py --host 127.0.0.1 --port 8000",
+    "dev": "python tools/dev/run_dev.py --host 127.0.0.1 --port 8000 --service-host 127.0.0.1 --service-port 8765 --open-url http://127.0.0.1:8000/dist/index.html",
     "clean": "rm -rf dist/"
   },
   "keywords": [
@@ -27,12 +28,12 @@
   "fonts": {
     "description": "This project uses custom fonts for Georgian text display. See FONTS.md for licensing information.",
     "files": [
-      "src/assets/fonts/SonataNo5.otf",
-      "src/assets/fonts/NeueImpakt.otf",
-      "src/assets/fonts/k_gorga.ttf",
-      "src/assets/fonts/k_grigol.ttf",
-      "src/assets/fonts/k_kalig.ttf",
-      "src/assets/fonts/k_lortki.ttf"
+      "apps/bagh/assets/fonts/SonataNo5.otf",
+      "apps/bagh/assets/fonts/NeueImpakt.otf",
+      "apps/bagh/assets/fonts/k_gorga.ttf",
+      "apps/bagh/assets/fonts/k_grigol.ttf",
+      "apps/bagh/assets/fonts/k_kalig.ttf",
+      "apps/bagh/assets/fonts/k_lortki.ttf"
     ]
   },
   "homepage": "https://github.com/c-host/bagh",

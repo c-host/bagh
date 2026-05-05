@@ -58,12 +58,12 @@ def parse_args() -> argparse.Namespace:
     )
     parser.add_argument(
         "--output-jsonl",
-        default="src/data/morphology/work/raw/ena-explanatory-records.jsonl",
+        default="apps/morphology-chart/data/work/raw/ena-explanatory-records.jsonl",
         help="Output JSONL path (relative to workspace root unless absolute).",
     )
     parser.add_argument(
         "--output-summary",
-        default="src/data/morphology/work/raw/ena-explanatory-summary.json",
+        default="apps/morphology-chart/data/work/raw/ena-explanatory-summary.json",
         help="Output summary JSON path.",
     )
     parser.add_argument(

@@ -2,13 +2,13 @@
 temp/
 .cache/
 
-preverb-cube/node_modules/
-preverb-cube/dist/
-preverb-cube/dist-lib/
-preverb-cube/reference/
-preverb-cube/.DS_Store
-preverb-cube/logs/
-preverb-cube/*.log
+apps/preverb-cube/node_modules/
+apps/preverb-cube/dist/
+apps/preverb-cube/dist-lib/
+apps/preverb-cube/reference/
+apps/preverb-cube/.DS_Store
+apps/preverb-cube/logs/
+apps/preverb-cube/*.log
 
 
 # Private
@@ -20,8 +20,8 @@ PIPELINE_ARCHITECTURE.md
 
 # Testing
 tests/
-src/data/verb_editor/data/data_targeting/
-src/data/verb_editor/IMPLEMENTATION/
+apps/bagh/data/verb_editor/data/data_targeting/
+apps/bagh/data/verb_editor/IMPLEMENTATION/
 
 # Python
 __pycache__/
@@ -30,7 +30,6 @@ __pycache__/
 *.so
 .Python
 venv/
-build/
 develop-eggs/
 downloads/
 eggs/
@@ -87,12 +86,12 @@ pids
 
 # Local / generated data (directories kept in repo via .gitkeep only)
 # Morphology pipeline outputs — see tools/morphology/ENA_PIPELINE_USAGE.md
-src/data/morphology/work/candidates/*
-!src/data/morphology/work/candidates/.gitkeep
-src/data/morphology/work/raw/*
-!src/data/morphology/work/raw/.gitkeep
+apps/morphology-chart/data/work/candidates/*
+!apps/morphology-chart/data/work/candidates/.gitkeep
+apps/morphology-chart/data/work/raw/*
+!apps/morphology-chart/data/work/raw/.gitkeep
 # GNC verb sort/filter working dirs
-src/data/gnc/work/raw/*
-!src/data/gnc/work/raw/.gitkeep
-src/data/gnc/work/filtered/*
-!src/data/gnc/work/filtered/.gitkeep
+apps/bagh/data/gnc/work/raw/*
+!apps/bagh/data/gnc/work/raw/.gitkeep
+apps/bagh/data/gnc/work/filtered/*
+!apps/bagh/data/gnc/work/filtered/.gitkeep

@@ -1,0 +1,286 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Georgian Morphology Charts</title>
+  <link rel="icon" href="../assets/favicon.svg" type="image/svg+xml" />
+  <link rel="stylesheet" href="./styles.css" />
+</head>
+
+<body>
+  <header>
+    <h1>Georgian Morphology Flow Charts</h1>
+    <p>
+      Editable JSON-based charts for roots, nouns, verbal nouns, participles,
+      preverbs, and derived abstract nouns.
+    </p>
+    <section class="controls">
+      <label for="chartSelect">Chart:</label>
+      <select id="chartSelect" aria-label="Select chart"></select>
+      <label for="layoutSelect">Layout:</label>
+      <select id="layoutSelect" aria-label="Select layout">
+        <option value="top-down">Top to bottom</option>
+        <option value="left-right">Left to right</option>
+      </select>
+      <button type="button" id="addChartBtn">Add chart</button>
+      <button type="button" id="renameChartBtn">Rename chart</button>
+      <label for="historySelect">History:</label>
+      <select id="historySelect" aria-label="Select saved change"></select>
+      <button type="button" id="restoreHistoryBtn">Restore selected</button>
+      <button type="button" id="exportBtn">Export JSON</button>
+      <label class="file-label" for="importInput">Import JSON</label>
+      <input id="importInput" type="file" accept="application/json" />
+    </section>
+  </header>
+
+  <main>
+    <section class="workspace">
+      <section id="chartContainer" aria-live="polite">
+        <div id="chartViewport">
+          <div id="chartStage"></div>
+        </div>
+        <div class="canvas-tools canvas-tools--left">
+          <button type="button" id="zoomOutBtn" class="canvas-icon-btn" aria-label="Zoom out" title="Zoom out">
+            -
+          </button>
+          <button type="button" id="zoomResetBtn" class="canvas-icon-btn" aria-label="Reset zoom" title="Reset zoom">
+            100%
+          </button>
+          <button type="button" id="zoomInBtn" class="canvas-icon-btn" aria-label="Zoom in" title="Zoom in">
+            +
+          </button>
+          <button type="button" id="fullscreenBtn" class="canvas-icon-btn" aria-label="Toggle fullscreen chart"
+            title="Toggle fullscreen">
+            []
+          </button>
+        </div>
+        <div class="canvas-tools canvas-tools--right">
+          <button type="button" id="dragReparentModeBtn" class="canvas-icon-btn canvas-icon-btn--wide"
+            aria-pressed="false" aria-label="Enable drag reparent mode" title="Drag a node onto another to reparent">
+            Drag off
+          </button>
+        </div>
+      </section>
+
+      <aside class="editor" aria-label="Node editor">
+        <h2>Node Editor</h2>
+        <p id="editorHelp" class="editor-help">
+          Click a node in the chart to edit it.
+        </p>
+        <p id="autosaveStatus" class="editor-help">Changes auto-save instantly.</p>
+
+        <form id="nodeForm">
+          <label for="kaInput">Georgian Word (ka)</label>
+          <input id="kaInput" name="ka" type="text" required />
+
+          <label for="enInput">English Definition (en)</label>
+          <input id="enInput" name="en" type="text" required />
+
+          <label for="typeInput">Grammatical Type</label>
+          <select id="typeInput" name="type" required>
+            <option value="Present Participle">Present Participle</option>
+            <option value="Future Participle">Future Participle</option>
+            <option value="Past Participle">Past Participle</option>
+            <option value="Negative Participle">Negative Participle</option>
+            <option value="Abstract Noun">Abstract Noun</option>
+            <option value="Adjective">Adjective</option>
+            <option value="Adverb">Adverb</option>
+            <option value="Verbal Noun">Verbal Noun</option>
+            <option value="Noun">Noun</option>
+            <option value="Root">Root</option>
+          </select>
+
+          <label for="enSecondaryInput">Secondary English Definition (optional)</label>
+          <input id="enSecondaryInput" name="enSecondary" type="text" />
+
+          <label for="typeSecondaryInput">Secondary Grammatical Type (optional)</label>
+          <select id="typeSecondaryInput" name="typeSecondary">
+            <option value="">None</option>
+            <option value="Present Participle">Present Participle</option>
+            <option value="Future Participle">Future Participle</option>
+            <option value="Past Participle">Past Participle</option>
+            <option value="Negative Participle">Negative Participle</option>
+            <option value="Abstract Noun">Abstract Noun</option>
+            <option value="Adjective">Adjective</option>
+            <option value="Adverb">Adverb</option>
+            <option value="Verbal Noun">Verbal Noun</option>
+            <option value="Noun">Noun</option>
+            <option value="Root">Root</option>
+          </select>
+
+          <label for="notesInput">Notes</label>
+          <textarea id="notesInput" name="notes" rows="3"></textarea>
+
+          <fieldset class="reparent-tools">
+            <legend>Linked verbs</legend>
+            <p class="small-help">Links are not changed until you save. Open bagh from the list below.</p>
+            <div id="linkedVerbsSummary" class="linked-verbs-summary" aria-live="polite"></div>
+            <div class="editor-actions">
+              <button type="button" id="editLinkedVerbsBtn">Edit linked verbs</button>
+              <button type="button" id="saveLinkedVerbsBtn" hidden>Save linked verbs</button>
+            </div>
+            <label for="linkedVerbsInput">Verb list (edit mode)</label>
+            <select id="linkedVerbsInput" name="linkedVerbs" multiple size="8" disabled></select>
+            <p class="small-help">Ctrl/Cmd-click to select multiple, then <strong>Save linked verbs</strong>.</p>
+          </fieldset>
+
+          <div class="editor-actions">
+            <button type="button" id="addChildBtn">Add child</button>
+            <button type="button" id="deleteNodeBtn">Delete node</button>
+          </div>
+
+          <fieldset class="reparent-tools">
+            <legend>Sibling grouping</legend>
+            <label for="siblingGroupInput">Group key</label>
+            <input id="siblingGroupInput" name="siblingGroup" type="text" placeholder="e.g. verbal-nouns" />
+            <label for="siblingGroupLabelInput">Group label (optional)</label>
+            <input id="siblingGroupLabelInput" name="siblingGroupLabel" type="text" placeholder="e.g. Verbal nouns" />
+          </fieldset>
+
+          <fieldset class="reparent-tools">
+            <legend>Reclassify parent</legend>
+            <label for="reparentSelect">Move selected node under</label>
+            <select id="reparentSelect"></select>
+            <div class="editor-actions">
+              <button type="button" id="moveNodeBtn">Move node</button>
+            </div>
+          </fieldset>
+
+          <fieldset class="reparent-tools">
+            <legend>Order among siblings</legend>
+            <p id="siblingOrderInfo" class="small-help"></p>
+            <div class="editor-actions">
+              <button type="button" id="moveUpBtn">Move earlier</button>
+              <button type="button" id="moveDownBtn">Move later</button>
+            </div>
+            <label for="moveToPositionInput">Move to position</label>
+            <div class="editor-actions">
+              <input id="moveToPositionInput" type="number" min="1" step="1" />
+              <button type="button" id="moveToPositionBtn">Apply position</button>
+            </div>
+          </fieldset>
+        </form>
+
+        <section class="linked-verb-map-panel" aria-label="Linked verbs in current chart">
+          <h3>Linked verbs (current chart)</h3>
+          <p class="small-help">Click a node entry to jump to it on the canvas.</p>
+          <div id="linkedVerbMapBody" class="linked-verb-map-body"></div>
+        </section>
+
+        <section class="morphology-dist-maintainer-note" aria-label="Maintainer and developer tools">
+          <h3>Maintainer tools</h3>
+          <p class="small-help">
+            ENA/NPLG scraping, candidate generation, and the review queue run from a
+            <strong>local checkout</strong> of this project (Python helper service + this page over
+            <code>http://localhost</code>), not in this public viewer.
+          </p>
+          <p class="small-help">
+            <a
+              href="https://github.com/c-host/bagh/blob/main/websites/verb-website/tools/morphology/ENA_PIPELINE_USAGE.md"
+              target="_blank"
+              rel="noopener noreferrer"
+              >How to run the pipeline locally (GitHub)</a>
+          </p>
+        </section>
+
+        <section class="review-panel" aria-label="Candidate review panel">
+          <h3>Candidate Review Queue</h3>
+          <p id="reviewQueueStatus" class="small-help">Load a review queue JSON to begin.</p>
+          <div class="editor-actions">
+            <label class="file-label" for="reviewQueueInput">Load Review Queue</label>
+            <input id="reviewQueueInput" type="file" accept="application/json" />
+            <button type="button" id="exportReviewQueueBtn">Export Reviewed Queue</button>
+          </div>
+
+          <label for="reviewQueueSelect">Candidates</label>
+          <select id="reviewQueueSelect" size="8"></select>
+          <p class="small-help">Keyboard: focus the list (click it), use arrow keys, then <strong>A</strong> to approve or <strong>R</strong> to reject.
+            <strong>Ctrl+C</strong> (<strong>Cmd+C</strong> on Mac) copies the selected lemma.</p>
+
+          <div class="review-details">
+            <p><strong>Lemma:</strong> <span id="reviewLemma">-</span></p>
+            <p><strong>Confidence:</strong> <span id="reviewConfidence">-</span></p>
+            <p><strong>Relation:</strong> <span id="reviewRelation">-</span></p>
+            <p><strong>POS guess:</strong> <span id="reviewPos">-</span></p>
+            <p><strong>Status:</strong> <span id="reviewDecision">pending</span></p>
+            <p><strong>Definition:</strong> <span id="reviewDefinition">-</span></p>
+            <p><strong>English Definition (NPLG):</strong> <span id="reviewNplgGloss">-</span></p>
+            <p><strong>GNC features:</strong> <span id="reviewGncFeatures">-</span></p>
+            <p><strong>NPLG source:</strong> <span id="reviewNplgTermLink">-</span></p>
+          </div>
+
+          <div class="editor-actions">
+            <button type="button" id="approveCandidateBtn">Approve</button>
+            <button type="button" id="rejectCandidateBtn">Reject</button>
+            <button type="button" id="resetCandidateBtn">Reset</button>
+          </div>
+          <div class="editor-actions">
+            <button type="button" id="insertCandidateBtn">Insert Under Selected Node</button>
+            <button type="button" id="insertAllApprovedBtn">Insert All Approved Under Selected Node</button>
+          </div>
+        </section>
+
+        <section class="pipeline-panel" aria-label="Pipeline generation panel">
+          <h3>Generate From ENA/NPLG</h3>
+          <p class="small-help">
+            Start the local pipeline API first, then click <strong>Refresh Status</strong>.
+            Default endpoint: <code>http://localhost:8765</code>.
+            If needed, override with <code>?pipelineApi=http://127.0.0.1:8765</code>.
+          </p>
+          <p id="pipelineServiceStatus" class="small-help">Service status: not checked yet — click Refresh Status after starting the service.</p>
+          <label for="pipelineHeadwordsInput">Headwords (space or comma separated)</label>
+          <input id="pipelineHeadwordsInput" type="text" placeholder="მაგ. ცვლ ცვალ" />
+
+          <label for="pipelineHeadwordModeSelect">Headword mode</label>
+          <select id="pipelineHeadwordModeSelect">
+            <option value="raw">raw</option>
+            <option value="startswith">startswith</option>
+            <option value="endswith">endswith</option>
+            <option value="contains" selected>contains</option>
+          </select>
+
+          <div class="pipeline-options">
+            <label><input id="pipelineUseGncCheckbox" type="checkbox" checked /> Use GNC</label>
+            <label><input id="pipelineDropNotFoundGncCheckbox" type="checkbox" checked /> Drop not found on GNC</label>
+            <label><input id="pipelineUseNplgCheckbox" type="checkbox" checked /> Use NPLG</label>
+            <label><input id="pipelineDropNotFoundNplgCheckbox" type="checkbox" /> Drop not found on NPLG</label>
+          </div>
+
+          <div class="editor-actions">
+            <button type="button" id="runPipelineBtn">Run Pipeline</button>
+            <button type="button" id="refreshPipelineStatusBtn">Refresh Status</button>
+          </div>
+          <p id="pipelineRunStatus" class="small-help">No pipeline run yet.</p>
+
+          <label for="pipelineReviewQueueSelect">Generated review queues</label>
+          <select id="pipelineReviewQueueSelect" size="4"></select>
+          <div class="editor-actions">
+            <button type="button" id="loadGeneratedReviewBtn">Load Selected Review Queue</button>
+          </div>
+        </section>
+      </aside>
+    </section>
+  </main>
+
+  <div id="pipelineStatusBadge" class="pipeline-status-badge">Pipeline idle</div>
+
+  <template id="nodeTemplate">
+    <li class="chart-node">
+      <div class="node-card">
+        <p class="ge"></p>
+        <p class="en"></p>
+        <p class="unit-type"></p>
+        <p class="en-secondary"></p>
+        <p class="unit-type-secondary"></p>
+        <p class="notes"></p>
+      </div>
+      <ul class="children"></ul>
+    </li>
+  </template>
+
+  <script src="./app.js" type="module"></script>
+</body>
+
+</html>

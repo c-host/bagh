@@ -76,8 +76,15 @@ NPLG enrichment writes a `nplg` object per candidate with:
 - `matchCount`
 - `bestTerm`
 - `enGloss`
+- `enGlosses` (all extracted English definitions/senses)
+- `labelTitles` (acronym/context labels such as `proper noun`, `Botany`, `archaic`)
 - `searchUrl`
 - `termUrl`
+
+Notes:
+- `enGloss` is the joined display string used by the review panel and candidate insertion.
+- `enGlosses` + `labelTitles` preserve structured data so reviewers can disambiguate.
+- Existing NPLG cache entries are lazily refreshed from `termUrl` when label metadata is missing.
 
 ## Optional local background service (for morphology chart UI)
 
@@ -87,28 +94,28 @@ Start:
 websites\verb-website\tools\morphology\start_morphology_pipeline_service.cmd
 ```
 
-Then use the **Generate From ENA/NPLG** panel in `morphology-chart/index.html` to:
+Then use the **Generate From ENA/NPLG** panel in `apps/morphology-chart/index.html` to:
 - run the pipeline in background
 - monitor running/completed status
 - pick generated review queue files and load them directly
 
-**Ports:** The chart page (for example `http://localhost:8000/.../morphology-chart/index.html`) only serves static files. The pipeline API is a **separate** process on **port 8765**. The UI calls `http://<same-hostname>:8765` by default; if checks fail, try `?pipelineApi=http://127.0.0.1:8765` on the chart URL.
+**Ports:** The chart page (for example `http://localhost:8000/apps/morphology-chart/index.html`) only serves static files. The pipeline API is a **separate** process on **port 8765**. The UI calls `http://<same-hostname>:8765` by default; if checks fail, try `?pipelineApi=http://127.0.0.1:8765` on the chart URL.
 
-**Workspace:** Scripts default to the **verb-website** root (the directory that contains `tools/` and `morphology-chart/`). If you use a monorepo layout with `websites/verb-website/`, pass that monorepo root as `--workspace-root` and it will be normalized to the inner `verb-website` folder automatically.
+**Workspace:** Scripts default to the **verb-website** root (the directory that contains `tools/` and `apps/`). If you use a monorepo layout with `websites/verb-website/`, pass that monorepo root as `--workspace-root` and it will be normalized to the inner `verb-website` folder automatically.
 
 Default outputs:
 
-- `src/data/morphology/work/raw/ena-explanatory-records.jsonl`
-- `src/data/morphology/work/raw/ena-explanatory-summary.json`
-- `src/data/morphology/work/candidates/*.json`
+- `apps/morphology-chart/data/work/raw/ena-explanatory-records.jsonl`
+- `apps/morphology-chart/data/work/raw/ena-explanatory-summary.json`
+- `apps/morphology-chart/data/work/candidates/*.json`
 
 Candidate/review filenames are now based on your query headwords (for example `შეცვლ-candidates.json`, `ცვლ-review-queue.json`) instead of fixed `dzl/dzala` names.
 
 By default, each run auto-tags outputs with mode + headwords + timestamp, so files are unique and not overwritten. Example:
 
-- `src/data/morphology/work/raw/ena/ena-explanatory-records__contains__ძლ-ძალ__20260503-121500.jsonl`
-- `src/data/morphology/work/raw/ena/ena-explanatory-summary__contains__ძლ-ძალ__20260503-121500.json`
-- `src/data/morphology/work/candidates/contains__ძლ-ძალ__20260503-121500/`
+- `apps/morphology-chart/data/work/raw/ena/ena-explanatory-records__contains__ძლ-ძალ__20260503-121500.jsonl`
+- `apps/morphology-chart/data/work/raw/ena/ena-explanatory-summary__contains__ძლ-ძალ__20260503-121500.json`
+- `apps/morphology-chart/data/work/candidates/contains__ძლ-ძალ__20260503-121500/`
 
 Disable this behavior with:
 

@@ -1,0 +1,363 @@
+<!DOCTYPE html>
+<html lang="en-ka" data-theme="light">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ბაღ</title>
+
+    <!-- Favicon -->
+
+    <link rel="icon" type="image/svg+xml" href="assets/favicon.svg">
+    <link rel="alternate icon" href="assets/favicon.svg">
+
+
+
+    <!-- Critical CSS for above-the-fold content -->
+    <style>
+        /* Minimal critical styles to prevent FOUC - don't override main CSS */
+
+        /* Basic reset */
+        * {
+            box-sizing: border-box;
+        }
+
+        html {
+            font-size: 16px;
+            -webkit-text-size-adjust: 100%;
+        }
+
+        body {
+            margin: 0;
+            padding: 0;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+    </style>
+
+    <!-- Load main CSS with high priority -->
+    <link rel="stylesheet" href="styles/main.css" media="all">
+
+    <script type="module" src="scripts/main.js" defer></script>
+
+    <!-- Global function for gloss toggle (needed for static HTML) -->
+    <script>
+        window.toggleGlossExpansion = function (button) {
+            const expanded = button.closest('.flat-gloss').querySelector('.flat-gloss-expanded');
+            const icon = button.querySelector('i');
+
+            if (expanded.style.display === 'none') {
+                expanded.style.display = 'block';
+                icon.className = 'fas fa-chevron-up';
+            } else {
+                expanded.style.display = 'none';
+                icon.className = 'fas fa-chevron-down';
+            }
+        };
+    </script>
+
+    <!-- Preconnect to Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <!-- Font preloading handled by Google Fonts CSS -->
+
+    <!-- Google Fonts for Georgian and English -->
+    <link
+        href="https://fonts.googleapis.com/css2?family=Noto+Sans+Georgian:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet">
+
+    <!-- Font loading script to prevent flash -->
+    <script>
+        // Immediately apply saved font and theme to prevent flash
+        (function () {
+            // Apply theme immediately - check localStorage first
+            const savedTheme = localStorage.getItem('theme');
+            if (savedTheme) {
+                document.documentElement.setAttribute('data-theme', savedTheme);
+            }
+            // If no saved theme, keep the default 'light' from HTML
+
+            // Apply font immediately
+            const savedFont = localStorage.getItem('font') || 'default';
+            document.documentElement.setAttribute('data-font', savedFont);
+
+            // Font loading handled gracefully
+            // Only hide content briefly to prevent flash, then show immediately
+            document.documentElement.style.visibility = 'hidden';
+
+            // Show content quickly
+            setTimeout(() => {
+                document.documentElement.style.visibility = 'visible';
+            }, 20);
+        })();
+    </script>
+
+    <!-- Early URL anchor detection to prevent content flash -->
+    <script>
+        (function () {
+            // Check for URL parameters immediately to prevent static content flash
+            const urlParams = new URLSearchParams(window.location.search);
+            const verbParam = urlParams.get('verb');
+            const idParam = urlParams.get('id');
+            const hash = window.location.hash;
+
+            // Determine if we have a verb to load
+            let verbId = null;
+
+            // New format: ?verb=მიტანა&id=1
+            if (verbParam && idParam && !/^\d+$/.test(verbParam)) {
+                verbId = idParam;
+            }
+            // Legacy format: ?verb=1
+            else if (verbParam && /^\d+$/.test(verbParam)) {
+                verbId = verbParam;
+            }
+            // Hash format: #1
+            else if (hash && hash.startsWith('#')) {
+                verbId = hash.substring(1);
+            }
+
+            if (verbId) {
+                console.log('🔗 Early URL anchor detection:', verbId);
+
+                // Hide content immediately with CSS to prevent any flash
+                const style = document.createElement('style');
+                style.textContent = `
+                    .verb-section {
+                        display: none !important;
+                    }
+                    .welcome-content {
+                        display: none !important;
+                    }
+                `;
+                document.head.appendChild(style);
+
+                // Set up content management when DOM is ready
+                document.addEventListener('DOMContentLoaded', function () {
+                    // Create minimal loading container (invisible but detectable by main app)
+                    const mainContent = document.querySelector('.main-content');
+                    if (mainContent) {
+                        // Add loading container without clearing existing content
+                        const loadingContainer = document.createElement('div');
+                        loadingContainer.className = 'verb-loading-container';
+                        loadingContainer.style.display = 'none';
+                        mainContent.appendChild(loadingContainer);
+                    }
+                });
+            }
+
+            // Ensure content is visible after fonts load, even with URL anchors
+            if (document.fonts && document.fonts.ready) {
+                document.fonts.ready.then(() => {
+                    // Only show content if it's not already visible
+                    if (document.documentElement.style.visibility === 'hidden') {
+                        document.documentElement.style.visibility = 'visible';
+                    }
+                });
+            }
+        })();
+    </script>
+
+    <script>
+        (function () {
+            const isLocalDevHost = window.location.hostname === '127.0.0.1' && window.location.port === '8000';
+            const isBaghDistPage = window.location.pathname.endsWith('/dist/index.html') || window.location.pathname === '/dist/index.html';
+            if (!isLocalDevHost || !isBaghDistPage) {
+                return;
+            }
+
+            document.addEventListener('DOMContentLoaded', function () {
+                if (document.getElementById('local-dev-morphology-link')) {
+                    return;
+                }
+                const link = document.createElement('a');
+                link.id = 'local-dev-morphology-link';
+                link.href = '/apps/morphology-chart/index.html';
+                link.textContent = 'Open Morphology Chart Editor';
+                link.style.position = 'fixed';
+                link.style.left = '12px';
+                link.style.bottom = '12px';
+                link.style.zIndex = '1100';
+                link.style.padding = '8px 12px';
+                link.style.borderRadius = '8px';
+                link.style.background = '#1f6feb';
+                link.style.color = '#ffffff';
+                link.style.fontSize = '13px';
+                link.style.fontWeight = '600';
+                link.style.textDecoration = 'none';
+                link.style.boxShadow = '0 2px 8px rgba(0,0,0,0.22)';
+                document.body.appendChild(link);
+            });
+        })();
+    </script>
+
+    <!-- Preconnect to Font Awesome CDN -->
+    <link rel="preconnect" href="https://cdnjs.cloudflare.com">
+
+    <!-- Prefetch critical resources -->
+    <link rel="prefetch" href="scripts/main.js">
+    <link rel="prefetch" href="styles/main.css">
+
+    <!-- Font Awesome for icons -->
+    <link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" as="style"
+        onload="this.onload=null;this.rel='stylesheet'">
+    <noscript>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    </noscript>
+
+</head>
+
+<body>
+    <!-- Sidebar Toggle - Top Left -->
+    <button id="sidebar-toggle" class="sidebar-toggle" title="Toggle Table of Contents">
+        <i class="fas fa-list"></i>
+    </button>
+
+    <!-- Theme Toggle - Top Right -->
+    <button id="theme-toggle" class="theme-toggle" title="Toggle Dark/Light Mode">
+        <i class="fas fa-moon"></i>
+    </button>
+
+    <!-- Settings Toggle - Top Right (mobile visibility controlled via CSS) -->
+    <button id="bottom-sheet-trigger" class="bottom-sheet-trigger" title="Open controls" aria-label="Open controls">
+        <i class="fas fa-cog"></i>
+    </button>
+
+    <!-- Font Selector - Bottom Right -->
+    <button id="font-select" class="font-select" title="Choose Font (Use ←/→ arrow keys to scroll)">
+        <i class="fas fa-font"></i>
+    </button>
+
+    <!-- Font Selector Dropdown (Hidden) -->
+    <div id="font-select-dropdown" class="font-select-dropdown">
+        <div class="font-option" data-font="default">
+            <span class="font-icon">🔤</span>
+            <span class="font-name">Default (Noto Sans)</span>
+        </div>
+        <div class="font-option" data-font="k_gorga">
+            <span class="font-icon">🎨</span>
+            <span class="font-name">k_gorga</span>
+        </div>
+        <div class="font-option" data-font="k_grigol">
+            <span class="font-icon">✍️</span>
+            <span class="font-name">k_grigol</span>
+        </div>
+        <div class="font-option" data-font="k_kalig">
+            <span class="font-icon">📝</span>
+            <span class="font-name">k_kalig</span>
+        </div>
+        <div class="font-option" data-font="k_lortki">
+            <span class="font-icon">🖋️</span>
+            <span class="font-name">k_lortki</span>
+        </div>
+        <div class="font-option" data-font="sonata">
+            <span class="font-icon">🎵</span>
+            <span class="font-name">SonataNo5</span>
+        </div>
+        <div class="font-option" data-font="neueimpakt">
+            <span class="font-icon">💪</span>
+            <span class="font-name">NeueImpakt</span>
+        </div>
+    </div>
+
+    <!-- Notepad Button - Bottom Left -->
+    <button id="notepad-toggle" class="notepad-toggle" title="Open Notepad">
+        <i class="fas fa-sticky-note"></i>
+    </button>
+
+
+    <!-- Sidebar Modal -->
+    <div id="sidebar-modal" class="sidebar-modal">
+        <div class="sidebar-overlay" id="sidebar-overlay"></div>
+        <div class="sidebar-content">
+            <div class="sidebar-header">
+                <h3>Verb Search</h3>
+                <button id="sidebar-close" class="sidebar-close">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+            <div class="sidebar-sticky-header">
+                <div class="search-container">
+                    <input type="text" id="search-input" class="search-input" placeholder="Search verbs..."
+                        title="Search by Georgian or English name. Use ↑↓ arrows to navigate, Enter to select">
+                    <button id="search-clear" class="search-clear-button hidden" title="Clear search">
+                        <i class="fas fa-times"></i>
+                    </button>
+                    <div class="search-icon">
+                        <i class="fas fa-search"></i>
+                    </div>
+                </div>
+                <div class="search-mode-toggle" id="search-mode-toggle" style="display: none;">
+                    <button class="search-mode-button active" data-mode="basic"
+                        title="Basic search (verb names and descriptions)">
+                        <i class="fas fa-list"></i>
+                        <span>Basic</span>
+                    </button>
+                    <button class="search-mode-button" data-mode="conjugation"
+                        title="Conjugation search (any Georgian verb form)">
+                        <i class="fas fa-language"></i>
+                        <span>Conjugation</span>
+                    </button>
+                </div>
+            </div>
+            <div class="sidebar-body">
+                <div class="toc-content-container">
+                    {{TOC_CONTENT}}
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Notepad Modal -->
+    <div id="notepad-modal" class="notepad-modal">
+        <div class="notepad-overlay" id="notepad-overlay"></div>
+        <div class="notepad-content">
+            <div class="notepad-header">
+                <h3>Notepad</h3>
+                <div class="notepad-controls">
+                    <select id="font-size-select" class="font-size-select" title="Font Size">
+                        <option value="12">12px</option>
+                        <option value="14">14px</option>
+                        <option value="16" selected>16px</option>
+                        <option value="18">18px</option>
+                        <option value="20">20px</option>
+                        <option value="24">24px</option>
+                        <option value="28">28px</option>
+                        <option value="32">32px</option>
+                    </select>
+                    <button id="notepad-close" class="notepad-close">
+                        <i class="fas fa-times"></i>
+                    </button>
+                </div>
+            </div>
+            <div class="notepad-body">
+                <textarea id="notepad-textarea" class="notepad-textarea" placeholder="Start typing here..."></textarea>
+            </div>
+        </div>
+    </div>
+
+    <!-- Main Content -->
+    <div class="container">
+        <header>
+            <h1><a href="index.html" class="header-link">ბაღ</a></h1>
+        </header>
+
+        <div class="main-content">
+            {{VERB_SECTIONS}}
+            <section id="morphology-viewer-section" class="verb-section morphology-viewer hidden">
+                <div class="morphology-viewer-header">
+                    <h2>Morphology Viewer</h2>
+                    <p>Read-only chart view for users. Use search mode to jump to nodes.</p>
+                </div>
+                <div class="morphology-viewer-controls">
+                    <label for="morphology-chart-select">Chart:</label>
+                    <select id="morphology-chart-select" aria-label="Select morphology chart"></select>
+                </div>
+                <div id="morphology-chart-stage" class="morphology-chart-stage"></div>
+            </section>
+        </div>
+    </div>
+</body>
+
+</html>

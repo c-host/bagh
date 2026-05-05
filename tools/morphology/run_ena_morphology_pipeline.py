@@ -17,7 +17,13 @@ import sys
 from datetime import datetime
 from pathlib import Path
 
-from verb_website_workspace import resolve_verb_website_workspace_root
+if __package__ in {None, ""}:
+    # Allow running this file directly while still using package-style imports.
+    repo_root = Path(__file__).resolve().parents[2]
+    if str(repo_root) not in sys.path:
+        sys.path.insert(0, str(repo_root))
+
+from tools.utils.workspace_resolution import resolve_verb_website_workspace_root
 
 
 def parse_args() -> argparse.Namespace:
@@ -59,22 +65,22 @@ def parse_args() -> argparse.Namespace:
     )
     parser.add_argument(
         "--records-jsonl",
-        default="src/data/morphology/work/raw/ena-explanatory-records.jsonl",
+        default="apps/morphology-chart/data/work/raw/ena-explanatory-records.jsonl",
         help="Scraped records output JSONL path (relative to verb-website root).",
     )
     parser.add_argument(
         "--summary-json",
-        default="src/data/morphology/work/raw/ena-explanatory-summary.json",
+        default="apps/morphology-chart/data/work/raw/ena-explanatory-summary.json",
         help="Scrape summary output JSON path (relative to verb-website root).",
     )
     parser.add_argument(
         "--candidates-output-dir",
-        default="src/data/morphology/work/candidates",
+        default="apps/morphology-chart/data/work/candidates",
         help="Output directory for candidates/review queues (relative to verb-website root).",
     )
     parser.add_argument(
         "--charts-json",
-        default="morphology-chart/data/charts.json",
+        default="apps/apps/morphology-chart/data/charts.json",
         help="Path to morphology chart JSON for overlap scoring (relative to verb-website root).",
     )
     parser.add_argument(
@@ -161,7 +167,9 @@ def configure_stdio_utf8() -> None:
     """Avoid UnicodeEncodeError on Windows (cp1252) when logging Georgian, etc."""
     for stream in (sys.stdout, sys.stderr):
         try:
-            stream.reconfigure(encoding="utf-8", errors="replace")
+            reconfigure = getattr(stream, "reconfigure", None)
+            if callable(reconfigure):
+                reconfigure(encoding="utf-8", errors="replace")
         except (AttributeError, OSError, ValueError, TypeError):
             pass
 

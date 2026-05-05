@@ -16,9 +16,11 @@ import json
 from collections import defaultdict
 from datetime import datetime
 
-RAW_DATA_DIR = os.path.normpath(os.path.join("src", "data", "gnc", "work", "raw"))
+RAW_DATA_DIR = os.path.normpath(
+    os.path.join("apps", "bagh", "data", "gnc", "work", "raw")
+)
 FILTERED_DATA_DIR = os.path.normpath(
-    os.path.join("src", "data", "gnc", "work", "filtered")
+    os.path.join("apps", "bagh", "data", "gnc", "work", "filtered")
 )
 
 

@@ -23,7 +23,13 @@ from pathlib import Path
 from typing import Optional
 from urllib.parse import parse_qs, urlparse
 
-from verb_website_workspace import (
+if __package__ in {None, ""}:
+    # Allow running this file directly while still using package-style imports.
+    repo_root = Path(__file__).resolve().parents[2]
+    if str(repo_root) not in sys.path:
+        sys.path.insert(0, str(repo_root))
+
+from tools.utils.workspace_resolution import (
     candidate_workspace_bases,
     resolve_verb_website_workspace_root,
 )

@@ -33,33 +33,29 @@ npm run build
 
 This generates/syncs everything into `dist/`.
 
-## Project map
+## 🗺️ Project map
 
-- `src/` - main app source (UI, scripts, styles, and source data).
+- `apps/bagh/` - main app source (UI, scripts, styles, and source data).
 - `dist/` - built output used for deployment/local static preview.
-- `morphology-chart/` - standalone morphology editor/viewer app.
-- `preverb-cube/` - 3D preverb visualization app/library.
+- `apps/morphology-chart/` - standalone morphology editor/viewer app.
+- `apps/preverb-cube/` - 3D preverb visualization app/library.
 - `tools/` - build pipeline, data processing, scraping, and morphology/GNC utilities.
 
-## Data model notes
+## 🧊 Data model notes
 
-- Canonical morphology chart data lives in `morphology-chart/data/charts.json`.
+- Canonical morphology chart data lives in `apps/morphology-chart/data/charts.json`.
 - Build sync copies morphology chart data into:
-  - `src/data/morphology/charts.json`
   - `dist/data/morphology/charts.json`
   - `dist/morphology-chart/data/charts.json`
 - Generated working data for pipelines now lives under:
-  - `src/data/morphology/work/`
-  - `src/data/gnc/work/`
+  - `apps/morphology-chart/data/work/`
+  - `apps/bagh/data/gnc/work/`
 
-## More docs
+## 📚 More docs
 
 - `DEVELOPMENT.md` - practical workflows for local development.
+- `build/README.md` - build pipeline architecture and assembly rules.
 - `tools/README.md` - build/data pipeline guide.
 - `MORPHOLOGY_DEVELOPER_WORKFLOW.md` - chart editing workflow.
 - `tools/morphology/ENA_PIPELINE_USAGE.md` - ENA/NPLG/GNC candidate pipeline usage.
-- `preverb-cube/README.md` - preverb cube component details.
-
-## Notes
-
-- This is an actively developed study resource and may contain incomplete entries.
+- `apps/preverb-cube/README.md` - preverb cube component details.

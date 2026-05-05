@@ -11,18 +11,26 @@ from __future__ import annotations
 
 import argparse
 import json
+import re
 import sys
 from collections import Counter
 from dataclasses import dataclass
 from datetime import datetime
 from pathlib import Path
-from typing import Iterable, Optional
+from typing import Iterable, Optional, TypedDict
 from urllib.parse import parse_qs, urlencode, urljoin, urlparse
 
 import requests
 from bs4 import BeautifulSoup
+from bs4.element import Tag
 
-from verb_website_workspace import resolve_verb_website_workspace_root
+if __package__ in {None, ""}:
+    # Allow running this file directly while still using package-style imports.
+    repo_root = Path(__file__).resolve().parents[2]
+    if str(repo_root) not in sys.path:
+        sys.path.insert(0, str(repo_root))
+
+from tools.utils.workspace_resolution import resolve_verb_website_workspace_root
 
 
 @dataclass(frozen=True)
@@ -33,6 +41,11 @@ class RootConfig:
     output_stem: str
     include_substrings: tuple[str, ...]
     exclude_substrings: tuple[str, ...]
+
+
+class NPLGSense(TypedDict):
+    gloss: str
+    labelTitles: list[str]
 
 
 DERIVATIONAL_SIGNALS = (
@@ -61,18 +74,18 @@ def parse_args() -> argparse.Namespace:
         "--workspace-root",
         default=".",
         help=(
-            "verb-website project root (contains tools/ and morphology-chart/). "
+            "verb-website project root (contains tools/ and apps/). "
             "Use '.' from that directory, or pass a monorepo root that contains websites/verb-website/."
         ),
     )
     parser.add_argument(
         "--output-dir",
-        default="src/data/morphology/work/candidates",
+        default="apps/morphology-chart/data/work/candidates",
         help="Output directory for candidate JSON files (relative to workspace root).",
     )
     parser.add_argument(
         "--charts-json",
-        default="morphology-chart/data/charts.json",
+        default="apps/morphology-chart/data/charts.json",
         help="Path to existing chart JSON used for overlap signal (relative to workspace root).",
     )
     parser.add_argument(
@@ -133,7 +146,7 @@ def parse_args() -> argparse.Namespace:
     )
     parser.add_argument(
         "--nplg-cache-json",
-        default="src/data/morphology/work/raw/nplg-cache.json",
+        default="apps/morphology-chart/data/work/raw/nplg-cache.json",
         help="Persistent cache file for NPLG lookups.",
     )
     return parser.parse_args()
@@ -286,11 +299,27 @@ class NPLGDictionaryClient:
             }
         )
         self.cache: dict[str, dict] = initial_cache if isinstance(initial_cache, dict) else {}
-        self.term_cache: dict[str, tuple[str, str]] = {}
+        self.term_cache: dict[str, dict] = {}
 
     @staticmethod
     def _norm_head(term: str) -> str:
         return str(term or "").split("(", 1)[0].strip().lower()
+
+    @classmethod
+    def _matches_query_headword(cls, query: str, term: str) -> bool:
+        query_norm = cls._norm_head(query)
+        term_norm = cls._norm_head(term)
+        if not query_norm or not term_norm:
+            return False
+        if query_norm == term_norm:
+            return True
+        # Some entries include comma/slash-separated headword variants.
+        variants = [
+            cls._norm_head(part)
+            for part in re.split(r"[,/;]+", term_norm)
+            if cls._norm_head(part)
+        ]
+        return query_norm in variants
 
     @staticmethod
     def _clean_gloss(text: str) -> str:
@@ -305,24 +334,102 @@ class NPLGDictionaryClient:
             raw = raw.split("=დიდი ქართულ-ინგლისური ლექსიკონი", 1)[0].strip()
         return raw
 
-    def _parse_term_page(self, soup: BeautifulSoup) -> tuple[str, str]:
-        term = normalize_whitespace(soup.find("h1").get_text(" ", strip=True)) if soup.find("h1") else ""
-        defn = soup.select_one("div.defn")
-        gloss = self._clean_gloss(defn.get_text(" ", strip=True) if defn else "")
-        return term, gloss
+    @staticmethod
+    def _choose_label_text(title: str, visible_text: str) -> str:
+        title_norm = normalize_whitespace(title)
+        text_norm = normalize_whitespace(visible_text)
+        if not title_norm:
+            return text_norm
+        if not text_norm:
+            return title_norm
+        # Prefer expanded visible label when title looks abbreviated (e.g., "Bot." vs "Botany").
+        if title_norm.endswith(".") and len(text_norm) > len(title_norm):
+            return text_norm
+        return title_norm
 
-    def _fetch_term_gloss(self, term_url: str) -> tuple[str, str]:
+    @staticmethod
+    def _unique_keep_order(values: list[str]) -> list[str]:
+        seen: set[str] = set()
+        ordered: list[str] = []
+        for value in values:
+            key = str(value or "").strip()
+            if not key or key in seen:
+                continue
+            seen.add(key)
+            ordered.append(key)
+        return ordered
+
+    def _parse_term_page(self, soup: BeautifulSoup) -> dict:
+        h1 = soup.find("h1")
+        term = normalize_whitespace(h1.get_text(" ", strip=True)) if isinstance(h1, Tag) else ""
+        senses: list[NPLGSense] = []
+        for defn in soup.select("div.defn"):
+            if not isinstance(defn, Tag):
+                continue
+            gloss = self._clean_gloss(defn.get_text(" ", strip=True))
+            if not gloss:
+                continue
+            label_scope = defn.find_previous_sibling("div")
+            if not isinstance(label_scope, Tag):
+                label_scope = defn.parent if isinstance(defn.parent, Tag) else None
+            label_candidates: list[str] = []
+            if isinstance(label_scope, Tag):
+                for acronym in label_scope.find_all("acronym"):
+                    if not isinstance(acronym, Tag):
+                        continue
+                    raw_title = acronym.get("title")
+                    title = raw_title if isinstance(raw_title, str) else ""
+                    fallback = acronym.get_text(" ", strip=True)
+                    label = self._choose_label_text(title, fallback)
+                    if label:
+                        label_candidates.append(label)
+                for abbr in label_scope.select("span.abbr-3"):
+                    if isinstance(abbr, Tag):
+                        text = normalize_whitespace(abbr.get_text(" ", strip=True))
+                        if text:
+                            label_candidates.append(text)
+            label_titles = self._unique_keep_order(label_candidates)
+            senses.append({"gloss": gloss, "labelTitles": label_titles})
+
+        glosses = [str(sense.get("gloss", "")).strip() for sense in senses if sense.get("gloss")]
+        label_titles = self._unique_keep_order(
+            [
+                title
+                for sense in senses
+                for title in (sense.get("labelTitles") or [])
+                if isinstance(title, str)
+            ]
+        )
+        gloss_with_labels = [
+            (
+                f"[{'; '.join(sense.get('labelTitles') or [])}] {sense.get('gloss', '')}"
+                if sense.get("labelTitles")
+                else str(sense.get("gloss", ""))
+            ).strip()
+            for sense in senses
+            if sense.get("gloss")
+        ]
+        joined_gloss = " | ".join(part for part in gloss_with_labels if part)
+        return {
+            "term": term,
+            "enGloss": joined_gloss,
+            "enGlosses": glosses,
+            "labelTitles": label_titles,
+        }
+
+    def _fetch_term_data(self, term_url: str) -> dict:
         clean_url = str(term_url or "").strip()
         if not clean_url:
-            return "", ""
+            return {"term": "", "enGloss": "", "enGlosses": [], "labelTitles": []}
         if clean_url in self.term_cache:
             return self.term_cache[clean_url]
         try:
             response = self.session.get(clean_url, timeout=12)
             response.raise_for_status()
         except requests.RequestException:
-            self.term_cache[clean_url] = ("", "")
-            return "", ""
+            empty = {"term": "", "enGloss": "", "enGlosses": [], "labelTitles": []}
+            self.term_cache[clean_url] = empty
+            return empty
         soup = BeautifulSoup(response.text, "html.parser")
         parsed = self._parse_term_page(soup)
         self.term_cache[clean_url] = parsed
@@ -336,11 +443,34 @@ class NPLGDictionaryClient:
                 "matchCount": 0,
                 "bestTerm": "",
                 "enGloss": "",
+                "enGlosses": [],
+                "labelTitles": [],
                 "searchUrl": "",
                 "termUrl": "",
             }
         if key in self.cache:
-            return self.cache[key]
+            cached = self.cache[key]
+            if isinstance(cached, dict):
+                cached.setdefault("enGlosses", [])
+                cached.setdefault("labelTitles", [])
+                term_url = str(cached.get("termUrl", "")).strip()
+                needs_label_refresh = (
+                    bool(term_url)
+                    and bool(cached.get("found"))
+                    and not cached.get("labelTitles")
+                )
+                if needs_label_refresh:
+                    term_details = self._fetch_term_data(term_url)
+                    refreshed_labels = term_details.get("labelTitles", [])
+                    refreshed_glosses = term_details.get("enGlosses", [])
+                    refreshed_joined = str(term_details.get("enGloss", "")).strip()
+                    if refreshed_labels:
+                        cached["labelTitles"] = refreshed_labels
+                    if refreshed_glosses:
+                        cached["enGlosses"] = refreshed_glosses
+                    if refreshed_joined:
+                        cached["enGloss"] = refreshed_joined
+            return cached if isinstance(cached, dict) else self.cache[key]
 
         params = {
             "a": "srch",
@@ -360,6 +490,8 @@ class NPLGDictionaryClient:
                 "matchCount": 0,
                 "bestTerm": "",
                 "enGloss": "",
+                "enGlosses": [],
+                "labelTitles": [],
                 "searchUrl": search_url,
                 "termUrl": "",
             }
@@ -370,12 +502,17 @@ class NPLGDictionaryClient:
         final_url = str(response.url or "").strip()
         final_qs = parse_qs(urlparse(final_url).query)
         if str(final_qs.get("a", [""])[0]).strip() == "term":
-            best_term, gloss = self._parse_term_page(soup)
+            parsed = self._parse_term_page(soup)
+            best_term = str(parsed.get("term", ""))
+            gloss = str(parsed.get("enGloss", ""))
+            is_match = self._matches_query_headword(key, best_term)
             result = {
-                "found": bool(best_term or gloss),
-                "matchCount": 1 if (best_term or gloss) else 0,
+                "found": bool(is_match and (best_term or gloss)),
+                "matchCount": 1 if is_match else 0,
                 "bestTerm": best_term,
-                "enGloss": gloss,
+                "enGloss": gloss if is_match else "",
+                "enGlosses": parsed.get("enGlosses", []) if is_match else [],
+                "labelTitles": parsed.get("labelTitles", []) if is_match else [],
                 "searchUrl": search_url,
                 "termUrl": final_url,
             }
@@ -384,15 +521,18 @@ class NPLGDictionaryClient:
 
         pairs: list[dict] = []
         for dl in soup.find_all("dl"):
-            dts = dl.find_all("dt", recursive=False)
-            dds = dl.find_all("dd", recursive=False)
+            if not isinstance(dl, Tag):
+                continue
+            dts = [node for node in dl.find_all("dt", recursive=False) if isinstance(node, Tag)]
+            dds = [node for node in dl.find_all("dd", recursive=False) if isinstance(node, Tag)]
             for i, dt in enumerate(dts):
                 term_text = dt.get_text(" ", strip=True)
                 if not term_text:
                     continue
                 dd_text = dds[i].get_text(" ", strip=True) if i < len(dds) else ""
-                term_link = dt.find("a", href=True)
-                term_url = urljoin(self.base_url, term_link["href"]) if term_link else ""
+                term_link = dt.find("a", attrs={"href": True})
+                href = term_link.get("href") if isinstance(term_link, Tag) else None
+                term_url = urljoin(self.base_url, href) if isinstance(href, str) else ""
                 pairs.append(
                     {
                         "term": term_text,
@@ -407,30 +547,46 @@ class NPLGDictionaryClient:
                 "matchCount": 0,
                 "bestTerm": "",
                 "enGloss": "",
+                "enGlosses": [],
+                "labelTitles": [],
                 "searchUrl": search_url,
                 "termUrl": "",
             }
             self.cache[key] = result
             return result
 
-        target = key.lower()
-        exact = [p for p in pairs if self._norm_head(p["term"]) == target]
-        if exact:
-            best = exact[0]
-        else:
-            contains = [p for p in pairs if target in self._norm_head(p["term"])]
-            best = contains[0] if contains else pairs[0]
+        exact = [p for p in pairs if self._matches_query_headword(key, p["term"])]
+        if not exact:
+            result = {
+                "found": False,
+                "matchCount": 0,
+                "bestTerm": "",
+                "enGloss": "",
+                "enGlosses": [],
+                "labelTitles": [],
+                "searchUrl": search_url,
+                "termUrl": "",
+            }
+            self.cache[key] = result
+            return result
+        best = exact[0]
 
-        best_gloss = best["gloss"]
-        if not best_gloss and best["url"]:
-            _, term_gloss = self._fetch_term_gloss(best["url"])
-            best_gloss = term_gloss
+        term_details = (
+            self._fetch_term_data(str(best["url"]))
+            if best.get("url")
+            else {"term": "", "enGloss": "", "enGlosses": [], "labelTitles": []}
+        )
+        best_gloss = str(term_details.get("enGloss", "")).strip() or str(best["gloss"]).strip()
+        best_glosses = term_details.get("enGlosses", [])
+        best_labels = term_details.get("labelTitles", [])
 
         result = {
             "found": bool(best["term"] or best_gloss or best["url"]),
             "matchCount": len(pairs),
             "bestTerm": best["term"],
             "enGloss": best_gloss,
+            "enGlosses": best_glosses,
+            "labelTitles": best_labels,
             "searchUrl": search_url,
             "termUrl": best["url"],
         }
@@ -454,7 +610,7 @@ def analyze_candidate_with_gnc(gnc_parser, lemma: str) -> dict:
     if not analysis:
         return _empty_result()
 
-    features = str(analysis.features or "").strip()
+    features = normalize_whitespace(str(analysis.features or "").replace(">??", ""))
     lemma_out = str(analysis.lemma or "").strip()
     analysis_count = int(getattr(analysis, "analysis_count", 0) or 0)
 
@@ -709,6 +865,8 @@ def generate_for_root(
                     "matchCount": 0,
                     "bestTerm": "",
                     "enGloss": "",
+                    "enGlosses": [],
+                    "labelTitles": [],
                     "searchUrl": "",
                     "termUrl": "",
                 },

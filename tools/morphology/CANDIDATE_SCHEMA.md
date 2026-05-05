@@ -1,6 +1,6 @@
 # Morphology Candidate Layer
 
-This document defines an intermediate candidate format for deriving chart updates from dictionary-style corpora before editing `morphology-chart/data/charts.json`.
+This document defines an intermediate candidate format for deriving chart updates from dictionary-style corpora before editing `apps/morphology-chart/data/charts.json`.
 
 ## Why this layer exists
 
